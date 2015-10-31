@@ -16,7 +16,7 @@ El estilo sería una mezcla de las virtudes de tres pesos pesados del área
 (las 'Feynman Lectures on Physics' de Feynman, Leighton & Sands, el 'Course of 
 Theoretical Physics' de Landau & Lifshitz y el 'Análisis Matemático' de Rey Pastor, 
 Calleja & Trejo) libros altamente obsesionantes. 
-De esa manera se podría llenar un nicho que no existe hoy en mercado hasta donde sé
+De esta manera se podría llenar un nicho que no existe hoy en mercado hasta donde sé
 y sería potencialmente útil para alumnos y curiosos del futuro.
 
 El curso se compondrá de cuatro volúmenes,
@@ -28,7 +28,7 @@ El curso se compondrá de cuatro volúmenes,
  
 que corresponden, respectivamente, a las materias citadas previamente. Posiblemente se
 hallen entreveradas algunas aplicaciones provenientes de las materias denominadas
-Estructura de la Materia que se cursan en la última parte de la carrera.
+'Estructura de la Materia' que se cursan en la última parte de la carrera.
 
 # Programas del curso
 
