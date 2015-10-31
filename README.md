@@ -3,10 +3,10 @@
 La idea del Curso Básico de Física Teórica (CBFT) es realizar una transcripción y 
 corrección de las notas teóricas de las materias:
 
-  Mecánica Clásica
-  Física Teórica 1
-  Física Teórica 2
-  Física Teórica 3
+    Mecánica Clásica
+    Física Teórica 1
+    Física Teórica 2
+    Física Teórica 3
        
 correspondientes a la licenciatura en Ciencias Físicas de la FCEyN de la UBA,
 sumándole una selección cuidadosa de sus trabajos prácticos e incorporándole, como
