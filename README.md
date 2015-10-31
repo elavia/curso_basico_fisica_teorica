@@ -75,6 +75,65 @@ hallen entreveradas algunas aplicaciones provenientes de las materias denominada
 
 # Electromagnetismo (Física teórica 1):
 
+	1. Ecuaciones de Maxwell en vacío en unidades CGS Gaussianas.
+		Campos de gradientes y rotores.
+		Notación de índices y tensores.
+		Distribuciones. 
+		Repaso de electrostática:
+		ley de Gauss, potencial electrostático, desarrollo multipolar del
+		potencial, medios materiales y condiciones de contorno. 
+		Repaso  de  magnetostática:
+		ley de Ampère, potencial vector, desarrollo multipolar del
+		potencial vector, medios materiales y condiciones de contorno.
+	2. Teorema de Green.
+		Existencia y unicidad de soluciones de la ecuación de Poisson.
+		Problema de Sturm­-Liouville.
+		Condiciones de contorno de Dirichlet y Neumann.
+		Funciones ortogonales y relaciones de completitud.
+		Método de imágenes. Ejemplos.
+	3. Método de separación de variables en coordenadas cartesianas: 
+		expansión de Fourier. 
+		Método de separación de variables en coordenadas esféricas: 
+		funciones asociadas de Legendre y armónicos esféricos.
+		Método de separación de variables en coordenadas cilíndricas: 
+		funciones de Bessel. 
+		Energía potencial electrostática y densidad de energía.
+	4. Expansión multipolar en un campo externo.
+		Campo electrostático en dieléctricos. 
+		Polarización y susceptibilidad eléctrica.
+		Energía electrostática en medios materiales.
+		Principio de trabajos virtuales.
+		Potenciales termodinámicos y aplicaciones.
+		Termodinámica de dieléctricos.
+	5. Fenómenos dependientes del tiempo.
+		Potenciales electromagnéticos.
+		Vector de Poynting.
+		Funciones de Green.
+		Tensor de Maxwell.
+		Aproximación cuasiestacionaria.
+		Efecto pelicular.
+		Movimiento de un medio conductor en un campo magnético.
+		Magnetohidrodinámica.
+		Ondas de Alfvén.
+		Efecto Hall.
+	6. Ondas planas.
+		Reflexión y refracción de ondas electromagnéticas en una interfaz. 
+		Coeficientes de Fresnel.
+		Ondas en medios conductores.
+	7. Principio de relatividad.
+		Transformaciones de Lorentz.
+		Cuadrivectores.
+		Formulación covariante del electromagnetismo.
+		Mecánica relativista.
+		Formulación Lagrangiana de campos contínuos relativistas.
+	8. Campos de cargas en movimiento.
+		Potenciales de Liénard­-Wiechert.
+		Radiación de un sistema contínuo de cargas y fuentes.
+		Desarrollo en multipolos del campo de radiación.
+		Radiación proveniente de una antena.
+		Dispersión de Rayleigh.
+		Frenado por radiación.
+
 # Mecánica cuántica (Física teórica 2):
 
 # Mecánica estadística (Física teórica 3):
