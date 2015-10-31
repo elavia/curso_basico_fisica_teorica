@@ -32,7 +32,7 @@ hallen entreveradas algunas aplicaciones provenientes de las materias denominada
 
 # Programas del curso
 
-Mecánica clásica:
+##Mecánica clásica:
     1. Mecánica newtoniana. Mecánica de la partícula. Leyes de Newton. Masa y Fuerza. Leyes de Conservación. Sistemas de partículas. Fuerzas de vínculo. Vínculos holónomos y no holónomos.
     2. Mecánica lagrangiana. Coordenadas generalizadas. Principio de los trabajos virtuales (D’Alembert). Ecuaciones de Lagrange. Fuerzas generalizadas. Potenciales generalizados. Función de disipación de Rayleigh. Principio de Hamilton. Derivación de las ecuaciones de Lagrange a partir del principio de Hamilton.
     3. Simetrías. Coordenadas cíclicas. Transformación de coordenadas. Simetrías. Simetrías discretas y continuas. Teorema de Noether. Constantes de movimiento.
