@@ -32,7 +32,7 @@ hallen entreveradas algunas aplicaciones provenientes de las materias denominada
 
 # Programas del curso
 
-##Mecánica clásica:
+# Mecánica clásica:
     1. Mecánica newtoniana. Mecánica de la partícula. Leyes de Newton. Masa y Fuerza. Leyes de Conservación. Sistemas de partículas. Fuerzas de vínculo. Vínculos holónomos y no holónomos.
     2. Mecánica lagrangiana. Coordenadas generalizadas. Principio de los trabajos virtuales (D’Alembert). Ecuaciones de Lagrange. Fuerzas generalizadas. Potenciales generalizados. Función de disipación de Rayleigh. Principio de Hamilton. Derivación de las ecuaciones de Lagrange a partir del principio de Hamilton.
     3. Simetrías. Coordenadas cíclicas. Transformación de coordenadas. Simetrías. Simetrías discretas y continuas. Teorema de Noether. Constantes de movimiento.
@@ -43,6 +43,4 @@ hallen entreveradas algunas aplicaciones provenientes de las materias denominada
     8. Transformaciones canónicas. Definición. Función generatriz. Transformaciones de Legendre de la función generatriz. La acción y la acción reducidas como funciones generatrices. Corchetes de Lagrange y de Poisson. Invariancia y propiedades. Transformaciones de simetría. Corchetes de Poisson del momento angular. Teorema de Liouville.
     9. Ecuaciones de Hamilton-Jacobi. Concepto de integrabilidad. Función principal. Ecuación de Hamilton-Jacobi para la función principal. Ejemplo del oscilador armónico. Función característica. Separación de variables. Variables de ángulo-acción.
     10. Relatividad. Cinemática y dinámica relativista.
-    11. Sistemas continuos. Transición de sistemas discretos a continuos. Formulaciones de Lagrange y Hamilton 
-para sistemas continuos. Descripción de campos mediante principios variacionales. 
-Aplicaciones.
+    11. Sistemas continuos. Transición de sistemas discretos a continuos. Formulaciones de Lagrange y Hamilton para sistemas continuos. Descripción de campos mediante principios variacionales. Aplicaciones.
