@@ -1,0 +1,159 @@
+	\documentclass[10pt,oneside]{CBFT_article}
+	% Algunos paquetes
+	\usepackage{amssymb}
+	\usepackage{amsmath}
+	\usepackage{graphicx}
+	\usepackage{libertine}
+	\usepackage[bold-style=TeX]{unicode-math}
+	\usepackage{lipsum}
+
+	\usepackage{natbib}
+	\setcitestyle{square}
+
+	\usepackage{polyglossia}
+	\setdefaultlanguage{spanish}
+
+
+	\usepackage{CBFT.estilo} % Cargo la hoja de estilo
+
+	% Tipografías
+	% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+	% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+	% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+	%===================================================================
+	%	DOCUMENTO PROPIAMENTE DICHO
+	%===================================================================
+
+\title{CBFT}
+\author{Electrodinámica}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+
+
+\section{Gravedades alternativas recientes}
+ 
+La gravedad usual, GR o {\it Einstein relativity} es la dada por la accción
+\be
+S = \kappa \:\int d^Dx \:\sqrt{-g}\:( R - 2\Lambda)
+\ee
+donde $\Lambda<0$ y $R$ es el escalar de Ricci. Es la acción de Einstein-Hilbert.
+Esta teoría así como está no es renormalizable y no es posible por ende empezar a pensar en ella 
+como una primera aproximación plausible a una QFT para la gravedad.
+\notamargen{Acá podemos poner pequeñas observaciones de cosas a corregir, aunque creo que este margen
+es demasiado pequeño para ser útil}.
+
+De cualquier manera, es renormalizable en $D=4$ por la inclusión de términos cuadráticos en la 
+curvatura. 
+Eligiendo parámetros en forma apropiada se elimina el modo escalar (asociado a $\Box R$) y se hace 
+massless al modo de spin-2. Esta es {Critical Gravity}
+% \cite{critical_grav}
+y es un análogo para $4D$ de Chiral TMG o de critical NMG con constante cosmológica que son teorías de dimensión $D=3$.
+
+\section{Nueva sección}
+
+The currents {\bf j} may, however, produce a non-zero macroscopic magnetic
+moment, i.e. the integral $\int \bf{r\times j}\;dV$, again taken over an elementary cell,
+together with $kr\gg1$, ensures the validity of the usual approximate theory of {\it Fresnel
+diffraction}. Accordingly we have near the boundary $Ob$ of the complete shadow the
+asymptotic expression
+\be
+u(r,\phi)=e^{-ikr\;\cos(\phi-\phi_0)}\frac{1-i}{\sqrt{(2\pi)}}\int_{-\infty}^{\omega}e^{i\eta 
+2}d\eta,
+\ee
+\be
+\omega=-(\phi - \phi_0 -\pi)\sqrt{\tfrac{1}{2}(kr)}.
+\label{omega}
+\ee
+
+Similarly, near the boundary $Oa$ of the ``shadow'' of the reflected wave
+\be
+u(r,\phi)=e^{-ikr\cos(\phi-\phi_0)}+e^{-ikr\cos(\phi+\phi_0)}\frac{1-i}{\sqrt{(2\pi)}}\int_{-\infty}
+^ { \omega}e^{i\eta 2}d\eta,
+\ee
+\eqnn{
+	\omega=-(\phi + \phi_0 -\pi)\sqrt{\tfrac{1}{2}(kr)}.
+	}
+Tiraremos unas magias con los nuevos comandos para derivadas
+\[ \dpar[2]{f(x,y,z)}{y} = k \qquad \dtot[2]{f(x,y,z)}{y} = k\]
+y luego unos tensores de relatividad con índices griegos,
+\[ R\hx\mu\nu.\gamma\delta. \quad R\hx.\gamma\delta\alpha\beta\rho\mu\nu. 
+\quad R\hx\phantom{a}cb.d.,\]
+pero la solución definitiva está lejos de ser encontrada. 
+
+In this approximation the diffraction pattern is independent of the angle of the wedge
+and of the direction of polarisation of the wave.
+\[ \partial \Psi = -iE\Psi \]
+
+\lipsum[3]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\textwidth]{./images/relgen7.pdf} 
+\caption{Dando una vueltita por la variedad.} \label{fig_coord_norm}
+\end{figure}
+
+\lipsum[2]
+
+\begin{ejemplillo}{\bf Tiene que ser así}
+Un ejemplo con algo de texto como ensayo. Element of $G$ belongs to exactly one left coset of 
+$H$. Si ahora me tiro una ecuación, tipo
+\[ \log(x)\equiv \int_1^x t^{-1}dt\]
+Moreover each left coset of $H$ contains $|H|$ elements. Each element~$x$ of $G$ belongs to at 
+least one left coset of $H$ in $G$ (namely the coset $xH$), and no element can belong to two 
+distinct left cosets of $H$ in $G$ (see Lemma).
+\label{etiquetaejemplo2}
+\end{ejemplillo}
+
+\lipsum[1]
+
+
+\begin{ejemplillo}{\bf Tiene que ser así}
+Un ejemplo con algo de texto como ensayo. Element of $G$ belongs to exactly one left coset of 
+$H$. Si ahora me tiro una ecuación, tipo
+\[ \log(x)\equiv \int_1^x t^{-1}dt\]
+Moreover each left coset of $H$ contains $|H|$ elements. Each element~$x$ of $G$ belongs to at 
+least one left coset of $H$ in $G$ (namely the coset $xH$), and no element can belong to two 
+distinct left cosets of $H$ in $G$ (see Lemma).
+\label{eje3}
+\end{ejemplillo}
+
+Como vimos en los ejemplos \eqref{eje3} y \eqref{etiquetaejemplo2} para la ecuación 
+\eqref{omega} todo es trivialmente cierto y se ve de manera {\it straightforward}.
+
+\begin{problemas}
+	\item Calcular una cosa bajo cierto estado de ánimo.
+Ahora otra vez la ecuación,
+	\[ \log(x)\equiv \int_1^x t^{-1}dt\]
+	Moreover each left coset of $H$ contains $|H|$ elements. Each 
+	element~$x$ of $G$ belongs to at least one left coset
+	\item Decir, con argumentos, si $\langle T_{\mu\nu}\rangle$ es o no posible. 
+\end{problemas}
+
+
+\begin{notasfinales}
+
+\item {\bf Titulete de la nota}
+Acá irán las observaciones de final de capítulo y aclaraciones 
+pertinentes. 
+Es imposible saber cómo va a continuar el tipo cuando llegue a su costado
+de renglón.
+\item {\bf Una fórmula}
+Acá otras observaciones, como que
+\[
+\frac{ds}{dt}=-c_1+c_2s
+\]
+y luego continuamos con cualquier otra cosa citando al único libro existente \citep{Brekho}.
+\lipsum[19]
+\end{notasfinales}
+
+
+
+\bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
+\bibliography{CBFT.Referencias} % La base de datos bibliográfica
+
+\end{document}
