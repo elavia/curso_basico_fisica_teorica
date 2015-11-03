@@ -1,0 +1,207 @@
+	\documentclass[10pt,oneside]{CBFT_article}
+	% Algunos paquetes
+	\usepackage{amssymb}
+	\usepackage{amsmath}
+	\usepackage{graphicx}
+	\usepackage{libertine}
+	\usepackage[bold-style=TeX]{unicode-math}
+	\usepackage{lipsum}
+
+	\usepackage{natbib}
+	\setcitestyle{square}
+
+	\usepackage{polyglossia}
+	\setdefaultlanguage{spanish}
+
+
+	\usepackage{CBFT.estilo} % Cargo la hoja de estilo
+
+	% Tipografías
+	% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+	% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+	% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+	%===================================================================
+	%	DOCUMENTO PROPIAMENTE DICHO
+	%===================================================================
+
+\title{CBFT Mecánica clásica}
+\author{Mecánica lagrangiana}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+% =================================================================================================
+\section{Principio de los trabajos virtuales}
+% =================================================================================================
+Escribimos las ecuaciones de Newton para un sistema de partículas,
+\notamargen{Esto es sumamente sketchi, debemos leer la carpeta de la cursada y luego la
+teoría.}
+\[
+m_i \vb{a}_i = \vb{F}_i = \vb{F}_i^a + \vb{F}_i^v
+\]
+pero sabiendo que el momento viene de las fuerzas aplicadas,
+\[
+m_i \vb{a}_i = \dot{\vb{P}}_i
+\]
+de manera que 
+\[
+\dot{\vb{F}}_i - \vb{F}_i^a - \vb{F}_i^v = 0,
+\]
+y entonces, sumando en las $N$ partículas del sistema
+\[
+\sum_i^N \left( \dot{\vb{P}}_i - \vb{F}_i^a - \vb{F}_i^v \right) \cdot \delta\vb{r}_i  = 0
+\]
+donde $\delta\vb{r}_i$ son desplazamientos virtuales. Si hacemos estos desplazamientos
+compatibles con los vínculos
+\[
+\sum_i^N \left( \dot{\vb{P}}_i - \vb{F}_i^a \right) \cdot \delta\vb{r}_i - \sum_i^N  \vb{F}_i^v  \cdot \delta\vb{r}_i  = 0
+\]
+donde el último término es nulo debido a que la fuerza de vínculos son perpendiculares
+a los desplazamientos virtuales, es decir 
+\[
+\vb{F}_i^v \perp \delta\vb{r}_i
+\]
+si es que, por supuesto, los $\delta\vb{r}_i$ son compatibles con los vínculos.
+
+Esto nos deja entonces, el Principio de los Trabajos Virtuales,
+\[
+\sum_i^N \left( \dot{\vb{P}}_i - \vb{F}_i^a \right) \cdot \delta\vb{r}_i = 0 
+\]
+donde como son independientes entonces se sigue que
+\[
+\dot{\vb{P}}_i - \vb{F}_i^a = 0 \quad \forall i
+\]
+
+\begin{notas}{Relación vínculos y desplazamientos:}
+El hecho de que la fuerza de vínculo sea perpendicular a los desplazamientos puede
+verse a partir de que la ecuación de vínculo en un sistema toma la forma
+\notamargen{¿Y esta magia? Hay que aclarar realmente que sea así como se dice que es.}
+\[
+f(\vb{r}_i) - K = 0 
+\]
+luego, derivando implícitamante cada ecuación y sumando (si se nos permite un pequeño
+abuso de notación)
+\[
+\sum_i^N \dpar{f}{\vb{r}_i} d\vb{r}_i = 0 
+\]
+pero esto no es otra cosa que
+\[
+\nabla f \cdot \vb{\delta r} = 0
+\]
+donde debemos entender al gradiente y al vector $\vb{\delta r}$ como $N$ dimensionales.
+\end{notas}
+
+% =================================================================================================
+\section{Construcción del lagrangiano}
+% =================================================================================================
+
+Consideremos un sistema de $N$ partículas, $k$ ecuaciones de vínculo y por ende $3N - k$ grados de libertad
+(estamos en 3 dimensiones).
+
+Tenemos $N$ relaciones
+\[
+\vb{r}_i = \vb{r}_i(q_1,q_2,...,q_{3N-k},t)
+\]
+entonces una variación serán
+\[
+\delta \vb{r}_i =  \sum_{j=1}^{3N-k} \left( \dpar{\vb{r}_i}{q_j} \right) \delta q_j + \dpar{\vb{r}_i}{t}\delta t
+\]
+donde el último $\delta t$ es nulo por ser un desplazamiento virtual de manera que
+\[
+\delta \vb{r}_i =  \sum_{j=1}^{3N-k} \left( \dpar{\vb{r}_i}{q_j} \right) \delta q_j.
+\]
+
+Por otro lado
+\[
+\sum_i^N \dot{\vb{P}}_i \cdot \delta \vb{r}_i - \sum_i^N  \vb{F}_i^a \cdot \delta \vb{r}_i = 0
+\]
+y se puede reescribir el primer término como
+\[
+\dot{\vb{P}}_i \cdot \delta \vb{r}_i = m_i \dtot{\vb{v}_i}{t}\sum_{j=1}^{3N-k} \left( \dpar{\vb{r}_i}{q_j} \right) \delta q_j
+\]
+resultando
+\[
+\sum_i^N m_i \dtot{\vb{v}_i}{t} \cdot \sum_{j=1}^{3N-k} \left( \dpar{\vb{r}_i}{q_j} \right) \delta q_j
+- \sum_i^N  \vb{F}_i^a \cdot \delta \vb{r}_i = 0
+\]
+
+La idea ahora es reescribir todo en términos más convenientes, para que aparezca un término multiplicado
+a una variación arbitraria. De esta manera quedará una sumatoria de un sumando multiplicado por una
+variación igualada a cero. No cabe otra posibilidad que el sumando sea nulo para cada índice de la suma.
+\notamargen{Escrito muy mal este texto. La idea es clara, no obstante: hay que purificarla}
+
+Consideremos la derivada total de 
+\[
+\frac{d}{dt}\left( m_i\vb{v}_i\dpar{\vb{r}_i}{q_j} \right) =
+m_i \dtot{\vb{v}_i}{t}\dpar{\vb{r}_i}{q_j} + m_i \vb{v}_i \frac{d}{dt}\left(\dpar{\vb{r}_i}{q_j}\right).
+\]
+Pero la diferencial del vector $\vb{r}_i$ es (notemos que no es una variación)
+\[
+d\vb{r}_i = \sum_{j=1}^{3N-k} \left( \dpar{\vb{r}_i}{q_j} \right) dq_j + \dpar{\vb{r}_i}{t} dt
+\]
+y entonces
+\[
+\dot{\vb{r}}_i = \vb{v}_i = \sum_{j=1}^{3N-k} \left( \dpar{\vb{r}_i}{q_j} \right) \dot{q}_j + \dpar{\vb{r}_i}{t}.
+\]
+La derivada de la velocidad de la partícula $i$-ésima respecto a la coordenada $l$-ésima es
+\[
+\dpar{\vb{v}_i}{\dot{q}_l} = \dpar{\vb{r}_i}{q_l} = \frac{\partial \vb{r}_i/\partial t}{\partial q_l/\partial t}
+\]
+
+
+
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+
+
+% \section{Invariancia del lagrangiano ante adición de una derivada total}
+% 
+% Sea una función de las coordenadas y del tiempo $F=F(q_i,t)$ que sumamos al lagrangiano $\Lag$, de modo que
+% \[\Lag'=\Lag + \dtot{F}{t} \]
+% y las ecuaciones de Euler-Lagrange para este nuevo lagrangiano son
+% \[ \frac{d}{dt}\left(\dpar{\Lag'}{\dot{q}_j}\right) - \dpar{\Lag'}{q_j} = 0 \]
+% \[ \dtot{}{t}\left(\dpar{\Lag}{\dot{q}_j} + \dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right)\right) - \dpar{\Lag}{q_j} - 
+% \dpar{}{q_j}\left( \dtot{F}{t}\right) = 0 \]
+% \[ \dtot{}{t}\left(\dpar{\Lag}{\dot{q}_j}\right) - \dpar{\Lag}{q_j} + 
+% \dtot{}{t}\left(\dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right)\right) - \dpar{}{q_j}\left( \dtot{F}{t}\right) = 0 \]
+% 
+% Ahora es necesario escribir la derivada total de $F$,
+% \[  \dtot{F}{t} = \sum_j \dpar{F}{q_j}\dtot{q_j}{t} + \dpar{F}{t} = \sum_j \dpar{F}{q_j}\dot{q}_j + \dpar{F}{t} \]
+% y ver que
+% \[  \dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right) = \dpar{F}{q_j} \qquad\qquad
+% \dpar{}{q_j}\left(\dtot{F}{t}\right) = \dpar[2]{F}{q_j} \dot{q}_j + \dparcru{F}{t}{q_j} \]
+% 
+% Luego, usando esta información, resulta que los términos que surgen de la adición de la derivada total de $F$ resultan 
+% ser
+% \[  \dtot{}{t}\left( \dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right)\right) - \dpar{}{q_j}\left( \dtot{F}{t}\right) = 
+% \dtot{}{t}\left( \dpar{F}{q_j} \right) - \dpar{}{q_j}\left( \dtot{F}{t}\right)\]
+% \[ \dtot{}{t}\left( \dpar{F}{q_j} \right) - \dpar{}{q_j}\left( \dtot{F}{t}\right) =
+% \dpar[2]{F}{q_j} \dot{q}_j + \dparcru{F}{q_j}{t} - \dpar{}{q_j}\left( \dtot{F}{t}\right) \]
+% y si aceptamos que $F$ es de clase C$^2$ se tiene
+% \[\dpar[2]{F}{q_j} \dot{q}_j + \dparcru{F}{q_j}{t} - \dpar{}{q_j}\left( \dtot{F}{t}\right)=0\]
+% de modo que las ecuaciones de Euler Lagrange no se modifican si añadimos una derivada total respecto del tiempo de una 
+% función de $q_j,t$.
+
+
+
+
+\bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
+\bibliography{CBFT.Referencias} % La base de datos bibliográfica
+
+\end{document}
