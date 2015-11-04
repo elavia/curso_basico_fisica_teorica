@@ -151,6 +151,34 @@ fue posible conseguirlo) de las cuatro asignaturas de las cuales versará el CBF
 
 # Mecánica cuántica (Física teórica 2):
 
+	Lo más aproximado a un programa que pude obtener es un cronograma de clases. En general casi todos
+	los cursos siguen fuertemente el libro Modern Quantum Mechanics de J.J. Sakurai pero no me pareció
+	apropiado transcribir el programa. Provisoriamente se muestra aquí el cronograma correspondiente a
+	una de esas cursadas.
+
+	1. 	Temas introductorios: Ec. Schrödinger, rudimentos; representación Fourier 
+			Stern-Gerlach, experimentos, representaciones. Análisis funcional,
+			espacio de Hilbert, operadores, 
+	2.	Postulados de la mecánica cuántica: Operadores, conmutador, incerteza, medición, colapso.  
+	3.	Evolución temporal: Propiedades, unitariedad, diferentes pictures.
+	4.	Oscilador armónico: Rep. de coordenadas, espacio de Fock, valores medios. 
+			Estados coherentes, fonones y fotones.
+	5.	Spin: Matrices de Pauli, spín ½, spín 1, Stern-Gerlach. 
+	6.	Momento angular: Grupo rotaciones, álgebra so(3) y sus rep. j = 0,½,1. 
+			Clebsch-Gordan, composición, suma de mom. angular.
+	7.	Reglas de selección: Armónicos esféricos y tensores esféricos.
+	8.	Teorema de Wigner-Eckart: Tensores esféricos, teorema de Wigner-Eckart. 
+	9.	Simetrías: Simetrías contínuas: teoremas de Ehrenfest y de Pauli. 
+			Simetrías discretas: Partidad, inversión temporal, más. 
+	10.	Métodos aproximados: Método variacional. Método perturbativo, intro.
+			Teoría de perturbaciones no dependientes del tiempo. 
+			Dependencia temporal, desarrollo Dyson, regla Fermi. 
+	11.	Matriz densidad: Estados puros, mixtos y térmicos. Valores medios. 
+	12.	Sistemas compuestos: Entrelazamiento, EPR, desigualdades de Bell. 
+	13.	Partículas idénticas: Bosones y fermiones, permutaciones; anyones, Berry.
+	14.	Procesos de scattering: Aproximación de Born. Teorema óptico.
+	15.	Formulación lagrangiana: Integral de Dirac, integral de Feynman, propagadores.
+
 # Mecánica estadística (Física teórica 3):
 
 	1. Propiedades térmicas de los sistemas macroscópicos.
