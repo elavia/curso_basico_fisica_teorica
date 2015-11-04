@@ -336,16 +336,84 @@ $p_k$ canónicamente conjugado a $q_k$.
 % =================================================================================================
 
 A continuación expresaremos la energía cinética de un sistema en función de coordenadas generalizadas,
-\[
+\notamargen{Este chapter es básicamente un desarrollo formal, habría que bajar con alguna aplicación
+práctica.}
+\be
 T = \frac{1}{2} \sum_i^N m_i \vb{v}_i^2 =
 \frac{1}{2} \sum_i^N m_i \left( \sum_j^{3n-k}  \dpar{\vb{r}_i}{q_j}\dot{q}_j + \dpar{\vb{r}_i}{t} \right)
 \left( \sum_s^{3n-k} \dpar{\vb{r}_i}{q_s}\dot{q}_s + \dpar{\vb{r}_i}{t} \right) 
+\label{mc_T}
+\ee
+Usando $\vb{r}_i = \vb{r}_i(q_1, ...,q_n,t)$ desarrollamos un desplazamiento real como
+\[
+d\vb{r}_i = \sum_{j=1}^{3N-k} \left( \dpar{\vb{r}_i}{q_j} \right) dq_j + \dpar{\vb{r}_i}{t} dt
+\]
+y podemos incorporar esta información en \eqref{mc_T} para obtener
+\[
+T = 
+\frac{1}{2} \sum_i^N m_i \left( \sum_j^{3n-k}\sum_s^{3n-k}  \dpar{\vb{r}_i}{q_j}\dpar{\vb{r}_i}{q_s}\dot{q}_s\dot{q}_j + 
+\left( \dpar{\vb{r}_i}{t} \right) \right)^2 +
+2 \left( \sum_j^{3n-k} \dpar{\vb{r}_i}{q_j}\dot{q}_j\dpar{\vb{r}_i}{t} \right) 
+\]
+\[
+T = 
+\frac{1}{2} \sum_i^N m_i \left( \sum_j^{3n-k}\sum_s^{3n-k}  \dpar{\vb{r}_i}{q_j}\dpar{\vb{r}_i}{q_s}\dot{q}_s\dot{q}_j  \right) + 
+\frac{1}{2} \sum_i^N m_i \left( \dpar{\vb{r}_i}{t} \right)^2 +
+\sum_i^N m_i \left( \sum_j^{3n-k} \dpar{\vb{r}_i}{q_j}\dot{q}_j\dpar{\vb{r}_i}{t} \right) 
 \]
 
+Esto se puede reescribir más cómodamente definiendo
+\[
+T_0 \equiv \frac{1}{2} \sum_i^N m_i \left( \dpar{\vb{r}_i}{t} \right)^2
+\]
+\[
+a_{js}(q_1,...,q_{3N-k},t) \equiv \sum_i^N  m_i \dpar{\vb{r}_i}{q_j}\dpar{\vb{r}_i}{q_s}
+\]
+\[
+b_j(q_1,...,q_{3N-k},t) \equiv \sum_i^N  m_i \dpar{\vb{r}_i}{q_j}\dpar{\vb{r}_i}{t}
+\]
+y entonces, juntando todo,
+\notamargen{Hay un factor de $1/2$ de diferencia. Revisar la carpeta.}
+\[
+T = T_0 +
+\frac{1}{2} \sum_j^{3n-k}\sum_s^{3n-k}  a_{js}(q_1,...,q_{3N-k},t)\dot{q}_s\dot{q}_j  + 
+\sum_j^{3n-k} b_j(q_1,...,q_{3N-k},t)\dot{q}_j  
+\]
 
+Para una particula libre será
+\[
+T = T_2
+\]
+y para una partícula con vínculos en general tendrá las tres clases de cinética.
 
 % =================================================================================================
+\section{Energía cinética de un sistema de partículas}
 % =================================================================================================
+
+La energía de un sistema de partículas es 
+\begin{multline*}
+T = \frac{1}{2} \sum_i^N m_i \vb{v}_i^2 = 
+\frac{1}{2} \sum_i^N m_i \left( \dot{\vb{R}} + \dot{\vb{r}}_i' \right)^2 = \\
+\frac{1}{2} \sum_i^N m_i \vb{V}_{cm}^2  +
+\frac{1}{2} \sum_i^N m_i \vb{V}_i'^2 +
+\frac{1}{2} \sum_i^N 2 m_i \vb{V}_{cm} \cdot  \vb{r}_{i}' 
+\end{multline*}
+y veremos ahora que el último término es nulo ya que son vectores perpendiculares.
+Para ello notemos que 
+\[
+M \vb{R}_{cm} = \sum_i^N
+\]
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.3\textwidth]{images/fig_sist_part.pdf}	 
+	\end{center}
+	\caption{Sistema de partículas}
+\end{figure} 
+
+
+
+
 % =================================================================================================
 % =================================================================================================
 % =================================================================================================
