@@ -280,8 +280,8 @@ y las ecuaciones de Euler-Lagrange para este nuevo lagrangiano son
 
 Ahora es necesario escribir la derivada total de $F$,
 \[
-\dtot{F}{t} = 	\sum_j \dpar{F}{q_j}\dtot{q_j}{t} + \dpar{F}{t} =
-			\sum_j \dpar{F}{q_j}\dot{q}_j + \dpar{F}{t}
+\dtot{F}{t} = 	\sum_j^{3N-k} \dpar{F}{q_j}\dtot{q_j}{t} + \dpar{F}{t} =
+			\sum_j^{3N-k} \dpar{F}{q_j}\dot{q}_j + \dpar{F}{t}
 \]
 y ver que
 \[
@@ -306,14 +306,51 @@ y si aceptamos que $F$ es de clase C$^2$ se tiene
 de modo que las ecuaciones de Euler Lagrange no se modifican si añadimos una derivada total respecto del tiempo de una 
 función de $q_j,t$.
 
-
-
 % =================================================================================================
-% =================================================================================================
-% =================================================================================================
-% =================================================================================================
+\section{Momentos conjugados y coordenadas cíclicas}
 % =================================================================================================
 
+El momento canónicamente conjugado a $q_j$ se define como 
+\[
+\dpar{\Lag}{\dot{q}_j} \equiv p_j
+\]
+y entonces 
+\[
+\dot{p}_j = \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) \equiv Q_j
+\]
+que es la fuerza generalizada en el grado de libertad $j$.
+Sea un lagrangiano $\Lag = \Lag( q_i,\dot{q}_i, t )$ entonces si no depende explícitamente
+de la coordenada $k$ será
+\[
+\dpar{\Lag}{q_k}= 0 \qquad \rightarrow \quad \Lag = \Lag( q_1,...,q_{k-1},q_{k+1},...,q_n,\dot{q}_i, t )
+\]
+Las ecuaciones de Euler-Lagrange resultan 
+\[
+Q_k - \dpar{\Lag}{q_k} = Q_j = 0 \quad \rightarrow \;\dot{p}_k = 0 \quad \rightarrow \; p_k = cte.
+\]
+no existe fuerza generalizada en el grado de libertad $k$, de forma que se conserva el momento
+$p_k$ canónicamente conjugado a $q_k$.
+
+
+
+
+
+
+
+
+
+% =================================================================================================
+\section{Energía cinética de un sistema}
+% =================================================================================================
+
+
+
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+% =================================================================================================
+
 % =================================================================================================
 % =================================================================================================
 % =================================================================================================
@@ -324,34 +361,6 @@ función de $q_j,t$.
 % =================================================================================================
 % =================================================================================================
 
-
-% \section{Invariancia del lagrangiano ante adición de una derivada total}
-% 
-% Sea una función de las coordenadas y del tiempo $F=F(q_i,t)$ que sumamos al lagrangiano $\Lag$, de modo que
-% \[\Lag'=\Lag + \dtot{F}{t} \]
-% y las ecuaciones de Euler-Lagrange para este nuevo lagrangiano son
-% \[ \frac{d}{dt}\left(\dpar{\Lag'}{\dot{q}_j}\right) - \dpar{\Lag'}{q_j} = 0 \]
-% \[ \dtot{}{t}\left(\dpar{\Lag}{\dot{q}_j} + \dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right)\right) - \dpar{\Lag}{q_j} - 
-% \dpar{}{q_j}\left( \dtot{F}{t}\right) = 0 \]
-% \[ \dtot{}{t}\left(\dpar{\Lag}{\dot{q}_j}\right) - \dpar{\Lag}{q_j} + 
-% \dtot{}{t}\left(\dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right)\right) - \dpar{}{q_j}\left( \dtot{F}{t}\right) = 0 \]
-% 
-% Ahora es necesario escribir la derivada total de $F$,
-% \[  \dtot{F}{t} = \sum_j \dpar{F}{q_j}\dtot{q_j}{t} + \dpar{F}{t} = \sum_j \dpar{F}{q_j}\dot{q}_j + \dpar{F}{t} \]
-% y ver que
-% \[  \dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right) = \dpar{F}{q_j} \qquad\qquad
-% \dpar{}{q_j}\left(\dtot{F}{t}\right) = \dpar[2]{F}{q_j} \dot{q}_j + \dparcru{F}{t}{q_j} \]
-% 
-% Luego, usando esta información, resulta que los términos que surgen de la adición de la derivada total de $F$ resultan 
-% ser
-% \[  \dtot{}{t}\left( \dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right)\right) - \dpar{}{q_j}\left( \dtot{F}{t}\right) = 
-% \dtot{}{t}\left( \dpar{F}{q_j} \right) - \dpar{}{q_j}\left( \dtot{F}{t}\right)\]
-% \[ \dtot{}{t}\left( \dpar{F}{q_j} \right) - \dpar{}{q_j}\left( \dtot{F}{t}\right) =
-% \dpar[2]{F}{q_j} \dot{q}_j + \dparcru{F}{q_j}{t} - \dpar{}{q_j}\left( \dtot{F}{t}\right) \]
-% y si aceptamos que $F$ es de clase C$^2$ se tiene
-% \[\dpar[2]{F}{q_j} \dot{q}_j + \dparcru{F}{q_j}{t} - \dpar{}{q_j}\left( \dtot{F}{t}\right)=0\]
-% de modo que las ecuaciones de Euler Lagrange no se modifican si añadimos una derivada total respecto del tiempo de una 
-% función de $q_j,t$.
 
 
 
