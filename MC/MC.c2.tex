@@ -326,22 +326,21 @@ de la coordenada $k$ será
 \]
 Las ecuaciones de Euler-Lagrange resultan 
 \[
-Q_k - \dpar{\Lag}{q_k} = Q_j = 0 \quad \rightarrow \;\dot{p}_k = 0 \quad \rightarrow \; p_k = cte.
+Q_k - \dpar{\Lag}{q_k} = Q_k = 0 \quad \rightarrow \;\dot{p}_k = 0 \quad \rightarrow \; p_k = cte.
 \]
 no existe fuerza generalizada en el grado de libertad $k$, de forma que se conserva el momento
 $p_k$ canónicamente conjugado a $q_k$.
 
-
-
-
-
-
-
-
-
 % =================================================================================================
 \section{Energía cinética de un sistema}
 % =================================================================================================
+
+A continuación expresaremos la energía cinética de un sistema en función de coordenadas generalizadas,
+\[
+T = \frac{1}{2} \sum_i^N m_i \vb{v}_i^2 =
+\frac{1}{2} \sum_i^N m_i \left( \sum_j^{3n-k}  \dpar{\vb{r}_i}{q_j}\dot{q}_j + \dpar{\vb{r}_i}{t} \right)
+\left( \sum_s^{3n-k} \dpar{\vb{r}_i}{q_s}\dot{q}_s + \dpar{\vb{r}_i}{t} \right) 
+\]
 
 
 
