@@ -1,25 +1,15 @@
-This is XeTeX, Version 3.1415926-2.4-0.9998 (TeX Live 2012) (format=xelatex 2013.5.12)  31 OCT 2015 17:01
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.4.21)  4 NOV 2015 12:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **MC.c5.tex
 (./MC.c5.tex
 LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
-rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
-c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
-h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
-h, french, friulan, galician, german, ngerman, swissgerman, monogreek, greek, h
-ungarian, icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, ma
-rathi, oriya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, 
-kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk,
- piedmontese, polish, portuguese, romanian, romansh, russian, sanskrit, serbian
-, serbianc, slovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, u
-ppersorbian, welsh, loaded.
+Babel <3.9k> and hyphenation patterns for 59 languages loaded.
 (./CBFT_article.cls
 Document Class: CBFT_article 2007/10/19 v1.4h Modified Standard LaTeX document 
 class
-(/usr/local/texlive/2012/texmf-dist/tex/latex/base/size10.clo
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count80
@@ -34,10 +24,10 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks14
 \symAMSa=\mathgroup4
@@ -45,24 +35,24 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsmath.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks15
 \ex@=\dimen103
 ))
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen104
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsopn.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count88
@@ -103,52 +93,52 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks20
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/trig.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/graphics.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: xetex.def on input line 91.
 
-(/usr/local/texlive/2012/texmf-dist/tex/xelatex/xetex-def/xetex.def
-File: xetex.def 2013/02/04 v0.95 LaTeX color/graphics driver for XeTeX (RRM/JK)
+(/usr/share/texlive/texmf-dist/tex/xelatex/xetex-def/xetex.def
+File: xetex.def 2014/04/07 v0.99 LaTeX color/graphics driver for XeTeX (RRM/JK)
 
 ))
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/libertine/libertine.sty
-Package: libertine 2013/02/13 (Bob Tennent) Supports Libertine and Biolinum fon
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/libertine.sty
+Package: libertine 2014/02/19 (Bob Tennent) Supports Libertine and Biolinum fon
 ts for all LaTeX engines.
 
-(/usr/local/texlive/2012/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2012/10/14 v2.6b package option processing (HA)
 
-(/usr/local/texlive/2012/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 \XKV@toks=\toks21
 \XKV@tempa@toks=\toks22
 \XKV@depth=\count100
 File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
 ))
-(/usr/local/texlive/2012/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -163,7 +153,7 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/base/ts1enc.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
 LaTeX Info: Redefining \oldstylenums on input line 266.
@@ -229,71 +219,71 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/fontspec/fontspec.sty
-Package: fontspec 2013/03/16 v2.3a Font selection for XeLaTeX and LuaLaTeX
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty
+Package: fontspec 2013/05/20 v2.3c Font selection for XeLaTeX and LuaLaTeX
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/expl3.sty
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3names.sty
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3bootstrap.sty
-Package: l3bootstrap 2013/01/08 v4420 L3 Experimental bootstrap code
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3names.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3bootstrap.sty
+Package: l3bootstrap 2014/01/04 v4640 L3 Experimental bootstrap code
 )
-Package: l3names 2012/12/07 v4346 L3 Namespace for primitives
+Package: l3names 2014/01/04 v4640 L3 Namespace for primitives
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/etex-pkg/etex.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etex-pkg/etex.sty
 Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
 \et@xins=\count101
 )
-Package: expl3 2013/03/14 v4469 L3 Experimental code bundle wrapper
+Package: expl3 2014/01/07 v4646 L3 Experimental code bundle wrapper
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3basics.sty
-Package: l3basics 2013/01/10 v4428 L3 Basic definitions
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3basics.sty
+Package: l3basics 2014/01/04 v4642 L3 Basic definitions
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3expan.sty
-Package: l3expan 2013/02/03 v4458 L3 Argument expansion
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3expan.sty
+Package: l3expan 2014/01/04 v4642 L3 Argument expansion
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3tl.sty
-Package: l3tl 2013/01/08 v4415 L3 Token lists
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3tl.sty
+Package: l3tl 2013/12/27 v4625 L3 Token lists
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3seq.sty
-Package: l3seq 2013/01/12 v4434 L3 Sequences and stacks
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3seq.sty
+Package: l3seq 2013/12/14 v4623 L3 Sequences and stacks
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3int.sty
-Package: l3int 2013/01/13 v4444 L3 Integers
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3int.sty
+Package: l3int 2013/08/02 v4583 L3 Integers
 \c_max_int=\count102
 \l_tmpa_int=\count103
 \l_tmpb_int=\count104
 \g_tmpa_int=\count105
 \g_tmpb_int=\count106
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3quark.sty
-Package: l3quark 2012/11/04 v4268 L3 Quarks
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3quark.sty
+Package: l3quark 2013/12/14 v4623 L3 Quarks
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3prg.sty
-Package: l3prg 2013/02/13 v4459 L3 Control structures
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3prg.sty
+Package: l3prg 2014/01/04 v4642 L3 Control structures
 \g__prg_map_int=\count107
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3clist.sty
-Package: l3clist 2013/01/08 v4414 L3 Comma separated lists
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3clist.sty
+Package: l3clist 2013/07/28 v4581 L3 Comma separated lists
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3token.sty
-Package: l3token 2013/01/10 v4428 L3 Experimental token manipulation
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3token.sty
+Package: l3token 2013/08/25 v4587 L3 Experimental token manipulation
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3prop.sty
-Package: l3prop 2013/01/09 v4423 L3 Property lists
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3prop.sty
+Package: l3prop 2013/12/14 v4623 L3 Property lists
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3msg.sty
-Package: l3msg 2013/01/08 v4412 L3 Messages
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3msg.sty
+Package: l3msg 2013/07/28 v4581 L3 Messages
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3file.sty
-Package: l3file 2013/01/14 v4446 L3 File and I/O operations
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3file.sty
+Package: l3file 2013/10/13 v4596 L3 File and I/O operations
 \l_iow_line_count_int=\count108
 \l__iow_target_count_int=\count109
 \l__iow_current_line_int=\count110
 \l__iow_current_word_int=\count111
 \l__iow_current_indentation_int=\count112
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3skip.sty
-Package: l3skip 2013/01/13 v4444 L3 Dimensions and skips
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3skip.sty
+Package: l3skip 2013/07/28 v4581 L3 Dimensions and skips
 \c_zero_dim=\dimen114
 \c_max_dim=\dimen115
 \l_tmpa_dim=\dimen116
@@ -313,13 +303,13 @@ Package: l3skip 2013/01/13 v4444 L3 Dimensions and skips
 \g_tmpa_muskip=\muskip15
 \g_tmpb_muskip=\muskip16
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3keys.sty
-Package: l3keys 2013/02/24 v4461 L3 Experimental key-value interfaces
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3keys.sty
+Package: l3keys 2013/12/08 v4614 L3 Experimental key-value interfaces
 \g__keyval_level_int=\count113
 \l_keys_choice_int=\count114
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3fp.sty
-Package: l3fp 2013/01/19 v4449 L3 Floating points
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3fp.sty
+Package: l3fp 2014/01/04 v4642 L3 Floating points
 \c__fp_leading_shift_int=\count115
 \c__fp_middle_shift_int=\count116
 \c__fp_trailing_shift_int=\count117
@@ -330,16 +320,16 @@ Package: l3fp 2013/01/19 v4449 L3 Floating points
 \c__fp_Bigg_middle_shift_int=\count122
 \c__fp_Bigg_trailing_shift_int=\count123
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3box.sty
-Package: l3box 2013/01/08 v4411 L3 Experimental boxes
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3box.sty
+Package: l3box 2013/07/28 v4581 L3 Experimental boxes
 \c_empty_box=\box28
 \l_tmpa_box=\box29
 \l_tmpb_box=\box30
 \g_tmpa_box=\box31
 \g_tmpb_box=\box32
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3coffins.sty
-Package: l3coffins 2012/09/09 v4212 L3 Coffin code layer
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3coffins.sty
+Package: l3coffins 2013/12/14 v4624 L3 Coffin code layer
 \l__coffin_internal_box=\box33
 \l__coffin_internal_dim=\dimen120
 \l__coffin_offset_x_dim=\dimen121
@@ -360,16 +350,16 @@ Package: l3coffins 2012/09/09 v4212 L3 Coffin code layer
 \l__coffin_display_x_dim=\dimen128
 \l__coffin_display_y_dim=\dimen129
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3color.sty
 Package: l3color 2012/08/29 v4156 L3 Experimental color support
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3luatex.sty
-Package: l3luatex 2012/08/03 v4049 L3 Experimental LuaTeX-specific functions
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3luatex.sty
+Package: l3luatex 2013/07/28 v4581 L3 Experimental LuaTeX-specific functions
 \g__cctab_allocate_int=\count124
 \g__cctab_stack_int=\count125
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3kernel/l3candidates.sty
-Package: l3candidates 2013/03/14 v4468 L3 Experimental additions to l3kernel
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3candidates.sty
+Package: l3candidates 2014/01/06 v4643 L3 Experimental additions to l3kernel
 \l__box_top_dim=\dimen130
 \l__box_bottom_dim=\dimen131
 \l__box_left_dim=\dimen132
@@ -387,12 +377,12 @@ Package: l3candidates 2013/03/14 v4468 L3 Experimental additions to l3kernel
 \l__coffin_scaled_total_height_dim=\dimen143
 \l__coffin_scaled_width_dim=\dimen144
 )
-(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is not detected.
 ))
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2013/03/12 v4467 L3 Experimental document command parser
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2013/12/31 v4634 L3 Experimental document command parser
 \l__xparse_current_arg_int=\count126
 \l__xparse_m_args_int=\count127
 \l__xparse_mandatory_args_int=\count128
@@ -407,11 +397,11 @@ Package: xparse 2013/03/12 v4467 L3 Experimental document command parser
 \l_fontspec_tmpc_dim=\dimen147
 Variant \tl_gset:cV already defined; not changing it on line 69
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/fontspec/fontspec-patches.sty
-Package: fontspec-patches 2013/03/16 v2.3a Font selection for XeLaTeX and LuaLa
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec-patches.sty
+Package: fontspec-patches 2013/05/20 v2.3c Font selection for XeLaTeX and LuaLa
 TeX
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/base/fixltx2e.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/fixltx2e.sty
 Package: fixltx2e 2006/09/13 v1.1m fixes to LaTeX
 LaTeX Info: Redefining \em on input line 420.
 LaTeX Info: The control sequence `\[' is already robust on input line 471.
@@ -431,32 +421,32 @@ LaTeX Info: Redefining \- on input line 33.
 . 
 . Defining document command \liningnums with arg. spec. 'm' on line 132.
 .................................................
-) (/usr/local/texlive/2012/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
-Package: fontspec-xetex 2013/03/16 v2.3a Font selection for XeLaTeX and LuaLaTe
+) (/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2013/05/20 v2.3c Font selection for XeLaTeX and LuaLaTe
 X
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/euenc/eu1enc.def
+(/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1enc.def
 File: eu1enc.def 2010/05/27 v0.1h Experimental Unicode font encodings
 )
 LaTeX Font Info:    Try loading font information for EU1+lmr on input line 100.
 
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/euenc/eu1lmr.fd
+(/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmr.fd
 File: eu1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
-(/usr/local/texlive/2012/texmf-dist/tex/xelatex/xunicode/xunicode.sty
+(/usr/share/texlive/texmf-dist/tex/xelatex/xunicode/xunicode.sty
 File: xunicode.sty 2011/09/09 v0.981 provides access to latin accents and many 
 other characters in Unicode lower plane
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/tipa/t3enc.def
+(/usr/share/texlive/texmf-dist/tex/latex/tipa/t3enc.def
 File: t3enc.def 2001/12/31 T3 encoding
 LaTeX Font Info:    Try loading font information for EU1+lmss on input line 357
 .
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/euenc/eu1lmss.fd
+(/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmss.fd
 File: eu1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
 \tipaTiiicode=\count134
@@ -570,32 +560,32 @@ File: eu1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 Variant \prop_gput:cnV already defined; not changing it on line 582
 Variant \prop_gput:cnx already defined; not changing it on line 583
 \l_fontspec_tmp_int=\count135
-LaTeX Info: Redefining \itshape on input line 2091.
-LaTeX Info: Redefining \slshape on input line 2096.
-LaTeX Info: Redefining \scshape on input line 2101.
-LaTeX Info: Redefining \upshape on input line 2106.
+LaTeX Info: Redefining \itshape on input line 2087.
+LaTeX Info: Redefining \slshape on input line 2092.
+LaTeX Info: Redefining \scshape on input line 2097.
+LaTeX Info: Redefining \upshape on input line 2102.
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
 \g__file_internal_ior=\read1
 Requested font "[LinLibertine_R.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_R.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+R.otf
 \g_fontspec_family_LinLibertine_int=\count136
 Requested font "[LinLibertine_RB.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_RB.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+RB.otf
 Requested font "[LinLibertine_RI.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_RI.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+RI.otf
 Requested font "[LinLibertine_RBI.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_RBI.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+RBI.otf
 .................................................
 . fontspec info: "defining-font"
 . 
 . Font family 'LinLibertine(0)' created for font 'LinLibertine' with options [
 . Ligatures = TeX , Extension = .otf , SmallCapsFeatures={Letters=SmallCaps} ,
-. Numbers = {Monospaced,Lining}, UprightFont = *_R, ItalicFont = *_RI,
+. , Numbers = {Monospaced,Lining}, UprightFont = *_R, ItalicFont = *_RI,
 . BoldFont = *_RB, BoldItalicFont = *_RBI, ].
 . 
 . This font family consists of the following shapes:
@@ -642,28 +632,28 @@ um;+lnum;+smcp;+smcp;"
 .................................................
 Requested font "[LinLibertine_R.otf]/ICU:script=latn;language=DFLT;mapping=tex-
 text;+tnum;+lnum;" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_R.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+R.otf
 Requested font "[LinBiolinum_R.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinBioli
-num_R.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_R
+.otf
 \g_fontspec_family_LinBiolinum_int=\count137
 Requested font "[LinBiolinum_RB.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinBioli
-num_RB.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_R
+B.otf
 Requested font "[LinBiolinum_RI.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinBioli
-num_RI.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_R
+I.otf
 Requested font "[LinBiolinum_RBO.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinBioli
-num_RBO.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_R
+BO.otf
 .................................................
 . fontspec info: "defining-font"
 . 
 . Font family 'LinBiolinum(0)' created for font 'LinBiolinum' with options [
 . Ligatures = TeX , Extension = .otf , SmallCapsFeatures={Letters=SmallCaps} ,
-. Numbers = {Monospaced, } , Scale = 1, UprightFont = *_R , ItalicFont = *_RI
-. , BoldFont = *_RB , BoldItalicFont = *_RBO , ].
+. , Numbers = {Monospaced, } , Scale = 1, UprightFont = *_R , ItalicFont =
+. *_RI , BoldFont = *_RB , BoldItalicFont = *_RBO , ].
 . 
 . This font family consists of the following shapes:
 . 
@@ -712,17 +702,17 @@ tnum;+smcp;+smcp;"
 . 
 . Font family 'LinLibertine(0)' created for font 'LinLibertine' with options [
 . Ligatures = TeX , Extension = .otf , SmallCapsFeatures={Letters=SmallCaps} ,
-. Numbers = {Monospaced,Lining}, UprightFont = *_R, ItalicFont = *_RI,
+. , Numbers = {Monospaced,Lining}, UprightFont = *_R, ItalicFont = *_RI,
 . BoldFont = *_RB, BoldItalicFont = *_RBI, ].
 . 
 . This font family consists of the following shapes:
 .................................................
 Requested font "[LinLibertine_RZ.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_RZ.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+RZ.otf
 Requested font "[LinLibertine_RZI.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_RZI.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+RZI.otf
 
 *************************************************
 * fontspec warning: "icu-feature-not-exist-in-font"
@@ -741,7 +731,7 @@ tine_RZI.otf
 . 
 . Font family 'LinLibertine(1)' created for font 'LinLibertine' with options [
 . Ligatures = TeX , Extension = .otf , SmallCapsFeatures={Letters=SmallCaps} ,
-. Numbers = {Monospaced,Lining}, UprightFont = *_R, ItalicFont = *_RI,
+. , Numbers = {Monospaced,Lining}, UprightFont = *_R, ItalicFont = *_RI,
 . BoldFont = *_RZ, BoldItalicFont = *_RZI, ].
 . 
 . This font family consists of the following shapes:
@@ -791,7 +781,7 @@ um;+smcp;+smcp;"
 . 
 . Font family 'LinLibertine(2)' created for font 'LinLibertine' with options [
 . Ligatures = TeX , Extension = .otf , SmallCapsFeatures={Letters=SmallCaps} ,
-. Numbers = {Monospaced,OldStyle}, UprightFont = *_R, ItalicFont = *_RI,
+. , Numbers = {Monospaced,OldStyle}, UprightFont = *_R, ItalicFont = *_RI,
 . BoldFont = *_RB, BoldItalicFont = *_RBI, ].
 . 
 . This font family consists of the following shapes:
@@ -841,20 +831,20 @@ um;+onum;+smcp;+smcp;"
 . 
 . Font family 'LinLibertine(0)' created for font 'LinLibertine' with options [
 . Ligatures = TeX , Extension = .otf , SmallCapsFeatures={Letters=SmallCaps} ,
-. Numbers = {Monospaced,Lining}, UprightFont = *_R, ItalicFont = *_RI,
+. , Numbers = {Monospaced,Lining}, UprightFont = *_R, ItalicFont = *_RI,
 . BoldFont = *_RB, BoldItalicFont = *_RBI, ].
 . 
 . This font family consists of the following shapes:
 .................................................
 Requested font "[LinLibertine_DR.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_DR.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+DR.otf
 .................................................
 . fontspec info: "defining-font"
 . 
 . Font family 'LinLibertine(3)' created for font 'LinLibertine' with options [
 . Ligatures = TeX , Extension = .otf , SmallCapsFeatures={Letters=SmallCaps} ,
-. Numbers = {Monospaced,Lining}, UprightFont = *_DR, ItalicFont = *_RI,
+. , Numbers = {Monospaced,Lining}, UprightFont = *_DR, ItalicFont = *_RI,
 . BoldFont = *_RB, BoldItalicFont = *_RBI, ].
 . 
 . This font family consists of the following shapes:
@@ -899,8 +889,8 @@ um;+lnum;+smcp;+smcp;"
 . 
 . Font family 'LinBiolinum(0)' created for font 'LinBiolinum' with options [
 . Ligatures = TeX , Extension = .otf , SmallCapsFeatures={Letters=SmallCaps} ,
-. Numbers = {Monospaced, } , Scale = 1, UprightFont = *_R , ItalicFont = *_RI
-. , BoldFont = *_RB , BoldItalicFont = *_RBO, ].
+. , Numbers = {Monospaced, } , Scale = 1, UprightFont = *_R , ItalicFont =
+. *_RI , BoldFont = *_RB , BoldItalicFont = *_RBO, ].
 . 
 . This font family consists of the following shapes:
 .................................................
@@ -909,8 +899,8 @@ um;+lnum;+smcp;+smcp;"
 . 
 . Font family 'LinBiolinum(1)' created for font 'LinBiolinum' with options [
 . Ligatures = TeX , Extension = .otf , SmallCapsFeatures={Letters=SmallCaps} ,
-. Numbers = {Monospaced, OldStyle} , Scale = 1, UprightFont = *_R , ItalicFont
-. = *_RI , BoldFont = *_RB , BoldItalicFont = *_RBO , ].
+. , Numbers = {Monospaced, OldStyle} , Scale = 1, UprightFont = *_R ,
+. ItalicFont = *_RI , BoldFont = *_RB , BoldItalicFont = *_RBO , ].
 . 
 . This font family consists of the following shapes:
 . 
@@ -959,23 +949,23 @@ tnum;+onum;+smcp;+smcp;"
 . 
 . Font family 'LinBiolinum(0)' created for font 'LinBiolinum' with options [
 . Ligatures = TeX , Extension = .otf , SmallCapsFeatures={Letters=SmallCaps} ,
-. Numbers = {Monospaced} , Scale = 1, UprightFont = *_R , ItalicFont = *_RI ,
-. BoldFont = *_RB , BoldItalicFont = *_RBO , ].
+. , Numbers = {Monospaced} , Scale = 1, UprightFont = *_R , ItalicFont = *_RI
+. , BoldFont = *_RB , BoldItalicFont = *_RBO , ].
 . 
 . This font family consists of the following shapes:
 .................................................
 Requested font "[LinLibertine_M.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_M.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+M.otf
 Requested font "[LinLibertine_MB.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_MB.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+MB.otf
 Requested font "[LinLibertine_MO.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_MO.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+MO.otf
 Requested font "[LinLibertine_MBO.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_MBO.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+MBO.otf
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1007,8 +997,8 @@ tine_MBO.otf
 . This font family consists of the following shapes:
 .................................................
 Requested font "[LinBiolinum_K.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinBioli
-num_K.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_K
+.otf
 \g_fontspec_family_LinBiolinum_K_int=\count138
 .................................................
 . fontspec info: "defining-font"
@@ -1022,8 +1012,8 @@ num_K.otf
 . <->"[LinBiolinum_K.otf]/ICU:script=latn;language=DFLT;"
 .................................................
 Requested font "[LinLibertine_I.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_I.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+I.otf
 \g_fontspec_family_LinLibertine_I_int=\count139
 .................................................
 . fontspec info: "defining-font"
@@ -1036,8 +1026,8 @@ tine_I.otf
 . * 'normal' with NFSS spec.:
 . <->"[LinLibertine_I.otf]/ICU:script=latn;language=DFLT;"
 .................................................
-LaTeX Info: Redefining \oldstylenums on input line 419.
-LaTeX Info: Redefining \liningnums on input line 420.
+LaTeX Info: Redefining \oldstylenums on input line 457.
+LaTeX Info: Redefining \liningnums on input line 458.
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1172,40 +1162,41 @@ LaTeX Info: Redefining \liningnums on input line 420.
 . * 'bold italic small caps' with NFSS spec.:
 . <->s*[1]"[LinBiolinum_RBO.otf]/ICU:script=latn;language=DFLT;+pnum;+smcp;"
 .................................................
-(/usr/local/texlive/2012/texmf-dist/tex/latex/libertine/LinLibertine_R.tex)
-(/usr/local/texlive/2012/texmf-dist/tex/latex/libertine/LinBiolinum_R.tex)
-(/usr/local/texlive/2012/texmf-dist/tex/latex/libertine/LinBiolinum_K.tex)
-(/usr/local/texlive/2012/texmf-dist/tex/latex/libertine/LinLibertine_I.tex)
-(/usr/local/texlive/2012/texmf-dist/tex/latex/libertine/LKey.tex))
-(/usr/local/texlive/2012/texmf-dist/tex/latex/unicode-math/unicode-math.sty
-Package: unicode-math 2013/03/16 v0.7d Unicode maths in XeLaTeX and LuaLaTeX
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LinLibertine_R.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LinBiolinum_R.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LinBiolinum_K.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LinLibertine_I.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LKey.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/unicode-math/unicode-math.sty
+Package: unicode-math 2013/05/04 v0.7e Unicode maths in XeLaTeX and LuaLaTeX
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2013/03/12 v4467 LaTeX2e option processing using LaTeX3 keys
-) (/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/catchfile.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2013/12/31 v4634 LaTeX2e option processing using LaTeX3 keys
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/catchfile.sty
 Package: catchfile 2011/03/01 v1.6 Catch the contents of a file (HO)
 
-(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
-(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 ))
-(/usr/local/texlive/2012/texmf-dist/tex/latex/base/fix-cm.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/fix-cm.sty
 Package: fix-cm 2006/09/13 v1.1m fixes to LaTeX
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/base/ts1enc.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 42.
 ))
-(/usr/local/texlive/2012/texmf-dist/tex/latex/filehook/filehook.sty
+(/usr/share/texlive/texmf-dist/tex/latex/filehook/filehook.sty
 Package: filehook 2011/10/12 v0.5d Hooks for input files
 )
 Variant \tl_put_right:cx already defined; not changing it on line 50
@@ -1217,8 +1208,7 @@ Variant \seq_if_in:NVTF already defined; not changing it on line 51
 . Defining document command \unimathsetup with arg. spec. 'm' on line 108.
 .................................................
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.s
-ty
+(/usr/share/texlive/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
@@ -1235,8 +1225,7 @@ ty
 . Defining document command \removenolimits with arg. spec. 'm' on line 639.
 .................................................
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/unicode-math/unicode-math-table.t
-ex)
+(/usr/share/texlive/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex)
 \g_um_primekern_muskip=\muskip17
 \l_um_primecount_int=\count141
 .................................................
@@ -1249,39 +1238,40 @@ ex)
 . 
 . I'm going to patch macro \r@@t.
 .................................................
-)) (/usr/local/texlive/2012/texmf-dist/tex/latex/lipsum/lipsum.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty
 Package: lipsum 2011/04/14 v1.2 150 paragraphs of Lorem Ipsum dummy text
 \c@lips@count=\count142
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/natbib/natbib.sty
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip52
 \bibsep=\skip53
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count143
 )
-(/usr/local/texlive/2012/texmf-dist/tex/xelatex/polyglossia/polyglossia.sty
-Package: polyglossia 2012/04/29 v1.2.1 Babel replacement for XeLaTeX
+(/usr/share/texlive/texmf-dist/tex/latex/polyglossia/polyglossia.sty
+Package: polyglossia 2013/06/27 v1.33.4 Babel replacement for XeLaTeX and LuaTe
+X
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
 \etb@tempcnta=\count144
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/makecmds/makecmds.sty
+(/usr/share/texlive/texmf-dist/tex/latex/makecmds/makecmds.sty
 Package: makecmds 2009/09/03 v1.0a extra command making commands
 )
 \xpg@normalclass=\XeTeXintercharclass4
 )
-(/usr/local/texlive/2012/texmf-dist/tex/xelatex/polyglossia/gloss-spanish.ldf
+(/usr/share/texlive/texmf-dist/tex/latex/polyglossia/gloss-spanish.ldf
 File: gloss-spanish.ldf polyglossia: module for spanish
 )
 Package polyglossia Info: Default language is spanish.
 
 (./CBFT.estilo.sty
-(/usr/local/texlive/2012/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
@@ -1298,15 +1288,16 @@ Package ifvtex Info: VTeX not detected.
 \Gm@layoutvoffset=\dimen155
 \Gm@dimlist=\toks25
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/marginnote/marginnote.sty
+(/usr/share/texlive/texmf-dist/tex/latex/marginnote/marginnote.sty
 Package: marginnote 2012/03/29 v1.1i non floating margin notes for LaTeX
 \c@mn@abspage=\count148
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2013/02/03 v3.3-65 Customizing captions (AR)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2013/02/03 v1.5-62 caption3 kernel (AR)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen156
 \captionmargin@=\dimen157
 \captionwidth=\dimen158
@@ -1317,9 +1308,9 @@ Package: caption3 2013/02/03 v1.5-62 caption3 kernel (AR)
 )
 \c@ContinuedFloat=\count149
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/tocloft/tocloft.sty
-Package: tocloft 2010/10/13 v2.3e parameterised ToC, etc., typesetting
-Package tocloft Info: The document has section divisions on input line 43.
+(/usr/share/texlive/texmf-dist/tex/latex/tocloft/tocloft.sty
+Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
+Package tocloft Info: The document has section divisions on input line 44.
 \cftparskip=\skip54
 \cftbeforetoctitleskip=\skip55
 \cftaftertoctitleskip=\skip56
@@ -1357,8 +1348,7 @@ Package tocloft Info: The document has section divisions on input line 43.
 \c@problemas_count=\count152
 \c@notas_contador=\count153
 \c@ejscount=\count154
-)
-(./MC.c5.aux)
+) (./MC.c5.aux)
 \openout1 = `MC.c5.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
@@ -1379,13 +1369,14 @@ LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
 LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 32.
 LaTeX Font Info:    Try loading font information for T3+cmr on input line 32.
- (/usr/local/texlive/2012/texmf-dist/tex/latex/tipa/t3cmr.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
 LaTeX Font Info:    ... okay on input line 32.
 Requested font "[latinmodern-math.otf]/ICU" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 \g_fontspec_family_latinmodern-math.otf_int=\count155
 .................................................
 . fontspec info: "defining-font"
@@ -1412,8 +1403,8 @@ rn-math.otf]/ICU:script=math;language=DFLT;+ssty=0;"<-7>"[latinmodern-math.otf]
 .................................................
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;" at 10.0p
 t
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
 (Font)              `operators' in the math version `normal' on input line 32.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -1574,194 +1565,177 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 Requested font "[LinLibertine_R.otf]/ICU:script=latn;language=DFLT;mapping=tex-
 text;+tnum;+lnum;" at 17.28pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_R.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+R.otf
 Requested font "[LinLibertine_R.otf]/ICU:script=latn;language=DFLT;mapping=tex-
 text;+tnum;+lnum;" at 12.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_R.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+R.otf
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;" at 12.0p
 t
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;+ssty=0;" 
 at 8.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;+ssty=1;" 
 at 6.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 Requested font "cmmi12" at 12.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 Requested font "cmmi8" at 8.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 Requested font "cmmi6" at 6.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 12.00018pt on input line 33.
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;" at 12.00
 018pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 8.00012pt on input line 33.
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;+ssty=0;" 
 at 8.00012pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 6.00009pt on input line 33.
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;+ssty=1;" 
 at 6.00009pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
 (Font)              scaled to size 11.99982pt on input line 33.
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;" at 11.99
 982pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
 (Font)              scaled to size 7.99988pt on input line 33.
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;+ssty=0;" 
 at 7.99988pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
 (Font)              scaled to size 5.99991pt on input line 33.
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;+ssty=1;" 
 at 5.99991pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 LaTeX Font Info:    Try loading font information for U+msa on input line 33.
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 Requested font "msam10" at 12.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10
-.tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 Requested font "msam10" at 8.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10
-.tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 Requested font "msam7" at 6.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.
-tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
 LaTeX Font Info:    Try loading font information for U+msb on input line 33.
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Requested font "msbm10" at 12.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10
-.tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 Requested font "msbm10" at 8.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10
-.tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 Requested font "msbm7" at 6.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.
-tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 Requested font "[LinLibertine_R.otf]/ICU:script=latn;language=DFLT;mapping=tex-
 text;+tnum;+lnum;" at 14.4pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_R.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+R.otf
 Requested font "[LinLibertine_RB.otf]/ICU:script=latn;language=DFLT;mapping=tex
 -text;+tnum;+lnum;" at 14.4pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_RB.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+RB.otf
  (./MC.c5.toc
 Requested font "[LinLibertine_RB.otf]/ICU:script=latn;language=DFLT;mapping=tex
 -text;+tnum;+lnum;" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_RB.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_
+RB.otf
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;+ssty=1;" 
 at 6.99997pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;+ssty=1;" 
 at 5.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 Requested font "cmmi6" at 6.99997pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 10.00015pt on input line 2.
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;" at 10.00
 015pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 7.00006pt on input line 2.
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;+ssty=1;" 
 at 7.00006pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 5.00008pt on input line 2.
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;+ssty=1;" 
 at 5.00008pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
 (Font)              scaled to size 9.99985pt on input line 2.
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;" at 9.999
 85pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
 (Font)              scaled to size 6.99986pt on input line 2.
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;+ssty=1;" 
 at 6.99986pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
 (Font)              scaled to size 4.99992pt on input line 2.
 Requested font "[latinmodern-math.otf]/ICU:script=math;language=DFLT;+ssty=1;" 
 at 4.99992pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/opentype/public/lm-math/latinmoder
-n-math.otf
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/lm-math/latinmodern-mat
+h.otf
 Requested font "msam10" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10
-.tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 Requested font "msam7" at 6.99997pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.
-tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
 Requested font "msam5" at 5.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.
-tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
 Requested font "msbm10" at 10.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10
-.tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 Requested font "msbm7" at 6.99997pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.
-tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 Requested font "msbm5" at 5.0pt
- -> /usr/local/texlive/2012/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.
-tfm
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 )
 \tf@toc=\write3
 \openout3 = `MC.c5.toc'.
 
 
-Overfull \hbox (9.13083pt too wide) in paragraph at lines 38--38
-[]\EU1/LinLibertine(0)/bx/n/14.4 Invariancia del lagrangiano ante adición de u
-na
- []
-
-[1
-
-] (./MC.c5.bbl
+(./MC.c5.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 7.
 
-) [2] (./MC.c5.aux) ) 
-Here is how much of TeX's memory you used:
- 32204 strings out of 493994
- 653892 string characters out of 3150335
- 702992 words of memory out of 3000000
- 35152 multiletter control sequences out of 15000+200000
- 9289 words of font info for 77 fonts, out of 3000000 for 9000
- 1144 hyphenation exceptions out of 8191
- 66i,6n,100p,882b,232s stack positions out of 5000i,500n,10000p,200000b,50000s
+) [1
 
-Output written on MC.c5.pdf (2 pages).
+] (./MC.c5.aux) ) 
+Here is how much of TeX's memory you used:
+ 31189 strings out of 494060
+ 612270 string characters out of 6156921
+ 701763 words of memory out of 5000000
+ 34162 multiletter control sequences out of 15000+600000
+ 9289 words of font info for 77 fonts, out of 8000000 for 9000
+ 1144 hyphenation exceptions out of 8191
+ 66i,6n,100p,10429b,222s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on MC.c5.pdf (1 page).

@@ -25,8 +25,8 @@
 	%	DOCUMENTO PROPIAMENTE DICHO
 	%===================================================================
 
-\title{CBFT}
-\author{Mecánica clásica}
+\title{CBFT Mecánica clásica}
+\author{Pequeñas oscilaciones}
 \date{\today}
 
 \begin{document}
@@ -35,33 +35,7 @@
 
 
 
-\section{Invariancia del lagrangiano ante adición de una derivada total}
 
-Sea una función de las coordenadas y del tiempo $F=F(q_i,t)$ que sumamos al lagrangiano $\Lag$, de modo que
-\[\Lag'=\Lag + \dtot{F}{t} \]
-y las ecuaciones de Euler-Lagrange para este nuevo lagrangiano son
-\[ \frac{d}{dt}\left(\dpar{\Lag'}{\dot{q}_j}\right) - \dpar{\Lag'}{q_j} = 0 \]
-\[ \dtot{}{t}\left(\dpar{\Lag}{\dot{q}_j} + \dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right)\right) - \dpar{\Lag}{q_j} - 
-\dpar{}{q_j}\left( \dtot{F}{t}\right) = 0 \]
-\[ \dtot{}{t}\left(\dpar{\Lag}{\dot{q}_j}\right) - \dpar{\Lag}{q_j} + 
-\dtot{}{t}\left(\dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right)\right) - \dpar{}{q_j}\left( \dtot{F}{t}\right) = 0 \]
-
-Ahora es necesario escribir la derivada total de $F$,
-\[  \dtot{F}{t} = \sum_j \dpar{F}{q_j}\dtot{q_j}{t} + \dpar{F}{t} = \sum_j \dpar{F}{q_j}\dot{q}_j + \dpar{F}{t} \]
-y ver que
-\[  \dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right) = \dpar{F}{q_j} \qquad\qquad
-\dpar{}{q_j}\left(\dtot{F}{t}\right) = \dpar[2]{F}{q_j} \dot{q}_j + \dparcru{F}{t}{q_j} \]
-
-Luego, usando esta información, resulta que los términos que surgen de la adición de la derivada total de $F$ resultan 
-ser
-\[  \dtot{}{t}\left( \dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right)\right) - \dpar{}{q_j}\left( \dtot{F}{t}\right) = 
-\dtot{}{t}\left( \dpar{F}{q_j} \right) - \dpar{}{q_j}\left( \dtot{F}{t}\right)\]
-\[ \dtot{}{t}\left( \dpar{F}{q_j} \right) - \dpar{}{q_j}\left( \dtot{F}{t}\right) =
-\dpar[2]{F}{q_j} \dot{q}_j + \dparcru{F}{q_j}{t} - \dpar{}{q_j}\left( \dtot{F}{t}\right) \]
-y si aceptamos que $F$ es de clase C$^2$ se tiene
-\[\dpar[2]{F}{q_j} \dot{q}_j + \dparcru{F}{q_j}{t} - \dpar{}{q_j}\left( \dtot{F}{t}\right)=0\]
-de modo que las ecuaciones de Euler Lagrange no se modifican si añadimos una derivada total respecto del tiempo de una 
-función de $q_j,t$.
 
 
 

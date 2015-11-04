@@ -1,2 +1,1 @@
 \select@language {spanish}
-\contentsline {section}{\numberline {\S 1.}Invariancia del lagrangiano ante adición de una derivada total}{1}

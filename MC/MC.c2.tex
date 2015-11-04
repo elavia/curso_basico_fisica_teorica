@@ -148,17 +148,172 @@ y entonces
 \]
 La derivada de la velocidad de la partícula $i$-ésima respecto a la coordenada $l$-ésima es
 \[
-\dpar{\vb{v}_i}{\dot{q}_l} = \dpar{\vb{r}_i}{q_l} = \frac{\partial \vb{r}_i/\partial t}{\partial q_l/\partial t}
+\dpar{\vb{v}_i}{\dot{q}_l} = \dpar{\vb{r}_i}{q_l} = \frac{\partial \vb{r}_i/\partial t}{\partial q_l/\partial t}.
+\]
+Si derivamos nuevamente
+\[
+\frac{\partial}{\partial q_l} \left( \dtot{\vb{r}_i}{t} \right) =
+\dpar{\vb{v}_i}{q_l} = \sum_{j=1}^{3N-k} \dparcru{\vb{r}_i}{q_j}{q_l} \dot{q}_j + \dparcru{\vb{r}_i}{t}{q_l}.
+\]
+\[
+\frac{d}{dt} \left( \dpar{\vb{r}_i}{q_l} \right) = 
+\frac{d}{dt} \left( \sum_{j=1}^{3N-k} \dparcru{\vb{r}_i}{q_j}{q_l} dq_j + \dparcru{\vb{r}_i}{t}{q_l} dt \right) 
+\]
+de tal manera que 
+\[
+\frac{d}{dt} \left( \dpar{\vb{r}_i}{q_l} \right) = \dpar{\vb{v}_i}{q_l}
 \]
 
+Volvemos ahora a la eq III y 
+\[
+\sum_i^N \sum_{j=1}^{3N-k} \left[ 
+\frac{d}{dt} \left( m_i \vb{v}_i \dpar{\vb{r}_i}{q_j} \right) -  m_i \vb{v}_i \frac{d}{dt}\left( \dpar{\vb{v}_i}{q_j} \right)
+\right] \delta q_j
+\]
+y este corchete lo reescribimos como 
+\[
+\sum_i^N \sum_{j=1}^{3N-k} \left[ 
+\frac{d}{dt} \left( m_i \vb{v}_i \dpar{\vb{v}_i}{\dot{q}_j} \right) -  m_i \vb{v}_i \dpar{\vb{v}_i}{q_j} 
+\right] \delta q_j
+\]
+
+\[
+\sum_i^N \sum_{j=1}^{3N-k} \left\{ 
+\frac{d}{dt} \left[ \frac{\partial}{\partial \dot{q}_j} \left( \frac{m_i}{2} \vb{v}_i^2 \right) \right] - 
+ \frac{\partial}{\partial q_j} \left( \frac{m_i}{2} \vb{v}_i^2 \right)
+\right\} \delta q_j
+\]
+
+Ahora introducimos la sumatoria en $i$ hacia adentro de ambos términos,
+\[
+\sum_{j=1}^{3N-k} \left\{ 
+\frac{d}{dt} \left[ \frac{\partial}{\partial \dot{q}_j} \left( \sum_i^N \frac{m_i}{2} \vb{v}_i^2 \right) \right] - 
+ \frac{\partial}{\partial q_j} \left( \sum_i^N \frac{m_i}{2} \vb{v}_i^2 \right)
+\right\} \delta q_j
+\]
+de modo que dentro de los paréntesis resulta $T$, luego 
+\[
+\sum_i^N \dot{\vb{P}}_i \cdot \delta \vb{r}_i = 
+\sum_{j=1}^{3N-k} \left\{ 
+\frac{d}{dt} \left[ \frac{\partial}{\partial \dot{q}_j} \left( T \right) \right] - 
+ \frac{\partial}{\partial q_j} \left( T \right) \right\} \delta q_j
+\]
+
+\[
+\sum_i^N \dot{\vb{P}}_i \cdot \delta \vb{r}_i = 
+\sum_{j=1}^{3N-k} \sum_i^N \vb{F}_i^a \cdot \dpar{\vb{r}_i}{q_j} \delta q_j =  
+\sum_{j=1}^{3N-k} \sum_i^N Q_j \delta q_j
+\]
+siendo $Q_j$ la fuerza generalizada. Entonces
+\[
+\sum_{j=1}^{3N-k} \left\{ \frac{d}{dt}
+\left[ \frac{\partial}{\partial \dot{q}_j} \left( T \right) \right] - \frac{\partial}{\partial q_j} \left( T \right) - Q_j 
+\right\} \delta q_j =  0.
+\]
+
+Si suponemos que las fuerzas son conservativas entonces 
+\[
+Q_j \delta q_j = -\dpar{V}{q_j}\delta q_j
+\]
+y como $V=V(\vb{r}_1,...,\vb{r}_n)$ se tiene 
+\[
+V = \sum_i^N  \dpar{V}{r_i} \delta \vb{r}_i = \dpar{V}{\vb{r}_i} \cdot \dpar{\vb{r}_i}{q_j} \delta q_j =
+\]
+pero 
+\[
+Q_j = - \dpar{V}{q_j}
+\]
+y entonces 
+\[
+\sum_{j=1}^{3N-k} \left\{ 
+\frac{d}{dt} \left( \dpar{T}{\dot{q}_j} \right) - \frac{\partial}{\partial q_j} \left( T - V \right) \right\} \delta q_j =  0.
+\]
+
+Definimos como 
+\[
+\Lag \equiv T - V
+\]
+y entonces podemos escribir
+\[
+\sum_{j=1}^{3N-k} \left[
+\frac{d}{dt} \left( \dpar{\Lag}{\dot{q}_j} \right) -  \dpar{\Lag}{q_j} \right] \delta q_j =  0.
+\]
+
+Si existieran fuerzas que no provienen de un potencial entonces
+\[
+Q_j + Q_j^{NC} = -\dpar{V}{q_j} + Q_j^{NC}
+\]
+y finalmente 
+\[
+\sum_{j=1}^{3N-k} \left[
+\frac{d}{dt} \left( \dpar{\Lag}{\dot{q}_j} \right) -  \dpar{\Lag}{q_j} \right] \delta q_j = 
+\sum_{j=1}^{3N-k} Q_j^{NC} \delta q_j
+\]
+
+Como esto vale para todo grado de libertad $l$ llegamos a
+\[
+\frac{d}{dt} \left( \dpar{\Lag}{\dot{q}_j} \right) -  \dpar{\Lag}{q_j} = Q_j^{NC}
+\]
+que son las ecuaciones de Euler-Lagrange. Este es el resultado más importante del capítulo.
+
+% =================================================================================================
+\section{Invariancia del lagrangiano ante adición de una derivada total}
+% =================================================================================================
+
+Sea una función de las coordenadas y del tiempo $F=F(q_i,t)$ que sumamos al lagrangiano $\Lag$, de modo que
+\[
+\Lag'=\Lag + \dtot{F}{t} 
+\]
+y las ecuaciones de Euler-Lagrange para este nuevo lagrangiano son
+\[
+\frac{d}{dt}\left(\dpar{\Lag'}{\dot{q}_j}\right) - \dpar{\Lag'}{q_j} = 0
+\]
+\[
+\dtot{}{t}\left(\dpar{\Lag}{\dot{q}_j} + \dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right)\right) -
+\dpar{\Lag}{q_j} - \dpar{}{q_j}\left( \dtot{F}{t}\right) = 0 
+\]
+\[
+\dtot{}{t}\left(\dpar{\Lag}{\dot{q}_j}\right) - \dpar{\Lag}{q_j} + 
+\dtot{}{t}\left(\dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right)\right) 
+- \dpar{}{q_j}\left( \dtot{F}{t}\right) = 0 
+\]
+
+Ahora es necesario escribir la derivada total de $F$,
+\[
+\dtot{F}{t} = 	\sum_j \dpar{F}{q_j}\dtot{q_j}{t} + \dpar{F}{t} =
+			\sum_j \dpar{F}{q_j}\dot{q}_j + \dpar{F}{t}
+\]
+y ver que
+\[
+\dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right) = \dpar{F}{q_j} \qquad\qquad
+\dpar{}{q_j}\left(\dtot{F}{t}\right) = \dpar[2]{F}{q_j} \dot{q}_j + \dparcru{F}{t}{q_j} 
+\]
+
+Luego, usando esta información, resulta que los términos que surgen de la adición de la derivada total de $F$ resultan 
+ser
+\[
+\dtot{}{t}\left( \dpar{}{\dot{q}_j}\left(\dtot{F}{t}\right)\right) - \dpar{}{q_j}\left( \dtot{F}{t}\right) = 
+\dtot{}{t}\left( \dpar{F}{q_j} \right) - \dpar{}{q_j}\left( \dtot{F}{t}\right)
+\]
+\[
+\dtot{}{t}\left( \dpar{F}{q_j} \right) - \dpar{}{q_j}\left( \dtot{F}{t}\right) =
+\dpar[2]{F}{q_j} \dot{q}_j + \dparcru{F}{q_j}{t} - \dpar{}{q_j}\left( \dtot{F}{t}\right)
+\]
+y si aceptamos que $F$ es de clase C$^2$ se tiene
+\[
+\dpar[2]{F}{q_j} \dot{q}_j + \dparcru{F}{q_j}{t} - \dpar{}{q_j}\left( \dtot{F}{t}\right)=0
+\]
+de modo que las ecuaciones de Euler Lagrange no se modifican si añadimos una derivada total respecto del tiempo de una 
+función de $q_j,t$.
 
 
+
 % =================================================================================================
 % =================================================================================================
 % =================================================================================================
 % =================================================================================================
 % =================================================================================================
-% =================================================================================================
+
 % =================================================================================================
 % =================================================================================================
 % =================================================================================================
