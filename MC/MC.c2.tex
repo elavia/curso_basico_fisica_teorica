@@ -401,7 +401,23 @@ T = \frac{1}{2} \sum_i^N m_i \vb{v}_i^2 =
 y veremos ahora que el último término es nulo ya que son vectores perpendiculares.
 Para ello notemos que 
 \[
-M \vb{R}_{cm} = \sum_i^N
+M \vb{R}_{cm} = \sum_i^N m_i \vb{r}_i = \sum_i^N m_i ( \vb{R}_i + \vb{r}_i' )
+\]
+\[
+0 = \sum_i^N m_i \vb{r}_i'
+\]
+y también 
+\[
+0 = \sum_i^N m_i \vb{v}_i'
+\]
+de modo que 
+\[
+0 = \sum_i^N m_i \vb{V}_{cm} \cdot \vb{r}_i'.
+\]
+\notamargen{Esto hay que revisarlo, derivo ambos miembros? Vincular con la figura.}
+Finalmente 
+\[
+T^{tot} = T^{cm} + T_{cm}^{tot}
 \]
 
 \begin{figure}
@@ -411,14 +427,91 @@ M \vb{R}_{cm} = \sum_i^N
 	\caption{Sistema de partículas}
 \end{figure} 
 
-
-
-
 % =================================================================================================
-% =================================================================================================
+\section{Trabajo en un sistema de partículas}
 % =================================================================================================
 
+Empezamos desde
+\[
+W = W^{ext} + W^{int}
+\]
+donde el trabajo externo puede escribirse
+\notamargen{Quiero un $\ell$ en bold, no me gusta el ${\bf s}$.}
+\be
+W^{ext} = \sum_i^N \int_1^2 \vb{F}_i^e \cdot d\vb{s}
+\label{mc_work_ext}
+\ee
+
+La no dependencia del camino para la integral que da \eqref{mc_work_ext} requiere que 
+\[
+\vb{F}_i^e = \vb{F}_i^e( \vb{r}_i ) \qquad \nabla_{r_i} \times \vb{F}_i^e = 0
+\]
+y entonces puedo inducir la existencia de una función potencial para las fuerzas externas,
+\notamargen{barra resizeable ya.}
+\[
+W^{ext} = - \sum_i^N  \left. \Delta V_i \right]_1^2 
+\]
+
+Por otro lado,
+\[
+W^{int}_c = \int_1^2 \sum_{\substack{j\\j\neq i}}^N  \vb{F}_{ij}^e \cdot d\vb{s}_i  
+\]
+\[
+\sum_i^N W_i^{int} =  W^{int} = \sum_{\substack{j \\ i\neq j}}^N  \int_1^2 \sum_{\substack{j \\ j\neq i}}^N  \vb{F}_{ij}^e \cdot 
+d\vb{s}_i  
+\]
+
 % =================================================================================================
+\section{Lagrangiano cíclico en el tiempo}
+% =================================================================================================
+
+Empecemos desde la derivada total con respecto al tiempo del lagrangiano,
+\[
+\frac{d}{dt}\left( \Lag( q, \dot{q}, t)\right) = \dpar{\Lag}{q} \dot{q} + \dpar{\Lag}{\dot{q}} \ddot{q} + \dpar{\Lag}{t}
+\]
+y usando la derivada total del término 
+\[
+\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}}\dot{q}\right) =
+\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}} \right) \dot{q} + \dpar{\Lag}{\dot{q}} \ddot{q} .
+\]
+
+Reemplazando una en otra resulta que 
+\[
+\frac{d}{dt}\left( \Lag( q, \dot{q}, t)\right) = \dpar{\Lag}{q} \dot{q} + \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}}\dot{q}\right) -
+\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}} \right) \dot{q} + \dpar{\Lag}{t}
+\]
+y acomodando un poco
+\[
+\frac{d}{dt}\left( \Lag( q, \dot{q}, t)\right) = 
+\left[ \dpar{\Lag}{q}  - \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}} \right) \right] \dot{q} + 
+\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}}\dot{q}\right)  + \dpar{\Lag}{t}
+\]
+\[
+\frac{d}{dt}\left( \Lag( q, \dot{q}, t)\right) = \frac{d}{dt}\left( p \dot{q} \right) + \dpar{\Lag}{t}
+\]
+y entonces previo pase mágico de términos,
+\[
+\frac{d}{dt}\left( p\dot{q} - \Lag \right) = -\dpar{\Lag}{t}
+\]
+y si definimos
+\[
+\Ham \equiv p\dot{q} - \Lag 
+\]
+resulta que 
+\[
+\dtot{\Ham}{t} = - \dpar{\Lag}{t}.
+\]
+
+Entonces si el lagrangiano no depende explícitamente del tiempo se tiene que $\Ham = cte.$. Además,
+si se cumplen 
+\[
+T=T_2 \qquad V \neq V(\dot{q})
+\]
+y además los vínculos no dependen del tiempo se tiene que $\Ham=E$, es decir, el Hamiltoniano es la
+energía. La condicion de que los vínculos no dependan del tiempo genera en realidad que $T=T_2$.
+
+Por otro lado $E = cte.$ si $W^{nc} = 0$.
+
 % =================================================================================================
 % =================================================================================================
 % =================================================================================================
