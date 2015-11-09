@@ -653,8 +653,193 @@ I = \int f\left(y, \dtot{y}{x}, x\right) dx
 \section{Multiplicadores de Lagrange}
 % =================================================================================================
 
+Partimos de la acción
+\[
+S = \int_{t_i}^{t_f} \Lag \left( q_i[t], \dot{q}_i[t], t \right) dt
+\]
+entonces 
+\[
+\delta S = 0 \quad \Leftrightarrow \quad \int
+\sum_{j=1}^{N} \left[ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) -\dpar{\Lag}{q_j} \right]\delta q_j dt
+\]
+donde $\delta q_j$ son desplazamientos independientes. Si no se pued despejar alguna $\delta q_j$ (con 
+vínculos no-holónomos, por ejemplo) entonces algún $\delta q_j$ es independiente de modo que para que 
+valga $\delta S =0 $ necesitaré 
+\[
+\sum_{\ell}^N a_\ell^k(q_i,t) \dot{q}_\ell + b^k(q_i,t) = 0
+\]
+que son los vínculos ($k=1,...,s$); son $s$ ecuaciones de vínculo.
+Multiplicamos por $\delta t$ y vemos que no son independientes
+\[
+\sum_{\ell}^N a_\ell^k(q_i,t) \delta {q}_\ell + b^k(q_i,t) \delta t= 0
+\]
+
+Sean $\delta q_\ell$ variación a $t$ fijo, entonces 
+\[
+\sum_{\ell}^N a_\ell^k(q_i,t) \delta {q}_\ell
+\]
+\[
+\int_{t_i}^{t_f} \lambda^k \sum_{\ell}^N a_\ell^k(q_i,t) \delta {q}_\ell dt = 0
+\]
+recordando que $\ell$ suma en los grados de libertad. Podemos sacar la suma fuera,
+\[
+\sum_{k}^s \int_{t_i}^{t_f} \lambda^k \sum_{\ell}^N a_\ell^k(q_i,t) \delta {q}_\ell dt = 0
+\]
+Absorbo la otra sumatoria en el segundo término y paso de $\ell \to j$.
+\[
+\int  \sum_{j=1}^N \left\{ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) -\dpar{\Lag}{q_j}
+- \sum_{k}^s \lambda^k a_\ell^k(q_i,t) \right\} \delta {q}_\ell dt = 0
+\]
+entonces 
+\[
+\sum_{j=1}^N \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) -\dpar{\Lag}{q_j} =
+\sum_{j=1}^N \sum_{k}^s \lambda^k a_\ell^k(q_i,t) =  
+\sum_{j=1}^N \sum_{k}^s \lambda^k \nabla_j f^k \cdot \frac{\delta \vb{r}_j}{\delta q_j} 
+\]
+siendo $\nabla_j f^k $ el gradiente de la ecuación de víngulo respeco de $j$ y donde $\lambda^k$
+es la fuerza de vínculo asociada al vínculo no despejado pues como la fuerza generalizada
+(que no proviene de potencial)
+\[
+Q_j = \sum_i^N \vb{F}_i^a \cdot \dpar{\vb{r}_i}{q_j}
+\]
+y comparando vemos que 
+\[
+Q_j = \sum \lambda^k a^k_j(q_j,t) \quad \textrm{vínculos no holónomos}
+\]
+\[
+Q_j=  \sum \lambda^k \nabla_j f^k \cdot \delta \vb{r}_j  \quad \textrm{vínculos holónomos}
+\]
+
+En el caso de vínculos holónomos 
+\[
+g(\vb{r}_1,...,\vb{r}_n,t) = 0 
+\]
+donde no quise despejar en función de $q_q,...,q_n$ resulta que 
+\notamargen{El supraíndice con $\delta q_j$ va sobre el igual en realidad.}
+\[
+Q_j^{\delta q_j} =  \sum_i^N \lambda (\nabla_i f^k\cdot\delta\vb{r}_i)
+\]
+donde $\delta\vb{r}_i$ es un desplazamiento virtual de la partícula.
+Vamos a reescribir este término,
+\[
+\sum_i^N \dpar{g^k}{\vb{r}_i} \delta \vb{r}_i = 0
+\]
+\[
+\nabla_i f^k\cdot\delta\vb{r}_i = \sum_i \dpar{g^k}{\vb{r}_i} \dpar{\vb{r}_i}{q_j} \delta q_j
+\]
+\[
+Q_j^{\delta q_j} =  \lambda \sum_k \dpar{g^k}{\vb{r}_i} \sum_j \dpar{\vb{r}_i}{q_j} \delta q_j
+\]
+luego como 
+\[
+a^k_j \equiv \dpar{g^k}{\vb{r}_i}
+\]
+se sigue que los $\lambda^k$ son las fuerzas de vínculo.
+
+En el caso de vínculos no holónomos $\lambda^k$ son las fuerzas de vínculo asociadas a los 
+vínculos no retirados.
+
+\[
+Q_j {\delta q_j} =  \sum \lambda^k (\nabla_i g^k\cdot\delta\vb{r}_i)
+\]
+\[
+Q_j =  \sum_k \lambda^k \dpar{g^k}{\vb{r}_i} \dpar{\vb{r}_i}{q_j}
+\]
+\[
+Q_j =  \sum_k \lambda^k \dpar{g^k}{q_j}
+\]
+entonces $\lambda^k=F^v$.
+
+Como extra escribamos que para cada grado de libertad $j$ 
+\[
+\dpar{\Lag}{q_j} - \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) - \sum_k^s \lambda^k a_j^k \equiv 0
+\]
+donde $\delta q_j$ son ahora independientes.
+\[
+Q_j = \sum_i^N F_i^a \dpar{\vb{r}_i}{q_j}. 
+\]
+
+% =================================================================================================
+\section{Constantes de movimiento y simetrías}
+% =================================================================================================
+
+Sean 
+\[
+\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) - \dpar{\Lag}{q_j}  = 0 
+\]
+si
+\[
+ \dpar{\Lag}{q_j}  = 0 
+\]
+entonces 
+\[
+\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) = 0
+\]
+y se ve que 
+\[
+\dpar{\Lag}{\dot{q}_j} \equiv p_i = cte.
+\]
+
+Si $\delta q_i$ es traslación rígida entonces $p_i = \vb{P}\cdot\hat{n}$ y $Q_j= \vb{F}\cdot\hat{n}$ en
+cambio si es rotación rígida se tiene $p_i = \vb{L}\cdot\hat{n}$ y $Q_j= \vb{\Tau}\cdot\hat{n}$.
+De tal forma vale que 
+\[
+\dpar{T}{q_i} = 0
+\]
+pués $T$ es escalar y no cambia ante una rotación y $T=T(\dot{q})$ no depende explícitamente de las
+coordenadas (no depende del origen decía ¿?). Luego $T=T_2$ y
+\[
+\dpar{\Lag}{q_i} = 0 = \dpar{T}{q_i} - \dpar{V}{q_i} = 0
+\]
+Como $V \neq V(\dot{q})$ entonces las ecuaciones de Euler-Lagrange adoptan la forma
+\[
+\frac{d}{dt}\left( \dpar{T}{\dot{q}_j} \right) + \dpar{V}{q_j}  = 0 
+\]
+\[
+\frac{d}{dt}\left( \dpar{T}{\dot{q}_j} \right) = - \dpar{V}{q_j}   
+\]
+\[
+\frac{d}{dt}\left( p_j \right) = - \dpar{V}{q_j}   
+\]
+y entonces 
+\[
+\dot{p}_j = -\dpar{V}{q_j}   
+\]
+es la fuerza total proyectada en $\hat{n}$.
+
+% =================================================================================================
+\section{El teorema de Noether}
+% =================================================================================================
+
+Si existe una transformación continua $q_i \longrightarrow q_i + \delta q_i$ que deje invariante el
+$\Lag$ entonces hay una constante de movimiento asociada a dicha transformación.
+
+La transformación es 
+\[
+q_i \longrightarrow q_i' = q_i + \delta q_i
+\]
+y cumple 
+\[
+\Lag(q_i, \dot{q}_i , t) = \Lag(q_i', \dot{q}_i' , t) =
+\Lag(q_i[q_i',t], \dot{q}_i[\dot{q}_i',t] , t)
+\]
+y así si consideramos una variación a $t$ fijo,
+\[
+\delta \Lag = \sum_i 
+\]
 
 
+
+
+
+
+
+
+
+
+
+
+% ============================================================================
 
 
 \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
