@@ -153,10 +153,11 @@ fue posible conseguirlo) de las cuatro asignaturas de las cuales versará el CBF
 
 # Mecánica cuántica (Física teórica 2):
 
-	Lo más aproximado a un programa que pude obtener es un cronograma de clases. En general casi todos
-	los cursos siguen fuertemente el libro Modern Quantum Mechanics de J.J. Sakurai pero no me pareció
-	apropiado transcribir el programa. Provisoriamente se muestra aquí el cronograma correspondiente a
-	una de esas cursadas.
+	Lo más aproximado a un programa que pude obtener es un cronograma de clases.
+	En general casi todos los cursos siguen fuertemente el libro Modern Quantum 
+	Mechanics de J.J. Sakurai pero no me pareció apropiado transcribir el sumario de
+	ese libro. Provisoriamente se muestra aquí el cronograma correspondiente a una
+	de esas cursadas.
 
 	1. 	Temas introductorios: Ec. Schrödinger, rudimentos; representación Fourier 
 			Stern-Gerlach, experimentos, representaciones. Análisis funcional,
