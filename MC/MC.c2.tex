@@ -825,19 +825,132 @@ y cumple
 \]
 y así si consideramos una variación a $t$ fijo,
 \[
-\delta \Lag = \sum_i 
+\delta \Lag = \sum_i \dpar{\Lag}{q_i}\delta q_i + \dpar{\Lag}{\dot{q}_i}\delta \dot{q}_i =
+\sum_i \dpar{\Lag}{q_i}\delta q_i + \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i}\delta q_i \right)
+- \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \right) \delta q_i = 0
+\]
+\[
+\delta \Lag = \sum_i \left[ \dpar{\Lag}{q_i} - \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \right) \right] \delta q_i + 
+\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i}\delta q_i \right) = 0
+\]
+pero como el primer término del RHS es nulo por las ecuaciones de Euler-Lagrange tenemos que 
+\[
+\delta \Lag = \frac{d}{dt}\left( \sum_i \dpar{\Lag}{\dot{q}_i}\delta q_i \right)  = 0,
+\]
+lo que está dentro del paréntesis es la cantidad conservada. 
+Recordemos que 
+\[
+\delta q_i = q'_i - q_i 
+\]
+y una traslación infinitesimal es 
+\[
+\vb{r}_i' - \vb{r}_i = \delta \vb{r}. 
 \]
 
+La variable cíclica es un caso particular de teorema de Noether, pero hay constantes de movimiento que 
+no provienen de ninguna simetría.
+\[
+\frac{d}{dt}\left( \sum_i \dpar{\Lag}{\dot{q}_i} ( \delta \alpha \hat{n}\times \vb{r}_i ) \right) 
+\]
+\[
+\frac{d}{dt}\left( \delta\alpha \sum_i \vb{p}_i \times \vb{r}_i  \right) =
+\delta\alpha \frac{d}{dt}\left(  \sum_i \vb{p}_i \times \vb{r}_i  \right) = 0
+\]
+siendo $\delta \alpha \equiv \epsilon$ un parámetro infinitesimal.
+Para $k$ grados de libertad
+\begin{align*}
+q'_i &= q_i + \underbrace{\epsilon_i g_i(q_1,...,q_n,t)}_{\delta q} \\
+... \\
+q'_k &= ...
+\end{align*}
+\[
+\vb{r}_i' = \vb{r}_i + \delta\vb{r} \quad \textrm{traslación rígida}
+\]
+\[
+\vb{r}_i' = \vb{r}_i + \delta\alpha \; \hat{n}\times\vb{r}_i \quad \textrm{rotación rígida}
+\]
+o también 
+\[
+\delta \vb{r} \times \vb{r}
+\]
 
+$T$ es invariante siempre frente a (por ser un escalar)
+\[
+T = T' 
+\]
+entonces habrá que examinarlo.
+Constatemos que 
+\[
+V = V(|\vb{r}_i - \vb{r}_j|)
+\]
+es invariancia ante una traslación rígida, y
+\[
+V = V(x_1,x_2)
+\]
+es una invariancia de traslación en $x_3$.
 
+$\Lag$ tendrá como constante un momento lineal si $V$ es invariante frente a traslación.
+$\Lag$ tendrá como constante un momento angular si $V$ es invariante frente a rotación.
+$\Lag$ tendrá como constante una combinación si $V$ es invariante frente a una roto-traslación.
 
+Otra construcción posible es 
+\[
+\delta \Lag = 0
+\]
+\[
+\Lag( q_i , \dot{q}_i, t ) - \Lag(q_i' , \dot{q}_i' , t) = 0 
+\]
+pidiendo que $d\Lag = 0$ llego a 
+\[
+\sum \left\{ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \delta q \right) - 
+\frac{d}{dt}\left( \dpar{\Lag}{\dot{q'}_i} \delta q' \right)  \right\} = 0
+\]
+\notamargen{Las primas están mal. Hay que pensar una construcción adecuada.
+Queda odd.}
+\[
+\sum \left\{ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \delta q \right) - 
+\frac{d}{dt}\left( \dpar{\Lag}{\dot{q'}_i} \delta q \right) -
+\frac{d}{dt}\left( \dpar{\Lag}{\dot{q'}_i} \sum_\ell^s \epsilon_\ell g_i^\ell \right) \right\} = 0
+\]
+y podemos usar que 
+\[
+\dpar{\Lag}{\dot{q'}_i} = \dpar{\Lag}{\dot{q}_i}
+\]
+pues $g\neq g(t)$ y es todo a tiempo fijo. Se tiene 
+\[
+q' = q + \delta q
+\]
+\[
+q_i' = q_i + \sum_\ell^s \epsilon_\ell g_i^\ell
+\]
+siendo esta la transformación general
+\[
+\delta q_i' = \delta q_i + \sum_\ell^s \epsilon_\ell g_i^\ell
+\]
 
+Extraemos también que 
+\[
+\dpar{\Lag}{\dot{q'}_i} \sum_\ell^s \epsilon_\ell g_i^\ell = C
+\]
 
-
-
-
-
-
+Se puede pensar también como que $\Lag$ es invariante ante la transformación infinitesimal
+$\delta q$
+\[
+\delta\Lag = 0 = \sum_i^N \dpar{\Lag}{q_i}\delta q_i + \dpar{\Lag}{\dot{q}_i}\delta \dot{q}_i
+\]
+\[
+\delta\Lag = 0 = \sum_i^N \left[ \dpar{\Lag}{q_i} - \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \right)
+\right]\delta q_i  + \sum_i^N \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \delta q_i \right)  = 0
+\]
+siendo el primer término nulo, y siendo lo que se conserva lo que aparece en el segundo término,
+donde 
+\[
+\delta q_i =  \sum_\ell^s \epsilon_\ell g_i^\ell(q_1,q_2,...,q_n)
+\]
+Finalmente 
+\[
+\delta \Lag = 0 = \frac{d}{dt}\left( \sum_i^N \dpar{\Lag}{\dot{q}_i} \delta q_i \right) 
+\]
 
 % ============================================================================
 
