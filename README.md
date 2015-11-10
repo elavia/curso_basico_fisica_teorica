@@ -79,14 +79,16 @@ fue posible conseguirlo) de las cuatro asignaturas de las cuales versará el CBF
 		Corchetes de Poisson del momento angular. Teorema de Liouville.
     9. Ecuaciones de Hamilton-Jacobi.
 		Concepto de integrabilidad. Función principal.
-		Ecuación de Hamilton-Jacobi para la función principal. Ejemplo del oscilador armónico.
-		Función característica. Separación de variables. Variables de ángulo-acción.
+		Ecuación de Hamilton-Jacobi para la función principal.
+		Ejemplo del oscilador armónico. Función característica. Separación de variables.
+		Variables de ángulo-acción.
     10. Relatividad.
 		Cinemática y dinámica relativista.
     11. Sistemas continuos.
 		Transición de sistemas discretos a continuos.
-		Formulaciones de Lagrange y Hamilton para sistemas continuos. Descripción de campos
-		mediante principios variacionales. Aplicaciones.
+		Formulaciones de Lagrange y Hamilton para sistemas continuos.
+		Descripción de campos mediante principios variacionales.
+		Aplicaciones.
 
 # Electromagnetismo (Física teórica 1):
 
@@ -159,7 +161,8 @@ fue posible conseguirlo) de las cuatro asignaturas de las cuales versará el CBF
 	1. 	Temas introductorios: Ec. Schrödinger, rudimentos; representación Fourier 
 			Stern-Gerlach, experimentos, representaciones. Análisis funcional,
 			espacio de Hilbert, operadores, 
-	2.	Postulados de la mecánica cuántica: Operadores, conmutador, incerteza, medición, colapso.  
+	2.	Postulados de la mecánica cuántica: Operadores, conmutador, incerteza,
+		medición, colapso.  
 	3.	Evolución temporal: Propiedades, unitariedad, diferentes pictures.
 	4.	Oscilador armónico: Rep. de coordenadas, espacio de Fock, valores medios. 
 			Estados coherentes, fonones y fotones.
