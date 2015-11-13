@@ -1,0 +1,200 @@
+	\documentclass[10pt,oneside]{CBFT_article}
+	% Algunos paquetes
+	\usepackage{amssymb}
+	\usepackage{amsmath}
+	\usepackage{graphicx}
+	\usepackage{libertine}
+	\usepackage[bold-style=TeX]{unicode-math}
+	\usepackage{lipsum}
+
+	\usepackage{natbib}
+	\setcitestyle{square}
+
+	\usepackage{polyglossia}
+	\setdefaultlanguage{spanish}
+
+	\usepackage{CBFT.estilo} % Cargo la hoja de estilo
+
+	% Tipografías
+	% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+	% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+	% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+	%===================================================================
+	%	DOCUMENTO PROPIAMENTE DICHO
+	%===================================================================
+
+\title{CBFT Electromagnetismo}
+\author{Ondas planas}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+
+% =================================================================================================
+\section{Reflexión y refracción de ondas electromagnéticas en una interfaz}
+% =================================================================================================
+
+ 
+% =================================================================================================
+\section{Coeficientes de Fresnel}
+% =================================================================================================
+
+
+% =================================================================================================
+\section{Ondas en medios dieléctricos}
+% =================================================================================================
+
+Para el campo eléctrico como onda plana,
+\eqn{
+\vb{E}(\vb{x},t)=\vb{E_0}\;\euler^{i(\vb{k}\cdot\vb{x}-\omega t)},
+\label{onda_plana}
+}
+podemos obtener el campo magnético \vb{H} a través de la ecuación de Maxwell del rotor
+de \vb{E}. Para una expresión como \eqref{onda_plana} se ve que:
+\notamargen{Esto es un bosquejo de lo que usamos en la sección siguiente.
+Esta deducción debe estar entonces.}
+\eqnn{ \rotorm{\vb{E}}=i\vb{k}\times\vb{E}=-\dpar{\vb{B}}{t} }
+y es fácil de integrar esta ecuación para obtener
+\eqnn{ \vb{H}=\frac{1}{\omega\mu}\vb{k}\times\vb{E} }
+
+% =================================================================================================
+\section{Ondas electromagnéticas en conductores}
+% =================================================================================================
+
+En el seno de un conductor el campo eléctrico dará origen a corrientes de
+modo que ahora las ecuaciones de Maxwell resultan 
+\notamargen{Habría que hacer un buen gráfico con la onda entrando en el conductor,
+y la geometría simplificada.}
+
+\eqnn{
+\begin{aligned}
+\divem{B}=0 &\qquad 
+\rotorm{\vb{H}}=\vb{J} + \dpar{\vb{D}}{t} \\
+\divem{D}=0 &\qquad 
+\rotorm{\vb{E}}=-\dpar{\vb{B}}{t}
+\end{aligned}
+}
+de manera que aparece un término más como fuente de campo magnético, que 
+son las corrientes \vb{J}. Estaremos suponiendo que las otras fuentes están 
+lejanas pero hacen campo en el recinto de interés.
+
+Resolveremos este conjunto de ecuaciones para un caso con muchas simplificaciones.
+Asumiremos medios lineales, isótropos y homogéneos (MLIH), de manera que tendremos
+\eqnn{
+\vb{B}=\mu\vb{H} \qquad \vb{D}=\varepsilon\vb{E} \qquad  \vb{J}=\sigma\vb{E} \qquad, 
+}
+donde en esta última ecuación $\sigma$ es la conductividad y es una constante, 
+al igual que también son constantes $\mu$ y $\varepsilon$.
+
+Tomaremos primeramente la ecuación del rotor de \vb{E}, y le aplicamos el rotor 
+nuevamente obteniendo
+\eqnn{
+\rotorm{(\rotorm{E})}=\rotorm{\left(-\dpar{\vb{B}}{t}\right)},
+}
+la cual se puede trabajar con una identidad del miembro izquierdo y 
+conmutando la operación rotor con la derivada parcial,
+\eqnn{
+\nabla{(\divem{E})}-\lapm{\vb{E}}=-\dparbis{(\rotorm{\vb{B}})}{t}
+}
+y ahora podemos introducir la expresión que tenemos para el rotor de \vb{H} y 
+usar que la divergencia de \vb{E} es nula de manera que
+\eqnn{
+-\lapm{\vb{E}}=-\mu \dparbis{ \vb{J} + \dpar{\vb{D}}{t} }{t}
+}
+y entonces
+\eqn{
+-\lapm{\vb{E}} + \mu\sigma \dpar{\vb{E}}{t} + \mu\varepsilon\ddpar{\vb{E}}{t}
+= 0.
+\label{onda_gen}
+}
+
+Este proceso podría hacerse también para el campo \vb{B} y llegaríamos a una 
+ecuación equivalente. El campo eléctrico verifica una ecuación de onda 
+tridimensional con un término disipativo (es el de la derivada $\partial_t$).
+
+Plantearemos como solución de esta ecuación una onda plana general,
+	\eqnn{
+	\vb{E}(\vb{x})=\vb{E_0}\;\euler^{i(\vb{k}\cdot\vb{x}-\omega t)}
+	}
+notando que 
+\eqnn{
+\dpar{\vb{E}}{t} = -i\omega \vb{E} \qquad \text{y} \qquad 
+\ddpar{\vb{E}}{t} = -\omega^2 
+\vb{E}
+}
+la ecuación \eqref{onda_gen} se reduce a:
+	\eqnn{
+	\lapm{\vb{E}} + i\mu\sigma\omega\vb{E} + \mu\varepsilon\omega^2 \vb{E} = 0.
+	}
+o bien, agrupando de manera conveniente
+	\eqnn{
+	\lapm{\vb{E}} + \mu\varepsilon\omega^2\left( 
+	1+i\frac{\sigma}{\varepsilon\omega}\right)\vb{E} = 0.
+% 	\label{onda_helm}
+	}
+La conveniencia de esta forma de agrupar reside en que así es posible examinar 
+varios casos límites interesantes.
+
+Podemos tomar ahora el laplaciano a la onda \vb{E}, el cual se puede ver que 
+resulta $k^2$, donde $k$ es el módulo de \vb{k}.
+
+\begin{notas}{Laplaciano en notación indicial:}
+Podemos hacer la cuenta $\nabla^2\vb{E}$ de manera rápida usando la notación 
+indicial, para el caso de una onda plana. Así escribiríamos
+\[ 
+\nabla^2\vb{E} = \nabla^2(\vb{E}_0 \: e^{i(\vb{k}\vb{x}-\omega t)}),
+\]
+que en indicial pasa a ser
+\[
+\partial_j\partial_j (E_{l}^0 \: e^{i( k_mx_m-\omega t)}),
+\]
+donde estamos usando convención de suma de Einstein y hemos pasado el subíndice
+cero a supraíndice por razones de claridad. El carácter vectorial reside en el
+coeficiente $\vb{E}_0$ que es constante. El laplaciano de un vector es un vector
+y estamos viendo el componente $l$-ésimo. Introduciéndo la primer derivada en el
+argumento,
+\[ 
+E_l^0 \partial_j(e^{i( k_mx_m-\omega t)}\: ik_m \partial_jx_m)
+\]
+y usando que $\partial_jx_m=\delta_{jm}$
+\[ 
+E_l^0 \partial_j(e^{i( k_mx_m-\omega t)}\: ik_j)
+=
+i E_l^0 k_j \partial_j(e^{i( k_mx_m-\omega t)})
+=
+i^2 E_l^0 k_j^2 e^{i( k_mx_m-\omega t)}
+\]
+de manera que volviendo a la notación vectorial tenemos
+\[
+\nabla^2 \vb{E} = - \vb{E}_0 |\vb{k}|^2 \: e^{i(\vb{k}\vb{x}-\omega t)}) = - k^2 \vb{E}. 
+\]
+\end{notas}
+
+Es decir que tenemos
+\eqnn{
+-k^2\vb{E} + 
+\mu\varepsilon\omega^2\left(1+i\frac{\sigma}{\varepsilon\omega}\right)\vb{E}=
+\left[-k^2 + 
+\mu\varepsilon\omega^2\left(1+i\frac{\sigma}{\varepsilon\omega}\right)\right]\vb{
+E}=0
+}
+lo que significa finalmente que
+\eqnn{
+|\vb{k}| = 
+\sqrt{\mu\varepsilon\omega^2}\left(1+i\frac{\sigma}{\varepsilon\omega}\right)^{
+\frac{1}{2}}
+}
+en donde se ha indicado expresamente el módulo de \vb{k} encerrando el vector 
+entre las barras. Hay varias observaciones importantes para hacer: el módulo de 
+\vb{k} es un complejo. El módulo, que refiere al tamaño de la {\it flecha} que 
+representa al vector resulta ser un número complejo. ¿Qué representa esto?
+
+
+
+\bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
+\bibliography{CBFT.Referencias} % La base de datos bibliográfica
+
+\end{document}
