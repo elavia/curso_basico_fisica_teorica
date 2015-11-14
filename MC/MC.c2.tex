@@ -759,7 +759,65 @@ donde $\delta q_j$ son ahora independientes.
 Q_j = \sum_i^N F_i^a \dpar{\vb{r}_i}{q_j}. 
 \]
 
+\begin{ejemplillo}{\bf Moneda rodando por un plano}
+Consideramos una moneda que rueda libremente por un plano (no sujeta a potencial).
+\[
+	\vb{V}_{cm} = -\vb{\Omega} \times \vb{r} =
+	-(\dot{\phi}\hat{2} + \dot{\psi}\hat{3}) \times (-a\hat{2})
+\]
+\[
+	\dot{x}\hat{x} + \dot{y}\hat{y} = -a \dot{\psi}\hat{1}
+\]
+siendo los vínculos
+\[
+	z_{cm} - a = 0 \qquad \theta=\pi/2 \qquad |\vb{V}_{cm}| = a\dot{\psi}
+\]
+de tal modo que son dos grados de libertad. El lagrangiano puede escribirse como 
+\[
+	\Lag = T = \frac{1}{2}m a^2 \dot{\psi}^2  + \frac{1}{2} I_2^2 \dot{\phi}^2 + \frac{1}{2} I_3^2\dot{\psi}^2
+\]
+\notamargen{No entiendo/recuerdo lo que quise decir con la expresión {\it bajar los ejes}.
+Calculo que se relaciona con la proyección de los ejes 123 en xyz. Confirmarlo.}
 
+Como los vínculos dependen de la velocidad, resulta 
+\[
+\dot{y} = a\dot{\psi} \cos(\psi) \sin(\phi) = a \sin(\phi) \dot{\psi}
+\]
+\[
+\dot{x} = a\dot{\psi} \cos(\psi) \cos(\phi) = a \cos(\phi) \dot{\psi}
+\]
+de tal manera que 
+\[
+	\dot{y} - a \sin(\phi) \dot{\psi} = 0 \qquad \dot{x} - a \cos(\phi) \dot{\psi} = 0
+\]
+y luego esto equivale a 
+\[
+	\lambda_1(dy - a \sin(\phi) d\psi) = 0 \qquad \lambda_2(dx - a \cos(\phi) d\psi)= 0
+\]
+y finalmente 
+\[
+	\frac{d}{dt}\left(\dpar{\Lag}{\dot{q}_i}\right) - \dpar{\Lag}{q_i} =
+	\lambda_i \nabla_i f \cdot \delta \vb{r}_i
+\]
+Podemos escribir
+\[
+	m \ddot{x} = \lambda_1 \qquad m \ddot{x} = m a \frac{d}{dt}( \cos(\phi)\dot{\psi} )
+\]
+\[
+	m \ddot{x} = m a ( -\sin(\phi)\dot{\phi}\dot{\psi} + \cos(\phi)\ddot{\psi} )
+\]
+\[
+	m \ddot{y} = \lambda_2
+\]
+\[
+	I_2\ddot{\phi} = 0 \qquad I_3\ddot{\psi} = - \lambda_2 a \sin(\phi) -\lambda_1 a \cos(\phi)
+\]
+\[
+	\hat{1} = \cos(\psi)[\sin(\phi)\hat{y} + \cos(\phi)\hat{x}]
+\]
+
+\label{moneda}
+\end{ejemplillo}
 
 % ============================================================================
 
