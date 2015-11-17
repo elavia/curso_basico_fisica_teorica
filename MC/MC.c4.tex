@@ -93,6 +93,205 @@ luego
 	\int d\phi = \int \frac{L/mr^2}{\sqrt{ \frac{2}{m}\left( E - \frac{L^2}{2 m r^2} - V(r) \right)}}dr
 \]
 
+En el gráfico bajo estas líneas ilustramos muchas de las características de la física del problema
+de fuerzas centrales.
+
+% =================================================================================================
+\section{Solución a partir de las ecuaciones de Euler-Lagrange}
+% =================================================================================================
+
+\[
+	m \ddot{r} -\frac{L^2}{m r^3} -\dpar{V}{r}= 0 
+\]
+\[
+	d \phi = \frac{L}{m r^2} dt \qquad \longrightarrow \quad  \dpar{\phi}{r}\dpar{r}{t}  = \frac{L}{m r^2}
+\]
+\[
+	\frac{d}{t}(\dot{r}) = \frac{L}{m r^2} \frac{d}{\phi}(\dot{r})
+\]
+\[
+	m \dtot[2]{r}{t} -\frac{L^2}{m r^3} = -\dpar{V}{r}
+\]
+\[
+	\frac{L}{r^2} \frac{d}{\phi}\left( \dtot{r}{t} \right) -\frac{L^2}{m r^3} = -\dtot{V}{r}
+\]
+\[
+	\frac{L}{r^2} \frac{d}{\phi}\left( \frac{L}{m r^2}\dtot{r}{\phi} \right) -\frac{L^2}{m r^3} = -\dtot{V}{r}
+\]
+y acá probamos el conveniente cambio de variables
+\[
+	U = \frac{1}{r} \qquad dU = -\frac{1}{r^2} dr 
+	\qquad \dtot{U}{\phi} = -\frac{1}{r^2}\dtot{r}{\phi} = -U^2\dtot{r}{\phi}
+\]
+\[
+	U^2 L \frac{d}{d\phi} \left\{ -\frac{L}{m}\dtot{U}{\phi} \right\} - \frac{L^2}{m r^3} U^3 = F(1/U)
+\]
+\[
+	- \frac{U^2 L^2}{m} \dtot[2]{U}{\phi} - \frac{L^2}{m r^3} U^3 = F(1/U)
+\]
+\[
+	- \frac{U^2 L^2}{m} \left[ \dtot[2]{U}{\phi} + U \right] = F(1/U)
+\]
+o bien 
+\[
+	\left[ \dtot[2]{U}{\phi} + U \right] = - \frac{F(1/U) m}{U^2 L^2}. 
+\]
+
+En el caso del potencial de Kepler será 
+\[
+	\left[ \dtot[2]{U}{\phi} + U \right] = - \frac{K m}{L^2},
+\]
+es decir que el miembro derecho es una constante. Sale fácil entonces.
+
+% =================================================================================================
+\section{Velocidad areolar}
+% =================================================================================================
+
+\[
+	\dot{\phi} = \frac{L}{m r^2}
+\]
+
+De la figura puede verse que 
+\[
+	A = \frac{1}{2} r^2 d\phi 
+\]
+y  entonces
+\[
+	\dtot{A}{t} = \frac{1}{2} r^2 \dtot{\phi}{t} = \frac{1}{2} r^2 \dot{\phi} = \frac{1}{2}\frac{L}{m} = cte.
+\]
+
+% =================================================================================================
+\section{Las fuerzas centrales y las leyes de Kepler}
+% =================================================================================================
+
+Tenemos 
+\[
+	\int d\phi = \int \frac{(L/Mr^2)}{\sqrt{ \frac{2}{m}(E - V_{eff})}} dr	\qquad
+	\dtot[2]{U}{\phi} + U  = - \frac{F(1/U) m}{U^2 L^2} \quad U = 1/r
+\]
+que es simétrica respecto a $\phi$ y $-\phi$. Esto determina una simetría orbital si
+tomamos
+\[
+	U(\phi=0) = U_0 	\qquad		\left. \dtot{U}{\phi} \right|_{\phi=0}= 0
+\]
+lo cual significa que $U_0$ es un extremo (punto apsidal).
+
+Calculemos ahora el ángulo que recorre una oscilación completa,
+\[
+	\Delta \phi = 2\int_{r_m}^{r_M} \frac{(L/Mr^2)}{\sqrt{ \frac{2}{m}(E - V_{eff})}} dr
+\]
+
+Si $\Delta \phi = 2 q $ siendo $q= (m/n)\pi $ son $m,n \in \mathbb{Z}$ entonces
+\[
+	\Delta \phi = 2 \frac{m}{n} \pi 
+\]
+\[
+	\frac{m}{n} = \frac{2\pi}{\Delta \phi}
+\]
+y esto significaría que la órbita se cierra.
+
+La ecuación a resolver es 
+\[
+	\dtot[2]{U}{\phi} + \left( U  - \frac{k m}{L^2} \right) = 0
+\]
+o bien 
+\[
+	\dtot[2]{\beta}{\phi} + \beta = 0
+\]
+entonces
+\[
+	\beta = A \cos( \phi -\phi_0 )
+\]
+\[
+	U = \frac{km}{L^2} +  A \cos( \phi -\phi_0 )
+\]
+\[
+	\frac{1}{r} = \frac{km}{L^2} +  A \cos( \phi -\phi_0 )
+\]
+y habría que usar $r_m, r_M$ para evaluar $A$.
+
+
+Con respecto a las elipses
+\[
+	\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1	\qquad \sigma^2 = a^2 - b^2
+\]
+\[
+	b = a \sqrt{ 1 - (\sigma/a)^2 }
+\]
+
+Por otro lado,
+\[
+	s^2 = (2\sigma)^2 + r^2 - 4\sigma r \cos( \pi - \phi )
+\]
+\[
+	( 2a -r )^2 = 4\sigma^2 + r^2 + 4\sigma r \cos(\phi)
+\]
+y definiendo $ \sigma/a \equiv \varepsilon$ resulta
+\[
+	a - r = \varepsilon ( \sigma + r\cos(\phi) )
+\]
+y esto es una elipse.
+\notamargen{Acá hay que hacer un laburo muy importante.}
+
+Entonces en resumen, las leyes de Kepler son
+\begin{enumerate}
+ \item Los planetas giran en órbitas elípticas con el Sol en uno de sus focos. Esto es común de los potenciales del tipo 
+	\[
+		V \propto 1/r
+	\]
+ \item El radio vector recorre áreas iguales en tiempos iguales
+	\[
+		A = \frac{1}{2} r^2 d\phi \quad \longrightarrow \dtot{A}{t} = \frac{r^2}{2} \dot{\phi} = \frac{L}{2m} (cte.)
+	\]
+ \item 
+ \[
+	\dtot{A}{t} = \frac{L}{2m}
+ \]
+ \[
+	\pi a b = \int dA = \frac{L}{2m} \int dt = \frac{L}{2m} \tau \qquad a = \frac{L\tau}{2\pi m b} 
+ \]
+ pero como $km/L^2 = a/b^2$ es
+ \[
+	B = L \sqrt{\frac{a}{k m}}
+ \]
+ \[
+	a^3 = \frac{GM}{4\pi^2} \tau^2
+ \]
+ y esto es independiente de la masa del planeta.
+ 
+ Trabajamos más con la elipse,
+ \[
+	r_M + r_m = 2a
+ \]
+ \[
+	E = \frac{L^2}{2mr^2} - \frac{k}{r}	\qquad\qquad E - \frac{L^2}{2m} U^2 - kU = 0
+ \]
+ \[
+	\frac{1}{r_{m,M}} = \frac{ \frac{2mkE}{L^2} \mp \sqrt{ \left(\frac{2mkE}{L^2}\right)^2 + \frac{8mE}{L^2} } }{2}
+ \]
+ \[
+	\frac{1}{r_{m,M}} = \frac{mEk}{L^2} \left( 1 \pm \sqrt{1 - \frac{2L^2}{mEk^2}}\right) 
+ \]
+ y acá constatamos que representa una elipse; es decir que las órbitas son elípticas.
+\end{enumerate}
+
+% =================================================================================================
+\section{Vector de Runge-Lenz}
+% =================================================================================================
+
+\[
+	\vb{R} = \vb{V} \times \vb{L} - k\frac{\vb{r}}{r}
+\]
+\[
+	\dtot{\vb{R}}{t} = \dtot{\vb{V}}{t} \times \vb{L} + \vb{V} \times \dtot{\vb{L}}{t} -
+	k\frac{\dtot{\vb{r}}{t} r - \dtot{r}{t} \vb{r}  }{r^2}
+\]
+\[
+	\dtot{\vb{V}}{t} \times ( \vb{r} \times m\vb{v} ) +
+	\vb{v} \times \left( \dtot{\vb{r}}{t} \times m\vb{v} + \vb{r} \times m\dtot{\vb{v}}{t} \right)
+\]
+pero como $\dtot{\vb{r}}{t} \times m\vb{v} = 0$ resulta lo que resulta.
+
 % =================================================================================================
 
 \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
