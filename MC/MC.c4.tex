@@ -293,6 +293,71 @@ Entonces en resumen, las leyes de Kepler son
 pero como $\dtot{\vb{r}}{t} \times m\vb{v} = 0$ resulta lo que resulta.
 
 % =================================================================================================
+\section{Reducción del problema de dos cuerpos a uno equivalente}
+% =================================================================================================
+
+Consideramos el siguiente sistema de coordenadas,
+\[
+	r \equiv | \vb{r}_2 - \vb{r}_1 |	\qquad		 \dot{r} \equiv | \dot{\vb{r}}_2 - \dot{\vb{r}}_1 |
+\]
+donde el sistema centro de masas es
+\[
+	\vb{R}_{cm} = \frac{ m_1\vb{r}_1 + m_2\vb{r}_2 }{ m_1 + m_2 }	\qquad 
+	M \vb{V}_{cm} =  m_1\vb{v}_1 + m_2\vb{v}_2 
+\]
+\[
+	0 = m_1\vb{r}_1' + m_2\vb{r}_2'
+\]
+que provocan
+\[
+	\vb{r}_1' = -\frac{m_2}{m_1}\vb{r}_2' \qquad   \vb{r}_2' = -\frac{m_1}{m_2}\vb{r}_1' 
+\]
+dando unas $r$ relativas
+\[
+	\vb{r} = \vb{r}_1' - \vb{r}_2' = -\frac{ m_1 + m_2 }{ m_1 } \vb{r}_2' = -\frac{ m_1 + m_2 }{ m_2 } \vb{r}_1'.
+\]
+
+Luego, como la energía se conserva (el $V_{cm}=cte.$) podemos escribir
+\[
+	E = \frac{1}{2} m_1 \dot{\vb{r}}_1^2 + \frac{1}{2} m_2 \dot{\vb{r}}_2^2 + V(r)
+\]
+\[
+	E = \frac{1}{2} m_1 ( \dot{\vb{R}} + \dot{\vb{r}}_1' )^2 + \frac{1}{2} m_2 ( \dot{\vb{R}} + \dot{\vb{r}}_2' )^2 + V(r)
+\]
+\[
+	E = \frac{1}{2} m_1 ( {\vb{V}} )^2 +  \frac{1}{2} m_1 ( \dot{\vb{r}}_1' )^2 + 
+		\frac{1}{2} m_2 ( {\vb{V}})^2 + \frac{1}{2} m_2 (\dot{\vb{r}}_2' )^2 + V(r)
+\]
+\[
+	E = \frac{1}{2} M {\vb{V}}^2 + \frac{1}{2} \frac{m_2^2}{m_1} \dot{\vb{r}}_2'^2 + \frac{1}{2} m_2 \dot{\vb{r}}_2'^2 + V(r)
+\]
+\[
+	E = \frac{1}{2} M {\vb{V}}^2 + \frac{1}{2} \frac{m_2 m_1}{M} \dot{\vb{r}}^2 + V(r)
+\]
+y el 
+\[
+	e = \frac{1}{2} \mu \dot{\vb{r}}^2 + V(r)
+\]
+donde este último $\vb{r}$ es un vector distancia relativa. Es un problema equivalente para la partícula
+centro de masas.
+\[
+	e = \frac{1}{2} \mu ( \dot{\vb{r}}^2 + r^2\dot{\phi}^2 ) + V(r)
+\]
+
+Diremos que la {\it distancia relativa} describe una elipse. Las trayectoria reales en el espacio físico
+son dos elipses confocales. Por supuesto dejan de cumplirse las leyes de Kepler en este caso.
+
+
+
+
+
+
+
+
+
+
+
+% =================================================================================================
 
 \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 \bibliography{CBFT.Referencias} % La base de datos bibliográfica
