@@ -358,11 +358,99 @@ son dos elipses confocales. Por supuesto dejan de cumplirse las leyes de Kepler 
 \section{Dispersión}
 % =================================================================================================
 
+Consideramos la dispersión de un haz de partículas de cierta energía cinética por un centro dispersor,
+ver ilustración.
+
+\[
+	d\sigma = \frac{dN}{n}
+\]
+donde $dN$ es el número de partículas dispersadas entre $\chi$ y $\chi + d\chi$ y $n$ es el número de
+partículas emitidas por tiempo y por área. De esta forma $d\sigma$ tiene unidades de área.
+
+Consideramos $d$ centro dispersor con simetría esférica (cilíndrica basta).
+Usamos como suposiciones que todo lo que emerge entre $\rho + d\rho$ - $\rho$  es dispersado entre
+$\chi + d\chi$ - $\chi$, y que se conservan tanto $E$ como \vb{L}.
+
+El anillo se dispersa en un sector esférico. Entonces podemos establecer las siguientes conclusiones
+para el anillo entre $\rho + d\rho$ - $\rho$, a saber
+\[
+	A =  \pi ( (\rho + d\rho)^2 - \rho^2 ) \qquad \longrightarrow A \approx 2 \pi \rho \: d\rho,
+\]
+entonces
+\[
+	d\sigma = \frac{  2 \pi \rho \: d\rho I}{I}
+\]
+donde $\rho$ es el parámetro de impacto y $I$ el número de partículas por unidad de tiempo y área.
+Finalmente
+\[
+	d\sigma =  2 \pi \rho(\chi) \left| \dtot{\rho}{\chi} \right| d\chi
+\]
+
+Como se conservan la energía y el momento angular
+\[
+	E = \frac{1}{2} m V_\infty^2 \qquad L = m \rho V_\infty^2 
+\]
+
+En general se desconoce $V(r)$.
+
+Se puede calcular el ángulo $\varphi_0$ de acuerdo a 
+\[
+	\chi = \pi - 2\varphi_0,
+\]
+donde
+\[
+	\varphi_0 = \int_{r_m}^{\infty} \frac{L/mr^2}{\sqrt{\frac{2}{m}(E - V_{eff})}} dr
+\]
+\[
+	\chi = \pi - 2 \varphi_0 (\rho)
+\]
+e invertimos desde la última ecuación.
+
+Veamos el caso de una esfera maciza. En general los cuerpos duros equivalen a un potencial del tipo
+\[
+	V = \begin{cases}
+	     \infty \qquad \textrm{cuerpo}\\
+	     \;0 \qquad \; \textrm{fuera} \\
+	    \end{cases}
+\]
+\[
+	\chi = \pi - 2\varphi_0
+\]
+\[
+	\sin(\varphi_0) = \frac{\rho}{a} \qquad d\rho = -a \frac{1}{2}\cos \left(\frac{\pi-\chi}{2}\right)
+\]
+y entonces 
+\[
+	d\sigma = 2\pi a^2 \sin\left(\frac{\pi-\chi}{2}\right) \frac{1}{2}\cos\left(\frac{\pi-\chi}{2}\right) d\chi
+\]
+\[
+	d\sigma = \frac{\pi}{2} a^2 \sin( \pi-\chi) d\chi = \frac{\pi}{2} a^2 \sin( \chi) d\chi
+\]
+y como hay que integrar $\chi$ de 0 a $\pi$
+\[
+	\int_0^\pi \frac{\pi}{2} a^2 \sin( \chi) d\chi = \pi a^2
+\]
+\[
+	\sigma = \pi a^2
+\]
+En el caso de los cuerpos duros la sección eficaz es la sombra de los mismos.
+\notamargen{Sobre el ángulo sólido
+\[
+\Omega = \textrm{Area}/r^2
+\]
+\[
+d\Omega = 2 \pi \sin( \chi ) d\chi 
+\]
+\[
+\Omega = 4 \pi 
+\]
+para la esfera.
+}
 
 
-
-
-
+% =================================================================================================
+\section{Dispersión por dos cuerpos}
+% =================================================================================================
 
 
 
