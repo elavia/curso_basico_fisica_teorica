@@ -452,6 +452,100 @@ para la esfera.
 \section{Dispersión por dos cuerpos}
 % =================================================================================================
 
+Consideramos el caso de un cuerpo que se fracciona en dos (creo?)
+
+Desde el centro de masa
+\[
+	\vb{P}_1 + \vb{P}_2 = 0
+\]
+\[
+	m_1 \vb{v}_1 + m_2 \vb{v}_2 = 0
+\]
+definimos una velocidad relativa
+\[
+	\vb{v} \equiv \vb{v}_2  - \vb{v}_1 = \vb{v}_2 \left( \frac{ m_1 + m_2 }{ m_1 }\right) .
+\]
+
+Con respecto a la energía,
+\[
+	\frac{1}{2} M \vb{V}_{cm}^2 + e_{int} = \frac{1}{2} m_1 \vb{v}_1^2 + \frac{1}{2} m_2 \vb{v}_2^2
+						+ e_{int 1 } + e_{int 2} + \frac{1}{2} M \vb{V}_{cm}^2
+\]
+\[
+	\frac{1}{2} m_1 \vb{v}_1^2 + \frac{1}{2} m_2 \vb{v}_2^2 = e_{int} - e_{int 1 } - e_{int 2} = \Delta e
+\]
+y pasando todo en términos de la velocidad relativa
+\[
+	 \frac{1}{2} \frac{m1 m2}{ m_1 + m_2 } v = \Delta e
+\]
+entonces 
+\[
+	v = \sqrt{\frac{ 2 \Delta e}{ \mu } }.
+\]
+
+El problema es evidentemente plano.
+\[
+	\vb{V}_1^L =  \vb{V}_{cm} + \vb{V}_1' \qquad \longrightarrow \quad ( \vb{V}_1^L - \vb{V}_{cm} ) = \vb{V}_1'
+\]
+\[
+	{V_1^L}^2 - V_{cm} - 2 {\vb{V}_1^L}^2 \vb{V}_{cm} = V_1^2
+\]
+\[
+	{V_{1x}^L}^2 + {V_{1y}^L}^2 - V_{cm} - 2 {V_{1x}^L}^2 V_{cm} = V_1^2
+\]
+\[
+	( V_{1x}^L  - V_{cm} )^2 + {V_{1y}^L}^2 = V_1^2
+\]
+que es una circunferencia.
+\[
+	\tan(\theta) = \frac{V_1 \sin(\chi) }{ V_{cm} + V_1 \cos(\chi) }
+\]
+
+Esto tiene dos raíces $\chi_{1,2}$ si $ V_{cm} > V_1$. 
+
+Si $ V_{cm} > V_1$ hay una sola $V$ de las partículas.
+
+Si $ V_{cm} < V_1$ hay partículas emitidas hacia atrás vistas desde L.
+
+Si pensamos en una distribución isótropa de partículas, desde el centro de masa
+\[
+	e = \frac{1}{2} m_1 V_{1}^2
+\]
+\[
+	V_L^2 = V_1^2 + V_{cm}^2 - 2 V_1 V_{cm} \cos( \pi -\chi )
+\]
+a iguales $V_1,V_{cm}$ se tienen variables $V_L, \chi$, entonces
+\[
+	dV_L^2 = - 2 V_1 V_{cm} \sin(\chi) d\chi
+\]
+\[
+	\frac{dV_L^2}{2 V_1 V_{cm}} = \sin( \chi) d\chi 
+\]
+\[
+	d\sigma = 2 \pi \rho |\dtot{\rho}{\chi}| d\chi 
+\]
+\[
+	d\Omega = 2 \pi \sin( \chi ) d\chi 
+\]
+\[
+	\frac{d\Omega}{4\pi} = \frac{1}{2} \sin( \chi ) d\chi 
+\]
+\[
+	\frac{d\Omega}{4\pi} =  \frac{d (V_L^2) }{4 V_1 V_{cm}} = \frac{1}{2} \frac{d ( 1/2 m_1 V_L^2) }{m_1 V_1 V_{cm}} 
+\]
+
+% =================================================================================================
+\section{Scattering}
+% =================================================================================================
+
+
+
+
+
+
+
+
+
 
 
 % =================================================================================================
