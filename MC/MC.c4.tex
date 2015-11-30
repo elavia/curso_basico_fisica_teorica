@@ -538,8 +538,86 @@ a iguales $V_1,V_{cm}$ se tienen variables $V_L, \chi$, entonces
 \section{Scattering}
 % =================================================================================================
 
+Tenemos dos suposiciones básicas:
+	\begin{itemize}
+		\item Interacción elástica.
+		\item Conservación de energía y de momento.
+	\end{itemize}
+	
+Desde el centro de masa se tienen:
+\[
+	\vb{P} = \vb{P}_1 + \vb{P}_2 = 0	\qquad		\vb{r} \equiv \vb{r}_2 + \vb{r}_1
+	\qquad		\vb{V} \equiv \vb{V}_2 - \vb{V}_1
+\]
+donde los últimos son las posiciones y velocidades relativas.
+\[
+	E = \frac{1}{2} M \vb{V}_{cm}^2 + \frac{1}{2} \mu \vb{V}^2 + V(r)
+\]
+\[
+	m_1 \vb{V}_1 + m_2 \vb{V}_2 = 0 \qquad m_1 \vb{V}_1 = -\frac{m_2}{m_1} \vb{V}_2.
+\]
 
+En términos de las velocidades relativas
+\[
+	\vb{V}_2 = \frac{m_1}{m_1 + m_2} \vb{V} \qquad \vb{V}_1 = -\frac{m_2}{m_1 + m_2} \vb{V}
+\]
+Se puede escribir la energía cinética del siguiente modo
+\[
+	T = \frac{1}{2} m_1 \vb{V}_{1-in}^2 + \frac{1}{2} m_2 \vb{V}_{2-in}^2 =
+	\frac{1}{2} M \vb{V}_{cm}^2 + \frac{1}{2} m_1 \vb{V}_{1-cm}^2 + \frac{1}{2} m_2 \vb{V}_{2-cm}^2 
+\]
+\[
+	T - \frac{1}{2} M \vb{V}_{cm}^2 \equiv t = \frac{1}{2} \frac{m_1 m_2}{m_1 + m_2} \vb{V}^2 =
+							\frac{1}{2} \mu \vb{V}^2
+\]
 
+\[
+	\vb{V}_1^L = \vb{V}_{cm} - \frac{m_2}{M} \vb{V}	\qquad \vb{V}_2^L = \vb{V}_{cm} - \frac{m_1}{M} \vb{V}
+\]
+
+\[
+	\vb{p}_1^L = m_1 \vb{V}_{cm} - \mu \vb{V} = m_1 \frac{\vb{P}}{M} - \mu \vb{V}
+\]
+\[
+	\vb{p}_2^L = m_2 \vb{V}_{cm} + \mu \vb{V} = m_2 \frac{\vb{P}}{M} + \mu \vb{V}
+\]
+
+Donde 
+\[
+	\vb{V}_{cm} + \vb{V}_1 = \vb{V}_1^L
+\]
+\[
+	\vb{p}_2^L = \frac{m_2}{M} \vb{P} + \mu \vb{V}\hat{n}		\qquad	 \vb{p}_1^L = \frac{m_1}{M} \vb{P} - \mu \vb{V}\hat{n}
+\]
+\[
+	\frac{m_2}{M} \vb{P} + \frac{m_1}{M} \vb{P} = \vb{P} = \vb{p}_2^L + \vb{p}_1^L
+\]
+\[
+	\tan(\theta_2) = \frac{P_1 \sin(\chi)}{ (m_2/M) P + P_1\cos(\chi)}
+\]
+
+% =================================================================================================
+\section{Dispersión por potenciales infinitos}
+% =================================================================================================
+
+La idea es que sabiendo $\rho$ (parámetro de impacto) quiero saber qué ángulo $\chi$ se desvían las
+partículas incidentes.
+
+\[
+	\phi_0 + \alpha = \frac{\pi}{2}		\qquad		2 \phi_0 + \alpha + \beta = \pi
+	\qquad \phi_0 + \beta = \frac{\pi}{2}
+\]
+\[
+	\alpha = \beta		\qquad 		2\alpha = 2\beta = \chi
+\]
+\[
+	\dtot{\rho}{z} = \tan \left(\beta \right) = \tan\left(\frac{\chi}{2}\right)
+\]
+\[
+	\tan\left(\frac{\chi}{2}\right) = \dtot{\rho}{z} = \frac{ d\rho/dz }{ dz/d\theta }
+\]
+con $\theta$ variable paramétrica. Donde $\rho = \rho(z)$ es la función que da la curva roja (el perfil
+del cuerpo dispersor).
 
 
 
