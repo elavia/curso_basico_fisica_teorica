@@ -39,9 +39,10 @@
 % =================================================================================================
 
 Los vínculos constituyen la condición de rigidez,
-\[
+\be
 	|\vb{r}_i \vb{r}_j | = d_{ij}	\qquad i \neq j
-\]
+\label{vinculos}
+\ee
 
 Del discreto al continuo
 \[
@@ -52,6 +53,68 @@ Del discreto al continuo
 \subsection{Grados de libertad de un cuerpo rígido}
 
 Cada punto tiene como vínculos las ecuaciones \eqref{vinculos}
+
+El cuerpo rígido tiene seis grados de libertad.
+Si las condiciones de rigidez son lineales resultan cinco grados de libertad.
+
+\subsection{Velocidad de un cuerpo rígido}
+
+Lo único que pueden hacer los puntos de un cuerpo rígido es rotar.
+
+\[
+	\delta r_{p_0} = r_{p_0} \sin(\beta) \delta \alpha
+\]
+\[
+	\frac{\delta r_{p_0}}{\delta t} = r_{p_0} \sin(\beta) \frac{\delta\alpha}{\delta t}
+\]
+\[
+	v_{p_0} = \dot{\alpha} r_{p_0} \sin(\beta)
+\]
+pero $v_{p_0} \perp \hat{n}$ y $v_{p_0} \perp r_{p_0}$ de manera que 
+\[
+	\vb{V}_{p_0} = \vb{\Omega} \times \vb{r}_{p_0}.
+\]
+
+Luego, para ir a un sistema inercial le sumo la V de algún punto del rígido (el origen O)
+medido desde un sistema inercial. Entonces, el campo de velocidad del cuerpo rígido es
+\[
+	\vb{V}_{p} = \vb{V}_0 + \vb{\Omega} \times \vb{r}_{p_0}.
+\]
+
+\subsection{Unicidad de la velocidad de rotación}
+
+\[
+	\vb{V}_{p} = \vb{V}_0' + \vb{\Omega}' \times \vb{r}_{p_0'}
+\]
+siendo \vb{\Omega}' la \vb{\Omega} como se ve desde el sistema O'
+\[
+	\vb{V}_{p} = \vb{V}_0 + \vb{\Omega} \times \vb{r}_{p_0}
+\]
+y donde \vb{\Omega} es la vista desde el sistema O.
+\[
+	\vb{V}_0' + \vb{\Omega}' \times \vb{r}_{p_0'} = \vb{V}_0 + \vb{\Omega} \times \vb{r}_{p_0} 
+\]
+y descomponiendo de acuerdo con el dibujo resulta 
+\[
+	\vb{\Omega} \times \vb{r}_{OO'} + \vb{\Omega}' \times \vb{r}_{0'p} = \vb{\Omega} \times \vb{r}_{p_0} 
+\]
+\[
+	\vb{\Omega} \times ( \vb{r}_{00'} - \vb{r}_{0p} ) + \vb{\Omega}' \times \vb{r}_{0'p}  = 0
+\]
+\[
+	( \vb{\Omega}' - \vb{\Omega}  ) \times \vb{r}_{0'p} = 0 ,
+\]
+de la cual se deduce que $\vb{\Omega}'=\vb{\Omega}$. Entonces, \vb{\Omega} es la misma para cualquier
+punto del cuerpo rígido.
+
+\subsection{Eje instantáneo de rotación}
+
+
+
+
+
+
+
 
 
 
