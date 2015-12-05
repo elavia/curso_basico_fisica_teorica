@@ -121,14 +121,67 @@ $\vb{V}_{p'}$ para todo punto del cuerpo rígido.
 
 \subsection{Eje instantáneo de rotación}
 
+Si $p$ es tal que $\vb{V}_p = 0$ entonces
+\[
+	\vb{V}_0 = - \vb{\Omega} \times \vb{r}_{p0}
+\]
+donde $\vb{V}_0$ es una velocidad desde un sistema inercial.
+Desde el sistema inercial el cuerpo rígido realiza una rotación pura, puesto que veo al
+punto O rotar en torno a algún eje.
+\[
+	\vb{V}_0 = - \vb{\Omega} \times ( r_{\perp} + r_{\parallel} ) = -\vb{\Omega} \times  r_{\perp} 
+\]
+y esto define un eje instantáneo de rotación.
 
+% =================================================================================================
+\section{Ángulos de Euler}
+% =================================================================================================
 
+Se toma un sistema 123 inicialmente coincidente con uno XYZ paralelo al inercial, 123 tiene origen
+en el centro de masa del cuerpo.
 
+\[
+	A_1(\phi) = 
+	\begin{pmatrix}
+		\cos(\phi) & \sin(\phi) & 0 \\
+		-\sin(\phi) & \cos(\phi) & 0 \\ 
+		0 & 0 & 1  \\
+	\end{pmatrix}
+\]
+\[
+	A_2(\theta) = 
+	\begin{pmatrix}
+		1 & 0 & 0 \\
+		0 & \cos(\theta) & \sin(\theta) \\ 
+		0 & -\sin(\theta) & \cos(\theta)  \\
+	\end{pmatrix}
+\]
+\[
+	A_3(\psi) = 
+	\begin{pmatrix}
+		\cos(\psi) & \sin(\psi) & 0 \\
+		-\sin(\psi) & \cos(\psi) & 0 \\ 
+		0 & 0 & 1  \\
+	\end{pmatrix}
+\]
+\[
+	\vb{\Omega} = \dot{\phi}\hat{z} + \dot{\theta}\hat{n} + \dot{\psi}\hat{3}
+\]
+y expresando $\hat{z},\hat{n}$ en $\hat{1},\hat{2}, \hat{3}$ resulta
+\[
+	\vb{\Omega} = [\dot{\phi}\sin(\theta)\sin(\psi) + \dot{\theta}\cos(\psi) ]\hat{1} +
+			[\dot{\phi}\sin(\theta)\cos(\psi) - \dot{\theta}\sin(\psi) ] \hat{2} +
+			[\dot{\phi}\cos(\theta) + \dot{\psi} ]\hat{3}
+\]
 
-
-
-
-
+Ahora estamos interesados en el momento angular.
+\[
+	\vb{L}_0^{sist} = \vb{L}^{cm} + \vb{L}_{cm}^{sist} 
+\]
+\[
+	\vb{L}_{spin} = \sum_i^N m_i ( \vb{r}_i' \times \vb{v}_i' )
+\]
+que están en el sistema 123.
 
 
 
