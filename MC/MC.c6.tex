@@ -233,6 +233,87 @@ siendo $I$ el tensor de inercia. Explícitamente:
 	\end{pmatrix} 
 \]
 
+Sean 1,2,3 los ejes principales, entonces $I$ es diagonal y
+\[
+	\vb{L}_{spin}
+	=
+	\begin{pmatrix}
+		I_{11} & 0 & 0 \\
+		0 & I_{22} & 0 \\ 
+		0 & 0 & I_{33}  \\
+	\end{pmatrix}
+	\begin{pmatrix}
+		\Omega_1 \\
+		\Omega_2 \\ 
+		\Omega_3  \\
+	\end{pmatrix}
+	=
+	I \vb{\Omega}
+\]
+y se puede escribir
+\[
+	\left.\frac{d}{dt}\right|_{in} \Box = \left.\frac{d}{dt}\right|_{rot} \Box + \vb{\Omega} \times \Box
+\]
+que es válida pra sistemas rotantes (no aquellos que rotan y se trasladan).
+En este caso \vb{\Omega} es la del sistema rotante (en un cuerpo rígido es la \vb{\Omega} del cuerpo rígido).
+
+Se puede escribir también 
+\[
+	\left.\frac{d}{dt}\right|_{in} \vb{L}_{spin} = \vb{\Tau}_{cm}
+\]
+siendo la derivada de uns sitema XYZ, y \vb{\Tau} el torque del cuerpo rígido referido al centro de masa y
+medido dese el sistema XYZ (inercial).
+Entonces
+\[
+	\vb{\Tau}_{cm} = \left. \frac{d}{dt}\right|_{rot} \vb{L}_{spin} + \vb{\Omega} \times ( \vb{L}_{spin} )
+\]
+y
+\[
+	\vb{\Tau}_{cm} = \left. I \frac{d}{dt}\right|_{rot} \vb{\Omega} + \vb{\Omega} \times ( I \; \vb{\Omega} ).
+\]
+$I$ visto desde XYZ es $I=I(t)$ e $I$ desde 123 es constante.
+\[
+	\vb{\Tau}_{cm} =
+	\begin{pmatrix} \;
+		I_1 \dot{\vb{\Omega}}_1 \\
+		I_2 \dot{\vb{\Omega}}_2 \\ 
+		I_3 \dot{\vb{\Omega}}_3 \; \\
+	\end{pmatrix}
+	+
+	\begin{vmatrix} \;
+		\hat{1} & \hat{2} & \hat{3} \\
+		\; \Omega_1 & \Omega_2 & \Omega_3 \\ 
+		\; I_1\Omega_1 & I_2\Omega_2 & I_3\Omega_3 \; \\
+	\end{vmatrix}	
+\]
+
+De este sistema resultan,
+\begin{align*}
+\Tau_1 = I_1 \dot{\Omega}_1 + (I_3-I_2) \: \Omega_2 \: \Omega_3 \\
+\Tau_2 = I_2 \dot{\Omega}_2 + (I_1-I_3) \: \Omega_3 \: \Omega_1 \\
+\Tau_3 = I_3 \dot{\Omega}_3 + (I_2-I_1) \: \Omega_1 \: \Omega_2
+\end{align*}
+que son las ecuaciones de Euler. 
+Las mismas requieren $I$ en ejes principales, \vb{\Omega} en 1,2,3 (en función de $\phi,\theta,\psi$).
+Es \vb{\Omega} la velocidad de rotación del sistema cuerpo rígido (rotante) respecto a un sistema XYZ
+fijo en el centro de masa y coincidente con X'Y'Z' (inercial) a todo tiempo. Salvo la traslación del centro
+de masa, este sistema XYZ será inercial.
+
+Todo este tratamiento de ecuaciones de Euler es para el caso $\vb{L}_{spin} \equiv \vb{L}_{cm}^{sist}$, de
+manera que no me importan las traslaciones del centro de masa.
+
+\[
+	\left.\frac{d}{dt}\right|_{XYZ} \vb{L}_{spin} = \vb{\Tau}_{cm} =
+	\left.\frac{d}{dt}\right|_{123} \vb{L}_{spin} + \vb{\Omega} \times \vb{L}_{spin} 
+\]
+
+% =================================================================================================
+\section{Energía cinética del cuerpo rígido}
+% =================================================================================================
+
+
+
+
 \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
