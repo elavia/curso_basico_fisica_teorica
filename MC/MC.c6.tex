@@ -182,8 +182,56 @@ Ahora estamos interesados en el momento angular.
 	\vb{L}_{spin} = \sum_i^N m_i ( \vb{r}_i' \times \vb{v}_i' )
 \]
 que están en el sistema 123.
-
-
+\[
+	\vb{L}_{spin} = \sum_i^N m_i ( \vb{r}_i \times \vb{\Omega} \times \vb{r}_i )
+\]
+\[
+	\vb{L}_{spin} = \sum_i^N m_i \left[ \; 
+	\vb{\Omega} (\vb{r}_i\cdot\vb{r}_i) - \vb{r}_i(\vb{r}_i \cdot \vb{\Omega}) \; \right] 
+\]
+\[
+	\vb{L}_{spin} = \sum_i^N m_i \left[ \; 
+	\vb{\Omega} \sum_j^3 (x_j^{2i}) - \vb{r}_i \sum_\ell^3 x_\ell^i \Omega_\ell  \; \right] 
+\]
+y la componente $k$-ésima será 
+\[
+	L_k = \sum_i^N m_i \left[ \; 
+	\Omega_k \sum_j^3 (x_j^{2i}) - x_k^i \sum_\ell^3 x_\ell^i \Omega_\ell  \; \right] 
+\]
+\[
+	L_k = \sum_i^N m_i \left[ \; 
+	\sum_j^3 \delta_{kj} \Omega_j r_i^{2} - x_k^i \sum_\ell^3 x_\ell^i \Omega_\ell  \; \right] 
+\]
+\[
+	L_k = \sum_j^3 \sum_i^N m_i \left[ \; 
+	\delta_{kj} r_i^{2} - x_k^i x_j^i  \; \right] \Omega_j = \sum_j^3 I_{kj} \Omega_j 
+\]
+o vectorialmente
+\[
+	\vb{L}_{spin} = I \vb{\Omega}
+\]
+siendo $I$ el tensor de inercia. Explícitamente:
+\[
+	I_{kj} = \sum_i^N m_i \left[ \; \delta_{kj} r_i^{2} - x_k^i x_j^i  \; \right]
+\]
+\[
+	\begin{pmatrix}
+		L_1 \\
+		L_2 \\ 
+		L_3  \\
+	\end{pmatrix} 
+	=
+	\begin{pmatrix}
+		I_{11} & I_{12} & I_{13} \\
+		I_{21} & I_{22} & I_{23} \\ 
+		I_{31} & I_{32} & I_{33}  \\
+	\end{pmatrix}
+	\begin{pmatrix}
+		\Omega_1 \\
+		\Omega_2 \\ 
+		\Omega_3  \\
+	\end{pmatrix} 
+\]
 
 \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 \bibliography{CBFT.Referencias} % La base de datos bibliográfica
