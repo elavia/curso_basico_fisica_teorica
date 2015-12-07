@@ -311,8 +311,67 @@ manera que no me importan las traslaciones del centro de masa.
 \section{Energía cinética del cuerpo rígido}
 % =================================================================================================
 
+Queremos escribir la energía cinética de un cuerpo rígido explícitamente en términos del momento
+de inercia $I$.
+\[
+	T = \frac{1}{2} \sum_i^N m_i v_i^2 = \frac{1}{2} \sum_i^N m_i ( \vb{v}_{cm} + \vb{\Omega} \times \vb{r}_i ) ^2
+\]
+donde la última $\vb{r}_i$ está referida al centro de masa (posiciones de los puntos del cuerpo
+rígido referidas al centro de masa).
+\[
+	T = \frac{1}{2} \sum_i^N m_i ( \vb{v}_{cm}^2 + (\vb{\Omega} \times \vb{r}_i)^2 +
+		2 \vb{v}_{cm} \cdot (\vb{\Omega} \times \vb{r}_i)  )
+\]
+pero es fácil ver que el término de cruza es cero dado que 
+\[
+	\sum_i^N m_i \vb{v}_{cm} \cdot (\vb{\Omega} \times \vb{r}_i) = 
+	\sum_i^N m_i \vb{r}_i \cdot ( \vb{v}_{cm} \times \vb{\Omega} ) = 
+	M \vb{R}_{cm} \cdot ( \vb{v}_{cm} \times \vb{\Omega} ) = 0
+\]
+puesto que $M \vb{R}_{cm}$ es nulo para un sistema no inercial. Luego 
+\[
+	T = \frac{1}{2} \sum_i^N m_i \vb{v}_{cm}^2 + \frac{1}{2} \sum_i^N m_i (\vb{\Omega} \times \vb{r}_i)^2
+\]
+\[
+	T = \frac{1}{2} \sum_i^N m_i \vb{v}_{cm}^2 +
+	\frac{1}{2} \sum_i^N m_i ( \Omega^2 r_i^2 - (\vb{\Omega}\cdot\vb{r}_i)^2 )
+\]
+pero veamos el último paréntesis en detalle,
+\[
+	\left(\sum_j \sum_k \Omega_j \Omega_j x_k^i x_k^i - 
+	\sum_\ell \sum_p \Omega_\ell x_\ell^i \Omega_p x_p^i \right)
+\]
+\[
+	\left(\sum_j \sum_k \Omega_j \delta_{jk}\Omega_k x_k^i x_k^i - 
+	\sum_\ell \sum_p \Omega_\ell x_\ell^i \Omega_p x_p^i \right)
+\]
+y reetiquetando
+\[
+	\left(\sum_j \sum_k \Omega_j \delta_{jk}\Omega_k x_k^i x_k^i - 
+	\sum_j \sum_k \Omega_j x_j^i \Omega_p x_k^i \right)
+\]
+\[
+	\frac{1}{2} \sum_i^N m_i \sum_{j,k} \Omega_j\Omega_k \left[ \delta_{jk}(r^i)^2 - x^i_j x^i_k \right]
+\]
+y entonces
+\[
+	T = \frac{1}{2} M V^2_{cm} + \frac{1}{2} \sum_{j,k} \Omega_j\Omega_k I_{jk}
+\]
+y como lo último es una forma cuadrática podemos escribir de manera más elegante
+\[
+	T = \frac{1}{2} M V^2_{cm} + \frac{1}{2} \vb{\Omega}^t I \vb{\Omega}. 
+\]
 
-
+Recordemos que el tensor de inercia tiene en su diagonal los momentos de inercia
+mientras que los términos fuera de la misma son los productos de inercia.
+\[
+	I_{ik} = \sum_q m_q \left( \delta_{ik} (r_q)^2 - x_i^q x_k^q \right)
+\]
+y el paso al continuo nos deja los momentos de inercia,
+\[
+	I_{ik} = \int_V \rho(\vb{r}) \left[ \delta_{ik}r^2 - x_i x_k \right] dV
+\]
+donde por supuesto es $r^2 = x_1^2 + x_2^2 + x_3^2$.
 
 \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 \bibliography{CBFT.Referencias} % La base de datos bibliográfica
