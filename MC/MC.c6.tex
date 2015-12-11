@@ -373,6 +373,176 @@ y el paso al continuo nos deja los momentos de inercia,
 \]
 donde por supuesto es $r^2 = x_1^2 + x_2^2 + x_3^2$.
 
+El cambio de sistema se hace de acuerdo a
+\[
+	I_{ik}' = \sum_{\ell s} a_{i\ell} I_{\ell s} a_{ks}
+\]
+y en componentes,
+\[
+	\sum_q m_q ( \delta_{ik} {r'}^2_q - x'_i x'_k ) =  a_{i\ell} a_{ks} \sum_q m_q
+	( \delta_{\ell s} r^2_q - x_\ell x_s )
+\]
+donde en el miembro izquierdo es $i \neq k$, y el derecho $\ell \neq s$
+\[
+	- \sum_q m_q x'_i x'_k =  - \sum_q m_q a_{i\ell} x_\ell a_{ks}  x_s 
+\]
+entonces 
+\[
+	I =
+	\begin{pmatrix} \;
+		I_{11} & I_{12} & I_{13} \\
+		I_{21} & I_{22} & I_{23} \\ 
+		I_{31} & I_{32} & I_{33} \\
+	\end{pmatrix}
+\]
+siendo el triángulo superior valores repetidos. El tensor de inercia es simétrico por su 
+definición. De los nueve componentes son independientes seis. Matemáticamente
+\[
+	I_{ik} = I_{ki}.
+\]
+
+Todo tensor simétrico se puede llevar a una forma diagonal eligiendo bien los ejes del 
+sistema 123 fijo al cuerpo. Podemos conseguir una transformación $I \to I'$ tal que 
+\[
+	I' =
+	\begin{pmatrix} \;
+		I_{11}' & 0 & 0 \\
+		0 & I_{22}' & 0 \\ 
+		0 & 0 & I_{33}' \\
+	\end{pmatrix}
+\]
+Los $I'_{ik}$ son los momentos principales de inercia (aquellos que están calculados sobre
+{\it ejes principales de inercia}).
+
+Cuando el cuerpo rígido tiene simetría pueden hallarse a ojo los ejes principales de inercia.
+
+Para el cálculo de $I$ se usa un sistema fijo al cuerpo rígido. Si usamos un sistema inercial,
+será $I_{ik}=I_{ik}(t)$ lo cual no es conveniente.
+
+Es conveniente elegir 123 con origen en el centro de masa y partícipes del movimiento del 
+cuerpo rígido (clavados al mismo). Asimismo conviene elegir XYZ referidos al sistema inercial
+coincidentes pero trasladados al centro de masa. Así los $I_{ik}$ resultan características
+geométricas del cuerpo.
+
+% =================================================================================================
+\section{La peonza simétrica}
+% =================================================================================================
+
+\[
+	T_{rot} = \frac{1}{2} I_1 \Omega^2_ 1 + \frac{1}{2} I_2 \Omega^2_2 + \frac{1}{2} I_3 \Omega^2_3 
+\]
+donde son 
+\[
+	\Omega_1 = \dot{\theta} \qquad \Omega_2 = \dot{\phi} \sin(\theta) \qquad \Omega_3 = \dot{\phi} \cos(\theta) + \dot{\psi}
+\]
+y debemos destacar que $\psi=0$ no es vínculo sino solo comodidad pues $\dot{\psi} \neq 0$ y es independiente.
+Los vínculos pueden escribirse
+\[
+	\theta_e = \theta
+\]
+\[
+	\phi_e + \frac{3}{2}\pi = \phi \; \longrightarrow \; \dot{\phi_e} = \dot{\phi}
+\]
+\[
+	r^2 = a^2 = x_{cm}^2 + y_{cm}^2 + z_{cm}^2
+\]
+y las coordenadas
+\begin{align*}
+	x &= a \sin(\theta) \cos\left( \frac{\pi}{2}-\phi_e \right) = a \sin(\theta) \sin( \phi_e ) \\
+	y &= a \sin(\theta) \sin\left( \frac{\pi}{2}-\phi_e \right) = -a \sin(\theta) \cos( \phi_e ) \\
+	z &= a \cos(\theta)
+\end{align*}
+y la velocidad
+\[
+	\dot{x}^2 + \dot{y}^2 + \dot{z}^2 = a^2 \dot{\theta}^2 + a^2 \sin(\theta)^2 \dot{\phi}^2
+\]
+y el lagrangiano finalmente
+\[
+	\Lag = \frac{1}{2} M (a^2 \dot{\theta}^2 + a^2 \sin(\theta)^2 \dot{\phi}^2) + \frac{1}{2} I_1 \dot{\theta}^2
+	+ \frac{1}{2} I_2 \sin(\theta)^2 \dot{\phi}^2) + \frac{1}{2} I_3 (\dot{\phi} \cos(\theta) + \dot{\psi})^2 
+\]
+pero por la simetría $I_1=I_2\equiv I$ de modo que 
+\[
+	\Lag = \frac{1}{2} M a^2 (\dot{\theta}^2 + \sin(\theta)^2 \dot{\phi}^2) + \frac{1}{2} I ( \dot{\theta}^2 +
+	\sin(\theta)^2 \dot{\phi}^2 ) + \frac{1}{2} I_3 (\dot{\phi} \cos(\theta) + \dot{\psi})^2 
+\]
+\[
+	\Lag = \frac{1}{2} ( M a^2 + I ) (\dot{\theta}^2 + \sin(\theta)^2 \dot{\phi}^2) +  
+		\frac{1}{2} I_3 (\dot{\phi} \cos(\theta) + \dot{\psi})^2  - m g a \cos(\theta)
+\]
+y los primeros dos términos representan una rotación pura si tomo 
+\[
+	( M a^2 + I ) \equiv I' 
+\]
+donde $I'$ es otro momento de inercia.
+
+Luego hay unos interesantes comentarios sobre la ubicación de los ejes. El famoso ``bajo ejes''.
+\[
+	T = T_{trasl} + T_{rot} + T_{acopl}
+\]
+y el último es nulo si elegimos el origen común O=O'= centro de masa.
+\[
+	\vb{V} = \vb{V}_{cm} + \Omega \times \vb{r}
+\]
+También es $T_{acopl}=0$ si $V_0=0$ (aquí también se anula $T_{trasl}$).
+
+% =================================================================================================
+\section{Teorema de Steiner}
+% =================================================================================================
+
+\[
+	\vb{x} = \vb{U} - \vb{a}  
+\]
+\[
+	I_{ij}^0 = \sum_s^N m^s ( \delta_{ij} x_s^2 - x_i^s x_j^s )
+\]
+\[
+	I_{ij}^0 = \sum_s^N m^s ( \delta_{ij} ( \vb{U}_s - \vb{a} )^2 - (U^s_i - a_i) ( U^s_j - a_j ) )
+\]
+Trasladamos el punto (con el sistema de ejes paralelo al del centro de masa) sin rotarlo. Eso es importante.
+\[
+	I_{ij}^0 = \sum_s^N m^s \left[  \delta_{ij} ( U_s^2 + a^2 - 2Ua ) -
+			( U^s_iU^s_j + a_i a_j - a_i U^s_j - a_j U^s_i ) \right]
+\]
+\[
+	I_{ij}^0 = \sum_s^N m^s ( \delta_{ij} U_s^2 - U^s_iU^s_j ) + \sum_s^N m^s ( \delta_{ij} a^2 - a_i a_j )
+			- \sum_s^N m^s \delta_{ij} 2 U^s a  + \sum_s^N m^s ( a_i U^s_j + a_j U^s_i )
+\]
+pero las dos últimas sumatorias son nulas, y
+\[
+	I_{ij}^0 = \sum_s^N m^s ( \delta_{ij} U_s^2 - U^s_iU^s_j ) + \sum_s^N m^s ( \delta_{ij} a^2 - a_i a_j )
+		= I_{ij}^{cm}  + M ( \delta_{ij} a^2 - a_i a_j )
+\]
+
+Esto sale de
+\[
+	\sum_s^N m^s \delta_{ij} U^s a = \delta_{ij} a \sum_s^N m^s  U^s  = 0
+\]
+puesto que es nula la suma en $s$. Porque 
+\[
+	0 = \sum_s^N m^s \vb{U}^s = \sum_s^N m^s ( U_1^s \hat{1} + U_2^s \hat{2} + U_3^s \hat{3} )
+\]
+pero como es vectorial vale para cada coordenada 
+\[
+	0 = \sum_s^N m^s U_i^s \qquad \forall i=1,2,3
+\]
+\[
+	0 = \sum_s^N m^s U_i^s a
+\]
+
+La moraleja es que trasladar en un solo eje conserva la diagonalidad del tensor de inercia.
+
+% =================================================================================================
+\section{Sistemas inerciales}
+% =================================================================================================
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.7\textwidth]{images/fig_sist_rotantes.pdf}	 
+	\end{center}
+	\caption{Sistemas rotantes.}
+\end{figure} 
+
 \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
