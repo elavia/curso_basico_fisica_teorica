@@ -612,6 +612,54 @@ donde el sistema no inercial es el rotante.
 \section{Lagrangiano de un sistema no inercial que se traslada}
 % =================================================================================================
 
+\[
+	\Lag = \frac{1}{2} m v^2 - U(\vb{r})
+\]
+\[
+	\Lag = \frac{1}{2} m ( v + v' )^2 - U(\vb{r})
+\]
+\[
+	\Lag = \frac{1}{2} m  v^2 + m \vb{v}\cdot\vb{v}' +\frac{1}{2} m {v'}^2 - U(\vb{r}) - U
+\]
+pero el primer término se  tira puesto que equivale a un término $df/dt$ que cumple 
+\[
+	\dtot{f}{t} = \frac{1}{2} m  v^2 \qquad \qquad f = \frac{1}{2} m  \frac{v^3}{3} + K
+\]
+y además 
+\[
+	 m \vb{v}\cdot\vb{v}' =  m \vb{v}\cdot \dtot{\vb{v}'}{t} = - m \dtot{\vb{v}}{t} \vb{r}' 
+				+ \frac{d}{dt}\left( m \vb{r}' \vb{v} \right)
+\]
+y el último término acá lo tiramos porque equivale a un $df_2/dt$.
+\[
+	\Lag = \frac{1}{2} m {v'}^2 - m \dtot{\vb{v}}{t}\cdot\vb{r}' - U(\vb{r})
+\]
+\[
+	\dtot{\dpar{\Lag}{\vb{v}'}}{t} -\dpar{\Lag}{\vb{r}'} =
+		m\cdot\dot{\vb{v}} + m \dtot{\vb{v}}{t} + \dtot{U}{\vb{r}'} = 0
+\]
+\[
+	m \vb{a} = -\dtot{U}{\vb{r}'} - m \vb{A}
+\]
+donde el último término es la aceleración del sistema inercial y el primero el producto $m\vb{a}'$.
+Expresamos $v=v(V,v')$ con lo cual aparecen en el $\Lag$ las fuerzas ficticias y expreso $T$ en 
+función de coordenadas que se hallan sobre un sistema no inercial.
+\[
+	\left. \dtot{\vb{r}}{t} \right|_{in} = \left. \dtot{\vb{r}}{t} \right|_{rot} + \vb{\Omega} \times \vb{r}
+\]
+\[
+	\left. \dtot[2]{\vb{r}}{t} \right|_{in} = 
+	\left. \frac{d}{dt}\left( \left. \dtot{\vb{r}}{t} \right|_{rot} + \vb{\Omega} \times \vb{r} \right) \right|_{rot}
+	+ \vb{\Omega} \times \left( \left. \dtot{\vb{r}}{t} \right|_{rot} + \vb{\Omega} \times \vb{r} \right)
+\]
+\[
+	\left. \dtot[2]{\vb{r}}{t} \right|_{in} = 
+	\left. \dtot[2]{\vb{r}}{t} \right|_{rot}  \; +  \; \left.\dtot{\vb{\Omega}}{t}\right|_{rot} \times \vb{r}
+	 \;  + \; 2 \vb{\Omega} \times \left. \dtot{\vb{r}}{t} \right|_{rot} 
+	 \;  + \;  \vb{\Omega} \times \left( \vb{\Omega} \times \vb{r} \right)
+\]
+
+
 
 \subsection{Lagrangiano en un sistema rotante}
 
