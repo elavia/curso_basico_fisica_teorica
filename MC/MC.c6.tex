@@ -543,8 +543,81 @@ La moraleja es que trasladar en un solo eje conserva la diagonalidad del tensor 
 	\caption{Sistemas rotantes.}
 \end{figure} 
 
+\vb{\Omega} es la velocidad angular del sistema no inercial. $\ddot{\vb{R}}$ es la aceleración del 
+sistema no inercial. Ambas se miden sólo desde el sistema inercial.
+
+\[
+	\vb{r} = \vb{R} + \vb{r}'
+\]
+\[
+	\left.\dtot{\vb{r}}{t}\right|_{in} =
+			\left.\dtot{\vb{R}}{t}\right|_{in} + \left.\dtot{\vb{r}'}{t}\right|_{in}
+\]
+si despejamos la derivada respecto del sistema primado,
+\[
+	\left.\dtot{\vb{r}'}{t}\right|_{in} = \left.\dtot{\vb{r}}{t}\right|_{in} 
+				- \left.\dtot{\vb{R}}{t}\right|_{in}
+\]
+y usamos 
+\[
+	\left.\dtot{\vb{r}'}{t}\right|_{in} = \left.\dtot{\vb{r}'}{t}\right|_{no in} +
+				\vb{\Omega} \times \vb{r}'
+\]
+va resultando 
+\[
+	\left. \frac{d}{dt}\left( {\left.\dtot{\vb{r}'}{t}\right|_{no in}} \right) \right|_{in}  =  
+			\left.\dtot[2]{\vb{r}}{t}\right|_{in}  - \left.\dtot[2]{\vb{R}}{t}\right|_{in} 
+			- \left. \dtot{(\vb{\Omega} \times \vb{r}')}{t}\right|_{in}
+\]
+\[
+	\left.\dtot[2]{\vb{r}'}{t}\right|_{no in}  + \vb{\Omega} \times \left.\dtot{\vb{r}'}{t}\right|_{no in}
+		 = \vb{a}|_{in} - \ddot{\vb{R}}|_{in} - \left. \dtot{\vb{\Omega}}{t}\right|_{in} \times \vb{r}' 
+				+ \vb{\Omega} \times \left. \dtot{ \vb{r}'}{t}\right|_{in}
+\]
+donde hemos usado que 
+\[
+	\left. \dtot{\vb{\Omega}}{t} \right|_{in} = \left. \dtot{\vb{\Omega}}{t} \right|_{no in} \qquad \qquad
+	\left. \dtot{\vb{R}}{t} \right|_{in} = - \left. \dtot{\vb{R}}{t} \right|_{no in}
+\]
+\[
+	\left.\dtot[2]{\vb{r}'}{t}\right|_{no in}  + \left( \vb{\Omega} \times \left.\dtot{\vb{r}'}{t}\right|_{no in} \right)
+		 = \vb{a}|_{in} - \ddot{\vb{R}}|_{in} 
+		 - \left[\left. \dtot{\vb{\Omega}}{t}\right|_{no in} + \vb{\Omega} \times \vb{\Omega} \right] \times \vb{r}' 
+		+ \vb{\Omega} \times \left[ \left. \dtot{ \vb{r}'}{t}\right|_{no in} + \vb{\Omega} \times \vb{r}' \right]
+\]
+\[
+	\left. \vb{a}'\right|_{no in}   = \vb{a}|_{in} - \ddot{\vb{R}}|_{in} 
+		 - \dot{\vb{\Omega}} \times \vb{r}'  -  \vb{\Omega} \times \left.\dot{\vb{r}}' \right|_{no in} 
+		- \vb{\Omega} \times \left( \vb{\Omega} \times \dot{\vb{r}}' \right) 
+		- \vb{\Omega} \times  \left. \dtot{ \vb{r}'}{t}\right|_{no in} 
+\]
+\[
+	\left. \vb{a}'\right|_{no in}  = \ddot{\vb{r}}  - \ddot{\vb{R}}
+		 - \dot{\vb{\Omega}} \times \vb{r}'  -  2 \vb{\Omega} \times \left.\dot{\vb{r}}' \right|_{no in} 
+		- \vb{\Omega} \times \left( \vb{\Omega} \times \dot{\vb{r}}' \right)
+\]
+
+Vale la pena aclarar la deduccion,
+\[
+	\left. \dtot{\vb{r}}{t} \right|_{in} = \left. \dtot{\vb{R}}{t} \right|_{in} + \left. \dtot{\vb{r}'}{t} \right|_{no in}
+	+ \vb{\Omega} \times \vb{r}' 
+\]
+pero si es $\vb{R}=0$ se tiene $\vb{r}=\vb{r}'$ y entonces
+\[
+	\left. \dtot{\vb{r}}{t} \right|_{in} =  \left. \dtot{\vb{r}'}{t} \right|_{no in} + \vb{\Omega} \times \vb{r}' 
+\]
+donde el sistema no inercial es el rotante.
+
+% =================================================================================================
+\section{Lagrangiano de un sistema no inercial que se traslada}
+% =================================================================================================
 
 
+\subsection{Lagrangiano en un sistema rotante}
+
+% =================================================================================================
+\section{Sistemas rotantes}
+% =================================================================================================
 
 \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 \bibliography{CBFT.Referencias} % La base de datos bibliográfica
