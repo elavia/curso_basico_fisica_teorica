@@ -659,8 +659,6 @@ función de coordenadas que se hallan sobre un sistema no inercial.
 	 \;  + \;  \vb{\Omega} \times \left( \vb{\Omega} \times \vb{r} \right)
 \]
 
-
-
 \subsection{Lagrangiano en un sistema rotante}
 
 \[
@@ -681,6 +679,154 @@ teníamos
 % =================================================================================================
 \section{Sistemas rotantes}
 % =================================================================================================
+
+Considero dos sistemas, XYZ inercial y X'Y'Z' rotante (no inercial).
+
+\[
+	\vb{U}' = A \vb{U} 
+\]
+donde $A$ es la matriz del cambio de coordenadas (una transformación ortogonal) y $U$ es una descripción
+desde el XYZ y $U'$ una descripción desde el X'Y'Z'.
+
+Haremos unas derivadas utilizando la regla de la cadena,
+\[
+	\dtot{U}{t} = \dtot{U_x}{t}\hat{x} + \dtot{U_y}{t}\hat{y} + \dtot{U_z}{t}\hat{z} 
+\]
+donde es $U = U(x,y,z)$, pero ahora si es $U = U(x',y',z')$ se tiene en cambio
+\[
+	\dtot{U}{t} = \dtot{U_x'}{t}\hat{x}' + U_x' \dtot{\hat{x}'}{t} + 
+	\dtot{U_y}{t}\hat{y} + U_y' \dtot{\hat{y}'}{t} + \dtot{U_z}{t}\hat{z} + U_z' \dtot{\hat{z}'}{t}
+\]
+
+Pero X'Y'Z' es un sistema ortogonal y sus versores cumplen condiciones de ortogonalidad entonces
+\[
+	\hat{x}'\cdot\hat{x}' = \hat{y}'\cdot\hat{y}' = \hat{z}'\cdot\hat{z}' = 1
+\]
+\[
+	\hat{x}'\cdot\hat{y}' = \hat{x}'\cdot\hat{z}' = \hat{y}'\cdot\hat{z}' = 0
+\]
+
+Ahora tenemos que hacer las variaciones de las dos ecuaciones precedentes. De la primera
+\be
+	 \hat{x}'\cdot\delta\hat{x}' = \hat{y}'\cdot\delta\hat{y}' = \hat{z}'\cdot\delta\hat{z}' = 0
+\label{variac1}	 
+\ee
+y de la segunda
+\be
+	\hat{x}'\cdot\delta\hat{y}' + \hat{y}'\cdot\delta\hat{x}' = 0 \qquad \qquad 
+	\hat{x}'\cdot\delta\hat{z}' + \hat{z}'\cdot\delta\hat{x}' = 0 \qquad \qquad 
+	\hat{y}'\cdot\delta\hat{z}' + \hat{z}'\cdot\delta\hat{y}' = 0 \qquad \qquad 
+\label{variac2}	
+\ee
+
+Asimismo, una variación $\delta\hat{x}'$ arbitraria puede escribirse como
+\[
+	\delta\hat{x}' = \delta \alpha_{xx}\hat{x}' + \delta \alpha_{xy}\hat{y}' + \delta \alpha_{xz}\hat{z}' 
+\]
+donde es $\delta \alpha_{xx}=0$ debido al primer miembro de \eqref{variac1}. Notemos que $\delta \alpha_{xy}$ significa
+una variación en $\hat{x}'$ proyectada en $\hat{y}'$. Del mismo modo escribimos
+\[
+	\delta\hat{y}' = \delta \alpha_{yx}\hat{x}' + \delta \alpha_{yz}\hat{z}' 
+\]
+\[
+	\delta\hat{z}' = \delta \alpha_{zx}\hat{x}' + \delta \alpha_{zy}\hat{y}' 
+\]
+donde ya hemos anulado las que sabemos son nulas por el mismo argumento. Usando \eqref{variac2} se tiene también
+\[
+	\hat{x}'\cdot\delta\hat{z}' =  - \hat{z}'\cdot\delta\hat{x}' \qquad 
+	\hat{x}'\cdot\delta\hat{y}' =  - \hat{y}'\cdot\delta\hat{x}'
+\]
+que pasan respectivamente a
+\[
+	\hat{x}'\cdot\delta\alpha_{zx} =  - \hat{z}'\cdot\delta\alpha_{xz} \qquad 
+	\hat{x}'\cdot\delta\alpha_{yx} =  - \hat{y}'\cdot\delta\alpha_{xy}
+\]
+
+Pero las variaciones son tres (¿?)
+\[
+	\delta\vb{\alpha} = ( \delta\alpha_x, \delta\alpha_y, \delta\alpha_z).
+\]
+
+La delta de un versor tiene componentes en los otros tres versores (no en el mismo versor)
+\[
+	\delta\hat{x}' = \delta \alpha_{xy}\hat{y}' + \delta \alpha_{xz}\hat{z}'
+\]
+\[
+	\delta\hat{y}' = \delta \alpha_{yx}\hat{x}' + \delta \alpha_{yz}\hat{z}'
+\]
+\[
+	\delta\hat{z}' = \delta \alpha_{zx}\hat{x}' + \delta \alpha_{zy}\hat{y}'
+\]
+pero proyectando
+\[
+	\hat{x}'\cdot\delta\hat{z}' =  - \hat{z}'\cdot\delta\hat{x}' \qquad \longrightarrow \qquad 
+					\delta\alpha_{zx} = -\delta\alpha_{xz}
+\]
+\[
+	\hat{y}'\cdot\delta\hat{z}' =  - \hat{z}'\cdot\delta\hat{y}' \qquad \longrightarrow  \qquad 
+					\delta\alpha_{zy} = -\delta\alpha_{yz}
+\]
+\[
+	\hat{x}'\cdot\delta\hat{y}' =  - \hat{y}'\cdot\delta\hat{x}' \qquad \longrightarrow  \qquad 
+					\delta\alpha_{yx} = -\delta\alpha_{xy}
+\]
+
+Con las siguientes definiciones 
+\[
+	\delta\alpha_{zx} \equiv \delta\alpha_y \qquad 
+	\delta\alpha_{yz} \equiv \delta\alpha_x \qquad
+	\delta\alpha_{xy} \equiv \delta\alpha_z 
+\]
+estamos autorizados a escribir
+\[
+	\delta\hat{x}' = \delta \alpha_z \hat{y}' - \delta \alpha_y \hat{z}'
+\]
+\[
+	\delta\hat{y}' = - \delta \alpha_z \hat{x}' + \delta \alpha_x \hat{z}'
+\]
+\[
+	\delta\hat{z}' = \delta \alpha_y \hat{x}' - \delta \alpha_x \hat{y}'
+\]
+
+La rotación infinitesimal puede verse como un vector 
+\[
+	\delta\vb{\alpha} = \delta\alpha_x \hat{x} + \delta\alpha_y \hat{y} +  \delta\alpha_z \hat{z} 
+\]
+\[
+	\frac{\delta\vb{\alpha}}{\delta t} = \Omega_x \hat{x} + \Omega_y \hat{y} +  \Omega_z \hat{z} 
+\]
+donde hemos hecho $\Omega_i = \delta\alpha_i/\delta t$. En términos de las nuevas variables
+\[
+	\dtot{\hat{x}'}{t} = \Omega_z \hat{y}' - \Omega_y \hat{z}'
+\]
+\[
+	\dtot{\hat{y}'}{t} = - \Omega_z \hat{x}' + \Omega_x \hat{z}'
+\]
+\[
+	\dtot{\hat{z}'}{t} = \Omega_y \hat{x}' - \Omega_x \hat{y}'
+\]
+entonces podemos hacer la construcción
+\[
+	\frac{d}{dt} = \left.\frac{d}{dt} \right|_{X'Y'Z'} + U_x' ( \Omega_z \hat{y}' - \Omega_y \hat{z}' )
+		+ U_y'( - \Omega_z \hat{x}' + \Omega_x \hat{z}' ) + U_z'( \Omega_y \hat{x}' - \Omega_x \hat{y}' )
+\]
+y usando la regla del producto vectorial podemos colapsar en 
+\[
+	\left.\frac{d}{dt}\right|_{in} \vb{U} = \left.\frac{d}{dt} \right|_{rot} \vb{U} + \vb{\Omega} \times \vb{U}
+\]
+
+\begin{ejemplillo}{Rotación en $\hat{z}$}
+Consideremos una rotación en torno a $\hat{z}'$ de modo que $\delta\hat{z}'=0$ de modo que $\delta\alpha_x=\delta\alpha_y=0$
+de manera que 
+\[
+	\delta\hat{x}' = \delta\alpha_z \hat{y}' \qquad \delta\hat{y}' = - \delta\alpha_z \hat{x}'
+\]
+y tener que 
+\[
+	\delta \alpha_z \equiv \omega_z . 
+\]
+\end{ejemplillo}
+
 
 \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 \bibliography{CBFT.Referencias} % La base de datos bibliográfica
