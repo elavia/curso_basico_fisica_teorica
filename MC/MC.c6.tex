@@ -814,6 +814,14 @@ y usando la regla del producto vectorial podemos colapsar en
 \[
 	\left.\frac{d}{dt}\right|_{in} \vb{U} = \left.\frac{d}{dt} \right|_{rot} \vb{U} + \vb{\Omega} \times \vb{U}
 \]
+Notemos que 
+\[
+	\vb{\Omega} \times \vb{U}' = \begin{vmatrix}
+	                              \hat{x}' & \hat{y}' & \hat{z}' \\
+	                              \Omega_x & \Omega_y  & \Omega_z \\
+	                              U_x' & U_y' & U_z' 
+	                             \end{vmatrix}.
+\]
 
 \begin{ejemplillo}{Rotación en $\hat{z}$}
 Consideremos una rotación en torno a $\hat{z}'$ de modo que $\delta\hat{z}'=0$ de modo que $\delta\alpha_x=\delta\alpha_y=0$
