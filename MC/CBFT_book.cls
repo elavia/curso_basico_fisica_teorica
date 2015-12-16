@@ -551,7 +551,7 @@
   {\parindent \z@ \raggedright
     \normalfont
     \interlinepenalty\@M
-    \bfseries \chapternumberfont #1\par\nobreak   % Modificada tipografía de los capítulos *
+    \bfseries \Large\Stix #1\par\nobreak   % Modificada tipografía de los capítulos *
     \vskip 40\p@
   }}  
   
