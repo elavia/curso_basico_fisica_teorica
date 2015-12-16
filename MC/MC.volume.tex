@@ -1,0 +1,77 @@
+	\documentclass[10pt,oneside]{CBFT_book}
+	
+	% Algunos paquetes
+	
+	\usepackage{standalone}	
+	
+	\usepackage{amssymb}
+	\usepackage{amsmath}
+	\usepackage{graphicx}
+	\usepackage{libertine}
+	\usepackage[bold-style=TeX]{unicode-math}
+	\usepackage{lipsum}
+
+% 	\usepackage{natbib}
+% 	\setcitestyle{square}
+
+% 	\usepackage[spanish]{babel}
+	\usepackage{csquotes}
+	\usepackage{polyglossia}
+	\setdefaultlanguage{spanish}
+	
+	
+%  	\usepackage[backend=biber, style=numeric-comp, citestyle=numeric, sorting=nty, natbib=true]{biblatex}
+% 	\usepackage[backend=bibtex, babel=hyphen, style=CBFT-apa-good.bst ]{biblatex}
+ 	\usepackage[backend=biber]{biblatex}
+%   	\bibliography{CBFT.Referencias.bib}
+   	\addbibresource{CBFT.Referencias.bib}
+
+  	\usepackage{CBFT.estilo} % Cargo la hoja de estilo
+	
+ 	
+ 	\title{CURSO BASICO DE FISICA TEORICA}
+ 	\subtitle{Volumen 1: Mecánica Clásica}
+  	\author{E.F. Lavia y Colaboradores}
+  	\date{\today}
+  	\version{versión 0.1}
+
+	%###########################################################################
+	%		DOCUMENTO 
+	%###########################################################################
+	
+	\begin{document}
+   	\maketitle	
+% 	\pagenumbering{roman}
+	
+ 	\tableofcontents
+
+% 	\include{chaps/cft_prefacio}
+
+	\clearpage
+
+	%###########################################################################
+	%		CAPITULOS DEL CURSO
+	%###########################################################################
+	
+	\pagenumbering{arabic}
+	
+  	\input{MC.c2}
+
+  	\input{MC.c3}
+
+ 	\input{MC.c4}
+ 	
+ 	\input{MC.c5}
+ 	
+ 	\input{MC.c6}
+	
+	%###########################################################################
+	%		FIN DE LOS CAPITULOS DEL CURSO
+	%###########################################################################
+	
+	
+	
+	%##########################	INDICE	########################################
+  	\printbibliography
+	
+	\end{document}
