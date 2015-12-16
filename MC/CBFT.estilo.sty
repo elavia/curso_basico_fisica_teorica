@@ -31,7 +31,9 @@
 			BoldItalicFont = STIX-BoldItalic
 		]{Stix}		
 	
-
+	
+	\def\helveticabold{cmssbx10 }
+	\font\chapternumberfont=\helveticabold at 14pt
 
 	%###########################################################################
 	%		COMANDOS PARA TIPEAR matemática y física
@@ -191,9 +193,11 @@
 	% Manera de cambiar nombres cuando tenemos babel o polyglossia en uso
 	\addto\captionsspanish{%
 	\renewcommand{\figurename}{Figura}%
-	\renewcommand{\contentsname}{Contenidos}%
-	\renewcommand{\indexname}{Indice}%
-	\renewcommand{\tablename}{Tabla}
+	\renewcommand{\contentsname}{\LARGE Contenidos}%
+	\renewcommand{\indexname}{\LARGE Indice}%
+	\renewcommand{\tablename}{\LARGE Tabla}
+% 	\renewcommand{\figurename}{\LARGE Figuras}
+	\renewcommand{\listfigurename}{\LARGE Indice de figuras} 
 	}
 	
 	

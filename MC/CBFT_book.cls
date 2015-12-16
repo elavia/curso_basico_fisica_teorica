@@ -169,10 +169,12 @@
 \else
   \def\ps@headings{%
     \let\@oddfoot\@empty
-    \def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
+%     \def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
+	\def\@oddhead{\small{{\rightmark}\hfil\thepage}}% Añadido para achicar los heads de las páginas. saqué \slshape
     \let\@mkboth\markboth
     \def\chaptermark##1{%
-      \markright {\MakeUppercase{%
+%       \markright {\MakeUppercase{%
+	\markright {\small{%  removi un \MakeUppercase
         \ifnum \c@secnumdepth >\m@ne
           \if@mainmatter
             \@chapapp\ \thechapter. \ %
@@ -180,6 +182,7 @@
         \fi
         ##1}}}}
 \fi
+
 
 % \if@twoside
 %   \def\ps@headings{%
@@ -509,14 +512,14 @@
   {\parindent \z@ \raggedright \normalfont
     \ifnum \c@secnumdepth >\m@ne
       \if@mainmatter
-        \Large\bfseries\Stix \@chapapp\space \thechapter
+        \large\bfseries\Stix \@chapapp\space \thechapter % Modificada tipografía de los capítulos *
         \par\nobreak
         \vskip1pc\hrule height1pt\vskip7.5pc
         %\vskip 2\p@
       \fi
     \fi
     \interlinepenalty\@M
-    \raggedleft \LARGE\bfseries\Stix #1\par\nobreak
+    \raggedleft \LARGE\bfseries\Stix #1\par\nobreak 
     \vskip 20\p@
    }}
    
@@ -551,7 +554,7 @@
   {\parindent \z@ \raggedright
     \normalfont
     \interlinepenalty\@M
-    \bfseries \Large\Stix #1\par\nobreak   % Modificada tipografía de los capítulos *
+    \bfseries \large\Stix #1\par\nobreak   % Modificada tipografía de los capítulos *
     \vskip 40\p@
   }}  
   
@@ -741,6 +744,8 @@
 \newcommand\@tocrmarg{2.55em}
 \newcommand\@dotsep{4.5}
 \setcounter{tocdepth}{2}
+
+
 \newcommand\tableofcontents{%
     \if@twocolumn
       \@restonecoltrue\onecolumn
@@ -753,6 +758,7 @@
     \@starttoc{toc}%
     \if@restonecol\twocolumn\fi
     }
+    
 \newcommand*\l@part[2]{%
   \ifnum \c@tocdepth >-2\relax
     \addpenalty{-\@highpenalty}%
@@ -768,6 +774,7 @@
          \everypar{\global\@nobreakfalse\everypar{}}%
     \endgroup
   \fi}
+  
 \newcommand*\l@chapter[2]{%
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%
@@ -783,6 +790,7 @@
       \penalty\@highpenalty
     \endgroup
   \fi}
+  
 \newcommand*\l@section{\@dottedtocline{1}{1.5em}{2.3em}}
 \newcommand*\l@subsection{\@dottedtocline{2}{3.8em}{3.2em}}
 \newcommand*\l@subsubsection{\@dottedtocline{3}{7.0em}{4.1em}}

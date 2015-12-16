@@ -9,8 +9,8 @@
 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
-   	\usepackage{natbib}
-   	\setcitestyle{square}
+	\usepackage[numbers]{natbib}
+	\setcitestyle{square}
 
 
 	\usepackage{polyglossia}
@@ -18,9 +18,6 @@
 
 	\usepackage{CBFT.estilo} % Cargo la hoja de estilo
 	
-%  	\usepackage[backend=biber]{biblatex}
-%   	\bibliography{CBFT.Referencias.bib}
-%    	\addbibresource{CBFT.Referencias.bib}
 
 	% Tipografías
 	% \setromanfont[Mapping=tex-text]{Linux Libertine O}
@@ -850,14 +847,12 @@ Podemos escribir
 
 % Como ejemplo citamos \cite{einstein}.
 % O bien \cite{example}.
-Tal vez \citep{Aspnes:1973}
+% Tal vez \citep{Aspnes:1973}
 
 % ============================================================================
 
-% \printbibliography
-
-\bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
-\bibliography{CBFT.Referencias} % La base de datos bibliográfica
+% \bibliographystyle{CBFT-apa-good} % (uses file "apa-good.bst")
+% \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
 
 \end{document}
