@@ -835,6 +835,154 @@ y tener que
 \]
 \end{ejemplillo}
 
+% =================================================================================================
+\section{El tensor de inercia}
+% =================================================================================================
+
+Siendo $I$ el tensor de inercia buscamos soluciones a
+\[
+	I \vb{v} = \lambda \vb{v},
+\]
+o bien en componentes
+\be
+	 \sum_{j=1}^3 I_{ij} v_j = \lambda v_i
+\label{eigen_inercia}	 
+\ee
+que se trabaja así
+\[
+	 \sum_{j=1}^3 I_{ij} v_j - \lambda v_i =  \sum_{j=1}^3 ( I_{ij} - \delta_{ij}\lambda ) v_j = 0
+\]
+lo cual en extenso corresponde al siguiente sistema de tres ecuaciones
+\[
+	(I_{11} - \lambda)v_1 + I_{12} v_2 + I_{13} v_3 = 0
+\]
+\[
+	I_{21} v_1 + (I_{22} - \lambda) v_2 + I_{23} v_3 = 0
+\]
+\[
+	I_{31} v_1 + I_{32} v_2 + (I_{33} - \lambda) v_3 = 0
+\]
+
+Ahora multiplicamos la ecuación \eqref{eigen_inercia} y su conjugada compleja (denotada por $^*$) por $\sum_i v_i$
+y $\sum_i v_i^*$, respectivamente, para obtener
+\[
+	\sum_i v_i \sum_{j=1}^3 I_{ij} v_j^* = \lambda^* \sum_i v_i^*  v_i
+\]
+\[
+	\sum_i v_i^* \sum_{j=1}^3 I_{ij} v_j = \lambda \sum_i v_i v_i^*
+\]
+Ahora si resto ecuación a ecuación tenemos
+\[
+	\sum_i \sum_{j=1}^3 ( v_i I_{ij} v_j^* - v_i^* I_{ij} v_j ) =
+	(\lambda^* - \lambda )\sum_i v_i^* v_i 
+\]
+podemos cambiar de índices en el segundo sumando del miembro izquierdo puesto que los índices están sumados y son
+por ello mudos ({\it dummies}),
+\[
+	\sum_i \sum_{j=1}^3 ( v_i I_{ij} v_j^* - v_j^* I_{ji} v_i ) =
+	(\lambda^* - \lambda )\sum_i v_i^* v_i 
+\]
+pero si usamos la propiedad de simetría del tensor de inercia $I_{ij}=I_{ji}$ entonces
+\[
+	0 = (\lambda^* - \lambda )\sum_i v_i^* v_i 
+\]
+de modo que como $\vb{v}$ es arbitrario se tiene la importante conclusión de que $\lambda^* = \lambda$.
+Los autovalores del tensor de inercia son reales.
+
+Si es por ejemplo $\lambda^s$ uno de los autovalores se pueden despejar
+\[
+	(v_1^s, v_2^s(v_1), v_3^s(v_1) )\: e^{i\phi}
+\]
+pero como la fase es la misma para todos me quedo con los módulos (los cuales definirán las direcciones).
+Pido 
+\[
+	{v_1^s}^2 +  {v_2^s(v_1)}^2 + {v_3^s(v_1)}^2 = 1
+\]
+o dicho de otro modo que la norma sea uno.
+
+Sean $\lambda^p \neq \lambda^s$ entonces 
+\[
+	\sum_i v_i^p \sum_{j=1}^3 I_{ij} v_j^s = \lambda^s \sum_i v_i^p  v_i^s
+\]
+\[
+	\sum_i v_i^s \sum_{j=1}^3 I_{ij} v_j^p = \lambda^p \sum_i v_i^s v_i^p
+\]
+y restando ecuación a ecuación y cambiando subíndices como hiciéramos oportunamente,
+\[
+	\sum_i \sum_{j=1}^3 ( v_i^p I_{ij} v_j^s - v_i^s I_{ij} v_j^p ) =
+	(\lambda^s - \lambda^p )\sum_i v_i^p v_i^s 
+\]
+luego como es nulo el miembro izquierdo resulta que 
+\[
+	\sum_i v_i^p v_i^s = 0
+\]
+de modo que son ortogonales $v^p$ y $v^s$. Los autovectores son ortogonales.
+\[
+	I \vb{v} = \lambda \vb{v} \qquad \longrightarrow \qquad \vb{v}^t I \vb{v} = \vb{v}^t \lambda \vb{v},
+\]
+pero como la norma de $\vb{v}$ es unitaria, es 
+\[
+	\vb{v}^t I \vb{v} = \lambda \vb{v}^t  \vb{v} = \lambda
+\]
+Si armo una matriz $V = ( v^s v^p v^q)$ será en todo su esplendor
+\[
+	V^t I V = \begin{pmatrix}
+	           v_1^s & v_2^s & v_3^s \\
+	           v_1^p & v_2^p & v_3^p \\
+	           v_1^q & v_2^q & v_3^q
+	          \end{pmatrix}
+	          I
+		\begin{pmatrix}
+	           v_1^s & v_1^p & v_1^q  \\
+	           v_2^s & v_2^p & v_2^q \\
+	           v_3^s & v_3^p & v_3^q
+	          \end{pmatrix}
+\]
+o bien
+\[
+	V^t I V = \lambda 1
+\]
+donde entendemos el $1$ como una matriz identidad. Entonces $\lambda^s, \lambda^p, \lambda^q$ son los momentos
+principales de inercia
+\[
+	I = \begin{pmatrix}
+	     \lambda^s & 0 & 0 \\
+	     0 & \lambda^p & 0 \\
+	     0 & 0  &  \lambda^q
+	    \end{pmatrix}
+\]
+Vale que, además,
+\[
+	\lambda^s = \sum_{ij}  v^s_i I_{ij} v^s_j > 0
+\]
+puesto que es una forma cuadrática.
+
+Para el objeto debajo de estas líneas rotando en $2\pi/3$ tengo la misma situación física (eje de simetría de
+orden tres), entonces tengo eje principal de inercia allí.
+
+La idea es que si pienso en planos siempre se hacen nulos los productos de inercia rotacionales.
+
+Para la siguiente figura el plano de simetría es eje principal, luego es eje principal de inercia.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
