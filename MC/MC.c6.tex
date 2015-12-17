@@ -964,23 +964,88 @@ La idea es que si pienso en planos siempre se hacen nulos los productos de inerc
 
 Para la siguiente figura el plano de simetría es eje principal, luego es eje principal de inercia.
 
+% =================================================================================================
+\section{Movimiento de un cuerpo asimétrico}
+% =================================================================================================
 
+\[
+	\vb{L}_{spin} = I \vb{\Omega}
+\]
+y como la energía se conserva es
+\[
+	E = T + V
+\]
+\[
+	E = T_{trasl} + T_{rot} + V(R_{cm})
+\]
+donde cada una se conserva separadamente.
 
+Usaremos una notación en la cual el subíndice refiere a referido a y el supraíndice a de qué puntos/puntos
+\[
+	\left.\vb{L}\right|_{0}^{sist} = \left.\vb{L}_{orb}\right|_{0}^{cm} + \left.\vb{L}_{spin}\right|_{cm}^{sist}  
+\]
+\[
+	\left.\frac{d\vb{L}^{orb}}{dt}\right|_{in} = \vb{\tau}_0^{cm} = \vb{R}_{cm} \times \vb{F} =
+							\vb{R}_{cm} \times - M g \hat{z} \neq 0
+\]
+de tal manera que el $\vb{L}^{orb} \equiv \vb{L}_0^{cm}$ no se conserva.
 
+El que se conserva es $\vb{L}^{spin}$ pues pensamos la $\vb{F}=M\vb{g}$ aplicada en el centro de masa que es el origen
+y que tiene $\vb{R}_{cm}=0$.
+\[
+	\vb{L}^{spin} = L_1 \hat{1} + L_2 \hat{2} + L_3 \hat{3} = I_1\Omega_1 \hat{1} + I_2\Omega_2 \hat{2} + I_3\Omega_3 \hat{3}
+\]
+y podemos escribir
+\[
+	T_{rot} = \frac{1}{2} \left( I_1\Omega_1^2 + I_2\Omega_2^2 + I_3\Omega_3^2 \right)
+\]
+\[
+	T_{rot} = \frac{L_1^2}{2 I_1} + \frac{L_2^2}{2 I_2} + \frac{L_3^2}{2 I_3}
+\]
+\[
+	1  = \frac{L_1^2}{2 I_1 T_{rot}} + \frac{L_2^2}{2 I_2 T_{rot}} + \frac{L_3^2}{2 I_3 T_{rot}}
+\]
 
+Entonces, si se da que $I_3 > I_2 > I_1$ se tiene 
+\[
+	L_{spin}^2 = L_1^2 + L_2^2 + L_3^2 \qquad L^2 =  I_1^2\Omega_1^2 + I_2^2\Omega_2^2 + I_3^2\Omega_3^2
+\]
+donde como se conservan $T_{rot} \equiv T$ y $L_{spin} \equiv L$ 
+\[
+	2 T = \frac{L_1^2}{I_1} + \frac{L_2^2}{I_2} + \frac{L_3^2}{I_3} \qquad L^2 = L_1^2 + L_2^2 + L_3^2
+\]
+de la primera deducimos un elipsoide de semiejes en $L_i$ y de la segunda una esfera de radio $L$ en $L_i$.
+\notamargen{Esto está super oscuro. No sé qué se quiso decir, tal vez se halle explicado mejor en la carpeta.}
 
+\[
+	2 I_3 T > 2 I_2 T > 2 I_1 T
+\]
+\[
+	L^2 > 2 I_3 T	\qquad L_1^2 + L_2^2 + L_3^2 > \frac{I_3}{I_1} L_1^2 + \frac{I_3}{I_2} L_2^2  + L_3^2
+\]
+\[
+	L_1^2 \left( \frac{I_1 - I_3}{I_1} \right) + L_2^2 \left( \frac{I_2 - I_3}{I_1} \right)  > 0
+\]
+pero esto no vale. Asimismo tampoco vale que 
+\[
+	L^2 < 2 I_1 T
+\]
+y resulta 
+\[
+	2 I_3 T > L^2 > 2 I_1 T
+\]
+entonces $L_{spin}$ (su punta) se mueve en la intersección de una esfera y un elipsoide.
+Estos movimientos son periódicos.
 
+La peonza tiene movimientos estables para la rotación en torno a $\hat{x}_1, \hat{x}_3$ pero inestables en
+torno a $\hat{x}_2$. El movimiento puede resolverse mediante ecuaciones de Euler.
+Es estable rotar en torno al mayor o menor momento de inercia lo que generará un movimiento oscilatorio
+para \vb{\Omega} ($\omega^2 > 0$), en cambio es inestable rotar en torno al momento de inercia intermedio, lo cual generará
+un movimiento armónico para \vb{\Omega} ($\omega^2 < 0$).
 
-
-
-
-
-
-
-
-
-
-
+Con \vb{L} constante si \vb{L }$\parallel$ \vb{\Omega} entonces ambos son constantes (corresponde a una rotación). Se consigue 
+con \vb{\Omega} en la dirección del eje principal. Si \vb{L }$\nparallel$ \vb{\Omega} entonces \vb{\Omega} oscila en torno a
+\vb{L}.
 
 
 
