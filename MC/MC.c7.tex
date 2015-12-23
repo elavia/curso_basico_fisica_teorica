@@ -29,11 +29,40 @@
 
 \chapter{Ecuaciones de Hamilton}
 
+Se pasa de las variables $(q, \dot{q})$ hacia el par $(q,p)$ con 
+\[
+	p = \dpar{\Lag}{\dot{q}}
+\]
+Se parte del 
+\[
+	H(q_i, p_i, t) = \sum_{i}^{3N-k} p_i \dot{q}_i - \Lag(q_i, \dot{q}_i, t)
+\]
+y consideramos el diferencial
+\[
+	dH = \sum_i p_i d\dot{q}_i + \dot{q}_i dp_i - \dpar{\Lag}{q_i} dq_i - \dpar{\Lag}{\dot{q}_i}d\dot{q}_i - \dpar{\Lag}{t}dt
+\]
+\[
+	dH = \sum_i \dot{q}_i dp_i - \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \right) dq_i - \dpar{\Lag}{t}dt
+\]
+\[
+	dH = \sum_i \dot{q}_i dp_i - \dot{p}_i dq_i - \dpar{\Lag}{t}dt
+\]
+se deducen entonces,
+\[
+	\dpar{H}{p_i} = \dot{q}_i \qquad \dpar{H}{q_i} = -\dot{p}_i \qquad \dpar{H}{t} = -\dpar{\Lag}{t}
+\]
+que son las ecuaciones de Hamilton. Donde $(p,q)$ son $2N$ grados de libertad del sistema llamados las variables canónicas.
+Si $V\neq V(\dot{q})$ y los vínculos no dependen del tiempo entonces $T=T_2$ (la energía cinética es cuadrática en las 
+velocidades) y $H=E$.
 
+% =================================================================================================
+\section{Transformación canónica del hamiltoniano}
+% =================================================================================================
 
-
-
-
+Es una transformación que verifica
+\[
+	H \longrightarrow K
+\]
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
