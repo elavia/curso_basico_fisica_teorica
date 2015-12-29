@@ -64,6 +64,45 @@ Es una transformación que verifica
 	H \longrightarrow K
 \]
 donde $K=K(Q_i,P_i,t)$ es un nuevo hamiltoniano proveniente de
+\[
+	\dpar{H}{p_i} = \dot{q}_i \longrightarrow \dot{Q}_i = \dpar{K}{P_i}
+\]
+\[
+	-\dpar{H}{q_i} = \dot{p}_i \longrightarrow \dot{P}_i = -\dpar{K}{Q_i}
+\]
+y ahora usamos el Principio Variacional de Hamilton,
+\[
+	S = \int_{t_i}^{t_f} \Lag dt = \int_{t_i}^{t_f}  \left\{ \sum_i p_i \dot{q}_i - H(p_i,q_i,t) \right\} dt
+\]
+\[
+	\delta S = \sum p_i \delta \dot{q}_i +  \dot{q}_i \delta p_i  - \dpar{H}{p_i}\delta p_i 
+	-\dpar{H}{q_i}\delta q_i  - \dpar{H}{t}\delta t
+\]
+pero el último término es nulo porque la variación es a tiempo fijo.
+Usando las ecuaciones de Euler-Lagrange en el primer término resulta que 
+\[
+	\delta S = \int_{t_i}^{t_f}  \left\{ \sum_i \left(-\dot{p}_i -\dpar{H}{q_i} \right) \delta q_i +
+	\left( \dot{q}_i - \dpar{H}{p_i} \right) \delta p_i + \frac{d}{dt}\left( p_i \delta q_i \right) \right\} dt
+\]
+y llego pidiendo que sea extremo $S$ a las ecuaciones de Hamilton (dos primeros paréntesis) mientras que el 
+último término resulta 
+\[
+	\int_{t_i}^{t_f}  \left\{ \frac{d}{dt}\left( p_i \delta q_i \right) \right\} dt =
+	\left. p_i \delta q_i \right|_{t_i}^{t_f}.
+\]
+
+Entonces, usando la misma idea que el $\Lag$ se tiene 
+\[
+	\Lag' = \Lag + \frac{dF}{dt}
+\]
+siendo $F$ una función generatriz. Luego,
+\[
+	\sum p_i \dot{q}_i - H(p_i,q_i,t) = \sum P_i\dot{Q}_i - K(P_i,Q_i,t) + \dtot{F}{t}
+\]
+
+
+
+
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
