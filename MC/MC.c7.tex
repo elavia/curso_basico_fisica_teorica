@@ -100,8 +100,24 @@ siendo $F$ una función generatriz. Luego,
 	\sum p_i \dot{q}_i - H(p_i,q_i,t) = \sum P_i\dot{Q}_i - K(P_i,Q_i,t) + \dtot{F}{t}
 \]
 
+\subsection{Generatrices}
 
-
+Consideraremos ahora varios casos diferentes de dependencia en la función generatriz,
+\[
+	F_1 = F_1(q_i,Q_i,t)
+\]
+\[
+	\sum p_i \dot{q}_i - H + K - \sum P_i \dot{Q}_i - \dpar{F_1}{q_i} \dot{q}_i - \dpar{F_1}{Q_i} \dot{Q}_i -
+	\dpar{F_1}{t} = 0 
+\]
+\[
+	\sum \left( p_i - \dpar{F_1}{q_i} \right) \dot{q}_i  - \sum \left( P_i + \dpar{F_1}{Q_i} \right) \dot{Q}_i -
+	\dpar{F_1}{t} - H + K = 0 
+\]
+y la transformación canónica queda definida por 
+\[
+	\dpar{F_1}{q_i} = p_i \qquad \qquad \dpar{F_1}{Q_i} = - P_i \qquad \qquad \dpar{F_1}{t} = K-H
+\]
 
 
 
