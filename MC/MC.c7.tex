@@ -119,6 +119,55 @@ y la transformación canónica queda definida por
 	\dpar{F_1}{q_i} = p_i \qquad \qquad \dpar{F_1}{Q_i} = - P_i \qquad \qquad \dpar{F_1}{t} = K-H
 \]
 
+Todas las combinaciones posibles son 
+\[
+	F_1 = F_1(q_i,Q_i,t) \qquad 
+	F_2 = F_2(q_i,P_i,t) \qquad 
+	F_3 = F_3(p_i,Q_i,t) \qquad 
+	F_4 = F_4(p_i,P_i,t)
+\]
+y para $F_2$, por ejemplo, se tiene 
+\[
+	F_2(q_i,P_i,t) = \sum_i^N q_i P_i
+\]
+la cual es una identidad (transformación). Y
+\[
+	\dpar{F_2}{q_i} = P_i = p_i \qquad \dpar{F_2}{Q_i} = q_i = Q_i
+\]
+
+% =================================================================================================
+\section{Corchetes de Poisson}
+% =================================================================================================
+
+Sea $A=A(q_i,p_i,t)$ entonces
+\[
+	\frac{d}{dt}A = \sum_i \dpar{A}{q_i} \dpar{q_i}{t} + \dpar{A}{p_i} \dpar{p_i}{t} + \dpar{A}{t}
+\]
+\[
+	\frac{d}{dt}A = \underbrace{\sum_i \dpar{A}{q_i} \dpar{q_i}{t} + \dpar{A}{p_i} \dpar{p_i}{t}}_{\equiv [A,H]} + 
+\dpar{A}{t}
+\]
+entonces
+\[
+	\frac{d}{dt}A = [A,H] + \dpar{A}{t}.
+\]
+
+Las constantes de movimiento en un sistema cumplen que su corchete de Poisson con el hamiltoniano es nulo.
+\[
+	\dpar{H}{p_i} = \dot{q}_i = [q_i,H] \qquad  -\dpar{H}{q_i} = \dot{p}_i = [p_i,H]
+\]
+Una transformación canónica cumple 
+\[
+	[p_i,q_j] = \delta_{ij} \qquad [p_i,p_j] = 0 \qquad [q_i,q_j] = 0
+\]
+de modo que el corchete entre los momentos es nulo así también como el corchete entre las coordenadas.
+
+
+
+
+
+
+
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")

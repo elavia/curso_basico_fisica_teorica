@@ -1,0 +1,100 @@
+	\documentclass[10pt,oneside]{CBFT_book}
+	% Algunos paquetes
+	\usepackage{amssymb}
+	\usepackage{amsmath}
+	\usepackage{graphicx}
+	\usepackage{libertine}
+	\usepackage[bold-style=TeX]{unicode-math}
+	\usepackage{lipsum}
+
+	\usepackage{natbib}
+	\setcitestyle{square}
+
+	\usepackage{polyglossia}
+	\setdefaultlanguage{spanish}
+
+
+	\usepackage{CBFT.estilo} % Cargo la hoja de estilo
+
+	% Tipografías
+	% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+	% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+	% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+	%===================================================================
+	%	DOCUMENTO PROPIAMENTE DICHO
+	%===================================================================
+
+\begin{document}
+
+\chapter{Ecuaciones de Hamilton-Jacobi}
+
+\[
+	q_i \longrightarrow Q_i \equiv \beta_i \qquad p_i \longrightarrow P_i \equiv \alpha_i
+\]
+Pasamos a unas nuevas coordenadas y momentos $(\beta_i,\alpha_i)$ que son constantes. Entonces
+la acción es del tipo $F_2$, i.e.
+\[
+	S = S(q_i, \alpha_i, t).
+\]
+Entonces
+\be
+	\dpar{S}{q_i} = p_i \qquad \dpar{S}{\alpha_i} = \beta_i \qquad \dpar{S}{t} = H - K  
+\label{ecshamjac}	
+\ee
+donde 
+\[
+	H(q_i,p_i,t) - \dpar{S}{t} = K = 0
+\]
+y esto lleva a la ecuación de Hamilton-Jacobi,
+\[
+	H(q_i,p_i,t) - \dpar{S}{t} = 0
+\]
+que no es otra cosa que una ecuación en derivadas parciales (PDE). Notemos que 
+\[
+	\dpar{S}{q_i} = p_i(q_i,\alpha_i,t) \qquad \dpar{S}{\alpha_i} = \beta_i(q_i,\alpha_i,t)
+\]
+y además que Hamilton-Jacobi tiene solución si el problema es totalmente separable.
+Si $H=H(q_i,\alpha_i)$ entonces $dH/dt = \partial H/\partial t=0$ y en ese caso es $H=cte.$ y
+podemos poner $H=\alpha_1$.
+Entonces
+\[
+	\dpar{S}{t} = -\alpha_1 \quad \longrightarrow \quad S=W(q_i,\dpar{S}{q_i}) -\alpha_1 t .
+\]
+
+Se procede en la misma forma con cada coordenada hasta obtener $S$.
+
+Podemos ver que si $\alpha_1 = \alpha_1(\alpha_i)$, y me quedo con $H=\alpha_1 \equiv K$ entonces
+\[
+	\dpar{K}{\alpha_i} = a = \dot{Q}_i \longrightarrow Q_i = \beta = a t + \beta_0 
+\]
+\[
+	\dpar{K}{\beta_i} = 0 = -\dot{P}_i \longrightarrow P_i = \alpha_i (ctes.).
+\]
+
+La $\alpha_1$ no puede depender de $q_i$ pues si se tuviera $\partial \alpha_1 /\partial q_i \neq 0$ 
+no sería constante $\alpha_1$ pues $\dot{q}\neq 0$.
+
+Luego, invirtiendo las ecuaciones \eqref{ecshamjac} determinamos las trayectorias
+\[
+	q_i = q_i(\alpha_i, \beta_i, t).
+\]
+
+Además, si el problema es totalmente separable, entonces
+\[
+	S = \sum_i^N \; W(q_i, \alpha_1,...,\alpha_n) - \alpha_1 t
+\]
+y tendré tantas constantes de movimiento como grados de libertad. La solución se compone de problemas
+independientes en una variable.
+
+\subsection{Preservación del volumen en una transformación canónica}
+
+
+
+
+
+
+% \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
+% \bibliography{CBFT.Referencias} % La base de datos bibliográfica
+
+\end{document}
