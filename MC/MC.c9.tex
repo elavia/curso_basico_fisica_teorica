@@ -147,11 +147,39 @@ Consideremos una transformación canónica
 la cual requiere
 \begin{itemize}
  \item Conservativos $S = W - Et $
- \item Totalmente separables $W = \sum_i^N W_i(q_1,\alpha_1,...,\alpha_n)$
+ \item Totalmente separables $W = \sum_i^N \; W_i(q_1,\alpha_1,...,\alpha_n)$
  \item Problemas periódicos
 \end{itemize}
 
+El movimiento periódico es de rotación o libración,
 
+La periodicidad de cada coordenada no implica periodicidad de todo el movimiento real.
+\[
+	S = \sum_i^N \; W_i(q_i,J_i) - Et
+\]
+
+Libración y rotación son dos movimientos de naturaleza diferente. No se puede pasar de
+uno a otro mediante pequeñas perturbaciones.
+
+La integral de acción es
+\[
+	J_i = \frac{1}{2\pi}\int_{ciclo} p_i(q_1,\alpha_1,...,\alpha_n) dq_i
+\]
+donde 
+\[
+	J_i = J_i(\alpha_1,...,\alpha_n)
+\]
+son constantes y a su vez los $\alpha_i$ son constantes de separación.
+Asimismo $\alpha_i=\alpha_i(J_1,...,J_n)$. 
+La transformación $S$ es 
+\[
+	\dpar{S}{q_i} = p_i = \dpar{W}{q_i} \qquad \dpar{S}{J_i} = \theta_i = \dpar{W}{J_i}
+\]
+siendo $p_i = p_i(q_1,J_1,...,J_n)$.
+El nuevo hamiltoniano es $E=E(J_1,...,J_n)$
+\[
+	\dpar{E}{J_i} = \dot{\theta}_i \equiv \omega \qquad \dpar{E}{\theta_i} = -\dot{J}_i
+\]
 
 
 
