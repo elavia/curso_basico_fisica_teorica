@@ -180,21 +180,161 @@ El nuevo hamiltoniano es $E=E(J_1,...,J_n)$
 \[
 	\dpar{E}{J_i} = \dot{\theta}_i \equiv \omega \qquad \dpar{E}{\theta_i} = -\dot{J}_i
 \]
+de manera que tenemos
+\[
+	\theta_i = \omega t + \theta_{0_i} \qquad  \dpar{W}{J_i} = \theta_i = \theta_i(q_i, J_i)
+\]
+y entonces despejamos las $q_i$ desde
+\[
+	\theta_i(q_i, J_i) = \omega t + \theta_{0_i}.
+\]
 
+Las condiciones iniciales $(q_i, J_i)$ se introducen en
+\[
+	\dpar{W}{q_i} = p_i(q_1,J_1,...,J_n)
+\]
+y obtengo las $J_1, ..., J_n$ constantes.
 
+\subsection{Transformación canónica infinitesimal}
 
+\[
+	F_2 = 	F_2(q_i,P_i) = \sum_i^N q_iP_i
+\]
+es la indentidad
+\[
+	\dpar{F_2}{q_i} =  p_i \equiv P_i \qquad \dpar{F_2}{P_i} =  Q_i \equiv q_i
+\]
+y donde considero
+\[
+	F_2(q_i,P_i) = \sum q_i P_i + \epsilon G(q_1,...,q_n,P_1,...,P_n) \qquad \textrm{con} \; \epsilon \sim 0
+\]
+\[
+	p_i = P_i + \epsilon\dpar{G}{q_i} \longrightarrow P_i = p_i - \epsilon\dpar{G}{q_i} 
+\]
+\[
+	Q_i = q_i + \epsilon\dpar{G}{p_i} \longrightarrow Q_i = q_i - \epsilon\dpar{G}{P_i} 	
+\]
+donde $\partial G/\partial P_i \approx \partial G/\partial p_i$ diferirán en un orden $\epsilon^2$ el cual
+descarto. Entonces
+\[
+	\delta p_\ell = -\epsilon \dpar{G}{q_\ell} \qquad \delta q_\ell = \epsilon \dpar{G}{p_\ell}.
+\]
 
+Si considero $H$ en lugar de $G$ y $\epsilon = \delta t$ entonces
+\[
+	\frac{\delta p_\ell}{\delta t} = -\dpar{H}{q_\ell} \qquad \frac{\delta q_\ell}{\delta t} = \dpar{H}{p_\ell}
+\]
+de tal manera que 
+\[
+	\dot{p}_\ell = -\dpar{H}{q_\ell} \qquad \dot{q}_\ell = -\dpar{H}{p_\ell}
+\]
+y donde se ve que el $H$ genera la transformación evolución temporal.
+\[
+	\delta A = A(q_i + \delta q_i, p_i + \delta p_i) - A(q_i,p_i)
+\]
+y
+\[
+	\delta A = \sum_i \left( \dpar{A}{q_i} \delta q_i + \dpar{A}{p_i} \delta p_i \right)
+\]
+\[
+	\delta A = \epsilon \sum_i \left( \dpar{A}{q_i} \dpar{H}{p_i} - \dpar{A}{p_i} \dpar{H}{q_i} \right) =
+	\epsilon[A,H] \longrightarrow \frac{\delta A}{\delta t} = [A,H]
+\]
+entonces las constantes de movimiento generan transformaciones canónicas infinitesimales que dejan invariante
+al hamiltoniano $H$. Si
+\[
+	\dtot{A}{t} = 0 \Longrightarrow [A.H] = 0
+\]
 
+\subsection{Potencial electromagnético}
 
+Arranquemos por los momentos canónicamente conjugados
+\[
+	\dpar{\Lag}{\dot{q}_i} = p_i \quad \textrm{pero} \; si V \neq V(q) \longrightarrow \dpar{T}{\dot{q}_i} = p_i
+\]
+entonces
+\[
+	U(q,\dot{q}) =  e \phi - e/c \vb{A}\cdot\vb{V} \longrightarrow \Lag = T - e \phi + e/c  \vb{A}\cdot\vb{V}
+\]
+\[
+	p_x = \dpar{T}{\dot{x}} - \dpar{U}{\dot{x}} = m V_x - (e/c) A_x.
+\]
 
+Hacemos un cambio de gauge, en un potencial generalizado
+\[
+	U =  e \Phi(\vb{x},t) - (q/c) \vb{A}(\vb{x},t)\cdot\vb{V}(t)
+\]
+y el cambio de gauge es
+\[
+	\vb{A}' = \vb{A} + \nabla f,
+\]
+que no altera las ecuaciones de movimiento.
 
+Veamos una traslación rígida ahora. Sea coordenada que representa traslación rígida
+\[
+	q \longrightarrow q + \delta q \qquad \vb{r}_i \longrightarrow \vb{r}_i + \delta q \hat{n}
+\]
+\[
+	p = \dpar{T}{\dot{q}} = \sum_i^N \frac{m_i}{2}\left( \dpar{V_i}{q}\right)^2 =
+	\sum_i^N m_i \vb{v}_i \dpar{\vb{v}_i}{\dot{q}} = \sum_i^N m_i \vb{v}_i \hat{n} = \vb{p}\hat{n}
+\]
+usándose que $dv^2_i = 2 v_i dv_i$ y
+\[
+	\dpar{\vb{v}_i}{\dot{q}} = \dpar{\vb{r}_i}{q} = \frac{\vb{r}_i+\delta q \hat{n} -\vb{r}_i}{\delta q} = \hat{n}.
+\]
 
+Si la coordenada $q$ es la asociada a la traslación rígida entonces el momento canónicamente conjugado
+es el momento proyectado en esa dirección. Para fuerzas
+\[
+	Q_j = \sum_i^N \vb{F}^a_i \dpar{\vb{r}_i}{q_j} \qquad \Longrightarrow \qquad 
+	Q = \left( \sum_i^N \vb{F}^a_i \right)\cdot \hat{n} = \vb{F}\cdot \hat{n}
+\]
+\[
+	\frac{d}{dt}\left( \dpar{T}{\dot{q}_j} \right) - \dpar{T}{q_j} = Q_j
+\]
+pero el segundo término del lado izquierdo $\partial T/\partial q_j = 0$ puesto que la $T$ no se ve
+afectada por cambiar trasladando rígidamente el sistema.
+\[
+	\frac{d}{dt}(\vb{p}\cdot \hat{n}) = \vb{F}\cdot \hat{n},
+\]
+y esto significa que el $p_j$ se conserva si no hay fuerza en $\hat{j}$.
 
+Ahora es el turno de la rotación rígida. Sea coordenada que representa rotación rígida,
+\[
+	\vb{r}_i \longrightarrow \vb{r}_i + \delta q (\hat{n} \times \vb{r}_i)
+\]
+\[
+	p = \dpar{T}{\dot{q}} = \sum_i^N \frac{m_i}{2}\dpar{V^2}{\dot{q}} = \sum_i^N m_i \vb{v}_i \dpar{\vb{r}_i}{q}
+	= \sum_i^N m_i \vb{v}_i \cdot ( \hat{n} \times \vb{r}_i ) = \sum_i^N \hat{n} \cdot ( \vb{r}_i \times m_i 
+	\vb{v}_i) = \hat{n} \cdot \vb{L}
+\]
+\[
+	|\delta q(\hat{n} \times \vb{r}_i)| = \delta q r_i \sin (\alpha)
+\]
+\[
+	\dpar{\vb{V}}{\dot{q}} = \dpar{\vb{r}}{q} = \frac{ \vb{r}_i +\delta q (\hat{n} \times \vb{r}_i)- 
+	\vb{r}_i}{\delta q} = \hat{n} \times \vb{r}_i 
+\]
+El momento canónicamente conjugado en la dirección $\hat{n}$ es el $\vb{L}$ proyectado en esa dirección.
+\[
+	\frac{d}{dt}(\hat{n}\cdot\vb{L}) = \hat{n}\cdot\vb{\tau}
+\]
+y el $p_j$ se conserva si no hay torque.
+Las fuerzas generalizadas serán
+\[
+	Q_j = \sum_i^N \vb{F}^a_i \dpar{\vb{r}_i}{q} = \sum_i^N \vb{F}^a_i \cdot ( \hat{n} \times \vb{r}_i ) = 
+	\sum_i^N \hat{n}  \cdot ( \vb{r}_i \times  \vb{F}^a_i) = \hat{n}\cdot\vb{\tau}
+\]
+\[
+	\frac{d}{dt}\left( \dpar{T}{\dot{q}} \right) - \dpar{T}{q} = Q_j
+\]
+donde el segundo término otra vez es nulo por idénticas razones y entonces
+\[
+	\frac{d}{dt}\left( \hat{n}\cdot \vb{L} \right) = \hat{n}\cdot \vb{\tau}
+\]
 
-
-
-
-
+Observemos que la $T$ es un escalar y entonces no le importan las rotaciones puesto
+que en una rotación los módulos no varían, sólo cambia la dirección.
 
 
 
