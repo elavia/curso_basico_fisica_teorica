@@ -98,6 +98,12 @@ Definamos un hipervolumen $\mathcal{V}$ en el espacio de fases de acuerdo a
 \[
 	\int dQ_1 dQ_2 ... dQ_n dP_1 dP_2 ... dP_n = \mathcal{V}_{P,Q}
 \]
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_hamjac2.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 El jacobiano de la transformación es 
 \[
 	\frac{\partial (Q_1,...,Q_n,P_1,...,P_n)}{\partial (q_1,...,q_n,p_1,...,p_n)} =
@@ -135,6 +141,12 @@ y el jacobiano
 	    \end{vmatrix} =
 	    \dpar{Q}{q} \dpar{P}{p} - \dpar{Q}{p} \dpar{P}{q} = [Q, P] = 1
 \]
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{images/fig_mc_hamjac1gl.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 Notamos que le corchete de Poisson para una transformación canónica en un grado de
 libertad es el corchete que ya sabíamos da uno. El área se conserva.
 
@@ -156,6 +168,12 @@ la cual requiere
 \end{itemize}
 
 El movimiento periódico es de rotación o libración,
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.7\textwidth]{images/fig_mc_rot_lib.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 
 La periodicidad de cada coordenada no implica periodicidad de todo el movimiento real.
 \[
@@ -164,6 +182,13 @@ La periodicidad de cada coordenada no implica periodicidad de todo el movimiento
 
 Libración y rotación son dos movimientos de naturaleza diferente. No se puede pasar de
 uno a otro mediante pequeñas perturbaciones.
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.7\textwidth]{images/fig_mc_hamjac.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 
 La integral de acción es
 \[
@@ -290,6 +315,12 @@ usándose que $dv^2_i = 2 v_i dv_i$ y
 \[
 	\dpar{\vb{v}_i}{\dot{q}} = \dpar{\vb{r}_i}{q} = \frac{\vb{r}_i+\delta q \hat{n} -\vb{r}_i}{\delta q} = \hat{n}.
 \]
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_tras_rig.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 
 Si la coordenada $q$ es la asociada a la traslación rígida entonces el momento canónicamente conjugado
 es el momento proyectado en esa dirección. Para fuerzas
@@ -319,6 +350,12 @@ Ahora es el turno de la rotación rígida. Sea coordenada que representa rotaci�
 \[
 	|\delta q(\hat{n} \times \vb{r}_i)| = \delta q r_i \sin (\alpha)
 \]
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_rot_rig.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 \[
 	\dpar{\vb{V}}{\dot{q}} = \dpar{\vb{r}}{q} = \frac{ \vb{r}_i +\delta q (\hat{n} \times \vb{r}_i)- 
 	\vb{r}_i}{\delta q} = \hat{n} \times \vb{r}_i 

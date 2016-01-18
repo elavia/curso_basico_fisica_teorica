@@ -98,6 +98,13 @@ luego
 En el gráfico bajo estas líneas ilustramos muchas de las características de la física del problema
 de fuerzas centrales.
 
+\begin{figure}[hbt]
+	\begin{center}
+	\includegraphics[width=0.9\textwidth]{images/fig_mc_potencialcentral.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
 % =================================================================================================
 \section{Solución a partir de las ecuaciones de Euler-Lagrange}
 % =================================================================================================
@@ -152,7 +159,12 @@ es decir que el miembro derecho es una constante. Sale fácil entonces.
 \[
 	\dot{\phi} = \frac{L}{m r^2}
 \]
-
+\begin{figure}[hbt]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_velareolar.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 De la figura puede verse que 
 \[
 	A = \frac{1}{2} r^2 d\phi 
@@ -234,6 +246,12 @@ y definiendo $ \sigma/a \equiv \varepsilon$ resulta
 \]
 y esto es una elipse.
 \notamargen{Acá hay que hacer un laburo muy importante.}
+\begin{figure}[hbt]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_elipse.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 
 Entonces en resumen, las leyes de Kepler son
 \begin{enumerate}
@@ -293,6 +311,12 @@ Entonces en resumen, las leyes de Kepler son
 	\vb{v} \times \left( \dtot{\vb{r}}{t} \times m\vb{v} + \vb{r} \times m\dtot{\vb{v}}{t} \right)
 \]
 pero como $\dtot{\vb{r}}{t} \times m\vb{v} = 0$ resulta lo que resulta.
+\begin{figure}[hbt]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_rungelenz.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 
 % =================================================================================================
 \section{Reducción del problema de dos cuerpos a uno equivalente}
@@ -362,7 +386,12 @@ son dos elipses confocales. Por supuesto dejan de cumplirse las leyes de Kepler 
 
 Consideramos la dispersión de un haz de partículas de cierta energía cinética por un centro dispersor,
 ver ilustración.
-
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_dispersion1.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 \[
 	d\sigma = \frac{dN}{n}
 \]
@@ -372,6 +401,13 @@ partículas emitidas por tiempo y por área. De esta forma $d\sigma$ tiene unida
 Consideramos $d$ centro dispersor con simetría esférica (cilíndrica basta).
 Usamos como suposiciones que todo lo que emerge entre $\rho + d\rho$ - $\rho$  es dispersado entre
 $\chi + d\chi$ - $\chi$, y que se conservan tanto $E$ como \vb{L}.
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_dispersion2.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
 
 El anillo se dispersa en un sector esférico. Entonces podemos establecer las siguientes conclusiones
 para el anillo entre $\rho + d\rho$ - $\rho$, a saber
@@ -392,7 +428,12 @@ Como se conservan la energía y el momento angular
 \[
 	E = \frac{1}{2} m V_\infty^2 \qquad L = m \rho V_\infty^2 
 \]
-
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_dispersion3.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
 En general se desconoce $V(r)$.
 
 Se puede calcular el ángulo $\varphi_0$ de acuerdo a 
@@ -415,6 +456,12 @@ Veamos el caso de una esfera maciza. En general los cuerpos duros equivalen a un
 	     \;0 \qquad \; \textrm{fuera} \\
 	    \end{cases}
 \]
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_dispersion4.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
 \[
 	\chi = \pi - 2\varphi_0
 \]
@@ -455,7 +502,12 @@ para la esfera.
 % =================================================================================================
 
 Consideramos el caso de un cuerpo que se fracciona en dos (creo?)
-
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_disp2body1.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 Desde el centro de masa
 \[
 	\vb{P}_1 + \vb{P}_2 = 0
@@ -467,7 +519,12 @@ definimos una velocidad relativa
 \[
 	\vb{v} \equiv \vb{v}_2  - \vb{v}_1 = \vb{v}_2 \left( \frac{ m_1 + m_2 }{ m_1 }\right) .
 \]
-
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_disp2body2.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 Con respecto a la energía,
 \[
 	\frac{1}{2} M \vb{V}_{cm}^2 + e_{int} = \frac{1}{2} m_1 \vb{v}_1^2 + \frac{1}{2} m_2 \vb{v}_2^2
@@ -484,6 +541,12 @@ entonces
 \[
 	v = \sqrt{\frac{ 2 \Delta e}{ \mu } }.
 \]
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_disp2body3.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 
 El problema es evidentemente plano.
 \[
@@ -502,6 +565,13 @@ que es una circunferencia.
 \[
 	\tan(\theta) = \frac{V_1 \sin(\chi) }{ V_{cm} + V_1 \cos(\chi) }
 \]
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.45\textwidth]{images/fig_mc_disp2body4a.pdf}	 
+	\includegraphics[width=0.45\textwidth]{images/fig_mc_disp2body4b.pdf}
+	\end{center}
+	\caption{}
+\end{figure} 
 
 Esto tiene dos raíces $\chi_{1,2}$ si $ V_{cm} > V_1$. 
 
@@ -545,6 +615,13 @@ Tenemos dos suposiciones básicas:
 		\item Interacción elástica.
 		\item Conservación de energía y de momento.
 	\end{itemize}
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_scatt1.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 	
 	
 Desde el centro de masa se tienen:
 \[
@@ -558,7 +635,12 @@ donde los últimos son las posiciones y velocidades relativas.
 \[
 	m_1 \vb{V}_1 + m_2 \vb{V}_2 = 0 \qquad m_1 \vb{V}_1 = -\frac{m_2}{m_1} \vb{V}_2.
 \]
-
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.7\textwidth]{images/fig_mc_scatt2.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 En términos de las velocidades relativas
 \[
 	\vb{V}_2 = \frac{m_1}{m_1 + m_2} \vb{V} \qquad \vb{V}_1 = -\frac{m_2}{m_1 + m_2} \vb{V}
@@ -583,7 +665,12 @@ Se puede escribir la energía cinética del siguiente modo
 \[
 	\vb{p}_2^L = m_2 \vb{V}_{cm} + \mu \vb{V} = m_2 \frac{\vb{P}}{M} + \mu \vb{V}
 \]
-
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.35\textwidth]{images/fig_mc_scatttriangle.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 Donde 
 \[
 	\vb{V}_{cm} + \vb{V}_1 = \vb{V}_1^L
@@ -604,7 +691,12 @@ Donde
 
 La idea es que sabiendo $\rho$ (parámetro de impacto) quiero saber qué ángulo $\chi$ se desvían las
 partículas incidentes.
-
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.7\textwidth]{images/fig_mc_potinf.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 \[
 	\phi_0 + \alpha = \frac{\pi}{2}		\qquad		2 \phi_0 + \alpha + \beta = \pi
 	\qquad \phi_0 + \beta = \frac{\pi}{2}

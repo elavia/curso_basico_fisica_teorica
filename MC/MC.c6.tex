@@ -54,13 +54,25 @@ Del discreto al continuo
 
 Cada punto tiene como vínculos las ecuaciones \eqref{vinculos}
 
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.45\textwidth]{images/fig_mc_rigidgl.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
 El cuerpo rígido tiene seis grados de libertad.
 Si las condiciones de rigidez son lineales resultan cinco grados de libertad.
 
 \subsection{Velocidad de un cuerpo rígido}
 
 Lo único que pueden hacer los puntos de un cuerpo rígido es rotar.
-
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.35\textwidth]{images/fig_mc_rigidvel.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 \[
 	\delta r_{p_0} = r_{p_0} \sin(\beta) \delta \alpha
 \]
@@ -91,6 +103,12 @@ siendo \vb{\Omega}' la \vb{\Omega} como se ve desde el sistema O'
 	\vb{V}_{p} = \vb{V}_0 + \vb{\Omega} \times \vb{r}_{p_0}
 \]
 y donde \vb{\Omega} es la vista desde el sistema O.
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.35\textwidth]{images/fig_mc_velrot.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 \[
 	\vb{V}_0' + \vb{\Omega}' \times \vb{r}_{p_0'} = \vb{V}_0 + \vb{\Omega} \times \vb{r}_{p_0} 
 \]
@@ -132,6 +150,12 @@ punto O rotar en torno a algún eje.
 	\vb{V}_0 = - \vb{\Omega} \times ( r_{\perp} + r_{\parallel} ) = -\vb{\Omega} \times  r_{\perp} 
 \]
 y esto define un eje instantáneo de rotación.
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_ejeinst.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 
 % =================================================================================================
 \section{Ángulos de Euler}
@@ -139,7 +163,12 @@ y esto define un eje instantáneo de rotación.
 
 Se toma un sistema 123 inicialmente coincidente con uno XYZ paralelo al inercial, 123 tiene origen
 en el centro de masa del cuerpo.
-
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_eulerangles.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 \[
 	A_1(\phi) = 
 	\begin{pmatrix}
@@ -446,6 +475,12 @@ Los vínculos pueden escribirse
 \[
 	r^2 = a^2 = x_{cm}^2 + y_{cm}^2 + z_{cm}^2
 \]
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_peonza1.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 y las coordenadas
 \begin{align*}
 	x &= a \sin(\theta) \cos\left( \frac{\pi}{2}-\phi_e \right) = a \sin(\theta) \sin( \phi_e ) \\
@@ -475,6 +510,12 @@ y los primeros dos términos representan una rotación pura si tomo
 	( M a^2 + I ) \equiv I' 
 \]
 donde $I'$ es otro momento de inercia.
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_peonza2.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 
 Luego hay unos interesantes comentarios sobre la ubicación de los ejes. El famoso ``bajo ejes''.
 \[
@@ -499,6 +540,12 @@ También es $T_{acopl}=0$ si $V_0=0$ (aquí también se anula $T_{trasl}$).
 \[
 	I_{ij}^0 = \sum_s^N m^s ( \delta_{ij} ( \vb{U}_s - \vb{a} )^2 - (U^s_i - a_i) ( U^s_j - a_j ) )
 \]
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_steiner1.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 Trasladamos el punto (con el sistema de ejes paralelo al del centro de masa) sin rotarlo. Eso es importante.
 \[
 	I_{ij}^0 = \sum_s^N m^s \left[  \delta_{ij} ( U_s^2 + a^2 - 2Ua ) -
@@ -529,11 +576,16 @@ pero como es vectorial vale para cada coordenada
 \[
 	0 = \sum_s^N m^s U_i^s a
 \]
-
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_steiner2.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 La moraleja es que trasladar en un solo eje conserva la diagonalidad del tensor de inercia.
 
 % =================================================================================================
-\section{Sistemas inerciales}
+\section{Sistemas no inerciales}
 % =================================================================================================
 
 \begin{figure}
@@ -787,7 +839,12 @@ estamos autorizados a escribir
 \[
 	\delta\hat{z}' = \delta \alpha_y \hat{x}' - \delta \alpha_x \hat{y}'
 \]
-
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_rotaciones.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 La rotación infinitesimal puede verse como un vector 
 \[
 	\delta\vb{\alpha} = \delta\alpha_x \hat{x} + \delta\alpha_y \hat{y} +  \delta\alpha_z \hat{z} 
@@ -833,6 +890,12 @@ y tener que
 \[
 	\delta \alpha_z \equiv \omega_z . 
 \]
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_rotzej.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 \end{ejemplillo}
 
 % =================================================================================================
@@ -963,6 +1026,13 @@ orden tres), entonces tengo eje principal de inercia allí.
 La idea es que si pienso en planos siempre se hacen nulos los productos de inercia rotacionales.
 
 Para la siguiente figura el plano de simetría es eje principal, luego es eje principal de inercia.
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_ejesim.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
 
 % =================================================================================================
 \section{Movimiento de un cuerpo asimétrico}
@@ -979,6 +1049,13 @@ y como la energía se conserva es
 	E = T_{trasl} + T_{rot} + V(R_{cm})
 \]
 donde cada una se conserva separadamente.
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_asimbod.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 
 Usaremos una notación en la cual el subíndice refiere a referido a y el supraíndice a de qué puntos/puntos
 \[
@@ -1005,7 +1082,12 @@ y podemos escribir
 \[
 	1  = \frac{L_1^2}{2 I_1 T_{rot}} + \frac{L_2^2}{2 I_2 T_{rot}} + \frac{L_3^2}{2 I_3 T_{rot}}
 \]
-
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_asimbod2.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 Entonces, si se da que $I_3 > I_2 > I_1$ se tiene 
 \[
 	L_{spin}^2 = L_1^2 + L_2^2 + L_3^2 \qquad L^2 =  I_1^2\Omega_1^2 + I_2^2\Omega_2^2 + I_3^2\Omega_3^2
@@ -1016,7 +1098,12 @@ donde como se conservan $T_{rot} \equiv T$ y $L_{spin} \equiv L$
 \]
 de la primera deducimos un elipsoide de semiejes en $L_i$ y de la segunda una esfera de radio $L$ en $L_i$.
 \notamargen{Esto está super oscuro. No sé qué se quiso decir, tal vez se halle explicado mejor en la carpeta.}
-
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_asimbod3.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 \[
 	2 I_3 T > 2 I_2 T > 2 I_1 T
 \]
