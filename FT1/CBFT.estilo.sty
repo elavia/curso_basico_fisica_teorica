@@ -1,7 +1,7 @@
 	%###########################################################################
 	%
 	%	Hoja de estilo para el Curso Básico de Física Teórica
-	%	v 1.0 [Marzo 2015]
+	%	v 1.1 [Diciembre 2015]
 	%
 	%
 	%###########################################################################
@@ -12,8 +12,28 @@
 	% que surja la necesidad de nuevas estructuras y macros.
 	
 	
+	%###########################################################################
+	%		TIPOGRAFÍAS para la hoja cls
+	%###########################################################################	
 
+	\newfontfamily\LibreBask[
+			Path = fonts/,
+			UprightFont = LibreBaskerville-Regular,
+			ItalicFont = LibreBaskerville-Italic,
+			BoldFont = LibreBaskerville-Bold
+		]{LibreBask}
+		
+	\newfontfamily\Stix[
+			Path = fonts/,
+			UprightFont = STIX-Regular,
+			ItalicFont = STIX-Italic,
+			BoldFont = STIX-Bold,
+			BoldItalicFont = STIX-BoldItalic
+		]{Stix}		
 	
+	
+	\def\helveticabold{cmssbx10 }
+	\font\chapternumberfont=\helveticabold at 14pt
 
 	%###########################################################################
 	%		COMANDOS PARA TIPEAR matemática y física
@@ -134,7 +154,7 @@
 	{\footnotesize{\bf #1}}
 	\footnotesize
 	}    
-    {\end{trivlist}}
+	{\end{trivlist}}
 	
 	
 	% Numeración del entorno referida a la sección
@@ -173,9 +193,11 @@
 	% Manera de cambiar nombres cuando tenemos babel o polyglossia en uso
 	\addto\captionsspanish{%
 	\renewcommand{\figurename}{Figura}%
-	\renewcommand{\contentsname}{Contenidos}%
-	\renewcommand{\indexname}{Indice}%
-	\renewcommand{\tablename}{Tabla}
+	\renewcommand{\contentsname}{\LARGE Contenidos}%
+	\renewcommand{\indexname}{\LARGE Indice}%
+	\renewcommand{\tablename}{\LARGE Tabla}
+% 	\renewcommand{\figurename}{\LARGE Figuras}
+	\renewcommand{\listfigurename}{\LARGE Indice de figuras} 
 	}
 	
 	
