@@ -42,11 +42,10 @@ fue posible conseguirlo) de las cuatro asignaturas de las cuales versará el CBF
 		Leyes de Conservación. Sistemas de partículas. Fuerzas de vínculo.
 		Vínculos holónomos y no holónomos.
     2. Mecánica lagrangiana.
-		Coordenadas generalizadas. Principio de los trabajos
-		virtuales (D’Alembert). Ecuaciones de Lagrange. Fuerzas generalizadas.
-		Potenciales generalizados. Función de disipación de Rayleigh.
-		Principio de Hamilton. Derivación de las ecuaciones de Lagrange a partir del 
-		principio de Hamilton.
+		Coordenadas generalizadas. Principio de los trabajos virtuales (D’Alembert).
+		Ecuaciones de Lagrange. Fuerzas generalizadas. Potenciales generalizados.
+		Función de disipación de Rayleigh. Principio de Hamilton.
+		Derivación de las ecuaciones de Lagrange a partir del principio de Hamilton.
     3. Simetrías.
 		Coordenadas cíclicas. Transformación de coordenadas. Simetrías.
 		Simetrías discretas y continuas. Teorema de Noether. Constantes de movimiento.
@@ -68,18 +67,15 @@ fue posible conseguirlo) de las cuatro asignaturas de las cuales versará el CBF
 		Momentos de inercia. El sólido rígido libre. Ecuaciones de Euler.
 		Trompos simétricos. Rotación, precesión y nutación. Aplicaciones.
     7. Ecuaciones de Hamilton.
-		Transformación de Legendre. Hamiltoniano.
-		Ecuaciones de Hamilton.
+		Transformación de Legendre. Hamiltoniano. Ecuaciones de Hamilton.
 		Principio de Hamilton modificado. Principio de mínima acción.
     8. Transformaciones canónicas.
-		Definición. Función generatriz.
-		Transformaciones de Legendre de la función generatriz. La acción y la acción
-		reducidas como funciones generatrices. Corchetes de Lagrange y de Poisson.
+		Definición. Función generatriz. Transformaciones de Legendre de la función generatriz.
+		La acción y la acción reducidas como funciones generatrices. Corchetes de Lagrange y de Poisson.
 		Invariancia y propiedades. Transformaciones de simetría.
 		Corchetes de Poisson del momento angular. Teorema de Liouville.
     9. Ecuaciones de Hamilton-Jacobi.
-		Concepto de integrabilidad. Función principal.
-		Ecuación de Hamilton-Jacobi para la función principal.
+		Concepto de integrabilidad. Función principal. Ecuación de Hamilton-Jacobi para la función principal.
 		Ejemplo del oscilador armónico. Función característica. Separación de variables.
 		Variables de ángulo-acción.
     10. Relatividad.
