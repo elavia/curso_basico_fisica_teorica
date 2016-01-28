@@ -161,19 +161,66 @@ La transformación entre estas integrales puede hacerse merced al siguiente razo
 La fuerza de un circuito 2 sobre otro circuito 1 puede calcularse con un poco de paciencia como sigue
 \[
 	F_{12} = \frac{1}{c} \int_{\Gamma_1} I_1 d\vb{\ell}_1 \times \left\{
-	\frac{1}{c} \int_{\Gamma_2} \frac{I_2 d\vb{\ell}'_2 \times (\vb{x}_1 - \vb{x}'_2)}{|\vb{x}_1 - \vb{x}'_2|^3} 
+	\frac{1}{c} \int_{\Gamma_2} \frac{I_2 d\vb{\ell}_2 \times (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
 	\right\}
 \]
 \[
 	F_{12} = \frac{I_1 I_2}{c^2} \int_{\Gamma_1} \int_{\Gamma_2} d\vb{\ell}_1 \times \left\{
-	\frac{d\vb{\ell}'_2 \times (\vb{x}_1 - \vb{x}'_2)}{|\vb{x}_1 - \vb{x}'_2|^3} 
+	\frac{d\vb{\ell}_2 \times (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
 	\right\}
 \]
+\[
+	F_{12} = \frac{I_1 I_2}{c^2} \int_{\Gamma_1} \int_{\Gamma_2} d\vb{\ell}_2  \left\{
+	\frac{d\vb{\ell}_1 \cdot (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
+	\right\} - \int_{\Gamma_1} \int_{\Gamma_2} \frac{ (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
+	\left\{ d\vb{\ell}_1 \cdot d\vb{\ell}_2 \right\}
+\]
+donde el primer término se comprueba nulo si se reescribe utilizando que
+\[
+	\frac{ (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} = 
+	\nabla_{\vb{x}_2} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} =
+	- \nabla_{\vb{x}_1} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} 
+\]
+de manera que entonces
+\[
+	- \int_{\Gamma_2} d\vb{\ell}_2  \int_{\Gamma_1} d\vb{\ell}_1 \cdot \nabla_{\vb{x}_1} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} 
+\]
+donde se ve que es nula la última integral dado que 
+\[
+	\int_{\Gamma_1} d\vb{\ell}_1 \cdot \nabla_{\vb{x}_1} = 0.
+\]
+
+Entonces, se tiene 
+\[
+	F_{12} = - \frac{I_1 I_2}{c^2} \int_{\Gamma_1} \int_{\Gamma_2} \frac{ (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
+	\left( d\vb{\ell}_1 \cdot d\vb{\ell}_2 \right)
+\]
+que vale lo mismo si intercambiamos $\Gamma_1$ con $\Gamma_2$ en la integración. Podemos decir que con corrientes estacionarias
+vale el principio de acción y reacción: las fuerzas son iguales y de sentido opuesto.
+
 
 % =================================================================================================
 \section{Teorema de Helmholtz}
 % =================================================================================================
 
+Nos dice que un campo vectorial está completamente determinado por su divergencia y su rotor.
+Por ejemplo, para un campo eléctrico 
+\[
+	\vb{E} = \int_{V'} \rho \frac{\vb{x} - \vb{x}'}{|\vb{x} - \vb{x}'|^3} dV' = 
+		- \int_{V'} \rho \nabla_{\vb{x}} \frac{ 1 }{|\vb{x} - \vb{x}'|} dV' = 
+		- \nabla_{\vb{x}} \int_{V'}   \frac{ \rho }{|\vb{x} - \vb{x}'|} dV' = 
+\]
+y esta última es la integral de Poisson
+\[
+	\vb{E} = - \nabla_{\vb{x}} \phi (\vb{x}).
+\]
+Entonces $\vb{E}$ es un gradiente y por ello 
+\[
+	\nabla  \times \vb{E} = 0
+\]
+de manera que $\vb{E}$ es conservativo, cumple $\int \vb{E}\cdot d\vb{\ell} = 0$ o lo que
+es lo mismo, $\vb{E}$ es irrotacional.
+Hemos hecho la construcción de un potencial electrostático.
 
 % =================================================================================================
 \section{Ley de Gauss}
