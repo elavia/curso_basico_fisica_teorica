@@ -12,6 +12,8 @@
 
 	\usepackage{polyglossia}
 	\setdefaultlanguage{spanish}
+	
+
 
 
 	\usepackage{CBFT.estilo} % Cargo la hoja de estilo
@@ -124,8 +126,49 @@ ninguna parte). Las corrientes estacionarias producen efectos magnéticos dados 
 	\vb{B}(\vb{x}) = \frac{1}{c} \int_\Gamma \frac{I d\vb{\ell}' \times (\vb{x} - \vb{x}')}{|\vb{x} - \vb{x}'|^3} 
 \]
 que es válida para un circuito $\Gamma$, que es una curva que se recorre en sentido CCW.
-En el caso de un volumen la expresión es
+En el caso de un volumen la expresión es 
+\[
+	\vb{B}(\vb{x}) = \frac{1}{c} \int_{V'} \frac{ \vb{J}(\vb{x}') \times (\vb{x} - \vb{x}')}{|\vb{x} - \vb{x}'|^3} 
+dV'
+\]
+mientras que la fuerza sobre un circuito $\Gamma$ es
+\[
+	F = \frac{1}{c} \int_\Gamma I d\vb{\ell} \times \vb{B}
+\]
+y sobre un volumen 
+\[
+	F = \frac{1}{c} \int_V \vb{J} \times \vb{B} dV
+\]
 
+La transformación entre estas integrales puede hacerse merced al siguiente razonamiento,
+% \begin{align*}
+%  	I d\vb{\ell} \times \vb{B} = \vb{J}  \cdot d\vb{S} d\vb{\ell}  \times \vb{B} =
+%   	\cos(\theta) dS \vb{J} d\ell \times \vb{B} = \\
+% 	\vb{J} \times \vb{B}  \cos(\theta) dS d\ell  = \vb{J} \times \vb{B}  d\vb{S} \cdot d\vb{\ell}  = 
+% 	\vb{J} \times \vb{B}  dV 
+% \end{align*}
+\[
+  	I d\vb{\ell} \times \vb{B} = \vb{J}  \cdot d\vb{S} d\vb{\ell}  \times \vb{B} =
+  	\cos(\theta) dS \vb{J} d\ell \times \vb{B} = 
+\]
+\[
+	\vb{J} \times \vb{B}  \cos(\theta) dS d\ell  = \vb{J} \times \vb{B}  d\vb{S} \cdot d\vb{\ell}  = 
+	\vb{J} \times \vb{B}  dV 
+\]
+
+\subsection{Fuerza de un circuito sobre otro}
+
+La fuerza de un circuito 2 sobre otro circuito 1 puede calcularse con un poco de paciencia como sigue
+\[
+	F_{12} = \frac{1}{c} \int_{\Gamma_1} I_1 d\vb{\ell}_1 \times \left\{
+	\frac{1}{c} \int_{\Gamma_2} \frac{I_2 d\vb{\ell}'_2 \times (\vb{x}_1 - \vb{x}'_2)}{|\vb{x}_1 - \vb{x}'_2|^3} 
+	\right\}
+\]
+\[
+	F_{12} = \frac{I_1 I_2}{c^2} \int_{\Gamma_1} \int_{\Gamma_2} d\vb{\ell}_1 \times \left\{
+	\frac{d\vb{\ell}'_2 \times (\vb{x}_1 - \vb{x}'_2)}{|\vb{x}_1 - \vb{x}'_2|^3} 
+	\right\}
+\]
 
 % =================================================================================================
 \section{Teorema de Helmholtz}
@@ -138,7 +181,7 @@ En el caso de un volumen la expresión es
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/fig_ft1_gauss.pdf}	 
+	\includegraphics[width=0.35\textwidth]{images/fig_ft1_gauss.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
