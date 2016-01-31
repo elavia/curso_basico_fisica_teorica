@@ -345,7 +345,36 @@ La fuerza general sobre una distribución de carga es
 \[
 	\vb{F} = \int_{V'} \rho \vb{E} dV' + \frac{1}{c} \int_{V'} \vb{J} \times \vb{B} dV'. 
 \]
-	
+
+\subsection{Delta de Dirac}
+
+Una densidad de carga puntual se puede escribir mediante una delta de Dirac de acuerdo a
+\[
+	\rho(\vb{x}') = q\: \delta (\vb{x} - \vb{x}') = \begin{cases}
+	                                               0 \qquad \vb{x} \neq \vb{x}' \\
+	                                               \infty \qquad \vb{x} = \vb{x}'\\
+	                                              \end{cases}
+\]
+siendo las dimensiones de la delta las de $1/L^3$ y cumpliéndose 
+\[
+	\int_{V'} \delta (\vb{x} - \vb{x}') dV' = 1
+\]
+\[
+	\delta (\vb{x} - \vb{x}') = \frac{1}{h_1h_2h_3} \delta(q_1-q_1') \delta(q_2-q_2') \delta(q_3-q_3')
+\]
+donde $q_1, q_2$ y $q_3$ son coordenadas curvilíneas generales y $h_1h_2h_3$ es el jacobiano
+de la transformación.
+Luego
+\[
+	\int f(\vb{x}) \delta' (\vb{x} - \vb{x}_0) dx = -f'(\vb{x}_0)
+\]
+
+
+
+\subsection{reflexión}
+
+Un vector polar sufre reflexión especular mientras que un vector axial ({\it pseudovector})
+sufre una antireflexión especular. Ver la figura.
 
 \begin{figure}[htb]
 	\begin{center}
@@ -353,6 +382,115 @@ La fuerza general sobre una distribución de carga es
 	\end{center}
 	\caption{}
 \end{figure} 
+
+Una reflexión más una rotación permite eliminar componentes de campo.
+Una simetría más una rotación-traslación permite eliminar dependencias.
+
+Lo primero que debe hacerse es escribir bien la \vb{J} a partir del dato de la corriente
+(que es el que se suele tener) mediante
+\[
+	i = \int_S \vb{J} \cdot d \vb{S}
+\]
+En cambio, para \vb{A} es más fácil usar
+\[
+	\vb{B} = \rotorm{A}
+\]
+y despejar de aquí la ecuación diferencial que emplear
+\[
+	\vb{A} = \frac{1}{c} \int_V \frac{\vb{J}}{|\vb{x}-\vb{x}'|} dV
+\]
+
+
+\section{El potencial vector}
+
+Por la ley de Biot y Savart,
+\[
+	\vb{B} = \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}') \times (\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} 
+	dV' = \Nabla_x \times \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|} dV'
+\]
+de modo que
+\be
+	\vb{A} = \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|} dV'
+	\label{potvec}
+\ee
+pero 
+\[
+	\vb{A}' \equiv \vb{A} + \Nabla \Psi
+\]
+es tan buen potencial vector como \vb{A} puesto que los rotores verifican $\rotorm{A}=\rotorm{A}'=\vb{B}$,
+de lo cual extraemos en conclusión que el potencial vector está definido a menos del gradiente de una
+función escalar.
+
+Tomándole el rotor a \eqref{potvec} y considerando $\Nabla'\cdot\vb{J}(\vb{x}')=0$ lo cual se verifica si
+la corriente es estacionaria se tiene 
+\[
+	\rotorm{B} = \frac{4\pi}{c} \vb{J}(\vb{x})
+\]
+y entonces
+\[
+	\int_S \rotorm{B} \cdot d\vb{S} = \frac{4\pi}{c} \int_S \vb{J}(\vb{x}) \cdot d\vb{S}
+\]
+y por el teorema de Stokes arribamos a
+\[
+	\int_{\Gamma\equiv\partial S} \vb{B}\cdot d\vb{\ell} = \frac{4\pi}{c} I_\Gamma
+\]
+que es la ley de Ampere. Notemos que $I_\Gamma$ es la corriente concatenada por el lazo $\Gamma$.
+Además
+\[
+	\rotorm{B} = \Nabla\times(\rotorm{A}) = \Nabla(\divem{A}) - \nabla^2 \vb{A} = \frac{4\pi}{c}\vb{J}
+\]
+pero utilizando el gauge de Coulomb es $\divem{A}=0$ y entonces
+\[
+	\nabla^2 \vb{A} = -\frac{4\pi}{c}\vb{J}
+\]
+que es una ecuación de Poisson vectorial.
+
+Magnetostática y electrostáctica son gobernadas por ecuaciones de Poisson para potenciales $\vb{A},\phi$ y
+el problema entonces se reduce a resolverlas para luego hallar los campos por derivación.
+
+\section{Unicidad de problemas de potencial}
+
+Si dos problemas satisfacen iguales condiciones de contorno entonces en el recinto encerrado por
+ese contorno tienen igual solución.
+
+Si en un recinto $R$
+\be
+	\phi_1|_{cont} = \phi_2|_{cont}
+	\label{potnounico}
+\ee
+pero se da para el interior de $R$ que $\phi_1\neq\phi_2$ entonces se tiene sucesivamente
+\[
+	U \equiv \phi_1 - \phi_2 \qquad \qquad \Nabla U = \Nabla \phi_1 - \Nabla \phi_2
+\]
+\[
+	\lapm{U} = \lapm{\phi_1} - \lapm{\phi_2} = -4\pi \rho + 4\pi\rho = 0
+\]
+\[
+	\Nabla\cdot\left( U\Nabla U \right) = U\left( \Nabla\cdot\Nabla U \right) + \Nabla U \cdot \Nabla U
+\]
+\[
+	\int_V \Nabla\cdot\left( U\Nabla U \right) dV = \int_V U \lapm{U}  + (\lapm{U})^2 dV =  \int_V (\lapm{U})^2 dV
+\]
+llegando al último miembro porque el potencial $U$ cumple la ecuación de Laplace. Luego,
+\[
+	\int_V (\lapm{U})^2 dV = \int_S U\Nabla{U} \cdot d\vb{S} = 0
+\]
+habiéndose pasado a la integral de superficie por el teorema de la divergencia y anulando el valor global porque 
+$U$ en el contorno es nula (recuérdese \eqref{potnounico}). Además, 
+\[
+	\Nabla{U} \cdot d\vb{S}  \longrightarrow \left.\dpar{U}{\hat{n}}\right|_{cont}
+\]
+luego,
+\[
+	\Nabla U = 0 \qquad \Nabla\phi_1 = \Nabla\phi_2 
+\]
+y entonces
+\[
+	\phi_1 = \phi_2 .
+\]
+a menos, por supuesto, de una constante.
+
+
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
