@@ -3,7 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
+	\usepackage{bm}
+% 	\usepackage{libertine}
 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
@@ -277,20 +278,111 @@ esto es el llamado {\it problema exterior}.
 \section{Condiciones de contorno}
 % =================================================================================================
 
+La ley de Gauss nos dice
+\[
+	\int \vb{E} \cdot d\vb{S} = 4 \pi Q_n
+\]
+para el cilindrito de la figura
+\[
+	( \vb{E}_2 - \vb{E}_1 )\cdot \hat{n} \Delta S = 4 \pi \sigma \Delta S 
+\]
+\[
+	( \vb{E}_2 - \vb{E}_1 )\cdot \hat{n} = 4 \pi \sigma 
+\]
+\[
+	\rotorm{E} = 0 \Rightarrow \int_\Gamma \vb{E} \cdot d\vb{\ell} = 0 =
+	( \vb{E}_2 - \vb{E}_1 )\cdot d\vb{\ell}  = ( \vb{E}_1 + \vb{E}_2 ) \cdot \hat{n}\times\hat{\eta} d\ell
+\]
+donde esto vale en electrostática (nula la integral de línea del campo \vb{E}) y además
+\[
+	\hat{n}\times\hat{\eta} = \frac{d\vb{\ell}}{d\ell} 
+\]
+
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/fig_ft1_contorno1.pdf}	 
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_contorno1.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+y puesto que vale la permutación
+\[
+	0 = ( -\vb{E}_2 + \vb{E}_1 )\cdot(\hat{n}\times\hat{\eta}) \longrightarrow 
+	0 = \hat{\eta} \cdot ( ( -\vb{E}_2 + \vb{E}_1 ) \times \hat{n} )
+\]
+
+de modo que la componente tangencial es continua y entonces
+\[
+	\hat{n} \times ( \vb{E}_2 - \vb{E}_1 ) = 0
+\]
+\[
+	E_{2\hat{n}} - E_{1\hat{n}} = 4 \pi \sigma \qquad \qquad E_{2\hat{t}} -E_{1\hat{t}} = 0
+\]
+\[
+	-\Nabla\phi_2\cdot\hat{n} + \Nabla\phi_1\cdot\hat{n} = 4 \pi \sigma
+\]
+\[
+	\frac{\Nabla(\phi_2-\phi_1)\cdot \hat{n}}{4 \pi} = \sigma
+\]
+\[
+	\sigma = \frac{1}{4\pi}\dpar{(\phi_1-\phi_2)}{n}
+\]
+esta es la densidad de carga inducida sobre la frontera entre medios.
+
+Para los medios magnéticos
+\[
+	\rotorm{H} = \frac{4 \pi}{c} \vb{J}_l
+\]
+\[
+	\int_S (\rotorm{H}) \cdot d\vb{S} = \int_S \frac{4 \pi}{c} \vb{J}_l \cdot d\vb{S} = 
+	\frac{4 \pi}{C} \vb{g}_l\cdot \hat{s} d\ell
+\]
+donde hicimos la transformación
+\[
+	\int \vb{H}\cdot d\ell = (\vb{H}_2-\vb{H}_1)\cdot d\ell
+\]
+y donde recordemos que la altura de $\Gamma$ tiene a cero.
+\[
+	\frac{4 \pi}{c} \vb{g}_l \cdot \vb{s} = ( -\vb{H}_2 + \vb{H}_1 )\cdot( \hat{n} \times \hat{s} ) d\ell
+\]
+\[
+	\frac{4 \pi}{c} \vb{g}_l \cdot \vb{s} \; d\ell = (\vb{H}_1 -\vb{H}_2 \times \hat{n})\cdot \hat{s} 
+d\ell
+\]
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_contorno2.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
 
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/fig_ft1_contorno2.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
+de manera que 
+\[
+	\frac{4 \pi}{c} \vb{g}_l = \hat{n} \times ( \vb{H}_2 - \vb{H}_1 )
+\]
+\[
+	\hat{n}\times\hat{s} = \frac{d\vb{\ell}}{d\ell} 
+\]
+\[
+	B_{2\hat{n}} - B_{1\hat{n}} = 0 \qquad \qquad H_{2\hat{t}} - H_{1\hat{t}} = \frac{4 \pi}{c} g_l
+\]
+\[
+	\int_S \vb{B}\cdot d\vb{S} = 0 \Rightarrow (\vb{B}_2 - \vb{B}_1 )\cdot\hat{n} = 0
+\]
 
+% =================================================================================================
+\section{Desarrollo multipolar}
+% =================================================================================================
+
+\[
+	\phi(\vb{x}) = \int_{V'} \frac{\rho(\v{x})}{|\vb{x}-\vb{x}'|} \; dV'
+\]
+Cuando la expresión es muy complicada podemos desarrollarla en una serie de potencias
+\[
+	\phi(\vb{x}) = \frac{Q}{|\vb{x}|} + \frac{\vb{x}\cdot\vb{p}}{|\vb{x}|^3} +
+	\sum_{i,j}^3 \frac{1}{2|\vb{x}|^5} x_i Q_{ij} x_j
+\]
+donde está centrado en el origen de coordenadas.
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
