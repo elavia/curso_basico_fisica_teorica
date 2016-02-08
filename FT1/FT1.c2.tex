@@ -375,14 +375,260 @@ de manera que
 % =================================================================================================
 
 \[
-	\phi(\vb{x}) = \int_{V'} \frac{\rho(\v{x})}{|\vb{x}-\vb{x}'|} \; dV'
+	\phi(\vb{x}) = \int_{V'} \frac{\rho(\vb{x})}{|\vb{x}-\vb{x}'|} \; dV'
 \]
 Cuando la expresión es muy complicada podemos desarrollarla en una serie de potencias
 \[
 	\phi(\vb{x}) = \frac{Q}{|\vb{x}|} + \frac{\vb{x}\cdot\vb{p}}{|\vb{x}|^3} +
 	\sum_{i,j}^3 \frac{1}{2|\vb{x}|^5} x_i Q_{ij} x_j
 \]
-donde está centrado en el origen de coordenadas.
+donde está centrado en el origen de coordenadas. El último término, matricialmente sería
+\[
+	\frac{1}{2} \frac{\vb{x}^t Q \vb{x}}{|\vb{x}|^5}
+\]
+y es el término cuadrupolar.
+
+Los momentos son el momento dipolar,
+\[
+	\vb{p} = \int_V \vb{x} \: \rho(\vb{x}) \: dV
+\]
+el momento monopolar
+\[
+	Q = \int_V \rho(\vb{x}) dV
+\]
+que es la carga total, y el momento cuadrupolar
+\[
+	Q_{ij} = \int_V  \rho(\vb{x}) \left[ 3 x_i x_j - \delta_{ij} |\vb{x}|^2 \right] \: dV
+\]
+
+El momento cuadrupolar refleja apartamiento de la esfera perfecta, los momentos dipolar y cuadrupolar
+indican desbalance de carga.
+Asimismo $Q_{ij} = Q_{ji}$ es simétrico por ser producto de vectores polares.
+Es siempre diagonalizable. Tiene traza nula,
+\[
+	Q_{xx} + Q_{yy} + Q_{zz}  = 0
+\]
+se da también que $Q_{ij} (i\neq j)$ mide desbalance lejos de los ejes.
+Una esfera con $\rho$ uniforme tiene todos los momentos multipolares nulos salvo el monopolo.
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.8\textwidth]{images/fig_ft1_multipolo2.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
+
+Una simetría de reflexión implica que el $\vb{p}_\perp = 0$ donde la notación significa perpendicular
+al plano. Esto es así porque no hay desbalance. Para una simetría de revolución $Q_{xx}=Q_{yy}$ entonces
+el $Q_{ij}$ puede darse con un sólo número.
+
+Si en una distribución dada, los momentos multipolares hasta el orden $\ell -1$ son nulos entonces
+el momento multipolar de orden $\ell$ no depende del origen de coordenadas.
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{images/fig_ft1_multipolo3.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
+
+En la figura vemos que no ambos no tienen desbalance de carga respecto del origen; el disco uniformemente
+cargado tendrá monopolo no nulo y dipolo nulo (siempre respecto del origen), los anillos cargados con carga
+opuesta tendrán monopolo y dipolo nulos (respecto del origen y de cualquier otro punto). Pero si muevo las
+distribuciones se tendrá desbalance el disco pero no los anillos.
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.3\textwidth]{images/fig_ft1_multipolo4.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
+
+Para átomos en general son monopolo, dipolo neutros; el cuadrupolo se da con un solo número. 
+En la Figura tenemos un elipsoide con densidad de carga $\rho$ uniforme. Tiene simetría de revolución
+de modo que el momento cuadripolar es un número. $Q_{zz} = 0 $ puesto que una esfera no tiene
+desbalance, entonces $\overleftrightarrow{Q} = 0 $ 
+
+
+% =================================================================================================
+\section{Dipolo eléctrico}
+% =================================================================================================
+
+\[
+	\phi(\vb{x}) = \frac{ \vb{p}\cdot\vb{x} }{|\vb{x}|^3} 
+\]
+si está en el origen, y
+\[
+	\phi(\vb{x}) = \frac{ \vb{p}\cdot(\vb{x}-\vb{x}_0) }{|\vb{x} - \vb{x}_0|^3} 
+\]
+si está en un punto $\vb{x}_0$
+\[
+	\vb{E}(\vb{x}) = \frac{3 \vb{p}\cdot\hat{n} }{|\vb{x} - \vb{x}_0|^3}  \hat{n} - 
+		\frac{ \vb{p} }{|\vb{x} - \vb{x}_0|^3}	
+\]
+donde debemos notar que \vb{p} no depende de \vb{x}.
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.3\textwidth]{images/fig_ft1_dipolar2.pdf}	 
+	\end{center}
+	\caption{Dipolo centrado en el origen.}
+\end{figure}
+
+\[
+	\phi(\vb{x}) = \frac{p\hat{z}\cdot r\hat{r}}{r^3} = \frac{p}{r^2} \cos(\theta)
+\]
+siendo 
+\[
+	\hat{n} = \frac{\vb{x}-\vb{x}_0}{|\vb{x}-\vb{x}_0|}
+\]
+\[
+	\vb{E}(r,\theta) = \frac{2 p\cos(\theta)}{r^3} \hat{r} + \frac{p\sin(\theta)}{r^3} \hat{\theta}
+\]
+tiene simetría de revolución, puesto que no depende de $\hat{\phi}$.
+
+Las líneas de campo cuplen que $d\vb{\ell}$ a través de una línea de campo es tal que 
+\[
+	d\vb{\ell} \parallel \vb{E} \quad \Rightarrow \quad  \vb{E} \times d\vb{\ell}  = 0
+\]
+la línea de campo sigue la dirección del campo. En el caso del dipolo no tendrán componente en
+$\hat{\phi}$ (como es de esperar).
+
+\subsection{Inteacción de un campo externo con una distribución de carga}
+
+Si tenemos un campo \vb{E} con sus fuentes lejos,
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_dipolar3.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
+
+y que cumple $\divem{E}=0$ y $\rotorm{E}=0$ (irrotacionalidad), se da la siguiente fuerza sobre la distribución
+\[
+	\vb{F} = \int_V \rho(\vb{x}) \: \vb{E}(\vb{x}) \: dV,
+\]
+y si \vb{E} no varía demasiado en $V$, entonces podemos representar bien por una serie
+\[
+	E^\ell(\vb{x}) = E^\ell + x_j \partial_j E^\ell + \frac{1}{2} x_j x_k \partial_j\partial_k E^\ell
+\]
+entonces 
+\[
+	F_i = \int_V \rho E_i dV \approx E_i \int_V \rho dV + \int_V \rho  x_j \partial_j E_i dV +
+		\frac{1}{2} \int_V \rho x_j x_k \partial_j\partial_k E_i dV 
+\]
+o bien 
+\[
+	F_i = \int_V \rho E_i dV \approx E_i q + (\vb{p}\cdot\Nabla) E_i  +
+		\vb{x}\cdot\left[ (\vb{x}\cdot\Nabla)\Nabla E_i\right]
+\]
+de lo cual extraemos que el campo interactúa con la carga, el gradiente del campo interactúa con el dipolo
+y la divergencia del campo interactúa con el cuadrupolo.
+Un campo uniforme entonces no hace fuerza sobre un dipolo.
+Para un campo inhomogéneo, el torque $\vb{\Tau} = \vb{x} \times \vb{F}$ se puede escribir como 
+\[
+	\vb{\Tau} = q\vb{x} \times \vb{E} = \vb{p} \times \vb{E}
+\]
+donde $\vb{p}\equiv q\vb{x}$ es el momento dipolar y vemos que el torque tiende a centrar el dipolo
+según la dirección del campo \vb{E} aunque no lo logra por la agitación térmica.
+
+La energía de un dipolo será
+\[
+	U = -\vb{p}\cdot\vb{E}
+\]
+entonces
+\[
+	\vb{F} = -\Nabla U = \Nabla(\vb{p}\cdot\vb{E}) = (\vb{p}\cdot\Nabla)\vb{E} + (\vb{E}\cdot\Nabla)\vb{p}
+	+ \vb{p}\times(\rotorm{E}) + \vb{E}\times(\Nabla\times\vb{p})
+\]
+siendo los últimos tres términos nulos según lo que consideramos previamente de manera que
+\[
+	\vb{F} = (\vb{p}\cdot\Nabla)\vb{E}.
+\]
+
+\subsection{Capa dipolar}
+
+El potencial de un dipolo es
+\[
+	\phi(\vb{x}) = \frac{ \vb{p}\cdot(\vb{x}-\vb{x}_0) }{|\vb{x} - \vb{x}_0|^3} 
+\]
+y el potencial de una capa dipolar
+\[
+	\phi(\vb{x}) = \int_S \frac{ \vb{D}(\vb{x}')\cdot(\vb{x}-\vb{x}') }{|\vb{x} - \vb{x}'|^3} \: dS'
+\]
+siendo $\vb{D}$ el momento dipolar por área que viene de acuerdo a la definición
+\[
+	D = \lim_{\substack{\sigma\to\infty \\ \epsilon\to 0}} \: \sigma\epsilon
+\]
+refiérase a la ilustración bajo esta línea
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.2\textwidth]{images/fig_ft1_campo_dipolar3.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
+
+Veamos algún detalle más sobre la capa dipolar, que está ilustrado en la Figura siguiente.
+\[
+	\frac{ \vb{D}\cdot(\vb{x}-\vb{x}')}{|\vb{x} - \vb{x}'|^3} dS = 
+	\frac{ D \cdot(\vb{x}-\vb{x}')}{|\vb{x} - \vb{x}'|^3} d\vb{S} = 
+	- \frac{ D \cos(\theta)}{|\vb{x} - \vb{x}'|^2} dS = 
+	- \frac{ D \cos(\theta)}{r^2} dS  
+\]
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{images/fig_ft1_campo_dipolar1.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
+
+\[
+	\frac{ \vb{D}\cdot(\vb{x}-\vb{x}')}{|\vb{x} - \vb{x}'|^3} dS = - D d\Omega
+\]
+puesto que
+\[
+	\phi(\vb{x}) = -D \int_S d\Omega \qquad \qquad \frac{\cos(\theta)}{r^2}dS \equiv d\Omega
+\]
+
+Para las condiciones de contorno se da lo siguiente
+\[
+	E_2^{\hat{n}} - E_1^{\hat{n}} = 4\pi\sigma
+\]
+\[
+	- \Nabla (\phi_2 - \phi_1)\cdot \hat{n} = 4\pi\sigma
+\]
+\[
+	\dpar{\phi_1 - \phi_2}{\hat{n}} = 4\pi\sigma
+\]
+\[
+	\phi_1 - \phi_2 = 4\pi\sigma\epsilon
+\]
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_dipolar2.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
+
+desde donde deducimos que el potencial tiene un salto al surcar la capa dado por 
+\[
+	\phi_2 - \phi_1 = 4\pi D
+\]
+
+\subsection{Momento dipolar por unidad de volumen}
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.3\textwidth]{images/fig_ft1_dipolarvol.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
+
+
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
