@@ -620,12 +620,307 @@ desde donde deducimos que el potencial tiene un salto al surcar la capa dado por
 
 \subsection{Momento dipolar por unidad de volumen}
 
+El potencial de un dipolo es
+\[
+	\phi(\vb{x}) = \frac{ \vb{p}\cdot(\vb{x}-\vb{x}') }{|\vb{x} - \vb{x}'|^3} 
+\]
+y el potencial de muchos de ellos sale de la integración
+\[
+	\phi(\vb{x}) = \int_V \frac{ \vb{P}(\vb{x}')\cdot(\vb{x}-\vb{x}') }{|\vb{x} - \vb{x}'|^3}  \: dV
+\]
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.3\textwidth]{images/fig_ft1_dipolarvol.pdf}	 
 	\end{center}
 	\caption{}
-\end{figure} 
+\end{figure}
+donde $\vb{P}$ es la llamada polarización, el momento dipolar por unidad de volumen, siendo $V$ un volumen
+que incluye a la zona de polarización (ver Figura).
+\[
+	\phi(\vb{x}) = \int_V \vb{P}(\vb{x}')\cdot \Nabla' \left(\frac{1}{|\vb{x} - \vb{x}'|} \right)\: dV
+\]
+y si usamos el teorema de la divergencia para convertir una de las integrales resulta
+\[
+	\phi(\vb{x}) = \int_S \frac{\vb{P}(\vb{x}')}{ |\vb{x} - \vb{x}'|} \: dS
+	- \int_V  \frac{  \Nabla' \cdot \vb{P}(\vb{x}') }{|\vb{x} - \vb{x}'|} \: dV 
+\]
+lo que habilita a pensar en como que 
+\[
+	\vb{P}\cdot\hat{n} \equiv \sigma_P
+\]
+está presente en el borde del cuerpo polarizado, y en su interior existe
+\[
+	- \Nabla\cdot\vb{P} \equiv \rho_P
+\]
+siempre que $\divem{P}\neq 0$ es decir que la polarización no sea homogénea.
+
+% =================================================================================================
+\section{El potencial vector}
+% =================================================================================================
+
+Haremos una especie de desarrollo multipolar del potencial vector \vb{A},
+\[
+	\vb{A}(\vb{x}) = \frac{1}{c} \int_V \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|} \: dV' 
+\]
+pero como se puede escribir
+\[
+	\frac{1}{|\vb{x}-\vb{x}'|} \approx \frac{1}{|\vb{x}|}  + \frac{\vb{x}\cdot\vb{x}'}{|\vb{x}|^3} 
+\]
+en torno a $\vb{x}'=0$ será
+\notamargen{Recordar que Biot \& Savart es para densidad de corriente estacionaria,
+i.e. $\divem{J}=0$}
+\[
+	\vb{A}(\vb{x}) = \frac{1}{c} \int_V \frac{\vb{J}(\vb{x}')}{|\vb{x}|} \: dV' 
+	+ \frac{1}{c} \frac{ \vb{x} \: }{|\vb{x}|^3} \cdot \int_V \vb{x}' \vb{J}(\vb{x}') \: dV' 
+\]
+\[
+	\vb{A}(\vb{x}) = \frac{1}{c|\vb{x}|} \int_V \vb{J}(\vb{x}') \: dV' 
+	+ \frac{1}{c} \frac{ \vb{x} \: }{|\vb{x}|^3} \cdot \int_V \vb{x}' \vb{J}(\vb{x}') \: dV' 
+\]
+y el primer término es nulo lo cual puede verse porque sale integrando con alguna identidad (?)
+y usando que $\divem{J}=0$. Correspondería al orden monopolar y el hecho de que sea nulo refleja
+la no existencia de monopolos.
+\[
+	\vb{A}(\vb{x}) = \left[ \left(\frac{1}{2c} \int_V \vb{x}'\times \vb{J} \: dV \right) \times \vb{x} \right] 
+			\frac{1}{|\vb{x}|^3}
+\]
+y si definimos el paréntesis como \vb{m} (momento magnético) entonces
+\[
+	\vb{A}(\vb{x}) = \frac{\vb{m} \times \vb{x} }{|\vb{x}|^3}
+\]
+en el origen, y 
+\[
+	\vb{A}(\vb{x}) = \frac{\vb{m} \times (\vb{x}-\vb{x}') }{|\vb{x}-\vb{x}'|^3}
+\]
+en $\vb{x}'$, las cuales son expresiones a primer orden y que utilizan el gauge de Coulomb, $\divem{A}=0$.
+
+De esta manera tendremos
+\[
+	\mathcal{M}(\vb{x}') = \frac{1}{2c} \left[ \vb{x}' \times \vb{J}(\vb{x}')\right]
+\]
+que es la magnetización o densidad de momento magnético, y entonces el momento magnético pasa a ser 
+\[
+	\vb{m} = \int_v \mathcal{M}(\vb{x}') \:dV'.
+\]
+
+Se puede trabajar con el potencial vector así
+\[
+	\rotorm{A}  = \Nabla \times \left( \frac{\vb{m} \times \vb{x} }{|\vb{x}|^3} \right) =
+	\left( \frac{\vb{x}}{|\vb{x}|^3}\cdot\Nabla \right)\vb{m}-(\vb{m}\cdot\Nabla)\frac{\vb{x}}{|\vb{x}|^3}, 
+\]
+la cual luego de mucho álgebra vectorial se puede llevar a la forma
+\[
+	\vb{B} = \frac{3 (\vb{m}\cdot\hat{n})\hat{n} - \vb{m}}{|\vb{x}|^3},
+\]
+que nos dice que bien lejos cualquier distribución de corriente localizada presenta como \vb{B} el 
+campo magnético de un dipolo magnético dado por \vb{m}(\vb{x}). Esta aproximación corresponde, por 
+supuesto, al primer orden del desarrollo.
+
+\subsection{interpretacion del momento magnético}
+
+Se puede pensar \vb{m} como una espira.
+\[
+	dA = \frac{ x d\ell \sin(\alpha) }{2}
+\]
+siendo el área orientada
+\[
+	\vb{A} = \frac{1}{2} \int_\Gamma \vb{x}\times d\vb{\ell} 
+\]
+y entonces
+\[
+	\vb{m} = \frac{I}{c}\vb{A}
+\]
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_ft1_mmag.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
+
+Desde volumen a espira hacemos la transformación del modo usual,
+\[
+	\vb{m} = \frac{1}{2c} \int_V  \vb{x} \times \vb{J}(\vb{x})  \:dV =
+		\frac{1}{2c} \int_\Gamma  \vb{x} \times \:d\vb{\ell}
+\]
+usando que
+\[
+	\vb{J} \: dV = J d\vb{\ell} dS = \frac{I}{dS} d\vb{\ell} dS = I \: d\vb{\ell} 
+\]
+
+A modo de ejemplo, para una espira circular de radio $r$ es
+\[
+	m = \frac{i}{c} \pi r^2.
+\]
+
+\subsection{Interacción del campo magnético con una distribución de corriente}
+
+Hacemos una expansión de Taylor del campo \vb{B} con $|\vb{x}|\ggg|\vb{x}'|$,
+\[
+	\vb{B} = \vb{B}_0 + (\vb{x}\cdot\Nabla)\vb{B}
+\]
+y entonces como la fuerza es
+\[
+	\vb{F} = \frac{1}{c} \int_V \vb{J}(\vb{x}') \times \vb{B}(\vb{x}') \: dV'
+\]
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_ft1_campocorr.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
+resulta que
+\[
+	\vb{F} =  \frac{1}{c} \int_V \vb{J} \times \vb{B}_0 \: dV' +
+		\frac{1}{c} \int_V \vb{J} \times (\vb{x}'\cdot\Nabla)\vb{B} \: dV'
+\]
+siendo el primer término nulo.
+\[
+	\vb{F} = \Nabla\times(\pv{B}{m}) = (\pe{m}{\Nabla})\vb{B} =
+		(\pe{m}{\Nabla})\vb{B} = \Nabla(\pe{m}{B})
+\]
+Si el campo es homogéneo la fuerza es nula, pero como $\vb{F} = -\Nabla U$
+\[
+	F_m = \Nabla(\pe{m}{B}) \quad \Rightarrow \quad U_M = -\pe{m}{B}
+\]
+\[
+	F_e = \Nabla(\pe{p}{E}) \quad \Rightarrow \quad U_e = -\pe{p}{E}
+\]
+siendo $U_{m,e}$ la energía de los dipolos en campos externos.
+
+
+Mediante identidades vectoriales podemos llegar a una expresión
+\[
+	\vb{F} = - \Nabla \times \frac{1}{c} \int_V \vb{J}(\vb{x}'\cdot\vb{B}) dV' =
+	-\Nabla \times \frac{1}{2c} (-\vb{B}) \times \int_V \vb{x} \times \vb{J} dV' =
+\]
+\[
+	\vb{F} = \Nabla \times \vb{B} \times \frac{1}{2c}\int_V \vb{x} \times \vb{J} dV'
+\]
+\[
+	\vb{F} = \Nabla \times (\pv{B}{m}) = \Nabla(\pe{m}{B})
+\]
+La fuerza de un campo $\vb{B}$ externo sobre una distribución de corrientes es el gradiente de cierta
+energía
+\[
+	\vb{F} = \Nabla(\vb{m}\cdot\vb{B}) = (\vb{m}\cdot\Nabla)\vb{B}
+\]
+de donde se ve claramente que si \vb{B} es uniforme entonces la fuerza es nula.
+\vb{m} es una constante que depende de la distribución de corrientes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
