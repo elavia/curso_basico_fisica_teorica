@@ -807,17 +807,83 @@ energía
 de donde se ve claramente que si \vb{B} es uniforme entonces la fuerza es nula.
 \vb{m} es una constante que depende de la distribución de corrientes.
 
+% =================================================================================================
+\section{Pertubación por un conductor sobre un campo eléctrico uniforme}
+% =================================================================================================
+
+Se tiene un campo uniforme con $Q,R \to \infty$ pero con $2Q/R^2 = cte$, según se ve en la Figura.
 
 
+El potencial $\phi$ de la esfera es constante por ser conductor.
+Puedo definir 
+\[
+	\phi|_{esf} \equiv 0
+\]
+pues $\phi(\infty)\neq 0 $ porque hay densidad de carga $\rho$ en el infinito.
 
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_perturbacion1.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
+Para la carga superior,
+\[
+	\phi_1 = \frac{-Q}{|\vb{x} - R\hat{z}|} + \frac{a/R Q}{|\vb{x} - a^2/R\hat{z}|}
+\]
+mientras que para la inferior
+\[
+	\phi_2 = \frac{Q}{|\vb{x} + R\hat{z}|} + \frac{ a/R Q}{|\vb{x} + a^2/R\hat{z}|}
+\]
 
+Recordemos que
+\[
+	(1+\alpha)^{(-1/2)} \approx 1 - \frac{1}{2}\alpha \qquad \alpha \ll 1
+\]
+y podemos trabajar el denominador
+\[
+	|\vb{x} - R\hat{z}| = \sqrt{ x^2 + R^2 - 2Rx\cos(\theta)}
+\]
+\[
+	\frac{1}{|\vb{x} - R\hat{z}|} = \frac{1}{\sqrt{ x^2 + R^2 - 2Rx\cos(\theta)}} =
+	\frac{1}{R(1 + x^2/R^2 - 2x/R\cos(\theta))^(1/2)}
+\]
+\[
+	\frac{1}{|\vb{x} - R\hat{z}|} \approx \frac{1}{R}\left(1+ \frac{x}{R} \cos(\theta) \right)
+\]
+de manera que luego
+\begin{multline*}
+	\phi(r) \approx Q\left[ \frac{1}{R}\left(1+ \frac{x}{R} \cos(\theta) \right) + 
+	\frac{a}{Rx}\left(1+ \frac{a^2}{Rx} \cos(\theta) \right) + \right. \\
+	\left. \frac{1}{R}\left(1 - \frac{x}{R} \cos(\theta) \right) -
+	\frac{a}{Rx}\left(1 - \frac{a^2}{Rx} \cos(\theta) \right) \right]
+\end{multline*}
+\[
+	\phi(x) \approx -\frac{2Qx}{R^2} \cos(\theta) + \frac{2a^3Q}{R^2x^2}\cos(\theta)
+\]
+y haciendo $x\equiv r$ y tomando el límite,
+\[
+	\phi(r) = -E_0 r \cos(\theta) + E_0\frac{a^3}{r^2} \cos(\theta)
+\]
+y la carga total sobre la esfera es nula puesto que estuvo aislada todo el tiempo.
+Respecto de la Figura, si hacemos un Gauss en la zona indicada se obtiene $Q_n=0$,
+entonces $\phi(r=a)=0$.
 
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.2\textwidth]{images/fig_ft1_perturbacion3.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
 
-
-
-
-
-
+El segundo término es como un dipolo puntual,
+\[
+	E_0\frac{a^3}{r^2} \cos(\theta) = E_0\frac{a^3 \hat{z}\cdot\vb{r}}{r^3} 
+\]
+donde
+\[
+	\vb{p} \equiv E_0 a^3 \hat{z}
+\]
 
 
 
