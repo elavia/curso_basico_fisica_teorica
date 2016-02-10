@@ -28,49 +28,87 @@
 \begin{document}
 
 % =================================================================================================
-\chapter{Expansiones ortonormales}
+\chapter{Método de separación de variables}
 % =================================================================================================
 
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/fig_ft1_mmag.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-
-\subsection{Campo magnético interactuando con corriente}
-
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/fig_ft1_campocorr.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-
 % =================================================================================================
-\section{Perturbación de un campo por un conductor}
+\section{Separación de variables}
 % =================================================================================================
 
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/fig_ft1_perturbacion1.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
+Separamos los problemas en regiones donde vale $\lapm{\phi} = 0$ entonces las fronteras tendrán la
+$\rho(\vb{x}')$ en general en forma de $\sigma,\lambda$.
 
-% \begin{figure}[htb]
-% 	\begin{center}
-% 	\includegraphics[width=0.4\textwidth]{images/fig_ft1_perturbacion2.pdf}	 
-% 	\end{center}
-% 	\caption{}
-% \end{figure} 
+Para coordenadas cartesianas intentaremos resolver $\lapm{\phi} = 0$, es decir
+\[
+	\dpar[2]{\phi}{x} + \dpar[2]{\phi}{y}  + \dpar[2]{\phi}{z}  = 0
+\]
+pidiendo
+\[
+	\phi(x,y,z) = X(x)Y(y)Z(z)
+\]
+de manera que 
+\[
+	\frac{1}{X}\dtot[2]{X}{x} + \frac{1}{Y}\dtot[2]{Y}{y} + \frac{1}{Z}\dtot[2]{Z}{z} = 0 \qquad 
+	- \alpha^2  - \beta^2 + \gamma^2 = 0 \quad \Rightarrow  \gamma^2 = \alpha^2 + \beta^2 
+\]
+cada término es una constante. La solución general es
+\[
+	\phi(x,y,z) = \sum_{m=0}^\infty \sum_{n=0}^\infty A_{m,n} \euler^{\pm i\alpha_m x}
+	\euler^{\pm i\beta_n y} \euler^{\pm i\sqrt{\alpha_m^2 + \beta_n^2 }z}
+\]
+donde habrá que adaptar según las condiciones de contorno. Se da que $A_{m,n}$ es una constante general
+y hay condiciones periódicas en $x,y$
+\[
+	A\euler^{\pm i\alpha x} = A_\alpha \cos(\alpha x) + B_\alpha \sin(\alpha x)
+\]
+corresponde a condiciones de potencial periódicas, cuando necesito dos ceros por ejemplo (ver ilustración
+lateral --que falta--)
+\[
+	A\euler^{\pm \gamma z} = A_\gamma \cosh(\gamma z) + B_\gamma \sinh(\gamma z)
+\]
+corresponde a atravesar densidades de carga.
 
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_perturbacion3.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
+Para coordenadas esféricas es
+\[
+	\frac{1}{r} \frac{\partial}{\partial r}\left( r^2 \dpar{\phi}{r} \right) + 
+	\frac{1}{r^2 \sin(\theta)}\frac{\partial}{\partial\theta}\left(\sin(\theta)\dpar{\phi}{\theta}\right)+
+	\frac{1}{r^2 \sin(\theta)} \dpar[2]{\phi}{\varphi} = 0
+\]
+proponiéndose la separación
+\[
+	\phi(r,\theta,\varphi) = R(r) \Theta(\theta) Q(\varphi)
+\]
+siendo
+\[
+	Y(\theta,\varphi) = \Theta(\theta) Q(\varphi)
+\]
+un armónico esférico.
+Tenemos un oscilador armónico en $\varphi$,
+\[
+	Q = \euler^{\pm i\alpha \varphi}
+\]
+si usamos $0\leq \varphi \leq 2\pi$ de modo que $\alpha\in\mathbb{Z}$ y entonces $\alpha=m$, con simetría
+azimutal es $m=0$ (rotación en $\varphi$), 
+\[
+	Q = G\varphi + H \qquad\qquad  G,H \quad ctes.
+\]
+Para las otras funciones será
+\[
+	R(r) = A_\ell r^\ell + B_\ell R^{-\ell-1}
+\]
+\[
+	\Theta(\theta) = C_\ell P_\ell^m (\cos(\theta)) + D_\ell Q_\ell^m (\cos(\theta))
+\]
+siendo $P_\ell^m$ polinomio de Legendre, que verifica la fórmula de Rodrigues
+\[
+	P_\ell (x) = \frac{1}{2^\ell \ell!} \frac{d^\ell}{d x^\ell} [x^2 - 1]^\ell
+\]
+con $P_\ell(\cos(\theta))$ polinomio de Legendre de primera especie, y $Q_\ell(\cos(\theta))$ de segunda
+especie.
+Los $\{ P_ell\}$ son un conjunto completo y ortogonal en $-1 \leq x \leq 1$ o bien en $0\leq \theta\leq \pi$.
+
+
+
 
 \begin{figure}[htb]
 	\begin{center}
