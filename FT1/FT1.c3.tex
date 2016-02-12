@@ -105,7 +105,72 @@ siendo $P_\ell^m$ polinomio de Legendre, que verifica la fórmula de Rodrigues
 \]
 con $P_\ell(\cos(\theta))$ polinomio de Legendre de primera especie, y $Q_\ell(\cos(\theta))$ de segunda
 especie.
-Los $\{ P_ell\}$ son un conjunto completo y ortogonal en $-1 \leq x \leq 1$ o bien en $0\leq \theta\leq \pi$.
+Los $\{ P_\ell\}$ son un conjunto completo y ortogonal en $-1 \leq x \leq 1$ o bien en $0\leq \theta\leq \pi$.
+
+Los $\{ Q_\ell^m(\cos(\theta))\}$ tienen problemas en $\theta=0,\theta=\pi$ (eje $z$) de manera que si está el
+eje $z$ no podemos usar $Q_\ell^m$; en estos problemas sólo podemos usar $P_\ell^m(\cos(\theta))$.
+\[
+	\phi(r,\theta,\phi) = \sum_{\ell=0}^{\infty}\sum_{m=-\infty}^{\infty} \left[ A_\ell r^\ell + 
+	B_\ell r^{-\ell-1} \right] \left[ C_\ell P_\ell^m + D_\ell Q_\ell^m \right] \left[ E_m \cos(m\phi) + 
+	F_m \sin(m\phi) \right]
+\]
+y en el caso particular $m=0$
+\[
+	\phi(r,\theta,\phi) = \sum_{\ell=0}^{\infty}\sum_{m=-\infty}^{\infty} \left[ A_\ell r^\ell + 
+	B_\ell r^{-\ell-1} \right] \left[ C_\ell P_\ell^m + D_\ell Q_\ell^m \right] \left[ G_0 \phi + 
+	H_0 \right]	
+\]
+Las constantes $A_\ell, B_\ell, C_\ell, D_\ell, E_m, F_m$ se ajustan con el $\phi (r\to\infty)$, 
+$\phi (r\to 0)$, $\phi (z = 1)$ y $\phi (z = -1)$.
+
+Lo que permite esquivar el problema del punto singular en $x \equiv \cos(\theta)=1$ es
+\[
+	\beta^2 = \ell(\ell + 1) \qquad - \ell < m < \ell \qquad \alpha^2 = m^2
+\]
+
+Recordemos las sumas de series
+\[
+	\frac{1}{1-z} = \sum_{\ell=0}^{\infty} z^\ell \qquad \frac{1}{1+z} = \sum_{\ell=0}^{\infty} (-1)^\ell 
+	z^\ell	\qquad |z|<1,
+\]
+el polinomio asociado de Legendre
+\[
+	P_\ell^m (x) =) \frac{(-1)^m}{2^\ell \ell!} [1-x^2]^{m/2} \frac{d^{\ell + m}}{dx^{\ell + m}} 
+			[x^2 -1]^\ell
+\]
+que cumple
+\[
+	P_\ell (1) = 1 \quad P_\ell (-1) = (-1)^\ell \qquad  \forall \ell
+\]
+con 
+\[
+	\int_{-1}^1 [P_\ell (x)]^2 \: dx = \frac{2}{ 2\ell + 1 }
+\]
+siendo la ortogonalidad
+\[
+	\int_0^\pi P_{\ell'}^m (\cos(\theta)) P_\ell^m (\cos(\theta)) \sin(\theta) \: d\theta = 
+	\delta_{\ell\ell'}
+\]
+\[
+	\int_{-1}^{+1} P_{\ell'}^m (x) P_\ell^m (x) \: dx= \frac{2}{2\ell + 1}
+	\frac{(\ell + m)!}{(\ell - m)!} \: \delta_{\ell\ell'}
+\]
+
+En esféricas las constantes de separación están asociadas
+\[
+	R(r) \; \mathrm{con} \; \ell \qquad \Theta(\theta) \; \mathrm{con} \; \ell,m \qquad
+	Q(\phi) \; \mathrm{con} \; m
+\]
+
+
+\section{Detalles sobre solución de problemas de potencial}
+
+
+
+
+
+
+
 
 
 
