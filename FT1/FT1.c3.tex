@@ -166,15 +166,15 @@ En esféricas las constantes de separación están asociadas
 \section{Detalles sobre solución de problemas de potencial}
 % =================================================================================================
 
-
-
-
-
-
-
-
-
-
+Si el potencial es par en una coordenada, entonces uso funciones pares (cosenos). 
+La continuidad del potencial
+\[
+	\phi_I(x=0) = \phi_{II}(x=0) = 
+\]
+y salto en el campo
+\[
+	\left.\dpar{\phi_I}{x} - \dpar{\phi_{II}}{x}\right|_{x=0} = -4\pi\sigma|_{x=0}
+\]
 
 \begin{figure}[htb]
 	\begin{center}
@@ -182,24 +182,94 @@ En esféricas las constantes de separación están asociadas
 	\end{center}
 	\caption{}
 \end{figure} 
+Si tengo condiciones periódicas en la coordenada irán senos y cosenos trigonométricos, entonces se
+discretizan $m,n$ y tengo $\sum_n \sum_m$ una serie de Fourier.
 
+Si tengo condiciones no periódicas en la coordenada irán seno, coseno hiperbólicos entonces tengo
+$\int dk$ integral de Fourier.
+
+En general tomo
+\[
+	\alpha^2 + \beta^2 = \gamma^2
+\]
+pudiéndose discretizar los $k's$ luego. Se considera $\alpha^2 \equiv k_{\hat{e}_1}^2$ y así siguiendo
+con las otras dos.
+
+Sobre la ecuación de salto en el campo aplicamos ortogonalidad y despejamos coeficientes en función
+de $\sigma$.
+
+Detalle: el salto en el campo se hace siguiendo la normal, como se ilustra abajo
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_potencialsketch.pdf}	 
+	\includegraphics[width=0.3\textwidth]{images/fig_ft1_potencialsketch.pdf}
 	\end{center}
 	\caption{}
 \end{figure} 
+\[
+	E_I^{\hat{n}} - E_{II}^{\hat{n}} = 4 \pi \sigma \qquad\qquad 
+	- \dpar{\phi_I}{x} + \dpar{\phi_{II}}{x} = 4 \pi \sigma
+\]
+
+Para $k_{\hat{e}_1}^2$ en el caso discreto
+\[
+	\sum_{m=0}^\infty \cos(k_m e_1) + \sin(k_m e_1)
+\]
+pero en el continuo 
+\[
+	\int_{\infty}^{\infty} \euler^{ike_1} dk
+\]
+usamos $exp(ike_1)$ para que la integral converja en lugar de $(\cos(ke_1) + \sin(ke_1))$.
 
 % =================================================================================================
 \section{Expansiones ortonormales}
 % =================================================================================================
 
-\begin{figure}[htb]
+\[
+	\int_a^b U^*_n U_m d\xi = \delta_{mn} \qquad U_i \; mathrm{ortonormales}
+\]
+entonces en $(a,b)$ se da que la serie 
+\[
+	f(\xi) = \sum_{n=0}^\infty a_n U_n(\xi) 
+\]
+converge, donde  
+\[
+	a_n = \int_a^b U^*_n f(\xi) d\xi.
+\]
+La clausura es
+\[
+	\sum_{n=1}^\infty U^*_n(\vb{x}') U_n(\vb{x}) = \delta(\vb{x}-\vb{x}')
+\]
+
+\begin{figure}[thb]
 	\begin{center}
 	\includegraphics[width=0.4\textwidth]{images/fig_ft1_expansiones1.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
+
+Es útil el desarrollo
+\[
+	\frac{1}{|\vb{r} - \vb{r}'|} = \frac{1}{\sqrt{r^2 + r'^2 -2rr'\cos(\gamma)}}
+	= \sum_{\ell=0}^\infty \frac{r^\ell_{<}}{r^\ell_{>}} P_\ell (\cos(\gamma))
+\]
+en polinomios de Legendre para el ángulo entre vectores en coordenadas esféricas.
+En coordenadas esféricas, donde $\gamma=\gamma(\theta,\phi)$ es el ángulo entre vectores,
+que surge del teorema del coseno.
+
+\subsection{Prolongación analítica}
+
+Consiste en {\it prolongar} una solución restringida por ejemplo en el eje polar a todo el
+resto del espacio pegándole los polinomios de Legendre.
+Lo ponemos en serie (pasamos un cálculo de F3 a una serie)
+\[
+	\phi(r,\phi/2) = \frac{Q}{\sqrt{r^2 + a^2}} = \sum_{\ell=0}^\infty Q \frac{a^\ell}{r^{\ell + 1}} 
+	P_\ell (0) \qquad r > a
+\]
+\[
+	\phi(r,\phi/2) = \frac{Q}{\sqrt{r^2 + a^2}} = \sum_{\ell=0}^\infty Q \frac{r^\ell}{a^{\ell + 1}} 
+	P_\ell (0) \qquad r < a
+\]
+y $P_\ell(0)$ tiene términos pares solamente (los impares son nulos).
 
 \begin{figure}[htb]
 	\begin{center}
@@ -208,6 +278,16 @@ En esféricas las constantes de separación están asociadas
 	\caption{}
 \end{figure} 
 
+Entonces
+\[
+	\phi(r,\phi/2) = \frac{Q}{a} \sum_{n=0}^\infty \frac{r^{2n}}{a^{2n}} P_{2n} (0) 
+\]
+con 
+\[
+	P_{2n} (0) = (-1)^n \frac{(2n-1)!}{2^n n!}
+\]
+por lo tanto para todo el espacio será
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.4\textwidth]{images/fig_ft1_expansiones3.pdf}	 
@@ -215,8 +295,22 @@ En esféricas las constantes de separación están asociadas
 	\caption{}
 \end{figure} 
 
+\[
+	\phi(r,\phi/2) = \frac{Q}{a} \sum_{n=0}^\infty \left( \frac{r}{a}\right)^{2n} P_{2n} (0) P_{2n} 
+	(\sin(\theta)) \qquad r < a
+\]
+El hecho de que sólo vivan $\ell$ pares viene porque $\phi$ es par pues hay simetría de reflexión en el
+plano $xy$, lo que sucede de $(0,\pi/2)$ es igual a lo que sucede de $(\pi/2, \pi)$.
 
-\subsection{Armónicos esféricos}
+Los problemas con simetría de revolución en torno a $\hat{z}$ pueden ser resueltos con el método de
+prolongación analítica. La idea central es que si dos soluciones del potencial coinciden en un conjunto
+de puntos (como ser el eje azimutal) entonces deben ser la misma solución.
+
+\subsection{Comentario multipolos}
+
+Estos dos problemas son equivalentes, pero multipolarmente tienen desarrollos diferentes.
+El problema es que el metal a tierra tendrá carga hasta el infinito y entonces no podemos tener un
+radio de convergencia.
 
 \begin{figure}[htb]
 	\begin{center}
@@ -225,13 +319,19 @@ En esféricas las constantes de separación están asociadas
 	\caption{}
 \end{figure} 
 
+
+
+
+% =================================================================================================
+\section{Armónicos esféricos}
+% =================================================================================================
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.4\textwidth]{images/fig_ft1_armesf2.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
-
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
