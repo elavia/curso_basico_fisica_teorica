@@ -273,7 +273,7 @@ y $P_\ell(0)$ tiene términos pares solamente (los impares son nulos).
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_expansiones2.pdf}	 
+	\includegraphics[width=0.3\textwidth]{images/fig_ft1_expansiones2.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
@@ -312,27 +312,136 @@ Estos dos problemas son equivalentes, pero multipolarmente tienen desarrollos di
 El problema es que el metal a tierra tendrá carga hasta el infinito y entonces no podemos tener un
 radio de convergencia.
 
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_armesf1.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-
-
-
 
 % =================================================================================================
 \section{Armónicos esféricos}
 % =================================================================================================
 
-\begin{figure}[htb]
+\[
+	Y_{\ell,m}(\theta,\varphi) = \sqrt{ \frac{ 2\ell + 1}{4\pi} \frac{(\ell-m)! }{(\ell+ m)! } }
+	P_\ell^m(\cos(\theta)) \euler^{i m \varphi}
+\]
+Los armónicos esféricos son un conjunto ortonormalizado en 
+\[
+	- 1 \leq \cos(\theta) \leq 1 , \qquad 0 \leq \varphi \leq 2\pi
+\]
+\[
+	Y_{\ell,-m}(\theta,\varphi) = (-1) Y_{\ell,m}^*(\theta,\varphi)
+\]
+
+La ortonormalidad
+\[
+	\int_0^{2\pi} d\varphi \int_0^\pi \sin(\theta) Y_{\ell,m}(\theta,\varphi) Y_{\ell,m}^*(\theta,\varphi) d\theta 
+	= \delta_{\ell'\ell}\delta_{m'm}
+\]
+La completitud
+\[
+	\sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell Y_{\ell,m}(\theta,\varphi) Y_{\ell,m}^*(\theta,\varphi) = 
+\delta(\varphi 	-\varphi') \delta(\cos(\theta)-\cos(\theta'))
+\]
+Entonces una función $f$ cualquiera $\in L^2$ se puede expresar en armónicos esféricos,
+\[
+	f(\theta,\varphi) = \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell A_{\ell,m} Y_{\ell,m}(\theta,\varphi)
+\]
+de manera que el potencial en coordenadas esféricas es
+\[
+	\phi(r,\theta,\varphi) = \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell [A_{\ell,m}r^\ell + B_{\ell,m} r^{-(\ell+1)}] 
+	Y_{\ell,m}(\theta,\varphi)
+\]
+
+Con respecto a la Figura, 
+
+\begin{figure}[bht]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_armesf2.pdf}	 
+	\includegraphics[width=0.7\textwidth]{images/fig_ft1_armesf1.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
 
+si $q$ está en $\hat{z}$ entonces simetría de revolución ($\gamma \to \theta$). Si por el contrario ,
+$\gamma $ es nulo entonces simetría de revolución.
+
+\begin{figure}[tb]
+	\begin{center}
+	\includegraphics[width=0.3\textwidth]{images/fig_ft1_armesf2.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
+Un poco de álgebra de coordenadas,
+\[
+	\frac{1}{|\vb{x}-\vb{x}'|} = \frac{1}{\sqrt{r^2 + {r'}^2  - 2rr'\cos(\gamma)}} \Rightarrow
+	\frac{1}{\sqrt{r^2 + {r'}^2  - 2rr'\cos(\theta)}}
+\]
+donde $|\vb{x}|=r$ y $|\vb{x}'|=r'$. Así
+\[
+	\left. \frac{1}{|\vb{x}-\vb{x}'|} \right|_{\gamma=0} = \frac{1}{\sqrt{r^2 + r'^2 -2rr'}}=
+	\frac{1}{|r-r'|}
+\]
+luego si $r'<r$ será
+\[
+	\frac{1}{|r-r'|} = \frac{1}{r(1 - r'/r )} = \frac{1}{r} \sum_{\ell=0}^\infty \left(\frac{r'}{r}\right)^\ell = 
+	\sum_{\ell=0}^\infty \frac{r'^\ell}{r^{\ell+1}}
+\]
+en cambio si es $r'>r$
+\[
+	\frac{1}{|r-r'|} = \frac{1}{r'(1 - r/r' )} = \frac{1}{r'} \sum_{\ell=0}^\infty \left(\frac{r}{r'}\right)^\ell = 
+	\sum_{\ell=0}^\infty \frac{r^\ell}{r'^{\ell+1}}
+\]
+de manera que
+\[
+	\left. \frac{1}{|\vb{x}-\vb{x}'|} \right|_{\gamma=0} = \sum_{\ell=0}^\infty  \frac{r_<^\ell}{r_>^{\ell+1}}
+\]
+y podemos pensar en $1=P_\ell(1) \forall \ell$ y $1=P_\ell(\cos 0)$
+\[
+	\left. \frac{1}{|\vb{x}-\vb{x}'|} \right|_{\gamma=0} = \sum_{\ell=0}^\infty  \frac{r_<^\ell}{r_>^{\ell+1}}
+	P_\ell(\cos 0)
+\]
+que será el $\phi$ de una carga unitaria en $\hat{z}$ y evaluado en $\hat{z}$.
+Hacemos de esta manera prolongación analítica,
+\[
+	\frac{1}{|\vb{x}-\vb{x}'|}  = \sum_{\ell=0}^\infty  \frac{r_<^\ell}{r_>^{\ell+1}}
+	P_\ell(\cos \gamma)
+\]
+y decimos que será el $\phi$ de una carga unitaria en cualquier parte (descompuesto en polinomios de Legendre).
+Aquí $\gamma=\gamma(\theta,\varphi)$ y se puede llegar a una descomposición similar utilizando armónicos esféricos.
+
+El potencial $\phi$ descompuesto en armónicos esféricos es
+\[
+	\frac{1}{|\vb{x}-\vb{x}'|}  = \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell \frac{r_<^\ell}{r_>^{\ell+1}}
+	\frac{4\pi}{2\ell+1} Y_{\ell,m}(\theta,\varphi) Y_{\ell,m}^*(\theta',\varphi')
+\]
+y el teorema de adición de los armónicos esféricos ha sido usado
+\[
+	P_\ell(\cos \gamma) = \sum_{m=-\ell}^\ell \frac{4\pi}{2\ell+1} Y_{\ell,m}(\theta,\varphi) 
+	Y_{\ell,m}^*(\theta',\varphi')
+\]
+
+\[
+	\phi(\vb{x})= \int_{V'} \rho(\vb{x}')\left[ \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 
+	\frac{r_<^\ell}{r_>^{\ell+1}}\frac{4\pi}{2\ell+1} Y_{\ell,m}(\theta,\varphi) 
+	Y_{\ell,m}^*(\theta',\varphi')\right] dV',
+\]
+que se puede cosmetizar como
+\[
+	\phi(\vb{x})= 4\pi \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell \frac{1}{2\ell+1} \left[
+	\int_{V'} \rho(\vb{x}') Y_{\ell,m}^*(\theta',\varphi') {r'}_<^\ell dV' \right] 
+	\frac{Y_{\ell,m}(\theta,\varphi) }{r_>^{\ell+1}},
+\]
+definiéndose el corchete como $q_{\ell m}$ coeficiente multipolar de orden $\ell m$, así
+\[
+	\phi(\vb{x})= 4\pi \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell \frac{q_{\ell m}}{2\ell+1} 
+	\frac{Y_{\ell,m}(\theta,\varphi) }{r_>^{\ell+1}}.
+\]
+
+Entonces
+\[
+	\phi_{\ell m}(\vb{x})= 4\pi \frac{q_{\ell m}}{2\ell+1}\frac{Y_{\ell,m}(\theta,\varphi) }{r_>^{\ell+1}}
+\]
+y consecuentemente
+\[
+	\vb{E}_{\ell m}(\vb{x}) = - \Nabla \phi_{\ell m}(\vb{x})
+\]
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
