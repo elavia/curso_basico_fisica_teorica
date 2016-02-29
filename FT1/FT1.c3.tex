@@ -443,6 +443,44 @@ y consecuentemente
 	\vb{E}_{\ell m}(\vb{x}) = - \Nabla \phi_{\ell m}(\vb{x})
 \]
 
+% =================================================================================================
+\section{Separación de variables en cilíndricas}
+% =================================================================================================
+
+Se propone
+\[
+	\phi(\rho,\phi,z) = R(\rho) Q(\phi) Z(z)
+\]
+de modo que
+\[
+	\frac{1}{R} \dtot[2]{R}{\rho} + \frac{1}{R\rho} \dtot{R}{\rho} + \frac{1}{Q\rho^2} \dtot[2]{Q}{\phi} 
+				+ \frac{1}{Z} \dtot[2]{Z}{z} = 0
+\]
+donde los primeros dos términos conducen a la ecuación de Bessel, el tercero es igual a $-\nu^2$ y el
+cuarto a $k^2$. Sacamos
+\[
+	Z = \euler^{\pm kz}
+\]
+\[
+	Q = \euler^{\pm i \nu \phi}
+\]
+donde si $0\leq \phi \leq 2\pi$ entonces $\nu \in \mathbb{Z}$. Si en cambio la variable $\phi$ no corre 
+entre $0$ a $2\pi$ se dará que $\nu \notin \mathbb{Z}$.
+
+\begin{center}
+	\begin{tabular}{|c|c|}
+	\hline
+	$ \nu \in \mathbb{Z} $ & $ \nu \notin \mathbb{Z}  $ \\
+	\hline
+	$J_\nu(k\rho)$ & $J_\nu(k\rho)$ \\
+	$J_{-\nu}(k\rho)$ & $N_\nu(k\rho)$ \\
+	\hline
+	\end{tabular} 
+\end{center}
+
+
+
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
