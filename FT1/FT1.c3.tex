@@ -477,7 +477,33 @@ entre $0$ a $2\pi$ se dará que $\nu \notin \mathbb{Z}$.
 	\hline
 	\end{tabular} 
 \end{center}
+donde 
+\[
+	N_\nu(k\rho) \equiv \frac{ J_\nu(k\rho) \cos(\nu\pi) - J_{-\nu}(k\rho)}{\sin(\nu\pi)}
+\]
+siendo $J_\nu(k\rho)$ la función de Bessel de primera especie, $N_\nu(k\rho)$ la función de Bessel de segunda 
+especie (Neumann).
+$N_\nu(k\rho)$ tiene problemas en el origen de modo que no sirve si el dominio incluye al eje $\hat{z}$, en 
+cambio $J_\nu(k\rho)$ tiene problemas en $\rho\to \infty$.
 
+También se suelen definir
+\[
+	H^{(1)}_\nu(k\rho) = J_\nu(k\rho) + i N_\nu(k\rho)
+\]
+\[
+	H^{(2)}_\nu(k\rho) = J_\nu(k\rho) - i N_\nu(k\rho)
+\]
+que son las funciones de Bessel de tercera especie o bien Hankel de primera y segunda especie respectivamente.
+
+\subsubsection{Cambio de signo de la constante de separación}
+
+\[
+	... + \underbrace{\frac{1}{Z} \dtot[2]{Z}{z}}_{-k^2} =  0
+\]
+entonces nos lleva a
+\[
+	Z = \euler^{\pm i k z} \qquad \qquad Q = \euler^{\pm i \nu \phi}
+\]
 
 
 
