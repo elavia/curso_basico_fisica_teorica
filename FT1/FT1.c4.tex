@@ -31,6 +31,30 @@
 \chapter{Expansión en un campo multipolar}
 % =================================================================================================
 
+% =================================================================================================
+\section{Desarrollo dipolar del campo magnético}
+% =================================================================================================
+
+El potencial vector de un dipolo es
+\[
+	\vb{A}(\vb{x}) = \frac{\vb{v}\times(\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} = \vb{m} \times \Nabla 
+		\frac{1}{|\vb{x}-\vb{x}'|}
+\]
+\[
+	\vb{A}(\vb{x}) = \int_{V'} \vb{\mathcal{M}}(\vb{x}') \times \Nabla 
+			\left(\frac{1}{|\vb{x}-\vb{x}'|}\right) dV'
+\]
+Es el potencial vector de una distribución de momento dipolar magnético con densidad $ \vb{M}(\vb{x}')$
+
+\[
+	\vb{A}(\vb{x}) = \int_{V'} \frac{\rotorm{\vb{M}}}{|\vb{x}-\vb{x}'|} dV' +
+			\int_{S'} \frac{\vb{M}\times\hat{n}}{|\vb{x}-\vb{x}'|} dS'
+\]
+y se pueden pensar como corrientes $\vb{J}_M$ y $\vb{g}_M$,
+\[
+	\vb{A}(\vb{x}) = \frac{1}{c} \int_{V'} \frac{\vb{J}_M}{|\vb{x}-\vb{x}'|} dV' +
+			\frac{1}{c} \int_{S'} \frac{\vb{g}_M}{|\vb{x}-\vb{x}'|} dS'
+\]
 
 
 % =================================================================================================

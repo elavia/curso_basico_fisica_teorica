@@ -504,6 +504,79 @@ entonces nos lleva a
 \[
 	Z = \euler^{\pm i k z} \qquad \qquad Q = \euler^{\pm i \nu \phi}
 \]
+y entonces a las funciones de Bessel modificadas
+\[
+	I_\nu(k\rho) = i^{-\nu} J_\nu(k\rho)
+\]
+\[
+	K_\nu(k\rho) = \frac{\pi}{2}i^{\nu+1} H_\nu^{(1)}(k\rho),
+\]
+donde son respectivamente las de primera y segunda especie y vemos que tienen argumento imaginario.
+Las $I_\nu(k\rho)$ tendrán problemas en $\rho\to\infty$ y $K_\nu(k\rho)$ problemas en $\rho=0$ (en el eje 
+$\hat{z}$).
+Si atravesamos densidades de carga en $\hat{z}$ entonces usamos Bessel
+\[
+	Z = \euler^{\pm k z} \quad \Rightarrow \quad J_\nu^{(1)}(k\rho) ; N_\nu^{(2)}(k\rho)
+\]
+pero bajo condiciones periódicas en $\hat{z}$ se usan Bessel modificadas
+\[
+	Z = \euler^{ \pm i k z} \quad \Rightarrow \quad I_\nu^{(1)}(k\rho) ; K_\nu^{(2)}(k\rho)
+\]
+y esto último se da por ejemplo en tapas del cilindro.
+La función de Bessel de primera especie se puede expresar como serie según
+\[
+	J_\nu^{(1)}(k\rho) = \left(\frac{x}{2}\right)^\nu \sum_{j=0}^\infty \frac{(-1)^j}{j!\Gamma(j+\nu +1)} 
+		\left(\frac{x}{2}\right)^{2j}
+\]
+
+Las funciones de Bessel tienen infinitos ceros,
+\[
+	J_\nu(x_{\nu n}) = 0 \qquad \mathrm{con} \; n\in\mathbb{N}, \nu \quad \mathrm{fijo} 
+\]
+siendo $x_{\nu n}$ un cero de $J_\nu$. Así
+\[
+	\sqrt{\rho} J_\nu(x_{\nu n} \rho/a) 
+\]
+con $\nu \geq 0$ fijo es un conjunto ortonormal completo en $0 \leq \rho \leq a$ siendo $a$ el radio del 
+cilindro.
+\[
+	f(\rho) = \sum_{n=1}^{\infty}  A_{x_{\nu n}} J_{\nu}( x_{\nu n} \rho/a )
+\]
+con $0 \leq \rho \leq a$. Así $f(\rho=a)=0$,
+\[
+	A_{\nu n} = \frac{2}{a^2 J_{\nu +1}^2 (x_{\nu n})} \int_0^a \rho f(\rho) J_\nu (x_{\nu n} \rho/a) 
+	d\rho
+\]
+la ortogonalidad
+\[
+	\int_0^a \rho  J_\nu (x_{\nu n'} \rho/a)  J_\nu (x_{\nu n} \rho/a)  d\rho = 
+	\frac{a^2}{2}[J_{\nu+1}(x_{\nu n})]^2 \delta_{nn'}.
+\]
+
+Para $k$ sea $\phi(\rho=a)=0$ entonces 
+\[
+	J_\nu(ka) = 0 \Rightarrow ka=x_{\nu n} \Rightarrow J_\nu (x_{\nu n} \rho/a)
+\]
+y $k=\frac{x_{\nu n}}{a}$ si $0\leq \rho \leq a$ y si está acotado en $\rho$ entonces es discreto y se
+suma $\sum_{n=1}^\infty$ y $\nu\to m \in \mathbb{Z}$ si $0 \leq \phi \leq 2\pi$ y si no está acotado en
+$\rho$ entonces usamos 
+\[
+	\int_0^\infty dk
+\]
+y la completitud
+\[
+	\int_0^\infty x J_\nu(kx) J_\nu(k'x) dx = \frac{1}{k} \delta (k-k')
+\]
+y $k$ en general será función de $n\in \mathbb{N}$ por condición periódica en tapas (en $\hat{z}$) o en
+cilindros (en $\hat{\rho}$).
+\[
+	\phi(\rho,\phi,z) = \sum_{\nu=0}^\infty \sum_{n=1}^\infty
+	[A_{\nu k}\begin{cases} J_\nu(k\rho)  \\ I_\nu(k\rho) \end{cases} + 
+	B_{\nu k} \begin{cases} N_\nu(k\rho)  \\ K_\nu(k\rho) \end{cases} ]
+	[C_k \begin{cases} \euler^{\pm kz} \\ \euler^{\pm ikz} \end{cases}]
+	[D_{k\nu} \euler^{\pm i \nu \phi}]
+\]
+donde $k=k(n)$ y usamos $\sin(kz)+\cos(kz)$ si hay discretización.
 
 
 
