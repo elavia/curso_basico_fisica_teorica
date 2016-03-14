@@ -64,8 +64,12 @@ y se pueden pensar como corrientes $\vb{J}_M$ y $\vb{g}_M$,
  \item Dieléctricos
  \item Medios magnéticos
 	$\begin{cases}
-	 \text{imán inducido} \\
-	 \text{imán permanente}
+	 \text{imán inducido}
+		\begin{cases}
+		\text{paramagnético} \\
+		\text{diamagnético}
+		\end{cases} \\
+	 \text{imán permanente} \quad \text{ferromagnético}
 	\end{cases}$
  \item Conductor
 	$\begin{cases}
@@ -75,18 +79,292 @@ y se pueden pensar como corrientes $\vb{J}_M$ y $\vb{g}_M$,
 	\end{cases}$
 \end{itemize}
 
+Podemos hacer una suerte de tabla comparativa entre eléctrico y magnético
+(pero lo armaremos después con minipage)
+
+Polarización  
+\[
+	\vb{P} = \frac{\delta \vb{p}}{\delta V}
+\]
+que es el Momento dipolar eléctrico por unidad de volumen. Luego el potencial es
+\[
+	\phi( \vb{x}) = \int_S \frac{\vb{P}(\vb{x}')}{|\vb{x}-\vb{x}'|} d\vb{S}' - 
+	\int_V \frac{\Nabla\cdot\vb{P}(\vb{x}')}{|\vb{x}-\vb{x}'|}  dV'
+\]
+\[
+	\qquad \vb{P}\cdot\hat{n} = \sigma_P \qquad \Rightarrow \qquad \divem{P} = -\rho_0
+\]
+\[
+	\begin{cases}
+	\rotorm{E}  = 0 \\
+	\divem{E} = 4\pi\rho = 4\phi( \rho_L + \rho_P )
+	\end{cases}
+\]
+\[
+	\divem{E} -  4\phi\rho_P = 4\phi\rho_L 
+\]
+\[
+	\divem{E} + 4 \pi \divem{P} = \Nabla\cdot(\vb{E} + 4\pi\vb{P} )
+\]
+de modo que
+\[
+	\vb{D} = \vb{E} + 4 \pi \vb{P} \qquad \qquad \divem{D} = 4\pi\rho_L
+\]
+y por la linealidad
+\[
+	\vb{P} = \xi_e \vb{E} \qquad \text{MLIH}
+\]
+\[
+	\vb{D} = ( 1 + 4\pi\xi_e ) \vb{E} 
+\]
+\[
+	\vb{D} = \epsilon \vb{E}
+\]
+donde $\xi_e$ es la susceptibilidad eléctrica y $\epsilon$ es la permitividad eléctrica.
+Los contornos entre medios se resuelven según
+\[
+	\hat{n} \times (\vb{E}_2 -\vb{E}_1) = 0 \qquad 
+	(\vb{D}_2 -\vb{D}_1)\cdot\hat{n} = 4 \pi \sigma_L \qquad 
+	(\vb{P}_2 -\vb{P}_1)\cdot\hat{n} = - \sigma_L
+\]
+
+Para la Magnetización,
+\[
+	\vb{M} = \frac{\delta \vb{m}}{\delta V}
+\]
+que es el Momento dipolar magnético por unidad de volumen. Luego el potencial es
+\[
+	\vb{A}( \vb{x}) = \frac{1}{c} \int_S \frac{ \vb{M}\times\hat{n} }{|\vb{x}-\vb{x}'|} d\vb{S}' - 
+	\frac{1}{c} \int_V \frac{ c(\rotorm{M}) }{|\vb{x}-\vb{x}'|}  dV'
+\]
+\[
+	\rotorm{M} = \frac{1}{c}\vb{J}_M \qquad \qquad \vb{M}\times\hat{n} = \frac{1}{c}\vb{g}_m
+\]
+\[
+	\rotorm{B} = \frac{4\pi}{c}\vb{J}  = \frac{4\pi}{c}( \vb{J}_L + \vb{J}_M )
+\]
+\[
+	\rotorm{B} - 4\pi \rotorm{M} = \frac{4\pi}{c}\vb{J}_L
+\]
+\[
+	\Nabla\times( \vb{B} - 4\pi\vb{M} ) = \frac{4\pi}{c}\vb{J}_L 
+\]
+de modo que
+\[
+	\vb{H} = \vb{B} - 4 \pi \vb{M} \qquad \qquad \divem{M} = \frac{1}{c}\vb{J}_M  
+\]
+y por la linealidad
+\[
+	\vb{M} = \xi_M \vb{H} \qquad \text{MLIH}
+\]
+\[
+	\vb{B} = ( 1 + 4\pi\xi_M ) \vb{H} 
+\]
+\[
+	\vb{B} = \epsilon \vb{H}
+\]
+donde $\xi_M$ es la susceptibilidad magnética y $\mu$ es la permeabilidad magnética.
+Los contornos entre medios se resuelven según
+\[
+	\hat{n} \times (\vb{H}_2 -\vb{H}_1) = \frac{4 \pi}{c} \vb{g}_L \qquad 
+	(\vb{B}_2 -\vb{B}_1)\cdot\hat{n} = 0 
+\]
+
+\subsubsection{Imán permanente}
+
+Hay magnetización \vb{M} aún en ausencia de campo. No es un medio lineal de modo que
+\[
+	\vb{M}	 \neq \xi_M \vb{H} \Rightarrow \vb{B} \neq \mu \vb{H}
+\]
+La relación entre \vb{B},\vb{H} depende de la historia del medio.
+\[
+	\frac{1}{c}\vb{J}_M = \rotorm{M}
+\]
+si \vb{J}$_L=0$ entonces 
+\[
+	\rotorm{H} = 0 \qquad \Rightarrow \vb{H} = -\Nabla\phi_m
+\]
+que es un potencial escalar magnético.
+\[
+	\Nabla\cdot( \vb{H} + 4\pi\vb{M} ) = \divem{B} = 0
+\]
+\[
+	\divem{H} = -4\pi\divem{M}
+\]
+\[
+	-\nabla^2 \phi_m = -4\pi\divem{M}
+\]
+\[
+	\nabla^2 \phi_m = -4\pi\rho_m
+\]
+\[
+	\divem{M} \equiv -\rho_m \qquad \qquad \vb{M}\cdot\hat{n} \equiv \sigma_m
+\]
+\[
+	\phi_m = \frac{1}{c} \int_{S'} \frac{\vb{M}}{|\vb{x}-\vb{x}'|} \cdot d\vb{S}' -
+		\frac{1}{c} \int_{V'} \frac{\divem{M}}{|\vb{x}-\vb{x}'|} dV' 
+\]
+\[
+	\vb{A}( \vb{x}) = \frac{1}{c} \int_S \frac{ \vb{M}\times\hat{n} }{|\vb{x}-\vb{x}'|} d\vb{S}' - 
+		\frac{1}{c} \int_V \frac{ c(\rotorm{M}) }{|\vb{x}-\vb{x}'|}  dV'
+\]
+Estas dos soluciones son equivalentes.
+\[
+	\phi_m = \frac{1}{c} \int_{V'} \frac{\rho_L}{|\vb{x}-\vb{x}'|}  dV' +
+		\frac{1}{c} \int_{V'} \frac{ \vb{P}\cdot(\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} dV' 
+\]
+pero el integrando del segundo término se puede reescribir como 
+\[
+	-\vb{P}\cdot\Nabla\left(\frac{1}{|\vb{x}-\vb{x}'|}\right)
+\]
+de manera que 
+\[
+	\phi_m = \frac{1}{c} \int_{V'} \frac{\rho_L}{|\vb{x}-\vb{x}'|}  dV' -
+		\frac{1}{c} \int_{V'} \frac{ \divem{P}) }{|\vb{x}-\vb{x}'|} dV' 
+\]
+\[
+	\phi_m = \frac{1}{c} \int_{V'} \frac{1}{|\vb{x}-\vb{x}'|}( \rho - \divem{P} )  dV'
+\]
+se puede asociar
+\[
+	\divem{P} = \rho_P.
+\]
+
+\[
+	\vb{A}( \vb{x}) = \frac{1}{c} \int_V \left[ \frac{ \vb{J}_L(\vb{x}') }{|\vb{x}-\vb{x}'|} +
+		\frac{ c \vb{M} \times (\vb{x}-\vb{x}') }{|\vb{x}-\vb{x}'|^3} \right] dV'
+\]
+\[
+	\vb{A}( \vb{x}) = \frac{1}{c} \int_V \left[ \frac{ \vb{J}_L(\vb{x}') }{|\vb{x}-\vb{x}'|} +
+		\frac{ c \divem{M} }{|\vb{x}-\vb{x}'|} \right] dV'
+\]
+\[
+	\vb{A}( \vb{x}) = \frac{1}{c} \int_V \frac{ \vb{J}_L(\vb{x}') + \vb{J}_M(\vb{x}' ) }{|\vb{x}-\vb{x}'|}	
+\]
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{images/fig_ft1_magnetizaciones.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
+
 
 % =================================================================================================
-\section{Desarrollo multipolar}
+\section{Polarización y magnetización}
 % =================================================================================================
 
+Suelen \vb{P},\vb{M} depender de los campos externos, es decir $\vb{P}=\vb{P}(\vb{E})$ y 
+$\vb{M}=\vb{M}(\vb{H})$.
+\[
+	\vb{M} \approx M_{0i} + \left.\dpar{M_i}{H_j}\right|_{H=0} H_j
+\]
+\[
+	\vb{P} \approx P_{0i} + \left.\dpar{P_i}{E_j}\right|_{E=0} E_j
+\]
+y como en general vale que $\vb{M}_0=0, \vb{P}_0=0$  se da que 
+\[
+	\vb{M} = \sum_i \sum_j \left( \left.\dpar{M_i}{H_j}\right|_{H=0} H_j \right) 
+\]
+\[
+	\vb{M} = 
+	\begin{pmatrix}
+	 \displaystyle{\dpar{M_x}{H_x}} & \displaystyle{\dpar{M_x}{H_y}} & \displaystyle{\dpar{M_x}{H_z}} \\
+	 \displaystyle{\dpar{M_y}{H_x}} & \displaystyle{\dpar{M_y}{H_y}} & \displaystyle{\dpar{M_y}{H_z}} \\
+	 \displaystyle{\dpar{M_z}{H_x}} & \displaystyle{\dpar{M_z}{H_y}} & \displaystyle{\dpar{M_z}{H_z}}
+	\end{pmatrix}
+	\begin{pmatrix}
+	 \displaystyle{H_x} \\
+	 \\
+	 H_y \\
+	 \\
+	 H_z
+	\end{pmatrix}
+\]
+y ahí vemos que es un tensor,
+\[
+	\vb{M} = \overleftrightarrow{\xi}_M \vb{H} \qquad\qquad \vb{P} =  \overleftrightarrow{\xi}_e \vb{E}.
+\]
 
+\subsubsection{Algún detalle de contornos magnéticos}
 
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{images/fig_ft1_medios1.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
+Sea
+\[
+	\vb{g}_L = 0 
+\]
+entonces
+\[
+	\hat{n}\times\vb{H}_1 = \hat{n}\times\vb{H}_2
+\]
+\[
+	\vb{B}_1\cdot\hat{n} = \vb{B}_2\cdot\hat{n} \qquad
+		\mu_1\vb{H}_1\cdot\hat{n} = \mu_2\vb{H}_2\cdot\hat{n}
+\]
+\[
+	H_2 = \frac{\mu_1}{\mu_2} H_1 \quad \text{si} \; \mu_1 \gg \mu_2 \Rightarrow H_2 \gg H_1
+\]
+En el límite $\vb{H}_2 \perp$ superficie del medio y es similar al \vb{E} a la salida de un
+conductor; las superficies de materiales de permeabilidad muy alta son aproximadamente {\it equipotenciales}.
 
+Para medio anisótropo
+\[
+	D_i = \epsilon_{ij} E_j \qquad \text{es decir} \quad \vb{D} = \overleftrightarrow{\epsilon} \vb{E}
+\]
 
+\subsubsection{Consideraciones en medios magnéticos}
+
+Fuera de un imán permanente 
+\[
+	\rotorm{B} = 0 = \frac{4\pi}{c}\vb{J}_T
+\]
+y entonces parecería que podemos definir un
+\[
+	\vb{B} = -\Nabla \phi_m^B,
+\]
+pero fallará en la superficie de separación donde hay \vb{J}$_m$ y por ende \vb{J}$_T$. Lo que sí funciona
+es
+\[
+	\rotorm{H} = 0 = \frac{4\pi}{c}\vb{J}_L
+\]
+que vale dentro y fuera del imán.
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.25\textwidth]{images/fig_ft1_medios2.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
+
+Entonces
+\[
+	\vb{H} = -\Nabla \phi_m^H,
+\]
+y
+\[
+	\divem{H} = -\Nabla(\Nabla \phi^H_m ) = -4\pi \divem{M} = 4\pi\rho_M
+\]
+\[
+	-\nabla^2 \phi_m^H = 4\pi\rho_M
+\]
+una ecuación de Poisson para el potencial $\phi_m^H$.
+
+\[
+	(\vb{B}_2 - \vb{B}_1)\cdot\hat{n} = 0
+\]
+\[
+	(-\Nabla \phi^2_H + \Nabla \phi^1_H - 4\pi \vb{M})\cdot\hat{n} = 0
+\]
+\[
+	(-\Nabla \phi^2_H + \Nabla \phi^1_H )\cdot\hat{n} = 4\pi \vb{M}\cdot\hat{n} = 4\pi \sigma_M
+\]
 
 % =================================================================================================
-\section{Dipolo}
+\section{Consideraciones energéticas}
 % =================================================================================================
 
 
