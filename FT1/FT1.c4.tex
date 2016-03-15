@@ -367,16 +367,73 @@ una ecuación de Poisson para el potencial $\phi_m^H$.
 \section{Consideraciones energéticas}
 % =================================================================================================
 
+\[
+	\vb{F} = q \vb{E} = q (-\Nabla\phi) = - \Nabla U
+\]
+\[
+	\Delta U = W = \int_\Gamma \vb{F}\cdot d\vb{\ell} \rightarrow \Delta U = 
+	- \int_\Gamma \Nabla (q\phi) \cdot d\vb{\ell} = -q \Delta \phi
+\]
+\[
+	\delta U = \vb{F}\cdot\delta\vb{x} \qquad\qquad  \frac{\delta U}{\delta x} = F_t
+\]
+donde el subíndice es por tangencial.
+\[
+	W_2 = q_2 \frac{q_1}{r_{12}} = \frac{1}{2}\left( q_1 \frac{q_2}{r_{12}} + 
+		q_2 \frac{q_1}{r_{21}} \right)
+\]
+\[
+	W_3 = q_2 \frac{q_1}{r_{12}} + q_3 \frac{q_1}{r_{13}} + q_2 \frac{q_3}{r_{23}}
+\]
+\[
+	W_3 = \frac{1}{2}\left( q_1 \frac{q_2}{r_{12}} + q_1 \frac{q_3}{r_{13}} + q_2 \frac{q_1}{r_{21}}
+		+ q_2 \frac{q_3}{r_{23}} + q_3 \frac{q_1}{r_{31}} + q_3 \frac{q_2}{r_{32}} \right)
+\]
+\[
+	W_N = \sum_{i\neq j}^N \frac{1}{2}\frac{q_i q_j}{r_{ij}} =
+	\sum_{i,j}^N \frac{1}{2} q_i \phi_{ij}[ 1 - \delta_{ij}]
+\]
+siendo $\phi_{ij}$ el potencial sobre $q_i$ debido a $q_j$.
+\[
+	W_N = \sum_i^N \frac{1}{2} q_i \phi_i 
+\]
+es el potencial de todas las cargas producido en la posición de $q_i$.
+\[
+	W = \frac{1}{2} \int_V \rho(\vb{x}) \phi(\vb{x}) dV
+\]
+Supongamos ahora la presencia de un medio material 
+\[
+	\delta W = \frac{1}{2} \rho \delta V \phi
+\]
+\[
+	\delta W = \frac{1}{2}\frac{\Nabla\cdot(\delta\vb{D})}{4\pi} \delta V \phi 
+\]
+\[
+	\Nabla\cdot(\delta\vb{D}\phi) = \delta\vb{D} \cdot \Nabla\phi  + \phi \Nabla\cdot\delta\vb{D}
+\]
+\[
+	\delta W = \frac{1}{8\pi} \delta V [\Nabla\cdot(\delta\vb{D}\phi) - \delta\vb{D} \cdot \Nabla\phi ]
+\]
+\[
+	W = \frac{1}{8\pi}\left( \int_V \Nabla\cdot(\vb{D}\phi)dV + \int_V \vb{D}\cdot\vb{E} dV \right)
+\]
+pero la primera integral se pasa a una de superficie según
+\[
+	\int_S \vb{D}\phi dS
+\]
+y si la misma es muy grande tiende a cero. Entonces quedamos en que 
+\[
+	W = \frac{1}{8\pi} \int_V \vb{D}\cdot\vb{E} dV
+\]
+que es el trabajo necesario para formar una configuración en presencia de medios materiales. Vale
+para medios lineales, sin imponer isotroía u homogeneidad.
 
-
-
-
-
-
-
+Este cálculo es a temperatura constante, el medio material no altera su $\epsilon$.
+Es un proceso isotérmico. Uno asume que $\epsilon=\epsilon(\vb{x})$ y no varía con el tiempo.
+En la práctica $\epsilon$ varía con la temperatura.
 
 % =================================================================================================
-\section{Campo dipolar}
+\section{Interpretación termodinámica de U}
 % =================================================================================================
 
 
