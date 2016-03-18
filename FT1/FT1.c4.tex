@@ -502,10 +502,43 @@ con $\epsilon > 0, T > 0, \partial \epsilon / \partial T < 0$ si el $\epsilon$ d
 se enfría $\delta Q < 0$.
 
 
+% =================================================================================================
+\section{Teorema de Thomson}
+% =================================================================================================
 
+\[
+	\delta W = \int_V \phi \delta \rho dV 
+\]
+las cargas en un conductor se redistribuiran hasta que $F$ alcance su valor mínimo.
+\[
+	\delta W = \frac{1}{8\pi} \int_V \vb{E}\cdot\delta\vb{D} dV = \frac{1}{8\pi} \int_V \left( 
+-\Nabla\phi\cdot\delta\vb{D}  dV \right)  = 
+\]
+\[
+	\delta W = \frac{1}{8\pi} \int_V \left[ \phi \Nabla\cdot\delta\vb{D} - 
+			\Nabla\cdot\delta(\vb{D}\phi) \right] dV
+\]
+\[
+	\delta W = \frac{1}{8\pi} \sum_i^N \int_V \phi_i 4\pi \delta p_i dV - 
+		\frac{1}{8\pi} \int_{\partial V} \vb{D}\phi \cdot d\vb{S} =
+		\frac{1}{2} \sum_i^N  \phi_i \int_V \delta \rho_i dV = 0
+\]
+y la integral de superficie la podemos dejar desvanecerse. Se suma sobre cada conductor 
+que se halla a $\phi$ constante $\phi_i$.
+La carga total en cada conductor no varía porque están aislados y por estar en 
+equilibro $\delta \rho_i = 0 \forall i$.
 
+Un sistema de interacciones electrostáticas nunca pueden llegar a un equilibrio estable.
+El $\phi$ no tiene mínimo ni máximo en el interior de una región.
 
-
+Sea una región donde 
+\[
+	\Nabla\phi |_s < 0 \Rightarrow \int_S \Nabla\phi\cdot d\vb{S} < 0 \Rightarrow
+\]
+\[
+	\int_V \Nabla\cdot(\Nabla\phi) dV = \int_V \nabla^2 \phi dV = 0
+\]
+entonces no vale lo que supusiéramos.
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
