@@ -436,11 +436,70 @@ En la práctica $\epsilon$ varía con la temperatura.
 \section{Interpretación termodinámica de U}
 % =================================================================================================
 
+El incremento de energía a T constante
+\be
+	\delta W = U = \frac{1}{8 \pi} \vb{E}\cdot\vb{D} = \frac{1}{8 \pi} \epsilon_{ij}E_i E_j	\qquad
+	\text{con} \; \epsilon_{ij} = \epsilon_{ji} \; \text{tensor simétrico}
+	\label{energíaEM}
+\ee
+Pero $\epsilon$ es función de T la temperatura y entonces no podemos decir que
+\[
+	dU = dW
+\]
+valga en general, pues también hay variación del calor (a no ser que sea un proceso isotérmico) de modo que 
+la energía que representa \eqref{energíaEM} es la energía libre de Helmholtz a T constante.
+\[
+	dU = dQ - dW \qquad \qquad F = U - TS
+\]
+\[
+	dF = dU - TdS - SdT
+\]
+pero al ser la última cero, resulta
+\[
+	dF|_T = dU - T.dS = \frac{1}{8\pi} \int_V \vb{E}\cdot\delta\vb{D} dV
+\]
+\[
+	dF = \frac{1}{8\pi} \int_V \vb{E}\cdot\delta\vb{D} dV - SdT
+\]
+de modo que como el primer término es $\partial F / \partial D |_T$ resulta que 
+\[
+	S = -\left.\dpar{F}{T}\right|_D
+\]
 
-
-
-
-
+Si es un medio isótropom entonces $\vb{D} = \epsilon \vb{E}$ y entonces 
+\[
+	F = \frac{1}{8\pi} \int_V \frac{1}{\epsilon}\vb{D}\cdot\vb{D} dV
+\]
+entonces
+\[
+	\left.\dpar{F}{T}\right|_D	= \frac{1}{8\pi} \int_V \vb{D}\cdot\vb{D} \frac{\partial}{\partial T}
+		\left( \frac{1}{\epsilon} \right) dV
+\]
+\[
+	=  - \frac{1}{8\pi} \int_V \vb{D}\cdot\vb{D} \frac{1}{\epsilon^2} \dpar{\epsilon}{T}  dV =
+	-\frac{1}{8\pi} \int_V \vb{E}\cdot\vb{D} \frac{1}{\epsilon} \dpar{\epsilon}{T}  dV = S
+\]
+luego 
+\[
+	U = F + TS = \frac{1}{8\pi} \int_V \vb{D}\cdot\vb{D} \frac{1}{\epsilon} dV  +
+	\frac{1}{8\pi} \int_V \vb{E}\cdot\vb{D} \frac{1}{\epsilon} \dpar{\epsilon}{T}  dV 
+\]
+\[
+	U = \frac{1}{8\pi} \int_V \frac{1}{\epsilon} \left[ \vb{D}\cdot \left( \vb{D} + 
+		\vb{E} \dpar{\epsilon}{T} T \right) \right] dV  = \frac{1}{8\pi} \int_V \frac{1}{\epsilon}
+		\vb{D}\cdot \vb{E} \left[ \epsilon + T \dpar{\epsilon}{T}  \right] dV
+\]
+y finalmente para medios lineales e isótropos
+\[
+	U = \frac{1}{8\pi} \int_V \frac{1}{\epsilon} \vb{D}\cdot \vb{E} \dpar{ T \epsilon}{T} dV
+\]
+y la segunda ley de la termodinámica es
+\[
+	\delta Q = T.dS = \frac{1}{4\pi} \int_V \vb{E}\cdot\delta\vb{D} \frac{T}{\epsilon}
+	\dpar{\epsilon}{T} dV
+\]
+con $\epsilon > 0, T > 0, \partial \epsilon / \partial T < 0$ si el $\epsilon$ decrece con T el cuerpo
+se enfría $\delta Q < 0$.
 
 
 
