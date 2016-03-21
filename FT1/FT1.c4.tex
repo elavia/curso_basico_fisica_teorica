@@ -506,6 +506,13 @@ se enfría $\delta Q < 0$.
 \section{Teorema de Thomson}
 % =================================================================================================
 
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.25\textwidth]{images/fig_ft1_volume.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
 \[
 	\delta W = \int_V \phi \delta \rho dV 
 \]
@@ -540,7 +547,92 @@ Sea una región donde
 \]
 entonces no vale lo que supusiéramos.
 
+% =================================================================================================
+\section{Esfera con magnetización uniforme}
+% =================================================================================================
+\[
+	\vb{M} = M_0 \hat{z} \qquad \divem{M}= 0 = \rotorm{M}
+\]
+usando el $\phi_m$ se llega a
+\[
+	\vb{H}_I = -\frac{4\pi}{3}\vb{M} \qquad \vb{B}_I = \frac{8\pi}{3}\vb{M}
+\]
+donde $I$ es por interior de esfera y afuera el $\phi_m$ es el de un dipolo con 
+\[
+	\vb{m} = \frac{4\pi}{3}a^3\vb{M}
+\]
+y esto vale no solo para grandes distancias sino incluso hasta la superficie (no hay multipolos
+subsiguientes).
 
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{images/fig_ft1_magnetiz1.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
+En las figuras vemos las líneas de \vb{B} que son continuas, no nacen ni mueren, pero las
+de \vb{H} nacen y mueren en la superficie, por la $\sigma_M = \vb{M}\cdot\hat{n}$.
+\vb{H} es menos intenso que \vb{B} pues
+\[
+	\vb{H} = \vb{B} - 4\pi \vb{M}
+\]
+de manera que en el interior \vb{H} y \vb{B} tienen sentidos opuestos.
+
+% =================================================================================================
+\section{Histéresis}
+% =================================================================================================
+
+Los campos fundamentales son $\vb{E},\vb{B}$, en realidad $\vb{D},\vb{H}$ se introducen para tener
+en cuenta en promedio los efectos de $\rho, \vb{J}$ de las cargas y corrientes atómicas.
+
+Para medios magnéticos (diamagnéticos o paramagnéticos) hay relación lineal
+\[
+	\vb{B} = \mu \vb{H}
+\]
+pero para ferromagnéticos es $\vb{B} = f(\vb{H})$ con $f$ no lineal. Se verifica un fenómeno
+de histéresis; \vb{B} es una función multivaluada de \vb{H} y $f$ depende de la historia del material.
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{images/fig_ft1_magnetiz3.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
+\vb{H} se conoce como campo desmagnetizante.
+
+
+% =================================================================================================
+\section{Esfera ferromagnética en campo externo}
+% =================================================================================================
+
+Si sumergimos la esfera en un $\vb{B}_0$ uniforme tendremos
+\[
+	\vb{H}_I = \vb{B}_0 - \frac{4\pi}{3} \vb{M} \qquad \vb{B}_I = \vb{B}_0 + \frac{8\pi}{3} \vb{M}
+\]
+y podemos eliminar \vb{M} de manera que 
+\[
+	2\vb{H}_I + \vb{B}_I = 3\vb{B}_0
+\]
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{images/fig_ft1_magnetiz2.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
+Vemos en la figura en P el punto de trabajo del imán esférico. Subimos $\vb{B}_0$ hasta saturar la
+esfera y luego cuando $\vb{B}_0 = 0$ nos hallamos en P. Hemos recorrido el camino ABP.
+
+Usando la curva de histéresis relacionamos $\vb{B}_I, \vb{H}_I$ y entonces
+\[
+	\vb{B}_I = 3 \vb{B}_0  - 2 \vb{H}_I.
+\]
+
+Un imán es tanto más estable cuando $\vb{H}_I$ es pequeño; en el caso de $\vb{M} \parallel$ superficie,
+por ejemplo.
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
