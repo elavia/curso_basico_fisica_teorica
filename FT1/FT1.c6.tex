@@ -106,10 +106,102 @@ $\vb{E} \parallel$ al eje principal.
 Notemos que $\vb{E},\vb{B}$ y $\hat{n}$ forman una terna derecha.
 
 \subsection{Sobre complejos}
+\[
+	\mathcal{R}(A) = \frac{1}{2}( A + A^* )	\qquad \text{con} \; A \in \mathbb{C}
+\]
+Sean 
+\[
+	\vb{A}(\vb{x},t) = \vb{A}(\vb{x})\euler^{-i\omega t} \qquad \qquad 
+			\vb{B}(\vb{x},t) = \vb{B}(\vb{x})\euler^{-i\omega t}
+\]
+siempre trabajaremos en general con dependencias temporales armónicas y metemos $\euler^{i\pe{k}{x}}$ en el 
+módulo $vb{A}_0$ que pasa a depender de $\vb{x}$.
 
+Los campos físicos son siempre la parte real de las expresiones complejas.
+\[
+	\mathcal{R}(\vb{A} + \vb{B}) = \mathcal{R}( \vb{A} ) + \mathcal{R}( \vb{B} )
+\]
+con operaciones lineales es lo mismo tomar parte real antes o después.
+\[
+	\mathcal{R}(\vb{A}.\vb{B}) \neq  \mathfrak{R}( \vb{A} ) + \mathcal{R}( \vb{B} )
+\]
+con operaciones no lineales no es lo mismo.
+Para hacer producto necesito tomar la parte real de cada factor y entonces
+\[
+	\mathfrak{R}( \vb{A} ).\mathfrak{R}( \vb{B} ) = \frac{1}{2}\mathfrak{R}( \vb{A}.\vb{B}^* + 
+			\vb{A}.\vb{B} \euler^{ -i 2 \omega t })
+\]
 
+Pero como en las aplicaciones estaré interesado en el promedio sobre un número entero de períodos,
+\[
+	\langle \vb{A} \vb{B} \rangle = \langle \mathfrak{R}( \vb{A} ). \mathfrak{R}( \vb{B} ) \rangle =
+			\frac{1}{2} \mathfrak{R} ( \vb{A}.\vb{B}^* )
+\]
 
 \subsection{Poynting promedio y energías promedio}
+
+Los campos \vb{E} y \vb{H} en ondas electromagnéticas toman la forma 
+\[
+	\vb{E} = \vec{\mathbb{E}}(\vb{x})\euler^{-i\omega t} \qquad 
+	\vb{H} = \vec{\mathbb{H}}(\vb{x})\euler^{-i\omega t}
+\]
+de manera que 
+\[
+	\vb{S}( \vb{x},t ) = \frac{c}{4\pi} \frac{1}{2} \re( \vec{\mathbb{E}} \times \vec{\mathbb{H}}^* + 
+		\vec{\mathbb{E}} \times \vec{\mathbb{H}} \euler^{-i2\omega t})
+\]
+\[
+	\langle \vb{S}( \vb{x},t ) \rangle = \frac{c}{8\pi} \re( \vec{\mathbb{E}} \times \vec{\mathbb{H}}^* ) 
+\]
+
+En un MLIH es 
+\[
+	\vec{\mathbb{B}} = \sqrt{ \mu \epsilon } \hat{n} \times \vec{\mathbb{E}} \qquad\qquad 
+	\vec{\mathbb{H}} = \sqrt{ \frac{\epsilon}{\mu } } \hat{n} \times \vec{\mathbb{E}}
+\]
+donde usamos que $\vb{H} = \vb{B}/\mu$
+\[
+	\langle \vb{S}( \vb{x},t ) \rangle = \frac{c}{8\pi} \re( \vec{\mathbb{E}} \times 
+		\sqrt{\frac{\epsilon}{\mu}}(\hat{n} \times \vec{\mathbb{E}})^* )
+\]
+\[
+	\langle \vb{S}( \vb{x},t ) \rangle = \frac{c}{8\pi} \sqrt{\frac{\epsilon}{\mu}} 
+		( \hat{n} (\vec{\mathbb{E}}\cdot\vec{\mathbb{E}}^*) - 
+		\vec{\mathbb{E}}^*(\vec{\mathbb{E}}\cdot\hat{n}) )
+\]
+y finalmente
+\[
+	\langle \vb{S}( \vb{x},t ) \rangle = \frac{c}{8\pi} 
+		\sqrt{\frac{\epsilon}{\mu}}|\vec{\mathbb{E}}|^2 \hat{n}
+\]
+que es el vector de Poynting para ondas en MLIH.
+\[
+	U(\vb{x},t) = \frac{1}{8\pi}( \pe{H}{B} + \pe{E}{D} )
+\]
+\[
+	\langle U(\vb{x},t) \rangle = \frac{1}{8\pi} \frac{1}{2} \re ( 
+	\vec{\mathbb{H}}\cdot\vec{\mathbb{B}}^* + \vec{\mathbb{E}}\cdot\vec{\mathbb{D}}^* )
+\]
+\[
+	\langle U(\vb{x},t) \rangle = \frac{1}{16\pi}
+		\re ( \frac{1}{\mu} |\vec{\mathbb{B}}|^2 + \epsilon |\vec{\mathbb{E}}|^2 ) =
+		\frac{1}{8\pi} |\vec{\mathbb{E}}|^2
+\]
+puesto que 
+\[
+	|\vec{\mathbb{B}}|^2 = \mu\epsilon |\vec{\mathbb{E}}|^2,	
+\]
+y entonces la densidad de energía promedio es
+\[
+		\langle U(\vb{x},t) \rangle = \frac{1}{8\pi} |\vec{\mathbb{E}}|^2.
+\]
+
+
+
+
+
+
+
 
 
 % =================================================================================================
