@@ -663,16 +663,86 @@ tendremos
 \end{figure} 
 los campos son constantes en los planos de normal $\hat{n}$ (ver ilustración).
 
+\[
+	\Nabla = \hat{n} \dpar{}{\xi}
+\]
+y de acuerdo a Maxwell,
+\[
+	\hat{n} \cdot \dpar{\vb{D}}{\xi} = 0 \qquad \qquad \hat{n} \cdot \dpar{\vb{B}}{\xi} = 0
+\]
+\[
+	\hat{n} \times \dpar{\vb{E}}{\xi} = -\frac{1}{c} \dpar{\vb{B}}{t} \qquad \qquad
+	\hat{n} \times \dpar{\vb{H}}{\xi} = \frac{4\pi}{c} \sigma \vb{E} + \frac{\varepsilon}{c} 
+\dpar{\vb{E}}{t}
+\]
+y si tomamos producto escalar de la última ecuación con la normal resulta
+\[
+	\hat{n} \cdot \left( \hat{n} \times \dpar{\vb{H}}{\xi} \right) = 
+		\frac{4\pi}{c} \sigma E_n + \frac{\varepsilon}{c} \dpar{E_n}{t} = 0 
+\]
+de manera que 
+\[
+	E_n = E_n^0 \euler^{-\frac{4\pi\sigma}{\varepsilon} t}.
+\]
 
 El $E_{\hat{n}}$ (electrostático) se apaga exponencialmente con el tiempo de relajación
-del conductor.
-
+del conductor. 
+\[
+	\hat{n} \cdot \left( \hat{n} \times \dpar{\vb{E}}{\xi} \right) = \frac{\mu}{c} \dpar{H}{t} = 0
+\]
 $H_n$ solo es constante en el tiempo y uniforme en el espacio.
 
 No se ve influenciado por el conductor. Asimismo la energía está metida casi por
 completo en el campo magnético cuando es un muy buen conductor.
 
+\[
+	K^2 = \mu \varepsilon \frac{\omega^2}{c^2} \left[ 1 + i\frac{4\pi\sigma}{\varepsilon \omega} \right]
+\]
+de manera que podemos escribir
+\[
+	K = \beta + i \frac{\alpha}{2}
+\]
+siendo $\beta$ el término responsable de la propagación, $\alpha$ el término que se atenua. Esta escritura
+es sólo conveniente puesto que resulta que 
+\[
+	\beta = \sqrt{ \mu \varepsilon }\frac{\omega}{c} 
+	\left[ \frac{1 + \sqrt{ 1 + (\omega\tau )^{-2}}}{2}\right]^{1/2} = k
+\]
+\[
+	\frac{\alpha}{2} = \sqrt{ \mu \varepsilon }\frac{\omega}{c} 
+	\left[ \frac{1 + \sqrt{ -1 + (\omega\tau )^{-2}}}{2}\right]^{1/2} = k
+\]
+y ahí vemos la simetría.
 
+Entonces resulta que para el caso de un mal conductor $ \frac{4\pi\sigma}{\omega \varepsilon} \ll 1 $ o bien 
+$ \frac{4\pi\sigma}{\varepsilon} \ll \omega $ o bien $ 1/\tau \ll \omega $ se tiene 
+\[
+	K = \sqrt{ \mu \varepsilon }\frac{\omega}{c} + i \frac{2\pi\sqrt{\mu}\sigma}{c\sqrt{\varepsilon}}
+\]
+y en cambio por el mismo razonamiento pero para un excelente conductor, $1/\tau \gg \omega$
+\[
+	K = \frac{\sqrt{2\pi\omega\mu\sigma}}{c}( 1 + i )
+\]
+y aquí la parte de atenuación $\alpha/2 = \alpha(\omega)/2$ de modo que hay distorsión.
+En general tendremos
+\[
+	\vb{E} = \vec{\mathbb{E}}_0 \euler^{-\alpha/2 \hat{n}\cdot\vb{x}} \euler^{i[\beta \hat{n}\cdot\vb{x} - 
+\omega t]}
+\]
+que nos muestra una primera exponencial real que es el factor de atenuación. Entre más conductor un medio más
+rápida es la atenuación.
+
+\[
+	\vb{H} = \frac{c}{\mu\omega}\left[ \beta + i \frac{\alpha}{2} \right] \hat{k}\times \vb{E}
+\]
+de modo que si $\vb{k} \in \mathbb{R}^3$ entonces $\vb{E}_0, \vb{B}_0$ tienen la misma fase. Si en cambio 
+\vb{k} pertenece a $\mathbb{C}^3$ hay crecimiento o decaimiento exponencial en algunas direcciones.
+Vemos en una onda plana el caso de la atenuación se vería así
+\[
+	\euler^{i(\vb{k}\cdot\vb{x}-\omega t)} =
+	\euler^{i( k\hat{n}_R \cdot\vb{x} + k\hat{n}_I \cdot\vb{x} -\omega t)} =
+	\euler^{i( k\hat{n}_R \cdot\vb{x} -\omega t) } + \euler^{ k\hat{n}_I \cdot\vb{x} }
+\]
 
 \subsection{Algunos ejemplos y casos}
 
@@ -687,6 +757,19 @@ Recordemos
 	\end{center}
 	\caption{}
 \end{figure} 
+
+Noción de algunos numeritos a partir de la tabla
+
+\begin{center}
+\begin{tabular}{ c c c }
+& $\nu$ & $\lambda$ \\
+celular & 1.10$^9$ Hz & 0.3 m \\
+radio AM  & 1.10$^6$ Hz  & 300 m \\
+radio FM & 1.10$^8$ Hz & 3 m
+\end{tabular}
+\end{center}
+
+
 
 \begin{figure}[htb]
 	\begin{center}
@@ -710,10 +793,6 @@ $\lambda \ll \ell$ es transparente para la onda. No ve el conductor.
 
 En un buen conductor $ \mu_M > \mu_E $ el material se comporta inductivamente.
 En un mal conductor $ \mu_E > \mu_M $ el material se comporta capacitivamente.
-
-
-
-
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
