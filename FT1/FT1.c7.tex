@@ -149,9 +149,74 @@ que es el tensor de la métrica. Se verifica
 	\end{pmatrix}
 \]
 
-\subsection{Cuadrivectores en el espacio 4D}
+\subsubsection{Cuadrivectores en el espacio 4D}
 
-\subsection{Intervalos}
+Un cuadrivector contravariante es
+\[
+	A^{\mu} = ( A^0, \vb{A})
+\]
+mientras que el covariante es
+\[
+	A_{\mu} = ( A^0, -\vb{A})
+\]
+y vemos que las partes temporales son las mismas cambiando el signo de la espacial. Las reglas de 
+transformación son
+\[
+	A'^{\alpha}= \dpar{x'^{\alpha}}{x^{\beta}} A^{\beta} \qquad\qquad 
+		A'_{\alpha}= \dpar{x^{\beta}}{x'^{\alpha}} A_{\beta}
+\]
+luego el producto interno es
+\[
+	\widetilde{A}\cdot\widetilde{B} \equiv A_\alpha B^\alpha
+\]
+donde estamos usando convención de suma de Einstein, que significa que 
+\[
+	\widetilde{A}\cdot\widetilde{B} = A^0 B^0 -\pe{A}{B}
+\]
+que es invariante por ser un escalar de Lorentz,
+\[
+	A_\alpha B^\alpha = A'_\alpha B'^\alpha
+\]
+
+\subsubsection{Intervalos entre eventos}
+
+Los intervalos deben ser invariantes relativistas y de Lorentz, si el intervalo es temporal se tiene 
+\[
+	x^0 > x^i x_i \Rightarrow \delta s^2 > 0  
+\]
+y los eventos pueden estar conectados causalmente
+\[
+	x^0 < x^i x_i \Rightarrow \delta s^2 < 0 
+\]
+y los eventos no pueden estar conectados causalmente. Se cumple
+\[
+	\delta s^2 = (x^0)^2 - [ (x^1)^2 + (x^2)^2 + (x^3)^2 ]
+\]
+
+\subsubsection{Operadores diferenciales}
+
+Tenemos la derivada respecto a una coordenada contravariante
+\[
+	\partial_\alpha \equiv \dpar{}{x^\alpha} = \left( \dpar{}{x^0}, \Nabla \right)
+\]
+que es la derivada covariante, y también la derivada respecto de una coordenada covariante
+\[
+	\partial^\alpha \equiv \dpar{}{x_\alpha} = \left( \dpar{}{x^0}, - \Nabla \right)
+\]
+que es la derivada contravariante. Note la asimetría entre derivo respecto de arriba y es derivada abajo
+y viceversa. La notación abreviada puede inducir a confusiones.
+
+La cuadridivergencia de un cuadrivector es un invariante,
+\[
+	\partial_\alpha A^\alpha = \dpar{A^0}{x^0} + \Nabla\cdot\vb{A}
+\]
+\[
+	\partial^\alpha A_\alpha = \dpar{A^0}{x^0} - \Nabla\cdot(-\vb{A})
+\]
+y aquí vemos $\partial_\alpha A^\alpha = \partial^\alpha A_\alpha$. Esto nos lleva al D'Alembertiano
+\[
+	\Box \equiv \partial_\alpha \partial^\alpha = \dpar[2]{}{x^0} - \nabla^2
+\]
 
 \begin{figure}[htb]
 	\begin{center}
