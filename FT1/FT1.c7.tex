@@ -217,28 +217,192 @@ y aquí vemos $\partial_\alpha A^\alpha = \partial^\alpha A_\alpha$. Esto nos ll
 \[
 	\Box \equiv \partial_\alpha \partial^\alpha = \dpar[2]{}{x^0} - \nabla^2
 \]
+S es el intervalo entre los eventos 1 y 2, y es un invariante lorentziano
+\[
+	s^2 = c^2( t_1 - t_2 )^2 - | \vb{x}_1 - \vb{x}_2 |^2
+\]
+El intervalo es temporal si $s^2 >0$ en cuyo caso se tiene 
+\[
+	c \delta t >  | \vb{x}_1 - \vb{x}_2 |
+\]
+lo cual significa que existe frame inercial donde $x_1=x_2$ los eventos ocurren en el mismo sitio de manera
+que pueden estar conectados causalmente; puesto que $c\delta t > 0$ y $t_2>t_1$. Por el contrario si 
+$c^2 < 0$ se tiene 
+\[
+	c \delta t <  | \vb{x}_1 - \vb{x}_2 |
+\]
+y existe entonces frame inercial donde los dos eventos son en el mismo sitio $x_1=x_2$ y entonces $c\delta t 
+< 0$ y $t_2 < t_1$ de manera que no pueden estar conectados causalmente.
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_intervalos.pdf}	 
+	\includegraphics[width=0.6\textwidth]{images/fig_ft1_intervalos.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
+
+Según se interpreta claramente del gráfico de la figura [ampliar].
+\[
+	x'^0 = \gamma (x^0 - \beta x^3) \qquad x'^3 = \gamma (x^3 - \beta x^0)
+\]
+y si ahora es $x'^0 = 0$ entonces para un observador en $S'$ se tiene 
+\[
+	0 = \gamma (x^0 - \beta x^3) 
+\]
+o bien $x^0 = \beta x^3$ y aquí es $x'^3 = 0$ de modo que 
+\[
+	\frac{x^3}{\beta} = x^0
+\]
+y entonces $a$ de la figura puede ser causado por un suceso en el origen pero $b$ no tiene 
+conexión causal con el origen.
 
 \subsection{Transcurso del tiempo en un sistema con V grande}
 
+Sea $v/c$ no despreciable 
+\[
+	c \Delta t' = \gamma ( c\Delta t - \beta \Delta z) \qquad \qquad \gamma >1
+\]
+\[
+	\Delta t' = \gamma \Delta t \left( 1 - \beta \frac{\Delta z}{c\Delta t} \right)
+\]
+pero si en $S'$ la partícula está en reposo es $v = dz/dt $ de manera que 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_vgrande.pdf}	 
+	\includegraphics[width=0.3\textwidth]{images/fig_ft1_vgrande.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
+\[
+	\Delta t' = \gamma \Delta t ( 1 - \beta^2)
+\]
+\[
+	\Delta t' = \Delta t ( 1 - \beta^2)^{1/2}
+\]
+de modo que $ \Delta t' < \Delta t$, en $S'$ el tiempo transcurre más lentamente.
 
+\subsubsection{Número de onda y conteo}
 
+Un proceso de conteo (discreto) es invariante lorentziano
+\[
+	x'^3 = \gamma ( x^3 - \beta x^0 )
+\]
+siendo \vb{v} entre sistemas $SS'$.
+El número de crestas es 
+\[
+	\#_s = \frac{ z_1 - z }{ \lambda } = \frac{ k }{ 2\pi }( z_1 - z ) = \frac{ k }{ 2\pi }( ct - z ) = 
+	\frac{ 1 }{ 2\pi }( \omega t - kz )
+\]
+\[
+	\#_s' = \frac{ 1 }{ 2\pi }( \omega' t' - k'z' )
+\]
+y se puede generalizar
+\[
+	\pe{k'}{x'} - \omega' t' = \pe{k}{x} - \omega t
+\]
+\[
+	-\left( \pe{k'}{x'} - \frac{\omega' x'^0 }{c} \right) = -\left( \pe{k}{x} - \frac{\omega x^0 }{c}  
+\right)
+\]
+es un invariante lorentziano como
+\[
+	k_\alpha x^\alpha = k^\alpha x_\alpha
+\]
+donde el cuadrivector de onda se define
+\[
+	k^\alpha = \left( \frac{\omega}{c}, \vb{k}\right).
+\]
 
 % =================================================================================================
-\section{Transformación de los campos}
+\section{Forma covariante del electromagnetismo}
 % =================================================================================================
+
+Partimos de la ecuación de continuidad para la carga,
+\[
+	\dpar{\rho}{t} + \divem{J} = 0
+\]
+la cual con la definición del cuadrivector corriente
+\[
+	J^\mu = ( c\rho , \vb{J} )
+\]
+se puede escribir como 
+\[
+	\partial_\mu J^\mu = \dpar{c\rho}{ct} + \divem{J} = 0 .
+\]
+
+La formulación covariante empleaba el gauge de Lorentz (así las ecuaciones son validas en cualquier sistema
+inercial), el gauge de Lorentz era
+\[
+	\frac{1}{c} \dpar{\phi}{t} + \divem{A} = 0
+\]
+siendo el cuadripotencial
+\[
+	A^\mu = ( \phi , \vb{A} ) 
+\]
+y entonces 
+\[
+	\partial_\mu A^\mu = \dpar{\phi}{ct} + \divem{A} = \frac{1}{c} \dpar{\phi}{t} + \divem{A} = 0 .
+\]
+
+Se podía ver que resultan ecuaciones de onda inhomogéneas para los potenciales
+\[
+	\Nabla^2 \vb{A} - \frac{1}{c^2} \dpar[2]{\vb{A}}{t} = -\frac{4\pi}{c} \vb{J}
+\]
+que viene a ser 
+\[
+	\partial_\mu\partial^\mu = \Box \vb{A} = \frac{4\pi}{c} \vb{J}
+\]
+y para el potencial $\phi$
+\[
+	\Nabla^2 \phi - \frac{1}{c^2} \dpar[2]{\phi}{t} = - 4\pi \phi
+\]
+que desemboca en 
+\[
+	\partial_\mu\partial^\mu = \Box \phi = \frac{4\pi}{c} ( c\rho )
+\]
+
+Al aplicar el D'Alembertiano a un cuadrivector obtenemos otro cuadrivector 
+\[
+	\Box A^\mu = \frac{4\pi}{c} J^\mu.
+\]
+
+Los campos \vb{E}, \vb{B} forman parte de un tensor de segundo rango antisimétrico llamado tensor
+de intesidad de campo 
+\[
+	F^{\alpha\beta} = \partial^\alpha A^\beta - \partial^\beta A^\alpha
+\]
+que matricialmente se puede ver como 
+\[
+	F^{\alpha\beta} =
+	\begin{pmatrix}
+	 0 & -E_x & -E_y & -E_z \\
+	 E_x & 0 & -B_z & B_y \\
+	 E_y & B_z & 0 & -B_x \\
+	 E_z & -B_y & B_x & 0 \\
+	\end{pmatrix}
+\]
+También se suele definir un tensor de intensidad de campo dual
+\[
+	\mathcal{F}^{\alpha\beta} =  \frac{1}{2} \varepsilon^{\alpha\beta\gamma\delta} F_{\gamma\delta}
+\]
+que no es otra cosa que 
+\[
+	\mathcal{F}^{\alpha\beta}=
+	\begin{pmatrix}
+	 0 & -B_x & -B_y & -B_z \\
+	 B_x & 0 & E_z & -E_y \\
+	 B_y & -E_z & 0 & E_x \\
+	 B_z & E_y & -E_x & 0 \\
+	\end{pmatrix}
+\]
+y donde $\varepsilon^{\alpha\beta\gamma\delta}$ es el tensor de Levi-Civita de cuatro dimensiones, que es nulo
+cuando se repite un índice.
+Entonces las ecuaciones de Maxwell en forma covariante explícita resultan 
+\[
+	\partial_\alpha \mathcal{F}^{\alpha\beta} =  0 \qquad \qquad 
+	\partial_\alpha F^{\alpha\beta} =  \frac{4 \pi}{c} J^\alpha.
+\]
+
+\subsection{Transformación de los campos}
 
 \begin{figure}[htb]
 	\begin{center}
