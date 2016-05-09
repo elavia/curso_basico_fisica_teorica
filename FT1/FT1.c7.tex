@@ -528,9 +528,281 @@ Entonces de un sistema inercial a otro una \vb{P} da origen a una \vb{M} y vicev
 \section{Principio de Hamilton y relatividad}
 % =================================================================================================
 
-% =================================================================================================
-\section{Especie de tiro oblicuo}
-% =================================================================================================
+Habiéndonos situado en un espacio de Minkowski, tenemos la acción
+\[
+	S = -\alpha \int_a^b ds,
+\]
+siendo $\alpha$ una constante a fijar luego, y $ds$ un arco en el espacio minkowskiano. La acción debe ser 
+un invariante pues es un extremo.
+\[
+	ds = \sqrt{ c^2 dt^2 - dx^2 - dy^2 - dz^2 } = c dt \sqrt{ 1 - v^2/c^2 }
+\]
+de manera que 
+\[
+	S = -\alpha \int_{t_1}^{t_2} c dt  \sqrt{ 1 - v^2/c^2 } = \int_{t_1}^{t_2} \mathcal{L} dt
+\]
+y donde $\mathcal{L}$ es el lagrangiano, 
+\[
+	\mathcal{L} = -\alpha c \left( 1 - v^2/c^2 \right)^{1/2} \approx -\alpha c + \frac{\alpha v^2}{2c}
+\]
+y luego 
+\[
+	\mathcal{L} \to T = \frac{m v^2}{2} \; \text{(baja velocidad)}
+\]
+de manera que fijamos el valor de la constante a partir de este límite de baja velocidades,
+\[
+	\mathcal{L} = -m c^2 \left( 1 - v^2/c^2 \right)^{1/2}
+\]
+es el lagrangiano relativista.
+
+A partir de las ecuaciones de Euler-Lagrange es 
+\[
+	p_i = \dpar{\mathcal{L}}{\dot{q}_i} = \dpar{\mathcal{L}}{v_i}
+\]
+y haciendo el álgebra,
+\[
+	p_i = \frac{ m v }{\sqrt{ 1 - v^2/c^2 }}
+\]
+que es el momento relativista. Entonces
+\[
+	\dtot{\vb{P}}{t} = m \dtot{}{t}\left( \frac{\vb{v}}{\sqrt{1 - v^2/c^2 }}\right).
+\]
+
+Para un movimiento circular, el módulo de la velocidad permanece constante.
+\[
+	\dtot{|\vb{v}|}{t} = 0 \quad \Rightarrow \quad \dtot{\vb{P}}{t} =
+		\left( \frac{ m }{\sqrt{1 - v^2/c^2 }}\right) \dtot{\vb{v}}{t} =
+		m \: \gamma \: \dtot{\vb{v}}{t}
+\]
+si en cambio es $ \dtot{|\vb{v}|}{t} \neq 0 $ se tiene 
+\[
+	\dtot{\vb{P}}{t} = m \left( \left( \frac{ 1 }{\sqrt{1 - v^2/c^2 }}\right) \dtot{\vb{v}}{t} 
+	+ \vb{V} (1 - v^2/c^2)^{-3/2} \frac{v}{c^2} \dtot{v}{t} \right)
+\]
+\[
+	\dtot{\vb{P}}{t} = m \gamma \dtot{\vb{v}}{t} + m \vb{v} \gamma^3 \frac{v}{c^2} \dtot{v}{t}
+\]
+donde el primer término en el RHS está asociado a la variación en la dirección y el segundo a la variación
+en la magnitud (hemos usado con $ \gamma^3 v^2/c^2 > \gamma $ ?). De esto se desprende que la inercia es
+mayor para variar la longitud de \vb{v} que su dirección. Es más fácil cambiar dirección que rapidez.
+
+Entonces
+\[
+	E = \pe{p}{v} - \Lag = m \gamma v^2 + m c^2 \gamma^{-1} = m \gamma c^2
+\]
+y esta es la energía relativista de una partícula libre. Veamos el límite de bajas velocidades, es decir
+que si $v/c \ll 1$ entonces 
+\[
+	\gamma = \sqrt{ 1 - v^2/c^2 } \approx 1 + \frac{v^2}{2c^2},
+\]
+y resulta 
+\[
+	E \approx  m c^2 + \frac{m v^2}{2} = E_0 + \frac{m v^2}{2}
+\]
+donde $E_0$ es una energía en reposo, que no depende de \vb{v} y podemos expresar la energía cinética como 
+\[
+	E - m c^2 = \frac{m v^2}{2} = T.
+\]
+Si es 
+\[
+	\vb{p} = m \vb{w},
+\]
+con $\vb{w} = \gamma \vb{v}$ entonces 
+\[
+	E^2 = m^2 \gamma^2 c^4 \qquad p^2 = m^2 \gamma^2 v^2 
+\]
+y
+\[
+	\frac{E^2}{c^2} = m^2 c^2 \gamma^2
+\]
+\[
+	\frac{E^2}{c^2} - p^2 = m^2 \gamma^2 (c^2 -v^2) = m^2 c^2
+\]
+y esta es la relación fundamental entre energía y momento 
+\[
+	\frac{E^2}{c^2} = p^2 + m^2c^2.
+\]
+
+Para partículas con $m_0 = 0$ y $v=c$ será 
+\[
+	\frac{E^2}{c^2} = p^2 \qquad \qquad p = \frac{h\nu}{c} = k\hbar.
+\]
+
+La formulación hamiltoniana comenzará a partir de 
+\[
+	\Ham = \sqrt{ p^2 + m^2 c^2} \: c,
+\]
+sobre el que se puede operar para obtener el límite clásico (de bajas velocidades) como 
+\[
+	\Ham = \left( 1 + \frac{ p^2 }{ m^2 c^2 } \right)^{1/2} m c^2
+\]
+y si se cumple $ p/(mc) \ll 1$ entonces 
+\[
+	\Ham \approx mc^2 + \frac{ p^2 }{2m^2}
+\]
+donde el último término  es el hamiltoniano de la mecánica clásica para nuestra partícula
+libre.
+
+El cuadrimomento se define como 
+\[
+	p^\mu = ( m\Gamma c , m \Gamma \vb {u}), \qquad \Gamma \equiv \frac{ 1 }{ \sqrt{ 1 - v^2/c^2 } } 
+\]
+o bien 
+\[
+	p^\mu = ( E/c , \vb{p} )
+\]
+siendo 
+\[
+	p^\mu p_\mu = \frac{E^2}{c^2} - p^2 = m^2 c^2
+\]
+el invariante asociado a la conservación (del cuadrimomento).
+
+\subsection{Partícula en un campo electromagnético}
+
+Dado que es de la mecánica clásica $\Lag = T - V$ la acción correspondiente la podemos expresar  como 
+\[
+	S = S_0 + S_inter = \int_{t_1}^{t_2} T dt - \int_{t_1}^{t_2} V dt
+\]
+es decir la suma de una parte libre y una de interacción. Luego 
+\[
+	S_{inter}^{NR} = \int_{t_1}^{t_2} -e \phi dt =  -\int_{t_1}^{t_2} \frac{ e \phi }{c} d(ct) = 
+		-\int_{x_1}^{x_2} \frac{ e A^0 }{c} dx^0
+\]
+si usamos los cuadrivectores 
+\[
+	A^\mu = ( \phi, \vb{A} ) \qquad x^\mu = ( ct, \vb{x} ) 
+\]
+y generalizamos 
+\[
+	S_{inter} = - \frac{e}{c} \int_{x_1}^{x_2} A_\mu dx^\mu
+\]
+tendremos 
+\[
+	S_inter = \frac{e}{c} \int_{x_1}^{x_2} \left( \vb{A}\cdot d\vb{x} - c \phi dt \right) = 
+		\frac{e}{c} \int_{x_1}^{x_2} \left( \vb{A}\cdot\vb{v} - c \phi \right) dt
+\]
+y finalmente el lagrangiano de una partícula en un campo electromagnético es 
+\[
+	\Lag = - m c^2 \sqrt{ 1 - v^2/c^2 } + \frac{e}{c} \pe{A}{v} - e \phi
+\]
+donde el primer término es el lagrangiano de partícula libre y la interacción viene luego. Esta lagrangiano 
+no es invariante de medida; sin embargo no perjudica porque en las ecuaciones de movimiento sólo entran las
+derivadas del mismo. Recordemos además que $\Lag$ no es invariante relativista pero la acción $S$ sí lo es.
+
+Para construir el hamiltoniano necesitamos el momento conjugado,
+\[
+	\vb{P} = \dpar{\Lag}{\vb{v}} = \vb{p} + \frac{e}{c}\vb{A} = m\gamma \vb{v} + \frac{e}{c}\vb{A}
+\]
+y siguiendo la prescripción usual $\Ham = \dpar{\Lag}{\vb{v}}\vb{v} -\Lag $,
+\begin{multline*}
+	H = ( m\gamma \vb{v} + \frac{e}{c}\vb{A} )\vb{v} + mc^2(1-v^2/c^2)^{1/2} -
+		\frac{e}{c}\pe{A}{v} + e\phi = \\
+		m\gamma v^2 + e\phi + mc^2(1 - v^2/c^2)^{1/2}
+\end{multline*}
+y 
+\[
+	H =  m \gamma v^2 + e\phi + \frac{m c^2}{\gamma}  
+\]
+de manera que el hamiltoniano en un campo es 
+\[
+	H = m \gamma c^2 + e \phi
+\]
+\[
+	\vb{P} = m \gamma v + \frac{e}{c} \vb{A} \qquad \qquad H = m \gamma c^2 + e \vb{\phi}
+\]
+y
+\[
+	\left( \vb{p} - \frac{e}{c}\vb{A} \right)^2 = m^2 \gamma^2 v^2 \qquad 
+	\left( \frac{H}{c} - \frac{e}{c}\phi \right)^2 = m^2 \gamma^2 c^2
+\]
+\[
+	\left( \frac{H}{c} - \frac{e}{c}\phi \right)^2 - \left( \vb{p} - \frac{e}{c}\vb{A} \right)^2 =
+	m^2 \gamma^2 ( c^2 - v^2 ) = mc^2,
+\]
+con ustedes el invariante. Entonces el cuadrimomento de una partícula en un campo electromagnético,
+sometida a un potencial electromagnético es 
+\[
+	p^\mu = \left( \frac{H-e\phi}{c}, \vb{p} - \frac{e}{c}\vb{A} \right)
+\]
+que es un caso particular del xxxx.
+
+Para el caso de H es 
+\[
+	H = c \sqrt{ m^2 c^2 + ( \vb{p} - \frac{e}{c}\vb{A} )} + e \phi
+\]
+y el no relativista
+\[
+	H^{nr} = m c^2 ( 1 + \frac{1}{m^2 c^2}(\vb{p} - \frac{e}{c}\vb{A} )^2 )^{1/2} + e \phi
+\]
+usando la aproximación de baja velocidad,
+\[
+	H^{nr} \approx m c^2 + \frac{1}{2m} ( \vb{p} - \frac{e}{c}\vb{A} )^2 + e \phi
+\]
+donde tiro el término de reposo $mc^2$ y
+\[
+	H^{nr} \approx \frac{1}{2m} ( \vb{p} - \frac{e}{c}\vb{A} )^2 + e \phi
+\]
+
+Aplicando las ecuaciones de Euler-Lagrange al lagrangiano electromagnético hallado se llega a
+\[
+	\dtot{\vb{P}}{t} = \dtot{}{t}(m\gamma\vb{v}) = e \left(  \vb{E} + \frac{1}{c}\pv{v}{B} \right)
+\]
+qu es la fuerza de Lorentz con la corrección relativista. Es la misma expresión hallada otrora pero
+sin tener en cuanta la relatividad.
+
+Si $\vb{E}=0$ entonces 
+\[
+	\dtot{\vb{P}}{t} = m \gamma \dtot{\vb{v}}{t} \quad \text{pues} \quad \dtot{v}{t} = 0 
+\]
+y el campo \vb{B} sólo variará la dirección de \vb{v}, no su módulo.
+El radio de giro de una partícula ciclotrón es mayor con la aproximación relativista que con la newtoniana
+porque su inercia es mayor $\gamma > 1$. Planteamos
+\[
+	|\vb{F}| = e v B
+\]
+que desde el punto de vista relativista significa
+\[
+	e v B =  m \gamma \dtot{\vb{v}}{t}
+\]
+mientras que clásicamente 
+\[
+	m \frac{v^2}{r} = e v B 
+\]
+y sale el radio de giro desde acá
+\[
+	r_B = \frac{m\gamma v}{eB} \qquad\qquad r_B^{nr} = \frac{m v}{eB}
+\]
+y luego $ r_B > r_B^{nr}$.
+
+\subsection{Cambio de gauge}
+
+El cambio de gauge es una transformación 
+\[
+	A'^\mu = A^\mu - \partial^\mu f
+\]
+entonces 
+\[
+	A'0 = \phi - \partial^0 f \qquad \qquad \vb{A}' = \vb{A} + \Nabla f
+\]
+El cambio de gauge no es invariante pero $\delta S = 0$ sí es invariante.
+La cuadridensidad de fuerza de Lorentz 
+\[
+	f^\beta = - \partial_\alpha T^{\alpha\beta}.
+\]
+
+\subsection{Especie de tiro oblicuo}
+
+La situación física es la depicted en la figura bajo estas líneas
+\[
+	\dtot{\vb{P}}{t} = e\vb{E} = \frac{}{t}( m \gamma \vb{v} )
+\]
+que lleva a un sistema hartocomplicado de resolver que es 
+
+\begin{align*}
+ \dtot{P_x}{t} &= m \dtot{}{t}\left( \frac{v_x}{ \sqrt{ 1 - (v_x^2 + v_y^2)/c^2 } }\right) = eE \\
+ \dtot{P_y}{t} &= m \dtot{}{t}\left( \frac{v_y}{ \sqrt{ 1 - (v_x^2 + v_y^2)/c^2 } }\right) =0 \\
+\end{align*}
+
 
 \begin{figure}[htb]
 	\begin{center}
@@ -539,10 +811,18 @@ Entonces de un sistema inercial a otro una \vb{P} da origen a una \vb{M} y vicev
 	\caption{}
 \end{figure} 
 
-% =================================================================================================
-\section{cuadrivelocidad}
-% =================================================================================================
+Cualitativamente vemos que $v_x$ crece a medida que ingresa en la zona de campo \vb{E} entonces como $v_y$ es
+constante se tiene que $\gamma$ aumenta y aumenta la inercia de modo que disminuye $|\vb{v}|$ y describe
+aproximadamente una parábola.
 
+\subsection{cuadrivelocidad}
+
+\vb{u} no transforma como cuadrivector (¿que u?), pero lo que sí transforma así es
+\[
+	W^\mu = ( \Gamma c , \Gamma \vb{u} ) 
+\]
+donde $ \Gamma \equiv 1/( 1 - u^2/c^2)^{1/2}$. Luego tenemos la fórmula de Einstein de suma de velocidades,
+que tiene como límite a $c$,
 
 \begin{figure}[htb]
 	\begin{center}
@@ -550,6 +830,15 @@ Entonces de un sistema inercial a otro una \vb{P} da origen a una \vb{M} y vicev
 	\end{center}
 	\caption{}
 \end{figure} 
+
+\[
+	u_\parallel = \frac{ u'_\parallel + v}{ 1 + \frac{\pe{v}{u'}}{c^2} } \qquad \qquad 
+	u_\perp = \frac{ u'_\perp}{\gamma\left(1 + \frac{\pe{v}{u'}}{c^2}\right)}
+\]
+De esta manera el cuadrimomento es 
+\[
+	p^\mu = ( m\Gamma c, m \Gamma \vb{u}) \qquad \Rightarrow \qquad m W^\mu = p^\mu.
+\]
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
