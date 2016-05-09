@@ -404,12 +404,43 @@ Entonces las ecuaciones de Maxwell en forma covariante explícita resultan
 
 \subsection{Transformación de los campos}
 
+L transformación de Lorentz era 
+\begin{align*}
+	ct' &= \gamma \: [ ct - \pe{\beta}{x} ] \\
+	\mathbf{x'}_\parallel &= \gamma \: [ \mathbf{x}_\parallel - {\beta}ct ] \\
+	\mathbf{x'}_\perp &= \mathbf{x}_\perp
+\end{align*}
+con $\vb{\beta} = \vb{v}/c$ y donde la transformación de los campos \vb{E}, \vb{B}
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.4\textwidth]{images/fig_ft1_transfCampo1.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
+
+\[
+	\vb{E}' = \vb{E}_\parallel + \gamma \: ( \vb{E}_\perp  + \pv{\beta}{B} )
+\]
+\[
+	\vb{B}' = \vb{B}_\parallel + \gamma \: ( \vb{B}_\perp  - \pv{\beta}{E} )
+\]
+que se pueden poner como 
+\[
+	\vb{E}' = - \frac{ \gamma^2 }{ \gamma + 1 }\vb{\beta} (\pe{\beta}{E}) +
+		\gamma \: ( \vb{E}  + \pv{\beta}{B} )
+\]
+\[
+	\vb{B}' = - \frac{ \gamma^2 }{ \gamma + 1 }\vb{\beta} (\pe{\beta}{B}) + 
+		\gamma \: ( \vb{B}  - \pv{\beta}{E} )
+\]
+y recordemos que la transformación de Galileo era
+\[
+	\vb{E}' = \vb{E} + \frac{1}{c} \pv{V}{B} \qquad \qquad 
+	\vb{B}' = \vb{B} - \frac{1}{c} \pv{V}{E}
+\]
+siendo el segundo término el que da origen a las corrientes de Foucault al mover un conductor en el seno
+de un campo \vb{B}.
 
 \begin{figure}[htb]
 	\begin{center}
@@ -418,7 +449,84 @@ Entonces las ecuaciones de Maxwell en forma covariante explícita resultan
 	\caption{}
 \end{figure} 
 
+Según la figura superior la transformación de los campos satisface 
+\begin{align*}
+	E'_x = \gamma ( E_x - \beta B_y ) \qquad B'_x = \gamma ( B_x + \beta E_y ) \\
+	E'_y = \gamma ( E_y + \beta B_x ) \qquad B'_y = \gamma ( B_y - \beta E_x ) \\
+	E'_z = E_z \qquad B'_z = B_z 
+\end{align*}
 
+Las contracciones del producto escalar entre el tensor de intensidad son invariantes. Así, por ejemplo,
+\begin{align*}
+	F^{\alpha\beta}F_{\alpha\beta} &= 2( B^2 - E^2 ) \\
+	\mathcal{F}^{\alpha\beta}\mathcal{F}_{\alpha\beta} &= 2( E^2 - B^2 ) \\
+	\mathcal{F}^{\alpha\beta}F_{\alpha\beta} &= -4 \: \pe{B}{E}
+\end{align*}
+
+Sea 
+\[
+	\mathcal{F}^{\alpha\beta}F_{\alpha\beta} = -4 \: \pe{B}{E} = 0,
+\]
+entonces $\vb{E} \perp \vb{B}$ o alguno de los campos es nulo en todo sistema inercial. Para una carga 
+que se mueve con velocidad \vb{v} se tiene $\vb{B}=0$ en un sistema en el que $q$ está en reposo de manera
+que 
+\[
+	\pe{B}{E} = \pe{B'}{E'} = 0
+\]
+siempre y entonces $\vb{E'} \perp \vb{B'}$ para cualquier sistema inercial S'.
+
+Un sistema electromagnético dependiente del tiempo intercambiará \vb{p} con el campo entonces no vale el
+principio de acción y reacción ,
+\[
+	\dtot{\vb{P}_M}{t} + \dtot{\vb{P}_c}{t} = \int_{S(v)} \overline{T}\cdot d\vb{S}
+\]
+mientras que 
+\[
+	\dtot{\vb{P}_c}{t} = \dtot{}{t} \left( \frac{1}{4\pi c} \int \pv{E}{B} dV \right)
+\]
+
+\subsection{Covarianza con medios materiales}
+
+En presencia de medios materiales puede definirse
+\[
+	G^{\alpha\beta} =
+	\begin{pmatrix}
+	 0 & -D_x & -D_y & -D_z \\
+	 D_x & 0 & -H_z & H_y \\
+	 D_y & H_z & 0 & -H_x \\
+	 D_z & -H_y & H_x & 0 \\
+	\end{pmatrix}
+\]
+y 
+\[
+	F^{\alpha\beta} \to G^{\alpha\beta}, \quad E_i \to D_i, \quad B_i \to H_i
+\]
+si las relaciones constitutivas son 
+\[
+	\vb{D} = \vb{E} + 4\pi\vb{P} \qquad\qquad \vb{H} = \vb{B} - 4\pi\vb{M}
+\]
+desde 
+\[
+	G^{\alpha\beta} = F^{\alpha\beta} + R^{\alpha\beta}
+\]
+y con 
+\[
+	\partial_\alpha G^{\alpha\beta} = \frac{4\pi}{c} J^\beta
+\]
+donde la información de $P_i$ y $M_i$ está en el tensor $R^{\alpha\beta}$.
+Recordemos que los campos transforman según 
+\[
+	\vb{P}' = \vb{P}_\parallel + \gamma \: ( \vb{P}_\perp  - \pv{\beta}{M} )
+\]
+\[
+	\vb{M}' = \vb{M}_\parallel + \gamma \: ( \vb{M}_\perp  + \pv{\beta}{P} )
+\]
+
+Entonces de un sistema inercial a otro una \vb{P} da origen a una \vb{M} y viceversa.
+
+% =================================================================================================
+\section{Principio de Hamilton y relatividad}
+% =================================================================================================
 
 % =================================================================================================
 \section{Especie de tiro oblicuo}
