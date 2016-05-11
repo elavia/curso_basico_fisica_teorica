@@ -113,6 +113,96 @@ Ahora necesitamos meter la dependencia temporal,
 	\left(\nabla^2_x - \frac{1}{c^2}\dpar[2]{}{t} \right) G^{\pm}(\vb{x},\vb{x}',t,t') = 
 	- 4 \pi \delta(\vb{x}-\vb{x}') \delta(t-t')
 \]
+\[
+	- 4 \pi f(\vb{x},\omega) = -4 \pi \int_{-\infty}^{+\infty} f(\vb{x},t) \euler^{i\omega t} dt =
+		-4 \pi \int_{-\infty}^{+\infty} \delta(\vb{x}-\vb{x}') \delta(t-t') \euler^{i\omega t} dt
+\]
+\[
+	- 4 \pi f(\vb{x},\omega) = -4 \pi \delta(\vb{x}-\vb{x}') \euler^{i\omega t'} 
+\]
+de modo que tenemos 
+\[
+	f(\vb{x},\omega) = \delta(\vb{x}-\vb{x}') \euler^{i\omega t'} ,
+\]
+usando lo cual se llega a
+\[
+	G^{\pm}(R,\tau) = \frac{1}{2\pi} \int_{-\infty}^{+\infty} G_k(R) \euler^{-\omega t} d\omega
+\]
+donde $\tau$ es el tiempo relativo entre los tiempos de observación y fuente ($t'$ ) y $R$ es la distancia 
+relativa entre observación y fuente.
+
+En un medio no dispersivo es 
+\[
+	G^{\pm}(R,\tau) = \frac{1}{R} \delta( \tau \mp \frac{R}{c})
+\]
+y así llegamos a
+\[
+	G^+(\vb{x},\vb{x}',t,t') = \frac{1}{|\vb{x} - \vb{x}'|} \delta( t-t' - \frac{1}{c}(\vb{x} - 
+	\vb{x}')) = \frac{ \delta(t' - [t-(1/c)|\vb{x} - \vb{x}'|]) }{|\vb{x} - \vb{x}'|} ,
+\]
+la función de Green retardada
+\[
+	G^-(\vb{x},\vb{x}',t,t') = \frac{1}{|\vb{x} - \vb{x}'|} \delta( t-t' + \frac{1}{c}(\vb{x} - 
+	\vb{x}')) = \frac{ \delta(t' - [t + (1/c)|\vb{x} - \vb{x}'|]) }{|\vb{x} - \vb{x}'|},
+\]
+la función de Green avanzada.
+
+$G^+$ exhibe el comportamiento causal del efecto observado en \vb{x} a $t$ causado por la acción de la
+fuente en el tiempo $(t-R/c)$ donde $R/c$ es la diferencia de tiempo de la señal en propagarse.
+Al valor 
+\[
+	t' = t - \frac{R}{c}
+\]
+se lo llama el tiempo retardado. Es un poco más práctica la nomenclatura
+\[
+	G^+(R,t,t') = \frac{ \delta(t' - [ t - (R/c) ]) }{ R } 
+	\qquad 
+	G^-(R,t,t') = \frac{ \delta(t' - [ t + (R/c) ]) }{ R } ,
+\]
+
+Entonces una solución particular de (1) (¿uno qué?) es 
+\[
+	\psi^\pm (\vb{x},t) = \int \int G^{\pm}(\vb{x},\vb{x}',t,t') f(\vb{x}',t') d^3x' dt' 
+\]
+y dos soluciones son 
+\[
+	\psi_{in}(\vb{x},t) + \int\int G^+ f dv' dt \qquad \qquad \psi_{s}(\vb{x},t) + \int\int G^- f dv' dt
+\]
+con $f(\vb{x}',t')$ una fuente que es diferente de cero solo en un intervalo $\sim t'$. Entonces $\psi_{in}$ 
+satisface (1) homogénea en $t \to -\infty$. $\psi_{s}$ es la onda en $t \to +\infty$ solución homogénea.
+La situación más común es el caso de $\psi_{in}$ con $\psi_{in}=0$ entonces 
+\[
+	\psi (\vb{x},t) = \int_{-\infty}^{+\infty} \int_v' \frac{\delta(t'-[t -(R/c) ]) }{ R } 
+			f(\vb{x}',t') dv' dt',
+\]
+e integrando con la delta
+\[
+	\psi (\vb{x},t) = \int_v' \frac{ f( \vb{x}', t -(R/c) ) }{ R } dv',
+\]
+que es una fuente en una cierta región que se enciende un instante e irradia.
+
+\subsection{Fuente armónica}
+
+Sea una fuente armónica en el tiempo 
+\[
+	\vb{J}(\vb{x}', t') = \vb{J}(\vb{x}') \euler^{-i\omega t'}
+\]
+entonces el potencial vector es 
+\[
+	\vb{A}(\vb{x}, t) = \left. \frac{4\pi}{c} \int_v' \frac{\vb{J}(\vb{x}')}{|\vb{x} - \vb{x}'|} 
+	\euler^{-i\omega t'} \right|_{t_{ret}} dv' = \left. \frac{4\pi}{c} \int_v' 
+	\frac{\vb{J}(\vb{x}')}{|\vb{x} - \vb{x}'|} \euler^{-i \omega t} \euler^{i \omega R/c } 
+	\right|_{t_{ret}} dv'
+\]
+\[
+	\vb{A}(\vb{x}, t) = \frac{4\pi}{c} \euler^{-i \omega t} \int_v \frac{\vb{J}(\vb{x})}{ R }
+		\euler^{i \omega R/c } dv
+\]
+se puede ver como 
+\[
+	\vb{A}(\vb{x}) \euler^{-i \omega t} = \frac{4\pi}{c} \int_v' \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|}
+		\euler^{i k |\vb{x}-\vb{x}'| } dv' \euler^{-i \omega t}
+\]
 
 
 \begin{figure}[htb]
