@@ -204,6 +204,77 @@ se puede ver como
 		\euler^{i k |\vb{x}-\vb{x}'| } dv' \euler^{-i \omega t}
 \]
 
+Si la fuente oscila armónicamente con frecuencia $\omega$ entonces los campos tendrán la misma frecuencia 
+$\omega$.
+\[
+	\vb{A}(\vb{x}) = \frac{1}{c} \int_v' \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|}
+		\euler^{i \omega/c |\vb{x}-\vb{x}'| } dv'
+\]
+y 
+\[
+	\vb{A}(\vb{x},t) = \vb{A}(\vb{x}) \euler^{-i \omega t} \quad \text{si} \quad
+		\vb{J}(\vb{x}',t') = \vb{J}(\vb{x}') \euler^{-i \omega t'}
+\]
+La aproximación consiste en desarrollar 
+\[
+	\frac{\euler^{i k |\vb{x}-\vb{x}'| }}{|\vb{x}-\vb{x}'|}
+\]
+y ver condiciones asintóticas. Cuando $\ell = 0$ (el primer término de la sumatoria en $\ell$) y
+$ kx' \ll 1$ tenemos una antena ineficiente. La longitud de onda $\lambda$ de la radiación es mucho mayor al 
+tamaño del emisor, $ 2\pi x' \ll \lambda$ (longitud de onda larga).
+En cambio tenemos $ 2\pi x \gg \lambda$ que es la condición de campo lejano (siempre la usaremos).
+
+Por lo tanto,
+\[
+	\vb{A}(\vb{x})^{(0)} = - i k \vb{p} \frac{\euler^{ikx}}{x}
+\]
+es una onda esférica saliente. Es el potencial vector \vb{A} de un dipolo magnético oscilante armónicamente.
+Recordemos que falta siempre {\it pegarle} un factor $\exp(i\omega t)$. Usando $\vb{E} 0 i/k \rotorm{B}, 
+\vb{B} = \rotorm{A}$ tenemos 
+\be
+	\vb{B}(\vb{x})^{(0)} = k^2 (\hat{r}\times\vb{p})\frac{\euler^{ikx}}{x}\left(1 -\frac{1}{ikx}\right)
+	\label{B_rad}
+\ee
+siendo $\hat{r}$ la dirección de propagación y $x\equiv|\vb{x}|$ que puede ser $|r\hat{r}|$ en esféricas.
+El que contribuye a la radiación es el primer término de \eqref{B_rad} (campo lejano) mientras que el segundo
+se va a cero rápidamente.
+
+Cerca de la antena es 
+\[
+	\vb{B}(\vb{x})^{(0)} = i k (\hat{r}\times\vb{p})\frac{1}{r^2}, 
+\]
+pues $kx\ll 1$ y entonces $\exp(ikx) \sim 1$ (campo cercano) de manera que si $\lambda \to \infty$ entonces
+$\vb{B}^{(0)} \sim 0$. El campo \vb{E} cerca de la antena es
+\[
+	\vb{E} = \frac{i}{k}\rotorm{B} \qquad \rightarrow \quad 
+	\vb{E}^{(0)} = \frac{3\hat{r}(\hat{r}\cdot\vb{p}) - \vb{p}}{r^3}
+\]
+que es el campo de un dipolo eléctrico. $\vb{E},\vb{B}$ son transversales a $\hat{r}$ y tienen la misma 
+longitud (en unidades CGS).
+La potencia media (en un número entero de períodos) será 
+\[
+	\langle dP \rangle = \langle\vb{S}\rangle\cdot d\vb{S} = \langle \vb{S}\rangle\cdot\hat{n}r^2 d\Omega
+\]
+y entonces
+\[
+	\langle\frac{dP}{d\Omega}\rangle = \langle\vb{S}\rangle\cdot\hat{n}r^2 
+\]
+\[
+	\langle\frac{dP}{d\Omega}\rangle = \frac{c}{8\pi} k^4 p^2 \sin(\theta)^2 
+\]
+y este cálculo podemos ver de dónde sale 
+\[
+	\langle\vb{S}\rangle = \frac{c}{2 4 \pi} \re\{ \vb{E}\times\vb{B}^* \} =
+		\frac{c}{8\pi} \re\{ ( \vb{B}^0 \times \hat{r} )\times k^2(\hat{r} \times \vb{p})/r \}
+\]
+\[
+	\langle\vb{S}\rangle =
+	\frac{c}{8\pi} \re\{(-p k^2/r \sin(\theta) \hat{\theta})\times(-p k^2/r\sin(\theta)\hat{\phi} \}
+	= \frac{c}{8\pi} p^2 k^4 \sin(\theta)^2 \hat{r}\cdot\hat{r}
+\]
+\notamargen{Tenemos un cálculo auxiliar de esta cuenta pero no sé si suma meterlo acá.}
+
+Luego, la potencia irradiada es máxima en $\theta=\pi/2$ (ver figura)
 
 \begin{figure}[htb]
 	\begin{center}
@@ -211,6 +282,8 @@ se puede ver como
 	\end{center}
 	\caption{}
 \end{figure} 
+
+Entonces, 
 
 \begin{figure}[htb]
 	\begin{center}
