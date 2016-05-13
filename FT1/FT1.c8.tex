@@ -284,50 +284,205 @@ Luego, la potencia irradiada es máxima en $\theta=\pi/2$ (ver figura)
 \end{figure} 
 
 Entonces, 
+\begin{itemize}
+ \item Si $\vb{B}=0$ se da que $\vb{S}=0$, es decir que no hay radiación.
+ \item Un monopolo no produce campo de radiación por su simetría esférica.
+ Una corriente $J\hat{r}$ no produce \vb{B} y se tienen
+ \[
+	\vb{B}^0_{rad} = \frac{k^2}{r}( \hat{r} \times \vb{p} ) \euler^{ikr} \qquad \qquad 
+	\vb{E}^0_{rad} = \frac{k^2}{r}( \hat{r} \times \vb{p} ) \euler^{ikr} \times \hat{r}
+ \]
+	\begin{figure}[htb]
+		\begin{center}
+		\includegraphics[width=0.4\textwidth]{images/fig_ft1_pot_irrad2.pdf}	 
+		\end{center}
+		\caption{}
+	\end{figure} 
+ \item Para que un campo sea de radiación debe tener flujo \vb{S} no nulo en el infinito.
+ Si los campos van como $1/r$ entonces el Poynting va como $1/r^2$ y $dS$ va como $r^2$
+ de modo que $\langle\vb{S}\rangle \cdot d\vb{S}$ tiene valor constante (un flujo que se
+ va y no retorna a la fuente). Si el campo va como $1/r^2$ y entonces no produce flujo
+ lejos.
+ \item Si hacemos la aproximación $\ell=1$ en $\sum_\ell$ resulta que se obtiene un momento
+ magnético oscilante más un cuadrupolo eléctrico.
+ \item La radiación a orden $\ell=0$ es un dipolo eléctrico oscilante (ver figura)
+	\begin{figure}[htb]
+		\begin{center}
+		\includegraphics[width=0.4\textwidth]{images/fig_ft1_pot_irrad3.pdf}	 
+		\end{center}
+		\caption{}
+	\end{figure} 
+ \item La distribución angular de potencia para la parte cuadrupolar que surge con $\ell=1$ es
+	\[
+		\left\langle\dtot{P}{\Omega}\right\rangle = \frac{ck^6}{128\pi} Q_0^2 \sin(\theta)^2 
+\cos(\theta)^2
+	\]
+	que es para una fuente con simetría de revolución.
+	\[
+		\langle\dtot{P}{\Omega}\rangle = \frac{ck^6}{128\pi} |\hat{r} \times \vb{Q} |^2, 
+	\]
+	donde $\vb{Q}$ es un vector que vale $\hat{n} \cdot \overline{Q}$, o bien indicialmente $n_iQ_{ij}$.
+\end{itemize}
+
+\subsection{Radiación a orden $\ell=1$}
+
+\[
+	\vb{A} = \frac{1}{cR} \dot{\vb{p}}(t') + \frac{\dot{\vb{m}}(t')}{cR} \times \hat{n} + 
+	\frac{1}{6c^2R} {\overline{Q}}(t') \cdot \hat{n}
+\]
+que es la radiación dipolar eléctrica,  magnética y cuadrupolar eléctrica.
+
+\subsection{Ejemplo de antena}
+
+Sea una pequeña antena de longitud $d$ (ver figura) tal que 
+\[
+	\vb{J}(\vb{x}') = I \sin( k[d/2 - |z|] ) \delta(x') \delta(y')  \hat{z}
+\]
+que tiene nodos de la corriente en los extremos. Luego considerando fuente armónica ($A=A(x)\exp(i\omega t)$)
+será
+\[
+	\vb{A}(\vb{x}) = \frac{1}{c} \int_V' \frac{ \vb{J}(\vb{x}') \euler^{ i k |\vb{x}-\vb{x}'| }}
+	{ |\vb{x}-\vb{x}'| } dv'
+\]
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_pot_irrad2.pdf}	 
+	\includegraphics[width=0.3\textwidth]{images/fig_ft1_antena.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
 
+Hacemos algunas aproximaciones geométricas de distancia amparadas en la figura de más abajo.
+	\begin{figure}[htb]
+		\begin{center}
+		\includegraphics[width=0.4\textwidth]{images/fig_ft1_antena2.pdf}	 
+		\end{center}
+		\caption{}
+	\end{figure} 
+
+Estas aproximaciones son clásicas de los problemas de difracción.
+\[
+	|\vb{x}-\vb{x}'| = \sqrt{ x^2 + x'^2 - 2xx'\cos(\theta)} =  
+	x( 1 - 2x'/x \cos(\theta) + (x'/x)^2)^{1/2} 
+\]
+y quedándonos a primer orden,
+\[
+	|\vb{x}-\vb{x}'|\approx x (1 - x'/x \cos(\theta))
+\]
+de manera que aceptamos una buena aproximación y una bruta,
+\[
+	|\vb{x}-\vb{x}'| \approx x - x' \cos( \theta ) \qquad \qquad |\vb{x}-\vb{x}'| \approx x
+\]
+para así escribir
+\[
+	\approx \frac{1}{|\vb{x}|} \euler^{ikx} \euler^{-ikx'\cos(\theta)}
+\]
+donde notamos que hemos aproximado de una forma dentro del argumento de la exponencial compleja
+y de otra en el denominador de la fracción.
+
+Así, resulta
+\[
+	\vb{A}(\vb{x}) = \frac{1}{c} \frac{\euler^{ i k x} }{x} \int_V' \vb{J}(\vb{x}') 
+		\euler^{ i k x' \cos(\theta) } dv'
+\]
+
+Existe condición de contorno que en los extremos la corriente debe ser nula, entonces debe haber nodos
+del seno (en $\pm d/2$) y los $d$ posibles son $ n\lambda/2$.
+\[
+	\vb{A}(\vb{x}) = \hat{z} \frac{2I\euler^{ikx}}{ckx}\left[ \cos( kd/2 \cos(theta) )- 
+		\cos( kd/2 ) \right]\frac{1}{\sin(\theta)^2}
+\]
+entonces 
+\[
+	\vb{A}(\vb{x}) = A_z \hat{z} \qquad \qquad \vb{A}(\vb{x}) =  A_z\cos(\theta)\hat{\theta} - 
+		A_z\sin(\theta) ?
+\]
+\notamargen{Falta un vegsor}.
+
+Entonces con $ kx' \ll 1$ (longitud de onda larga, $\lambda \gg d $) tenemos
+\[
+	\left\langle\dtot{P}{\Omega}\right\rangle = \frac{I^2}{2c\pi}\left( \frac{kd}{2} \right)^4 
+		\sin(theta)^2
+\]
+identificando con $|\vb{p}| = Id^2/(2c)$ y este es el primer término multipolar. El paréntesis es muy
+chico.
+Con media longitud de onda ($kd=\pi$) ($\lambda/2=d$) es
+\[
+	\left\langle\dtot{P}{\Omega}\right\rangle=\frac{I^2}{2c\pi}\frac{\cos(\pi/2 
+	\cos(\theta))^2}{\sin(\theta)^2}
+\]
+y finalmente para una longitud de onda ($\lambda=2$ y $kd=2\pi$) se tiene 
+\[
+	\left\langle\dtot{P}{\Omega}\right\rangle=\frac{I^2}{2c\pi} \left[ \frac{ 2\cos(\pi/2 
+	\cos(\theta))^2}{\sin(\theta)^2} \right]^2
+\]
+Las ilustraciones sucesivas de la figura bajo estas líneas dan cuenta de estas diferentes longitudes.
+
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_pot_irrad3.pdf}	 
+	\includegraphics[width=0.1\textwidth]{images/fig_ft1_antena3.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
 
-% =================================================================================================
-\section{Ejemplo de antena}
-% =================================================================================================
 
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_antena.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_antena2.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-
-
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_antena3.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
+Como referencia tengamos en cuenta que las expresiones salen de 
+\[
+	\vb{B}_{rad} = -\frac{1}{c} \hat{n} \times \dot{\vb{A}} = ik \hat{n} \times \vb{A} 
+\]
+y
+\[
+	\vb{E}_{rad} = \vb{B}_{rad} \times \hat{n}
+\]
+Estas equivalencias son para campos de radiación nomás,
+\[
+	\vb{B}_{rad} = ik \hat{n} \times \vb{A} \qquad \qquad \vb{E}_{rad} = \vb{B}_{rad} \times \hat{n}
+\]
 
 % =================================================================================================
 \section{Campos de una partícula cargada en movimiento}
 % =================================================================================================
+
+Escribimos la densidad de corriente y la densidad de carga según
+\[
+	\vb{J}(\vb{x}',t') = q\vb{v} \delta[ \vb{x}' - \vb{r}(t')]
+\]
+\[
+	\rho(\vb{x}',t') = q \delta[ \vb{x}' - \vb{r}(t')]
+\]
+de manera que 
+\[
+	\vb{A}(\vb{x},t) = \frac{1}{c} \int_{t'}\int_{V'} 
+	\frac{ q\vb{v} \delta[ \vb{x}' - \vb{r}(t')] \delta[ t'-t +R/c] }{|\vb{x} -\vb{x}'|} dV' dt'
+\]
+\[
+	\phi(\vb{x},t) = \frac{1}{c} \int_{t'}\int_{V'} 
+	\frac{ q \delta[ \vb{x}' - \vb{r}(t')] \delta[ t'-t +R/c] }{|\vb{x} -\vb{x}'|} dV' dt'
+\]
+donde hemos usado $R\equiv |\vb{x}-\vb{x}'|$ de modo que es $R = R(t')$.
+\[
+	\vb{A}(\vb{x},t) = \frac{1}{c} \int_v' \frac{ q\vb{v} \delta[ t'-t +R/c] }{|\vb{x} -\vb{r}(t')|} dt' 
+	\Rightarrow \vb{A}(\vb{x},t) = \left. \frac{q}{c} \frac{\vb{v}(t')}
+	{(1-\hat{n}\cdot{\vb{\beta}})R(t')} \right|_{t'=t-R/c}
+\]
+\[
+	\phi(\vb{x},t) = \frac{1}{c} \int_v' \frac{q \delta[ t'-t +R/c]}{|\vb{x} -\vb{r}(t')|} dt' 
+	\Rightarrow \phi(\vb{x},t) = \left. \frac{q}{c} \frac{1}{(1-\hat{n}\cdot{\vb{\beta}})R(t')} 
+	\right|_{t'=t-R/c}
+\]
+cuyas expresiones son los potenciales de Liènard-Wiechert. Hemos usado en las cuentas que 
+\[
+	\delta[t' - ( t - R(t')/c )] = \frac{1}{\dtot{}{t'}( t' + R(t')/c )} \delta( t-t')
+\]
+(idea que viene de $\delta f = (1/(df/dx_0)) \delta(x-x_0) $) y que 
+\[
+	R = |\vb{x}-\vb{x}'| = \sqrt{ x^2 + x'^2 - 2\pe{x}{x'} } \qquad \dtot{R}{t'} = 
+	\frac{\dot{\vb{x}'}\cdot(\vb{x}-\vb{x}')}{R} = -\frac{\pe{R}{v}}{R} = -\hat{n}\cdot\vb{v}
+\]
+\[
+	1 + \frac{1}{c} \dtot{R}{t'}  = 1 -\hat{n}\cdot\frac{\vb{v}}{c} = 1 - \hat{n}\cdot\vb{\beta}
+\]
+según la figura que ilustra bajo estas líneas
 
 \begin{figure}[htb]
 	\begin{center}
@@ -336,12 +491,54 @@ Entonces,
 	\caption{}
 \end{figure} 
 
+y como los campos serán 
+\[
+	\vb{B} = \rotorm{A} \qquad \vb{E} = -\frac{1}{c}\dpar{\vb{A}}{t} - \Nabla\phi
+\]
+se tiene que 
+\[
+	\vb{E} = \left. q \frac{ (\hat{n}-\vb{\beta})(1-\beta^2)}{K^3R^2} \right|_{ret} + \left. 
+	\frac{q}{c} \frac{\hat{n}\times[ (\hat{n}-\vb{\beta})\times \dot{\vb{\beta}} ]}{K^3R} \right|_{ret}
+\]
+donde se ve que vale $\vb{B} = \hat{n} \times \vb{E}$ que ya sabíamos para $\vb{E}_{rad}$ y $\vb{B}_{rad}$
+y donde $K\equiv 1 - \hat{n}\cdot\vb{\beta} $
+
+De acuerdo a la figura xxxx en $t'$ se produce el campo. Cuando la radiación llega a $\vb{x}$ en tiempo $t$ 
+la partícula se halla en $\vb{x}'$ (tiempo $t$), de manera que la moraleja es que $t$ y $t'$ son instantes
+de tiempo diferentes en un mismo sistema inercial.
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_part_car2.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
+
+Podemos sacar un par de frases importantes ya que 
+\begin{itemize}
+ \item Si una partícula se mueve con $\vb{v}$ constante puedo pasar a un frame inercial $S'$ donde es 
+ $\vb{v}=0$ y entonces $\vb{B}'=0$ de manera que como $\pe{B}{E}=\pe{B'}{E'}=0$ se tiene $\vb{B}\perp\vb{E}$
+ en todo frame inercial.
+ \item El $\vb{E}_{rad}$ estará dado por el $\vb{E}_a$.
+ \item Toda partícula que está acelerada en un frame inercial debe irradiar ondas EM, entonces una partícula
+ recorre una circunferencia (en un campo $\vb{B}$) si aceptamos que lo que irradia es despreciable.
+\end{itemize}
+
+Sea ahora una partícula $e$ con $|\vb{v}|$ constante, entonces 
+\[
+	\vb{B}_{bs} = e\frac{\vb{\beta}\times\hat{n}}{\gamma^2k^3R^2} \;\; \text{(Lienard-Wiechert)}
+	\qquad \qquad 
+	\vb{B}_{bs} = e\frac{\vb{v}\times\hat{n}}{cR^2} \;\; \text{(Biot-Savart)}
+\]
+y 
+\[
+	\vb{E}_{v} = e\frac{ \hat{n}- \hat{\beta} }{\gamma^2k^3R^2}
+\]
+donde vemos que difieren en 
+\[
+	\frac{1-\beta^2}{(1-\hat{n}\cdot{\vb{\beta}})}
+\]
+
 
 % =================================================================================================
 \section{Campo de una carga en movimiento}
