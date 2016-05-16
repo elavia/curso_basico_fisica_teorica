@@ -544,12 +544,12 @@ donde vemos que difieren en
 \section{Campo de una carga en movimiento}
 % =================================================================================================
 
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_carga_mov.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
+El campo de velocidad es 
+\[
+	\vb{E}_v = e \frac{(\hat{n}-\hat{\beta})}{\gamma^2(1-\hat{n}\cdot\vb{\beta})^3R^2} =
+		e \left[ \frac{\vb{R}-R\vb{\beta}}{\gamma^2(1-\hat{n}\cdot\vb{\beta})^3R^2} \right]
+\]
+referidas las magnitudes a la figura XXXX.
 
 \begin{figure}[htb]
 	\begin{center}
@@ -557,6 +557,46 @@ donde vemos que difieren en
 	\end{center}
 	\caption{}
 \end{figure} 
+
+\[
+	|\vb{E}_v| = e\frac{\sqrt{ R^2 + \beta^2 R^2 - 2R^2 \beta \cos(\theta)}}
+		{\gamma^2( 1 - \vb{R}\cdot\vb{\beta}/R)^3 R^3} =
+		e\frac{\sqrt{ 1 + \beta^2 - 2 \beta \cos(\theta)}}
+		{\gamma^2( 1 - \beta \cos(\theta))^3 R^2}
+\]
+entonces como $\cos(\theta) = \beta$
+\[
+	\dtot{ |\vb{E}_v| }{\theta}= 0
+\]
+siendo los extremos $\theta=0,\pi$ que representan un movimiento hacia adelante o hacia atrás.
+\[
+	|\vb{E}_v(\cos(\theta) = \beta)| = \frac{e\gamma}{r^2}
+\]
+\[
+	|\vb{E}_v(\cos(\theta) = 1)| = \frac{e (1+\beta^2-2\beta)^2}{R^2(1-\beta^2)^{-1}(1-\beta)^3}
+\]
+\[
+	|\vb{E}_v^{(\theta = 1)}| = \frac{e }{R^2(1-\beta^2)^2 \gamma^2} = \frac{e}{r^2 \gamma^2}
+\]
+puesto que es $r=R(1-\beta)$. Vemos que es similar al campo estático pero con un factor corrector.
+
+Campo de aceleración, es
+\[
+	\vb{E}_a = \frac{e}{c} \frac{ \hat{n} \times [ (\hat{n}-\vb{\beta})\times \dot{\vb{\beta}} ]}{K^3 R} 
+		\approx \frac{e}{c} \frac{ \hat{n} \times ( \hat{n} \times \dot{\vb{\beta}})}{K^3 R} 
+		= \frac{e}{c} \frac{}{K^3 R}
+\]
+donde usamos que $v/c \ll 1$ y por ende $ 1 - \hat{n}\cdot\vb{\beta}\approx 1$ entonces es 
+\[
+	\hat{n} \cdot \hat{\beta} \approx \hat{n}
+\]
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_carga_mov.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
 
 % =================================================================================================
 \section{Cálculo de potencia irradiada}
