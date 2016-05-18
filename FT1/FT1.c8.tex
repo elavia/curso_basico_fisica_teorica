@@ -607,17 +607,63 @@ Se realiza calculando el vector de Poynting,
 	\vb{S} = \frac{c}{4\pi} \pv{E}{B} = \frac{c}{4\pi} |\vb{E}_a|^2 \hat{n} =  \frac{e^2}{4\pi c}
 		\hat{n} \left| \frac{\hat{n} \times \dot{\vb{\beta}} }{R} \right|^2
 \]
+si es 
+\[
+	dP = \vb{S}\cdot\hat{n} R^2 d\Omega =
+		\frac{e^2}{4\pi c} \left| \hat{n} \times \dot{\vb{\beta}} \right|^2 d\Omega
+\]
+y entonces 
+\[
+	\dtot{P}{\Omega} = \frac{e^2}{4\pi c} \frac{\dot{v}^2}{c^2} \sin(\theta)^2 = 
+		\frac{e^2 \dot{v}^2 }{4\pi c^3} \sin(\theta)^2.
+\]
 
+Luego, si integramos,
+\[
+	P = \frac{e^2 \dot{v}^2 }{4\pi c^3} \int\int \sin(\theta)^3 d\theta d\phi
+\]
+y se llega a que 
+\[
+	P = \frac{2 e^2 \dot{v}^2 }{3 c^3}
+\]
+que es la fórmula de Larmor con $v/c \ll 1$. Ahora podemos prescindir de la restricción no relativista
+usando que la $P$ es invariante lorentziano.
+\[
+	P = \frac{2 e^2}{3 c^3 m^2} \left( \dtot{\vb{p}}{t} \dtot{\vb{p}}{t} \right)
+\]
+y como $p_{\mu}( E/c , -\vb{p} )$ y $p^{\mu}( E/c , \vb{p} )$. 
+\[
+	-\dtot{p_\mu}{\tau} \dtot{p^\mu}{\tau} = \dtot{\vb{p}}{\tau} \dtot{\vb{p}}{\tau} - 
+		\dtot{}{\tau}(E^2/c^2)
+\]
+\[
+	\tau = \gamma (t-\beta x_\parallel) \qquad \qquad \dtot{\tau}{t} = \gamma \qquad \Rightarrow \qquad 
+	\dtot{\vb{p}}{\tau} \dtot{\tau}{t}= \gamma \dtot{\vb{p}}{\tau} =  \dtot{\vb{p}}{t}
+\]
+y luego para una trayectoria rectilínea
+\[
+	\dtot{P}{\Omega} = \frac{e^2}{4\pi c^3} \frac{ a^2 \sin(\theta)^2}{(1-\beta \cos(\theta))^5} 
+\]
+\[
+	P = \frac{2 e^2 a^2 \gamma^6}{3 c^3} \qquad \qquad a = Z_0 \omega^2 \euler^{-i \omega t}
+\]
+Según vemos en la figura la distribución angular de potencia es una especie de {\it as de pique} en el cual
+a mayor velocidad los lóbulos se pegan al eje de simetría. Compárese con el caso no relativista.
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_frenado2.pdf}	 
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_frenado3.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
 
+Se tiene además 
+\[
+	\theta_{max} \approx \frac{1}{2\gamma}
+\]
+
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_frenado3.pdf}	 
+	\includegraphics[width=0.3\textwidth]{images/fig_ft1_frenado2.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
@@ -626,6 +672,22 @@ Se realiza calculando el vector de Poynting,
 \section{Frenado magnético}
 % =================================================================================================
 
+Sea la Figura. Hacemos
+\[
+	\vb{E}' = \frac{1}{c}\pv{v}{B} = \omega \frac{r}{c} \hat{\phi} \times (-B\hat{z}) = 
+	-\frac{\omega r B}{c} \hat{r}
+\]
+y la densidad de potencia disipada por corrientes de Foucault será
+\[
+	\mathfrak{P} = \pe{P}{E'} = \sigma E'^2 = \frac{\sigma \omega^2 r^2 B^2}{c^2}
+\]
+donde 
+\[
+	P = \int \int \frac{\sigma \omega^2 r^2 B^2}{c^2} r d\theta dr =
+		\frac{\sigma \omega^2 a^4 B^2 2\pi }{4 c^2}.
+\]
+Son corrientes de {\it Foucault} las que frenan el disco.
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.4\textwidth]{images/fig_ft1_frenado.pdf}	 
@@ -633,16 +695,26 @@ Se realiza calculando el vector de Poynting,
 	\caption{}
 \end{figure} 
 
-% =================================================================================================
+En un disco fijo con $\vb{B} = B_0 \euler^{i\omega t}$  habrá $\vb{E} = E(r) \hat{\phi}$ de manera que 
+$\pe{J}{E} = \sigma E(r)^2$ entonces se disipará energía por efecto Joule. Se calientan los 
+transformadores en un ejemplo usual de la vida real.
+
+
 \subsection{Esponja electromagnética}
-% =================================================================================================
+
+En $t=0$ se distribuye una $\sigma$ en la cara interna. Se genera una \vb{J} y un campo \vb{E} radial que 
+no produce \vb{B} entonces $\vb{S}=0$ no hay radiación.
+La carga se mueve 
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_esponja.pdf}	 
+	\includegraphics[width=0.25\textwidth]{images/fig_ft1_esponja.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
+
+por el interior hasta llegar a la superficie y alcanzar situación estática $\vb{E}_{II} = 0$ .
+La energía disipada lo hace en forma de calor pero no se radía.
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
