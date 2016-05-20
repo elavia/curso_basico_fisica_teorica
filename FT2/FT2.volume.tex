@@ -1,0 +1,101 @@
+	\documentclass[10pt,oneside]{CBFT_book}
+	
+	% Paquetes que cargan
+	
+	\usepackage{standalone}
+	\usepackage{amssymb}
+	\usepackage{amsmath}
+	\usepackage{graphicx}
+	\usepackage{libertine}
+	\usepackage[bold-style=TeX]{unicode-math}
+	\usepackage{lipsum}
+
+	\usepackage[numbers]{natbib}
+	\setcitestyle{square}
+
+	\usepackage{polyglossia}
+	\setdefaultlanguage{spanish}
+	
+	\usepackage{CBFT.estilo} % Cargo la hoja de estilo
+	
+	\title{CURSO BÁSICO DE FÍSICA TEÓRICA}
+	\subtitle{Volumen 3: Física Teórica 2 [Mecánica Cuántica]}
+	\author{E.F. Lavia y Colaboradores}
+	\date{\today}
+	\version{versión 0.1}
+
+	%###########################################################################
+	%		DOCUMENTO 
+	%###########################################################################
+	
+	\begin{document}
+	\maketitle	
+	
+%	\pagenumbering{roman}
+	\thispagestyle{empty}
+	
+	\tableofcontents
+	
+	\thispagestyle{empty}
+	
+	
+% 	\listoffigures
+	
+% 	\listoftables
+
+% 	\include{chaps/cft_prefacio}
+
+	\clearpage
+
+	%###########################################################################
+	%		CAPITULOS DEL CURSO
+	%###########################################################################
+	
+	\pagenumbering{arabic}
+	
+	\input{FT2.c1}
+	
+	\input{FT2.c2}
+	
+	\input{FT2.c3}
+	
+	\input{FT2.c4}
+	
+	\input{FT2.c5}
+	
+	\input{FT2.c6}
+	
+	\input{FT2.c7}
+	
+	\input{FT2.c8}
+	
+ 	\input{FT2.c9}
+ 	
+ 	\input{FT2.c10}
+ 	
+ 	\input{FT2.c11}
+ 	
+ 	\input{FT2.c12}
+ 	
+ 	\input{FT2.c13}
+ 	
+ 	\input{FT2.c14}
+ 	
+ 	\input{FT2.c15}
+ 	
+	
+	%###########################################################################
+	%		FIN DE LOS CAPITULOS DEL CURSO
+	%###########################################################################
+	
+	%##########################	INDICE	########################################
+	
+% 	La bibliografía se activará al final cuando se comente la de cada chapter
+	
+% 	\bibliographystyle{plain}	
+%	\bibliographystyle{CBFT-apa-good} % (uses file "apa-good.bst")
+% 	\bibliography{CBFT.Referencias} % La base de datos bibliográfica
+	
+	
+	
+	\end{document}
