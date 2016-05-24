@@ -103,6 +103,89 @@ meter al spín es un espacio vectorial de dimensión 2 pero con coeficientes com
 	\caption{}
 \end{figure} 
 
+% =================================================================================================
+\section{Algebra?}
+% =================================================================================================
+
+El ket contiene toda la información cuántica del estado. Da el estado físico del sistema.
+\begin{itemize}
+ \item $\Ket{\alpha} + \Ket{\beta}$ la suma de kets es un ket
+ \item $c\Ket{\alpha}= \Ket{\alpha} c$ con $c\in\mathbb{C}$
+ \item  $c_1\Ket{\alpha} + c_2\Ket{\beta} = \Ket{\gamma}$ con $c_1,c_2 \in \mathbb{C}$
+ \item $c\Ket{\alpha},\Ket{\alpha}$ representan el mismo estado cuántico
+\end{itemize}
+
+Se define un espacio de {\it Bra} dual al de "kets" al que se va mediante ``dual conjugado''
+\[
+	\Ket{a}, \Ket{a'} \Leftrightarrow \Bra{a}, \Bra{a'}
+\]
+\[
+	\Ket{a} + \Ket{b} \leftrightarrow \Bra{a} + \Bra{b} \qquad 
+	c\Ket{a} \leftrightarrow c^*\Bra{a}
+\]
+
+Se define también un producto interno según
+\[
+	(\Bra{\alpha})(\Ket{\beta}) \equiv \Braket{\alpha|\beta}
+\]
+que no es otra cosa que un número complejo. Se puede hacer entonces una equivalencia con los vectores
+estándard del álgebra del siguiente modo 
+\[
+	\text{ket} \sim \text{vector columna} \qquad \Ket{x} = \begin{pmatrix}
+	                                                       1 \\
+	                                                       0 \\
+	                                                      \end{pmatrix}
+\]
+\[
+	\text{bra} \sim \text{vector fila} \qquad \Bra{x} = ( 1 \; 0 )          
+\]
+y habiendo definido esta base escribimos, por ejemplo
+\[
+	\Ket{a} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1  \\ \end{pmatrix}  =
+	\frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0  \\ \end{pmatrix}  + 
+	\frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ 1  \\ \end{pmatrix} =
+	\frac{1}{\sqrt{2}} \Ket{x} + \frac{1}{\sqrt{2}} \Ket{y} 
+\]
+\[
+	\Braket{a|x} = \frac{1}{\sqrt{2}}( 1 \; 1)\begin{pmatrix} 1 \\ 0  \\ \end{pmatrix} = \frac{1}{\sqrt{2}}
+\]
+y del mismo modo
+\[
+	\left( \frac{1}{\sqrt{2}} \Bra{x} + \frac{1}{\sqrt{2}} \Bra{y}  \right)
+	\left( \Ket{x} \right)= \frac{1}{\sqrt{2}}
+\]
+
+\subsection{Propiedades}
+
+\begin{enumerate}
+ \item $\Braket{\beta|\alpha} = \Braket{\beta|\alpha}^*$ \text{luego} $ \Braket{\alpha|\alpha} \; \in \mathbb{R}$
+ \item $\Braket{\alpha|\alpha} \geq 0$ \text{métrica definida positiva}
+ \item $\Braket{\alpha|\beta} = \Braket{\beta|\alpha} = 0 \Leftrightarrow \Ket{\alpha} \perp \Ket{\beta}$
+ \item $\Braket{\tilde{\alpha}|\tilde{\alpha}} = 1 \; \text{con} \; 
+ \Ket{\tilde{\alpha}} = \frac{1}{\sqrt{\Braket{\alpha|\alpha}}}\Ket{\alpha} $ todo ket no nulo es normalizable
+\end{enumerate}
+
+\subsection{Operadores}
+
+A cada observable lo representaremos por un operador. hay operaradores que no vienen de observables.
+\[
+	\hat{A}\Ket{\alpha} = \Ket{\gamma} \qquad \qquad  \Bra{\alpha} \hat{A} = \Bra{\gamma}
+\]
+un operador sobre un ket da otro ket y sobre un bra da otro bra. Notemos que en este último caso opera 
+a izquierda. La transformación entre operadores se da con 
+\[
+	\hat{X}\Ket{a} \Leftrightarrow \Bra{a}\hat{X}^\dagger
+\]
+donde $\dagger$ (daga) significa el traspuesto conjugado; cambia el sentido hacia donde actúa el operador 
+y conjuga. Se da que si 
+\[
+	\hat{X} = \hat{X}^\dagger \quad \Rightarrow \qquad \hat{X} \;\text{es hermítico}
+\]
+Se dan 
+\begin{itemize}
+ \item $\hat{X}\hat{Y} \neq \hat{Y}\hat{X} \qquad \qquad \text{no conmutativo}$
+ \item $\hat{X}(\hat{Y}\hat{Z}) = (\hat{X}\hat{Y})\hat{Z} = \hat{X}\hat{Y}\hat{Z} \qquad \qquad \text{asociativo}$
+\end{itemize}
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
