@@ -185,8 +185,23 @@ Se dan
 \begin{itemize}
  \item $\hat{X}\hat{Y} \neq \hat{Y}\hat{X} \qquad \qquad \text{no conmutativo}$
  \item $\hat{X}(\hat{Y}\hat{Z}) = (\hat{X}\hat{Y})\hat{Z} = \hat{X}\hat{Y}\hat{Z} \qquad \qquad \text{asociativo}$
+ \item $(XY)^\dagger = Y^\dagger X^\dagger$
+ \item $\hat{0}\Ket{\alpha} = 0 \qquad \forall \Ket{\alpha}$ ; $\hat{0} \equiv$ operador nulo
+ \item $\hat{X}( c_1 \Ket{\alpha} + c_2 \Ket{\beta} ) = c_1 hat{X}\Ket{\alpha} + c_2 hat{X}\Ket{\beta} $
 \end{itemize}
 
+de modo que en cuántica los observables se representan mediante operadores hermíticos.
+
+\subsection{sandwichs}
+
+\[
+	\Braket{\beta|X|\alpha} = (\Bra{\beta})(X\Ket{\alpha}) = \Braket{\beta|\gamma} =
+	\Braket{\gamma|\beta}^* = (\Braket{\alpha|X|\beta})^*
+\]
+de manera que extraemos como conclusión 
+\[
+	\Braket{\beta|X|\alpha} = (\Braket{\alpha|X|\beta})^*
+\]
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
