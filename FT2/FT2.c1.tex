@@ -198,10 +198,77 @@ de modo que en cuántica los observables se representan mediante operadores herm
 	\Braket{\beta|X|\alpha} = (\Bra{\beta})(X\Ket{\alpha}) = \Braket{\beta|\gamma} =
 	\Braket{\gamma|\beta}^* = (\Braket{\alpha|X|\beta})^*
 \]
-de manera que extraemos como conclusión 
+donde usamos que $\Ket{\gamma}$ es un ket y por dual conjugado $\Bra{\gamma} = \Bra{\alpha}\hat{X}^\dagger$ y
+extraemos como conclusión 
 \[
 	\Braket{\beta|X|\alpha} = (\Braket{\alpha|X|\beta})^*
 \]
+y de manera equivalente
+\[
+	\Braket{\beta|X|\alpha} = (\Bra{\beta}X^\dagger)(\Ket{\alpha}) = \Braket{\Gamma|\alpha} =
+	\Braket{\alpha|\Gamma}^* = (\Braket{\alpha|X^\dagger|\beta})^*
+\]
+donde usamos que $\Bra{\Gamma}$ es un bra y por dual conjugado $\Ket{\Gamma} = \hat{X}\Ket{\beta}$.
+El formalismo parece ser consistente. El operador opera sobre un ket/bra y multiplica al otro.
+
+
+\subsection{Producto externo}
+
+\[
+	\Ket{\beta} \Bra{\alpha} \equiv (\Ket{\beta} )( \Bra{\alpha} )
+\]
+\[
+	( \Ket{\beta} \Bra{\alpha} )\Ket{\gamma} = \Ket{\beta} \Bra{\alpha} \Ket{\gamma} =
+		\Braket{\alpha|\gamma} \Ket{\beta} , 
+\]
+de modo que es un operador pues al aplicar sobre un ket obtengo otro ket (notemos que $\Braket{\alpha|\gamma}$
+es un escalar). Podemos pensar en que 
+\[
+	\Lambda_\alpha \equiv \Ket{\alpha}\Bra{\alpha}
+\]
+es el proyector, que actúa rotando un $\Ket{\gamma}$ en la dirección de $\Ket{\beta}$. Notemos 
+\[
+	\Lambda_\alpha^2 = \Ket{\alpha}\Bra{\alpha}\Ket{\alpha}\Bra{\alpha} = \Ket{\alpha}\Bra{\alpha} = \Lambda_\alpha
+\]
+puesto que $\Braket{\alpha|\alpha}=1$. El proyector $\Lambda_\alpha$ sobre un ket $\Ket{\beta}$ selecciona la parte de
+$\Ket{\beta}$ en la dirección de $\Ket{\alpha}$. Nos dice cuanto de $\Ket{\beta}$ está en la dirección de 
+$\Ket{\alpha}$.
+Luego,
+\[
+	\sum_i^N \; \Lambda_i = \sum_i^N \; \Ket{i}\Bra{i} = \mathbb{1}
+\]
+la suma de todos los proyectores del espacio en el que estamos es la identidad de ese espacio. Decimos que $\Ket{i}$ es 
+un conjunto completo. Se verifica además
+\[
+	(\Ket{\beta} \Bra{\alpha})^\dagger = \Ket{\alpha} \Bra{\beta}
+\]
+Algunas cuentitas de ejemplo en dos dimensiones,
+\[
+	\hat{X} = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \qquad \qquad \hat{Y} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+\]
+\[
+	\hat{X}^\dagger = ( 1 \; 0 ) \qquad \qquad \hat{Y}^\dagger = ( 0 \; 1  ) 
+\]
+\[
+	\hat{X}^\dagger\hat{X} = (1 \; 0) \begin{pmatrix} 1 \\ 0 \end{pmatrix} = 1 \qquad 
+	\hat{X}\hat{X}^\dagger = \begin{pmatrix} 1 \\ 0 \end{pmatrix} (1 \; 0) = 
+	\begin{pmatrix} 1 & 0 \\ 0 & 0 \\ \end{pmatrix},
+\]
+donde instamos al lector a que note la diferencia de dimensión en los resultados.
+
+Los kets $\Ket{\alpha}$ {\it viven} en un espacio vectorial de Hilbert con dimensión N, donde N lo dicta el número de 
+posibles estados de cada sistema físico. Una partícula de spín $1/2$ sólo tiene dos estados: up y down.
+Hay otro producto más, que se llama producto tensorial y se representa como 
+\[
+	\Ket{\alpha} \otimes \Ket{\beta}
+\]
+que es un producto entre kets de espacios de Hilbert diferentes.
+\[
+	\Braket{\alpha|\beta}^* \equiv DC\{\ket{\beta}\} DC\{\Bra{\alpha}\}
+\]
+
+
+
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
