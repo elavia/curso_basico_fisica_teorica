@@ -187,7 +187,7 @@ Se dan
  \item $\hat{X}(\hat{Y}\hat{Z}) = (\hat{X}\hat{Y})\hat{Z} = \hat{X}\hat{Y}\hat{Z} \qquad \qquad \text{asociativo}$
  \item $(XY)^\dagger = Y^\dagger X^\dagger$
  \item $\hat{0}\Ket{\alpha} = 0 \qquad \forall \Ket{\alpha}$ ; $\hat{0} \equiv$ operador nulo
- \item $\hat{X}( c_1 \Ket{\alpha} + c_2 \Ket{\beta} ) = c_1 hat{X}\Ket{\alpha} + c_2 hat{X}\Ket{\beta} $
+ \item $\hat{X}( c_1 \Ket{\alpha} + c_2 \Ket{\beta} ) = c_1 \hat{X}\Ket{\alpha} + c_2 \hat{X}\Ket{\beta} $
 \end{itemize}
 
 de modo que en cuántica los observables se representan mediante operadores hermíticos.
@@ -286,7 +286,32 @@ Es práctico utilizar bases ortonormales,
 que es la delta de Kronecker.
 
 Así, los kets se definen normalizados.
+\[
+	\Ket{\psi} = a \Ket{1} + b \Ket{2} + c \Ket{3} + d \Ket{4} \qquad\quad |a|^2 + |b|^2 +|c|^2 +|d|^2 = 1
+\]
+sea $\Ket{\phi} = a \Ket{1} + b \Ket{2}$, $\Bra{\phi} = a^*\Bra{1} + b^* \Bra{2}$ entonces 
+\[
+	\Braket{\phi|\phi} = (a^*\Bra{1} + b^* \Bra{2})(a \Ket{1} + b \Ket{2}) = 
+	a^*a \Braket{1|1} + b^*a\Braket{2|1} + a^*b\Braket{1|2} + b^*b\Braket{2|2} =
+	|a|^2 + |b|^2 = 1
+\]
 
+\subsection{Autokets y autovalores}
+
+Si $\hat{A}\Ket{a}=c\Ket{a}$ entonces $\Ket{a}$ es autoket de $\hat{A}$ con autovalor $c$. Se suelen 
+etiquetar los autoestados $\Ket{a'}, \Ket{a''}$ de modo que 
+\[
+	\hat{A}\Ket{a'} = a'\Ket{a'}
+\]
+lo cual lleva al problema espectral
+\[
+	\left(\hat{A} - a'\mathbb{1}\right) \Ket{a'} = 0
+\]
+entonces los operadores tendrán representación matricial, que cambiará según la base utilizada.ñ
+Vamos viendo que en general sólo se sabe cómo opera un operador sobre kets. La operación sobre los
+bras la obtenemos usando dual conjugado.
+
+Deducimos entonces que 
 
 
 
