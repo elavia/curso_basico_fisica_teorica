@@ -318,7 +318,50 @@ Deducimos entonces que
  \item Los autokets de un operador son base completa del espacio de kets.
 \end{enumerate}
 
-Como ejemplo de A 
+Como ejemplo de A citemos
+\[
+	a'\Ket{a'} = A\Ket{a'} \quad \text{DC} \quad \Bra{a'} A^{\dagger} = \Bra{a'} A = \Bra{a'}a'^*
+\]
+de manera que 
+\[
+	\Braket{a'|A|a'} = ( \Bra{a'} )( A\Ket{|a'} ) = a'
+\]
+\[
+	( \Braket{a'|A|a'} )^* = ( \Bra{a'} )( A\Ket{|a'} )^* = ( \Bra{|a'}A^\dagger )( \Ket{a'} )
+\]
+\[
+	= \Braket{a'|A|a'} = a' \qquad \Rightarrow \quad a' = a'^*.
+\]
+
+Para el caso de B se postula así. Si esto vale entonces 
+\[
+	\Ket{\alpha} = \sum_i^N \Ket{a_i}\Bra{a_i} \Ket{\alpha} = \sum_i^N c_i \Ket{a_i} = 
+	\mathbb{1}\Ket{\alpha}
+\]
+pues 
+\[
+	\Braket{\alpha|\alpha} = \sum_{i,j}^N \Braket{ a_j|c_j^* c_i|a_i} = \sum_i^N |c_i|^2 = 1
+\]
+y además 
+\[
+	A\Ket{a'} = a'\Ket{a'} \qquad A\Ket{a''} = a''\Ket{a''} \Rightarrow 
+	A(\Ket{a'} - \Ket{a''} ) = a'\Ket{a'} - a''\Ket{a''}
+\]
+\[
+	\Braket{ a''|A|a' } = a' \Braket{ a''|a' } \qquad \Braket{ a'|A|a'' } = a'' \Braket{ a'|a'' }
+\]
+y ahora conjugando
+\[
+	\Braket{ a''|A|a' }^* = a' \Braket{ a''|a' }^* \qquad \Braket{ a''|A|a' } = a'' \Braket{ a''|a' }
+\]
+donde usamos que $a''^* = a''$ y restando 
+\[
+	(a'-a'')\Braket{a''|a'} = 0 \qquad \Rightarrow \; \Braket{a''|a'} = 0 
+		\quad \text{si} \quad a'\neq a''
+\]
+Si la base es completa entonces es $\sum \Lambda = 1$.
+
+\subsection{Operadores y matrices}
 
 
 
