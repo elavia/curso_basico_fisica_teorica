@@ -363,8 +363,61 @@ Si la base es completa entonces es $\sum \Lambda = 1$.
 
 \subsection{Operadores y matrices}
 
+Un operador se puede representar matricialmente como 
+\[
+	X = \sum_{a'}^N  \sum_{a''}^N \Ket{a''} \Bra{a''} X \Ket{a'} \Bra{a'} =  
+	\sum_{a'}^N  \sum_{a''}^N ( \Braket{a''|X|a'} ) \Ket{a''} \Bra{a'}
+\]
+donde hemos explotado el hecho de que en el medio aparece un escalar (?), siendo 
+\[
+	X_{ij} = \Braket{a_i|X|a_j}
+\]
+un elemento de matriz. Y notemos que $\Ket{a''} \Bra{a'}$ es un ente de $N\times N$.
+Si la base es de dimensión 3 se tendrá por ejemplo,
+\[
+	X = \begin{pmatrix}
+	 x_{11} & x_{12} & x_{13} \\
+	 x_{21} & x_{22} & x_{23} \\
+	 x_{31} & x_{32} & x_{33} \\
+	\end{pmatrix}
+\]
+de manera que existe una identificación entre cosas del álgebra básica y este mundo
+de operadores y estados.
+Si $X$ es hermítico por ejemplo, entonces su matriz es simétrica conjugada.
+\[
+	\Braket{a_i|X|a_j}^* = (\Bra{a_j}X^\dagger)(\Ket{a_i}) = \Braket{a_j|X|a_i}
+\]
+y entonces 
+\[
+	\Braket{a_j|X|a_i}^* = \Braket{a_i|X|a_j}
+\]
+de modo que 
+\[
+	X_{ji}^* = X_{ij} \qquad X_{ij}^{t*} = X_{ij} \qquad X_{ij}^\dagger=X_{ij}
+\]
+y vemos bien el significado de {\it daguear}. En este caso la matriz tiene traza real
+y seis elementos independientes
+\[
+	X = \begin{pmatrix}
+	  X_{11} & X_{12} & X_{13} \\
+	  X_{12}^* & X_{22} & X_{23} \\
+	  X_{13}^* & X_{23}^* & X_{33} \\
+	\end{pmatrix} =
+	\begin{pmatrix}
+	  X_{11} & X_{12} & X_{13} \\
+	  X_{21} & X_{22} & X_{23} \\
+	  X_{31} & X_{32} & X_{33} \\
+	\end{pmatrix} =
+	\begin{pmatrix}
+	  X_{11}^* & X_{21}^* & X_{31}^* \\
+	  X_{12}^* & X_{22}^* & X_{32}^* \\
+	  X_{13}^* & X_{12}^* & X_{33}^* \\
+	\end{pmatrix}
+\]
 
+\subsection{Combinación lineal de autoestados}
 
+Un estado $\Ket{\alpha}$ se puede escribir en función de la base $\Ket{a_i}$ de esta forma 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
