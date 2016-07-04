@@ -418,6 +418,154 @@ y seis elementos independientes
 \subsection{Combinación lineal de autoestados}
 
 Un estado $\Ket{\alpha}$ se puede escribir en función de la base $\Ket{a_i}$ de esta forma 
+\[
+	\Ket{\alpha} = \sum_{i=1}^N \Ket{a_i}\Braket{a_i|\alpha} = 
+		\sum_{i=1}^N (\Braket{a_i|\alpha}) \Ket{a_i}
+\]
+y entonces
+\[
+	\Braket{a_i|\alpha} = \sum_{i=1}^N c_i \underbrace{\Braket{a_j|a_i}}_{\delta_{ij}} = c_j 
+\]
+
+\subsection{Cambio de base}
+
+Para cambiar de base metemos un uno ($\mathbb{1}$) escrito como suma de proyectores,
+\[
+	X\Ket{b_j} = \sum_{i=1}^N \Ket{a_i}\Braket{a_i|X|b_j} = \sum_{i=1}^N C_{ij} \Ket{a_i}
+\]
+siendo $C_{ij}$ la matriz del cambio de base.
+Se puede escribir
+\[
+	\Ket{b_j} = \sum_{i=1}^N \Ket{a_i}\Braket{a_i|b_j} 
+\]
+y se ve que $\Braket{a_i|b_j}$ son los elementos de la matriz que cambia de base.
+
+\subsection{Representación diagonal}
+
+Un operador tiene representación diagonal cuando está representado en la base de sus
+autokets
+\[
+	A = \sum_i^N\sum_j^N \Ket{a_i}\Braket{a_i|A|a_j}\Bra{a_j} =
+		\sum_i^N\sum_j^N a_j\Ket{a_i}\Braket{a_i|a_j}\Bra{a_j} =
+		\sum_{i,j}^N \delta_{ij} a_j \Ket{a_i}\Bra{a_j} = \sum_i^N a_i \mathbb{1}
+\]
+\[
+	A = \begin{pmatrix} 
+		a_1 & 0 & ... & 0 \\
+		0 & a_2 & ... & 0 \\
+		0 & 0 & ... & 0 \\
+		0 & 0 & ... & a_n \\
+	\end{pmatrix}
+\]
+y $a_1,a_2,...,a_n$ son sus autovalores.
+Es destacable que es conveniente utilizar como bases los autoestados de ciertos operadores.
+
+\subsection{Representaciones canónicas}
+
+Podemos representar una base como vectores canónicos
+\[
+	\Ket{a_1} = \begin{pmatrix}
+			1 \\
+			0 \\
+			. \\
+			. \\
+			N
+			\end{pmatrix} \qquad 
+	\Ket{a_1} = \begin{pmatrix}
+			0 \\
+			1 \\
+			. \\
+			. \\
+			N
+			\end{pmatrix} \qquad 
+	\Ket{a_n} = \begin{pmatrix}
+			0 \\
+			0 \\
+			. \\
+			. \\
+			1
+			\end{pmatrix}
+\]
+luego 
+\[
+	\Ket{\alpha} = \sum_i \Ket{a_i}\Braket{a_i|\alpha} =
+		\Braket{a_1|\alpha} \begin{pmatrix}
+			1 \\
+			0 \\
+			. \\
+			. \\
+			N
+			\end{pmatrix} +
+		\Braket{a_2|\alpha} \begin{pmatrix}
+			0 \\
+			1 \\
+			. \\
+			. \\
+			N
+			\end{pmatrix} +
+			... +
+		\Braket{a_n|\alpha} \begin{pmatrix}
+			0 \\
+			0 \\
+			. \\
+			. \\
+			1
+			\end{pmatrix} =
+\]
+\[
+	\begin{pmatrix}
+		\Braket{a_1|\alpha} \\
+		\Braket{a_2|\alpha} \\
+			... \\
+			... \\
+		\Braket{a_n|\alpha}
+	\end{pmatrix}
+\]
+y por DC se tiene 
+\[
+	\Bra{\alpha} = ( \Braket{\alpha|a_1} \Braket{\alpha|a_2} ... \Braket{\alpha|a_n} )
+\]
+y 
+\[
+	\Braket{\alpha|\alpha} = 1 = \overbrace{( \phantom{1} \qquad \phantom{1} )}^{1\times 
+N}\overbrace{\begin{pmatrix} \phantom{1} \\ 	\phantom{1}  \end{pmatrix} }^{N\times 1} = \Box
+\]
+que es un escalar.
+\[
+	\Braket{\beta|\alpha} = \Braket{\beta|a_i} \Braket{a_i|\alpha} = 
+	\sum_i^N \Bra{\beta} \underbrace{\Ket{a_i} \Braket{a_i}}^{\Lambda_{a_i}} \Ket{\alpha} = \Box 
+\]
+otra vez un escalar.
+\[
+	\Braket{a_i|\gamma} = \Braket{a_i|X|\alpha} = \sum_{a_j} \Braket{a_i|X|a_j}\Braket{a_j|\alpha}
+\]
+\[
+	\begin{pmatrix}
+	 \Braket{a_1|\gamma} \\
+	 ... \\
+	 ... \\
+	\end{pmatrix} = 
+	\begin{pmatrix}
+	 X_{11} & X_{12} & ...\\
+	 X_{21} & X_{22} & ... \\
+	 ... \\
+	\end{pmatrix}
+	\begin{pmatrix}
+	 \Braket{a_1|\alpha} \\
+	 ... \\
+	 ... \\	 
+	\end{pmatrix}
+\]
+\[
+	X = \sum_i^N \sum_j^N \Ket{a_i} \Braket{a_i|X|a_j} \Bra{a_j} =
+		\sum_i^N \sum_j^N  \Braket{a_i|X|a_j} \Ket{a_i} \Bra{a_j}
+\]
+y esto último es una matriz. Aquí el $\hat{X}$ es una matriz y $\Braket{a_i|\hat{X}|a_j} \equiv X_{ij}$ son 
+sus elementillos (escalares).
+
+
+
+
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
