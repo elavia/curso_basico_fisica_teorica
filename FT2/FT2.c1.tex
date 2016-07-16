@@ -578,6 +578,96 @@ manera que
 \]
 \notamargen{Acá hay que diseñar unos $+,-$ que habiten dentro de los brakets pues estos se ven feo.}
 
+Tenemos operadores de subida y de bajada,
+\[
+	S_+ = \hbar \Ket{+}\Bra{-} \qquad S_- = \hbar \Ket{-}\Bra{+}
+\]
+que actúan subiendo el spin o dando el ket nulo,
+\[
+	S_+ = \hbar \begin{pmatrix} 1 \\ 0 \end{pmatrix} ( 0 \; 1 ) 
+		= \hbar \begin{pmatrix}  0 & 1 \\ 0 & 0 \end{pmatrix}
+\]
+o bien bajando el spín o dando el ket nulo,
+\[
+	S_- =\hbar \hbar \begin{pmatrix} 0 \\ 1 \end{pmatrix} ( 1 \; 0 ) 
+	 = \hbar \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}
+\]
+
+\subsection{Cambio de base}
+
+Dados dos conjuntos base ortonormales y completos existe un $\widehat{U}$ unitario tal que 
+\[
+	U^+U=UU^+=\mathbb{1} \qquad \Ket{b_i}=U\Ket{a_i}
+\]
+
+Este operador de cambio de base será 
+\[
+	U = \sum_\ell \Ket{b_\ell}\Bra{a_\ell}
+\]
+\[
+	U\Ket{a_i} = \sum_\ell \Ket{b_\ell}\Braket{a_\ell|a_i} = \Ket{b_i}
+\]
+que tiene por función pasar 
+\[
+	\underbrace{\Ket{a_\ell}}_{\text{vieja base}} \longrightarrow \underbrace{\Ket{b_\ell}}_{\text{nueva base}}
+\]
+\[
+	\Braket{b_k|\alpha} = \sum_\ell \Braket{b_k|a_\ell}  \Braket{a_\ell|\alpha}  =
+	\sum_\ell \Braket{a_k|U^+|a_\ell}  \Braket{a_\ell|\alpha} = \Braket{a_k|U^+|\alpha} 
+\]
+
+Entonces
+\[
+	\Ket{\text{nueva base}} = U \Ket{\text{vieja base}}
+\]
+\[
+	\Braket{b_i | x | b_j} = \sum_{\ell,m} \Braket{b_i|a_\ell}\Braket{a_\ell|x|a_m}\Braket{a_m|b_j }
+\]
+\[
+	\Braket{b_i | x | b_j} = \sum_{\ell,m}\Braket{a_i|U^+|a_\ell}\Braket{a_\ell|x|a_m}\Braket{a_m|U|a_j}
+\]
+\[
+	X_{\Ket{b}} = U^+ X_{\Ket{a}} U,
+\]
+que es una transformación de similaridad.
+
+\subsection{Mediciones y probabilidades}
+
+En mecánica cuántica medir es filtrar. La medición perturba al sistema. Se miden variables dinámicas asociadas a 
+observables.
+Como los autoestados de un observable $\hat{A}$ son una base completa $\{\Ket{a_i}\}$ entonces un sistema se hallará en 
+una combinación lineal de autoestados de $\hat{A}$, o al menos eso puede pensarse.
+
+
+\begin{tabular}{|c|c|c|}
+\hline
+antes de medir & & luego de medir \\
+\hline 
+sistema en CL
+de autestados de $\hat{A}$ & Medición de $\hat{A}$ & Salta a un autoestado de $\hat{A}$ \\
+\hline 
+sistema en 
+autoestado de $\hat{A}$  & & Continúa en autoestado de $\hat{A}$ \\
+\hline
+\end{tabular}
+
+Puede verse pictóricamente la medición así:
+\[
+	\Ket{\alpha} \longrightarrow \Ket{a'}
+\]
+el proceso de medición hace saltar hacia $\Ket{a'}$ siendo el resultado de la medida el autovalor $a'$.
+Luego,
+\[
+	\mathrm{Prob}_{\Ket{a'}} \equiv |\Braket{a'|\alpha}|^2
+\]
+
+Antes de medir no puedo saber a qué estado saltará y tampoco en qué estado se hallaba. Si $P=1$ se halla en
+$\Ket{a'}$ antes de saltar, si $P=0$ no se halla en $\Ket{a'}$ antes de saltar.
+
+\subsection{Valor de expectación}
+
+
+
 
 
 
