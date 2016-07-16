@@ -666,6 +666,70 @@ $\Ket{a'}$ antes de saltar, si $P=0$ no se halla en $\Ket{a'}$ antes de saltar.
 
 \subsection{Valor de expectación}
 
+\subsection{Conmutadores}
+
+\subsection{Degeneración}
+
+Puede darse que haya varios $g$ autoestados correspondientes a un mismo autovalor $a'$; entonces se dice que hay 
+degeneración de orden $g$ para el autoestado $\Ket{a'}$
+\[
+	A\Ket{a'}= a'\Ket{a'} \quad ; i=1,2,...,g
+\]
+y $A$ tendrá una matriz de $m\times n$ bloques. 
+En este caso no se puede decir que la base de $A$ diagonalice a $B$.\notamargen{Mejorar la matriz que está un asco}
+\[
+	A = \begin{pmatrix}
+	     a'\mathbb{1} & 0 & & \\
+	     0 & a''\mathbb{1} & & \\
+	     & & a'''& \\
+	     & & & a^IV \\
+	     ...
+	    \end{pmatrix}
+\]
+Los $\ket{a'_i}$ no dan información sobre los bloques correspondientes en la matriz de $B$.
+Necesito un conjunto de operadores que haga romper la degeneración para expresar unívocamente 
+el estado del sistema. Se llama CCOC. Necesito que conmuten entre sí para que las mediciones tengan sentido.
+
+Si no conmutan entonces son incompatibles; la medición de uno hace saltar al sistema a un autoestado del otro y como no 
+son comunes pierde sentido el concepto de medir. No tiene sentido la medición de algo si por el hecho de medir 
+cambiamos lo que queremos medir.
+Al ser incompatibles sus mediciones de afectan mutuamente.
+
+Los autovalores de algunos operadores podrán tener degeneración pero una combinación de los autovalores del CCOC, 
+$\Ket{a'b'c'...}$, determina el estado de forma única.
+
+Dado un set CCOC, $\{A,B,C,D\}$, se etiquetarán $\Ket{K'} \equiv \Ket{a'b'c'd'}$ los autoestados.
+Las únicas cosas que tiene sentido medir en MC son las variables asociadas a operadores en un CCOC.
+
+Sean $A,B$ compatibles sin degeneración
+\[
+	\Ket{\alpha} \overbrace{\underbrace{\longrightarrow}_{a'}}^{\text{Mido A}} \Ket{a'b'}
+	\overbrace{\underbrace{\longrightarrow}_{b'}}^{\text{Mido B}} \Ket{a'b'} 
+	\overbrace{\underbrace{\longrightarrow}_{a'}}^{\text{Mido A}} \Ket{a'b'}
+\]
+En cambio si $A,B$ son compatibles pero con degeneración 
+\[
+	\Ket{\alpha} \overbrace{\underbrace{\longrightarrow}_{a'}}^{\text{Mido A}} 
+		\sum_{i=1}^g C_{a'}^{(i)}\Ket{a'b'(i)} \overbrace{\underbrace{\longrightarrow}_{b'(j)}}^{\text{Mido B}} 
+		C_{a'}^{(j)}\Ket{a'b'(j)} \overbrace{\underbrace{\longrightarrow}_{a'(j)}}^{\text{Mido A}} 
+		C_{a'}^{(j)} \Ket{a'b'(j)}
+\]
+Al medir A y obtener $a'$ no tengo determinado el estado del sistema. Me hallaré en una CL de autoestados 
+correspondientes al autovalor degenerado $a'$. Al medir luego B selecciono uno de los $\Ket{a'b'}$ degenerados, el 
+correspondiente a $b'(j)$ pues B no está degenerado. Puedo volver a medir A pues el autoestado en que ha caído el 
+sistema permanece incólume.
+
+
+\subsection{Postulados de la mecánica cuántica}
+
+\subsection{Operador de dispersión}
+
+\subsection{Espectro continuo}
+
+\subsection{La función de onda}
+
+\subsection{Operador de traslación}
+
 
 
 
