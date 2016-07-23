@@ -849,12 +849,180 @@ Espectro discreto & Espectro continuo \\
 
 \subsection{La función de onda}
 
+\[
+	\Ket{\alpha} = \int_{\infty}^\infty dx' \Ket{x'}\Braket{x'|\alpha}
+\]
+donde 
+\[
+	\Braket{x'|\alpha}dx'
+\]
+es la densidad de probabilidad y 
+\[
+	|\Braket{x'|\alpha}|^2
+\]
+es la amplitud de probabilidad. La densidad de probabilidad, en el formalismo de Schrödinger, es la función de onda
+\[
+	\Psi_\alpha(x) = \Braket{x|\alpha}
+\]
+siendo este el vínculo entre la representación de Dirac y la función de onda,
+\[
+	\Braket{\beta|\alpha} = \int dx' \Braket{\beta|x'}\Braket{x'|\alpha} = 
+		\int dx' \Psi_\beta^*(x) \Psi_\alpha(x)
+\]
+\[
+	\Braket{\beta|A|\alpha} = \int \int dx' dx''\Braket{\beta|x''}\Braket{x''|A|x'}\Braket{x'|\alpha}
+\]
+\[
+	\Braket{\beta|A|\alpha} = \int \int dx' dx'' \Psi_\beta^*(x'') \Braket{x''|A|x'} \Psi_\alpha(x')
+\]
+y si $A=f(\hat{x})$ entonces $f(\hat{x}) \Ket{x'} = f(x') \Ket{x'}$ y
+\[
+	\Braket{\beta|A|\alpha} = \int \int dx' dx'' \Psi_\beta^*(x'') f(x')\delta(x''-x') \Psi_\alpha(x')
+\]
+y entonces 
+\[
+	\Braket{\beta|A|\alpha} = \int dx' \Psi_\beta^*(x') f(x') \Psi_\alpha(x').
+\]
+
+En forma análoga tenemos la representación de momento;
+\[
+	\hat{p}\Ket{p'} = p'\Ket{p'} \qquad \Braket{p'|p''} = \delta(p'-p'') \qquad 
+	\Ket{\alpha} = \int dp' \Ket{p'}\Braket{p'|\alpha}
+\]
+\[
+	\Phi_\alpha(p') = \Braket{p'|\alpha}.
+\]
+
 \subsection{Operador de traslación}
 
+Se le pedirá
+\[
+	\Tau_{(dx')} \Ket{x'} = \Ket{x'+dx'}
+\]
+siendo este requerimiento intuitivamente adecuado para una traslación. Nótese que $dx'$ no es un operador, es el 
+parámetro de la traslación.
+
+Cumplirá las propiedades
+\begin{itemize}
+ \item Unitariedad:
+ \[
+	\Tau^\dagger\Tau = \Tau \Tau^\dagger = \mathbb{1}
+ \]
+ para que no varíe la probabilidad ante un cambio de coordenadas.
+ \item Aditividad:
+ \[
+	\Tau_{(dx')}\Tau_{(dx'')} = \Tau_{(dx'+dx'')}
+ \]
+ porque vale en mecánica clásica.
+ \item Existencia de inverso:
+ \[
+	\Tau_{(dx')}^{-1} = \Tau_{(-dx'')}
+ \]
+ \item Límite a $\mathbb{1}$
+ \[
+	\Tau_{(dx')} \to \mathbb{1} \quad \text{si} \quad dx' \to 0
+ \]
+\end{itemize}
+
+Se propone un 
+\[
+	\Tau_{(dx')} = \mathbb{1} - i \vb{K}\cdot d\vb{x}'
+\]
+con $\vb{K}$ hermítico (notemos que $\tau$ no es hermítico). Comparando con mecánica clásica vemos que \vb{p} origina 
+las traslaciones, entonces identificamos $K$ con $p$.
+\notamargen{Hay que ver el carácter vectorial de estas cosas.}
+
+Entonces pedimos que \vb{p} cuántico origine las traslaciones
+\[
+	\vb{K} = \frac{\vb{p}}{\hbar} \qquad \Tau_{(dx')} = \mathbb{1} - \frac{i}{\hbar} \vb{P}\cdot d\vb{x}'
+\]
+y así
+\[
+	\Tau_{(dx')}\Ket{p'} = \left( \mathbb{1} - \frac{i}{\hbar} \vb{P}\cdot d\vb{x}' \right)\Ket{p'} =
+	\left( 1 - \frac{i}{\hbar} p' dx \right)\Ket{p'}
+\]
+el autovalor no es real, pues $\Tau$ no es hermítico.
+
+Partiendo del conmutador 
+\[
+	x \Tau_{(dx')} - \Tau_{(dx')} x = dx \Tau_{(dx')}
+\]
+entonces 
+\[
+	[x, \Tau_{(dx')}] = dx\Tau 
+\]
+y con $dx\sim 0$ a orden uno (esto significa que tiramos los términos cuadráticos en $dx$)
+\[
+	[ x, p_x ] = i \hbar
+\]
+se llega a la incompatibilidad de posición y momento, generalizando
+\[
+	[ x_i, p_j ] = i \hbar \delta_{ij}
+\]
+Pero las traslaciones en diferentes direcciones conmutan
+\[
+	[ \Tau_{(d\vb{x}')}, \Tau_{(d\vb{x}'')} ] = 0  \qquad [ p_i, p_j ] = 0
+\]
+
+Sumando infinitas traslaciones infinitesimales tenemos una traslación finita,
+\[
+	\Tau_{(\Delta x')} = \lim_{N\to \infty}\left( 1 - \frac{i}{\hbar}p\frac{\Delta x'}{N}\right)^N 
+		= \euler^{-i/\hbar \: p\Delta x'}
+\]
+y entonces 
+\[
+	\Tau_{(\Delta x')} = \euler^{-i/\hbar\: \vb{p}\cdot\Delta \vb{x}'}
+\]
 
 
+\subsection{\vb{p} en la representación \vb{x}}
 
+\[
+	\Tau_{(\Delta x)} \Ket{\alpha} = \int dt' \Tau\Ket{x'}\Braket{x'|\alpha} = 
+		\int dt' \Ket{x'+ \Delta x}\Braket{x'|\alpha} = \int dt' \Ket{x'}\Braket{x'-\Delta x|\alpha}
+\]
+pero
+\[
+	\dpar{}{x'} \Braket{x'|\alpha} \approx \frac{ -\Braket{x'-\Delta x|\alpha} + \Braket{x'|\alpha} }{\Delta x}
+\]
+y entonces
+\[
+	-\dpar{}{x'} \Braket{x'|\alpha} \Delta x + \Braket{x'|\alpha}  = \Braket{x'-\Delta x|\alpha}
+\]
 
+\[
+	\Tau\Ket{\alpha} = \int dx' \Ket{x'}\left( \Braket{x'|\alpha} -\dpar{}{x'} \Braket{x'|\alpha} \Delta x \right) =
+	\int dx' \Ket{x'} \Braket{x'|\alpha} - \int dx' \Ket{x'}  \dpar{}{x'} \Braket{x'|\alpha} \Delta x 
+\]
+\[
+	\left( 1 - \frac{i}{\hbar}p\Delta x \right) \Ket{\alpha} = 
+		\Ket{\alpha} - \int dx' \Ket{x'}  \dpar{}{x'} \Braket{x'|\alpha} \Delta x
+\]
+\[
+	\frac{i}{\hbar}p\Delta x \Ket{\alpha} = \int dx' \Ket{x'}  \dpar{}{x'} \Braket{x'|\alpha} \Delta x
+\]
+y así
+\[
+	p\Ket{\alpha} = -i\hbar \int dx' \Ket{x'}  \dpar{}{x'} \Braket{x'|\alpha}
+\]
+de modo que usándo este resultado se tienen
+\[
+	\Braket{x''|p|\alpha} = -i\hbar \int dx' \Braket{x''|x'}  \dpar{}{x'} \Braket{x'|\alpha}
+\]
+\[
+	\Braket{x''|p|\alpha} = -i\hbar \dpar{}{x'} \Braket{x''|\alpha}
+\]
+\[
+	\Braket{\beta|p|\alpha} = \int dx' \Braket{\beta|x'} (-i\hbar) \dpar{}{x'} \Braket{x'|\alpha}
+\]
+\[
+	\Braket{\beta|p|\alpha} = \int dx' \Psi_\beta^*(x') (-i\hbar) \dpar{}{x'} \Psi_\alpha(x')
+\]
+de lo que se deduce 
+\[
+	\hat{p} \equiv - i \hbar \dpar{}{x},
+\]
+que es el resultado más importante de la sección.
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
