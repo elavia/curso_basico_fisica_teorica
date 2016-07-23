@@ -666,7 +666,58 @@ $\Ket{a'}$ antes de saltar, si $P=0$ no se halla en $\Ket{a'}$ antes de saltar.
 
 \subsection{Valor de expectación}
 
+\[
+	\Braket{\widehat{A}} \equiv \Braket{\alpha|A|\alpha}
+\]c
+el valor de expectación siempre se refiere a un estado en particular.
+\[
+	\Braket{A} = \sum_{a',a''} \Braket{\alpha|a'}	\Braket{a'|A|a''} \Braket{a''|\alpha}
+\]
+\[
+	\Braket{A} = \sum_{a',a''}  \Braket{\alpha|a'} a''\delta_{a'a''} \Braket{a''|\alpha} =
+			\sum_{a''} a''|\Braket{\alpha|a''}|^2
+\]
+\[
+	\Braket{A} = \sum_{a',a''} = a'' \text{Prob}_{\Ket{a''}}
+\]
+Esto último tiene el sentido de una especie de promedio ponderado.
+
+
 \subsection{Conmutadores}
+
+Se definen, el conmutador
+\[
+	[ A, B] \equiv AB - BA,
+\]
+y el anticonmutador
+\[
+	\{ A, B \} \equiv AB + BA,
+\]
+y se dice que dos observables conmutan si $[A,B]=0$. Se dice que son compatibles si $[A,B]=0$ y anticompatibles si se 
+da la contrario, $[A,B]\neq 0$.
+
+TEOREMA:
+
+Sean dos observables compatibles y no degenerados, entonces los autoestados $\{ \Ket{a'}\}$ de $A$ lo son también de 
+$B$. Es decir que A y B tienen base de autoestados en común.
+
+demostración:
+\[
+	\Braket{a'|AB-BA|a''} = 0 
+\]
+\[
+	a' \Braket{a'|B|a''} - \Braket{a'|B|a''} a''= (a'-a'') \Braket{a'|B|a''}= 0 
+\]
+entonces 
+\[
+	\Braket{a'|B|a''} = 0
+\]
+y $B$ es diagonal en $\{ \Ket{a'}\}$.
+
+Los autoestados son iguales pero no los autovalores; con lo cual se utilizará la notación $\Ket{a',b'}$ donde 
+\[
+	A \Ket{a',b'} = a' \Ket{a',b'} \qquad \qquad B \Ket{a',b'} = b' \Ket{a',b'}
+\]
 
 \subsection{Degeneración}
 
@@ -714,6 +765,7 @@ En cambio si $A,B$ son compatibles pero con degeneración
 		C_{a'}^{(j)}\Ket{a'b'(j)} \overbrace{\underbrace{\longrightarrow}_{a'(j)}}^{\text{Mido A}} 
 		C_{a'}^{(j)} \Ket{a'b'(j)}
 \]
+
 Al medir A y obtener $a'$ no tengo determinado el estado del sistema. Me hallaré en una CL de autoestados 
 correspondientes al autovalor degenerado $a'$. Al medir luego B selecciono uno de los $\Ket{a'b'}$ degenerados, el 
 correspondiente a $b'(j)$ pues B no está degenerado. Puedo volver a medir A pues el autoestado en que ha caído el 
@@ -722,9 +774,78 @@ sistema permanece incólume.
 
 \subsection{Postulados de la mecánica cuántica}
 
+\begin{enumerate}
+ \item El estado de un sistema lo definimos con un ket $\Ket{\alpha} \in \mathcal{H}$ y con $\Braket{\alpha|\alpha}=1$
+ \item Asociamos a propiedades físicas (observables) operadores hermíticos $\widehat{A}$ que operan sobre los ketes. 
+	Los autokets $\Ket{a}$ verifican :
+\[
+	\widehat{A}\Ket{a} = a \Ket{a}, 
+\]
+y $\{ \Ket{a} \}$ es base del espacio de kets.
+ \item Al medir una cantidad física representada por el observable $\widehat{A}$ obtenemos un autovalor $a'$.
+ Luego de medir, el estado del sistema es $\Ket{a'}$.
+ \[
+	\Ket{\Psi} \overbrace{\underbrace{\longrightarrow}_{a'}}^{\text{Mido A}} \Ket{\Psi'} =
+	\Ket{a}\Bra{a}\Ket{\Psi} =(\Braket{a|\Psi})\Ket{a}
+ \]
+ hecho al sistema a un autoestado de $\widehat{A}$. Quizás deba ahora normalizar. $\Braket{\Psi|\Psi}=1$
+ El esquema de arriba representa la frase ``proyectar sobre la base de autoestados''.
+ \item Las transformaciones espaciales se generan por $\vb{p}$
+ \[	
+	[x_i,p_j] = i\hbar\delta_{ij}
+ \]
+ \item La evolución temporal la realiza $H$ (el hamiltoniano).
+\end{enumerate}
+
+\notamargen{Extrañamente el punto 4 estaba vacío. Raro.}
+
 \subsection{Operador de dispersión}
 
+\[
+	\Delta \widehat{A} \equiv \widehat{A} - \Braket{A}\mathbb{1}
+\]
+la dispersión será nula en un autoestados del operador $\widehat{A}$. Luego la dispersión cualitativamente nos dice 
+``qué tan lejos'' del autoestado nos hallamos.
+\[
+	\Braket{(\Delta A)^2} = \Braket{(\widehat{A} - \Braket{A}\mathbb{1})^2} =
+	\Braket{ A^2 - 2A\Braket{A} + \Braket{A}^2 } = \Braket{A^2} - 2A\Braket{A}^2 + \Braket{A}^2 =
+	\Braket{A^2} - \Braket{A}^2
+\]
+y la relación de dispersión generalizada
+\[
+	\Braket{(\Delta A)^2} \Braket{(\Delta B)^2} \geq \frac{1}{4}|\Braket{[ A,B ]}|^2
+\]
+
 \subsection{Espectro continuo}
+
+Hay observables con espectro de autovalores continuo.
+Nos podemos construir la siguiente tabla para comparar ambos escenarios.
+
+\begin{tabular}{|c|c|}
+\hline 
+Espectro discreto & Espectro continuo \\
+\hline
+  & \\
+  $A\Ket{a'}=a'\ket{a'}$ & $Y\Ket{y'}=y'\ket{y'}$ \\
+  & \\
+  $\mathbb{1} = \sum_{a' }^N \Ket{a'}\Bra{a'} $ & $\mathbb{1} = \int_{-\infty}^ {\infty} \Ket{y'}\Bra{y'} dy' $ \\
+  & \\
+  $\Braket{a'|a''} = \delta_{a' a''}$ & $\Braket{y'|y''} = \delta(y'-y'')$ \\
+  & \\
+  $ \sum_{a' }^N \Braket{a'|a''}\Bra{a''} = \Bra{a'}$ & $ \int_{-\infty}^\infty dy'' \Braket{y'|y''}\Bra{y''} = 
+\Bra{y'}$ \\
+  & \\
+  $ \sum_{a' }^N \Ket{a'} \Braket{a'|\alpha} =  \Ket{\alpha}$ & $ \int_{-\infty}^\infty dy' \Ket{y'}\Braket{y'|\alpha} 
+= \Ket{\alpha}$ \\
+  & \\
+  $ \sum_{a' }^N |\Braket{a'|\alpha}|^2 = 1$ & $ \int_{-\infty}^\infty dy'|\Braket{y'|\alpha}|^2 = 
+1$ \\
+  & \\
+    $ \Braket{\beta | \alpha}  = \sum_{a' }^N \Braket{\beta|a'}\Braket{a'\alpha}$ & $ \Braket{\beta | \alpha}  = 
+\int_{-\infty}^\infty dy' \Braket{\beta|y'}\Braket{y'\alpha}$ \\
+  & \\
+\hline  
+\end{tabular} 
 
 \subsection{La función de onda}
 
