@@ -1024,6 +1024,52 @@ de lo que se deduce
 \]
 que es el resultado más importante de la sección.
 
+\subsection{Cambio entre representaciones \vb{x} y \vb{p} }
+
+\[
+	\Braket{x'|\hat{p}|p'} =  -i\hbar \int dx'  \Braket{x'|x'} \dpar{}{x'} \Braket{x'|p'} =
+	-i\hbar \dpar{}{x'} \Braket{x'|p'}
+\]
+y entonces,
+\[
+	p' \Braket{x'|p'} = -i\hbar \dpar{}{x'} \Braket{x'|p'},
+\]
+que es una ecuación diferencial para $\Braket{x'|p'}$. Luego
+\[
+	\int  \frac{1}{\Braket{x'|p'}} \partial \Braket{x'|p'} = \int \frac{ip'}{\hbar} \partial x'
+\]
+\[
+	\log \Braket{x'|p'} = \frac{ip'x'}{\hbar} + Cte.
+\]
+\[
+	\int dp' \Braket{x'|p'} \Braket{p'|x''} = \Braket{x'|x''} = \delta(x-x')
+\]
+\[
+	\int dp' \euler^{ip'/\hbar(x'-x'')} |N|^2 = \delta(x-x')
+\]
+\[
+	|N| = \frac{1}{\sqrt{2\pi\hbar}}.
+\]
+\[
+	\Braket{x'|p'} = \frac{1}{\sqrt{2\pi\hbar}} \euler^{i p'x'/\hbar}
+\]
+Con este escalar podemos cambiar entre representaciones.
+Usando esto podemos ver que $\Psi_\alpha(x')$ y $\Phi_\alpha(p')$ son transformadas de Fourier la una de la otra.
+\[
+	 \int_{-\infty}^\infty dp \euler^{iap(x-x')} = \frac{2\pi}{a}\delta(x-x')
+\]
+
+\subsection{Corchetes de Poisson versus conmutadores}
+
+Hay una equivalencia entre corchetes de Poisson y conmutadores, a saber:
+\[
+	[A, B]_{\text{classic}} \longrightarrow \frac{1}{i\hbar}[A,B]
+\]
+o
+\[
+	[A, B]_{\text{classic}} = \sum_i \left( \dpar{A}{q_i} \dpar{B}{p_i} - \dpar{A}{p_i} \dpar{B}{q_i} \right)
+\]
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
