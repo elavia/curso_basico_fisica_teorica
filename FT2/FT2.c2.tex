@@ -122,18 +122,25 @@ El concepto se ilustra en la figura siguiente
 \begin{itemize}
  \item Supongamos $ H \neq H(t)$, entonces
  \[
-	a
+	U( t, t_0) = \euler^{-i/\hbar H (t-t_0)} 
  \]
  \item Sea $ H = H(t)$, entonces
  \[
-	a
+	U( t, t_0) = \euler^{-i/\hbar \int_{t_0}^t H(t')dt'} 
  \]
  y la integral puede hacerse una vez conocida la expresión de $H(t)$.
  \item Sea $ H = H(t)$ con $[H(t_1),H(t_2)] \neq 0$ entonces
- \[
-	a
- \]
- y esta es la serie de Dyson
+ \begin{multline*}
+	U( t, t_0) =  1 + \sum_{n=1}^{\infty} \left( \frac{-i}{\hbar}\right)^n 
+		\int_{t_0}^t dt_1 \int_{t_0}^{t_1} dt_2 \int_{t_0}^{t_2} dt_3 ... \times \\
+			\int_{t_0}^{t_{n-1}} dt_n H(t_1) H(t_2) ... H(t_n)    
+ \end{multline*}
+%  \[
+% 	U( t, t_0) =  1 + \sum_{n=1}^{\infty} \left( \frac{-i}{\hbar}\right)^n 
+% 		\int_{t_0}^t dt_1 \int_{t_0}^{t_1} dt_2 \int_{t_0}^{t_2} dt_3 ... \int_{t_0}^{t_{n-1}} dt_n 
+% 			H(t_1) H(t_2) ... H(t_n)  
+%  \]
+ y esta es la serie de Dyson (del físico Freeman Dyson().)
 \end{itemize}
 
 El problema que suscita es debido a que si $H$ a diferentes tiempos no conmuta no podemos poner la exponencial en serie 
@@ -217,21 +224,22 @@ interferencia.
 \subsection{Relaciones de conmutación}
 
 \[
-	[] = [] + [] 
+	[ A + B, C] = [A, C] + [B,C] 
 \]
 \[
-	[] = - []
+	[A, B] = - [B,A]
 \]
 \[
-	[] = [] +  []
+	[A, B\cdot C] = B[A,C] +  [A,B]C
 \]
+\notamargen{Acá no es baca + caballo puesto que no conmutan.}
 \[
-	i\hbar[]_{\text{classic}} = []
+	i\hbar[ A, B]_{\text{classic}} = [A, B]
 \]
-donde $[]_{\text{classic}}$ es el corchete de Poisson.
+donde $[ , ]_{\text{classic}}$ es el corchete de Poisson.
 Las relaciones de conmutación fundamentales son 
 \[
-	[] = 0 \qquad []=0 \qquad [] =i\hbar\delta_{ij}
+	[x_i, x_j] = 0 \qquad [p_i, p_j]=0 \qquad [x_i,p_j] =i\hbar\delta_{ij}
 \]
 a las que podemos sumar
 \[
@@ -425,9 +433,140 @@ y entonces el teorema de Ehrenfest es
 \section{El oscilador armónico}
 % =================================================================================================
 
+Para el oscilador armónico 1D  el hamiltoniano y energía eran
+\[
+	a
+\]
+pero este problema puede resolverse usando un nuevo operador $\hat{a}$
+\[
+	a \qquad a
+\]
+que es suma de $\hat{x}, \hat{p}$ pero que no es hermítico. Cumple que 
+\[
+	a
+\]
+donde se define el operador número $\hat{N}\equiv a^\dagger a$ que al verificar $[\hat{N},\hat{H}]=0$ tienen base de 
+autoestados en común $\{ \Ket{n} \}$. En efecto 
+\[
+	a
+\]
+siendo $n$ el número de cuantos de energía.
+Se cumplen además 
+\[
+	a
+\]
+\[
+	a
+\]
+
+Queremos ver que le  hace $a^\dagger$  a un autoestado $\Ket{n}$ y luego $a$ sobre el mismo.
+\[
+	a
+\]
+\[
+	a
+\]
+Entonces, como no hay degeneración y tenemos $N\Ket{n'} = n'\Ket{n'}$ entonces 
+\[
+	a,
+\]
+y procedinedo de modo idem para $a\ket{n}$ será
+\[
+	a
+\]
+Luego,
+\[
+	a
+\]
+\[
+	b
+\]
+\[
+	a
+\]
+y entonces de esta forma $\hat{a}^\dagger$ es el operador de creación de cuantos y $\hat{a}$ el de aniquilación.
+
 \subsection{El estado fundamental $\Braket{0}$}
 
+\[
+	a
+\]
+entonces $n$ cabalga por los naturales.
+Si hacemos 
+\[
+	a
+\]
+en algún momento se llega a $\Ket{n=0}$, entonces $E_0 = \hbar\omega/2$ y 
+\[
+	\Ket{0} \equiv \text{El fundamental}
+\]
+y no se puede bajar más,
+\[
+	\hat{a}\Ket{0} = 0.
+\]
+
+Por otra parte, con el $\hat{a}^\dagger$ se puede llegar a cualquier estado
+\[
+	a
+\]
+\[
+	a
+\]
+
+Las matrices de $\hat{a},\hat{a}^\dagger$ sólo tienen una diagonal corrida de elementoss 
+\[
+	a
+\]
+\[
+	a
+\]
+
+También puede verse que 
+\[
+	a
+\]
+y por ello 
+\[
+	a
+\]
+el estado fundamental es el de incerteza mínima.
+
 \subsection{Función de onda}
+
+Siendo $\Psi_n(x') = \Braket{x'|n}$ quiero evaluar $\Psi_0(x') = \Braket{x'|0}$ y ver que como 
+\[
+	\Braket{x'|a|0}= 0 
+\]
+tengo 
+\[
+	a
+\]
+\[
+	b
+\]
+\[
+	c
+\]
+\[
+	d
+\]
+y entonces 
+\[
+	e
+\]
+donde usamos el conocido resultado $\int_{-\infty}^\infty \exp( - a x^2) dx = \sqrt{\pi/a}$, llegamos al llamado pack 
+gaussiano.
+
+El estado fundamental tiene incerteza mínima y debe corresponder a un paquete gaussiano.
+
+Notemos que $\hat{a}^\dagger$ crea sobre ket y aniquila sobre bra, mientras que $\hat{a}$ aniquila sobre ket y crea 
+sobre bra,
+\[
+	a
+\]
+\[
+	b
+\]
 
 \subsection{Interferencia en experimento de Young}
 
