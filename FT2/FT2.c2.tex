@@ -117,45 +117,308 @@ El concepto se ilustra en la figura siguiente
 \section{Dinámica cuántica}
 % =================================================================================================
 
-% Son ecuaciones lineales de modo que vale la superposición (con \vb{E}, \vb{B} y 
-% cualquier vector relacionado linealmente con ellos).
-% \[
-% 	\nabla \cdot \vb{D} = 4 \pi \rho_\ell \qquad \nabla \cdot \vb{B} = 0
-% \]
-% \[
-% 	\nabla \times \vb{E} = - \frac{1}{c} \dpar{B}{t} \qquad \nabla \times \vb{H} =
-% 	\frac{4\pi}{c} \vb{J}_\ell + \frac{1}{c}\dpar{D}{t}
-% \]
-% \[
-% 	\vb{F} = q \left( \vb{E} + \frac{1}{c} \vb{v} \times \vb{B} \right)
-% \]
-% 
-% Los vectores pueden ser polares (tienen físicamente bien definido el sentido) o
-% axiales (se les atribuye un sentido por convención).
-% 
-% Las ecuaciones son invariantes ante transformaciones del tipo: rotación
-% y reflexión espacial y temporal.
-
 \subsection{Casos de solución de $U(t,t_o)$}
+
+\begin{itemize}
+ \item Supongamos $ H \neq H(t)$, entonces
+ \[
+	a
+ \]
+ \item Sea $ H = H(t)$, entonces
+ \[
+	a
+ \]
+ y la integral puede hacerse una vez conocida la expresión de $H(t)$.
+ \item Sea $ H = H(t)$ con $[H(t_1),H(t_2)] \neq 0$ entonces
+ \[
+	a
+ \]
+ y esta es la serie de Dyson
+\end{itemize}
+
+El problema que suscita es debido a que si $H$ a diferentes tiempos no conmuta no podemos poner la exponencial en serie 
+de potencias. En realidad $\exp({\square})$ tiene sentido sólo si la serie 
+\[
+	\sum_{n=0}^{\infty}  \frac{1}{n!}\square^n
+\]
+tiene sentido; es decir, si no surgen ambigüedades al tomar la potencia $n$-ésima del operador $\square$.
+\notamargen{El operador $\square$ no se deja poner sombreros, quiere andar con la cabeza descubierta}
+
+Para el caso 1 es simplemente 
+ \[
+	a
+ \]
+pero para el caso 3 es 
+ \[
+	a
+ \]
+puesto que al operar es 
+\[
+	a
+\]
+pues $[H(t'),H(t'')]\neq 0$. En el caso 2 $(\int_{t_0}^t H(t')dt' )^n$ no tiene problemas puesto que está provista la 
+conmutatividad.
 
 \subsection{Soluciones útiles}
 
+Primeramente conseguimos un $\hat{A}$ tal que $[ A, H ]=0$ y entonces (estoy considerando $ H \neq H(t)$ )
+\[
+	a,
+\]
+luego 
+\[
+	a
+\]
+con $\hat{H}$ y $\hat{A}$ conmutan se tiene
+\[
+	a
+\]
+
+Entonces operamos con el $H$ para 
+\[
+	a
+\]
+y así 
+\[
+	a
+\]
+de manera que comparando con 
+\[
+	a
+\]
+El coeficiente es el mismo pero le hemos sumado una fase $\exp(-iE_{a'}(t-t_0)/\hbar)$ que no es global.
+
 \subsection{Evolución de valores de expectación}
+
+Recordemos primeramente que los autoestados no evolucionan. Luego 
+\[
+	a
+\]
+
+La fase es global es considerar una autoestado. La podemos descartar (setear igual a uno)
+\[
+	a
+\]
+
+El valor de expectacion de un operador respecto a un autoestado no varía.
+\[
+	a
+\]
+\[
+	a
+\]
+\[
+	a
+\]
+
+El valor de expectación de un operador respecto a un estado general tiene una fase no global que produce términos de 
+interferencia.
 
 \subsection{Relaciones de conmutación}
 
+\[
+	[] = [] + [] 
+\]
+\[
+	[] = - []
+\]
+\[
+	[] = [] +  []
+\]
+\[
+	i\hbar[]_{\text{classic}} = []
+\]
+donde $[]_{\text{classic}}$ es el corchete de Poisson.
+Las relaciones de conmutación fundamentales son 
+\[
+	[] = 0 \qquad []=0 \qquad [] =i\hbar\delta_{ij}
+\]
+a las que podemos sumar
+\[
+	[x,f(p)] = i\hbar\dpar{f}{p} \qquad [p,G(x)] = i\hbar\dpar{G}{x} 
+\]
+\[
+	[S_i,S_j] = i\hbar \varepsilon_{ijk}S_k
+\]
+
 \subsection{La ecuación de Schrödinger}
+
+\[
+	a \text{con} \qquad \hat{H} = \frac{\hat{p}^2}{2m} + V(\hat{x}) 
+\]
+Puedo meter un bra $\Bra{x'}$ que no depende del tiempo y entonces 
+\[
+	a
+\]
+\[
+	a
+\]
+de manera que resulta la ecuación de Schrödinger
+\[
+	a .
+\]
 
 \subsection{Representación de Heisenberg}
 
+Los kets y los operadores no tienen sentido físico, pero sí los valores de expectación : toda física podrá modificar 
+los primeros pero debe conservar los valores de expectación. Así tenemos dos representaciones posibles:
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Schrödinger & Heisenberg \\
+\hline
+$\Ket{\alpha} \to U\Ket{\alpha}$ & $\Ket{\alpha} \to \Ket{\alpha}$ \\
+$A \to A $ & $A \to U^\dagger AU $ \\
+$\Ket{a'} \to \Ket{a'}$ & $\Ket{a'} \to U^\dagger \Ket{a'}$ \\
+\hline
+\end{tabular}
+\end{center}
+Así vemos que en Schrödinger los kets evolucionan y los operadores permanecen fijos; al igual que los autoestados.
+En cambio en Heisenberg los kets no evolucionan pero sí lo hacen los operadores y los autoestados.
+
+Deben notars que:
+\begin{enumerate}
+ \item Los productos internos no cambian con el tiempo
+ \[
+	a
+ \]
+ \item Los valores de expectacion son los mismos en ambos esquemas
+ \[
+	a
+ \]
+ \[
+	\Braket{A}^{(S} = \Braket{A}^{(H} \qquad A(t)^H = U(t)^\dagger A^S U(t)
+ \]
+\end{enumerate}
+
+El operador $\hat{A}$ en Schrödinger no depende explícitamente del tiempo. La idea es que le ``pegamos'' a los 
+operadores la evolución temporal de los kets.
+\[
+	a
+\]
+pero a $t=t_0$ las representaciones coinciden,
+\[
+	a
+\]
+
 \subsubsection{La ecuación de Heisenberg}
+
+\[
+	a
+\]
+\[
+	\Rightarrow 
+\]
+\[
+	a
+\]
+\[
+	a
+\]
+\[
+	a
+\]
+y llegamos a la ecuación de Heisenberg
+\[
+	\dpar{A^{(H)}}{t} = \frac{1}{i\hbar} [ A^{(H)}, H^{(H)}]
+\]
+si $A^{(H)}$ conmuta con el $H^{(H)}$, entonces $A^{(H)}$ es una cantidad conservada (una constante de movimiento).
+En ese caso el operador no depende del tiempo y entonces $A^{(H)} = A^{(S)}$.
 
 \subsubsection{Evolución de autoestados}
 
+\[
+	a,
+\]
+aplico un $U^\dagger$ a ambos lados y entonces 
+\[
+	a
+\]
+los $a'$ no dependen de la representación porque tienen significado físico. Entonces los $\Ket{a'}$ evolucionan
+\[
+	a
+\]
+\[
+	a
+\]
+\[
+	a
+\]
+puesto que recordemos, nota importante,
+\[
+	a
+\]
+entonces $H$ es el mismo en ambas puesto que $\hat{U} =\hat{U}(\hat{H}) $ y $[U,H]=0$.
+
+De esta forma los autoestados evolucionan al revés 
+\[
+	a
+\]
+
+Podemos ver de otro modo la equivalencia
+\[
+	a
+\]
+pero 
+\[
+	a
+\]
+\[
+	a
+\]
+
 \subsubsection{Coeficientes}
+
+Los coeficientes en Schrödinger y en Heisenberg son 
+\[
+	a
+\]
+Entonces en Schrödinger es 
+\[
+	a
+\]
+mientras que en Heisenberg es 
+\[
+	a
+\]
+
+Los coeficientes en las expresiones son iguales como corresponde a todo magnitud que tiene sentido físico, pues 
+$|c_a(t)|^2$ es la probabilidad.
 
 \subsection{Teorema de Ehrenfest}
 
+Para una partícula libre, donde $p(t)=p(0)$ es constante de movimiento,
+\[
+	a
+\]
+y se tiene 
+\[
+	a
+\]
+\[
+	a
+\]
+\[
+	a
+\]
+donde estamos usando 
+\[
+	a
+\]
+
+Es necesario remarcar que relaciones como $[x,p]=i\hbar$ son para operadores en la picture de Schrödinger, donde los 
+operadores no cambian en el tiempo. Estamos en efecto haciendo $[x(0),p(0)]=i\hbar$
+\[
+	a
+\]
+\[
+	a
+\]
+y entonces el teorema de Ehrenfest es 
+\[
+	m \dpar[2]{}{t} \Braket{x^{(s)}} = - \Braket{ \dpar{V^{(s)}}{x}}
+\]
 
 % 
 % =================================================================================================
@@ -168,7 +431,99 @@ El concepto se ilustra en la figura siguiente
 
 \subsection{Interferencia en experimento de Young}
 
+Consideremos la situación depicted en la figura bajo estas líneas
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{images/teo2_6.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
+Uso $\hat{H}$ de partículas libres.
+\[
+	\frac{1}{2} \Ket{\alpha} = \Ket{\alpha_1} = \Ket{\alpha_2}
+\]
+para $t>0$ se tiene 
+\[
+	\Ket{\tilde{\alpha_1}} = \euler^{ -i H t /\hbar } \Ket{\alpha_1} =
+		\euler^{ -i E_\alpha t /\hbar } \Ket{\alpha_1}	
+\]
+\[
+	\Ket{\tilde{\alpha_2}} = \euler^{ -i E_\alpha t /\hbar } \Ket{\alpha_2}	
+\]
+
+En la pantalla debe verse la interferencia de los dos estados solapados.
+\[
+	\Ket{\tilde{\alpha}} = \Ket{\tilde{\alpha_1}} + \Ket{\tilde{\alpha_2}} =
+		\euler^{ -i E_\alpha \frac{d_1}{v} /\hbar } \Ket{\alpha_1} +
+		\euler^{ -i E_\alpha \frac{d_2}{v} /\hbar } \Ket{\alpha_2}	
+\]
+\[
+	\Ket{\tilde{\alpha}} = \frac{1}{2} \euler^{ -i E_\alpha \frac{d_1}{v} /\hbar } 
+		| 1 + \euler^{ -i E_\alpha \frac{d_2-d_1}{v} /\hbar } | \Ket{\alpha_1}
+\]
+y si definimos
+\[
+	\beta=E_\alpha \frac{d_2-d_1}{v} /\hbar,
+\]
+resulta entonces
+\[
+	\Braket{\tilde{\alpha}|\tilde{\alpha}} = \frac{1}{4}| 1 +  \euler^{ -i E_\alpha \frac{d_2-d_1}{v} /\hbar } |^2 =
+		\frac{1}{4}( (1+\cos\beta)^2 + \sin^2\beta ) =
+			\frac{1}{2} + \frac{1}{2}\cos\left( \beta \right).
+\]
+
+
+Al partir el estado $\Ket{\alpha_1} $ y volver a unirlo en $\Ket{\alpha_1} + \Ket{\alpha_2}$ vemos una intensidad que 
+dependa de la diferencia de camino.
+
 \subsection{Cambio de cero del potencial}
+
+En mecánica clásica la física de un problema no se ve afectada por un cambio de gauge.
+Si movemos el cero de potencial, la situación física es la misma.
+Veamos qué sucede en mecánica cuántica.
+\[
+	\Ket{\alpha,t,t_0} = \euler^{ -i (p^2/2m + V(x))(t-t_0)/\hbar} \Ket{\alpha,t_0}
+\]
+\[
+	\Ket{\tilde{\alpha},t,t_0} = \euler^{ -i (p^2/2m + V(x) + V_0)(t-t_0)/\hbar} \Ket{\alpha,t_0}
+\]
+\[
+	\Ket{\tilde{\alpha},t,t_0} = \euler^{ -i V_0(t-t_0)/2 }\Ket{\alpha,t,t_0}
+\]
+y entonces vemos que $\Ket{\tilde{\alpha},t}$ y $\Ket{\alpha,t}$ difieren en una fase, de manera que los valores de 
+expectaci´on no cambian (con $V_0$ constante).
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{images/teo2_7.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
+Este es un experimento ideal (pensado). Dentro de los cilindros hay campo nulo. Se varia el $V$ abriendo y cerrando la 
+llave a la entrada y a la salida.
+Se cambia la fase de las partículas inferiores respecto de las superiores, entonces habrá interferencia en $O$.
+
+Clásicamente no hay variación,
+\[
+	\Delta \text{fase} = -\frac{i}{\hbar}\euler \int _{t_1}^{t_2} V_1(t) - V_2(t) dt = 
+	-\frac{i}{\hbar}\euler \Delta V
+\]
+
+Lo que realmente cuenta es la diferencia de potencial $\Delta V$, la cual sí tiene sentido físico porque es 
+independiente de la medida y porque pueden escribirse los campos en función de aquella.
+\[
+	E = - \Nabla\phi - \frac{1}{c}\dpar{\vb{A}}{t}
+\]
+\[
+	H = \frac{1}{2m} \left( \vb{p} - \frac{\euler\vb{A}}{c}\right)^2 + \euler\phi 
+\]
+\[
+	\dtot{H}{t} = \frac{1}{i\hbar}[x_i,H] = \frac{p_i  \euler A_i}{m}
+\]
+
 
 % 
 % La ley de Coulomb reza que
