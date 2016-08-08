@@ -402,36 +402,44 @@ $|c_a(t)|^2$ es la probabilidad.
 
 Para una partícula libre, donde $p(t)=p(0)$ es constante de movimiento,
 \[
-	a
+	x^{(H)} = x(0) + \frac{p(0)}{m}t
 \]
 y se tiene 
 \[
-	a
+	[x(t),x(0)] = -\frac{i\hbar}{m}t
 \]
 \[
-	a
+	H = \frac{p^2}{2m} + V(x)
 \]
 \[
-	a
+	\dtot{P}{t} = \frac{1}{i\hbar}[p,H] = \frac{1}{i\hbar}[p,V(x)] = 
+	\frac{1}{i\hbar}\left( -i\hbar\dpar{V}{x}\right),
+\]
+de modo que 
+\[
+	\dtot{P}{t} = -\dpar{V}{x} \qquad \longrightarrow \quad m \dtot[2]{x}{t} = -\dpar{V}{x} 
+\]
+\[
+	p = m \dtot{x}{t} \qquad \dtot{p}{t} = m \dtot[2]{x}{t} 
 \]
 donde estamos usando 
 \[
-	a
+	\dpar{A^H}{t} = \frac{1}{i\hbar}[A^H,H]
 \]
 
 Es necesario remarcar que relaciones como $[x,p]=i\hbar$ son para operadores en la picture de Schrödinger, donde los 
 operadores no cambian en el tiempo. Estamos en efecto haciendo $[x(0),p(0)]=i\hbar$
 \[
-	a
+	\Braket{\alpha,t_0|m \dtot[2]{x}{t}|\alpha,t_0} = - \Braket{\alpha,t_0|\dpar{V}{x}|\alpha,t_0}
 \]
 \[
-	a
+	m\dpar[2]{}{t}\Braket{\alpha,t_0| x^H |\alpha,t_0} = -\Braket{\alpha,t_0|\dpar{V}{x}|\alpha,t_0}
 \]
 y entonces el teorema de Ehrenfest es 
 \[
 	m \dpar[2]{}{t} \Braket{x^{(s)}} = - \Braket{ \dpar{V^{(s)}}{x}}
 \]
-
+los valores de expectación son iguales en ambas representaciones.
 % 
 % =================================================================================================
 \section{El oscilador armónico}
@@ -439,66 +447,90 @@ y entonces el teorema de Ehrenfest es
 
 Para el oscilador armónico 1D  el hamiltoniano y energía eran
 \[
-	a
+	H = \frac{p^2}{2m} + \frac{m\omega^2 x^2}{2} \qquad E = \hbar \omega \left( n + \frac{1}{2} \right)
 \]
 pero este problema puede resolverse usando un nuevo operador $\hat{a}$
 \[
-	a \qquad a
+	\hat{a} = \sqrt{\frac{m\omega}{2\hbar}}\left( x + i\frac{p}{m\omega} \right) \qquad \text{con} \quad 
+	\hat{a}^\dagger = \sqrt{\frac{m\omega}{2\hbar}}\left( x - i\frac{p}{m\omega} \right)
 \]
 que es suma de $\hat{x}, \hat{p}$ pero que no es hermítico. Cumple que 
 \[
-	a
+	[a , a^\dagger ] = 1 \qquad a a^\dagger =  \frac{H}{\hbar\omega} -1 \qquad 
+	H = \hbar\omega \left( a a^\dagger + \frac{1}{2} \right),
 \]
 donde se define el operador número $\hat{N}\equiv a^\dagger a$ que al verificar $[\hat{N},\hat{H}]=0$ tienen base de 
 autoestados en común $\{ \Ket{n} \}$. En efecto 
 \[
-	a
+	\hat{N} \Ket{n} = n\Ket{n} \qquad
+	\hat{H} \Ket{n} = \hbar\omega \left( n + \frac{1}{2} \right) \Ket{n}
 \]
 siendo $n$ el número de cuantos de energía.
 Se cumplen además 
 \[
-	a
+	[N,a] = [a^\dagger a,a] = - [ a, a^\dagger a ] = - \left( a^\dagger [a,a] + [a,a^\dagger]a \right) =
+	-a
 \]
 \[
-	a
+	[N,a^\dagger] = [a^\dagger a, a^\dagger ] = - [a^\dagger , a^\dagger a ] =
+	- \left( a^\dagger [a^\dagger,a] + [a^\dagger,a]a^\dagger \right) = a^\dagger
 \]
 
 Queremos ver que le  hace $a^\dagger$  a un autoestado $\Ket{n}$ y luego $a$ sobre el mismo.
 \[
-	a
+	N a^\dagger \Ket{n} = ([N, a^\dagger] + a^\dagger N) \Ket{n} =
+	a^\dagger \Ket{n} + a^\dagger n \Ket{n} 
 \]
 \[
-	a
+	\Hat{N} (a^\dagger\Ket{n}) = (n+1)(a^\dagger\Ket{n})
 \]
 Entonces, como no hay degeneración y tenemos $N\Ket{n'} = n'\Ket{n'}$ entonces 
 \[
-	a,
+	a^\dagger \Ket{n} = c_1 \Ket{n+1},
 \]
-y procedinedo de modo idem para $a\ket{n}$ será
+y procediendo de modo idem para $a\ket{n}$ será
 \[
-	a
+	a \Ket{n} = c_2 \Ket{n-1}
 \]
 Luego,
 \[
-	a
+	a^\dagger \Ket{n} = c_1 \Ket{n+1} \overbrace{\longrightarrow}^{DC} 
+	\Bra{n+1} c_1^* = \Bra{n} a 
 \]
 \[
-	b
+	a \Ket{n} = c_2 \Ket{n-1} \overbrace{\longrightarrow}^{DC} \Bra{n-1} c_2^* = \Bra{n} a^\dagger
+\]
+y entonces 
+\[
+	\Braket{n|N|n} = n \Braket{n|n} = n =  \Braket{n| a^\dagger a |n} =  \Braket{n-1|c_2^* c_2|n-1} =
+	|c_2|^2 \Braket{n-1|n-1}
 \]
 \[
-	a
+	n = \Braket{n|aa^\dagger-1|n} = -1 + \Braket{n|aa^\dagger|n} = - 1 + \Braket{n+1|c_1^*c_1|n+1} =
+	-1 + |c_1|^2 \Braket{n+1|n+1}
+\]
+siendo
+\[
+	|c_2| = \sqrt{n} \qquad |c_1| = \sqrt{n+1} 
+\]
+\[
+	\hat{a}^\dagger \Ket{n} = \sqrt{n+1} \Ket{n+1} \qquad  \hat{a}\Ket{n} = \sqrt{n} \Ket{n-1} 
 \]
 y entonces de esta forma $\hat{a}^\dagger$ es el operador de creación de cuantos y $\hat{a}$ el de aniquilación.
 
 \subsection{El estado fundamental $\Braket{0}$}
 
 \[
-	a
+	a \Ket{n}  \overbrace{\longrightarrow}^{DC} \Bra{n} a^\dagger
+\]
+y desde el postulado para productos internos,
+\[
+	(\Bra{n}a^\dagger)(a\Ket{n}) \geq 0 \quad n \Braket{n|n} \geq 0 \Rightarrow n \geq 0 
 \]
 entonces $n$ cabalga por los naturales.
 Si hacemos 
 \[
-	a
+	a\Ket{n} = \sqrt{n} \Ket{n-1}, \qquad  a^2 \Ket{n} = \sqrt{n}\sqrt{n-1} \Ket{n-2} \; ...
 \]
 en algún momento se llega a $\Ket{n=0}$, entonces $E_0 = \hbar\omega/2$ y 
 \[
@@ -511,27 +543,28 @@ y no se puede bajar más,
 
 Por otra parte, con el $\hat{a}^\dagger$ se puede llegar a cualquier estado
 \[
-	a
+	a^\dagger \Ket{0} = \sqrt{1} \Ket{1}, \qquad  a^{\dagger 2} \Ket{0} = \sqrt{1}\sqrt{2} \Ket{2} = 
+	\sqrt{1}\sqrt{2}\sqrt{3} \Ket{3}
 \]
 \[
-	a
+	\frac{{(a^{\dagger})}^n}{\sqrt{n}!} \Ket{0} = \Ket{n}
 \]
 
 Las matrices de $\hat{a},\hat{a}^\dagger$ sólo tienen una diagonal corrida de elementoss 
 \[
-	a
+	\Braket{n'|a|n} = \sqrt{n} \Braket{n'|n-1} = \sqrt{n} \delta_{n',n-1}
 \]
 \[
-	a
+	\Braket{n'|a^\dagger|n} =  \sqrt{n-1} \Braket{n'|n+1} = \sqrt{n-1} \delta_{n',n+1}
 \]
 
 También puede verse que 
 \[
-	a
+	\Braket{n|x|n}= 0 \qquad \Braket{n|p|n}= 0
 \]
 y por ello 
 \[
-	a
+	\Braket{(\Delta x)^2}_{\Ket{0}} \Braket{(\Delta p)^2}_{\Ket{0}} = \frac{\hbar^2}{4} 
 \]
 el estado fundamental es el de incerteza mínima.
 
@@ -543,33 +576,43 @@ Siendo $\Psi_n(x') = \Braket{x'|n}$ quiero evaluar $\Psi_0(x') = \Braket{x'|0}$ 
 \]
 tengo 
 \[
-	a
+	0 = \sqrt{ \frac{m\omega}{2\hbar} } \Braket{x'|x+\frac{ip}{m\omega}|0} =
+	\sqrt{ \frac{m\omega}{2\hbar} } \left[ x'\Braket{x'|0} + \frac{i}{m\omega}\Braket{x'|p|0} \right]
 \]
 \[
-	b
+	x' \Braket{x'|0} + \frac{i}{m\omega} (-i\hbar) \dpar{}{x} \Braket{x'|0} = 0
+\]
+entonces 
+\[
+	x' \Braket{x'|0} = - \frac{\hbar}{m\omega} \dpar{}{x'}\Braket{x'|0} 
 \]
 \[
-	c
-\]
-\[
-	d
+	- \int \frac{m\omega}{\hbar} x' dx' = \int \frac{d \Braket{x'|0}}{\Braket{x'|0}} \Rightarrow 
+	\Braket{x'|0} = \kappa \euler^{-m\omega x^{'2}/(2\hbar)}
 \]
 y entonces 
 \[
-	e
+	1 = \int_{-\infty}^{\infty} \Braket{0|x'}\Braket{x'|0} dx' = 
+	\int_{-\infty}^{\infty} |\kappa|^2 \euler^{-m\omega x^{'2}/\hbar} dx' =
+	|\kappa|^2 \sqrt{\frac{\pi\hbar}{m\omega}} 
+\]
+\[
+	|\kappa| = \left( \frac{m\omega}{\pi\hbar} \right)^{1/2} = \frac{1}{(\pi x_0^2)^{1/4}}
 \]
 donde usamos el conocido resultado $\int_{-\infty}^\infty \exp( - a x^2) dx = \sqrt{\pi/a}$, llegamos al llamado pack 
 gaussiano.
-
+\[
+	\Braket{x'|0} = \frac{1}{(\pi x_0^2)^{1/4}} \euler^{-\frac{1}{2}\left( x'/x_0 \right)^2}
+\]
 El estado fundamental tiene incerteza mínima y debe corresponder a un paquete gaussiano.
 
 Notemos que $\hat{a}^\dagger$ crea sobre ket y aniquila sobre bra, mientras que $\hat{a}$ aniquila sobre ket y crea 
 sobre bra,
 \[
-	a
+	a^\dagger \Ket{n} = \sqrt{n+1} \Ket{n+1} \Rightarrow \Bra{n} a = \Bra{n+1} \sqrt{n+1}
 \]
 \[
-	b
+	a \Ket{n} = \sqrt{n} \Ket{n-1} \Rightarrow \Bra{n} a^\dagger = \Bra{n-1} \sqrt{n}
 \]
 
 \subsection{Interferencia en experimento de Young}
