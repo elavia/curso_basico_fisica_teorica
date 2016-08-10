@@ -679,7 +679,7 @@ Veamos qué sucede en mecánica cuántica.
 	\Ket{\tilde{\alpha},t,t_0} = \euler^{ -i V_0(t-t_0)/2 }\Ket{\alpha,t,t_0}
 \]
 y entonces vemos que $\Ket{\tilde{\alpha},t}$ y $\Ket{\alpha,t}$ difieren en una fase, de manera que los valores de 
-expectaci´on no cambian (con $V_0$ constante).
+expectación no cambian (con $V_0$ constante).
 
 \begin{figure}[htb]
 	\begin{center}
@@ -710,89 +710,174 @@ independiente de la medida y porque pueden escribirse los campos en función de 
 	\dtot{H}{t} = \frac{1}{i\hbar}[x_i,H] = \frac{p_i  \euler A_i}{m}
 \]
 
+% =================================================================================================
+\section{El propagador}
+% =================================================================================================
 
-% 
-% La ley de Coulomb reza que
-% \[
-% 	\vb{F}_{12} = q_1 q_2 \frac{(\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2 |^3}
-% \]
-% que es la fuerza sobre 1 debido a 2. De la ley de Coulomb se puede definir 
-% \[
-% 	\vb{E}_{12}(\vb{x}_1) \equiv \vb{F}_{12}/q_1
-% \]
-% y tomando $\vb{x}_1 \equiv \vb{x}$ y haciendo el límite $q_1 \to 0$ se tiene
-% \[
-% 	\vb{E}(\vb{x}) = \sum_{i=1}^N \; q_i \frac{(\vb{x} - \vb{x}_i)}{|\vb{x} - \vb{x}_i |^3}
-% \]
-% que es el campo eléctrico y que en el paso al continuo resulta
-% \[
-% 	\vb{E}(\vb{x}) = \int_{V'} \rho(\vb{x}) \frac{(\vb{x} - \vb{x}_i)}{|\vb{x} - \vb{x}_i |^3} dV' 
-% \]
-% siendo \vb{x} punto campo y $\vb{x}_i$ punto fuente.
-% 
-% \begin{figure}[htb]
-% 	\begin{center}
-% 	\includegraphics[width=0.6\textwidth]{images/fig_ft1_ejescargas.pdf}	 
-% 	\end{center}
-% 	\caption{}
-% \end{figure} 
-% 
-% \subsection{Conservación de la carga}
-% 
-% La carga total sale de una integral 
-% \[
-% 	Q = \int_{V'}  \rho(\vb{x}') dV'
-% \]
-% como muestra la imagen
-% \begin{figure}[htb]
-% 	\begin{center}
-% 	\includegraphics[width=0.25\textwidth]{images/fig_ft1_conserv.pdf}	 
-% 	\end{center}
-% 	\caption{}
-% \end{figure} 
-% y si el volumen es fijo podemos tomar la derivada con respecto al tiempo que pasa el interior como
-% derivada parcial,
-% \[
-% 	\dtot{Q}{t} = \int_{V'} \dpar{\rho}{t} (\vb{x}') dV' = - \int_{S\equiv\partial V'} \vb{J} \cdot d\vb{S}
-% \]
-% y el miembro extremo derecho  se debe a que si la carga varía es a consecuencia de que se va en
-% forma de flujo. Aplicando el teorema de la divergencia en el miembro derecho,
-% \[
-% 	\int_{V'} \dpar{\rho}{t} (\vb{x}') dV' = - \int_{V'} \nabla \cdot \vb{J} \; dV'
-% \]
-% lo cual vale para todo volumen y entonces esto significa que
-% \[
-% 	\dpar{\rho}{t} + \nabla \cdot \vb{J} = 0
-% \]
-% que es la ecuación de continuidad de la carga. Si fuera $\nabla \cdot \vb{J}=0$ esto significa que las líneas
-% de \vb{J} no tienen principio ni fin.
-% 
-% % =================================================================================================
-% \section{Interacción magnética}
-% % =================================================================================================
-% 
-% Cuando se da $\nabla \cdot \vb{J}=0$ hablamos de una corriente estacionaria (no hay acumulación de carga en
-% ninguna parte). Las corrientes estacionarias producen efectos magnéticos dados por la ley de Biot-Savart
-% \[
-% 	\vb{B}(\vb{x}) = \frac{1}{c} \int_\Gamma \frac{I d\vb{\ell}' \times (\vb{x} - \vb{x}')}{|\vb{x} - \vb{x}'|^3} 
-% \]
-% que es válida para un circuito $\Gamma$, que es una curva que se recorre en sentido CCW.
-% En el caso de un volumen la expresión es 
-% \[
-% 	\vb{B}(\vb{x}) = \frac{1}{c} \int_{V'} \frac{ \vb{J}(\vb{x}') \times (\vb{x} - \vb{x}')}{|\vb{x} - \vb{x}'|^3} 
-% dV'
-% \]
-% mientras que la fuerza sobre un circuito $\Gamma$ es
-% \[
-% 	F = \frac{1}{c} \int_\Gamma I d\vb{\ell} \times \vb{B}
-% \]
-% y sobre un volumen 
-% \[
-% 	F = \frac{1}{c} \int_V \vb{J} \times \vb{B} dV
-% \]
-% 
-% La transformación entre estas integrales puede hacerse merced al siguiente razonamiento,
-% % \begin{align*}
+Físicamente representa la proababilidad de transición entre autoestados por el paso del tiempo,
+$ \Ket{x'}_{t_0} \longrightarrow \Ket{x''}_t$
+\[
+	a
+\]
+\[
+	b
+\]
+\[
+	c
+\]
+
+Podemos pensar que el propagador lleva la función de onda desde $t_0$ a $t$. Se puede escribir:
+\[
+	a
+\]
+y metemos un observable $\hat{A}$ donde $[A,H]=0$ y $A\Ket{a'}=a\Ket{a'}$.
+
+El propagador depende del potencial, pero no de la función de onda inicial. Se debe cumplir que:
+\[
+	b
+\]
+\[
+	c
+\]
+\[
+	d
+\]
+y entonces el propagador es una función de Green que satisface 
+\[
+	d
+\]
+con $K(x'',t;x',t_0)=0 $ si $t<0$ que es la condición de contorno.
+
+\subsection{El propagador de la partícula libre}
+
+\[
+	a
+\]
+\[
+	a
+\]
+\[
+	b
+\]
+
+También se puede escribir el propagador en la representación de Heisenberg,
+\[
+	a
+\]
+\[
+	K(x'',t;x',t_0) = \Braket{x'',t | x',t_0}.
+\]
+
+El propagador cumple con la propiedad de composición (como el $U(t,t_0)$), es decir:
+\[
+	a
+\]
+
+\section{Integrales de camino de Feynmann}
+
+Consideramos una partícula yendo de $(x_1,t_1)$ a $(x_N,t_N)$. Dividimos el tiempo 
+\[
+	a
+\]
+y queremos ver la amplitud de transición desde el estado 1 al $N$.
+
+\[
+	a
+\]
+
+Se puede pensar como que estamos sumando sobre todos los posibles caminos entre $(x_1,t_1)$ y $(x_N,t_N)$ 
+fijos. En mecánica clásica teníamos un solo camino, el que minimizaba la acción $S$
+\[
+	\delta \int_{t_1}^{t_2} \Lag dt = \delta S = 0
+\]
+pero en cambio en mecánica cuántica todos los caminos aportan. En un libro de Dirac, Feymann lee 
+\[
+	a
+\]
+Definiremos
+\[
+	\equiv 
+\]
+Luego para considerar la suma sobre todos los segmentillos a lo largo de un camino tendremos
+\[
+	\prod_{n=2}^N \euler^{i/\hbar S(n,n-1)} =
+\]
+y hay que considerar TODOS los posibles caminos 
+\[
+	\propto \sum_{caminos} \euler^{i/\hbar S(N,1)} 
+\]
+cuando $\hbar \to 0$ las trayectorias contribuyen con una cantidad que oscila loca y violentamente. Tienden a 
+la cancelación para caminos aledaños. Por el $\hbar \sim 0$ la fase es grande y entonces se cancelan.
+Esto no ocurre cerca del camino (real) que cumple 
+\[
+	\delta S(N,1) = 0
+\]
+Para trayectorias cercanas la $\Delta fase$ no es grande y hay interferencia constructiva.
+Para un $\delta t$ infinitesimal es 
+\[
+	a
+\]
+\[
+	b
+\]
+
+Consideremos, por ejemplo, una partícula libre, entonces $V=0$ de modo que resolviendo 
+\[
+	a
+\]
+Esto no es otra cosa que el propagador de una partícula libre. Para un $\Delta t$ finito será 
+\[
+	+
+\]
+\[
+	=
+\]
+siendo esta última la integral de camino de Feynmann.
+
+En base a éstas Feynamn desarrolla una formulación equivalente de la mecánica cuántica que utiliza los 
+conceptos de:
+\begin{enumerate}
+ \item Superposición
+ \item Composición de la transición
+ \item Límite clásico con $\hbar \to 0$
+\end{enumerate}
+
+Estas integrales contienen toda la información del sistema cuántico, aunque no sea sencillo extraerla.
+
+Consideremos un propagador de $(x',0) \to (x',t)$
+\[
+	G(t) =
+\]
+\[
+	G(t) =
+\]
+y tomando Laplace-Fourier 
+\[
+	\tilde{G}(t)
+\]
+
+La expresión 
+\[
+	\equiv Integral de camino de Feynmann
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 % %  	I d\vb{\ell} \times \vb{B} = \vb{J}  \cdot d\vb{S} d\vb{\ell}  \times \vb{B} =
 % %   	\cos(\theta) dS \vb{J} d\ell \times \vb{B} = \\
 % % 	\vb{J} \times \vb{B}  \cos(\theta) dS d\ell  = \vb{J} \times \vb{B}  d\vb{S} \cdot d\vb{\ell}  = 
