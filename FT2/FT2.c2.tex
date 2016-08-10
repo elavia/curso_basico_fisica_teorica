@@ -1200,62 +1200,267 @@ En los $d_{m'm}^{(j)}$ está la dificultad de la cuenta.
 \section{Formalismo de spinores de Pauli}
 % =================================================================================================
 
+Apropiado para trabajar con sistemas de spín $1/2$. Estos sistemas son casos particulares de momento angular,
+\[
+	j = 1/2 \qquad m=-\frac{1}{2},+\frac{1}{2}
+\]
+y se definen los spinores $\chi_\pm$ como
+\[
+	\Ket{+} \equiv  \begin{pmatrix}
+	                 1 \\ 0 
+	                \end{pmatrix} \equiv  \chi_+
+\]
+
+Para spín $1/2$ podemos tomar $\vb{J} = \vb{S}$ por la analogía de las relaciones de conmutación.
+A su vez 
+\[
+	\vb{S} = \frac{\hbar}{2} \vec{\sigma} \; \text{con} \;
+\]
+que es una especie de vector 
+\[
+	\sigma
+\]
+Luego esta equivalencia provee expresión de los operadores $S_i$ en términos de matrices de $2\times 2$, así:
+\[
+	\frac{i}{2}[ J_- - J_+] = J_y = S_y = \frac{\hbar}{2} \sigma_y
+\]
+
+Las matrices de Pauli cumplen las propiedades básicas siguientes 
+\[
+	\sigma^2_i = \mathbb{1}
+\]
+\[
+	\Ket{+} \qquad (\sigma\dot\vb{a})
+\]
+
+\subsection{Aplicación a las rotaciones}
+
+\[
+	D
+\]
+pero 
+\[
+	()^n= 
+\]
+\[
+	\euler
+\]
+\[
+	d
+\]
+es el operador de rotación para sistemas de spin $1/2$. Con esta expresión podemos evaluar 
+$d^{j=1/2}_{m'm}(\beta)$
+\[
+	d
+\]
+donde hemos usado los resultados 
+\[
+	\cos \sin 
+\]
+
+En el caso general el operador de rotación para sistemas de spin $1/2$ lucirá:
+\[
+	D = 
+\]
+
+\subsection{Ejemplo}
+
+\[
+	d
+\]
+Este resultado es intuitivamente lógico.
 
 
+\subsection{Rotaciones en sistemas con $j=1$}
 
+Ahora tenemos 
+\[
+	j=1 \qquad m = -1,0,1
+\]
+recordando $J_y$ en términos de escaleras
+\[
+	J_y
+\]
+\[
+	\euler
+\]
+\[
+	\left( \frac{J_y}{\hbar} \right)^n =
+\]
+\[
+	\euler =
+\]
+acá lo vemos como operador (es notación), $d_{m'm}^{j=1}(\beta)$ simboliza la matriz
+\[
+	d
+\]
 
-% donde el primer término se comprueba nulo si se reescribe utilizando que
-% \[
-% 	\frac{ (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} = 
-% 	\nabla_{\vb{x}_2} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} =
-% 	- \nabla_{\vb{x}_1} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} 
-% \]
-% de manera que entonces
-% \[
-% 	- \int_{\Gamma_2} d\vb{\ell}_2  \int_{\Gamma_1} d\vb{\ell}_1 \cdot \nabla_{\vb{x}_1} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} 
-% \]
-% donde se ve que es nula la última integral dado que 
-% \[
-% 	\int_{\Gamma_1} d\vb{\ell}_1 \cdot \nabla_{\vb{x}_1} = 0.
-% \]
-% 
-% Entonces, se tiene 
-% \[
-% 	F_{12} = - \frac{I_1 I_2}{c^2} \int_{\Gamma_1} \int_{\Gamma_2} \frac{ (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
-% 	\left( d\vb{\ell}_1 \cdot d\vb{\ell}_2 \right)
-% \]
-% que vale lo mismo si intercambiamos $\Gamma_1$ con $\Gamma_2$ en la integración. Podemos decir que con corrientes estacionarias
-% vale el principio de acción y reacción: las fuerzas son iguales y de sentido opuesto.
-% 
-% 
-% % =================================================================================================
-% \section{Teorema de Helmholtz}
-% % =================================================================================================
-% 
-% Nos dice que un campo vectorial está completamente determinado por su divergencia y su rotor.
-% Por ejemplo, para un campo eléctrico 
-% \[
-% 	\vb{E} = \int_{V'} \rho \frac{\vb{x} - \vb{x}'}{|\vb{x} - \vb{x}'|^3} dV' = 
-% 		- \int_{V'} \rho \nabla_{\vb{x}} \frac{ 1 }{|\vb{x} - \vb{x}'|} dV' = 
-% 		- \nabla_{\vb{x}} \int_{V'}   \frac{ \rho }{|\vb{x} - \vb{x}'|} dV' = 
-% \]
-% y esta última es la integral de Poisson
-% \[
-% 	\vb{E} = - \nabla_{\vb{x}} \phi (\vb{x}).
-% \]
-% Entonces $\vb{E}$ es un gradiente y por ello 
-% \[
-% 	\nabla  \times \vb{E} = 0
-% \]
-% de manera que $\vb{E}$ es conservativo, cumple $\int \vb{E}\cdot d\vb{\ell} = 0$ o lo que
-% es lo mismo, $\vb{E}$ es irrotacional.
-% Hemos hecho la construcción de un potencial electrostático.
-% 
-% % =================================================================================================
-% \section{Ley de Gauss}
-% % =================================================================================================
-% 
-% 
+% =================================================================================================
+\section{Momento angular orbital}
+% =================================================================================================
+
+\[
+	\vb{L} =
+\]
+verifica el álgebra de $\vb{J}$,
+\[
+	[]
+\]
+Consideremos ahora una rotación en torno a $z$, en un $\delta\phi$,
+\[
+	() =
+\]
+\[
+	() = 
+\]
+esto es una traslación en $\hat{x},\hat{y}$,
+\[
+	(1-i\frac{L_z}{\hbar}\delta\phi) \Ket{x',y',z'} = \Ket{}
+\]
+
+Esta traslación es debida a una rotación infinitesimal en $\delta\phi$ torno a $z$ entonces genera las 
+rotaciones clásicas en torno a $z$.
+\[
+	\Psi 
+\]
+\[
+	\Psi
+\]
+
+Podemos hallar una expresión para $L_z$ en esféricas:
+\[
+	\Braket{r,\theta,\varphi||\alpha}
+\]
+identificamos 
+\[
+	= 
+\]
+operador $L_z$ en esféricas
+
+Usando 
+\[
+	L^2 = 
+\]
+\[
+	\Braket{L^2}
+\]
+\[
+	L^2 = -\hbar^2 r^2 \nabla^2_{\theta,\varphi}
+\]
+donde $\nabla^2_{\theta,\varphi}$ es la parte angular del laplaciano en coordenadas esféricas.
+Esto puede obtenerse también partiendo de 
+\[
+	L^2 = \vb{x}^2\vb{p}^2 - (\vb{x}\cdot\vb{p})^2 + i\hbar \vb{x}\cdot\vb{p}
+\]
+
+Sea un $H$ de partícula, sin spín, sujeta a potencial simétricamente esférico. Sabemos que la función de onda 
+$\Psi_\alpha(\vb{r}')$ es separable en coordenadas esféricas, entonces:
+\[
+	\Braket{|} = 
+\]
+\[
+	\Braket{|} = 
+\]
+
+Cuando el H es esféricamente simétrico (como en un potencial central) se tiene 
+\[
+	[] = [] = 0
+\]
+
+Trabajaremos solamente en la parte angular  $\Ket{\theta,\varphi} \equiv \Ket{\hat{n}}$
+\[
+	\Braket{\hat{n}|\ell,m} =
+\]
+que es la amplitud de hallar $\Ket{\ell,m}$ en la dirección $\hat{n}$.
+
+Podemos vincular ahora los armónicos esféricos con los autoestados de $L_z,L^2$
+\[
+	L_z
+\]
+\[
+	L^2
+\]
+\[
+	=
+\]
+Entonces, con la ortogonalidad
+\[
+	\longrightarrow
+\]
+y con la completitud 
+\[
+	\longrightarrow
+\]
+de manera que llegamos a 
+\[
+	\int \int 
+\]
+
+Podemos hallar una expresión para 
+\[
+	= 0
+\]
+\[
+	\Rightarrow
+\]
+
+Luego usamos $L_-$ para hallar sucesivamente los demás $Y^m_\ell$
+\[
+	=
+\]
+y por este camino se llega a 
+\[
+	Y
+\]
+con 
+\[
+	\qquad 
+\]
+
+En el caso de momento angular orbital $\ell$ no puede ser semientero porque entonces $m$ sería semientero y 
+en una vuelta de $2\pi$
+\[
+	\euler^{im2\pi} = -1
+\]	
+
+Además,
+\[
+	\text{(no hay signo menos)}
+\]
+
+\subsection{Armónicos esféricos como matrices de rotación}
+
+Se pueden hallar autoestados de dirección $\Ket{\hat{n}}$ rotando el $\Ket{\hat{z}}$,
+\[
+	\hat{n} = 
+\]
+Necesitamos aplicar 
+\[
+	D
+\]
+\[
+	n
+\]
+\[
+	l
+\]
+\[
+	l
+\]
+\[
+	Y
+\]
+pero como $\theta=0$ , $Y_\ell^m = 0$  con $m\neq 0$ se tiene 
+\[
+	lm
+\]
+\[
+	Y^*,
+\]
+la matriz de rotación en este caso es un armónico esférico.
+
+La $\Psi$ tiene la misma simetría que el potencial.
+
 % 
 % \begin{figure}[htb]
 % 	\begin{center}
