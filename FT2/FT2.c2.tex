@@ -1735,19 +1735,833 @@ puede escribirse como
 \[
 	UV =
 \]
+Hemos reducido el tensor cartesiano en tensores irreducibles. Podemos asociar esta descomposición con las 
+multiplicidades de objetos con momento angular $\ell=0, \ell=1, \ell=2$
+\[
+	\text{escalar} \longrightarrow \ell=0 \; \text{singlete (un elemento independiente) }
+\]
+\[
+	\text{vector} \longrightarrow \ell=1 \; \text{triplete (tres elementos independientes)}
+\]
+\[
+	\text{tensor de traza nula} \longrightarrow \ell=2 \; \text{quintuplete (cinco elementos 
+independientes)}
+\]
+
+Se define 
+\[
+	T^{(k)}_q \qquad \text{tensor esférico de rango $k$ y número magnético $q$}
+\]
+Un tensor esférico transforma como 
+\[
+	D T D = D T 
+\]
+Tendremos 
+\[
+	T^{(0)}_0 \quad \text{(escalar) tensor esférico de rango 0 ($\ell=0$)}
+\]
+\[
+	(T^{(1)}_1,T^{(1)}_0,T^{(1)}_{-1}) \quad \text{(vector) tensor esférico de rango 1 ($\ell=1$)}
+\]
+
+En muchos casos se puede escribir un tensor esférico como armónico esférico 
+\[
+	Y_\ell^{m}(\theta,\varphi) = Y_\ell^{m}(\hat{n})  \overbrace{\hat{n} \longrightarrow 
+	\vec{v}}^{\text{paso}} Y_\ell^m(\vec{v}) \equiv Y_k^q(\vec{v}) = T_q^{(k)}
+\]
+\[
+	\hat{n} = ()
+\]
+\[
+	Y \longrightarrow T
+\]
+\[
+	Y
+\]
+Calculando en 2, cosa que podemos hacer para, por ejemplo, una rotación infinitesimal, llegamos a las 
+relaciones de conmutación para tensores.
+\[
+	[]
+\]
 
 
+\section{Teorema de Wigner-Eckart}
+
+Es importante para el cálculo de transiciones evaluar elementos de matriz de operadores tensoriales.
+Los elementos matriciales de operadores tensoriales respecto de autoestados de momento satisfacen 
+\[
+	\Braket{||} =
+\]
+un coeficiente que no depende de $q,m,m'$.
+
+La regla de selección se construye 
+\[
+	\Braket{[]} =
+\]
+\[
+	\neq
+\]
+
+Una idea de la demostración del teorema
+\[
+	sa
+\]
+\[
+	ba
+\]
+
+Es la misma relación de recurrencia que la de los coeficientes de Clebsh-Gordan, si reemplazamos
+\[
+	m'=m \quad j=j_1 \quad m=m_1 \qquad j'=j \quad k=j_2 \quad q=m_2
+\]
+
+Como ambas relaciones son lineales, sus resultados serán proporcionales.
+Se puede asociar 
+\[
+	\propto 
+\]
+\[
+	\propto
+\]
+Logramos la igualdad metiendo una constante independiente de $m',q,m$.
+
+\subsection{Reglas de selección}
+
+Como se tiene a $\Braket{|T_q^{(k)}|}$ proporcional a los coeficientes de Clebsh-Gordan, serán válidas las 
+mismas reglas de selección 
+\[
+	m' = m + q \qquad |j-k| \leq j' \leq j+k
+\]
+
+\section{Ejemplos de elementos matriciales de tensores}
+
+Sea un escalar (tensor de rango cero)
+\[
+	\Braket{||} =
+\]
+
+No varían $j,m$ en los estados No conecta estados con $j,m$ diferentes un escalar.
+
+Sea un vector (tensor de rango uno):
+\[
+	\Braket{||} \propto \Braket{j 1;m q|j 1;j' m'}
+\]
+
+Conecta estados que están separados por un $j$ y un $m$.
+
+\subsection{Teorema de proyección}
+
+Consideremos lo que sucede en el teorema de Wigner-Eckart si $j=j'$ y se lo aplicamos a un operador vectorial 
+$T_q^{(k=1)} \equiv V_q$
+\[
+	=
+\]
+
+Como caso especial, si $\alpha' =\alpha$ estoy en un subespcaio donde coinciden los números cuánticos, se 
+tiene
+\[
+	\vb{V} = \frac{\Braket{\cdot}}{} \vb{J}
+\]
+
+\subsection{Aplicación del teorema de proyección}
+
+Sea un $H_0$ esféricamente simétrico 
+\[
+	cosas
+\]
+
+Si meto un campo $B$ en $\hat{z}$ tendré 
+\[
+	H \equiv H_0 + H_1 = H_0
+\]
+lo cual debería romper la degeneración.
+\[
+	L_z + 2S_z =
+\]
+pero no puedo poner este nuevo operador, que mete el campo B, en el CCOC directamente, entonces uso teorema 
+de proyección.
+\[
+	escalares
+\]
+Entonces tengo todo expresado en función de $J_z$ que sí forma parte de mi CCOC.
 
 
+\section{Simetrías en mecánica cuántica}
+
+En mecánica clásica tenemos el teorema de Noether 
+\[
+	\partial p_i = cte.
+\]
+Y $\mathcal{H}, \mathcal{L}$ no cambian con la transformación $q_i \longrightarrow q_i + \delta q_i$
+\[
+	\partial 
+\]
+
+En mecánica cuántica definiremos un operador unitario $\$$ asociado a traslación/rotación. Pensemos en una 
+transformación infinitesimal dada por $\$$
+\[
+	\$
+\]
+
+Sea el H invariante frente a $\$$, entonces 
+\[
+	SHS =
+\]
+
+Esto significa que el autovalor no varía con el tiempo, Como $[H,G]=0$ se tiene 
+\[
+	no dege 
+\]
+
+\subsection{Simetría de paridad}
+
+Transforma un RHS en LHS. Es decir que hace 
+\[
+	\vb{x} \longrightarrow - \vb{x}
+\]
+y solicitaremos un operador unitario llamado paridad que verifique 
+\[
+	\Ket{\alpha} \longrightarrow \Pi\Ket{\alpha} = \Ket{\alpha'}
+\]
+si $\Pi$ es unitario y $\Pi^1=\mathbb{1}$ entonces es hermítico.
+Queremos que refleje el $\Braket{\hat{x}}$ 
+\[
+	a
+\]
+anticonmuta con \vb{x}.
+Debido a ello 
+\[
+	a
+\]
+como $\hat{\Pi}$ no depende del tiempo 
+\[
+	d
+\]
+y vemos que anticonmuta con \vb{p}.
+\vb{x}, \vb{p} son operadores impares. En cambio $\vb{L}=\vb{x}\times\vb{p}$ es un operador par, entonces 
+\[
+	[] = 0
+\]
+
+Que conmuta con \vb{J} puede verse de pedirle que 
+\[
+	[] = 0 \longrightarrow [] = 0 ,
+\]
+cosa que vale en mecánica clásica, entonces 
+\[
+	R
+\]
+\[
+	\Box
+\]
+\[
+	\Box
+\]
+
+\subsection{Función de onda bajo paridad}
+
+\[
+	\Psi
+\]
+y entonces la función de onda de un estado al que se le aplicó paridad será 
+\[
+	\Psi
+\]
+
+Sea $\Ket{\alpha}$ autoestado de paridad, entonces 
+\[
+	a
+\]
+los autovalores serán $\pm 1$
+\[
+	=
+\]
+no toda función de onda tiene paridad bien definida.
+
+\[
+	\vb{x}
+\]
+\[
+	=
+\]
+\[
+	\Pi
+\]
+Como $[\vb{L},\hat{\Pi}]=0$ un autoestado de \vb{L} es autoestado de $\hat{\Pi}$ .
+
+\subsection{Teorema}
+
+Sea 
+\[
+	autoestado 
+\]
+
+La demostración 
+\[
+	()
+\]
+\[
+	2
+\]
+\[
+	3
+\]
+
+Un caso donde falla el teorema 
+\[
+	caso
+\]
+\[
+	caso mas
+\]
+
+\subsection{Reglas de selección de paridad $\Pi$}
+
+Sean $\Ket{\alpha}, \Ket{\beta}$ autoestados de paridad 
+\[
+	\Pi
+\]
+\[
+	\Braket{||}
+\]
+
+\begin{itemize}
+ \item Operadores impares solo conectan estados de paridad opuesta
+ \[
+	a
+ \]
+ \item Operadores pares solo conectan estados de la misma paridad 
+ \[
+	b
+ \]
+\end{itemize}
+
+\[
+	= 0
+\]
+\[
+	c
+\]
+
+\section{Inversión temporal (reversión de movimiento)}
+
+En mecánica clásica sería {\it pasar la película hacia atrás}
+\[
+	t \longrightarrow -t
+\]
+En sistemas sin fuerzas disipativas se tiene 
+\[
+	m \ddot{x} =
+\]
+
+En mecánica cuántica tendremos 
+\[
+	i \hbar 
+\]
+\[
+	=
+\]
+no es solución de Schrödinger. 
+Pero notemos que $\Psi^*(x,-t)$ cumple la ecuación de Schrödinger
+\[
+	i\hbar
+\]
+
+Entonces necesitamos un operador que respete esta característica. Necesitaré el producto interno conjugado 
+\[
+	\Psi
+\]
+El operador involucrado no será unitario 
+\[
+	\Ket{\tilde{\alpha}} = 
+\]
+Si $\hat{\Theta}$ unitario se conserva el producto interno 
+\[
+	=
+\]
+
+Pediremos antiunitariedad y antilinealidad al operador $\hat{\Theta}$
+\[
+	=
+\]
+\[
+	=
+\]
+
+Todo operador antiunitario y antilineal puede escribirse como producto 
+\[
+	\Theta = U K
+\]
+donde $U$ es unitario y $K$ la conjugación compleja. $K$ no cambia los autoestados, porque en base canónica 
+un autoestado tiene un solo elemento (1) que no es nulo.
+\[
+	K
+\]
+
+Veamos que $UK$ es antiunitario 
+\[
+	=
+\]
+
+\[
+	=
+\]
+\[
+	=
+\]
+
+Notemos que no se define $\hat{\Theta}^\dagger$ actuando sobre bras. La demostración anterior esperó a 
+quitarse de encima $\hat{K}$ para hacer dual conjugado al $\Ket{\tilde{\beta}}$.
+
+\subsection{Operadores ante $\hat{\Theta}$}
+
+Usaremos la notación 
+\[
+	\Ket{\tilde{\alpha}} = \hat{\Theta} \Ket{\alpha}
+\]
+donde hay que tener en cuenta 
+\[
+	= \mathbb{1}
+\]
+
+Sería razonable esperar que 
+\[
+	= -
+\]
+Sea $\hat{\mathbb{O}}$ un operador hermítico 
+\[
+	=
+\]
+Luego metemos un $=1$
+\[
+	=
+\]
+
+Notamos que no se aplica $\Theta$ sobre bra alguno y tenemos $\Theta$ no unitario. Entonces requeriremos 
+\[
+	=
+\]
+como para $\vb{p},\vb{J}$ operadores impares 
+\[
+	=
+\]
+y $\vb{x}$ operador par.
+
+Los operadores pares conmutan con $\Theta$,
+\[
+	= =
+\]
+
+Hamiltoniano ante reversión de movimiento. Veamos la reversión de un sistema en estado $\Ket{\alpha}$
+\[
+	=
+\]
+Si el hamiltoniano es invariante ante reversión temporal debería ser lo mismo 
+\[
+	=
+\]
+es decir que estamos pidiendo que se obtenga el mismo estado 
+\begin{itemize}
+ \item Si revertimos el movimiento y evolucionamos $\delta t$.
+ \item Si evolucionamos hacia atrás $-\delta t$ y revertimos el movimiento.
+\end{itemize}
+
+Veamos que vale lo anterior, pensando que si vale se tiene 
+\[
+	=
+\]
+\[
+	=  \qquad [H,\Theta]=0
+\]
+
+Si $\Theta$ era unitario teníamos la relación de anticonmutación $\{ H, \Theta \}=0$ lo cual lleva a absurdos.
+\[
+	a
+\]
+Si $\{ H,\Theta \} = 0$
+\[
+	= \text{H debe ser par frente a $\Theta$}
+\]
+
+\subsection{Función de onda}
+
+Sea en $t=0$ un sistema en el estado $\Ket{\alpha}$
+\[
+	= = 
+\]
+\[
+	\Psi
+\]
+Esto era lo que {\it vimos} en la ecuación de Schrödinger.
+
+\subsection{Reversión de movimiento sobre \vb{J}}
 
 
+no tiene sentido porque $J_x,J_y,J_z$ no conmutan entre ellos. Analizaremos $\Ket{\ell,m}$
+\[
+	\Theta \Ket{\vb{J}} 
+\]
+\[
+	\equiv 
+\]
+
+Lo que hace $\Theta$ es invertir la componente de $\hat{z}$ y alterar la fase. Se ve que 
+\[
+	\Theta^2 = \mathbb{1}
+\]
+
+\subsection{Reversión para sistemas de spin $1/2$}
+
+Sea un estado general up de spin $\Ket{\hat{n};+}$, que se obtiene con dos rotaciones 
+\[
+	Sn
+\]
+\[
+	\Theta
+\]
+\[
+	a
+\]
+\[
+	b
+\]
+\[
+	c
+\]
+
+\subsection{Teorema}
+
+Sea $H$ invariante ante $\Theta$ y los $\Ket{n}$ no degenerados, entonces la autofunción de energía puede 
+hacerse real tomando una fase apropiada.
+
+Demostración 
+\[
+	H \Theta  \Ket{n} =
+\]
+\[
+	=
+\]
+\[
+	=
+\]
+
+Si le aplico al sistema transformaciones dadas por operadores que conmutan con el H no lo sacamos del 
+autoestado en que se encuentra con el paso del tiempo.
+En ese sistema solo será razonable medir variables representadas por esos operadores; puesto que de lo 
+contrario estamos alterando el sistema y nos es imposible saber donde ha quedado.
+
+\section{Métodos perturbativos}
+
+Se basan en 
+\[
+	H = H_0 + \lambda V \qquad \lambda \ll 1
+\]
+con $ H_0\Ket{n^{(0)}} = E_n^{(0)}\Ket{n^{(0)}}$ (el problema sin perturbar)
+\[
+	H
+\]
+que sería la solución exacta.
+Como esto es hartocomplicado podemos desarrollar en serie 
+\[
+	\approx 
+\]
+\[
+	\approx 
+\]
+\[
+	()[] = ()()
+\]
+\[
+	\sum_{i=0}^\infty =
+\]
+y aproximando los primeros términos 
+\[
+	H_0
+\]
+\[
+	E_0
+\]
+ahora igualamos orden a orden y resulta 
+\[
+	\lambda^0 ....
+\]
+\[
+	\lambda^1 ....
+\]
+\[
+	\lambda^2 ....
+\]
+
+Pediremos una normalización a cada orden y considerando $ \Braket{0_n|n(\lambda)} \in \mathbb{R}$
+\[
+	()() =
+\]
+\[
+	\lambda
+\]
+\[
+	...
+\]
+\[
+	...
+\]
+
+En un mismo autoestado $(n)$ los órdenes diferentes $(i)$ no son necesariamente ortogonales.
+
+\section{Resolución}
+
+A orden cero será 
+\[
+	() \qquad \text{y se define} \qquad 
+\]
+y $\Ket{0_n}$ es dato porque es el estado no perturbado.
+A orden uno tenemos 
+\[
+	()
+\]
+\[
+	\Braket{}
+\]
+y la energía a orden uno es 
+\[
+	=
+\]
+
+Veamos el autoestado a orden uno. Podemos poner (no hay degeneración)
+\[
+	=
+\]
+y sea $p\neq n$
+\[
+	+ = 0
+\]
+\[
+	=
+\]
+a un mismo orden (cero) diferentes autoestados son ortogonales.
+Sea $p=n$ entonces 
+\[
+	= 0 
+\]
+ya lo vimos antes, en la normalización
+\[
+	=
+\]
+autoestado hasta orden uno. A orden dos tenemos 
+\[
+	+ - = 0
+\]
+\[
+	+ - = 0
+\]
+\[
+	=
+\]
+\[
+	E
+\]
+que es la energía a orden dos.
+Veamos el autoestado a orden dos 
+\[
+	\Ket{2n} = \sum_p ()\Ket{\phi_p}
+\]
+sea $p\neq n$ 
+\[
+	+
+\]
+\[
+	+
+\]
+\[
+	=
+\]
+\[
+	+
+\]
+\[
+	+
+\]
+
+Sea $p=n$
+\[
+	+ = 1
+\]
+\[
+	=
+\]
+\[
+	=
+\]
+
+\[
+	\Ket{2n} =
+\]
+y el autoestado hasta orden dos
+\[
+	=
+\]
+con la energía hasta orden dos 
+\[
+	=
+\]
+
+\subsection{Caso degenerado}
+
+Sea que hay degeneración de orden $g$ en el autoestado $N$( a orden cero)
+\[
+	= k=1,2,...,g
+\]
+Suponemos existe combinación lineal 
+\[
+	+
+\]
+para escribir un estado degenerado en función de los otros.
+\[
+	= 0
+\]
+\[
+	= 0
+\]
+\[
+	=0
+\]
+\[
+	=0
+\]
+\[
+	=
+\]
+Esto último es una ecuación de autovalores y autovectores de la forma:
+\[
+	= 0 
+\]
+nos dará los corrimientos de la energía a primer orden  y los autoestados $\Ket{1_n^j}$ serán los 
+autovectores del problema.
+
+\section{Efecto Stark}
+
+Sea un átomo de H con $\Ket{n,\ell,m}$ sin spín y con $n=2$. Será 
+\[
+	0
+\]
+Tengo cuatro estados 
+\[
+	2 0 0 
+\]
+todos con la misma energía $\epsilon_2$.
+Metemos un campo eléctrico en $\hat{z}$ y entonces $V=-ez|\vb{E}|$. Luego 
+\[
+	=
+\]
+$\hat{z}$ es impar ante paridad y entonces vincula estados de paridad diferente,
+y entonces 
+\[
+	= 0 
+\]
+diagonal nula y con $m'\neq m$ a igual $\ell$ tiene la misma paridad
+\[
+	=
+\]
+
+Solo hay un elemento no nulo correspondiente al producto par-impar.
+Se tendrá 
+\[
+	=
+\]
+Puedo diagonalizar y obtengo 
+\[
+	=
+\]
+
+En este caso no se rompe la degeneración por completo.
+\[
+	=
+\]
 
 
+\subsection{Corrimiento de la energía a orden 2 (con degeneración)}
 
+Sea que a orden uno se rompe toda la degeneración 
+\[
+	+ - = 0
+\]
+Entonces la corrección a segundo orden de la energía será:
+\[
+	+ - = E
+\]
+pues $\Braket{0_N^j|0_N^j}= 0$ pero 
+\[
+	=
+\]
+\[
+	=
+\]
+falta desarrollo ...
 
+\[
+	E =
+\]
+donde $N$ es un estado degenerado.
 
+\section{Estructura fina del átomo de hidrógeno}
 
+La solución tradicional del átomo de H usa el potencial coulombiano. Esto desemboca en las funciones 
+$\Ket{n,\ell,m}$, sin embargo la introducción de ajuste como {\it perturbaciones} rompe algo la degeneración.
+\[
+	cuentitas
+\]
+donde $a_0$ es el radio de Bohr, $\alpha$ es la constante de estructura fina .
+Tenemos 
+a) Corrección cinemática (relativista)
+\[	
+	0
+\]
+y esta corrección va como $W_{mv}/H_0 \sim \alpha^2$.
 
+b) Acoplamiento spín-órbita
+Se puede pensar considerando un $e^-$ en reposo con un protón orbitando que genera un $\vb{B}_{eff}$
+\[
+	W_{so} =
+\]
+y la corrección va como $W_{mv}/H_0 \approx \alpha^2$.
+
+c) Término de Darwin o de contacto
+\[
+	=
+\]
+que va como  $W_{D}/H_0 \approx \alpha^2$.
+
+Hay otras correcciones hiperfinas que provienen del spín del electrón y del spín del protón. Pero van como 
+$\alpha^2/2000$.
+Si consideramos el sistema con 
+\[
+	n=2
+\]
+serán ocho estados.
+\[
+	W
+\]
+y W es par ante $\Pi$ y sólo habrá elementos de matriz $\neq 0$ que sean de la misma paridad.
+\[
+	matriz
+\]
+y entonces $\Ket{2s}, \Ket{2p}$ no están conectados.
+
+De manera que hay ocho estados $\Ket{n=2,\ell,m_\ell,s,m_s}$ que al calcular esta perturbación W resultan 
+\[
+	dg
+\]
+El cálculo para las correcciones hiperfinas no condice la experiencia. Se necesita aquí mecánica cuántica 
+relativista. Los dos primeros niveles tienen la misma $\Delta E$ porque en MCR se ve que 
+\[
+	E = 
+\]
+es decir que no depende directamente de $\ell,s$.
+
+Un sketch de los métodos perturbativos
+\[
+	H_0 = 
+\]
 
 
 % \begin{figure}[htb]
