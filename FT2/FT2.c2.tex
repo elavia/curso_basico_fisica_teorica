@@ -2585,6 +2585,179 @@ Un sketch de los métodos perturbativos
 \]
 
 
+\section{Picture de interacción y perturbación dependiente del tiempo}
+
+Puédense escribir perturbaciones dependientes del tiempo 
+\[
+	H = H_0 + V(t)
+\]
+con $\Ket{n}$ no dependiente del tiempo. Se estudiarán transiciones entre autoestados del $H_0$ (que son 
+estacionarios). Un autoestado permanece en el tiemo como tal pero con fase oscilante
+\[
+	\Ket{\alpha,t_0,t}_s = 
+\]
+\[
+	a
+\]
+\[
+	b
+\]
+\[
+	c
+\]
+
+Aquí se puede pensar que 
+\begin{itemize}
+ \item $C_n(t)$ evoluciona por $V(t)$
+ \item $C$ evoluciona por $H_0$
+\end{itemize}
+
+Esto introduce la {\it picture} de interacción de Dirac; en la cual los estados evolucionan con $V(t)$.
+
+\begin{center}
+\begin{tabular}{llll}
+ & Dirac & Schrödinger & Heinsenberg \\
+estados & e & e & fijos \\
+operadores & e & fijos & e\\
+base & fijos & fijos & e
+\end{tabular}
+\end{center}
+
+\[
+	b
+\]
+\[
+	nb
+\]
+\[
+	a
+\]
+que es la ecuación de evolución de los kets.
+Pediremos asimismo que 
+\[
+	a
+\]
+\[
+	c
+\]
+Y los operadores evolucionan según 
+\[
+	a
+\]
+\[
+	d =
+\]
+que es igual que la ecuación de Heisenberg pero con $\hat{H}_0$ en lugar de $H$.
+Los kets base permanecen fijos, porque así lo hacen en Schrödinger, en realidad oscila su fase; entonces 
+\[
+	d
+\]
+\[
+	d
+\]
+\[
+	d
+\]
+
+\subsection{Evolución de los coeficientes}
+
+\[
+	as
+\]
+\[
+	C_n(t) =
+\]
+\[
+	d
+\]
+y le pego un $\Bra{n}$ a la ecuación de evolución de kets,
+\[
+	i\hbar
+\]
+\[
+	s
+\]
+\[
+	i\hbar
+\]
+donde $V_{nm}(t) \equiv \Braket{n|V(t)|m}$ y $\omega_{nm} \equiv (E_n-E_m)/\hbar$.
+Esta es la ecuación que cumplen los coeficientes, donde $|C_n(t)|^2$ es la probabilidad de hallar al sistema 
+en el autoestado $\Ket{n}$.
+Es decir
+\[
+	\begin{matrix}
+	 =
+	\end{matrix}
+\]
+que puede ser de difícil solución.
+
+\subsection{Método perturbativo (dependiente del tiempo)}
+
+Pensaremos en una serie perturbativa 
+\[
+	C_n(t) =
+\]
+
+El evolucionador temporal en la picture de interacción cumple 
+\[
+	\Ket{} =
+\]
+que viene de  
+\[
+	i\hbar
+\]
+la cual resolviendo nos hace llegar a 
+\[
+	U
+\]
+y esto lleva a la serie de Dyson:
+\[
+	U
+\]
+
+\subsection{Transiciones entre autoestados del hamiltoniano $H_0$}
+\[
+	\Ket{} =
+\]
+\[
+	a
+\]
+La amplitud de transición será 
+\[
+	C
+\]
+con $\Ket{i},\Ket{n}$ autoestados de $H_0$.
+Sea $\tilde{C}_n(t)=\Braket{n|U_s(t)|i}$ y busquemos una expresión 
+\[
+	a
+\]
+\[
+	b
+\]
+y notemos que $\hat{U}$ no obedece la ley de transformación de operadores.
+
+\[
+	a
+\]
+\[
+	b \Rightarrow |C_n(t)|^2 = |\tilde{C}_n(t)|^2
+\]
+
+Para transiciones entre autoestados de $H_0$ los coeficientes dan la misma probabilidad (evaluados con el 
+evolucionador de Dirac que con el de Schrödinger).
+Vamos a las transiciones a los tres 
+\begin{itemize}
+ \item orden 0
+ \item orden 1
+ \item orden 2
+\end{itemize}
+
+\subsection{Ejemplo: potencial constante encendido abruptamente}
+
+
+
+
+
 % \begin{figure}[htb]
 % 	\begin{center}
 % 	\includegraphics[width=0.35\textwidth]{images/fig_ft1_gauss.pdf}	 
