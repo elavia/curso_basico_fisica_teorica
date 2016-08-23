@@ -30,466 +30,575 @@
 \begin{document}
 
 % =================================================================================================
-\chapter{Conceptos fundamentales de electromagnetismo}
+\chapter{Introducción al momento angular (rotaciones)}
 % =================================================================================================
 
+El operador $\hat{L}$ será el encargado de realizar las rotaciones. Por el álgebra visto en la mecánica 
+clásica sabemos que, dado un vector \vb{v} y una matriz ortogonal $R$ se tiene
+\[
+	\vb{v}' = R \vb{v} \qquad \text{con} \quad |\vb{v}'|=|\vb{v}|
+\]
+y 
+\[
+	|\vb{v}|^2 = V^t V = (V^t R^t) (R V) \qquad \text{pues} \quad R^tR=RR^t = \mathbb{1}
+\]
+puesto que es una matriz ortogonal. Luego se cumplen 
+\[
+	clausura	
+\]
+el producto de dos matrices ortogonales es otra matriz ortogonal
+\[
+	asociatividad
+\]
+\[
+	E identidad
+\]
+\[
+	E inversa
+\]
 
-% =================================================================================================
-\section{Ecuaciones de Maxwell}
-% =================================================================================================
+\subsection{No conmutatividad de las rotaciones clásicas}
 
-Son ecuaciones lineales de modo que vale la superposición (con \vb{E}, \vb{B} y 
-cualquier vector relacionado linealmente con ellos).
+Las rotaciones finitas no conmutan. Luego, el grupo de las rotaciones será un grupo abeliano
 \[
-	\nabla \cdot \vb{D} = 4 \pi \rho_\ell \qquad \nabla \cdot \vb{B} = 0
+	R_z(\varphi) = \begin{pmatrix}
+	 \\
+	\end{pmatrix}
 \]
 \[
-	\nabla \times \vb{E} = - \frac{1}{c} \dpar{B}{t} \qquad \nabla \times \vb{H} =
-	\frac{4\pi}{c} \vb{J}_\ell + \frac{1}{c}\dpar{D}{t}
+	R_x(\varphi) = \begin{pmatrix}
+	 \\
+	\end{pmatrix}
 \]
 \[
-	\vb{F} = q \left( \vb{E} + \frac{1}{c} \vb{v} \times \vb{B} \right)
+	R_y(\varphi) = \begin{pmatrix}
+	 \\
+	\end{pmatrix}
 \]
-
-Los vectores pueden ser polares (tienen físicamente bien definido el sentido) o
-axiales (se les atribuye un sentido por convención).
-
-Las ecuaciones son invariantes ante transformaciones del tipo: rotación
-y reflexión espacial y temporal.
-
-% =================================================================================================
-\section{Electrostática}
-% =================================================================================================
-
-La ley de Coulomb reza que
-\[
-	\vb{F}_{12} = q_1 q_2 \frac{(\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2 |^3}
-\]
-que es la fuerza sobre 1 debido a 2. De la ley de Coulomb se puede definir 
-\[
-	\vb{E}_{12}(\vb{x}_1) \equiv \vb{F}_{12}/q_1
-\]
-y tomando $\vb{x}_1 \equiv \vb{x}$ y haciendo el límite $q_1 \to 0$ se tiene
-\[
-	\vb{E}(\vb{x}) = \sum_{i=1}^N \; q_i \frac{(\vb{x} - \vb{x}_i)}{|\vb{x} - \vb{x}_i |^3}
-\]
-que es el campo eléctrico y que en el paso al continuo resulta
-\[
-	\vb{E}(\vb{x}) = \int_{V'} \rho(\vb{x}) \frac{(\vb{x} - \vb{x}_i)}{|\vb{x} - \vb{x}_i |^3} dV' 
-\]
-siendo \vb{x} punto campo y $\vb{x}_i$ punto fuente.
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/fig_ft1_ejescargas.pdf}	 
+	\includegraphics[width=0.6\textwidth]{images/teo2_10.pdf}
 	\end{center}
 	\caption{}
 \end{figure} 
 
-\subsection{Conservación de la carga}
-
-La carga total sale de una integral 
-\[
-	Q = \int_{V'}  \rho(\vb{x}') dV'
-\]
-como muestra la imagen
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.25\textwidth]{images/fig_ft1_conserv.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-y si el volumen es fijo podemos tomar la derivada con respecto al tiempo que pasa el interior como
-derivada parcial,
-\[
-	\dtot{Q}{t} = \int_{V'} \dpar{\rho}{t} (\vb{x}') dV' = - \int_{S\equiv\partial V'} \vb{J} \cdot d\vb{S}
-\]
-y el miembro extremo derecho  se debe a que si la carga varía es a consecuencia de que se va en
-forma de flujo. Aplicando el teorema de la divergencia en el miembro derecho,
-\[
-	\int_{V'} \dpar{\rho}{t} (\vb{x}') dV' = - \int_{V'} \nabla \cdot \vb{J} \; dV'
-\]
-lo cual vale para todo volumen y entonces esto significa que
-\[
-	\dpar{\rho}{t} + \nabla \cdot \vb{J} = 0
-\]
-que es la ecuación de continuidad de la carga. Si fuera $\nabla \cdot \vb{J}=0$ esto significa que las líneas
-de \vb{J} no tienen principio ni fin.
+Si reemplazamos $\cos(\epsilon) \approx 1 - \epsilon^2/2$ y $\sin(\epsilon) \approx \epsilon$ hasta orden dos.
+Se puede ver que las rotaciones, en torno a ejes diferentes, sólo conmutan a orden uno $(\epsilon)$ de manera 
+que una rotación infinitesimal $d\varphi$ conmuta pero una rotación finita $\varphi$ no lo hace.
 
 % =================================================================================================
-\section{Interacción magnética}
+\section{Rotaciones cuánticas}
 % =================================================================================================
 
-Cuando se da $\nabla \cdot \vb{J}=0$ hablamos de una corriente estacionaria (no hay acumulación de carga en
-ninguna parte). Las corrientes estacionarias producen efectos magnéticos dados por la ley de Biot-Savart
+Para las rotaciones cuánticas se pedirá
 \[
-	\vb{B}(\vb{x}) = \frac{1}{c} \int_\Gamma \frac{I d\vb{\ell}' \times (\vb{x} - \vb{x}')}{|\vb{x} - \vb{x}'|^3} 
+	D,
 \]
-que es válida para un circuito $\Gamma$, que es una curva que se recorre en sentido CCW.
-En el caso de un volumen la expresión es 
+rotación infinitesimal o bien
 \[
-	\vb{B}(\vb{x}) = \frac{1}{c} \int_{V'} \frac{ \vb{J}(\vb{x}') \times (\vb{x} - \vb{x}')}{|\vb{x} - \vb{x}'|^3} 
-dV'
+	D,
 \]
-mientras que la fuerza sobre un circuito $\Gamma$ es
+para rotación finita. Donde $\hat{D}$ es el operador de las rotaciones y $\hat{J}$ es un momento angular 
+general. Se postula de esta forma para que $\hat{D}$ cumpla las mismas propiedades que $R$ y la relación de 
+conmutación
 \[
-	F = \frac{1}{c} \int_\Gamma I d\vb{\ell} \times \vb{B}
+	R_x R_y - R_y R_x = R_z (\epsilon^2) - \mathbb{1}
 \]
-y sobre un volumen 
 \[
-	F = \frac{1}{c} \int_V \vb{J} \times \vb{B} dV
+	D
+\]
+de modo que la cuenta lleva a  
+\[
+	J_x
+\]
+la cual generalizando se llega a 
+\[
+	[J_i,J_j] = i \hbar \epsilon_{ijk} J_k
+\]
+que son las relaciones de conmutación generales para momento angular $\hat{J}$.
+
+Para sistemas de spín $1/2$ es 
+\[
+	D(\hat{n},\phi) \equiv \euler^{-i/\hbar \vb{S}\cdot\hat{n} }
+\]
+Se puede ver que ante rotaciones cuánticas $D(\hat{n},\phi)$ los valores de expectación transforman como 
+vectores
+\[
+	=
 \]
 
-La transformación entre estas integrales puede hacerse merced al siguiente razonamiento,
-% \begin{align*}
-%  	I d\vb{\ell} \times \vb{B} = \vb{J}  \cdot d\vb{S} d\vb{\ell}  \times \vb{B} =
-%   	\cos(\theta) dS \vb{J} d\ell \times \vb{B} = \\
-% 	\vb{J} \times \vb{B}  \cos(\theta) dS d\ell  = \vb{J} \times \vb{B}  d\vb{S} \cdot d\vb{\ell}  = 
-% 	\vb{J} \times \vb{B}  dV 
-% \end{align*}
+En general $\vb{J} = (J_x, J_y, J_z)$ se transforma como vector y entonces $\hat{J}$ es un operador vectorial.
+Para spín $1/2$ es
 \[
-  	I d\vb{\ell} \times \vb{B} = \vb{J}  \cdot d\vb{S} d\vb{\ell}  \times \vb{B} =
-  	\cos(\theta) dS \vb{J} d\ell \times \vb{B} = 
+	\Ket{alpha} =
 \]
 \[
-	\vb{J} \times \vb{B}  \cos(\theta) dS d\ell  = \vb{J} \times \vb{B}  d\vb{S} \cdot d\vb{\ell}  = 
-	\vb{J} \times \vb{B}  dV 
-\]
-
-\subsection{Fuerza de un circuito sobre otro}
-
-La fuerza de un circuito 2 sobre otro circuito 1 puede calcularse con un poco de paciencia como sigue
-\[
-	F_{12} = \frac{1}{c} \int_{\Gamma_1} I_1 d\vb{\ell}_1 \times \left\{
-	\frac{1}{c} \int_{\Gamma_2} \frac{I_2 d\vb{\ell}_2 \times (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
-	\right\}
+	D
 \]
 \[
-	F_{12} = \frac{I_1 I_2}{c^2} \int_{\Gamma_1} \int_{\Gamma_2} d\vb{\ell}_1 \times \left\{
-	\frac{d\vb{\ell}_2 \times (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
-	\right\}
+	D
 \]
+Si $\phi=2\pi$ (cosa que debiera dejar al ket incólume) se tiene 
 \[
-	F_{12} = \frac{I_1 I_2}{c^2} \int_{\Gamma_1} \int_{\Gamma_2} d\vb{\ell}_2  \left\{
-	\frac{d\vb{\ell}_1 \cdot (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
-	\right\} - \int_{\Gamma_1} \int_{\Gamma_2} \frac{ (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
-	\left\{ d\vb{\ell}_1 \cdot d\vb{\ell}_2 \right\}
-\]
-donde el primer término se comprueba nulo si se reescribe utilizando que
-\[
-	\frac{ (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} = 
-	\nabla_{\vb{x}_2} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} =
-	- \nabla_{\vb{x}_1} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} 
-\]
-de manera que entonces
-\[
-	- \int_{\Gamma_2} d\vb{\ell}_2  \int_{\Gamma_1} d\vb{\ell}_1 \cdot \nabla_{\vb{x}_1} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} 
-\]
-donde se ve que es nula la última integral dado que 
-\[
-	\int_{\Gamma_1} d\vb{\ell}_1 \cdot \nabla_{\vb{x}_1} = 0.
+	D
 \]
 
-Entonces, se tiene 
-\[
-	F_{12} = - \frac{I_1 I_2}{c^2} \int_{\Gamma_1} \int_{\Gamma_2} \frac{ (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
-	\left( d\vb{\ell}_1 \cdot d\vb{\ell}_2 \right)
-\]
-que vale lo mismo si intercambiamos $\Gamma_1$ con $\Gamma_2$ en la integración. Podemos decir que con corrientes estacionarias
-vale el principio de acción y reacción: las fuerzas son iguales y de sentido opuesto.
+Luego, esto es una muestra del carácter no-clásico del spin; una vuelta completa le cambia el signo al ket 
+pero notemos cuidadosamente que el valor de expectación -- que es algo físico -- no varía. Esto muestra que 
+el ket no puede tener sentido físico.
 
+\subsection{Angulos de Euler}
 
-% =================================================================================================
-\section{Teorema de Helmholtz}
-% =================================================================================================
-
-Nos dice que un campo vectorial está completamente determinado por su divergencia y su rotor.
-Por ejemplo, para un campo eléctrico 
+Se define una serie de rotaciones 
 \[
-	\vb{E} = \int_{V'} \rho \frac{\vb{x} - \vb{x}'}{|\vb{x} - \vb{x}'|^3} dV' = 
-		- \int_{V'} \rho \nabla_{\vb{x}} \frac{ 1 }{|\vb{x} - \vb{x}'|} dV' = 
-		- \nabla_{\vb{x}} \int_{V'}   \frac{ \rho }{|\vb{x} - \vb{x}'|} dV' = 
+	1 2 3
 \]
-y esta última es la integral de Poisson
+lo cual equivale a
 \[
-	\vb{E} = - \nabla_{\vb{x}} \phi (\vb{x}).
-\]
-Entonces $\vb{E}$ es un gradiente y por ello 
-\[
-	\nabla  \times \vb{E} = 0
-\]
-de manera que $\vb{E}$ es conservativo, cumple $\int \vb{E}\cdot d\vb{\ell} = 0$ o lo que
-es lo mismo, $\vb{E}$ es irrotacional.
-Hemos hecho la construcción de un potencial electrostático.
-
-% =================================================================================================
-\section{Ley de Gauss}
-% =================================================================================================
-
-
-
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.35\textwidth]{images/fig_ft1_gauss.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-\[
-	\vb{E} \cdot \hat{n} = q \frac{\cos(\theta)}{r^2}
-\]
-y el ángulo sólido es
-\[
-	\vb{E} \cdot \hat{n} dS = q \frac{\cos(\theta)}{r^2} dS
+	R() = 
 \]
 \[
-	\vb{E} \cdot \hat{n} dS = q d\Omega \qquad \longrightarrow \qquad 
-	\int_{S\equiv\partial V} \vb{E} \cdot \hat{n} \; dS = q \int_S d\Omega =
-	\begin{cases}
-	 0 \quad \textrm{carga exterior}\\
-	 4\pi \quad \textrm{carga interior}
-	\end{cases}
-\]
-\[
-	\int_S \vb{E} \cdot \hat{n} \; dS = 4\pi \sum_i q_i
-\]
-La ley de Gauss es
-\[
-	\int_S \vb{E} \cdot \hat{n} \; dS = 4\pi Q_n
-\]
-donde $Q_n$ es la carga neta dentro de la superficie $S$. Al continuo pasa como 
-\[
-	\int_S \vb{E} \cdot \hat{n} \; dS = 4\pi \int_V \rho \: dV
-\]
-de manera que 
-\[
-	\int_V \divem{E} \; dV = \int_V 4\pi \rho \: dV
-\]
-y entonces
-\[
-	\divem{E} = 4\pi \rho.
+	\euler
 \]
 
-Por otro lado si \vb{E} es el gradiente de un potencial $\phi$ se tiene
+Pero desconozco cómo operar en los ejes móviles $z',y'$
 \[
-	\divem{E} = \Nabla\cdot{(-\Nabla\phi)} = - \lapm\phi = 4\pi \rho
-\]
-y se desprenden las ecuaciones de Poisson,
-\[
-	\lapm\phi = -4\pi \rho
-\]
-y de Laplace
-\[
-	\lapm\phi = 0
-\]
-que es el caso particular de la anterior con cargas nulas.
-
-La solución de la ecuación no homogénea es suma de una solución del homogéneo más una solución
-particular. La carga está relacionada a la solución particular.
-
-\subsection{Gauges}
-
-Dado que $\divem{B}=0$ entonces existe un \vb{A} tal que 
-\[
-	\rotorm{A} = \vb{B}
-\]
-pero para caracterizar totalmente el \vb{A} tengo la libertad de definir a conveniencia
-\[
-	\divem{A} \equiv \; \textrm{``el gauge''}.
-\]
-Casos particulares importantes son el gauge de Coulomb,
-\[
-	\divem{A} = 0
-\]
-de manera que como 
-\[
-	\Nabla \times (\rotorm{A}) = \Nabla(\divem{A}) - \lapm{\vb{A}} = \frac{4\pi}{c}\vb{J}
-\]
-se llega para el potencial electromagnético, bajo el gauge de Coulomb, a que 
-\[
-	\lapm{\vb{A}} = - \frac{4\pi}{c}\vb{J} 
-\]
-
-	\begin{table}[hbt]
-	\centering
-        \begin{tabular}{|c|c|}
-		\hline
-		& \\
-		$\displaystyle{\vb{E} = \int_{V'} \frac{\rho(\vb{x}')(\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} dV' 
-		}$ & $\displaystyle{\vb{B} = \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}') \times 
-		(\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} dV'}$ \\
-		& \\
-		\hline
-		Ley de Gauss & Ley de Ampere \\
-		& \\
-		$\displaystyle{\int_S \vb{E}\cdot d\vb{S} = 4\pi Q_n}$ &
-		$\displaystyle{\int_\Gamma \vb{B}\cdot d\vb{\ell} = \frac{4\pi}{c} I_c}$ \\
-		& \\
-		\hline
-		&\\
-		$\divem{E} = 4\pi\rho$ & $\divem{B} = 0$ \\
-		$\rotorm{E} = 0$ & $\rotorm{B} = \frac{4\pi}{c}\vb{J}$ \\
-		& \\
-		\hline
-		& \\
-		$\vb{E} = - \Nabla\phi$ & $\vb{B} = \rotorm{A}$ \\
-		& \\
-		\hline
-        \end{tabular} 
-	\caption{}
-	\end{table} 
-
-La operación de tomar rotor y el producto vecrtorial cambian el carácter de los vectores: de
-polares pasan a axiales y viceversa.
-
-La fuerza general sobre una distribución de carga es
-\[
-	\vb{F} = \int_{V'} \rho \vb{E} dV' + \frac{1}{c} \int_{V'} \vb{J} \times \vb{B} dV'. 
-\]
-
-\subsection{Delta de Dirac}
-
-Una densidad de carga puntual se puede escribir mediante una delta de Dirac de acuerdo a
-\[
-	\rho(\vb{x}') = q\: \delta (\vb{x} - \vb{x}') = \begin{cases}
-	                                               0 \qquad \vb{x} \neq \vb{x}' \\
-	                                               \infty \qquad \vb{x} = \vb{x}'\\
-	                                              \end{cases}
-\]
-siendo las dimensiones de la delta las de $1/L^3$ y cumpliéndose 
-\[
-	\int_{V'} \delta (\vb{x} - \vb{x}') dV' = 1
+	R_{y'}(\beta) =
 \]
 \[
-	\delta (\vb{x} - \vb{x}') = \frac{1}{h_1h_2h_3} \delta(q_1-q_1') \delta(q_2-q_2') \delta(q_3-q_3')
+	R_{z'}(\gamma) =
 \]
-donde $q_1, q_2$ y $q_3$ son coordenadas curvilíneas generales y $h_1h_2h_3$ es el jacobiano
-de la transformación.
-Luego
 \[
-	\int f(\vb{x}) \delta' (\vb{x} - \vb{x}_0) dx = -f'(\vb{x}_0)
+	R() =
 \]
+Rotación equivalente a [1] pero para ejes fijos, puesto que en mecánica cuántica sabemos rotar en torno a 
+ejes fijos.
 
+Los ángulos de Euler son la caracterización de una rotación general en 3D.
 
-
-\subsection{reflexión}
-
-Un vector polar sufre reflexión especular mientras que un vector axial ({\it pseudovector})
-sufre una antireflexión especular. Ver la figura.
-
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/fig_ft1_reflexvect.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-
-Una reflexión más una rotación permite eliminar componentes de campo.
-Una simetría más una rotación-traslación permite eliminar dependencias.
-
-Lo primero que debe hacerse es escribir bien la \vb{J} a partir del dato de la corriente
-(que es el que se suele tener) mediante
+Entonces nuestra rotación en 3D cuántica será:
 \[
-	i = \int_S \vb{J} \cdot d \vb{S}
-\]
-En cambio, para \vb{A} es más fácil usar
-\[
-	\vb{B} = \rotorm{A}
-\]
-y despejar de aquí la ecuación diferencial que emplear
-\[
-	\vb{A} = \frac{1}{c} \int_V \frac{\vb{J}}{|\vb{x}-\vb{x}'|} dV
+	D() =
 \]
 
+\subsection{Autoestados y autovalores de J}
 
-\section{El potencial vector}
-
-Por la ley de Biot y Savart,
+Partimos de 
 \[
-	\vb{B} = \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}') \times (\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} 
-	dV' = \Nabla_x \times \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|} dV'
+	[] = 
 \]
-de modo que
-\be
-	\vb{A} = \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|} dV'
-	\label{potvec}
-\ee
+y
+\[
+	J^2 = , [J^2,J] = 0
+\]
+siendo la última muy importante y probándose por evaluación directa. Lleva a 
+\[
+	[J^2,J_i^n] = 0 \qquad \text{con} \; i=x,y,z \; n\in\mathbb{N}
+\]
+
+Se eligen $J^2, J_z$ como observables que conmutan 
+\[
+	J^2
+\]
+
+Definiremos los operadores de subida y de bajada
+\[
+	J_{\pm} \equiv J_x \pm J_y
+\]
+que verifican 
+\[
+	[]
+\]
+Entonces se tiene 
+\[
+	J^2() \longrightarrow 
+\]
+\[
+	(J_z) \longrightarrow
+\]
+
+\[
+	J_{\pm} \Ket{a,b} = C_{\pm} \Ket{a,b\pm\hbar}
+\]
+\[
+	J_+
+\]
+sube el $J_z$ en una unidad de $\hbar$ o bien baja el $J_z$ en una unidad de $\hbar$.
+\[
+	J_+J_- =  ,
+\]
+\[
+	J^2 = ,  
+\]
+\[
+	\Braket{a,b|J^2 - J^2_z|a,b} = 
+\]
+\[
+	(a-b^2)\Braket{a,b|a,b} = , a \geq b^2
+\]
+hay cota para $b$.
+Como no puede seguir subiendo debe dar el ket nulo 
+\[
+	= 0
+\]
+\[
+	= 0
+\]
 pero 
 \[
-	\vb{A}' \equiv \vb{A} + \Nabla \Psi
+	J_-J_+
 \]
-es tan buen potencial vector como \vb{A} puesto que los rotores verifican $\rotorm{A}=\rotorm{A}'=\vb{B}$,
-de lo cual extraemos en conclusión que el potencial vector está definido a menos del gradiente de una
-función escalar.
-
-Tomándole el rotor a \eqref{potvec} y considerando $\Nabla'\cdot\vb{J}(\vb{x}')=0$ lo cual se verifica si
-la corriente es estacionaria se tiene 
 \[
-	\rotorm{B} = \frac{4\pi}{c} \vb{J}(\vb{x})
+	= 0	\qquad a = b_m(b_m-\hbar)
+\]
+tiene solución 
+\[
+	b_M - B_m = - \hbar
+\]
+pero esto es absurdo.
+
+Luego,
+\[
+	\Ket{a,b_m} \longrightarrow \Ket{a,b_M}
+\]
+y como $J_+$ sube de a un $\hbar$ será
+\[
+	b_M = b_m + n\hbar
 \]
 y entonces
 \[
-	\int_S \rotorm{B} \cdot d\vb{S} = \frac{4\pi}{c} \int_S \vb{J}(\vb{x}) \cdot d\vb{S}
+	b_M = \frac{n\hbar}{2} = \frac{n}{2} \hbar = j \hbar
 \]
-y por el teorema de Stokes arribamos a
-\[
-	\int_{\Gamma\equiv\partial S} \vb{B}\cdot d\vb{\ell} = \frac{4\pi}{c} I_\Gamma
-\]
-que es la ley de Ampere. Notemos que $I_\Gamma$ es la corriente concatenada por el lazo $\Gamma$.
-Además
-\[
-	\rotorm{B} = \Nabla\times(\rotorm{A}) = \Nabla(\divem{A}) - \nabla^2 \vb{A} = \frac{4\pi}{c}\vb{J}
-\]
-pero utilizando el gauge de Coulomb es $\divem{A}=0$ y entonces
-\[
-	\nabla^2 \vb{A} = -\frac{4\pi}{c}\vb{J}
-\]
-que es una ecuación de Poisson vectorial.
+y se da que $j$ es entero o semientero.
 
-Magnetostática y electrostáctica son gobernadas por ecuaciones de Poisson para potenciales $\vb{A},\phi$ y
-el problema entonces se reduce a resolverlas para luego hallar los campos por derivación.
+Definiremos 
+\[
+	b_M \equiv j \hbar \qquad a \equiv j (j+1) \hbar^2 \qquad -j\hbar \leq b \leq j\hbar
+\]
+pero como $b/\hbar = m$
+\[
+	b_M \equiv j \hbar \qquad a \equiv j (j+1) \hbar^2 \qquad -j \leq m \leq j
+\]
+\[
+	m = (-j,-j+1,-j+2,...,j-1,j) \qquad 2j+1 \text{valores de} \; m
+\]
+\[
+	J^2 \Ket{j,m} = j( j+1 )\hbar^2\Ket{j,m} \qquad J_z \Ket{j,m} = m \hbar \Ket{j,m}
+\]
 
-\section{Unicidad de problemas de potencial}
+\subsection{La normalización de $J_\pm$}
 
-Si dos problemas satisfacen iguales condiciones de contorno entonces en el recinto encerrado por
-ese contorno tienen igual solución.
+\[
+	J_+
+\]
+\[
+	\Braket{j,m|J_-J_+|j,m} = 
+\]
+\[
+	c_+ = 
+\]
+\[
+	\Braket{j,m|J_+J_-|j,m} = 
+\]
+\[
+	c_- =
+\]
+\[
+	J_+
+\]
 
-Si en un recinto $R$
-\be
-	\phi_1|_{cont} = \phi_2|_{cont}
-	\label{potnounico}
-\ee
-pero se da para el interior de $R$ que $\phi_1\neq\phi_2$ entonces se tiene sucesivamente
-\[
-	U \equiv \phi_1 - \phi_2 \qquad \qquad \Nabla U = \Nabla \phi_1 - \Nabla \phi_2
-\]
-\[
-	\lapm{U} = \lapm{\phi_1} - \lapm{\phi_2} = -4\pi \rho + 4\pi\rho = 0
-\]
-\[
-	\Nabla\cdot\left( U\Nabla U \right) = U\left( \Nabla\cdot\Nabla U \right) + \Nabla U \cdot \Nabla U
-\]
-\[
-	\int_V \Nabla\cdot\left( U\Nabla U \right) dV = \int_V U \lapm{U}  + (\lapm{U})^2 dV =  \int_V (\lapm{U})^2 dV
-\]
-llegando al último miembro porque el potencial $U$ cumple la ecuación de Laplace. Luego,
-\[
-	\int_V (\lapm{U})^2 dV = \int_S U\Nabla{U} \cdot d\vb{S} = 0
-\]
-habiéndose pasado a la integral de superficie por el teorema de la divergencia y anulando el valor global porque 
-$U$ en el contorno es nula (recuérdese \eqref{potnounico}). Además, 
-\[
-	\Nabla{U} \cdot d\vb{S}  \longrightarrow \left.\dpar{U}{\hat{n}}\right|_{cont}
-\]
-luego,
-\[
-	\Nabla U = 0 \qquad \Nabla\phi_1 = \Nabla\phi_2 
-\]
-y entonces
-\[
-	\phi_1 = \phi_2 .
-\]
-a menos, por supuesto, de una constante.
+\subsection{Elementos de matriz de $J^2, J_z, J_+$}
 
+Asumiendo normalización de $\Ket{j,m}$ se tiene 
+\[
+	\Braket{} = 
+\]
+\[
+	=
+\]
+
+\subsection{Elementos de matriz de $\mathcal{D}(R)$}
+
+Ahora queremos ver cual es la forma de los elementos de matriz de $\mathcal{D}(R)$
+\[
+	\mathcal{D}(R) =
+\]
+siendo que $\mathcal{D}(R)$ tiene por efecto rotar el sistema físico.
+Lo primero que hay que notar es que 
+\[
+	\propto \delta_{jj'}
+\]
+porque $[J^2,J_i]=0$ y entonces $[J^2,J_i^n]=0$ y 
+\[
+	D
+\]
+y 
+\[
+	D
+\]
+es una matriz para cada $j$ fijo con $\{ (2j+1)\times(2j+1)=\text{dimensión}\}$
+\[
+	D
+\]
+pero las rotaciones no cambian el $j$, $\mathcal{D}(R)$ conecta estados con la misma $j$ y $\mathcal{D}(R) 
+\in (2j+1)\times(2j+1)$ 
+\[
+	D
+\]
+
+La matriz de $\mathcal{D}(R)$ (no caracterizada por un único $j$) puede ponerse en forma diagonal por bloques:
+
+
+con cada bloque de $(2j+1)\times(2j+1)$ , pero siendo cada bloque irreducible. Las matrices de rotación con 
+$j$ fijo forman un grupo. $\mathcal{D}_{m'm}^{(j)}(R)$ son los elementillos de la matriz.
+\[
+	\Ket{j,m} \longrightarrow
+\]
+
+\subsection{Forma explícita del operador $\mathcal{D}(R)$}
+
+Los ángulos de Euler permitieron caracterizar la rotación más general. Entonces 
+\[
+	D
+\]
+\[
+	D
+\]
+
+En los $d_{m'm}^{(j)}$ está la dificultad de la cuenta.
+
+% =================================================================================================
+\section{Formalismo de spinores de Pauli}
+% =================================================================================================
+
+Apropiado para trabajar con sistemas de spín $1/2$. Estos sistemas son casos particulares de momento angular,
+\[
+	j = 1/2 \qquad m=-\frac{1}{2},+\frac{1}{2}
+\]
+y se definen los spinores $\chi_\pm$ como
+\[
+	\Ket{+} \equiv  \begin{pmatrix}
+	                 1 \\ 0 
+	                \end{pmatrix} \equiv  \chi_+
+\]
+
+Para spín $1/2$ podemos tomar $\vb{J} = \vb{S}$ por la analogía de las relaciones de conmutación.
+A su vez 
+\[
+	\vb{S} = \frac{\hbar}{2} \vec{\sigma} \; \text{con} \;
+\]
+que es una especie de vector 
+\[
+	\sigma
+\]
+Luego esta equivalencia provee expresión de los operadores $S_i$ en términos de matrices de $2\times 2$, así:
+\[
+	\frac{i}{2}[ J_- - J_+] = J_y = S_y = \frac{\hbar}{2} \sigma_y
+\]
+
+Las matrices de Pauli cumplen las propiedades básicas siguientes 
+\[
+	\sigma^2_i = \mathbb{1}
+\]
+\[
+	\Ket{+} \qquad (\sigma\dot\vb{a})
+\]
+
+\subsection{Aplicación a las rotaciones}
+
+\[
+	D
+\]
+pero 
+\[
+	()^n= 
+\]
+\[
+	\euler
+\]
+\[
+	d
+\]
+es el operador de rotación para sistemas de spin $1/2$. Con esta expresión podemos evaluar 
+$d^{j=1/2}_{m'm}(\beta)$
+\[
+	d
+\]
+donde hemos usado los resultados 
+\[
+	\cos \sin 
+\]
+
+En el caso general el operador de rotación para sistemas de spin $1/2$ lucirá:
+\[
+	D = 
+\]
+
+\subsection{Ejemplo}
+
+\[
+	d
+\]
+Este resultado es intuitivamente lógico.
+
+
+\subsection{Rotaciones en sistemas con $j=1$}
+
+Ahora tenemos 
+\[
+	j=1 \qquad m = -1,0,1
+\]
+recordando $J_y$ en términos de escaleras
+\[
+	J_y
+\]
+\[
+	\euler
+\]
+\[
+	\left( \frac{J_y}{\hbar} \right)^n =
+\]
+\[
+	\euler =
+\]
+acá lo vemos como operador (es notación), $d_{m'm}^{j=1}(\beta)$ simboliza la matriz
+\[
+	d
+\]
+
+% =================================================================================================
+\section{Momento angular orbital}
+% =================================================================================================
+
+\[
+	\vb{L} =
+\]
+verifica el álgebra de $\vb{J}$,
+\[
+	[]
+\]
+Consideremos ahora una rotación en torno a $z$, en un $\delta\phi$,
+\[
+	() =
+\]
+\[
+	() = 
+\]
+esto es una traslación en $\hat{x},\hat{y}$,
+\[
+	(1-i\frac{L_z}{\hbar}\delta\phi) \Ket{x',y',z'} = \Ket{}
+\]
+
+Esta traslación es debida a una rotación infinitesimal en $\delta\phi$ torno a $z$ entonces genera las 
+rotaciones clásicas en torno a $z$.
+\[
+	\Psi 
+\]
+\[
+	\Psi
+\]
+
+Podemos hallar una expresión para $L_z$ en esféricas:
+\[
+	\Braket{r,\theta,\varphi||\alpha}
+\]
+identificamos 
+\[
+	= 
+\]
+operador $L_z$ en esféricas
+
+Usando 
+\[
+	L^2 = 
+\]
+\[
+	\Braket{L^2}
+\]
+\[
+	L^2 = -\hbar^2 r^2 \nabla^2_{\theta,\varphi}
+\]
+donde $\nabla^2_{\theta,\varphi}$ es la parte angular del laplaciano en coordenadas esféricas.
+Esto puede obtenerse también partiendo de 
+\[
+	L^2 = \vb{x}^2\vb{p}^2 - (\vb{x}\cdot\vb{p})^2 + i\hbar \vb{x}\cdot\vb{p}
+\]
+
+Sea un $H$ de partícula, sin spín, sujeta a potencial simétricamente esférico. Sabemos que la función de onda 
+$\Psi_\alpha(\vb{r}')$ es separable en coordenadas esféricas, entonces:
+\[
+	\Braket{|} = 
+\]
+\[
+	\Braket{|} = 
+\]
+
+Cuando el H es esféricamente simétrico (como en un potencial central) se tiene 
+\[
+	[] = [] = 0
+\]
+
+Trabajaremos solamente en la parte angular  $\Ket{\theta,\varphi} \equiv \Ket{\hat{n}}$
+\[
+	\Braket{\hat{n}|\ell,m} =
+\]
+que es la amplitud de hallar $\Ket{\ell,m}$ en la dirección $\hat{n}$.
+
+Podemos vincular ahora los armónicos esféricos con los autoestados de $L_z,L^2$
+\[
+	L_z
+\]
+\[
+	L^2
+\]
+\[
+	=
+\]
+Entonces, con la ortogonalidad
+\[
+	\longrightarrow
+\]
+y con la completitud 
+\[
+	\longrightarrow
+\]
+de manera que llegamos a 
+\[
+	\int \int 
+\]
+
+Podemos hallar una expresión para 
+\[
+	= 0
+\]
+\[
+	\Rightarrow
+\]
+
+Luego usamos $L_-$ para hallar sucesivamente los demás $Y^m_\ell$
+\[
+	=
+\]
+y por este camino se llega a 
+\[
+	Y
+\]
+con 
+\[
+	\qquad 
+\]
+
+En el caso de momento angular orbital $\ell$ no puede ser semientero porque entonces $m$ sería semientero y 
+en una vuelta de $2\pi$
+\[
+	\euler^{im2\pi} = -1
+\]	
+
+Además,
+\[
+	\text{(no hay signo menos)}
+\]
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")

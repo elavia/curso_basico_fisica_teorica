@@ -29,466 +29,393 @@
 
 \begin{document}
 
-% =================================================================================================
-\chapter{Conceptos fundamentales de electromagnetismo}
-% =================================================================================================
-
 
 % =================================================================================================
-\section{Ecuaciones de Maxwell}
+\chapter{Simetrías en mecánica cuántica}
 % =================================================================================================
 
-Son ecuaciones lineales de modo que vale la superposición (con \vb{E}, \vb{B} y 
-cualquier vector relacionado linealmente con ellos).
+En mecánica clásica tenemos el teorema de Noether 
 \[
-	\nabla \cdot \vb{D} = 4 \pi \rho_\ell \qquad \nabla \cdot \vb{B} = 0
+	\partial p_i = cte.
 \]
+Y $\mathcal{H}, \mathcal{L}$ no cambian con la transformación $q_i \longrightarrow q_i + \delta q_i$
 \[
-	\nabla \times \vb{E} = - \frac{1}{c} \dpar{B}{t} \qquad \nabla \times \vb{H} =
-	\frac{4\pi}{c} \vb{J}_\ell + \frac{1}{c}\dpar{D}{t}
-\]
-\[
-	\vb{F} = q \left( \vb{E} + \frac{1}{c} \vb{v} \times \vb{B} \right)
+	\partial 
 \]
 
-Los vectores pueden ser polares (tienen físicamente bien definido el sentido) o
-axiales (se les atribuye un sentido por convención).
-
-Las ecuaciones son invariantes ante transformaciones del tipo: rotación
-y reflexión espacial y temporal.
-
-% =================================================================================================
-\section{Electrostática}
-% =================================================================================================
-
-La ley de Coulomb reza que
+En mecánica cuántica definiremos un operador unitario $\$$ asociado a traslación/rotación. Pensemos en una 
+transformación infinitesimal dada por $\$$
 \[
-	\vb{F}_{12} = q_1 q_2 \frac{(\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2 |^3}
+	\$
 \]
-que es la fuerza sobre 1 debido a 2. De la ley de Coulomb se puede definir 
-\[
-	\vb{E}_{12}(\vb{x}_1) \equiv \vb{F}_{12}/q_1
-\]
-y tomando $\vb{x}_1 \equiv \vb{x}$ y haciendo el límite $q_1 \to 0$ se tiene
-\[
-	\vb{E}(\vb{x}) = \sum_{i=1}^N \; q_i \frac{(\vb{x} - \vb{x}_i)}{|\vb{x} - \vb{x}_i |^3}
-\]
-que es el campo eléctrico y que en el paso al continuo resulta
-\[
-	\vb{E}(\vb{x}) = \int_{V'} \rho(\vb{x}) \frac{(\vb{x} - \vb{x}_i)}{|\vb{x} - \vb{x}_i |^3} dV' 
-\]
-siendo \vb{x} punto campo y $\vb{x}_i$ punto fuente.
 
+Sea el H invariante frente a $\$$, entonces 
+\[
+	SHS =
+\]
+
+Esto significa que el autovalor no varía con el tiempo, Como $[H,G]=0$ se tiene 
+\[
+	no dege 
+\]
+
+\subsection{Simetría de paridad}
+
+Transforma un RHS en LHS. Es decir que hace 
+\[
+	\vb{x} \longrightarrow - \vb{x}
+\]
+y solicitaremos un operador unitario llamado paridad que verifique 
+\[
+	\Ket{\alpha} \longrightarrow \Pi\Ket{\alpha} = \Ket{\alpha'}
+\]
+si $\Pi$ es unitario y $\Pi^1=\mathbb{1}$ entonces es hermítico.
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/fig_ft1_ejescargas.pdf}	 
+	\includegraphics[width=0.6\textwidth]{images/teo2_16.pdf}
 	\end{center}
 	\caption{}
 \end{figure} 
-
-\subsection{Conservación de la carga}
-
-La carga total sale de una integral 
+Queremos que refleje el $\Braket{\hat{x}}$ 
 \[
-	Q = \int_{V'}  \rho(\vb{x}') dV'
+	a
 \]
-como muestra la imagen
+anticonmuta con \vb{x}.
+Debido a ello 
+\[
+	a
+\]
+como $\hat{\Pi}$ no depende del tiempo 
+\[
+	d
+\]
+y vemos que anticonmuta con \vb{p}.
+\vb{x}, \vb{p} son operadores impares. En cambio $\vb{L}=\vb{x}\times\vb{p}$ es un operador par, entonces 
+\[
+	[] = 0
+\]
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.25\textwidth]{images/fig_ft1_conserv.pdf}	 
+	\includegraphics[width=0.6\textwidth]{images/teo2_17.pdf}
 	\end{center}
 	\caption{}
 \end{figure} 
-y si el volumen es fijo podemos tomar la derivada con respecto al tiempo que pasa el interior como
-derivada parcial,
+Que conmuta con \vb{J} puede verse de pedirle que 
 \[
-	\dtot{Q}{t} = \int_{V'} \dpar{\rho}{t} (\vb{x}') dV' = - \int_{S\equiv\partial V'} \vb{J} \cdot d\vb{S}
+	[] = 0 \longrightarrow [] = 0 ,
 \]
-y el miembro extremo derecho  se debe a que si la carga varía es a consecuencia de que se va en
-forma de flujo. Aplicando el teorema de la divergencia en el miembro derecho,
+cosa que vale en mecánica clásica, entonces 
 \[
-	\int_{V'} \dpar{\rho}{t} (\vb{x}') dV' = - \int_{V'} \nabla \cdot \vb{J} \; dV'
+	R
 \]
-lo cual vale para todo volumen y entonces esto significa que
 \[
-	\dpar{\rho}{t} + \nabla \cdot \vb{J} = 0
+	\Box
 \]
-que es la ecuación de continuidad de la carga. Si fuera $\nabla \cdot \vb{J}=0$ esto significa que las líneas
-de \vb{J} no tienen principio ni fin.
-
-% =================================================================================================
-\section{Interacción magnética}
-% =================================================================================================
-
-Cuando se da $\nabla \cdot \vb{J}=0$ hablamos de una corriente estacionaria (no hay acumulación de carga en
-ninguna parte). Las corrientes estacionarias producen efectos magnéticos dados por la ley de Biot-Savart
 \[
-	\vb{B}(\vb{x}) = \frac{1}{c} \int_\Gamma \frac{I d\vb{\ell}' \times (\vb{x} - \vb{x}')}{|\vb{x} - \vb{x}'|^3} 
-\]
-que es válida para un circuito $\Gamma$, que es una curva que se recorre en sentido CCW.
-En el caso de un volumen la expresión es 
-\[
-	\vb{B}(\vb{x}) = \frac{1}{c} \int_{V'} \frac{ \vb{J}(\vb{x}') \times (\vb{x} - \vb{x}')}{|\vb{x} - \vb{x}'|^3} 
-dV'
-\]
-mientras que la fuerza sobre un circuito $\Gamma$ es
-\[
-	F = \frac{1}{c} \int_\Gamma I d\vb{\ell} \times \vb{B}
-\]
-y sobre un volumen 
-\[
-	F = \frac{1}{c} \int_V \vb{J} \times \vb{B} dV
+	\Box
 \]
 
-La transformación entre estas integrales puede hacerse merced al siguiente razonamiento,
-% \begin{align*}
-%  	I d\vb{\ell} \times \vb{B} = \vb{J}  \cdot d\vb{S} d\vb{\ell}  \times \vb{B} =
-%   	\cos(\theta) dS \vb{J} d\ell \times \vb{B} = \\
-% 	\vb{J} \times \vb{B}  \cos(\theta) dS d\ell  = \vb{J} \times \vb{B}  d\vb{S} \cdot d\vb{\ell}  = 
-% 	\vb{J} \times \vb{B}  dV 
-% \end{align*}
+\subsection{Función de onda bajo paridad}
+
 \[
-  	I d\vb{\ell} \times \vb{B} = \vb{J}  \cdot d\vb{S} d\vb{\ell}  \times \vb{B} =
-  	\cos(\theta) dS \vb{J} d\ell \times \vb{B} = 
+	\Psi
 \]
+y entonces la función de onda de un estado al que se le aplicó paridad será 
 \[
-	\vb{J} \times \vb{B}  \cos(\theta) dS d\ell  = \vb{J} \times \vb{B}  d\vb{S} \cdot d\vb{\ell}  = 
-	\vb{J} \times \vb{B}  dV 
+	\Psi
 \]
 
-\subsection{Fuerza de un circuito sobre otro}
+Sea $\Ket{\alpha}$ autoestado de paridad, entonces 
+\[
+	a
+\]
+los autovalores serán $\pm 1$
+\[
+	=
+\]
+no toda función de onda tiene paridad bien definida.
 
-La fuerza de un circuito 2 sobre otro circuito 1 puede calcularse con un poco de paciencia como sigue
 \[
-	F_{12} = \frac{1}{c} \int_{\Gamma_1} I_1 d\vb{\ell}_1 \times \left\{
-	\frac{1}{c} \int_{\Gamma_2} \frac{I_2 d\vb{\ell}_2 \times (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
-	\right\}
+	\vb{x}
 \]
 \[
-	F_{12} = \frac{I_1 I_2}{c^2} \int_{\Gamma_1} \int_{\Gamma_2} d\vb{\ell}_1 \times \left\{
-	\frac{d\vb{\ell}_2 \times (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
-	\right\}
+	=
 \]
 \[
-	F_{12} = \frac{I_1 I_2}{c^2} \int_{\Gamma_1} \int_{\Gamma_2} d\vb{\ell}_2  \left\{
-	\frac{d\vb{\ell}_1 \cdot (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
-	\right\} - \int_{\Gamma_1} \int_{\Gamma_2} \frac{ (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
-	\left\{ d\vb{\ell}_1 \cdot d\vb{\ell}_2 \right\}
+	\Pi
 \]
-donde el primer término se comprueba nulo si se reescribe utilizando que
+Como $[\vb{L},\hat{\Pi}]=0$ un autoestado de \vb{L} es autoestado de $\hat{\Pi}$ .
+
+\subsection{Teorema}
+
+Sea 
 \[
-	\frac{ (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} = 
-	\nabla_{\vb{x}_2} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} =
-	- \nabla_{\vb{x}_1} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} 
-\]
-de manera que entonces
-\[
-	- \int_{\Gamma_2} d\vb{\ell}_2  \int_{\Gamma_1} d\vb{\ell}_1 \cdot \nabla_{\vb{x}_1} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} 
-\]
-donde se ve que es nula la última integral dado que 
-\[
-	\int_{\Gamma_1} d\vb{\ell}_1 \cdot \nabla_{\vb{x}_1} = 0.
+	autoestado 
 \]
 
-Entonces, se tiene 
+La demostración 
 \[
-	F_{12} = - \frac{I_1 I_2}{c^2} \int_{\Gamma_1} \int_{\Gamma_2} \frac{ (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
-	\left( d\vb{\ell}_1 \cdot d\vb{\ell}_2 \right)
+	()
 \]
-que vale lo mismo si intercambiamos $\Gamma_1$ con $\Gamma_2$ en la integración. Podemos decir que con corrientes estacionarias
-vale el principio de acción y reacción: las fuerzas son iguales y de sentido opuesto.
-
-
-% =================================================================================================
-\section{Teorema de Helmholtz}
-% =================================================================================================
-
-Nos dice que un campo vectorial está completamente determinado por su divergencia y su rotor.
-Por ejemplo, para un campo eléctrico 
 \[
-	\vb{E} = \int_{V'} \rho \frac{\vb{x} - \vb{x}'}{|\vb{x} - \vb{x}'|^3} dV' = 
-		- \int_{V'} \rho \nabla_{\vb{x}} \frac{ 1 }{|\vb{x} - \vb{x}'|} dV' = 
-		- \nabla_{\vb{x}} \int_{V'}   \frac{ \rho }{|\vb{x} - \vb{x}'|} dV' = 
+	2
 \]
-y esta última es la integral de Poisson
 \[
-	\vb{E} = - \nabla_{\vb{x}} \phi (\vb{x}).
+	3
 \]
-Entonces $\vb{E}$ es un gradiente y por ello 
+
+Un caso donde falla el teorema 
 \[
-	\nabla  \times \vb{E} = 0
+	caso
 \]
-de manera que $\vb{E}$ es conservativo, cumple $\int \vb{E}\cdot d\vb{\ell} = 0$ o lo que
-es lo mismo, $\vb{E}$ es irrotacional.
-Hemos hecho la construcción de un potencial electrostático.
+\[
+	caso mas
+\]
 
-% =================================================================================================
-\section{Ley de Gauss}
-% =================================================================================================
+\subsection{Reglas de selección de paridad $\Pi$}
 
+Sean $\Ket{\alpha}, \Ket{\beta}$ autoestados de paridad 
+\[
+	\Pi
+\]
+\[
+	\Braket{||}
+\]
 
+\begin{itemize}
+ \item Operadores impares solo conectan estados de paridad opuesta
+ \[
+	a
+ \]
+ \item Operadores pares solo conectan estados de la misma paridad 
+ \[
+	b
+ \]
+\end{itemize}
 
+\[
+	= 0
+\]
+\[
+	c
+\]
+
+\section{Inversión temporal (reversión de movimiento)}
+
+En mecánica clásica sería {\it pasar la película hacia atrás}
+\[
+	t \longrightarrow -t
+\]
+En sistemas sin fuerzas disipativas se tiene 
+\[
+	m \ddot{x} =
+\]
+
+En mecánica cuántica tendremos 
+\[
+	i \hbar 
+\]
+\[
+	=
+\]
+no es solución de Schrödinger. 
+Pero notemos que $\Psi^*(x,-t)$ cumple la ecuación de Schrödinger
+\[
+	i\hbar
+\]
+
+Entonces necesitamos un operador que respete esta característica. Necesitaré el producto interno conjugado 
+\[
+	\Psi
+\]
+El operador involucrado no será unitario 
+\[
+	\Ket{\tilde{\alpha}} = 
+\]
+Si $\hat{\Theta}$ unitario se conserva el producto interno 
+\[
+	=
+\]
+
+Pediremos antiunitariedad y antilinealidad al operador $\hat{\Theta}$
+\[
+	=
+\]
+\[
+	=
+\]
+
+Todo operador antiunitario y antilineal puede escribirse como producto 
+\[
+	\Theta = U K
+\]
+donde $U$ es unitario y $K$ la conjugación compleja. $K$ no cambia los autoestados, porque en base canónica 
+un autoestado tiene un solo elemento (1) que no es nulo.
+\[
+	K
+\]
+
+Veamos que $UK$ es antiunitario 
+\[
+	=
+\]
+
+\[
+	=
+\]
+\[
+	=
+\]
+
+Notemos que no se define $\hat{\Theta}^\dagger$ actuando sobre bras. La demostración anterior esperó a 
+quitarse de encima $\hat{K}$ para hacer dual conjugado al $\Ket{\tilde{\beta}}$.
+
+\subsection{Operadores ante $\hat{\Theta}$}
+
+Usaremos la notación 
+\[
+	\Ket{\tilde{\alpha}} = \hat{\Theta} \Ket{\alpha}
+\]
+donde hay que tener en cuenta 
+\[
+	= \mathbb{1}
+\]
+
+Sería razonable esperar que 
+\[
+	= -
+\]
+Sea $\hat{\mathbb{O}}$ un operador hermítico 
+\[
+	=
+\]
+Luego metemos un $=1$
+\[
+	=
+\]
+
+Notamos que no se aplica $\Theta$ sobre bra alguno y tenemos $\Theta$ no unitario. Entonces requeriremos 
+\[
+	=
+\]
+como para $\vb{p},\vb{J}$ operadores impares 
+\[
+	=
+\]
+y $\vb{x}$ operador par.
+
+Los operadores pares conmutan con $\Theta$,
+\[
+	= =
+\]
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.35\textwidth]{images/fig_ft1_gauss.pdf}	 
+	\includegraphics[width=0.6\textwidth]{images/teo2_18.pdf}
 	\end{center}
 	\caption{}
 \end{figure} 
+Hamiltoniano ante reversión de movimiento. Veamos la reversión de un sistema en estado $\Ket{\alpha}$
 \[
-	\vb{E} \cdot \hat{n} = q \frac{\cos(\theta)}{r^2}
+	=
 \]
-y el ángulo sólido es
+Si el hamiltoniano es invariante ante reversión temporal debería ser lo mismo 
 \[
-	\vb{E} \cdot \hat{n} dS = q \frac{\cos(\theta)}{r^2} dS
+	=
 \]
-\[
-	\vb{E} \cdot \hat{n} dS = q d\Omega \qquad \longrightarrow \qquad 
-	\int_{S\equiv\partial V} \vb{E} \cdot \hat{n} \; dS = q \int_S d\Omega =
-	\begin{cases}
-	 0 \quad \textrm{carga exterior}\\
-	 4\pi \quad \textrm{carga interior}
-	\end{cases}
-\]
-\[
-	\int_S \vb{E} \cdot \hat{n} \; dS = 4\pi \sum_i q_i
-\]
-La ley de Gauss es
-\[
-	\int_S \vb{E} \cdot \hat{n} \; dS = 4\pi Q_n
-\]
-donde $Q_n$ es la carga neta dentro de la superficie $S$. Al continuo pasa como 
-\[
-	\int_S \vb{E} \cdot \hat{n} \; dS = 4\pi \int_V \rho \: dV
-\]
-de manera que 
-\[
-	\int_V \divem{E} \; dV = \int_V 4\pi \rho \: dV
-\]
-y entonces
-\[
-	\divem{E} = 4\pi \rho.
-\]
-
-Por otro lado si \vb{E} es el gradiente de un potencial $\phi$ se tiene
-\[
-	\divem{E} = \Nabla\cdot{(-\Nabla\phi)} = - \lapm\phi = 4\pi \rho
-\]
-y se desprenden las ecuaciones de Poisson,
-\[
-	\lapm\phi = -4\pi \rho
-\]
-y de Laplace
-\[
-	\lapm\phi = 0
-\]
-que es el caso particular de la anterior con cargas nulas.
-
-La solución de la ecuación no homogénea es suma de una solución del homogéneo más una solución
-particular. La carga está relacionada a la solución particular.
-
-\subsection{Gauges}
-
-Dado que $\divem{B}=0$ entonces existe un \vb{A} tal que 
-\[
-	\rotorm{A} = \vb{B}
-\]
-pero para caracterizar totalmente el \vb{A} tengo la libertad de definir a conveniencia
-\[
-	\divem{A} \equiv \; \textrm{``el gauge''}.
-\]
-Casos particulares importantes son el gauge de Coulomb,
-\[
-	\divem{A} = 0
-\]
-de manera que como 
-\[
-	\Nabla \times (\rotorm{A}) = \Nabla(\divem{A}) - \lapm{\vb{A}} = \frac{4\pi}{c}\vb{J}
-\]
-se llega para el potencial electromagnético, bajo el gauge de Coulomb, a que 
-\[
-	\lapm{\vb{A}} = - \frac{4\pi}{c}\vb{J} 
-\]
-
-	\begin{table}[hbt]
-	\centering
-        \begin{tabular}{|c|c|}
-		\hline
-		& \\
-		$\displaystyle{\vb{E} = \int_{V'} \frac{\rho(\vb{x}')(\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} dV' 
-		}$ & $\displaystyle{\vb{B} = \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}') \times 
-		(\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} dV'}$ \\
-		& \\
-		\hline
-		Ley de Gauss & Ley de Ampere \\
-		& \\
-		$\displaystyle{\int_S \vb{E}\cdot d\vb{S} = 4\pi Q_n}$ &
-		$\displaystyle{\int_\Gamma \vb{B}\cdot d\vb{\ell} = \frac{4\pi}{c} I_c}$ \\
-		& \\
-		\hline
-		&\\
-		$\divem{E} = 4\pi\rho$ & $\divem{B} = 0$ \\
-		$\rotorm{E} = 0$ & $\rotorm{B} = \frac{4\pi}{c}\vb{J}$ \\
-		& \\
-		\hline
-		& \\
-		$\vb{E} = - \Nabla\phi$ & $\vb{B} = \rotorm{A}$ \\
-		& \\
-		\hline
-        \end{tabular} 
-	\caption{}
-	\end{table} 
-
-La operación de tomar rotor y el producto vecrtorial cambian el carácter de los vectores: de
-polares pasan a axiales y viceversa.
-
-La fuerza general sobre una distribución de carga es
-\[
-	\vb{F} = \int_{V'} \rho \vb{E} dV' + \frac{1}{c} \int_{V'} \vb{J} \times \vb{B} dV'. 
-\]
-
-\subsection{Delta de Dirac}
-
-Una densidad de carga puntual se puede escribir mediante una delta de Dirac de acuerdo a
-\[
-	\rho(\vb{x}') = q\: \delta (\vb{x} - \vb{x}') = \begin{cases}
-	                                               0 \qquad \vb{x} \neq \vb{x}' \\
-	                                               \infty \qquad \vb{x} = \vb{x}'\\
-	                                              \end{cases}
-\]
-siendo las dimensiones de la delta las de $1/L^3$ y cumpliéndose 
-\[
-	\int_{V'} \delta (\vb{x} - \vb{x}') dV' = 1
-\]
-\[
-	\delta (\vb{x} - \vb{x}') = \frac{1}{h_1h_2h_3} \delta(q_1-q_1') \delta(q_2-q_2') \delta(q_3-q_3')
-\]
-donde $q_1, q_2$ y $q_3$ son coordenadas curvilíneas generales y $h_1h_2h_3$ es el jacobiano
-de la transformación.
-Luego
-\[
-	\int f(\vb{x}) \delta' (\vb{x} - \vb{x}_0) dx = -f'(\vb{x}_0)
-\]
-
-
-
-\subsection{reflexión}
-
-Un vector polar sufre reflexión especular mientras que un vector axial ({\it pseudovector})
-sufre una antireflexión especular. Ver la figura.
-
+es decir que estamos pidiendo que se obtenga el mismo estado 
+\begin{itemize}
+ \item Si revertimos el movimiento y evolucionamos $\delta t$.
+ \item Si evolucionamos hacia atrás $-\delta t$ y revertimos el movimiento.
+\end{itemize}
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/fig_ft1_reflexvect.pdf}	 
+	\includegraphics[width=0.6\textwidth]{images/teo2_19.pdf}
 	\end{center}
 	\caption{}
 \end{figure} 
-
-Una reflexión más una rotación permite eliminar componentes de campo.
-Una simetría más una rotación-traslación permite eliminar dependencias.
-
-Lo primero que debe hacerse es escribir bien la \vb{J} a partir del dato de la corriente
-(que es el que se suele tener) mediante
+Veamos que vale lo anterior, pensando que si vale se tiene 
 \[
-	i = \int_S \vb{J} \cdot d \vb{S}
+	=
 \]
-En cambio, para \vb{A} es más fácil usar
 \[
-	\vb{B} = \rotorm{A}
-\]
-y despejar de aquí la ecuación diferencial que emplear
-\[
-	\vb{A} = \frac{1}{c} \int_V \frac{\vb{J}}{|\vb{x}-\vb{x}'|} dV
+	=  \qquad [H,\Theta]=0
 \]
 
+Si $\Theta$ era unitario teníamos la relación de anticonmutación $\{ H, \Theta \}=0$ lo cual lleva a absurdos.
+\[
+	a
+\]
+Si $\{ H,\Theta \} = 0$
+\[
+	= \text{H debe ser par frente a $\Theta$}
+\]
 
-\section{El potencial vector}
+\subsection{Función de onda}
 
-Por la ley de Biot y Savart,
+Sea en $t=0$ un sistema en el estado $\Ket{\alpha}$
 \[
-	\vb{B} = \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}') \times (\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} 
-	dV' = \Nabla_x \times \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|} dV'
+	= = 
 \]
-de modo que
-\be
-	\vb{A} = \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|} dV'
-	\label{potvec}
-\ee
-pero 
 \[
-	\vb{A}' \equiv \vb{A} + \Nabla \Psi
+	\Psi
 \]
-es tan buen potencial vector como \vb{A} puesto que los rotores verifican $\rotorm{A}=\rotorm{A}'=\vb{B}$,
-de lo cual extraemos en conclusión que el potencial vector está definido a menos del gradiente de una
-función escalar.
+Esto era lo que {\it vimos} en la ecuación de Schrödinger.
 
-Tomándole el rotor a \eqref{potvec} y considerando $\Nabla'\cdot\vb{J}(\vb{x}')=0$ lo cual se verifica si
-la corriente es estacionaria se tiene 
-\[
-	\rotorm{B} = \frac{4\pi}{c} \vb{J}(\vb{x})
-\]
-y entonces
-\[
-	\int_S \rotorm{B} \cdot d\vb{S} = \frac{4\pi}{c} \int_S \vb{J}(\vb{x}) \cdot d\vb{S}
-\]
-y por el teorema de Stokes arribamos a
-\[
-	\int_{\Gamma\equiv\partial S} \vb{B}\cdot d\vb{\ell} = \frac{4\pi}{c} I_\Gamma
-\]
-que es la ley de Ampere. Notemos que $I_\Gamma$ es la corriente concatenada por el lazo $\Gamma$.
-Además
-\[
-	\rotorm{B} = \Nabla\times(\rotorm{A}) = \Nabla(\divem{A}) - \nabla^2 \vb{A} = \frac{4\pi}{c}\vb{J}
-\]
-pero utilizando el gauge de Coulomb es $\divem{A}=0$ y entonces
-\[
-	\nabla^2 \vb{A} = -\frac{4\pi}{c}\vb{J}
-\]
-que es una ecuación de Poisson vectorial.
+\subsection{Reversión de movimiento sobre \vb{J}}
 
-Magnetostática y electrostáctica son gobernadas por ecuaciones de Poisson para potenciales $\vb{A},\phi$ y
-el problema entonces se reduce a resolverlas para luego hallar los campos por derivación.
 
-\section{Unicidad de problemas de potencial}
+no tiene sentido porque $J_x,J_y,J_z$ no conmutan entre ellos. Analizaremos $\Ket{\ell,m}$
+\[
+	\Theta \Ket{\vb{J}} 
+\]
+\[
+	\equiv 
+\]
 
-Si dos problemas satisfacen iguales condiciones de contorno entonces en el recinto encerrado por
-ese contorno tienen igual solución.
+Lo que hace $\Theta$ es invertir la componente de $\hat{z}$ y alterar la fase. Se ve que 
+\[
+	\Theta^2 = \mathbb{1}
+\]
 
-Si en un recinto $R$
-\be
-	\phi_1|_{cont} = \phi_2|_{cont}
-	\label{potnounico}
-\ee
-pero se da para el interior de $R$ que $\phi_1\neq\phi_2$ entonces se tiene sucesivamente
+\subsection{Reversión para sistemas de spin $1/2$}
+
+Sea un estado general up de spin $\Ket{\hat{n};+}$, que se obtiene con dos rotaciones 
 \[
-	U \equiv \phi_1 - \phi_2 \qquad \qquad \Nabla U = \Nabla \phi_1 - \Nabla \phi_2
+	Sn
 \]
 \[
-	\lapm{U} = \lapm{\phi_1} - \lapm{\phi_2} = -4\pi \rho + 4\pi\rho = 0
+	\Theta
 \]
 \[
-	\Nabla\cdot\left( U\Nabla U \right) = U\left( \Nabla\cdot\Nabla U \right) + \Nabla U \cdot \Nabla U
+	a
 \]
 \[
-	\int_V \Nabla\cdot\left( U\Nabla U \right) dV = \int_V U \lapm{U}  + (\lapm{U})^2 dV =  \int_V (\lapm{U})^2 dV
+	b
 \]
-llegando al último miembro porque el potencial $U$ cumple la ecuación de Laplace. Luego,
 \[
-	\int_V (\lapm{U})^2 dV = \int_S U\Nabla{U} \cdot d\vb{S} = 0
+	c
 \]
-habiéndose pasado a la integral de superficie por el teorema de la divergencia y anulando el valor global porque 
-$U$ en el contorno es nula (recuérdese \eqref{potnounico}). Además, 
+
+\subsection{Teorema}
+
+Sea $H$ invariante ante $\Theta$ y los $\Ket{n}$ no degenerados, entonces la autofunción de energía puede 
+hacerse real tomando una fase apropiada.
+
+Demostración 
 \[
-	\Nabla{U} \cdot d\vb{S}  \longrightarrow \left.\dpar{U}{\hat{n}}\right|_{cont}
+	H \Theta  \Ket{n} =
 \]
-luego,
 \[
-	\Nabla U = 0 \qquad \Nabla\phi_1 = \Nabla\phi_2 
+	=
 \]
-y entonces
 \[
-	\phi_1 = \phi_2 .
+	=
 \]
-a menos, por supuesto, de una constante.
+
+Si le aplico al sistema transformaciones dadas por operadores que conmutan con el H no lo sacamos del 
+autoestado en que se encuentra con el paso del tiempo.
+En ese sistema solo será razonable medir variables representadas por esos operadores; puesto que de lo 
+contrario estamos alterando el sistema y nos es imposible saber donde ha quedado.
 
 
 
