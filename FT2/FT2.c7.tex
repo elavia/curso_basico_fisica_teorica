@@ -34,30 +34,32 @@
 % =================================================================================================
 Se pueden hallar autoestados de dirección $\Ket{\hat{n}}$ rotando el $\Ket{\hat{z}}$,
 \[
-	\hat{n} = 
+	\hat{n} = \mathcal{D}(R) \Ket{\hat{z}}
 \]
-Necesitamos aplicar 
+Necesitamos aplicar $\mathcal{D}(R)=\mathcal{D}(\alpha=\varphi,\beta=\theta,\gamma=0)$
 \[
-	D
-\]
-\[
-	n
+	\Ket{\hat{n}} = \sum_{m,\ell} \mathcal{D} (R) \Ket{\ell,m}\Braket{\ell,m|\hat{z}}
 \]
 \[
-	l
+	\Braket{\ell,m'|\hat{n}} = \sum_{m,\ell} \Braket{\ell,m'|\mathcal{D} (R)| \ell,m}\Braket{\ell,m|\hat{z}}
+\]
+pero como la $\mathcal{D}(R)$ no conecta $\ell$ diferentes, se tiene 
+\[
+	\Braket{\ell,m'|\hat{n}} = \sum_{m} \mathcal{D}_{m'm}^\ell(R) \Braket{\ell,m|\hat{z}}	
 \]
 \[
-	l
-\]
-\[
-	Y
+	Y_\ell^{m'*}(\theta,\varphi) = \sum_m \mathcal{D}_{m'm}^\ell(R) Y_\ell^{m*} (\theta=0,\varphi \text{indet})
 \]
 pero como $\theta=0$ , $Y_\ell^m = 0$  con $m\neq 0$ se tiene 
 \[
-	lm
+	\Braket{\ell,m|\hat{z}} = Y_\ell^{m*} (\theta=0,\varphi \text{indet}) \delta_{m0}
 \]
 \[
-	Y^*,
+	\Braket{\ell,m|\hat{z}} = \sqrt{ \frac{2\ell +1}{4\pi} } \delta_{m0}
+\]
+\[
+	Y_\ell^{m'*}(\theta,\varphi) = \sqrt{ \frac{2\ell +1}{4\pi} }
+	\mathcal{D}_{m'0}^\ell (\alpha=\varphi,\beta=\theta,\gamma=0)
 \]
 la matriz de rotación en este caso es un armónico esférico.
 
