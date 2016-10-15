@@ -34,13 +34,13 @@
 % =================================================================================================
 
 Más apropiado sería partículas indistinguibles. Si en algún punto del espacio se solapan las funciones de 
-onda (interfieren) de dos partículas del mismo tipo cosas de que tenga misma masa, carga, etc. (dos 
-electrones por ejemplo) no podemos distinguir cual es cual. Sean dos estados $\Ket{k},\Ket{k}'$ con $k^{(i)}$ 
+onda (interfieren) de dos partículas del mismo tipo cosa de que tengan misma masa, carga, etc. (dos 
+electrones por ejemplo) no podemos distinguir cual es cual. Sean dos estados $\Ket{k'},\Ket{k''}$ con $k^{(i)}$ 
 índice colectivo. En la zona de interferencia es 
 \[
-	k
+	\Ket{k'}_1 \otimes \Ket{k'}_2 \quad \text{o} \quad \Ket{k''}_1 \otimes \Ket{k''}_2
 \]
-donde ambos estados son ortogonales. 
+donde ambos estados son ortogonales y los subíndices numéricos identifican a la partícula. 
 
 \begin{figure}[htb]
 	\begin{center}
@@ -50,87 +50,122 @@ donde ambos estados son ortogonales.
 \end{figure} 
 Entonces un estado general será
 \[
-	=
+	\Ket{K} = c_1 \Ket{k'}_1 \otimes \Ket{k''}_2 + c_2 \Ket{k''}_1 \otimes \Ket{k'}_2
 \]
+con $|c_1|^2 +|c_2|^2= 1$. 
 Esta es la ``degeneración de intercambio''.
 
 \subsection{Permutación}
 
 Definimos este operador como 
 \[
-	P_{12} =
+	P_{12}( \Ket{k'}_1\otimes \Ket{k''}_2 ) = \Ket{k''}_1\otimes \Ket{k'}_2
 \]
 \[
-	P
+	P_{12} = P_{21} \qquad P_{12}^2 = \mathbb{1} \qquad P_{12}^\dagger = P_{12} \qquad 
+	P_{12}P_{12}^\dagger = 1 \qquad \text{autovalores:} \; \pm 1
 \]
 Su función es la de intercambiar etiquetas, no el orden de las partículas.
 Sean operadores $\hat{A}_1,\hat{A}_2$ que actúan sobre las partículas 1,2; es decir 
 \[
-	a
+	\hat{A}_1 \equiv \hat{A}_1\otimes\mathbb{1}_2, \qquad 
+	\hat{A}_2 \equiv \mathbb{1}_1\otimes\hat{A}_2
 \]
 \[
-	b
+	\hat{A}_1 \Ket{a'} \Ket{a''} = a' \Ket{a'} \Ket{a''} \qquad 
+	\hat{A}_2 \Ket{a'} \Ket{a''} = a'' \Ket{a'} \Ket{a''} 
 \]
 \[
-	c
+	P_{12}A_1P_{12}^{-1}P_{12}\Ket{a'} \Ket{a''} = P_{12} a' \Ket{a'}_1 \Ket{a''}_2 =
+	a' \Ket{a''}_1 \Ket{a'}_2
+\]
+\[
+	= P_{12}A_1P_{12}^{-1} \Ket{a''}_1 \Ket{a'}_2 = a' \Ket{a''}_1 \Ket{a'}_2
+\]
+\[
+	= A_2 \Ket{a''}_1 \Ket{a'}_2 = a' \Ket{a''}_1 \Ket{a'}_2
+\]
+y
+\[
+	P_{12}\hat{A}_1P_{12}^{-1} = \hat{A}_2, \qquad P_{21} A_1 - A_2 P_{12} = 0
 \]
 
 Luego $\hat{A}$ es simétrico si $[\hat{P}_{12},\hat{A}_{12}]=0$. Sea $[\hat{P}_{12},\hat{H}]=0$ entonces es 
 $P_{12}$ constante de movimiento y 
 \[
-	P
+	P_{12} \Ket{\alpha} = \pm \Ket{\alpha}
 \]
 Sea 
 \[
-	H = 
+	H = \frac{p_1^2}{2m_1} + \frac{p_2^2}{2m_2} + v(|x_1 - x_2|) + V_e(\vb{x}_1)+ V_e(\vb{x}_2)
 \]
-y defino dos estados
+donde si las partículas son idénticas es $m_1=m_2\equiv m$ y defino dos estados
 \[
-	a
+	\Ket{k' k''}_s = \frac{1}{\sqrt{2}}\left( \Ket{k'}_1\Ket{k''}_2 + \Ket{k''}_1\Ket{k'}_2 \right) \qquad 
+	\Ket{k' k''}_a = \frac{1}{\sqrt{2}}\left( \Ket{k'}_1\Ket{k''}_2 - \Ket{k''}_1\Ket{k'}_2 \right)
 \]
 con 
 \[
-	as
+	P_{12}\Ket{\phantom{k}}_s = + \Ket{\phantom{k}}_s \qquad \qquad 
+	P_{12}\Ket{\phantom{k}}_a = - \Ket{\phantom{k}}_a
 \]
 Puedo introducir operadores de simetrización y antisimetrización 
 \[
-	S A
+	\hat{S}_{12} \equiv \frac{1}{\sqrt{2}} \left( \mathbb{1} + \hat{P}_{12} \right)
 \]
 \[
-	S
+	\hat{A}_{12} \equiv \frac{1}{\sqrt{2}} \left( \mathbb{1} - \hat{P}_{12} \right)
+\]
+que verifican 
+\[
+	S^2 = S, \quad  A^2= A, \quad SA=AS=0, \quad [S,A] = 0
 \]
 \[
-	A
+	\hat{S}_{12} (c_1\Ket{k'}\Ket{k''} + c_2\Ket{k''}\Ket{k'} ) = \frac{1}{\sqrt{2}}(c_1+c_2)
+	(\Ket{k'}\Ket{k''} + \Ket{k''}\Ket{k'} )
 \]
+es simétrico y 
+\[
+	\hat{A}_{12} (c_1\Ket{k'}\Ket{k''} + c_2\Ket{k''}\Ket{k'} ) = \frac{1}{\sqrt{2}}(c_1-c_2)
+	(\Ket{k'}\Ket{k''} - \Ket{k''}\Ket{k'} )
+\]
+es antisimétrico.
 En general se complica bastante con más de dos partículas 
 \[
-	P_{ij}
+	P_{ij}(\Ket{k'}_1\Ket{k''}_2...\Ket{k^i}_i...\Ket{k^j}_j...) =
+	(\Ket{k'}_1\Ket{k''}_2...\Ket{k^j}_i...\Ket{k^i}_j...)
 \]
 pués tenemos 
 \[
-	[P_{ij},P_{k\ell}] \neq 0 \text{en general}
+	[P_{ij},P_{k\ell}] \neq 0 \quad \text{en general}
 \]
 Las permutaciones para tres partículas pueden descomponerse 
 \[
-	P
+	P_{123} = P_{12}P_{13} 
+\]
+\[
+	P_{123}\Ket{k'}\Ket{k''}\Ket{k'''} = P_{12}\Ket{k'''}\Ket{k''}\Ket{k'} = \Ket{k''}\Ket{k'''}\Ket{k'}
 \]
 
-Con tres partículas hay $3!$ estados
-\[
-	estados 
-\]
+Con tres partículas hay $3!$ estados; uno totalmente simétrico $\Ket{\phantom{k}}_s$, uno totalmente antisimétrico 
+$\Ket{\phantom{k}}_a$ y cuatro sin simetría definida.
 En estados simétricos serán 
+\begin{align*}
+	\Ket{k'k''k'''}_{s/a} = \frac{1}{\sqrt{6}}&\left( \Ket{k'k''k'''} +  \Ket{k''k'''k'} + \Ket{k'''k'k''}\right. \\
+	& \left. \pm \Ket{k''k'k'''} \pm \Ket{k'k'''k''} \pm \Ket{k'''k''k'} \right)
+\end{align*}
+donde el $\Ket{}_a$ tiene el signo $(-)$ en las permutaciones anticíclicas y el $(+)$ en las cíclicas.
+Existe un determinante de Slater como método mnemotécnico de obtener los estados $\Ket{}_a$.
 \[
-	\Braket{} =
-\]
-donde el $\Braket{}_A$ tiene el signo $(-)$ en las permutaciones anticíclicas y el $(+)$ en las cíclicas.
-Existe un determinante de Slater como método mnemotécnico de obtener los estados $\Braket{}_A$.
-\[
-	\Ket{ \Psi }_A = \frac{1}{3!}
+	\Ket{ \Psi }_a = \frac{1}{3!}\begin{vmatrix} \; \Ket{k'} & \Ket{k''} & \Ket{k'''} \\  
+	\; \Ket{k'} & \Ket{k''} & \Ket{k'''} \\ \; \Ket{k'} & \Ket{k''} & \Ket{k'''} \end{vmatrix}
 \]
 La obtención de estos estados corresponde a aplicar 
 \[
-	A_{123} =
+	A_{123} = \frac{1}{\sqrt{3!}}\left( \mathbb{1} + P_{231} + P_{312} - P_{212} - P_{132} - P_{321} \right)
+\]
+\[
+	( \mathbb{1} + P_{23}P_{21} + P_{31}P_{32} - P_{21}P_{23} - P_{13}P_{12} - P_{32}P_{31} )
 \]
 Si dos $k^{(i)}$ coinciden ya no hay estado antisimétrico posible.
 
