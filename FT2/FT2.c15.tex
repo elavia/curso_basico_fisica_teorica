@@ -35,103 +35,144 @@
 
 Consideremos una partícula libre por el momento 
 \[
-	H =
+	H = \frac{p^2}{2m} \quad E =  i\hbar \dpar{}{t} \quad \vb{p} = - i\hbar \Nabla
+\]
+en relatividad la primera expresión no sirve pero la segunda y la tercera sí.
+\[
+	P_\mu = i \hbar \partial_\mu = i \hbar \dpar{}{x^\mu}
 \]
 \[
-	P_\mu = i \hbar \partial_\mu = 
+	p^\mu = (E/c, \vb{p}) \qquad p_\mu = (E/c, -\vb{p}) \qquad x^\mu = (ct, \vb{x})
 \]
 \[
-	fiesta
+	\dpar{}{x^\mu} = \left( \frac{1}{c}\dpar{}{t} , \Nabla \right) \equiv \partial_\mu
+	\qquad \dpar{}{x_\mu} = \left( \frac{1}{c}\dpar{}{t} , -\Nabla \right) \equiv \partial^\mu
 \]
-\[
-	fiesta
-\]
-\[
+y Schrödinger para la partícula libre es
+\be \label{schro_freepart}
 	i \hbar \dpar{\psi}{t} = - \frac{\hbar^2}{2m} \nabla^2 \psi
+\ee
+y entonces podemos hacer la cuenta 
+\[
+	\psi^* \times \eqref{schro_freepart} \rightarrow  
+	i \hbar \psi^*\dpar{\psi}{t} = - \frac{\hbar^2}{2m} \psi^* \nabla^2 \psi
+\]
+y conjugando la ecuación,
+\[
+	\psi \times \eqref{schro_freepart}^* \rightarrow  
+	-i \hbar \psi\dpar{\psi^*}{t} = - \frac{\hbar^2}{2m} \psi \nabla^2 \psi^*
+\]
+y restando ambas expresiones se obtiene 
+\[
+	i \hbar \left( \psi^*\dpar{\psi}{t} + \psi\dpar{\psi^*}{t} \right) =
+	\frac{\hbar^2}{2m} \left( \psi \nabla^2 \psi^* -\psi^* \nabla^2 \psi \right)
 \]
 \[
-	cuenta 
+	i \hbar  \dpar{ (\psi^* \psi) }{t} + \frac{\hbar^2}{2m} 
+	\Nabla \cdot \left( \psi^* \Nabla \psi - \psi \Nabla \psi^* \right) = 0
+\]
+la cual se puede reescribir como
+\[
+	\dpar{ (\psi^* \psi) }{t} +  
+	\Nabla \cdot \left( \frac{\hbar}{2mi} [\psi^* \Nabla \psi - \psi \Nabla \psi^*] \right) = 0
+\]
+que es una analogía de la conservación de la carga en electrodinámica. Recordemos que la conservación de la carga era
+$ \partial_t \rho + \nabla \cdot \vb{J} = 0$.
+Tenemos entonces una especie de conservación de la probabilidad. Note que $\psi^* \psi = |\psi|^2 \geq 0$
+\[
+	E^2 = c^2 p^2 + m^2 c^4
 \]
 \[
-	resultqado
-\]
-\[
-	d
-\]
-\[
-	conti
-\]
-que es una analogía de la conservación de la carga en electrodinámica.
-Tenemos entonces una especie de conservación de la probabilidad. Note que 
-\[
-	a
-\]
-\[
-	E
+	E = \sqrt{ c^2 p^2 + m^2 c^4 } = H \qquad \text{con} \; H\psi = E\psi
 \]
 
-Pero esto se ponde muy complicado debido a la raíz
+Pero esto se pone muy complicado debido a la raíz
 
 \subsection{La ecuación de Klein-Gordon}
 
 Conserva el cuadrado para no complicar demasiado los reemplazos. Entonces 
 \[
-	H^2 = E^2 = 
+	H^2 = E^2 = c^2p^2 + m^2c^4
+\]
+\be \label{ec_kg}
+	-\hbar \dpar[2]{\psi}{t} = - \hbar^2c^2 \Nabla^2\psi + m^2 c^4 \psi
+\ee
+\[
+	p^\mu p_\mu = m^2c^2 \qquad -\partial_\mu\partial^\mu \psi = \frac{m^2c^2}{\hbar^2}\psi
+\]
+siendo el operador $\Box^2 \equiv \partial_\mu\partial^\mu$ el dalembertiano.
+\[
+	\left( \Box^2 + \frac{m^2c^2}{\hbar^2} \right) \psi = 0
+\]
+y procediendo de modo ídem al caso anterior,
+\[
+	\psi^* \cdot \eqref{ec_kg} = - \hbar^2 \psi^* \partial_t^2 \psi =
+	- \hbar^2 c^2 \psi^* \nabla^2 \psi + m^2 c^4 \psi^*\psi
 \]
 \[
-	-
+	\psi \cdot \eqref{ec_kg}^* = - \hbar^2 \psi \partial_t^2 \psi^* =
+	- \hbar^2 c^2 \psi \nabla^2 \psi^* + m^2 c^4 \psi\psi^*
+\]
+y restando ambas ecuaciones tenemos
+\[
+	\hbar^2 \dpar{}{t}\left(  \psi^* \partial_t \psi -  \psi \partial_t \psi^* \right) =
+	\hbar^2 c^2 \Nabla\cdot( \psi^* \Nabla \psi - \psi \Nabla \psi^* )
 \]
 \[
-	p
-\]
-\[
-	a
-\]
-\[
-	s
-\]
-\[
-	res
+	\dpar{}{t}\left( \frac{i}{c^2}[ \psi^* \partial_t \psi -  \psi \partial_t \psi^* ]\right) +
+	i\Nabla\cdot( \psi \Nabla \psi^* - \psi^* \Nabla \psi ) = 0
 \]
 
-El problema es que no puede asegurarse que esta $\rho$ sea definida positiva, lo cual sería necesario para 
-seguir una coherencia.
-
+El problema es que no puede asegurarse que esta $\rho \equiv i/c^2[ \psi^* \partial_t \psi -  \psi \partial_t 
+\psi^* ]$ sea definida positiva, lo cual sería necesario para seguir una coherencia.
 \[
-	a
+	\psi = N \euler^{ i/\hbar(\pe{p}{x} - Et)}
 \]
 \[
-	a
+	\partial_t \psi = -N \frac{iE}{\hbar} \euler^{ i/\hbar(\pe{p}{x} - Et)}
 \]
 \[
-	a
+	\rho = \frac{i}{c^2}\left( N^*\euler^{ -i/\hbar(\pe{p}{x} - Et)}(-N)
+	\frac{iE}{\hbar} \euler^{ i/\hbar(\pe{p}{x} - Et)} - 
+	N \euler^{ i/\hbar(\pe{p}{x} - Et)}N^*\frac{E}{\hbar} \euler^{ i/\hbar(\pe{p}{x} - Et)}\euler^{i\pi/2}
+	\right)
 \]
 \[
-	a
+	\rho = -\frac{i}{c^2}\left( 2|N|^2 \frac{iE}{\hbar} \right) < 0 \quad \text{si} \quad E > 0
 \]
+para una onda plana.
 Necesito considerar $E<0$ pues $E=\pm\sqrt{c^2p^2+m^2c^4}$ y la base debe ser completa.
 
-Es positiva si tuviese $E<0$ pero esto causa el problema de tener materia inestable, pues nunca se alcanza el 
-fundamental. Acá muere en este atolladero la ecuación de Klein-Gordon.
+La densidad $\rho$ es positiva si tuviese $E<0$ pero esto causa el problema de tener materia inestable, pues nunca se 
+alcanza el fundamental. Acá muere en este atolladero la ecuación de Klein-Gordon.
 
 \subsection{La ecuación de Dirac}
 
 Dirac parte de pedir una ecuación lineal en el impulso \vb{p}
 \[
-	H
+	H = c \vb{\alpha} \cdot \vb{p} + \beta m c^2
 \]
-con $\beta,\vb{\alpha},\vb{p}$ operadores.
+usando $H\psi = E\psi$ y $H^2 = E^2 = c^2p^2 + ,m^2 c^4$ y con $\beta,\vb{\alpha},\vb{p}$ operadores.
 \[
-	H^2
-\]
-\[
-	H^2
+	H^2 = (c \vb{\alpha} \cdot \vb{p} + \beta m c^2)(c \vb{\alpha} \cdot \vb{p} + \beta m c^2)
 \]
 \[
-	H^2
+	H^2 = c^2 \alpha_i p_i \alpha_\ell p_\ell + c^3 \alpha_i p_i \beta m +
+	\beta m c^3 \alpha_i p_i + \beta^2 m^2 c^4
 \]
 \[
-	H^2
+	H^2 = c^2 \alpha_i \alpha_\ell p_i  p_\ell + c^3 m p_i \underbrace{( \alpha_i \beta + \beta \alpha_i )}_{=0}
+	+ \beta^2 m^2 c^4
+\]
+\[
+	H^2 = 
+	c^2 \underbrace{\left( \frac{\alpha_i \alpha_\ell + \alpha_\ell\alpha_i}{2} \right)}_{\delta_{i\ell}}
+	p_i p_\ell + m^2 c^4 \underbrace{\beta^2 }_{ = 1 }
+\]
+\[
+	\alpha_i \alpha_\ell + \alpha_\ell\alpha_i = 2 \delta_{i\ell} \qquad 
+	\alpha_i \beta + \beta \alpha_i= 0 \qquad
+	\beta^2 = 1
 \]
 Como se ve, estos no pueden ser simples escalares. Dirac pide 
 \begin{itemize}
@@ -139,28 +180,39 @@ Como se ve, estos no pueden ser simples escalares. Dirac pide
  \item $\beta^2=1 \; \alpha^2=1$ autovalores $\pm 1$
  \item traza nula
  \[
-	a
+	\alpha_i \beta = -\beta \alpha_i  \quad \rightarrow  \quad 
+	\beta \alpha_i \beta = -\beta^2 \alpha_i = -\alpha_i
+ \]
+ \[
+	Tr(\alpha_i) = -Tr(\beta \alpha_i \beta) = -Tr(\beta\beta\alpha_i)
  \]
  \item dimensión par 
  \[
-	a
+	\vb{\alpha} = \begin{pmatrix} 0 & \vec{\sigma} \\ \vec{\sigma} & 0 \\ \end{pmatrix} \qquad 
+	\beta = \begin{pmatrix} \mathbb{1} & 0 \\ 0 & -\mathbb{1} \\ \end{pmatrix}
  \]
+ donde cada elemento de la matriz es de $2\times2$.
 \end{itemize}
 
+Entonces
 \[
-	a
+	H \vec{\psi} = i \hbar \dpar{\vec{\psi}}{t}, \qquad H \in 4\times 4, \vec{\psi} \in 4\times 1, \qquad
+	\vec{\psi} = \begin{pmatrix} \psi_1 \\ \psi_2 \\ \psi_3 \\ \psi_4 \end{pmatrix}
+\]
+\be \label{ec_dirac}
+	i \hbar \dpar{\psi}{t} = -i \hbar c \sum_k \alpha_k \dpar{\psi}{x_k} + m c^2 \beta \psi
+\ee
+\[
+	-i \hbar \dpar{\psi^\dagger}{t} = i \hbar c \sum_k \dpar{\psi^\dagger}{x_k}\alpha_k + m c^2\psi\alpha_k\beta
 \]
 \[
-	a
+	\psi^\dagger\cdot\eqref{ec_dirac} - \eqref{ec_dirac}^\dagger\cdot \psi \rightarrow 
+	i\hbar \dpar{}{t}(\psi^\dagger psi) = -i\hbar c \sum_k \dpar{}{x_k}(\psi^\dagger \alpha_k \psi)
 \]
 \[
-	a
+	\dpar{}{t}(\psi^\dagger psi) + c \sum_k \dpar{}{x_k}(\psi^\dagger \alpha_k \psi) = 0
 \]
-\[
-	a
-\]
-
-Ahora tenemos una densidad de proababilidad como requiere la naturaleza.
+Y si $\rho \equiv \psi^\dagger\psi$ ahora tenemos una densidad de proababilidad como requiere la naturaleza.
 
 \subsection{Ejemplo: partícula libre quieta}
 
@@ -172,25 +224,37 @@ Sea una partícula libre en reposo,
 	i \hbar \dpar{\psi}{t} = \beta m c^2 \psi
 \]
 \[
-	i
+	i \hbar \dpar{}{t} \begin{pmatrix} \psi_1 \\ \psi_2 \\ \psi_3 \\ \psi_4  \end{pmatrix} =
+	\begin{pmatrix} mc^2 & 0 & 0 & 0 \\ 0 & mc^2 & 0 & 0 \\ 0 & 0 & -mc^2 & 0 \\ 0 & 0 & 0 & -mc^2 \end{pmatrix}
+	\begin{pmatrix} \psi_1 \\ \psi_2 \\ \psi_3 \\ \psi_4  \end{pmatrix}
 \]
 Tenemos cuatro ecuaciones, dos con energía positiva y dos con energía negativa
 \[
-	a
+	i \hbar \dpar{\psi_i}{t} = mc^2 \psi_i \qquad i \hbar \dpar{\psi_i}{t} = -mc^2 \psi_i
+\]
+\[
+	\psi_1 = \euler^{-imc^2t/\hbar}\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0  \end{pmatrix} \qquad 
+	\psi_3 = \euler^{imc^2t/\hbar}\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0  \end{pmatrix}
 \]
 Como aún tenemos degeneración de orden dos, necesitaremos un operadore que conmute con el $H$
 \[
-	a
+	\vec{\Sigma} = \begin{pmatrix} \vec{\sigma} & 0 \\ 0 & \vec{\sigma} \\ \end{pmatrix} \qquad 
+	[H,\vec{\Sigma}] = 0
 \]
 \[
-	b
+	\Sigma_3 =  \begin{pmatrix} \sigma_3 & 0 \\ 0 & \sigma_3 \\ \end{pmatrix} = 
+	\begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1 \end{pmatrix}
 \]
+\begin{align*}
+	\psi_1, E=mc^2, \Sigma_3=1 \qquad  &\psi_2, E=mc^2, \Sigma_3=-1 \\
+	\psi_3, -E=mc^2, \Sigma_3=1 \qquad  &\psi_4, -E=mc^2, \Sigma_3=-1
+\end{align*}
 Podemos identificar 
 \[
-	S
+	\vec{S} = \frac{\hbar}{2} \vec{\Sigma}
 \]
 \[
-	p \neq = 0  \Rightarrow [H, vb{\Sigma}] = 2ic \vb{\alpha} \times \vb{p}
+	\text{si} \; p \neq 0  \Rightarrow [H, \vb{\Sigma}] = 2ic \vb{\alpha} \times \vb{p}
 \]
 
 \subsection{Energías negativas}
