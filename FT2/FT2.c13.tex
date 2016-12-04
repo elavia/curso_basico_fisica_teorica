@@ -175,9 +175,9 @@ Permitirá romper la degeneración de intercambio.
 Postulamos que toda partícula es de uno de dos tipos de acuerdo a su simetría 
 
 \begin{center}
-\begin{tabular}{llll}
-N & simetrica & BE & entero\\
-N & antisimetrica & FD & semientero
+\begin{tabular}{|c|l|l|l|l|}
+\multirow{2}{*}{Sistemas de N part. idénticas} & N & simetrica & BE & entero\\
+& N & antisimetrica & FD & semientero
 \end{tabular}
 \end{center}
 
@@ -187,7 +187,11 @@ En la naturaleza no ocurren simetrías mixtas.
 
 Para fermiones supongamos sistema de dos partículas idénticas 
 \[
-	\Psi
+	\Ket{ \Psi }_a = \frac{1}{\sqrt{2}}( \Ket{k'}_1\Ket{k''}_2 - \Ket{k''}_1\Ket{k'}_2)
+\]
+y entonces si $k'=k''$ se tiene que 
+\[
+	\Ket{ \Psi }_a = 0.
 \]
 
 No es posible tener dos fermiones con iguales números cuánticos. Por el contrario los bosones sí pueden tener 
@@ -197,60 +201,85 @@ iguales números cuánticos.
 
 Sistema de dos electrones de spin $1/2$. Son fermiones. Sea que $[H,S]=0$  con $S = S_1 + S_2$. Se tendrá 
 \[
-	Psi
+	\Ket{\Psi}^{sist} = \Ket{\Psi}^{spa} \otimes \Ket{\Psi}^{spin}
 \]
 Como $\Ket{\Psi}^{sist}$ es simétrica tendremos 
 \[
-	P
+	P_{12} \Ket{\Psi}^{sist} = - \Ket{\Psi}^{sist} 
 \]
 \[
-	P
+	P_{12} \Ket{\Psi}^{sist} = P_{12} \Ket{\Psi}^{spa} \otimes P_{12}\Ket{\Psi}^{spin} 
 \]
 
-Para dos electrones con spin $1/2$ se tiene 
+Para dos electrones con spin $1/2$ se tiene $j_1+j_2$ entonces $ 0 \leq j \leq 1 $ de modo que $|m_1|\leq j_1$ y
+$|m_2|\leq j_2$ entonces $0 \leq S \leq 1$ y $|m_{s_1}|\leq s_1$ y $|m_{s_2}|\leq s_1$.
 \[
-	a
+	\left.\begin{aligned}
+	& \Ket{\uparrow \uparrow} \\
+	& \Ket{\downarrow \downarrow } \\
+	& \frac{1}{\sqrt{2}}( \Ket{ \uparrow\downarrow }+\Ket{ \downarrow\uparrow} )
+	\end{aligned}
+	\right\} \; \text{triplete} \; s=1 \qquad \text{Estados simétricos}
 \]
 \[
-	b
+	\left.\begin{aligned}
+	\frac{1}{\sqrt{2}}( \Ket{\uparrow\downarrow} - \Ket{\downarrow\uparrow} )
+	\end{aligned}
+	\right\} \; \text{singlete} \; s=0 \qquad \text{Estados antisimétricos}
 \]
-\[
-	c
-\]
-Entonces 
-\[
-	a
-\]
+Entonces
+\begin{gather*}
+	\begin{aligned}
+	s=0 \qquad \Rightarrow \; &\Ket{\Psi}^{spa} \text{es simétrica} \\
+	s=1 \qquad \Rightarrow \; &\Ket{\Psi}^{spa} \text{es antisimétrica}
+	\end{aligned}	
+\end{gather*}	
+
 Vistos desde el CM de los electrones
 \[
-	P
+	P_{12} = \Pi
+\]
+y entonces
+\[
+	P_{12}\Ket{n\ell m} = (-1)^\ell \Ket{n\ell m}
 \]
 \[
-	Q
+	\ell \;\text{par} \; \rightarrow \Ket{\Psi}^{spa} = P_{12} \Ket{\Psi}^{spa} \qquad 
+	\ell \;\text{impar} \; \rightarrow -\Ket{\Psi}^{spa} = P_{12} \Ket{\Psi}^{spa}
 \]
 Necesitaré $\ell$ par con $s=0$ entonces $\ell+s=j$ par. En cambio, si $\ell$ impar con $s=1$ entonces 
 $\ell+s=j$ par. Dos electrones sólo se acoplan a momento total $j$ par.
 
 Sean los siguientes estados 
 \[
-	Psi
+	\Ket{ \Psi }_{sa} = \frac{1}{\sqrt{2}}( \Ket{k'}\Ket{k''} \pm \Ket{k''}\Ket{k'})
 \]
 \[
-	Psi2
+	\Ket{ \Psi_F }_{sa} = \frac{1}{\sqrt{2}}( \Ket{a'}\Ket{a''} \pm \Ket{a''}\Ket{a'})
 \]
 y la probabilidad será
 \[
-	Prob
+	\text{Prob}\; = |_{sa}\Braket{\Psi|\Psi}_{sa}|^2 = 
+	\left|\frac{1}{2}(_1\Bra{a'}_2\Bra{a''} \pm _1\Bra{a''}_2\Bra{a'})(\Ket{k'}_1\Ket{k''}_2 \pm 
+	\Ket{k''}_1\Ket{k'}_2)\right|^2 =
 \]
 \[
-	a
+	= \frac{1}{4}\left| \Bra{a'}\Bra{a''}\Ket{k'}\Ket{k''} \pm \Bra{a''}\Bra{a'}\Ket{k'}\Ket{k''} 
+	\pm \Bra{a'}\Bra{a''}\Ket{k''}\Ket{k'} \pm \Bra{a''}\Bra{a'}\Ket{k''}_1\Ket{k'} \right|^2
 \]
 \[
-	b
+	= \frac{1}{4}\left| 2\Braket{a'|k'}\Braket{a''|k''} \pm 2\Braket{a''|k'}\Braket{a'|k''}\right|^2
 \]
 \[
-	Prob
+	= \left| \underbrace{\Braket{a'|k'}\Braket{a''|k''}}_{\text{término directo}} \pm 
+	\underbrace{\Braket{a''|k'}\Braket{a'|k''}}_\text{término de intercambio}\right|^2
 \]
+\begin{multline*}
+	\text{Prob}\; = |_{sa}\Braket{\Psi|\Psi}_{sa}|^2 = \left| \Braket{a'|k'}\Braket{a''|k''} \right|^2 + 
+	\left|\Braket{a''|k'}\Braket{a'|k''}\right|^2 \\
+	\pm 2\mathcal{Re}\left(\underbrace{ \Braket{a'|k'}\Braket{a'|k''}^*\Braket{a''|k''}\Braket{a''|k'}^* 
+	}_\text{Interferencia}\right)
+\end{multline*}
 
 Vemos que aparece una interferencia que será importante solamente si hay solapamiento. En el caso de no 
 solaparse o con partículas clásicas solo el primer término es de importancia.
@@ -265,44 +294,64 @@ solaparse o con partículas clásicas solo el primer término es de importancia.
 	\caption{}
 \end{figure} 
 \[
-	H = 
+	H = \frac{p_1}{2m} + \frac{p_2}{2m} - \frac{2e^2}{r_1} -  \frac{2e^2}{r_2} + \frac{e^2}{r_{12}}
 \]
-en este último caso $H$ está desacoplado 
+y si el último término es $\sim 0$ decimos que en ese caso $H$ está desacoplado 
 \[
-	\Psi = 
+	\Psi = \Psi_1 \otimes \Psi_2
 \]
 \[
-	[]
+	[\vb{H},\vb{S}] = 0 \qquad \vb{S} = \vb{S}_1 + \vb{S}_2 = \begin{cases} 0 \\ 1 \end{cases}
 \]
 S es constante de movimiento y para la $\Ket{\psi_{spin}}$ se tiene 
 \[
-	a
+	S=0 \qquad \frac{1}{\sqrt{2}}( \Ket{ \uparrow\downarrow }-\Ket{ \downarrow\uparrow}) \quad \text{singlete}
 \]
 \[
-	b
+	S=1 \qquad \begin{aligned}
+	& \Ket{\uparrow \uparrow} \\
+	& \Ket{\downarrow \downarrow } \\
+	& \frac{1}{\sqrt{2}}( \Ket{ \uparrow\downarrow }+\Ket{ \downarrow\uparrow} )
+	\end{aligned} \quad \text{triplete}
 \]
+Sea $ e^-_1 \Ket{100}$ y $e^-_2 \Ket{n\ell m}$
 \[
-	c
+	\Ket{\Psi}_{He} = \frac{1}{\sqrt{2}}\left(  \Ket{100}\Ket{n\ell m} \pm  \Ket{n\ell m}\Ket{100}
+	\right) \Ket{\Psi_{spin}}
 \]
+de modo que con $S=0$ será
 \[
-	d
+	\Ket{\Psi}_{He} = \frac{1}{\sqrt{2}}\left( \Ket{100}\Ket{n\ell m} + \Ket{n\ell m}\Ket{100}\right) 
+	\frac{1}{\sqrt{2}}( \Ket{ \uparrow\downarrow }-\Ket{ \downarrow\uparrow})
+\]
+y en cambio con $S=1$
+\[
+	\Ket{\Psi}_{He} = \frac{1}{\sqrt{2}}\left(  \Ket{100}\Ket{n\ell m} - \Ket{n\ell m}\Ket{100}\right) 
+			\begin{cases}
+	                   \Ket{\uparrow \uparrow} \\
+			   \Ket{\downarrow \downarrow } \\
+			   \frac{1}{\sqrt{2}}( \Ket{ \uparrow\downarrow }+\Ket{ \downarrow\uparrow} )
+	                  \end{cases}
 \]
 
 Podemos pensar en teoria de perturbaciones ahora y calcular 
 \[
-	E_{He} = 
+	E_{He} = E_{100} + E_{n\ell m} + \Delta E
 \]
 donde 
 \[
-	\Delta E = 
+	\Delta E = \Braket{\Psi|\frac{e}{r_{12}}|\Psi}
 \]
-lo considero una perturbación.
+y el término en el {\it sandwich} lo considero una perturbación.
 \[
-	a
+	\Delta E = \Bra{\Psi^{spin}}^\dagger \frac{1}{2}\left(\Bra{100}\Bra{n\ell m} \pm \Bra{n\ell m}\Bra{100}
+	\right) \frac{e}{r_{12}} \left(\Ket{100}\Ket{n\ell m} \pm \Ket{n\ell m}\Ket{100}\right)\Ket{\Psi^{spin}}
 \]
 \[
-	d
+	\Delta E = \Bra{100}\Bra{n\ell m}\frac{e}{r_{12}}\Ket{100}\Ket{n\ell m} \pm  
+	\Bra{n\ell m}\Bra{100}\frac{e}{r_{12}}\Ket{100}\Ket{n\ell m}
 \]
+que se puede escribir más resumidamente como
 \[
 	\Delta E = I \pm J
 \]
