@@ -43,69 +43,94 @@ Puédense escribir perturbaciones dependientes del tiempo
 con $\Ket{n}$ no dependiente del tiempo. Se estudiarán transiciones entre autoestados del $H_0$ (que son 
 estacionarios). Un autoestado permanece en el tiemo como tal pero con fase oscilante
 \[
-	\Ket{\alpha,t_0,t}_s = 
+	\Ket{\alpha,t_0,t}_s = \euler^{-iH/\hbar(t-t_0)}\Ket{\alpha,t_0}_s
 \]
 \[
-	a
+	= \euler^{-iH/\hbar(t-t_0)} \euler^{-iV(t)/\hbar(t-t_0)} \Ket{\alpha,t_0}
 \]
 \[
-	b
+	= \sum_n \euler^{-iH_0/\hbar \: t} \euler^{-iV(t)/\hbar \: t} \ket{n}\Braket{n|\alpha,t_0}
 \]
 \[
-	c
+	= \sum_n \euler^{-iE_n^0/\hbar \: t }\ket{n}\euler^{-iV(t)/\hbar \: t } \Braket{n|\alpha,t_0}	
 \]
-
+\[
+	\euler^{iH_0/\hbar t}\Ket{\alpha,t_0,t}_s =
+	\sum_n  \underbrace{\euler^{-iV(t)/\hbar \: t} \Braket{n|\alpha,t_0}}_{C_n(t)} \ket{n} = \Ket{\alpha,t_0,t}_I	
+\]
+es decir 
+\[
+	 \Ket{\alpha,t_0,t}_I = \euler^{iH_0/\hbar t}\Ket{\alpha,t_0,t}_s
+\]
 Aquí se puede pensar que 
 \begin{itemize}
  \item $C_n(t)$ evoluciona por $V(t)$
- \item $C$ evoluciona por $H_0$
+ \item $\euler^{-iE_n^0 t/\hbar}$ evoluciona por $H_0$
 \end{itemize}
 
 Esto introduce la {\it picture} de interacción de Dirac; en la cual los estados evolucionan con $V(t)$.
 
 \begin{center}
-\begin{tabular}{llll}
- & Dirac & Schrödinger & Heinsenberg \\
-estados & e & e & fijos \\
-operadores & e & fijos & e\\
-base & fijos & fijos & e
+\begin{tabular}{|c|ccc|}
+\hline 
+& Dirac & Schrödinger & Heinsenberg \\
+\hline 
+% & &  & \\
+estados & evolucionan & evolucionan & fijos \\
+$\Ket{\alpha}$ & con $V(t)$ & con $H$ &  \\
+\hline
+operadores & evolucionan & fijos & evolucionan \\
+ & con $H_0$ &  & con $H$ \\
+\hline
+base & fijos & fijos & evolucionan \\
+$\Ket{a'}$ &  &  &  \\
+\hline 
+% & & & \\
 \end{tabular}
 \end{center}
 
 \[
-	b
+	i\hbar \dpar{}{t}\Ket{\alpha,t_0,t}_s = H \Ket{\alpha,t_0,t}_s
 \]
 \[
-	nb
+	i\hbar \dpar{}{t}\left( \euler^{-iH_0t/\hbar}\Ket{\alpha,t_0,t}_I \right) = 
+	H \euler^{-iH_0t/\hbar} \Ket{\alpha,t_0,t}_I
 \]
 \[
-	a
+	i\hbar \euler^{-iH_0t/\hbar}\dpar{}{t} \Ket{\alpha,t_0,t}_I = 
+	V(t) \euler^{-iH_0t/\hbar} \Ket{\alpha,t_0,t}_I
+\]
+\[
+	i\hbar \dpar{}{t} \Ket{\alpha,t_0,t}_I = V(t) \Ket{\alpha,t_0,t}_I,
 \]
 que es la ecuación de evolución de los kets.
 Pediremos asimismo que 
 \[
-	a
+	_s\Braket{\; A_s \;}_s = _I\Braket{\; A_I \;}_I
 \]
 \[
-	c
+	_I\Braket{\alpha,t_0,t|A_I|\alpha,t_0,t}_I =
+	_s\Braket{\alpha,t_0,t|\euler^{-iH_0t/\hbar}A_I\euler^{iH_0t/\hbar}|\alpha,t_0,t}_s=
+	_s\Braket{\alpha,t_0,t|A_s|\alpha,t_0,t}_s =
 \]
 Y los operadores evolucionan según 
 \[
-	a
+	A_I = \euler^{iH_0t/\hbar}A_s\euler^{-iH_0t/\hbar}
 \]
 \[
-	d =
+	\dtot{A_I}{t} = \frac{1}{i\hbar}[A_I, H_0]
 \]
 que es igual que la ecuación de Heisenberg pero con $\hat{H}_0$ en lugar de $H$.
 Los kets base permanecen fijos, porque así lo hacen en Schrödinger, en realidad oscila su fase; entonces 
 \[
-	d
+	\Ket{n,t_0,t}_s = \euler^{-iHt/\hbar} \ket{n,t_0}_s
 \]
 \[
-	d
+	\Ket{n,t_0,t}_I = \euler^{iH_0t/\hbar} \euler^{-iHt/\hbar} \ket{n,t_0}_s =
+	\euler^{-iVt/\hbar} \ket{n,t_0}_s = \euler^{iH_0t/\hbar} \ket{n,t_0}_s
 \]
 \[
-	d
+	\Ket{n,t_0,t}_I = \euler^{iE_0t/\hbar} \ket{n,t_0,t}_s
 \]
 
 \subsection{Evolución de los coeficientes}
@@ -402,48 +427,55 @@ con $L\to\pm\infty$ son $n_x,k_x$ continuas.
 \[
 	d
 \]
-donde $n^2 dn d\Omega$ es la densidad de estados de energía $(E,E+dE)$ en $d\Omega$
+donde $n^2\:dn\:d\Omega$ es la densidad de estados de energía $(E,E+dE)$ en $d\Omega$
 \[
-	=
+	n^2 \: dn \: d\Omega = \rho(E') dE'
 \]
 
 Con esto sale la integral obteniéndose
 \[
-	=
+	\omega_{\vb{k}-\vb{k}'} = 
+	\frac{L^3}{(2\pi)^2} \frac{m}{\hbar^3} \left|\Braket{\vb{k}'|V|\vb{k}}\right|^2 k'd\Omega
 \]
 
 Esta es la probabilidad de transición entre los impulsos $\vb{k}$, $\vb{k}'$. Es el número de partículas en 
 la unidad de tiempo por unidad de área 
 \[
-	seccion eficaz \equiv 
+	\text{seccion eficaz} \equiv \dtot{\sigma}{\Omega}d\Omega =
+	\frac{\text{\# de part en $d\Omega$ en la unidad de t}}
+	{\text{\# de part incidentes en la unidad de t por unidad de área}}
 \]
 
 Un elemento de matriz $\Braket{k'|V|k}$ será 
 \[
-	=,
+	\Braket{\vb{k}'|V|\vb{k}} = \int dx'\Braket{\vb{k}'|\vb{x}'} \Braket{\vb{x}'|V|\vb{k}} =
+	\int d\vb{x}' \frac{1}{L^3} \euler^{i (\vb{k}-\vb{k}')\cdot \vb{x}} \; V(\vb{x}'),
 \]
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/teo2_31.pdf}
+	\includegraphics[width=0.5\textwidth]{images/teo2_31.pdf}
 	\end{center}
 	\caption{}
 \end{figure} 
 la transformada de Fourier del potencial es, amén de constantes, la amplitud a primer orden 
 \[
-	|| \qquad \text{con} \; k=k' 
+	|\vb{k} - \vb{k}'| = 2k\sin(\theta/2) \qquad \text{con} \; k=k' 
 \]
 Entonces para cualquier potencial esféricamente simétrico se puede hacer la integral 
 \[
 	\dtot{\sigma}{\Omega} =
+	\left|\left( \frac{2m}{4\pi\hbar}\right)^2 \int d^3x'\;V(x)\euler^{i(\vb{x}-\vb{x}')\cdot\vb{x}'}\right|^2
 \]
+y expresamos todo en función de $q=q(\theta)$
 \[
 	\dtot{\sigma}{\Omega} =
+	\left| -\frac{2m}{\hbar^2} \frac{1}{q} \int_0^\infty rV(r)\sin(q) dr \right|^2
 \]
 
 Utilizando un potencial de Yukawa primero y tomando el límite para llegar al de Coulomb tenemos la sección 
 eficaz de Rutherford 
 \[
-	\dtot{\sigma}{\Omega} = 
+	\dtot{\sigma}{\Omega} = \frac{2m^2e^4}{\hbar^4}\frac{1}{16k^4\sin^4(\theta/2)}
 \]
 
 hay que tomar el potencial de Yukawa y luego el límite porque el de Coulomb diverge de entrada
