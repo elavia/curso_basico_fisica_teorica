@@ -136,32 +136,45 @@ Los kets base permanecen fijos, porque así lo hacen en Schrödinger, en realida
 \subsection{Evolución de los coeficientes}
 
 \[
-	as
+	\Ket{\alpha,t_0,t}_I = \sum_n \Ket{n}\Braket{n|\alpha,t_0,t}_I = \sum_n C_n(t) \Ket{n}
 \]
 \[
-	C_n(t) =
+	C_n(t) = \euler^{iVt/\hbar} \Braket{n|\alpha,t_0}_s
 \]
 \[
-	d
+	\Braket{n|\alpha,t_0,t}_I = C_m(t)
 \]
-y le pego un $\Bra{n}$ a la ecuación de evolución de kets,
+con $\Ket{n},\ket{m}$ autoestados de $H_0$, le pego un $\Bra{n}$ a la ecuación de evolución de kets,
 \[
-	i\hbar
-\]
-\[
-	s
+	i\hbar \dpar{}{t} \Braket{n|\alpha,t_0,t}_I = \Braket{n|V_I(t)|\alpha,t_0,t}_I
 \]
 \[
-	i\hbar
+	= \sum_m \Braket{n|V_I(t)|m}\Braket{m|\alpha,t_0,t}_I
+\]
+\[
+	i\hbar \dpar{}{t}C_n(t) = \sum_m C_m(t) \Braket{n|V_I(t)|m}
+\]
+\[
+	i\hbar \dpar{}{t}C_n(t) = \sum_m C_m(t) \Braket{n|V_s|m} \euler^{it(E_n-E_m)/\hbar}
+\]
+\[
+	i\hbar \dpar{}{t}C_n(t) = \sum_m C_m(t) V_{nm}(t) \euler^{i\omega_{nm}t}
 \]
 donde $V_{nm}(t) \equiv \Braket{n|V(t)|m}$ y $\omega_{nm} \equiv (E_n-E_m)/\hbar$.
 Esta es la ecuación que cumplen los coeficientes, donde $|C_n(t)|^2$ es la probabilidad de hallar al sistema 
 en el autoestado $\Ket{n}$.
 Es decir
 \[
-	\begin{matrix}
-	 =
-	\end{matrix}
+	i\hbar \begin{pmatrix}
+	\dot{c}_1 \\ \dot{c}_2 \\ ... \\ \dot{c}_N \\
+	\end{pmatrix} 
+	=
+	\begin{pmatrix}
+	V_{11} & V_{12}\euler^{i\omega_{12}} & ... \\ V_{21}\euler^{i\omega_{21}} & V_{22} & ... \\ ... \\ ... \\
+	\end{pmatrix}
+	\begin{pmatrix}
+	c_1 \\ c_2 \\ ... \\ c_N \\
+	\end{pmatrix} 
 \]
 que puede ser de difícil solución.
 
@@ -169,25 +182,30 @@ que puede ser de difícil solución.
 
 Pensaremos en una serie perturbativa 
 \[
-	C_n(t) =
+	C_n(t) = C_n(t)^{(0)} + C_n(t)^{(1)}  + C_n(t)^{(2)}  + ...
 \]
 
 El evolucionador temporal en la picture de interacción cumple 
 \[
-	\Ket{} =
+	\Ket{\alpha,t_0,t} = U_I(t,t_0)\Ket{\alpha,t_0}_I
 \]
 que viene de  
 \[
-	i\hbar
+	i\hbar \dtot{}{t} U_I(t,t_0) = V_I(t) U_I(t,t_0)
 \]
-la cual resolviendo nos hace llegar a 
+con $U(t_0,t_0)=\mathbb{1}$ la cual resolviendo nos hace llegar a 
 \[
-	U
+	U_I(t,t_0) = \mathbb{1} - \frac{i}{\hbar}\int_{t_0}^{t} V_I(t')U_I(t',t_0) dt'
 \]
 y esto lleva a la serie de Dyson:
-\[
-	U
-\]
+\begin{multline*}
+	U_I(t,t_0) = \mathbb{1} - \frac{i}{\hbar}\int V_I(t') dt' + \left( -\frac{i}{\hbar} \right)^2\int_{t_0}^t 
+	V_I(t') \int_{t_0}^{t'}V_I(t'')dt'' + ...\\ + \left( -\frac{i}{\hbar} \right)^n 
+	\int_{t_0}^t dt'\int_{t_0}^{t'}dt''\int_{t_0}^{t''}dt''' ... \int_{t_0}^{t^{n-1}}dt^{n} V_I(t') 
+	V_I(t'')...V_I(t^n)	
+\end{multline*}
+
+
 
 \subsection{Transiciones entre autoestados del hamiltoniano $H_0$}
 \[
