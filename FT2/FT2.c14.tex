@@ -209,30 +209,42 @@ y esto lleva a la serie de Dyson:
 
 \subsection{Transiciones entre autoestados del hamiltoniano $H_0$}
 \[
-	\Ket{} =
+	\Ket{i,t_0=0,t}_I = U_I(t,0) \Ket{i} = \sum_n \Ket{n}\Braket{n|U_I(t)|i}
 \]
+y como se viera oportunamente
 \[
-	a
+	\Ket{i,t}_I = \sum_n C_n(t)\Ket{n} = \sum_n \left( \Braket{n|U_I(t)|i} \right) \Ket{n}
 \]
 La amplitud de transición será 
 \[
-	C
+	C_n(t) = \Braket{n|U_I(t)|i}
 \]
 con $\Ket{i},\Ket{n}$ autoestados de $H_0$.
 Sea $\tilde{C}_n(t)=\Braket{n|U_s(t)|i}$ y busquemos una expresión 
 \[
-	a
+	\Ket{\alpha, t_0, t}_I = \euler^{iH_0t/\hbar} \Ket{\alpha, t_0, t}_s
+\]
+\[ 
+	= \euler^{iH_0t/\hbar} U_S(t,t_0)\Ket{\alpha, t_0}_s
 \]
 \[
-	b
+	\Ket{\alpha, t_0, t}_I  = \euler^{iH_0t/\hbar} U_S(t,t_0) \euler^{-iH_0t_0/\hbar}  \Ket{\alpha, t_0}_I
+	= U_I(t,t_0) \Ket{\alpha,t_0}_I
+\]
+\[
+	\euler^{iH_0t/\hbar} \hat{U}_S \euler^{-iH_0t_0/\hbar} = \hat{U}_I
 \]
 y notemos que $\hat{U}$ no obedece la ley de transformación de operadores.
 
 \[
-	a
+	C_n(t) = \Braket{n|\euler^{iH_0t/\hbar} U_S(t,t_0) \euler^{-iH_0t_0/\hbar}|i}
 \]
 \[
-	b \Rightarrow |C_n(t)|^2 = |\tilde{C}_n(t)|^2
+	C_n(t) = \euler^{-i/\hbar[E_n^{(0)} t - E_i^{(0)} t_0]} \Braket{n| U_S(t,t_0) |i} =
+		\euler^{-i/\hbar[E_n^{(0)} t - E_i^{(0)} t_0]} \tilde{C}_n(t)
+\]
+\[
+	\Rightarrow |C_n(t)|^2 = |\tilde{C}_n(t)|^2.
 \]
 
 Para transiciones entre autoestados de $H_0$ los coeficientes dan la misma probabilidad (evaluados con el 
@@ -240,9 +252,24 @@ evolucionador de Dirac que con el de Schrödinger).
 Vamos a las transiciones a los tres 
 \begin{itemize}
  \item orden 0
+ \[
+	C_n^{(0)}(t) = \Braket{n|1|i} = \delta_{ni}
+ \]
  \item orden 1
+ \[
+ 	C_n^{(1)}(t) = -\frac{i}{\hbar} \int_{t_0}^t \euler^{i\omega_{ni}} V_{ni}(t') dt' \qquad \qquad 
+ 	V_{ni} \equiv \Braket{n|V(t)|i}
+ \]
  \item orden 2
+ \[
+ 	C_n^{(2)}(t) = \sum_m \left( -\frac{i}{\hbar} \right)^2  \int_{0}^t  dt'\int_{0}^t dt''
+ 	\euler^{it'/\hbar(E_n-E_m)} V_{nm}(t') \euler^{it''/\hbar(E_m-E_i)} V_{mi}(t'')
+ \]
 \end{itemize}
+y entonces la probabilidad de ir desde $|ket{i}\to \Ket{i}$, hasta orden dos, sería
+\[
+	P^{(2)}_{i\to n} = |C_n^{(0)}(t)+C_n^{(1)}(t)+C_n^{(2)}(t)|^2
+\]
 
 \subsection{Ejemplo: potencial constante encendido abruptamente}
 
