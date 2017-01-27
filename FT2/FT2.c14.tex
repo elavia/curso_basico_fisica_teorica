@@ -381,24 +381,34 @@ Sea un potencial armónico y hermítico
 \]
 quiero ver probabilidad de transición a orden uno,
 \[
-	C_n(t)^1 = 
+	C_n(t)^1 = -\frac{i}{\hbar} \int_0^t ( V_{ni}\euler^{i\omega t'}+ V_{ni}^\dagger \euler^{-i\omega t'} )
+		\euler^{i\omega_{ni}t'}dt'
 \]
 \[
-	a
+	C_n(t)^1 = -\frac{i}{\hbar} \left[ V_{ni} \int_0^t \euler^{i(\omega +\omega_{ni})t'} dt' + 
+		V_{ni}^\dagger \int_0^t \euler^{i(-\omega +\omega_{ni})t'} dt' \right]
 \]
 \[
-	b
+	C_n(t)^1 = -\frac{i}{\hbar} \left[ V_{ni} \frac{\euler^{i(\omega +\omega_{ni})t} -1}{i( \omega +\omega_{ni} )}
+		+ V_{ni}^\dagger \frac{\euler^{i(-\omega +\omega_{ni})t} - 1}{i(-\omega +\omega_{ni})} \right]
 \]
 \[
-	c
+	C_n(t)^1 = \frac{V_{ni}}{\hbar} \frac{1-\euler^{i(\omega +\omega_{ni})t}}{( \omega +\omega_{ni} )}
+		+ \frac{V_{ni}^\dagger}{\hbar} \frac{1-\euler^{i(-\omega +\omega_{ni})t}}{(-\omega +\omega_{ni})}
+\]
+\[
+	\lim_{t\to\infty} C_n(t)^1 = \frac{1}{\hbar}\left[ V_{ni}\delta(\omega_{ni}+\omega) 
+		+ V_{ni}^\dagger \delta(\omega_{ni}-\omega) \right]
 \]
 
 Luego será nulo sólo si 
 \[
-	\omega
+	\omega_{ni} = -\omega \qquad \longrightarrow \qquad 
+		\frac{E_n - E_i}{\hbar} = -\omega \quad E_n = E_i - \hbar\omega
 \]
 \[
-	\omega
+	\omega_{ni} = -\omega \qquad \longrightarrow \qquad 
+		\frac{E_n - E_i}{\hbar} = \omega \quad E_n = E_i + \hbar\omega
 \]
 
 \begin{figure}[htb]
@@ -410,7 +420,7 @@ Luego será nulo sólo si
 
 Luego,
 \[
-	\lim 
+	\lim_{t\to\infty} C_n(t)^1
 \]
 representa la probababilidad de emitir o absorber fotones en una interacción. Se puede asociar que $V$ crea 
 fotones y $V^\dagger$ destruye fotones. Para un átomo se tiene 
@@ -428,7 +438,7 @@ fotones y $V^\dagger$ destruye fotones. Para un átomo se tiene
 
 Queremos ver con cual $v$ se despoblan los $\Ket{i}$. Para elllo me construyo un potencial {\it suave}
 \[
-	\lim 
+	\lim_{\eta\to 0} V(t) = \euler^{\eta t} \mathbb{V}, \qquad  \mathbb{V} \text{cte.}
 \]
 donde $\eta$ es un parámetro regularizador.
 \begin{figure}[htb]
@@ -438,21 +448,28 @@ donde $\eta$ es un parámetro regularizador.
 	\caption{}
 \end{figure} 
 \[
-	a
+	C_n(t)^1 = \lim_{t\to\infty} -\frac{i}{\hbar} 
+		\int_{t_0}^t V_{ni} \euler^{\eta t'} \euler^{i\omega_{ni} t'} dt'
 \]
 \[
-	b
+	C_n(t)^1 = -\frac{i}{\hbar} V_{ni} \frac{\euler^{\eta t} \euler^{i\omega_{ni} t} }{\eta+i\omega_{ni}}
+	\qquad \qquad 
+ 	|C_n(t)^1|^2 = \frac{|V_{ni}|^2}{\hbar^2} \frac{\euler^{2\eta t} }{\eta^2 + \omega_{ni}^2 }
 \]
 \[
- 	c
+	\dtot{}{t}|C_n(t)^1|^2 = 2 \eta \frac{|V_{ni}|^2}{\hbar^2} \frac{\euler^{2\eta t} }{\eta^2 + \omega_{ni}^2 }
 \]
 y tomando el límite $\eta \to 0$ 
 \[
-	d
+	\lim_{\eta\to 0} \dtot{}{t}|C_n(t)^1|^2 = 2 \frac{|V_{ni}|^2}{\hbar^2} 
+			\frac{\eta }{\eta^2 + \omega_{ni}^2 } = \begin{cases}
+	                    0 \quad \text{si}\;\; \omega_{ni}^2 \neq 0 \\
+	                    \infty \quad \text{si}\;\; \omega_{ni}^2 = 0
+	                   \end{cases}
 \]
 y llegamos a la regla de oro de Fermi,
 \[
-	d
+	\dtot{}{t}|C_n(t)^1|^2 = 2 \frac{|V_{ni}|^2}{\hbar^2} \delta(\omega_{ni}) \pi
 \]
 
 \subsection{Scattering sección eficaz}
@@ -470,23 +487,30 @@ se conserva la energía. Consideraremos la aproximación más baja (aproximació
 \end{figure} 
 
 \[
-	\omega 
+	\omega = \int \frac{2\pi}{\hbar}  \delta(E'-E) |\Braket{\vb{k}'|V|\vb{k}}|^2 \rho(E') dE'
 \]
 queremos calcular la densidad de estados de energía entre $(E,E+dE)$. Pensamos en una partícula libre en una 
 caja $1D$ de longitud $L$.
 \[
-	N
+	N \euler^{i k_x x /\hbar}, \qquad \text{con} \;\; k_x = \frac{2\pi}{L}n_x
 \]
 pidiendo normalización unitaria $\Braket{k|k}=1$ se tiene 
 \[
-	d
+	\frac{1}{\sqrt{L}} \euler^{i k_x x /\hbar}
 \]
 con $L\to\pm\infty$ son $n_x,k_x$ continuas.
 \[
-	d
+	dk_x = \frac{2\pi}{L} dn_x \quad \longrightarrow \quad  dn_x = \frac{L}{2\pi} dk_x 
 \]
 \[
-	d
+	E = \frac{\hbar^2k^2}{2m} = \frac{\hbar^2}{2m} \left( \frac{2\pi}{L}\right)^2 n^2 \quad 
+	\longrightarrow \quad n^2 = \frac{L^2}{(2\pi)^2}k^2
+\]
+\[
+	dE = \frac{\hbar^2}{m} k dk \quad \longrightarrow \quad dn = \frac{L}{2\pi}\frac{m}{\hbar^2 k} dE
+\]
+\[
+	n^2 dn d\Omega = \left( \frac{L}{2\pi} \right)^3 \frac{mk}{\hbar^2} \:dE \:d\Omega
 \]
 donde $n^2\:dn\:d\Omega$ es la densidad de estados de energía $(E,E+dE)$ en $d\Omega$
 \[
