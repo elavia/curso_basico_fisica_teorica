@@ -275,10 +275,11 @@ y entonces la probabilidad de ir desde $|ket{i}\to \Ket{i}$, hasta orden dos, se
 
 Notemos que $V\neq V(t)$. Dependerá de cualquier otra cosa.
 \[
-	a
+	C^0_n(t) = 0
 \]
 \[
-	b
+	C^1_n(t) = -\frac{i}{\hbar} \int_0?^t \euler^{i/\hbar(E_n - E_i)t'} V_{ni} dt'=
+	\frac{V_{ni}}{(E_n - E_i)}(1-\euler^{i\omega_{ni}t})
 \]
 \begin{figure}[htb]
 	\begin{center}
@@ -286,6 +287,9 @@ Notemos que $V\neq V(t)$. Dependerá de cualquier otra cosa.
 	\end{center}
 	\caption{}
 \end{figure} 
+\[
+	|C^1_n(t)|^2 = \frac{4|V_{ni}|^2}{| E_n - E_i|^2}\sin^2\left(\frac{(E_n - E_i)t}{2\hbar}\right) 
+\]
 Es máxima la probabilidad cuando $\Delta E\to 0$. En ese caso las transiciones son a estados de la misma 
 energía. A tiempo largo la probabilidad es no nula para aquellos estados 
 \[
@@ -300,7 +304,7 @@ masacote al cual impactamos. De entrada ha partículas libres y de salida (lejos
 Entonces $ E_n - E_c \sim 0$ y consideraremos lo que sucede a tiempos largos. Interesará la probabilidad 
 total de transicionear a estados de energía similares a $E_i$. Por ello se considera 
 \[
-	\sum 
+	\sum_{\substack{n \\ E_n\sim E_i}} |C^1_n(t)|^2 \longrightarrow \int dE_n \rho(E_n) |C^1_n(t)|^2
 \]
 donde el integrando es el número de estados dentro de un intervalo de energías $(E,E+dE)$.
 \begin{figure}[htb]
@@ -311,13 +315,15 @@ donde el integrando es el número de estados dentro de un intervalo de energías
 \end{figure} 
 En tiempos muy largos la expresión [1] tiende a una delta de Dirac y se integra fácil,
 \[
-	\lim 
+	\lim  \int dE\rho(E_n) |C^1_n(t)|^2 = \left.\left(\frac{2\pi}{\hbar}\right)
+		|\bar{V}_{ni}|^2 \rho(E_n)\right|_{E_n\sim E_i}
 \]
 
 La probabilidad de transición es proporcional a $t$. Se suele definir una tasa de transición (probabilidad de 
 transición por unidad de tiempo)
 \[
-	\dtot{}{t}\left( \sum_{n(E_n\sim E_i)} |C_n^1|^2 \right) =
+	\dtot{}{t}\left( \sum_{\substack{n \\ E_n\sim E_i}} |C_n^{(1)}|^2 \right) =
+	\left(\frac{2\pi}{\hbar}\right)	|\bar{V}_{ni}|^2 \rho(E_n) = \omega_{i\to n}^{(1)}
 \]
 que es la regla de oro de Fermi.
 
@@ -325,27 +331,36 @@ que es la regla de oro de Fermi.
 
 Se puede usar para aproximar la energía del estado fundamental (el estado de energía mínima)
 \[
-	=
+	\Braket{\psi|H|\psi} = \sum_{n,m}\Braket{\psi|n}\Braket{n|H|m}\Braket{m|\psi} =
+		\sum_{n,m} E_n \Braket{\psi|n}\Braket{n|m}\Braket{m|\psi} 
 \]
 \[
-	=
+	\Braket{\psi|H|\psi} = \sum_{n,m} E_n C_n^*\Braket{n|m}C_m = \sum_{n} E_n|C_n|^2
+\]
+\[
+	\sum_{n} E_n|C_n|^2 \geq \sum_n E_0|C_n|^2 = E_0 \sum_n |C_n|^2 = E_0 \Braket{\psi_n|\psi_n}
 \]
 y usamos 
 \[
-	\frac{|}{|} \geq E_0
+\Ket{\psi} = \sum_n \Braket{n|\psi}\Ket{n} \qquad \Bra{\psi} = \sum_n \Braket{\psi|n}\Bra{n} 
+\]
+para arribar a
+\[
+	\frac{\Braket{\psi_n|H|\psi_n}}{\Braket{\psi_n|\psi_n}} \geq E_0.
 \]
 
 \subsection{Scattering a orden dos y OFPT}
 
 Continuando con el orden dos de scattering por un $V\neq V(t)$ se tiene:
 \[
-	\omega
+	\omega_{i\to n}^{(2)} = \frac{2\pi}{\hbar}\left. \left| \overline{ V_{ni} + \sum_{m\neq i} 
+	\frac{V_{nm}V_{mi}}{(E_i-E_m)}} \right|^2 \rho(E_n) \right|_{E_n\sim E_i}
 \]
 
 Para obtener los siguientes términos dentro del $\bar{||^2}$ podemos emplear un ardid gráfico conocido como 
 {\it Old Fashioned Perturbation Theory}
 
-\begin{figure}[htb]
+\begin{figure}[!thb]
 	\begin{center}
 	\includegraphics[width=1.0\textwidth]{images/teo2_24.pdf}
 	\end{center}
@@ -361,7 +376,8 @@ propagadores.
 
 Sea un potencial armónico y hermítico 
 \[
-	V(t) =
+	V(t) = \mathbb{V} \euler^{i\omega t} + \mathbb{V}^\dagger \euler^{-i\omega t},
+		\qquad \mathbb{V}\neq \mathbb{V}(t)
 \]
 quiero ver probabilidad de transición a orden uno,
 \[
