@@ -316,52 +316,60 @@ independiente de la medida y porque pueden escribirse los campos en función de 
 Físicamente representa la proababilidad de transición entre autoestados por el paso del tiempo,
 $ \Ket{x'}_{t_0} \longrightarrow \Ket{x''}_t$
 \[
-	a
+	\Braket{x''|\euler^{-iH(t-t_0)/\hbar}|x'} \equiv K(x',t; x, t_0)
 \]
 \[
-	b
+	\Braket{x''| \alpha,t_0,t} = \Braket{x''|\euler^{-iH(t-t_0)/\hbar}|\alpha,t_0} 
 \]
 \[
-	c
+	\Braket{x''| \alpha,t_0,t} = \int dx' \Braket{x''|\euler^{-iH(t-t_0)/\hbar}|x'}\Braket{x'|\alpha,t_0} 
+\]
+\[
+	\Psi_{\alpha}(x'',t) = \int dx' K(x'',t; x',t) \Psi_{\alpha}(x',t)
 \]
 
 Podemos pensar que el propagador lleva la función de onda desde $t_0$ a $t$. Se puede escribir:
 \[
-	a
+	K(x',t; x, t_0) = \sum_{a'} \Braket{x''|a'} \Braket{a'|x'} \euler^{-iE_a(t-t_0)/\hbar}
 \]
 y metemos un observable $\hat{A}$ donde $[A,H]=0$ y $A\Ket{a'}=a\Ket{a'}$.
 
 El propagador depende del potencial, pero no de la función de onda inicial. Se debe cumplir que:
 \[
-	b
+	\lim_{t\to t_0} K(x',t; x, t_0) = \delta^3(x''-x')
 \]
 \[
-	c
+	K(x'',t; x, t_0) = \Braket{x''|\euler^{-iH(t-t_0)/\hbar}|a'} \Braket{a'|x'} =
+		\sum_{a'} \Psi_{\Ket{a'}}(x'',t)\Braket{a'|x'}
 \]
 \[
-	d
+	K(x'',t; x, t_0) = \sum_{a'} c_{a'}(x')\Psi_{\Ket{a'}}(x'',t)
 \]
 y entonces el propagador es una función de Green que satisface 
 \[
-	d
+	\left( -\frac{\hbar^2}{2m}\nabla^2 +V(x'') - i\hbar\dpar{}{t} \right)K(x',t; x, t_0) =
+		- i\hbar \delta^3(x''-x') \delta(t-t_0)
 \]
 con $K(x'',t;x',t_0)=0 $ si $t<0$ que es la condición de contorno.
 
 \subsection{El propagador de la partícula libre}
 
 \[
-	a
+	K(x'',t; x, t_0) = \int dp' \Braket{x''|\euler^{-ip^2(t-t_0)/2m\hbar}|p'} \Braket{p'|x'} 
 \]
 \[
-	a
+	= \int dp' \euler^{-ip'^{2}(t-t_0)/2m\hbar} \Braket{x''|p'} \Braket{p'|x'} =
+	\frac{1}{2\pi\hbar} \int dp' \euler^{-ip'^{2}(t-t_0)/2m\hbar} \euler^{-ip'(x'-x'')/\hbar}
 \]
+y entonces el propagador de una partícula libre es
 \[
-	b
+	K(x'',t; x, t_0) = \sqrt{ \frac{m}{2\pi\hbar(t-t_0)} } \euler^{i\frac{m(x''-x')^2}{2\hbar(t-t_0)}}
 \]
 
 También se puede escribir el propagador en la representación de Heisenberg,
 \[
-	a
+	\Braket{x''|\euler^{-iH(t-t_0)/\hbar}|x'} = \Bra{x''}\euler^{-iHt/\hbar} \euler^{iHt_0/\hbar}\Ket{x'}=
+		\Braket{x'',t|x',t_0}
 \]
 \[
 	K(x'',t;x',t_0) = \Braket{x'',t | x',t_0}.
@@ -369,7 +377,7 @@ También se puede escribir el propagador en la representación de Heisenberg,
 
 El propagador cumple con la propiedad de composición (como el $U(t,t_0)$), es decir:
 \[
-	a
+	K(x'',t; x, t_0) = K(x'',t; x, t_1)K(x'',t_1; x, t_0) \qquad t>t_1>t_0
 \]
 
 % =================================================================================================
