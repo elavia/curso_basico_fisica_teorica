@@ -386,7 +386,7 @@ El propagador cumple con la propiedad de composición (como el $U(t,t_0)$), es d
 
 Consideramos una partícula yendo de $(x_1,t_1)$ a $(x_N,t_N)$. Dividimos el tiempo 
 \[
-	a
+	\delta t = \frac{t_N-t_1}{(N-1)}
 \]
 y queremos ver la amplitud de transición desde el estado 1 al $N$.
 
@@ -398,7 +398,8 @@ y queremos ver la amplitud de transición desde el estado 1 al $N$.
 \end{figure} 
 
 \[
-	a
+	\braket{x_N,t_N|x_1,t_1} = \int dx_{N-1}\int dx_{N-2} \; ...\int dx_2
+	\Braket{x_N,t_N|x_{N-1},t_{N-1}} ...\Braket{x_2,t_2|x_1,t_1}
 \]
 
 Se puede pensar como que estamos sumando sobre todos los posibles caminos entre $(x_1,t_1)$ y $(x_N,t_N)$ 
@@ -408,15 +409,15 @@ fijos. En mecánica clásica teníamos un solo camino, el que minimizaba la acci
 \]
 pero en cambio en mecánica cuántica todos los caminos aportan. En un libro de Dirac, Feymann lee 
 \[
-	a
+	\Braket{x_2,t_2|x_1,t_1} \; \text{corresponde a} \; \euler^{i\int_{t_1}^{t_2}\Lag/\hbar dt}
 \]
 Definiremos
 \[
-	\equiv 
+	S_{(n,n-1)}\equiv \int_{t_{n-1}}^{t_n}\Lag(x,\dot{x}) dt
 \]
 Luego para considerar la suma sobre todos los segmentillos a lo largo de un camino tendremos
 \[
-	\prod_{n=2}^N \euler^{i/\hbar S(n,n-1)} =
+	\prod_{n=2}^N \euler^{i/\hbar S(n,n-1)} = \euler^{i/\hbar \prod_{n=2}^N S(n,n-1)} = \euler^{iS(N,1)/\hbar}
 \]
 y hay que considerar TODOS los posibles caminos 
 \[
@@ -431,12 +432,14 @@ Esto no ocurre cerca del camino (real) que cumple
 Para trayectorias cercanas la $\Delta fase$ no es grande y hay interferencia constructiva.
 Para un $\delta t$ infinitesimal es 
 \[
-	a
+	\Braket{x_n,t_n|x_{n-1},t_{n-1}} = N \euler^{iS(n,n-1)/\hbar}
 \]
 \[
-	b
+	S(n,n-1) = \int_{t_{n-1}}^{t_n} \left( \frac{m}{2}\dot{x}^2 - V(x)\right) dt \approx
+	\int_{t_{n-1}}^{t_n} \left( \frac{m}{2} \frac{(x_n-x_{n-1})^2}{\delta t^2} - 
+	V\left(\frac{x_n+x_{n-1}}{2}\right)\right)  dt
 \]
-
+donde la última expresión es a orden 1 (pues $\delta t \sim 0$).
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.6\textwidth]{images/teo2_9.pdf}
@@ -446,14 +449,15 @@ Para un $\delta t$ infinitesimal es
 
 Consideremos, por ejemplo, una partícula libre, entonces $V=0$ de modo que resolviendo 
 \[
-	a
+	\Braket{x_n,t_n|x_{n-1},t_{n-1}} = N \euler^{im(x_n - x_{n-1})/2\hbar\delta t}
 \]
 Esto no es otra cosa que el propagador de una partícula libre. Para un $\Delta t$ finito será 
 \[
-	+
+	\Braket{x_n,t_n|x_1,t_1}  = \lim_{N\to\infty} \left(\frac{m}{i2\pi\hbar\delta t}\right)^{(N-1)/2}
+	\int dx_{n-1}\int dx_{n-2} \; ... \int dx_2 \prod_{n=2}^N \euler^{i S(n,n-1)/\hbar}
 \]
 \[
-	=
+	\Braket{x_n,t_n|x_1,t_1}  = \int_{x_1}^{x_n} D[x(t)] \euler^{i \int _{t_1}^{t_n} \Lag(x,\dot{x})/\hbar} dt
 \]
 siendo esta última la integral de camino de Feynmann.
 
@@ -469,19 +473,24 @@ Estas integrales contienen toda la información del sistema cuántico, aunque no
 
 Consideremos un propagador de $(x',0) \to (x',t)$
 \[
-	G(t) =
+	G(t) = \int dx' K(x',t ; x', 0) = \int dx' \Braket{x'|\euler^{-i Ht/\hbar}|x'}
 \]
 \[
-	G(t) =
+	G(t) = \sum_{a'} \int dx' \Braket{x'|\euler^{-i Ht/\hbar}|a'}\Braket{a'|x'} =
+		\sum_{a'} \euler^{-i E_{a'}t/\hbar} \int dx' \Braket{x'|a'}\Braket{a'|x' }
 \]
-y tomando Laplace-Fourier 
 \[
-	\tilde{G}(t)
+	G(t) = \sum_{a'} \euler^{-i E_{a'}t/\hbar} \int dx' |\Braket{x'|a'}|^2 = \sum_{a'} \euler^{-i E_{a'}t/\hbar} 
 \]
+que es reminiscencia de la función de partición de mecánica estadística. Tomando Laplace-Fourier 
+\[
+	\tilde{G}(E) = -i \int dE \frac{G(t)}{\hbar} \euler^{i E t/\hbar} = \sum_{a'} \frac{1}{E-E_{a'}}
+\]
+y el espectro de autoenergías son los polos de $\tilde{G}(E)$.
 
 La expresión 
 \[
-	\equiv Integral de camino de Feynmann
+	\Braket{x,t|x_1,t_1} \equiv \text{Integral de camino de Feynmann}
 \]
 satisface la ecuación de Schrödinger y es una alternativa a la formulación de la cuántica usual.
 
