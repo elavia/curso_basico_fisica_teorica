@@ -44,18 +44,19 @@ y
 \]
 puesto que es una matriz ortogonal. Luego se cumplen 
 \[
-	clausura	
+	\text{clausura}	 \qquad (R_1R_2)(R_1R_2)^t = R_1R_2R_2^tR_1^t = \mathbb{1}
 \]
-el producto de dos matrices ortogonales es otra matriz ortogonal
+el producto de dos matrices ortogonales es otra matriz ortogonal (aquella que cumple $R^rR=\mathbb{1}$)
 \[
-	asociatividad
-\]
-\[
-	E identidad
+	\text{asociatividad} \qquad R_1(R_2R_3) = (R_1R_2)R_3
 \]
 \[
-	E inversa
+	\exists \; \text{identidad} \qquad R\mathbb{1} = \mathbb{1}R = R
 \]
+\[
+	\exists \; \text{inversa} \qquad RR^{-1} = R^{-1}R = \mathbb{1} \qquad \text{con}\; R^{-1}\equiv R^t
+\]
+Esto define un grupo de matrices ortogonales que realiza rotaciones y se denomina $SO(3)$.
 
 \subsection{No conmutatividad de las rotaciones clásicas}
 
@@ -82,9 +83,9 @@ Las rotaciones finitas no conmutan. Luego, el grupo de las rotaciones será un g
 	\end{pmatrix}
 \]
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
 	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/teo2_10.pdf}
+	\includegraphics[width=0.5\textwidth]{images/teo2_10.pdf}
 	\end{center}
 	\caption{}
 \end{figure} 
@@ -99,11 +100,11 @@ que una rotación infinitesimal $d\varphi$ conmuta pero una rotación finita $\v
 
 Para las rotaciones cuánticas se pedirá
 \[
-	D,
+	D(\hat{n},d\phi) = \mathbb{1} - i \frac{\vb{J}\cdot\hat{n}}{\hbar}d\phi,
 \]
 rotación infinitesimal o bien
 \[
-	D,
+	D(\hat{n},\theta) = \euler^{-i \vb{J}\cdot\hat{n}/\hbar \theta},
 \]
 para rotación finita. Donde $\hat{D}$ es el operador de las rotaciones y $\hat{J}$ es un momento angular 
 general. Se postula de esta forma para que $\hat{D}$ cumpla las mismas propiedades que $R$ y la relación de 
@@ -112,11 +113,12 @@ conmutación
 	R_x R_y - R_y R_x = R_z (\epsilon^2) - \mathbb{1}
 \]
 \[
-	D
+	D(\hat{x},\epsilon) D(\hat{y},\epsilon) - D(\hat{y},\epsilon) D(\hat{x},\epsilon) =
+	D(\hat{z},\epsilon^2) - D(\mathbb{1})
 \]
 de modo que la cuenta lleva a  
 \[
-	J_x
+	J_x J_y - J_y J_x = i \hbar J_z
 \]
 la cual generalizando se llega a 
 \[
@@ -131,23 +133,29 @@ Para sistemas de spín $1/2$ es
 Se puede ver que ante rotaciones cuánticas $D(\hat{n},\phi)$ los valores de expectación transforman como 
 vectores
 \[
-	=
+	\begin{pmatrix} \Braket{S_x'} \\ \Braket{S_y'} \\ \Braket{S_z'}	\end{pmatrix} =	\begin{pmatrix} 
+	\\
+	 R(\hat{x},\phi) \\
+	 \\
+	\end{pmatrix}\begin{pmatrix} \Braket{S_x} \\ \Braket{S_y} \\ \Braket{S_z} \end{pmatrix}
 \]
 
 En general $\vb{J} = (J_x, J_y, J_z)$ se transforma como vector y entonces $\hat{J}$ es un operador vectorial.
 Para spín $1/2$ es
 \[
-	\Ket{alpha} =
+	\Ket{\alpha} = \Braket{+|\alpha}\Ket{+} + \Braket{-|\alpha}\Ket{-}
 \]
 \[
-	D
+	D(\hat{z},\phi)\Ket{\alpha} = \euler^{-iS_z\phi/\hbar}\Braket{+|\alpha}\Ket{+} +
+		\euler^{-iS_z\phi/\hbar} \Braket{-|\alpha}\Ket{-}
 \]
 \[
-	D
+	D(\hat{z},\phi)\Ket{\alpha} = \Braket{+|\alpha} \euler^{-i\phi/2} \Ket{+} +
+		\euler^{i\phi/2} \Braket{-|\alpha}\Ket{-}
 \]
 Si $\phi=2\pi$ (cosa que debiera dejar al ket incólume) se tiene 
 \[
-	D
+	D(\hat{z},2\pi) \Ket{\alpha} = - \Braket{+|\alpha}\Ket{+} - \Braket{-|\alpha}\Ket{-} = -\Ket{\alpha}
 \]
 
 Luego, esto es una muestra del carácter no-clásico del spin; una vuelta completa le cambia el signo al ket 
@@ -158,16 +166,22 @@ el ket no puede tener sentido físico.
 
 Se define una serie de rotaciones 
 \[
-	1 2 3
+	1.\; R_{z}(\alpha) \qquad 2.\; R_{y'}(\beta)\qquad 3.\; R_{z'}(\gamma)
 \]
 lo cual equivale a
 \[
-	R() = 
+	R(\alpha,\beta,\gamma) = R_{z'}(\gamma) R_{y'}(\beta) R_{z}(\alpha)
 \]
 \[
-	\euler
+	\euler^{-i J_{z'}\gamma/\hbar} \euler^{-i J_{y'}\beta/\hbar}  \euler^{-i J_z\alpha/\hbar} 
+	\Ket{\psi}
 \]
-
+\begin{figure}[!htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/teo2_11.pdf}
+	\end{center}
+	\caption{}
+\end{figure} 
 Pero desconozco cómo operar en los ejes móviles $z',y'$
 \[
 	R_{y'}(\beta) =
