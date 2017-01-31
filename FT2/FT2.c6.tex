@@ -180,17 +180,25 @@ lo cual equivale a
 	\begin{center}
 	\includegraphics[width=0.5\textwidth]{images/teo2_11.pdf}
 	\end{center}
-	\caption{}
+	\caption{Los ángulos de Euler son una caracterización de una rotación general en 3D.}
 \end{figure} 
 Pero desconozco cómo operar en los ejes móviles $z',y'$
 \[
-	R_{y'}(\beta) =
+	R_{y'}(\beta) = R_{z}(\alpha) R_{y}(\beta) R_{z}^{-1}(\alpha) 
 \]
 \[
-	R_{z'}(\gamma) =
+	R_{z'}(\gamma) = R_{y'}(\beta) R_{z}(\gamma) R_{y'}^{-1}(\beta) 
 \]
 \[
-	R() =
+	R(\alpha,\beta,\gamma) =
+	R_{y'}(\beta) R_{z}(\gamma) \underbrace{R_{y'}^{-1}(\beta)R_{y'}(\beta)}_{\mathbb{1}}R_{z}(\alpha) 
+\]
+\[
+	R(\alpha,\beta,\gamma) =
+	R_{z}(\alpha) R_{y}(\beta) R_{z}^{-1}(\alpha) R_{z}(\gamma) R_{z}(\alpha)  
+\]
+\[
+	R(\alpha,\beta,\gamma) = R_{z}(\alpha) R_{y}(\beta) R_{z}(\gamma)
 \]
 Rotación equivalente a [1] pero para ejes fijos, puesto que en mecánica cuántica sabemos rotar en torno a 
 ejes fijos.
@@ -199,28 +207,30 @@ Los ángulos de Euler son la caracterización de una rotación general en 3D.
 
 Entonces nuestra rotación en 3D cuántica será:
 \[
-	D() =
+	D(\alpha,\beta,\gamma) = D_z(\alpha) D_y(\beta) D_z(\gamma)  =
+	\euler^{-i J_z\alpha/\hbar} \euler^{-i J_y\beta/\hbar} \euler^{-i J_z\gamma/\hbar}
 \]
 
 \subsection{Autoestados y autovalores de J}
 
 Partimos de 
 \[
-	[] = 
+	[J_i, J_j] =  i\hbar \epsilon_{ijR}J_R
 \]
 y
 \[
-	J^2 = , [J^2,J] = 0
+	J^2 = J^2_x + J^2_y + J^2_z, \qquad  [J^2,J] = 0
 \]
 siendo la última muy importante y probándose por evaluación directa. Lleva a 
 \[
-	[J^2,J_i^n] = 0 \qquad \text{con} \; i=x,y,z \; n\in\mathbb{N}
+	[J^2,J_i^n] = 0 \qquad \text{con} \; i=x,y,z \;\; n\in\mathbb{N}
 \]
 
 Se eligen $J^2, J_z$ como observables que conmutan 
 \[
-	J^2
+	J^2 \Ket{a,b} = a\Ket{a,b} \qquad \qquad J_z \Ket{a,b} = b\Ket{a,b}
 \]
+siendo $a$ autovalor de $J^2$ y $b$ de $J_z$.
 
 Definiremos los operadores de subida y de bajada
 \[
@@ -228,50 +238,76 @@ Definiremos los operadores de subida y de bajada
 \]
 que verifican 
 \[
-	[]
+	[ J_+, J_- ] = 2\hbar J_z \qquad [ J_z, J_\pm]= \pm \hbar J_{\pm} \qquad [J_{\pm}, J^2 ] = 0
 \]
 Entonces se tiene 
 \[
-	J^2() \longrightarrow 
+	J^2( J_\pm \Ket{a,b}) = J_\pm J^2 \Ket{a,b} = a J_\pm \Ket{a,b} \longrightarrow 
+		J_\pm \Ket{a,b} = \Box \Ket{a,b}
 \]
 \[
-	(J_z) \longrightarrow
-\]
-
-\[
-	J_{\pm} \Ket{a,b} = C_{\pm} \Ket{a,b\pm\hbar}
+	(J_zJ_\pm - J_\pm J_z) \Ket{a,b} = \pm\hbar J_\pm \Ket{a,b}
 \]
 \[
-	J_+
+	J_z (J_\pm \Ket{a,b}) = (b\pm\hbar)(J_\pm \Ket{a,b}) \longrightarrow 
+		J_\pm \Ket{a,b} = \boxdot \Ket{a,b\pm\hbar}
+\]
+\[
+	J_{\pm} \Ket{a,b} = c_{\pm} \Ket{a,b\pm\hbar}
+\]
+\[
+	J_+\Ket{a,b} = c_+\Ket{a,b+\hbar} \;\qquad\; J_-\Ket{a,b} =  c_- \Ket{a,b-\hbar}
 \]
 sube el $J_z$ en una unidad de $\hbar$ o bien baja el $J_z$ en una unidad de $\hbar$.
 \[
-	J_+J_- =  ,
+	J_+J_- = J_x^2 + iJ_yJ_x - iJ_xJ_y + J_y^2 , \qquad J_-J_+ = J_x^2 - iJ_yJ_x + iJ_xJ_y + J_y^2
 \]
 \[
-	J^2 = ,  
+	J^2 = J_z^2 + \frac{1}{2}(J_+J_- + J_-J_+ ) , \qquad 
+		J^2 - J_z^2 = \frac{1}{2}(J_+J_+^\dagger + J_+^\dagger J_+ )
 \]
 \[
-	\Braket{a,b|J^2 - J^2_z|a,b} = 
+	\Braket{a,b|J^2 - J^2_z|a,b} =  1/2 \Braket{a,b|J_+J_+^\dagger + J_+^\dagger J_+|a,b}
 \]
 \[
-	(a-b^2)\Braket{a,b|a,b} = , a \geq b^2
+	(a-b^2)\Braket{a,b|a,b} = 1/2 \left[ \Braket{a,b|J_+J_+^\dagger|a,b} + 
+		\Bra{a,b|J_+^\dagger} J_+\Ket{a,b} \right] 
+\]
+\[
+	(a-b^2)\Braket{a,b|a,b} = |J_+^\dagger\Ket{a,b}|^2 \geq 0, \qquad \Rightarrow a \geq b^2
 \]
 hay cota para $b$.
+\[
+	J_+ \Ket{a,b_M} = 0
+\]
 Como no puede seguir subiendo debe dar el ket nulo 
 \[
-	= 0
+	J_-J_+ \Ket{a,b_M} = 0
+\]
+pero
+\[
+	J_-J_+ = J^2_x + J^2_y + i[J_x, J_y]  = J^2 - J^2_z - \hbar J_z
 \]
 \[
-	= 0
-\]
-pero 
-\[
-	J_-J_+
+	( J^2 - J^2_z  -\hbar J_z) \Ket{a,b_M}  = 0	
 \]
 \[
-	= 0	\qquad a = b_m(b_m-\hbar)
+	( a - b_M^2 - \hbar b_M ) \Ket{a,b_M}  = 0	
 \]
+\[
+	a = b_M ( b_M -\hbar )
+\]
+\[
+	J_- \Ket{a,b_m} = 0
+\]
+y como no puede seguir bajando debe dar el ket nulo
+\[
+	J_+J_- \Ket{a,b_m} = 0
+\]
+\[
+	J_+J_- =  J^2 - J^2_z + \hbar J_z
+\]
+
 tiene solución 
 \[
 	b_M - B_m = - \hbar
