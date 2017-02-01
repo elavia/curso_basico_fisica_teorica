@@ -307,12 +307,18 @@ y como no puede seguir bajando debe dar el ket nulo
 \[
 	J_+J_- =  J^2 - J^2_z + \hbar J_z
 \]
-
-tiene solución 
 \[
-	b_M - B_m = - \hbar
+	( J^2 - J^2_z + \hbar J_z) \Ket{a,b_m} = ( a - b_m^2 + \hbar b_m) \Ket{a,b_m} = 0
 \]
-pero esto es absurdo.
+\[
+	b_M( b_M + \hbar ) = b_m( b_m -\hbar )
+\]
+tiene solución $b_M-b_m = -\hbar$ si $b_M + b_m \neq 0$ 
+pero esto es absurdo de manera que $b_M = b_m$.
+Entonces
+\[
+	-b_m = b_M  \qquad \Rightarrow \qquad -b_M \leq b \leq b_M
+\]
 
 Luego,
 \[
@@ -346,82 +352,103 @@ pero como $b/\hbar = m$
 \subsection{La normalización de $J_\pm$}
 
 \[
-	J_+
+	J_+\Ket{j,m} = c_+ \Ket{j,m+1} \qquad \qquad J_-^\dagger = J_+
 \]
 \[
-	\Braket{j,m|J_-J_+|j,m} = 
+	\Braket{j,m|J_-J_+|j,m} = \Braket{j,m|J_+^\dagger J_+|j,m} = |c_+|^2
 \]
 \[
-	c_+ = 
+	\Braket{j,m|J^2 - J_z^2 - \hbar J_z|j,m} = j(j+1)\hbar^2 - m^2\hbar^2 -\hbar^2 m = |c_+|^2
 \]
 \[
-	\Braket{j,m|J_+J_-|j,m} = 
+	c_+ = \hbar\sqrt{j(j+1)-m(m+1)} = \hbar \sqrt{(j-m)(j+m+1)}
 \]
 \[
-	c_- =
+	\Braket{j,m|J_+J_-|j,m} = \Braket{j,m|J_-^\dagger J_-|j,m} = |c_-|^2
 \]
 \[
-	J_+
+	= j(j+1)\hbar^2 - m^2\hbar^2 + m\hbar^2 = |c_-|^2
+\]
+\[
+	c_- = \hbar\sqrt{j(j+1)-m(m-1)} = \hbar \sqrt{(j+m)(j-m+1)}
+\]
+\[
+	J_+ \Ket{j,m} = \hbar \sqrt{(j-m)(j+m+1)}\Ket{j,m+1} \qquad 
+	J_- \Ket{j,m} = \hbar \sqrt{(j+m)(j-m+1)}\Ket{j,m-1}
 \]
 
 \subsection{Elementos de matriz de $J^2, J_z, J_+$}
 
 Asumiendo normalización de $\Ket{j,m}$ se tiene 
 \[
-	\Braket{} = 
+	\Braket{j',m'|J^2|j,m} = j(j+1)\hbar^2 \delta_{jj'} \delta_{m' m}
 \]
 \[
-	=
+	\Braket{j',m'|J_z|j,m} = m \hbar \delta_{jj'} \delta_{m' m}
 \]
 
 \subsection{Elementos de matriz de $\mathcal{D}(R)$}
 
 Ahora queremos ver cual es la forma de los elementos de matriz de $\mathcal{D}(R)$
 \[
-	\mathcal{D}(R) =
+	\mathcal{D}(R) = \euler^{i \vb{J}\cdot\vec{n}\phi/\hbar}
 \]
 siendo que $\mathcal{D}(R)$ tiene por efecto rotar el sistema físico.
 Lo primero que hay que notar es que 
 \[
-	\propto \delta_{jj'}
+	\Braket{j',m'|\mathcal{D}(R)|j,m}  \propto \delta_{jj'}
 \]
 porque $[J^2,J_i]=0$ y entonces $[J^2,J_i^n]=0$ y 
 \[
-	D
+	\mathcal{D}(R) = f(J_i) \; \longrightarrow \; [ J^2, \mathcal{D}(R) ] = 0
 \]
 y 
 \[
-	D
+	\mathcal{D}^{(j)}_{m' m} =  \Braket{j,m'|\euler^{i \vb{J}\cdot\vec{n}\phi/\hbar}|j,m} 
 \]
 es una matriz para cada $j$ fijo con $\{ (2j+1)\times(2j+1)=\text{dimensión}\}$
 \[
-	D
+	\mathcal{D}(R)\Ket{j,m} = \sum_{m'} \ket{j,m'}\Braket{j,m'|\euler^{i \vb{J}\cdot\vec{n}\phi/\hbar}|j,m} 
+	= \sum_{m'} \mathcal{D}^{(j)}_{m' m}(R) \Ket{j,m'} 
 \]
 pero las rotaciones no cambian el $j$, $\mathcal{D}(R)$ conecta estados con la misma $j$ y $\mathcal{D}(R) 
 \in (2j+1)\times(2j+1)$ 
 \[
-	D
+	\mathcal{D}(R)\Ket{j,m} = \sum_{m'} \mathcal{D}^{(j)}_{m' m}(R) \Ket{j,m'} 
 \]
 
 La matriz de $\mathcal{D}(R)$ (no caracterizada por un único $j$) puede ponerse en forma diagonal por bloques:
-
-
+\[
+\begin{matrix} \qquad j' \quad j'' \quad j''' \end{matrix}
+\]
+\[
+	\mathcal{D}(R) = \begin{pmatrix}
+	\; \Box & 0 & 0 & \\
+	\; 0 & \Box & 0 & \\
+	\; 0 & 0 & \Box & \\
+	\; & & & \vdots
+	\end{pmatrix} \begin{matrix} j' \\ j'' \\ j'''\\ \\ \end{matrix}
+\]
 con cada bloque de $(2j+1)\times(2j+1)$ , pero siendo cada bloque irreducible. Las matrices de rotación con 
 $j$ fijo forman un grupo. $\mathcal{D}_{m'm}^{(j)}(R)$ son los elementillos de la matriz.
 \[
-	\Ket{j,m} \longrightarrow
+	\Ket{j,m} \underbrace{\longrightarrow}_{\text{Rotación}} \mathcal{D}(R)\Ket{j,m} =
+	 \sum_{m'} \mathcal{D}^{(j)}_{m' m}(R) \Ket{j,m'} 
 \]
+donde el $\mathcal{D}^{(j)}_{m' m}(R)$ es la amplitud de hallar al $\Ket{j,m}$ rotado en $\Ket{j,m'}$
 
 \subsection{Forma explícita del operador $\mathcal{D}(R)$}
 
 Los ángulos de Euler permitieron caracterizar la rotación más general. Entonces 
 \[
-	D
+	\mathcal{D}^{(j)}_{m' m} = 
+	\Braket{j,m'|\euler^{-iJ_z\alpha/\hbar} \euler^{-iJ_y\beta/\hbar} \euler^{-iJ_z\gamma/\hbar} |j,m}
 \]
 \[
-	D
+	\mathcal{D}^{(j)}_{m' m} = \euler^{-i(-m'\alpha + m\gamma)}
+	\underbrace{\Braket{j,m'| \euler^{-iJ_y\beta/\hbar}  |j,m}}_{d_{m'm}^{(j)}}
 \]
-
+siendo el primer factor una fase.
 En los $d_{m'm}^{(j)}$ está la dificultad de la cuenta.
 
 % =================================================================================================
