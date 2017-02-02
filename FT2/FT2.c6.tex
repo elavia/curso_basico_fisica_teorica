@@ -645,31 +645,38 @@ acá lo vemos como operador (es notación), $d_{m'm}^{j=1}(\beta)$ simboliza la 
 % =================================================================================================
 
 \[
-	\vb{L} =
+	\vb{L} = \vb{x} \times \vb{p}
 \]
 verifica el álgebra de $\vb{J}$,
 \[
-	[]
+	[ L_i, L_j ] = i\hbar \epsilon_{ijR} L_R \qquad L_i = \epsilon_{ijk}x_jp_k
+\]
+\[
+	L_z = xp_y - yp_x
 \]
 Consideremos ahora una rotación en torno a $z$, en un $\delta\phi$,
 \[
-	() =
+	\left( 1 - \frac{iL_z\delta\phi}{\hbar} \right) \Ket{x',y',z'} =
+	1 - \frac{iP_y}{\hbar}(x\delta\phi) + \frac{iP_x}{\hbar}(y\delta\phi) \Ket{x',y',z'}
 \]
 \[
-	() = 
+	= \left[ 1 - \frac{i}{\hbar}\left( P_y x\delta\phi - P_x y\delta\phi \right)\right] \Ket{x',y',z'}
 \]
 esto es una traslación en $\hat{x},\hat{y}$,
 \[
-	(1-i\frac{L_z}{\hbar}\delta\phi) \Ket{x',y',z'} = \Ket{}
+	(1-i\frac{L_z}{\hbar}\delta\phi) \Ket{x',y',z'} = \Ket{x'-y'\delta\phi,y'+x'\delta\phi,z'}
 \]
 
 Esta traslación es debida a una rotación infinitesimal en $\delta\phi$ torno a $z$ entonces genera las 
 rotaciones clásicas en torno a $z$.
 \[
-	\Psi 
+	\Psi_\alpha(\vb{x}') = \Braket{x',y',z'|\alpha} \underbrace{\longrightarrow}_{\text{Rotamos en z}}
+	\Braket{x',y',z'|1-\frac{iL_z\delta\phi}{\hbar}|\alpha} = \Braket{x'+y'\delta\phi,y'-x'\delta\phi,z'|\alpha}
 \]
+y en coordenadas esféricas,
 \[
-	\Psi
+	\Psi_\alpha(\vb{x}') = \Braket{r,\theta,\phi|\alpha} 
+	\underbrace{\longrightarrow}_{\text{Rotamos en z}} \Braket{r,\theta,\phi-\delta\phi|\alpha}
 \]
 
 Podemos hallar una expresión para $L_z$ en esféricas:
@@ -684,10 +691,13 @@ operador $L_z$ en esféricas
 
 Usando 
 \[
-	L^2 = 
+	L^2 = L_z^2 + \frac{1}{2}\left( L_+L_- + L_-L_+ \right)
 \]
+se llega a 
 \[
-	\Braket{L^2}
+	\Braket{r,\theta,\phi|L^2|\alpha} = -\hbar^2\left[ \frac{1}{\sin^2 \theta}\dpar[2]{}{\phi} +
+	\frac{1}{\sin \theta} \dpar{}{\theta}[\sin\theta\dpar{}{\theta} ]\right]
+	\Braket{r,\theta,\varphi|\alpha}
 \]
 \[
 	L^2 = -\hbar^2 r^2 \nabla^2_{\theta,\varphi}
