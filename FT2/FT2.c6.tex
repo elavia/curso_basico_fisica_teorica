@@ -681,13 +681,25 @@ y en coordenadas esféricas,
 
 Podemos hallar una expresión para $L_z$ en esféricas:
 \[
-	\Braket{r,\theta,\varphi||\alpha}
+	\Braket{r,\theta,\varphi|1-\frac{L_z\delta\phi}{\hbar}|\alpha} \approx
+	\Braket{\phi|\alpha} -\dpar{}{\phi}\Braket{\phi|\alpha}\delta\phi
 \]
 identificamos 
 \[
-	= 
+	\Braket{\vb{r}|-\frac{iL_z}{\hbar}|\alpha} = -\dpar{}{\phi}\Braket{\vb{r}|\alpha}
 \]
-operador $L_z$ en esféricas
+\[
+	L_z =  -i\hbar\dpar{}{\phi}
+\]
+operador $L_z$ en esféricas.
+
+Esta construcción usa que 
+\[
+	\dpar{}{\phi} \Braket{\phi|\alpha} \approx 
+	\frac{\Braket{\phi+\delta\phi|\alpha}-\Braket{\phi|\alpha}}{\delta\phi} =
+	\frac{\Braket{\phi|\alpha} -\Braket{\phi-\delta\phi|\alpha}}{\delta\phi}
+\]
+y luego se despeja de la última $\Braket{\phi-\delta\phi|\alpha}$.
 
 Usando 
 \[
@@ -711,20 +723,21 @@ Esto puede obtenerse también partiendo de
 Sea un $H$ de partícula, sin spín, sujeta a potencial simétricamente esférico. Sabemos que la función de onda 
 $\Psi_\alpha(\vb{r}')$ es separable en coordenadas esféricas, entonces:
 \[
-	\Braket{|} = 
+	\Braket{\vb{r}|n,l,m} = R_{nl}(r)Y_l^m(\theta,\phi)
 \]
 \[
-	\Braket{|} = 
+	\Braket{\vb{r}|n,l,m} = (\Bra{{r}}\otimes\Bra{\theta,\phi})(\Ket{n,l,m})=
+	\Braket{r|n,l,m}\Braket{\theta,\phi|l,m}
 \]
 
 Cuando el H es esféricamente simétrico (como en un potencial central) se tiene 
 \[
-	[] = [] = 0
+	[H,L_z] = [H,L^2] = 0
 \]
 
 Trabajaremos solamente en la parte angular  $\Ket{\theta,\varphi} \equiv \Ket{\hat{n}}$
 \[
-	\Braket{\hat{n}|\ell,m} =
+	\Braket{\hat{n}|\ell,m} = Y_l^m(\theta,\phi) = Y_l^m(\hat{n})
 \]
 que es la amplitud de hallar $\Ket{\ell,m}$ en la dirección $\hat{n}$.
 
