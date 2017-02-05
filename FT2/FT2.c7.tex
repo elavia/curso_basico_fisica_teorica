@@ -80,43 +80,74 @@ La $\Psi$ tiene la misma simetría que el potencial.
 
 Sean dos estados de spín $1/2$
 \[
-	a
+	\vb{S} = \vb{S}_1 + \vb{S}_2 \equiv \vb{S}_1 \otimes \mathbb{1}_2 + \mathbb{1}_1\otimes \vb{S}_2
 \]
 en cada espacio valen las relaciones usuales de conmutación 
 \[
-	b, [S_{1i},S_{2j}] = 0
+	[ S_{1/2i},S_{1/2j}] = i\hbar\epsilon_{ijk}S_{1/2k}, \qquad  [S_{1i},S_{2j}] = 0
 \]
 donde el último indica que operadores de espacios diferentes conmutan.
 
 Un estado general es 
 \[
-	a
+	\Ket{S_1,m_1} \otimes \Ket{S_2,m_2} \equiv \Ket{S_1, S_2;m_1,m_2}
 \]
 Hay cuatro estados
 \[
-	b
+	\begin{matrix} S_1 \quad S_2 \quad\quad m_1 \quad m_2 \end{matrix}
+\]
+\[
+	\begin{matrix}
+	&\Ket{1/2, 1/2 ; \phantom{-}1/2, \phantom{-}1/2} \\
+	&\Ket{1/2, 1/2 ; \phantom{-}1/2, -1/2} \\
+	&\Ket{1/2, 1/2 ; -1/2, -1/2} \\
+	&\Ket{1/2, 1/2 ; -1/2, \phantom{-}1/2}
+	\end{matrix}
+\]	
+\[	
+	\begin{matrix} S_1 \quad S_2 \quad\quad S_{1z} \quad S_{2z}  \end{matrix}
 \]
 que corresponden a los operadores $S_ 1^2, S_2^2, S_{1z}, S_{2z}$ que conmutan (son un CCOC).
 
 Podemos elegir otras base de operadores que comutan que será: $S_ 1^2, S_2^2, S, S_{z}$, de modo que el estado 
-general 
-será
+general será
 \[
-	c
+	\Ket{S_1, S_2;S,m}
 \]
 Así tendremos
 \[
-	d
+	\begin{matrix} \qquad\qquad S_1 \quad S_2 \quad S \quad m \end{matrix}
 \]
 \[
-	S 2 =  \qquad 
+	\begin{matrix}
+	\text{Triplete}\begin{cases}	
+	&\Ket{1/2, 1/2 \; ; \; 1, \phantom{-}1} \\
+	&\Ket{1/2, 1/2 \; ; \; 1, \phantom{-}0} \\
+	&\Ket{1/2, 1/2 \; ; \; 1, -1} \\
+	\end{cases}
+	\\
+	\text{Singlete}\begin{cases}
+	&\Ket{1/2, 1/2 \; ; \; 0, \phantom{-}0} \\
+	\end{cases}		
+	\end{matrix}	 
+\]	
+\[	
+	\begin{matrix} \qquad\qquad S_1^2 \quad S_2^2 \quad S^2 \quad S_z  \end{matrix}
+\]
+y recordemos que $m_1+m_2=m$ y $s_1+s_2=s$
+\[
+	S^2 = (S_1 + S_2)^2  = S_1^2 + S_2^2 + 2\vb{S}_1\cdot\vb{S}_2 \qquad 
+	S^2_z = (S_{1z} + S_{2z})^2  = S_{1z}^2 + S_{2z}^2 + 2S_{1z}\cdot S_{2z}
 \]
 
 Dada la repetición de $S_1,D_2$ se suelen identificar a las bases solamente 
 \[
-	d
+	\begin{cases}
+	\{ \Ket{m_1,m_2} \} \\
+	\{ \Ket{S,m} \}
+	\end{cases}
 \]
-Además la base $\{ \Braket{m_1,m_2}\}$ se puede poner como 
+Además la base $\{ \Ket{m_1,m_2}\}$ se puede poner como 
 \[
 	+ \equiv + 1/2 \qquad\qquad - \equiv - 1/2
 \]
