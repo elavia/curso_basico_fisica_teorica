@@ -743,57 +743,76 @@ que es la amplitud de hallar $\Ket{\ell,m}$ en la dirección $\hat{n}$.
 
 Podemos vincular ahora los armónicos esféricos con los autoestados de $L_z,L^2$
 \[
-	L_z
+	L_z \Ket{\ell,m} = m\hbar\Ket{\ell,m}
+\]
+de manera que 
+\[
+	\Braket{\hat{n}|L_z|\ell,m} = m\hbar \Braket{\hat{n}|\ell,m} =
+	-i\hbar \dpar{}{\phi} \Braket{\hat{n}|\ell,m}
+\]
+y entonces 
+\[
+	Y_l^m(\theta,\phi) \propto \euler^{im\phi}.
 \]
 \[
-	L^2
+	L^2 \Ket{\ell,m} = l(l+1)\hbar^2\Ket{\ell,m}
+\]
+y de modo ídem
+\[
+	\Braket{\hat{n}|L^2|\ell,m} = l(l+1)\hbar^2\Braket{\hat{n}|\ell,m}
 \]
 \[
-	=
+	( -\hbar^2 r^2 \nabla^2_{\theta,\phi} + l(l+1)\hbar )\Braket{\hat{n}|\ell,m} = 0 
 \]
 Entonces, con la ortogonalidad
 \[
-	\longrightarrow
+	\longrightarrow \Braket{l',m'|l,m} = \delta_{l'l} \delta_{m'm}
 \]
 y con la completitud 
 \[
-	\longrightarrow
+	\longrightarrow \int d\Omega \Ket{\hat{n}}\Bra{\hat{n}} = 1
 \]
 de manera que llegamos a 
 \[
-	\int \int 
+	\int d\Omega \Braket{l',m'|\hat{n}} \Braket{\hat{n}|l,m} = \delta_{l'l} \delta_{m'm}   \qquad 
+	\int d\Omega Y_l^{m*}(\theta,\phi)  Y_l^m(\theta,\phi)  = \delta_{l'l} \delta_{m'm}
 \]
 
 Podemos hallar una expresión para 
 \[
-	= 0
+	\Braket{\hat{n}|L_+|l,l} = 0
 \]
 \[
-	\Rightarrow
+	-i\hbar\euler^{i\phi}(i\dpar{}{\theta}-\cot\theta\dpar{}{\phi})\Braket{\hat{n}|l,l} = 0 \Rightarrow
+	Y_l^m(\theta,\phi)  = c_l \euler^{il\phi}\sin^l\theta
 \]
 
 Luego usamos $L_-$ para hallar sucesivamente los demás $Y^m_\ell$
 \[
-	=
+	\frac{\Braket{\hat{n}|L_-|l,m} }{\sqrt{(l+m)(l-m+1)}} = \Braket{\hat{n}|l,m-1} 
 \]
 y por este camino se llega a 
 \[
-	Y
+	Y_l^m(\theta,\phi) = \frac{(-1)^l}{2^ll!}\sqrt{\frac{(2l+1)(l+m)!}{4\pi(l-m)!}} \euler^{im\phi} 
+\frac{1}{\sin\theta}
+	\dtot{^{l-m}}{(\cos^{l-m}\theta)}(\sin\theta)^{2l}
 \]
 con 
 \[
-	\qquad 
+	Y_l^{-m}(\theta,\phi) = (-1)( Y_l^m(\theta,\phi) )^* \qquad 
+	Y_l^0(\theta,\phi) = \sqrt{\frac{2l+1}{4\pi}}P_l(\cos\theta)
 \]
 
 En el caso de momento angular orbital $\ell$ no puede ser semientero porque entonces $m$ sería semientero y 
 en una vuelta de $2\pi$
 \[
 	\euler^{im2\pi} = -1
-\]	
+\]
+entonces $\psi$ no será univaluada
 
 Además,
 \[
-	\text{(no hay signo menos)}
+	\Braket{\vb{x}|\euler^{-iL_z2\pi/\hbar}|\alpha} = \Braket{\vb{x}|\alpha} \qquad \text{(no hay signo menos)}
 \]
 
 
