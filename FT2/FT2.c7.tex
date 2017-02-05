@@ -155,12 +155,16 @@ Además la base $\{ \Ket{m_1,m_2}\}$ se puede poner como
 \subsection{Cambio entre bases}
 
 Podemos hallar a ojo que 
-\[
-	\cdot \Ket{++} = \Ket{1,1} \qquad \cdot \Ket{--} = \Ket{1,-1} 
-\]
+% \[
+% 	\cdot \Ket{++} = \Ket{1,1} \qquad \cdot \Ket{--} = \Ket{1,-1}
+% \]
+\begin{itemize}
+ \item $\Ket{++} = \Ket{1,1}$
+ \item $\Ket{--} = \Ket{1,-1}$
+\end{itemize}
+
 de manera que la única forma de tener $m=1$ es con los dos spines up y la única forma de tener $m=-1$ es con 
-los dos 
-spines down.
+los dos spines down.
 
 Se hallan los otros con el operador de bajada
 \[
@@ -168,24 +172,29 @@ Se hallan los otros con el operador de bajada
 \]
 y si descompongo $S_-$ en $S_{1-}$ y $S_{2-}$ para operar en $\Braket{s,m}$ se tiene 
 \[
-	S
+	S_- \Ket{++} = S_{1-}\Ket{++} + S_{2-}\Ket{++} = S_{1-}\otimes\mathbb{1}_2\Ket{++} +
+	\mathbb{1}_1\otimes S_{2-}\Ket{++} = \hbar\Ket{-+} + \hbar\Ket{+-}
 \]
 y ahora si opero con $S_-$,
 \[
-	S
+	S_-\Ket{11} = \sqrt{2} \hbar \Ket{10}
 \]
+\begin{itemize}
+	\item $\Ket{10} = \frac{1}{\sqrt{2}}( \Ket{-+} + Ket{+-} ) $
+\end{itemize}
+
 
 Luego
 \[
-	\Braket{00}
+	\Ket{00} = a \Ket{+-} + b\Ket{-+}
 \]
 y puedo usar ortonormalidad 
 \[
-	= 0 = \qquad \text{con} \; |a|^2 + |b|^2 = 1
+	\Braket{10|00} = 0 = \frac{a}{\sqrt{2}} + \frac{b}{\sqrt{2}} \qquad \text{con} \; |a|^2 + |b|^2 = 1
 \]
-\[
-	\cdot 
-\]
+\begin{itemize}
+	\item $\Ket{00} = \frac{1}{\sqrt{2}}( \Ket{+-} - Ket{-+} ) $
+\end{itemize}
 
 
 \section{Teoría formal de suma de momentos angulares}
