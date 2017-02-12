@@ -193,7 +193,7 @@ y puedo usar ortonormalidad
 	\Braket{10|00} = 0 = \frac{a}{\sqrt{2}} + \frac{b}{\sqrt{2}} \qquad \text{con} \; |a|^2 + |b|^2 = 1
 \]
 \begin{itemize}
-	\item $\Ket{00} = \frac{1}{\sqrt{2}}( \Ket{+-} - Ket{-+} ) $
+	\item $\displaystyle \Ket{00} = \frac{1}{\sqrt{2}}( \Ket{+-} - \Ket{-+} ) $
 \end{itemize}
 
 
@@ -201,23 +201,25 @@ y puedo usar ortonormalidad
 
 Sea de sumar dos momentos angulares $J_1, J_2$. Las relaciones de conmutación son
 \[
-	[] = i\hbar \varepsilon_{ijk}J_{1k} \qquad [] = i\hbar \varepsilon_{ijk}J_{2k} \qquad
-	[J_{1k},J_{2k}] = 0
+	[J_{1i},J_{1j}] = i\hbar \varepsilon_{ijk}J_{1k} \qquad 
+	[J_{2i},J_{2j}] = i\hbar \varepsilon_{ijk}J_{2k} \qquad
+	[J_{1k},J_{2l}] = 0
 \]
 \[
-	\vb{J} = \otimes + \otimes \equiv \vb{J}_1
+	\vb{J} = \vb{J}_1 \otimes \mathbb{1}_2 + \mathbb{1}_1\otimes \vb{J}_2 \equiv \vb{J}_1 + \vb{J}_2
 \]
 \[
-	[]
+	[J_i, J_j] = i\hbar\epsilon_{ijk}J_k
 \]
 
 El momento total \vb{J} cumple que 
 \[
-	J^2 = 
+	J^2 =  J_1^2 + J_2^2 + 2J_1J_2 \qquad 
+	J^2 =  J_1^2 + J_2^2 + 2J_{1z}J_{2z} + J_{1+}J_{2-} + J_{1-}J_{2+}
 \]
 donde vemos que 
 \[
-	[] =
+	[J^2_{1/2},J^2] = 0 \qquad [J_z,J^2] = 0 \qquad [J^2_{1/2},J_{1/2,z,+,-}] = 0
 \]
 pero 
 \[
@@ -230,37 +232,34 @@ Esto deja dos opciones para elegir un CCOC
 \begin{tabular}{|c|c|}
 \hline 
 $J_1^2, J_2^2, J_{1z}, J_{2z}$ & $J_1^2, J_2^2, J^2, J_{z}$ \\
+& \\
 $\Ket{j_1,j_2;m_1,m_2}$ & $\Ket{j_1,j_2;j,m}$ \\
+& \\
 base desacoplada & base acoplada \\
 \hline
 \end{tabular}
 \end{center}
 
+Se puede pasar de una base a otra con una identidad $\mathbb{1}$ apropiada
+\[
+	\Ket{j_1,j_2;j,m} = \sum_{m_1,m_2} \Ket{j_1,j_2;m_1,m_2}\Braket{j_1,j_2;m_1,m_2|j_1,j_2;j,m}
+\]
+\[
+	1. \; \Ket{j_1,j_2;j,m} = \sum_{m_1,m_2} C_{m_1m_2}^j \Ket{j_1,j_2;m_1,m_2}
+\]
+con $-j_1 \leq m_1 \leq j_1$ y  $-j_2 \leq m_2 \leq j_2$
+\[
+	\Ket{j_1,j_2;m_1,m_2} = \sum_{j,m} \Ket{j_1,j_2;j,m}\Braket{j_1,j_2;j,m|j_1,j_2;m_1,m_2}
+\]
+\[
+	2. \; \Ket{j_1,j_2;m_1,m_2} = \sum_{j,m} C_{m_1m_2}^{j*}\Ket{j_1,j_2;j,m}
+\]
+con $-j \leq m \leq j$ y con $j\to\infty$.
 
-
-Se puede pasar de uan base a otra con una identidad $\mathbb{1}$ apropiada
+Donde los $C_{m_1 m_2}^j$ son los coeficientes de Clebsh-Gordan. En 2 la $\sum$ sería en $j\to\infty$, pero veamos la 
+relacion que hace algunos $C_{m_1 m_2}^j=0$. Ante todo abreviaremos suprimiendo los índices $j_1,j_2$ con lo cual 
 \[
-	\Ket{j_1,j_2;j,m} =
-\]
-\[
-	1.
-\]
-\[
-	a
-\]
-\[
-	2.
-\]
-\[
-	a
-\]
-
-Donde los $C_{m_1 m_2}^j$ son los coeficientes de Clebsh-Gordan. En 2 la $\sum$ sería en $j\to\infty$, pero 
-veamos la 
-relacion que hace algunos $C_{m_1 m_2}^j=0$. Ante todo abreviaremos suprimiendo los índices $j_1,j_2$ con lo 
-cual 
-\[
-	C
+	C_{m_1m_2}^{j} = \Braket{m_1,m_2|j,m}
 \]
 
 \subsection{Restricciones para la no nulidad de los coeficientes}
