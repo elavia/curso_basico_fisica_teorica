@@ -265,27 +265,33 @@ relacion que hace algunos $C_{m_1 m_2}^j=0$. Ante todo abreviaremos suprimiendo 
 \subsection{Restricciones para la no nulidad de los coeficientes}
 
 \[
-	a
+	(J_{z} - J_{1z} - J_{2z})\Ket{j,m} = (m\hbar - J_{1z} - J_{2z})\Ket{j,m} = 0
 \]
 \[
-	b
+	\Braket{m_1,m_2|(J_{z} - J_{1z} - J_{2z})|j,m}= 0 \qquad \qquad 
+	\hbar(m-m_1-m_2)\Braket{m_1,m_2|j,m} = 0
 \]
+entonces
 \[
-	\Braket{m_1,m_2| j,m} \neq 0 \Rightarrow m = m_1 + m_2
+	\Braket{m_1,m_2| j,m} \neq 0 \iff m = m_1 + m_2
 \]
 
 A su vez, en la suma de $J_1$ y $J_2$ resultan los $j$ acotados por una desigualdad triangular 
 \[
-	|| \leq j \leq j_1 + j_2
+	|j_1 - j_2| \leq j \leq j_1 + j_2
 \]
 
 Asimismo los $C_{m_1 m_2}^j$ se toman reales, entonces 
 \[
-	C
+	C_{m_1m_2}^{j*} = C_{m_1m_2}^{j}
 \]
 y juntando todo se tiene 
 \[
-	\Rightarrow
+	\Braket{m_1,m_2|j,m} \neq 0	\iff  m = m_1 + m_2,
+\]
+o lo que es equivalente
+\[
+	\Braket{j,m|m_1,m_2} \iff |j_1 - j_2| \leq j \leq j_1 + j_2
 \]
 
 Ambas bases tienen la misma dimensión
@@ -294,26 +300,35 @@ Ambas bases tienen la misma dimensión
 \]
 
 Recordemos que cada $j$ tiene $2j+1$ estados posibles (los $m$ correspondientes a cada $j$) ($|m|\leq j$). Si 
-sumamos 
-$j_1=1, j_2=3/2$ tendremos 
+sumamos $j_1=1, j_2=3/2$ tendremos 
 \[
-	dim
+	\text{dim} =  2 \oplus 4 \oplus 6 = 3 \otimes 4 = 12
 \]
 \[
-	j = 1/2, 3/2, 5/2
+	j = 1/2, 3/2, 5/2 \qquad m_1 = -1,0,1
+\]
+\[
+	j = -5/2,-3/2,-1/2,1/2, 3/2, 5/2 \qquad m_2 = -3/2,-1/2,1/2,3/2
 \]
 
 Podemos ver a ojo que 
 \[
-	\Ket{j}
+	\Ket{j=5/2,m=5/2} = \Ket{m_1=1,m_2=3/2}
+\]
+\[
+	\Ket{j=5/2,m=-5/2} = \Ket{m_1=-1,m_2=-3/2}
 \]
 luego con el $J_=, J_-$ podemos construirnos los siguientes (utilizando ortonormalidad)
 \[
-	= 
+	\Braket{j',m'|j,m} = \delta_{j'j}\delta_{m'm}
 \]
 \[
-	= \qquad \sum = 1
+	\sum_{m_1,m_2} \Braket{j',m'|m_1,m_2}\Braket{m_1,m_2|j,m} = \delta_{j'j}\delta_{m'm}
 \]
+\[
+	\sum_{m_1,m_2} \Braket{m_1,m_2|j,m}^2 = 1
+\]
+siendo esto último la ortonormalidad.
 
 \subsection{Relación de recurrencia}
 
