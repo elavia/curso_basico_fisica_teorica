@@ -333,39 +333,66 @@ siendo esto último la ortonormalidad.
 \subsection{Relación de recurrencia}
 
 \[
-	J_\pm = \ ket{j,m} = 
+	J_\pm \ket{j,m} = ( J_{1\pm} + J_{2\pm} ) \sum_{m_1',m_2'} \Ket{m_1',m_2'}\Braket{m_1',m_2'|j,m}
 \]
 \[
-	b
+	\sqrt{(j\mp m)(j\pm m + 1)} \ket{j,m\pm 1} = \sum_{m_1',m_2'}\Braket{m_1',m_2'|j,m}  
+	( J_{1\pm}\Ket{m_1',m_2'} + J_{2\pm}\Ket{m_1',m_2'} ) 
 \]
 y metiendo un bra $\Bra{m_1,m_2}$ se llega a la relación de recurrencia
-\[
-	\sqrt{()}
-\]
+\begin{multline*}
+	\sqrt{(j\mp m)(j\pm m + 1)} \Braket{m_1,m_2|j,m\pm 1} =
+	\sqrt{(j_1 \mp m_1 + 1 )(j_1 \pm m_1)} \Braket{m_1 \mp 1 ,m_2|j,m}  + \\
+	\sqrt{(j_2 \mp m_2 + 1 )(j_2 \pm m_2)}  \Braket{m_1,m_2 \mp 1| j,m } 
+\end{multline*}
+
 
 \subsection{Suma de \vb{L} y \vb{S}}
 
 Sea suma \vb{L} y \vb{S}, entonces 
 \[
-	a
+	j_1 = l \qquad j_2 = S= 1/2 \quad m_1=m_l \quad m_2=m_s = \pm 1/2
 \]
-habrá sólo cuatro $C_{m_1 m_2}^j$ no nulos, que serán 
 \[
-	\Braket{|}
+	|l - 1/2| \leq j \leq l + 1/2  \qquad j=\begin{cases} l-1/2 \\ l+1/2\end{cases}
+\]
+\[
+	m = m_l \pm 1/2 \qquad m_l = m + 1/2 , m- 1/2 \qquad m_S = 1/2, -1/2
+\]
+y luego dim=$(2l+1)\otimes 2 =) 4l+2$.
+Habrá sólo cuatro $C_{m_1 m_2}^j$ no nulos, que serán 
+\[
+	\Braket{ m + 1/2, -1/2 | l - 1/2, m }
+\]
+\[
+	\Braket{ m + 1/2, -1/2 | l + 1/2, m }
+\]
+\[
+	\Braket{ m - 1/2, 1/2 | l - 1/2, m }
+\]
+\[
+	\Braket{ m - 1/2, 1/2 | l + 1/2, m }
 \]
 donde vemos que los coeficientes linkean sólo los estados con $j=\ell-1/2$ y $j=\ell+1/2$ y podemos construir 
-una 
-matriz de $2\times 2$ para este caso.
+una matriz de $2\times 2$ para este caso.
 
 Esto tórnase práctico para acoplamiento spin-órbita 
 \[
-	LS
+	\vb{L}\cdot\vb{S} = \frac{1}{2}(J^2 - L^2 - S^2)
 \]
 \[
-	LS
+	\vb{L}\cdot\vb{S} \Ket{l,s;j,m} =  \frac{1}{2}\left( j(j+1)\hbar^2 - 
+		l(l+1)\hbar^2 - s(s+1/2)\hbar^2 \right) \Ket{l,s;j,m}
 \]
 \[
-	LS
+	= \frac{1}{2}\left( j(j+1) - l(l+1) - 3/4 \right) \hbar^2 \Ket{l,s;j,m}
+\]
+\[
+	\vb{L}\cdot\vb{S} \Ket{l,s;j,m} = \begin{cases} 
+		\displaystyle \frac{l\hbar^2}{2} \Ket{l,s;j,m} \quad \text{si} \; j=l+1/2\\ 
+		\\
+		\displaystyle -\frac{(l+1)\hbar^2}{2}\Ket{l,s;j,m} \quad \text{si} \; j=l-1/2
+	\end{cases}
 \]
 
 \section{Operadores vectoriales}
