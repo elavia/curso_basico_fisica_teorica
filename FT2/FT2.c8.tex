@@ -36,38 +36,52 @@
 Es importante para el cálculo de transiciones evaluar elementos de matriz de operadores tensoriales.
 Los elementos matriciales de operadores tensoriales respecto de autoestados de momento satisfacen 
 \[
-	\Braket{||} =
+	\Braket{\alpha',j',m'|T^{(k)}_q|\alpha,j,m} =  \Braket{j k; m q | j k; j' m'}
+	\frac{\Braket{\alpha' j'|T^{(k)}|\alpha j}}{(2j+1)}
 \]
-un coeficiente que no depende de $q,m,m'$.
+un coeficiente que no depende de $q,m,m'$. El coeficiente que aparece primero es el coeficiente de 
+Clebsh-Goran dde sumar momentos $jk$ con $m_1=m, m_2=q, m+q=m'$ .
 
 La regla de selección se construye 
 \[
-	\Braket{[]} =
+	\Braket{\alpha',j',m'|[J_z, T^{(k)}_q] - \hbar q T^{(k)}_q |\alpha,j,m} = 
+	\Braket{|J_z T^{(k)}_q - T^{(k)}_q J_z - \hbar q T^{(k)}_q|}
 \]
 \[
-	\neq
+	\Braket{\alpha',j',m'|0|\alpha,j,m} = 
+	(\hbar m' - \hbar m -\hbar q )\Braket{\alpha',j',m'|T^{(k)}_q|\alpha,j,m}
+\]
+\[
+	0 = \hbar ( m' - m - q ) \Braket{\alpha',j',m'|T^{(k)}_q|\alpha,j,m}
+\]
+\[
+	\text{si} \; m' \neq m+q \longrightarrow \Braket{\alpha',j',m'|T^{(k)}_q|\alpha,j,m} = 0
 \]
 
 Una idea de la demostración del teorema
 \[
-	sa
+	\Braket{\alpha',j',m'|[J_\pm ,T^{(k)}_q]|\alpha,j,m} = \hbar\sqrt{(k\mp q)(k\pm q + 1)} 
+	\Braket{\alpha',j',m'|T^{(k)}_{q\pm 1}|\alpha,j,m}
 \]
-\[
-	ba
-\]
+\begin{multline*}
+	\sqrt{(j'\pm m')(j'\mp m' + 1)} \Braket{\alpha',j',m'\pm 1|T^{(k)}_q|\alpha,j,m} - \\
+	\sqrt{(j'\mp m')(j'\pm m' + 1)} \Braket{\alpha',j',m'|T^{(k)}_q|\alpha,j,m \pm 1} = \\
+	\sqrt{(k\mp q)(k\pm q + 1)}  \Braket{\alpha',j',m'|T^{(k)}_{q\pm 1}|\alpha,j,m}
+\end{multline*}
 
 Es la misma relación de recurrencia que la de los coeficientes de Clebsh-Gordan, si reemplazamos
 \[
 	m'=m \quad j=j_1 \quad m=m_1 \qquad j'=j \quad k=j_2 \quad q=m_2
 \]
 
-Como ambas relaciones son lineales, sus resultados serán proporcionales.
-Se puede asociar 
+Como ambas relaciones son lineales, sus resultados serán proporcionales. Se puede asociar 
 \[
-	\propto 
+	\Braket{ j_1, j_2 ; m_1, m_2 \pm 1 | j_1, j_2 ; j, m} \propto 
+	\Braket{\alpha',j',m'|T^{(k)}_{q\pm 1}|\alpha,j,m}
 \]
 \[
-	\propto
+	\Braket{ j_1, k ; m, q \pm 1 | j, k ; j', m'} \propto 
+	\Braket{\alpha',j',m'|T^{(k)}_{q\pm 1}|\alpha,j,m}
 \]
 Logramos la igualdad metiendo una constante independiente de $m',q,m$.
 
@@ -83,16 +97,27 @@ mismas reglas de selección
 
 Sea un escalar (tensor de rango cero)
 \[
-	\Braket{||} =
+	\Braket{\alpha' j' m' |T_0^{(0)}| \alpha j m} \propto \Braket{j 0 ; m 0 |j 0 ; j' m'} =
+	\delta_{j'j}\delta_{m'm} 
 \]
-
+\[
+	q=0 \; k=0 \quad m+q=m' \rightarrow m=m'
+\]
+\[
+	|j-0| \leq j' \leq j+0 \rightarrow j=j'
+\]
 No varían $j,m$ en los estados No conecta estados con $j,m$ diferentes un escalar.
 
 Sea un vector (tensor de rango uno):
 \[
-	\Braket{||} \propto \Braket{j 1;m q|j 1;j' m'}
+	\Braket{\alpha' j' m'|T_q^{(1)}| \alpha j m} \propto \Braket{j 1;m q|j 1;j' m'}
 \]
-
+\[
+	q=1,0,-1 \; k=1 \quad m+\{1,0,-1\}=m' \rightarrow m-m' =\begin{cases} 1 \\ 0 \\ -1 \end{cases}
+\]
+\[
+	|j-1| \leq j' \leq j+1 \quad -1\leq j'-j \leq 1\rightarrow j-j'=\begin{cases} 1 \\ 0 \\ -1 \end{cases}
+\]
 Conecta estados que están separados por un $j$ y un $m$.
 
 \subsection{Teorema de proyección}
@@ -100,34 +125,41 @@ Conecta estados que están separados por un $j$ y un $m$.
 Consideremos lo que sucede en el teorema de Wigner-Eckart si $j=j'$ y se lo aplicamos a un operador vectorial 
 $T_q^{(k=1)} \equiv V_q$
 \[
-	=
+	\Braket{\alpha'j m'|V_q|\alpha j m} = 
+	\frac{\Braket{\alpha' j m|\vb{J}\cdot\vb{V}|\alpha j m}}{\hbar^2j(j+1)}\Braket{j m'|J_q|j m}
 \]
 
 Como caso especial, si $\alpha' =\alpha$ estoy en un subespcaio donde coinciden los números cuánticos, se 
 tiene
 \[
-	\vb{V} = \frac{\Braket{\cdot}}{} \vb{J}
+	\vb{V} = \frac{\Braket{\vb{J}\cdot\vb{V}}}{\hbar^2j(j+1)} \vb{J}
 \]
 
 \subsection{Aplicación del teorema de proyección}
 
-Sea un $H_0$ esféricamente simétrico 
+Sea un $H_0$ esféricamente simétrico $[H_0,\vb{J}]=0$ , $\vb{J}=\vb{L}+\vb{S}$ y $J^2=(L+S)^2$
 \[
-	cosas
+	H_0 = \frac{p^2}{2m} + \frac{e}{r} \qquad \Ket{E,\ell,s,j,m} \quad 2j+1 \;\text{degenerados}
 \]
+que equivale a un $CCOC:H,L^2,S^2,J^2,J_z$ donde cada autovalor dentro del ket es el que corresponde a estos 
+operadores.
 
 Si meto un campo $B$ en $\hat{z}$ tendré 
 \[
-	H \equiv H_0 + H_1 = H_0
+	H \equiv H_0 + H_1 = H_0 - \frac{\mu_B B}{\hbar}(L_z + 2S_z)
 \]
 lo cual debería romper la degeneración.
 \[
-	L_z + 2S_z =
+	L_z + 2S_z = \frac{\Braket{\vb{J}\cdot\vb{L}}}{\hbar^2j(j+1)}J_z + 
+		2\frac{\Braket{\vb{J}\cdot\vb{L}}}{\hbar^2j(j+1)}J_z
 \]
 pero no puedo poner este nuevo operador, que mete el campo B, en el CCOC directamente, entonces uso teorema 
 de proyección.
 \[
-	escalares
+	\vb{J}\cdot\vb{L} = L^2 + \frac{1}{2}( J^2 - L^2 - S^2 )
+\]
+\[
+	\vb{J}\cdot\vb{S} = S^2 + \frac{1}{2}( J^2 - L^2 - S^2 )
 \]
 Entonces tengo todo expresado en función de $J_z$ que sí forma parte de mi CCOC.
 

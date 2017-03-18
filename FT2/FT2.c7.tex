@@ -404,37 +404,36 @@ En mecánica clásica,
 \]
 En mecánica cuántica tenemos que al rotar
 \[
-	=
+	\Ket{\alpha}_R = \mathcal{D}(R)\Ket{\alpha}
 \]
 Pediremos entonces que $\Braket{V}$ transforme como un vector y eso lleva a que 
 \[
-	=
+	\Braket{\alpha|V_i|\alpha}_R = \Braket{\alpha|\mathcal{D}^\dagger(R)V_i\mathcal{D}(R)|\alpha} =
+	R_{ij} \Braket{\alpha|V_j|\alpha}
 \]
 \[
-	\mathcal{D}(R)^+
+	\mathcal{D}(R)^\dagger V_i \mathcal{D}(R) = R_{ij}V_j \qquad (º)
 \]
-y calculando la expresión anterior 1 llegamos a que debe valer
+y calculando la expresión anterior (1) llegamos a que debe valer
 \[
 	[V_i,J_j] =  i\hbar \varepsilon_{ijR}V_R
 \]
 que es la manera de transformar de un operador vectorial. Podemos probar un caso simple de una rotación 
-infinitesimal 
-en $\hat{z}$ y ver que vale.
+infinitesimal en $\hat{z}$ y ver que vale.
 
 
 \section{Operadores tensoriales}
 
 En mecánica clásica 
 \[
-	T_{ij} 
+	T_{ij} = R_{ii'} R_{jj'} T_{i' j'}
 \]
-que es un tensor de rango dos. Esto es un tensor cartesiano. Su problema es que no es irreducible, entonces 
-puede 
-descomponerse en objetos que transforman diferente ante rotaciones. Sea la díada $U_iV_j$, tensor de rango 
-dos, que 
-puede escribirse como 
+que es un tensor de rango dos. Esto es un \underline{tensor cartesiano}. Su problema es que \underline{no es 
+irreducible}, entonces puede descomponerse en objetos que transforman diferente ante rotaciones. Sea la díada 
+$U_iV_j$, tensor de rango dos, que puede escribirse como 
 \[
-	UV =
+	UV = \frac{1}{3}\vb{U}\cdot\vb{V}\delta_{ij} + \frac{1}{2}\left( U_iV_j - U_jV_i \right) +
+	\left[ \frac{1}{2}\left( U_iV_j + U_jV_i \right) - \frac{1}{3}\vb{U}\cdot\vb{V}\delta_{ij}\right]
 \]
 Hemos reducido el tensor cartesiano en tensores irreducibles. Podemos asociar esta descomposición con las 
 multiplicidades de objetos con momento angular $\ell=0, \ell=1, \ell=2$
@@ -455,7 +454,7 @@ Se define
 \]
 Un tensor esférico transforma como 
 \[
-	D T D = D T 
+	\mathcal{D}(R) T_{q'}^{(k)} \mathcal{D}(R)^\dagger = \mathcal{D}(R) T_{q'}^{(k)}  \qquad (2)
 \]
 Tendremos 
 \[
@@ -467,24 +466,30 @@ Tendremos
 
 En muchos casos se puede escribir un tensor esférico como armónico esférico 
 \[
-	Y_\ell^{m}(\theta,\varphi) = Y_\ell^{m}(\hat{n})  \overbrace{\hat{n} \longrightarrow 
-	\vec{v}}^{\text{paso}} Y_\ell^m(\vec{v}) \equiv Y_k^q(\vec{v}) = T_q^{(k)}
+	Y_\ell^{m}(\theta,\varphi) = Y_\ell^{m}(\hat{n}) \; \longrightarrow 
+	\overbrace{ \phantom{.}\hat{n} \longrightarrow \vec{v}\phantom{.}}^{\text{paso}} \quad
+	Y_\ell^m(\vec{v}) \equiv Y_k^q(\vec{v}) = T_q^{(k)}
 \]
 \[
-	\hat{n} = ()
+	\hat{n} = (n_x,n_y,n_z) = \left( \frac{x}{r}, \frac{y}{r}, \frac{z}{r} \right) \quad 
+	\longrightarrow \quad \vb{v} = (rn_x,rn_y,rn_z)
 \]
 \[
-	Y \longrightarrow T
+	\hat{n} = ( \cos(\phi)\sin(\theta), \sin(\phi)\sin(\theta), \cos(\theta))
 \]
 \[
-	Y
+	Y_1^0 = \sqrt{\frac{3}{4\pi}}n_z \quad \longrightarrow \quad T_1^0 = \sqrt{\frac{3}{4\pi}}V_z
 \]
-Calculando en 2, cosa que podemos hacer para, por ejemplo, una rotación infinitesimal, llegamos a las 
+\[
+	Y_1^{\pm 1} = \mp \sqrt{\frac{3}{4\pi}} \frac{n_x \pm i n_y}{\sqrt{2}} \quad \longrightarrow
+	T_{\pm 1}^{(1)} = \mp \sqrt{\frac{3}{4\pi}} \frac{V_x \pm i V_y}{\sqrt{2}}
+\]
+Calculando en (2), cosa que podemos hacer para, por ejemplo, una rotación infinitesimal, llegamos a las 
 relaciones de conmutación para tensores.
 \[
-	[]
+	[ J_z, T_q^{(k)} ] = \hbar q T_q^{(k)} \qquad 
+	[J_{\pm},T_q^{(k)}] = \hbar \sqrt{(k\mp 1)(k\pm q + 1)} T_{q\pm 1}^{(k)}
 \]
-
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
