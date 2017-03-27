@@ -36,28 +36,33 @@
 
 En mecánica clásica tenemos el teorema de Noether 
 \[
-	\partial p_i = cte.
+	\dpar{\Lag}{q_i} = 0 \quad \to \quad \dtot{}{t}\left( \dpar{\Lag}{\dot{q}_i} \right) = 
+	\dtot{}{t}\left( p_i \right) = 0 \quad \rightarrow \quad \partial p_i = cte.
 \]
-Y $\mathcal{H}, \mathcal{L}$ no cambian con la transformación $q_i \longrightarrow q_i + \delta q_i$
+Y $\Ham, \Lag$ no cambian con la transformación $q_i \longrightarrow q_i + \delta q_i$
 \[
-	\partial 
+	\dpar{\Ham}{q_i} = 0 \quad \to \quad  
+	\dtot{}{t}\left( p_i \right) = 0 \quad \rightarrow \quad \partial p_i = cte. 
 \]
 
 En mecánica cuántica definiremos un operador unitario $\$$ asociado a traslación/rotación. Pensemos en una 
 transformación infinitesimal dada por $\$$
 \[
-	\$
+	\mathbb{\$} = \mathbb{1} - i\frac{\varepsilon}{\hbar}G \qquad G \equiv \text{generador hermítico (de 
+la transf.)}
 \]
 
 Sea el H invariante frente a $\$$, entonces 
 \[
-	SHS =
+	S^\dagger HS = H \quad  \rightarrow \quad [H,\$] = 0 \quad \rightarrow [H,G]=0 \rightarrow
+	\dtot{G}{t} = 0 \rightarrow G \;\text{es cte. de movimiento}
 \]
 
-Esto significa que el autovalor no varía con el tiempo, Como $[H,G]=0$ se tiene 
+Esto significa que el autovalor no varía con el tiempo, Como $[H,G]=0$ se tiene (si no hay degeneración)
 \[
-	no dege 
+	G\Ket{n} = k\Ket{n} \qquad \text{pués} \qquad H(G\Ket{n}) = E_n(k\Ket{n})
 \]
+invariancia frente a traslaciones $G=\vb{p}$ e invariancia frente a rotaciones $G=\vb{J}$.
 
 \subsection{Simetría de paridad}
 
@@ -78,21 +83,30 @@ si $\Pi$ es unitario y $\Pi^1=\mathbb{1}$ entonces es hermítico.
 \end{figure} 
 Queremos que refleje el $\Braket{\hat{x}}$ 
 \[
-	a
+	\Braket{\alpha'|\vb{x}|\alpha'} = - \Braket{\alpha|\vb{x}|\alpha} 
 \]
-anticonmuta con \vb{x}.
-Debido a ello 
 \[
-	a
+	\Braket{\alpha|\Pi^\dagger\vb{x}\Pi|\alpha} = - \Braket{\alpha|\vb{x}|\alpha} \rightarrow
+	\Pi^\dagger\vb{x}\Pi = -\vb{x} 
 \]
-como $\hat{\Pi}$ no depende del tiempo 
+y entonces 
 \[
-	d
+	\{\vb{x},\Pi\} = 0,
+\]
+anticonmuta con \vb{x}. Debido a ello 
+\[
+	\Pi\Ket{\vb{x}'} = \Ket{-\vb{x}'} \qquad \Pi^2 \equiv \mathbb{1}
+\]
+lo cual dice que los autovalores son $\pm 1$ y $\Pi$ es unitario y hermítico.
+Como $\hat{\Pi}$ no depende del tiempo 
+\[
+	\Pi^\dagger\vb{p}\Pi = \Pi^\dagger\dtot{\vb{x}}{t}\Pi = \dtot{}{t}(\Pi^\dagger\vb{p}\Pi) = 
+	\dtot{-\vb{x}}{t} \rightarrow \{\vb{p},\Pi\}= 0
 \]
 y vemos que anticonmuta con \vb{p}.
 \vb{x}, \vb{p} son operadores impares. En cambio $\vb{L}=\vb{x}\times\vb{p}$ es un operador par, entonces 
 \[
-	[] = 0
+	[\vb{L},\Pi] = 0 \qquad [\vb{J},\Pi] = 0
 \]
 \begin{figure}[htb]
 	\begin{center}
@@ -102,75 +116,108 @@ y vemos que anticonmuta con \vb{p}.
 \end{figure} 
 Que conmuta con \vb{J} puede verse de pedirle que 
 \[
-	[] = 0 \longrightarrow [] = 0 ,
+	[\Pi,\mathcal{D}(R)] = 0 \longrightarrow [\Pi,\vb{J}] = 0 ,
 \]
 cosa que vale en mecánica clásica, entonces 
 \[
-	R
+	R^{\text{(paridad)}}R^{\text{(rotación)}} = R^{\text{(rotación)}} R^{\text{(paridad)}}
 \]
 \[
-	\Box
+	\Pi^\dagger \Box \Pi =  \begin{cases} +{\Box} \quad \text{par}\quad\text{vector axial( 
+	pseudovector)}\\  -\Box \quad \text{impar} \quad \text{vector polar} \end{cases}
 \]
 \[
-	\Box
+	\Pi^\dagger \Box \Pi =  \begin{cases} +\Box \quad \text{par}\quad\text{escalar}\\
+	-\Box \quad \text{impar} \quad \text{pseudoescalar} \end{cases}
 \]
+\[
+	\Pi^\dagger \vb{S}\cdot\vb{x} \Pi = \Pi^\dagger \vb{S}\Pi \cdot\Pi^\dagger\vb{x} \Pi =
+	\vb{S}\cdot(-\vb{x}) = -\vb{S}\cdot\vb{x}
+\]
+y $\vb{S}\cdot\vb{x}$ es un pseudoescalar.
 
 \subsection{Función de onda bajo paridad}
 
 \[
-	\Psi
+	\Psi_\alpha(x') = \Braket{x'|\alpha} = \Braket{x'|\Pi|\alpha} = \Braket{x'|\alpha'} = 
+	\Braket{-x'|\alpha}
 \]
 y entonces la función de onda de un estado al que se le aplicó paridad será 
 \[
-	\Psi
+	\Psi_{\alpha'}(x') = \Psi_\alpha(-x')
 \]
 
 Sea $\Ket{\alpha}$ autoestado de paridad, entonces 
 \[
-	a
+	\Pi\Ket{\alpha} = \pm \Ket{\alpha}
 \]
 los autovalores serán $\pm 1$
 \[
-	=
+	\Braket{x'|\alpha'} = \pm \Braket{x'|\alpha} = \Braket{-x'|\alpha} 
+\]
+\[
+	\Psi_\alpha(-x') = \begin{cases} +\Psi_\alpha(x') \quad \text{función de onda par}\\ 
+	-\Psi_\alpha(x') \quad \text{función de onda impar}\\ 
+	\end{cases}
 \]
 no toda función de onda tiene paridad bien definida.
 
 \[
-	\vb{x}
+	\vb{x} \to -\vb{x} \longrightarrow \left( r\to r, \theta \to \pi-\theta, \phi \to \phi+\pi \right)
 \]
 \[
-	=
+	\Braket{x'|\alpha,\ell,m} = R_\alpha(r) Y_\ell^m(\theta,\phi) \rightarrow \text{con}\vb{x} \; \to 
+	-\vb{x} \; \text{será}
 \]
 \[
-	\Pi
+	Y_\ell^m(\pi-\theta,\phi+\pi) = (-1)^\ell Y_\ell^m(\theta,\phi)
+\]
+\[
+	\Pi\Ket{\alpha,\ell,m} =  (-1)^\ell \Ket{\alpha,\ell,m}
 \]
 Como $[\vb{L},\hat{\Pi}]=0$ un autoestado de \vb{L} es autoestado de $\hat{\Pi}$ .
 
 \subsection{Teorema}
 
-Sea 
-\[
-	autoestado 
-\]
+Sea $[H,\pi]=0$ y $\Ket{n}$ autoestados no degenerados de $H$ 
+
+	$\Rightarrow$ $\Ket{n}$ es autoestado de $\Pi$.
 
 La demostración 
 \[
-	()
+	\left(\frac{1}{2}\pm \frac{\Pi}{2}\right)\Ket{n} = \frac{\Pi^2\pm\Pi}{2}\Ket{n} = 
+	\Pi \left( \frac{\pm 1+\Pi}{2}\right)\Ket{n} = \pm\Pi \frac{1\pm\Pi}{2}\Ket{n}
+\]
+y entonces es autoestado de paridad con autovalor $\pm 1$. 
+\[
+	H\frac{1}{2}\left(1\pm\Pi\right)\Ket{n} = \frac{1}{2}E_n\Ket{n} \pm \frac{E_n}{2}\Pi\Ket{n} =
+	E_n\left[ \left( \frac{1}{2} \pm \frac{\Pi}{2}\right) \right]
+\]
+y es autoestado de $H$, de manera que 
+\[
+	\left( \frac{1\pm\Pi}{2}\right)\Ket{n} = \Ket{n} \Rightarrow \Ket{n} \quad \text{es autoestado de 
+paridad}
 \]
 \[
-	2
+	\frac{1}{2}\Ket{n} \pm \frac{\Pi}{2}\Ket{n} = \Ket{n}
 \]
 \[
-	3
+	\pm \frac{\Pi}{2}\Ket{n} = +\frac{\Ket{n}}{2} \Rightarrow \Pi\Ket{n} = \pm\Ket{n}
 \]
-
 Un caso donde falla el teorema 
 \[
-	caso
+	[H,\Pi]=0 \quad \text{con} \quad H=\frac{p^2}{2m} 
+\]
+pero $\Ket{p'}$ no es autoestado de $\Pi$ por la degeneración $\Ket{p'},\Ket{-p'}$ son ambos correspondientes 
+al autovalor $p'2/2m$
+\[
+	\frac{\hat{p}^2}{2m}\Ket{p'} = \frac{{p'}^2}{2m}\Ket{p'} \qquad  \qquad 
+	\frac{\hat{p}^2}{2m}\Ket{-p'} = \frac{{p'}^2}{2m}\Ket{-p'}
 \]
 \[
-	caso mas
+	\Pi\Ket{p'}= \Ket{-p'}
 \]
+y $\Ket{p'}$ no es autoestado de $\Pi$.
 
 \subsection{Reglas de selección de paridad $\Pi$}
 
