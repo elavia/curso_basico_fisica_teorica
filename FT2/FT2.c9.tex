@@ -223,31 +223,46 @@ y $\Ket{p'}$ no es autoestado de $\Pi$.
 
 Sean $\Ket{\alpha}, \Ket{\beta}$ autoestados de paridad 
 \[
-	\Pi
+	\Pi\Ket{\alpha} = \varepsilon_\alpha \Ket{\alpha} \qquad\qquad
+	\Pi\Ket{\beta} = \varepsilon_\beta \Ket{\beta}
 \]
+siendo para el caso impar
 \[
-	\Braket{||}
+	\Braket{\beta|\Box|\alpha} = - \Braket{\beta|\Pi^\dagger\Box\Pi|\alpha} =
+	-\varepsilon_\alpha \varepsilon_\beta \Braket{\beta|\Box|\alpha},
 \]
+y en el caso par
+\[
+	\Braket{\beta|\Box|\alpha} = \Braket{\beta|\Pi^\dagger\Box\Pi|\alpha} =
+	\varepsilon_\alpha \varepsilon_\beta \Braket{\beta|\Box|\alpha}
+\]
+
+Si el operador $\Box$ es impar (como $\vb{x}, \vb{p}$) entonces $\varepsilon_\alpha=1,
+\varepsilon_\beta=-1$ o bien $\varepsilon_\alpha=-1,\varepsilon_\beta=1$.
+
+Si el operador $\Box$ es par (como $\vb{L}, \vb{S}$) entonces $\varepsilon_\alpha=1,
+\varepsilon_\beta=1$ o bien $\varepsilon_\alpha=-1,\varepsilon_\beta=-1$.
 
 \begin{itemize}
  \item Operadores impares solo conectan estados de paridad opuesta
- \[
-	a
- \]
  \item Operadores pares solo conectan estados de la misma paridad 
- \[
-	b
- \]
 \end{itemize}
 
 \[
-	= 0
+	\Braket{\beta|\vb{x}|\alpha} = 0 
 \]
+entonces
 \[
-	c
+	\int\int dx'dx''\Braket{\beta|x''}\Braket{x''|\vb{x}|x'}\Braket{x'|\alpha}= 0
+\]
+y como es $\Braket{x''|\vb{x}|x'} = x' \delta(x' -x'')$
+\[
+	\int_{-\infty}^{+\infty} dx'\Braket{\beta|x'} x' \Braket{x'|\alpha} =
+	\int_{-\infty}^{+\infty} dx'\Psi_\beta^*(x') x' \Psi_\alpha (x')
 \]
 
 \section{Inversión temporal (reversión de movimiento)}
+
 
 En mecánica clásica sería {\it pasar la película hacia atrás}
 \[
@@ -255,42 +270,60 @@ En mecánica clásica sería {\it pasar la película hacia atrás}
 \]
 En sistemas sin fuerzas disipativas se tiene 
 \[
-	m \ddot{x} =
+	m \ddot{x} = - \dtot{}{x} V(x)
+\]
+siendo $x(t)$ y $x(-t)$ soluciones de $\vb{F} = m\vb{a}$ pues si $t\to-t$ se tiene
+\[
+	m \ddot{x} = - \dtot{}{x} V(x)
+\]
+dado que 
+\[
+	\dtot[2]{x(t)}{t} = \dtot[2]{x(-t)}{t}
 \]
 
 En mecánica cuántica tendremos 
 \[
-	i \hbar 
+	i \hbar \dpar{\Psi(x,t)}{t} = \left( -\frac{\hbar^2\nabla^2}{2m} + V \right)\Psi(x,t)
 \]
+y si hacemos el cambio $t\to -t$
 \[
-	=
+	i \hbar \dpar{\Psi(x,-t)}{t} = -i \hbar \dpar{\Psi(x,t)}{t}  = 
+	- \left( -\frac{\hbar^2\nabla^2}{2m} + V \right)\Psi(x,t)
 \]
-no es solución de Schrödinger. 
+se ve que $\Psi(x,-t)$ no es solución de Schrödinger. 
+
 Pero notemos que $\Psi^*(x,-t)$ cumple la ecuación de Schrödinger
 \[
-	i\hbar
+	i \hbar \dpar{\Psi^*(x,-t)}{t} = -i \hbar \dpar{\Psi^*(x,t)}{t} 
 \]
 
-Entonces necesitamos un operador que respete esta característica. Necesitaré el producto interno conjugado 
+Entonces necesitamos un operador que respete esta característica.
+Necesitaré el producto interno conjugado 
 \[
-	\Psi
+	\Psi_\alpha(x') = \Braket{x'|\alpha} \qquad
+	\Psi^*_\alpha(x') = \Braket{x'|\alpha}^* = \Braket{\alpha|x'}
 \]
 El operador involucrado no será unitario 
 \[
-	\Ket{\tilde{\alpha}} = 
+	\Ket{\tilde{\alpha}} = \hat{\Theta}\Ket{\alpha} \qquad 
+	\Ket{\tilde{\beta}} = \hat{\Theta}\Ket{\beta}
 \]
 Si $\hat{\Theta}$ unitario se conserva el producto interno 
 \[
-	=
+	\Braket{\hat{\beta}|\hat{\alpha}} = 
+	\Braket{\beta|\hat{\Theta}^\dagger\hat{\Theta}|\alpha} =
+	\Braket{\beta|\mathbb{1}|\alpha} = \Braket{\beta|\alpha}
 \]
 
 Pediremos antiunitariedad y antilinealidad al operador $\hat{\Theta}$
 \[
-	=
+	\Braket{\hat{\beta}|\hat{\alpha}} = \Braket{{\beta}|{\alpha}}^*
 \]
 \[
-	=
+	\hat{\Theta}[ C_\alpha\Ket{\alpha} + C_\beta\Ket{\beta}] = 
+	C_\alpha^*\hat{\Theta}\Ket{\alpha} + C_\beta^*\hat{\Theta}\Ket{\beta}
 \]
+siendo lo primero la antiunitariedad y lo segunda la antilinealidad.
 
 Todo operador antiunitario y antilineal puede escribirse como producto 
 \[
@@ -299,20 +332,31 @@ Todo operador antiunitario y antilineal puede escribirse como producto
 donde $U$ es unitario y $K$ la conjugación compleja. $K$ no cambia los autoestados, porque en base canónica 
 un autoestado tiene un solo elemento (1) que no es nulo.
 \[
-	K
+	K(C\Ket{\alpha}) = CK\Ket{\alpha} = C^*K(\sum_{a'} \Ket{a'}\Braket{a'|\alpha}) =
+	C^* (\sum_{a'} \Braket{a'|\alpha}^* K \Ket{a'}) =
+	C^* (\sum_{a'} \Braket{a'|\alpha}^* \Ket{a'}) 
 \]
 
 Veamos que $UK$ es antiunitario 
 \[
-	=
+	\Ket{\hat{\alpha}} = UK \Ket{\alpha} = \sum_{a'} \Braket{a'|\alpha}^* U\Ket{a'} \qquad \qquad
+	\Ket{\hat{\beta}} = UK \Ket{\beta} = \sum_{a''} \Braket{a''|\beta}^* U\Ket{a''}
 \]
 
 \[
-	=
+	\Bra{\hat{\beta}} = \sum_{a''} \Braket{a''|\beta} \Bra{a''}U^\dagger
+\]
+entonces
+\[
+	\Braket{\hat{\beta}|\hat{\alpha}} = \sum_{a''} \Braket{a''|\beta} \Bra{a''}U^\dagger
+	\sum_{a'} \Braket{a'|\alpha}^* U\Ket{a'}
 \]
 \[
-	=
+	\sum_{a',a''} \Braket{a''|\beta} \Braket{a'|\alpha}^* \Bra{a''}U^\dagger U\Ket{a'} =
+	\sum_{a'} \Braket{a'|\beta} \Braket{a'|\alpha}^* =  \sum_{a'} \Braket{\beta|a'}^* \Braket{a'|\alpha}^*
+	= \Braket{\beta|\alpha}^*
 \]
+y entonces UK es antinunitario.
 
 Notemos que no se define $\hat{\Theta}^\dagger$ actuando sobre bras. La demostración anterior esperó a 
 quitarse de encima $\hat{K}$ para hacer dual conjugado al $\Ket{\tilde{\beta}}$.
@@ -325,29 +369,45 @@ Usaremos la notación
 \]
 donde hay que tener en cuenta 
 \[
-	= \mathbb{1}
+	\Theta^\dagger \Theta = \mathbb{1}
 \]
+pues $\Theta^\dagger$ no está definido.
 
 Sería razonable esperar que 
 \[
-	= -
+	\Braket{\hat{\alpha}|\vb{p}|\hat{\alpha}} = - \Braket{{\alpha}|\vb{p}|{\alpha}}\qquad 
+	\Braket{\hat{\alpha}|\vb{x}|\hat{\alpha}} = \Braket{{\alpha}|\vb{x}|{\alpha}}\qquad 
 \]
 Sea $\hat{\mathbb{O}}$ un operador hermítico 
 \[
-	=
+	\Braket{\alpha|\mathbb{O}|\alpha} = \Braket{\alpha|\gamma}
 \]
-Luego metemos un $=1$
 \[
-	=
+	\Braket{\hat{\alpha}|\hat{\gamma}}^* = \Braket{\alpha|\gamma} \Rightarrow 
+	\Braket{\hat{\alpha}|\hat{\gamma}} = \Braket{\gamma|\alpha}
+\]
+y como $\Braket{\hat{\alpha}|\Theta|\gamma} = \Braket{\hat{\alpha}|\Theta\mathbb{O}|\alpha}$.
+Luego metemos un $\Theta^{-1}\Theta = 1$
+\[
+	\Braket{\hat{\alpha}|\Theta\mathbb{O}\Theta^{-1}\Theta|\alpha} =
+	\Braket{\hat{\alpha}|\Theta\mathbb{O}\Theta^{-1}|\hat{\alpha}} = \Braket{\alpha|\mathbb{O}|\alpha}
 \]
 
 Notamos que no se aplica $\Theta$ sobre bra alguno y tenemos $\Theta$ no unitario. Entonces requeriremos 
 \[
-	=
+	\Theta \hat{p} \Theta^{-1} = -\hat{p} \qquad \Theta \hat{j} \Theta^{-1} = -\hat{j}
+\]
+\[
+	\hat{\Theta}\hat{p} = -\hat{p}\hat{\Theta} \quad \Rightarrow 
+	\quad \{ \hat{\Theta},\hat{p}\} = 0
 \]
 como para $\vb{p},\vb{J}$ operadores impares 
 \[
-	=
+	\Theta \hat{x} \Theta^{-1} = \hat{x}
+\]
+\[
+	\hat{\Theta}\hat{x} = -\hat{x}\hat{\Theta} \quad \Rightarrow 
+	\quad [ \hat{\Theta},\hat{x} ] = 0
 \]
 y $\vb{x}$ operador par.
 
