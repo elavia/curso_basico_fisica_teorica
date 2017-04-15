@@ -35,56 +35,81 @@
 
 Se basan en 
 \[
-	H = H_0 + \lambda V \qquad \lambda \ll 1
+	H = H_0 + \lambda V \qquad \lambda \ll 1 \; \text{$\lambda$ es un parámetro para controlar
+	la perturbación}
 \]
 con $ H_0\Ket{n^{(0)}} = E_n^{(0)}\Ket{n^{(0)}}$ (el problema sin perturbar)
 \[
-	H
+	H \Ket{n(\lambda)} = E_n(\lambda) \Ket{n(\lambda)}
 \]
 que sería la solución exacta.
 Como esto es hartocomplicado podemos desarrollar en serie 
 \[
-	\approx 
+	E_n(\lambda) \approx E_n^0 + \lambda E_n^1 + \lambda^2 E_n^2 
 \]
 \[
-	\approx 
+	\Ket{n(\lambda)} \approx \Ket{0_n} + \lambda \Ket{1_n} + \lambda^2  \Ket{2_n}
+\]
+siendo $n$ autoestado correspondiente y $(0),(1),(2)$ los órdenes del desarrollo perturbativo.
+Luego,
+\[
+	\left( H_0 + \lambda V \right)\left[ \sum_{i=0}^{\infty} \lambda^i\Ket{i_n} \right] =
+	\left(\sum_{j=0}^{\infty} \lambda^j E_n^{(j)}\right)\left(\sum_{i=0}^{\infty} \lambda^i\Ket{i_n}\right)
 \]
 \[
-	()[] = ()()
-\]
-\[
-	\sum_{i=0}^\infty =
+	\sum_{i=0}^\infty H_0 \lambda^i \Ket{i_n} + \lambda V \lambda^i \Ket{i_n} =
+	\sum_{i,j} \lambda^j E_n^j \lambda^i \Ket{i_n}
 \]
 y aproximando los primeros términos 
 \[
-	H_0
+	H_0\Ket{0_n} + H_0\lambda\Ket{1_n} + H_0\lambda^2\Ket{2_n} + V\lambda\Ket{0_n} +
+	V\lambda^2\Ket{1_n}+... =
 \]
 \[
-	E_0
+	E_n^0\Ket{0_n} + E_n^0\lambda\Ket{1_n} + E_n^0\lambda^2\Ket{2_n} +
+	E_n^1\lambda\Ket{0_n} + E_n^1\lambda^2\Ket{1_n} + E_n^1\lambda^3\Ket{2_n} + 
+	E_n^2\lambda^2\Ket{0_n}
 \]
 ahora igualamos orden a orden y resulta 
 \[
-	\lambda^0 ....
+	\lambda^0 .... H_0\Ket{0_n}  = E_n^0\Ket{0_n}
 \]
 \[
-	\lambda^1 ....
+	\lambda^1 .... H_0\Ket{1_n} + V\Ket{0_n} = 
+	E_n^0\Ket{1_n} + E_n^1\Ket{0_n} 
 \]
 \[
-	\lambda^2 ....
+	\lambda^2 .... H_0\Ket{2_n} + V\Ket{1_n} =
+	E_n^0\Ket{2_n} + E_n^2\Ket{0_n} + E_n^1\Ket{1_n}
 \]
 
 Pediremos una normalización a cada orden y considerando $ \Braket{0_n|n(\lambda)} \in \mathbb{R}$
 \[
-	()() =
+	\left( \Bra{0_n} + \lambda\Bra{1_n} + \lambda^2\Bra{2_n} \right)
+	\left( \Ket{0_n} + \lambda\Ket{1_n} + \lambda^2\Ket{2_n} \right) =
 \]
 \[
-	\lambda
+\begin{aligned}
+ \Braket{0_n|0_n} +& \lambda\Braket{1_n|0_n} +& \lambda^2 \Braket{2_n|0_n} &  & & \\
+ & \lambda\Braket{0_n|1_n} +& \lambda^2\Braket{1_n|1_n} +& \lambda^3\Braket{2_n|1_n}& & \\
+ & & \lambda^2\Braket{0_n|2_n} +& \lambda^3\Braket{1_n|2_n} +& \lambda^4\Braket{2_n|2_n} & \\
+ \hline \\
+ \lambda^0 \quad & \lambda^1 \quad & \lambda^2 \quad & \lambda^3 \quad & &
+\end{aligned}
 \]
 \[
-	...
+	\Braket{0_n|0_n} = 1
 \]
 \[
-	...
+	\Braket{0_n|0_n} + \Braket{1_n|0_n} + \Braket{0_n|1_n} = 1 \longrightarrow 
+	\Braket{1_n|0_n} = -\Braket{0_n|1_n}
+\]
+\[
+	\Braket{0_n|0_n} + \Braket{1_n|0_n} + \Braket{0_n|1_n} + \Braket{2_n|0_n} + \Braket{1_n|1_n} +
+	\Braket{0_n|2_n} = 1
+\]
+\[
+	\ldots \qquad \ldots \qquad \ldots
 \]
 
 En un mismo autoestado $(n)$ los órdenes diferentes $(i)$ no son necesariamente ortogonales.
@@ -93,128 +118,162 @@ En un mismo autoestado $(n)$ los órdenes diferentes $(i)$ no son necesariamente
 
 A orden cero será 
 \[
-	() \qquad \text{y se define} \qquad 
+	(H_0 - E_n^0) \Ket{0_n} = 0 \qquad \text{y se define} \qquad \Ket{0_n} \equiv \Ket{\varphi_nq} 
 \]
 y $\Ket{0_n}$ es dato porque es el estado no perturbado.
 A orden uno tenemos 
 \[
-	()
+	\Braket{\varphi_n | H_0 - E_n^0 | 1_n } +  \Braket{\varphi_n | V - E_n^1 | 0_n } = 0
 \]
 \[
-	\Braket{}
+	E_n^1 = \Braket{\varphi_n |V| \varphi_n }
 \]
-y la energía a orden uno es 
+y la energía hasta orden uno es 
 \[
-	=
+	E_n = E_n^0 + \lambda \Braket{\varphi_n |V| \varphi_n }
 \]
 
 Veamos el autoestado a orden uno. Podemos poner (no hay degeneración)
 \[
-	=
+	\Ket{1_n} = \sum_p (\Braket{\varphi_p|1_n})\Ket{\varphi_p}
 \]
 y sea $p\neq n$
 \[
-	+ = 0
+	\Braket{\varphi_p | H_0 - E_n^0 | 1_n } +  \Braket{\varphi_p | V - E_n^1 | 0_n } = 0
 \]
 \[
-	=
+	(E_p^0 - E_n^0)\Braket{\varphi_n | 1_n } +  \Braket{\varphi_p| V | 0_n } = 
+	E_n^1 \Braket{\varphi_p | 0_n } = 0
 \]
-a un mismo orden (cero) diferentes autoestados son ortogonales.
+lo que significa que a un mismo orden (cero) diferentes autoestados son ortogonales.
+\[
+	\Braket{\varphi_p|1_n} = \frac{\Braket{\varphi_p|V|\varphi_n}}{E_n^0 - E_p^0}
+\]
 Sea $p=n$ entonces 
 \[
-	= 0 
+	\Braket{\varphi_n|1_n} = \Braket{0_n|1_n} = 0 
 \]
 ya lo vimos antes, en la normalización
 \[
-	=
+	\Ket{n(\lambda)} = \Ket{0_n} + \sum_{p\neq n} \frac{\Braket{\varphi_p|V|\varphi_n}}{E_n^0 - E_p^0} \Ket{\varphi_p}
 \]
 autoestado hasta orden uno. A orden dos tenemos 
 \[
-	+ - = 0
+	(H_0 - E_n^0)\Ket{2_n} + (V - E_n^1)\Ket{1_n}- E_n^2\Ket{0_n} = 0
 \]
 \[
-	+ - = 0
+	\Braket{\varphi_n|H_0 - E_n^0|2_n } + \Braket{\varphi_n|V - E_n^1|1_n}- 
+	\Braket{\varphi_n|E_n^2|0_n} = 0
 \]
 \[
-	=
+	\Braket{\varphi_n|V|1_n} = 
+	 E_n^2\underbrace{\Braket{\varphi_n|0_n}}_{=1} + E_n^1\underbrace{\Braket{\varphi_n|1_n}}_{=0}
 \]
 \[
-	E
+	E_n^2 = \Braket{\varphi_n|V|1_n}
+\]
+\[
+	E_n^2 = \sum_{p\neq n} \frac{\Braket{\varphi_p|V|\varphi_n}}{E_n^0 - E_p^0} \Braket{\varphi_n|V|\varphi_p}
+\]
+\[
+	E_n^2 = \sum_{p\neq n} \frac{|\Braket{\varphi_p|V|\varphi_n}|^2}{E_n^0 - E_p^0} 
 \]
 que es la energía a orden dos.
 Veamos el autoestado a orden dos 
 \[
-	\Ket{2n} = \sum_p ()\Ket{\phi_p}
+	\Ket{2n} = \sum_p (\Braket{\varphi_p|2_n})\Ket{\phi_p}
 \]
 sea $p\neq n$ 
 \[
-	+
+	\Braket{\varphi_p|H_0 - E_n^0|2_n } + \Braket{\varphi_p|V - E_n^1|1_n} = 
+	\Braket{\varphi_p|E_n^2|0_n}
 \]
 \[
-	+
+	(H_0 - E_n^0)\Braket{\varphi_p|2_n } + \Braket{\varphi_p|V|1_n} -
+	E_n^1\Braket{\varphi_p|1_n} = E_n^2\underbrace{\Braket{\varphi_p|0_n}}_{=0}
 \]
 \[
-	=
+	\Braket{\varphi_p|2_n } = \frac{E_n^1\Braket{\varphi_p|1_n}}{E_p^0 - E_n^0} - 
+	\frac{\Braket{\varphi_p|V|1_n}}{E_p^0 - E_n^0}
 \]
 \[
-	+
+	\sum_k \frac{\Braket{\varphi_n|V|1_n}}{E_p^0 - E_n^0}\Braket{\varphi_p|\varphi_q}
+	\frac{\Braket{\varphi_p|V|\varphi_n}}{E_n^0 - E_k^0} + \frac{1}{E_n^0 - E_p^0}
+	\Braket{\varphi_p|V\sum_k \frac{\Braket{\varphi_k|V|\varphi_n}}{E_n^0 - E_k^0} |\varphi_k}
 \]
 \[
-	+
+	\Braket{\varphi_p|2_n} = \frac{\Braket{\varphi_n|V|\varphi_n}\Braket{\varphi_p|V|\varphi_n}}
+		{(E_p^0 - E_n^0)(E_n^0 - E_p^0)} + \sum_{k\neq n} 
+		\frac{\Braket{\varphi_p|V|\varphi_k}\Braket{\varphi_k|V|\varphi_n}}
+		{(E_n^0 - E_p^0)(E_n^0 - E_k^0)}
 \]
 
 Sea $p=n$
 \[
-	+ = 1
+	\underbrace{\Braket{0_n|0_n}}_{=1} + \underbrace{\Braket{1_n|0_n}}_{=0} +
+	\underbrace{\Braket{0_n|1_n}}_{=0} +
+	\Braket{2_n|0_n} + \Braket{1_n|1_n} + \Braket{0_n|2_n} = 1
 \]
 \[
-	=
+	\Braket{2_n|0_n} + \Braket{0_n|2_n}  = - \Braket{1_n|1_n}
 \]
 \[
-	=
+	 \Braket{0_n|2_n} = -\frac{1}{2}  \Braket{1_n|1_n} 
 \]
-
 \[
-	\Ket{2n} =
+	 -\frac{1}{2}\Braket{1_n|1_n} = \sum_{k} -\frac{1}{2}\Braket{1_n|0_k}\Braket{0_k|1_n}
+\]
+\[
+	-\frac{1}{2}\Braket{1_n|1_n} = -\frac{1}{2} \sum_{k\neq n} 
+	\frac{|\Braket{\varphi_k|V|\varphi_n}|^2}{( E_n^0 - E_k^0 )^2} = \Braket{0_n|2_n}
+\]
+\[
+	\Ket{2n} = \sum_{p\neq n} -\frac{V_{nn}V_{pn}}{(E_p^0 - E_n^0)^2} \Ket{\varphi_p} +
+	\sum_{p\neq n}\sum_{k\neq n} \frac{V_{pk}V_{kn}}{(E_n^0 - E_p^0)(E_n^0 - E_k^0)} \Ket{\varphi_p} -
+		\frac{1}{2}\sum_p\sum_{k\neq n} \frac{|V_{kn}|^2}{(E_n^0 - E_k^0)^2}\Ket{\varphi_p} 
 \]
 y el autoestado hasta orden dos
 \[
-	=
+	\Ket{n(\lambda)} = \Ket{0_n} + \sum_{p\neq n} \frac{V_{pn}}{\Delta E_{np}^0} \Ket{2_n} + \Ket{2_n} 
 \]
 con la energía hasta orden dos 
 \[
-	=
+	E_n = E_n^0 + \lambda\Braket{\varphi_n|V|\varphi_n} + \lambda^2 \sum_{p\neq n} 
+		\frac{|\Braket{\varphi_p|V|\varphi_n}|^2}{( E_n^0 - E_p^0 )}
 \]
 
 \subsection{Caso degenerado}
 
 Sea que hay degeneración de orden $g$ en el autoestado $N$( a orden cero)
 \[
-	= k=1,2,...,g
+	H_0 \Ket{\varphi_n^k} = E_N^0 \Ket{\varphi_N^k} \qquad k=1,2,...,g
 \]
 Suponemos existe combinación lineal 
 \[
-	+
+	\Ket{0_N^j} = \sum_k a_k^j \Ket{\varphi_N^k}
 \]
 para escribir un estado degenerado en función de los otros.
 \[
-	= 0
+	(H_0 - E_N^0 )\Ket{1_N^j} + (V-E_N^{1 j})\Ket{0_N^j} = 0
 \]
 \[
-	= 0
+	\underbrace{\Braket{0_N^j|H_0 - E_N^0|1_N^j}}_{=0} + \Braket{0_N^j|V-E_N^{1 j}|0_N^j} = 0
 \]
 \[
-	=0
+	\sum_k \Braket{0_N^j|(V-E_N^{1 j})a_k^j|\varphi_N^j} = 0
 \]
 \[
-	=0
+	\sum_k a_k^j\Braket{0_N^j|V-E_N^{1 j}|0_N^j} = 0
 \]
 \[
-	=
+	\sum_k a_k^j\Braket{0_N^j|V|0_N^j} = \sum_k a_k^j\Braket{0_N^j|E_N^{1 j}|0_N^j}
+\]
+\[
+	\sum_k a_k^j\Braket{0_N^j|V|0_N^j} = \sum_k a_k^j E_N^{1 j} \delta_{ik} = a_k^j E_N^{1 j}
 \]
 Esto último es una ecuación de autovalores y autovectores de la forma:
 \[
-	= 0 
+	(\mathbb{V} - E_N^{1 j} \mathbb{1})\vb{a} = 0 \qquad \mathrm{det}(\mathbb{V} - E_N^{1 j} \mathbb{1})=0
 \]
 nos dará los corrimientos de la energía a primer orden  y los autoestados $\Ket{1_n^j}$ serán los 
 autovectores del problema.
@@ -223,16 +282,21 @@ autovectores del problema.
 
 Sea un átomo de H con $\Ket{n,\ell,m}$ sin spín y con $n=2$. Será 
 \[
-	0
+	0 \leq \ell < n \qquad -\ell \leq m\leq \ell \qquad \ell=0,1 \quad m=-1,0,1
 \]
 Tengo cuatro estados 
 \[
-	2 0 0 
+	\begin{cases}
+	 \Ket{200} \\
+	 \Ket{211} \\
+	 \Ket{210} \\
+	 \Ket{21-1} \\
+	\end{cases}
 \]
 todos con la misma energía $\epsilon_2$.
 Metemos un campo eléctrico en $\hat{z}$ y entonces $V=-ez|\vb{E}|$. Luego 
 \[
-	=
+	\Braket{n\ell'm'|V|n\ell m} = -e|\vb{E}|\Braket{n\ell'm'|z|n\ell m}
 \]
 $\hat{z}$ es impar ante paridad y entonces vincula estados de paridad diferente,
 y entonces 
