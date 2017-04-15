@@ -413,7 +413,8 @@ y $\vb{x}$ operador par.
 
 Los operadores pares conmutan con $\Theta$,
 \[
-	= =
+	\Theta \Ket{\vb{x}'} =  \Ket{\vb{x}'} \qquad \qquad
+	\Theta \Ket{\vb{p}'} =  \Ket{-\vb{p}'} 
 \]
 \begin{figure}[htb]
 	\begin{center}
@@ -421,13 +422,14 @@ Los operadores pares conmutan con $\Theta$,
 	\end{center}
 	\caption{}
 \end{figure} 
+
 Hamiltoniano ante reversión de movimiento. Veamos la reversión de un sistema en estado $\Ket{\alpha}$
 \[
-	=
+	\Ket{\alpha, t=\delta t} = \left( \mathbb{1} - i\frac{\delta t}{\hbar} H \right) \Ket{\alpha}
 \]
 Si el hamiltoniano es invariante ante reversión temporal debería ser lo mismo 
 \[
-	=
+	\underbrace{U \Theta}_{+\delta t} \Ket{\alpha} = \underbrace{\Theta U}_{-\delta t} \Ket{\alpha}
 \]
 es decir que estamos pidiendo que se obtenga el mismo estado 
 \begin{itemize}
@@ -442,19 +444,26 @@ es decir que estamos pidiendo que se obtenga el mismo estado
 \end{figure} 
 Veamos que vale lo anterior, pensando que si vale se tiene 
 \[
-	=
+	\left( 1- i\frac{\delta t}{\hbar} H\right) \Theta \Ket{\alpha} =
+	\Theta \left( 1 + i\frac{\delta t}{\hbar} H \right) \Ket{\alpha}
 \]
 \[
-	=  \qquad [H,\Theta]=0
+	- i\frac{\delta t}{\hbar} H \Theta \Ket{\alpha} =  \Theta
+	i\frac{\delta t}{\hbar} H \Ket{\alpha} 
+\]
+\[
+	- i H\Theta \Ket{\alpha} = \Theta (i H \Ket{\alpha} )
+\]
+\[
+	[H,\Theta] = 0
 \]
 
-Si $\Theta$ era unitario teníamos la relación de anticonmutación $\{ H, \Theta \}=0$ lo cual lleva a absurdos.
-\[
-	a
-\]
+Si $\Theta$ era unitario teníamos la relación de anticonmutación $\{ H, \Theta \}=0$ 
+lo cual lleva a absurdos.
 Si $\{ H,\Theta \} = 0$
 \[
-	= \text{H debe ser par frente a $\Theta$}
+	\Theta^{-1} \frac{p^2}{2m} \Theta = - \frac{p^2}{2m} < 0
+	\text{partícula libre con energía negativa} \; \text{H debe ser par frente a $\Theta$}
 \]
 
 \subsection{Función de onda}
