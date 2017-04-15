@@ -301,27 +301,40 @@ Metemos un campo eléctrico en $\hat{z}$ y entonces $V=-ez|\vb{E}|$. Luego
 $\hat{z}$ es impar ante paridad y entonces vincula estados de paridad diferente,
 y entonces 
 \[
-	= 0 
+	\Braket{n\ell m|z|n\ell m} = 0 
+\]
+\[
+	\Braket{n\ell m'|z|n\ell m} = 0 
 \]
 diagonal nula y con $m'\neq m$ a igual $\ell$ tiene la misma paridad
 \[
-	=
+	\Pi \Ket{2,\ell=1,m} = -\Ket{2,\ell=1,m} \quad \text{impares}
 \]
-
+\[
+	\Pi \Ket{2,\ell=0,0} = -\Ket{2,\ell=0,0} \quad \text{par}
+\]
 Solo hay un elemento no nulo correspondiente al producto par-impar.
 Se tendrá 
 \[
-	=
+	V = \begin{pmatrix}
+	   0 & 0 & 0 & 0 \\
+	   0 & 0 & 0 & 0 \\
+	   0 & 0 & 0 & \gamma|\vb{E}| \\
+	   0 & 0 & \gamma|\vb{E}| & 0
+	  \end{pmatrix}
 \]
 Puedo diagonalizar y obtengo 
 \[
-	=
+	V = \begin{pmatrix}
+	   0 & 0 & 0 & 0 \\
+	   0 & 0 & 0 & 0 \\
+	   0 & 0 & \gamma|\vb{E}| & 0 \\	   
+	   0 & 0 & 0 & \gamma|\vb{E}| 
+	  \end{pmatrix}
 \]
 
 En este caso no se rompe la degeneración por completo.
-\[
-	=
-\]
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.6\textwidth]{images/teo2_20.pdf}
@@ -333,51 +346,63 @@ En este caso no se rompe la degeneración por completo.
 
 Sea que a orden uno se rompe toda la degeneración 
 \[
-	+ - = 0
+	(H_0 - E_N^0) \Ket{2_N^j} + (V - E_N^{1 j}) \Ket{1_N^j} - E_N^{2 j} \Ket{0_N^j} = 0
 \]
 Entonces la corrección a segundo orden de la energía será:
 \[
-	+ - = E
+	\Braket{0_N^j | H_0 - E_N^0 | 2_N^j} + \Braket{ 0_N^j | V - E_N^{1 j} | 1_N^j} = E_N^{2 j}
+\]
+\[
+	\Braket{ 0_N^j | V | 1_N^j} = E_N^{2 j}
 \]
 pues $\Braket{0_N^j|0_N^j}= 0$ pero 
 \[
-	=
+	\Ket{1_N^j} = \sum_{k,i\neq 1} b_k^i \Ket{\varphi_k^i} + \sum_i b_N^i \Ket{\varphi_N^i}
 \]
 \[
-	=
+	\Braket{0_N^j|1_N^j} = 0 = \sum_{k,i\neq 1} b_k^i \braket{0_N^j|0_K^i} + 
+		\sum_i b_N^i \braket{0_N^j|0_N^i}
 \]
-falta desarrollo ...
+falta desarrollo ... [info en mis originaales]
 
 \[
-	E =
+	E_N^{2j} = \sum_{p\neq N} \frac{|\Braket{0_N^j|V|0_p^i}|^2}{E_N^0 - E_p^0}
 \]
-donde $N$ es un estado degenerado.
+donde $N$ es un estado degenerado y la suma es entre los $i$ posibles.
 
 \section{Estructura fina del átomo de hidrógeno}
 
 La solución tradicional del átomo de H usa el potencial coulombiano. Esto desemboca en las funciones 
 $\Ket{n,\ell,m}$, sin embargo la introducción de ajuste como {\it perturbaciones} rompe algo la degeneración.
 \[
-	cuentitas
+	H_0=\frac{p^2}{2m} - \frac{e^2}{r} \qquad E_n = -\frac{\alpha^2m_e^2c^2}{2n^2} \qquad 
+	a_0 = \hbar^2/(m_ec^2)
+\]
+\[
+	v/c = p/(mc) = \alpha = \frac{e^2}{\hbar c} \approx 1/137
 \]
 donde $a_0$ es el radio de Bohr, $\alpha$ es la constante de estructura fina .
 Tenemos 
 a) Corrección cinemática (relativista)
 \[	
-	0
+	E = c \sqrt{p^2 + m_e^2c^2} = m_ec^2\sqrt{1 + p^2/(m_e^2c^2)} \approx 
+	m_ec^2 \left( 1 + \frac{1}{2}\frac{p^2}{m_e^2c^2} + \frac{3}{8}\frac{p^4}{m_e^4c^4} \right)
+\]
+\[
+	E \approx m_ec^2 + \frac{p^2}{2m_e} + \frac{3p^4}{8m_e^3c^2}
 \]
 y esta corrección va como $W_{mv}/H_0 \sim \alpha^2$.
 
 b) Acoplamiento spín-órbita
 Se puede pensar considerando un $e^-$ en reposo con un protón orbitando que genera un $\vb{B}_{eff}$
 \[
-	W_{so} =
+	W_{so} = \frac{e^2}{2m_e^2c^2} \frac{\vb{L}\cdot\vb{S}}{R^3} = -\vb{\mu}\cdot\vb{B}_{eff}
 \]
 y la corrección va como $W_{mv}/H_0 \approx \alpha^2$.
 
 c) Término de Darwin o de contacto
 \[
-	=
+	W_D = \frac{\hbar^2}{8m_e^2c^2} \nabla^2 V(r)
 \]
 que va como  $W_{D}/H_0 \approx \alpha^2$.
 
@@ -385,39 +410,77 @@ Hay otras correcciones hiperfinas que provienen del spín del electrón y del sp
 $\alpha^2/2000$.
 Si consideramos el sistema con 
 \[
-	n=2
+	n=2 \; \ell=0,1 \quad m_\ell = 1,0,-1 \quad m_s=1/2,-1/2
 \]
-serán ocho estados.
+serán ocho estados $\Braket{n,\ell,m_\ell,m_s}$ (base completa).
 \[
-	W
+	W = \underbrace{W_{mv}}_{\sim p^4} + \underbrace{W_{so}}_{\sim \vb{L}\cdot\vb{S}} + 
+	\underbrace{W_D}_{\sim |\vb{r}|}
 \]
 y W es par ante $\Pi$ y sólo habrá elementos de matriz $\neq 0$ que sean de la misma paridad.
 \[
-	matriz
+	\begin{matrix}
+	2s & \qquad 2p \\	 
+	\end{matrix}
 \]
-y entonces $\Ket{2s}, \Ket{2p}$ no están conectados.
+\[
+\begin{matrix}
+ 2s\\
+ 2p\\
+\end{matrix}
+	\begin{pmatrix}
+	[2\times 2] & \\
+	& [ 6\times 6 ] 
+	\end{pmatrix}
+\]
+$\Ket{2s}$ es par ($\ell=0$) y $\Ket{2p}$ es impar ($\ell=1$) y entonces $\Ket{2s}, \Ket{2p}$
+no están conectados.
 
-De manera que hay ocho estados $\Ket{n=2,\ell,m_\ell,s,m_s}$ que al calcular esta perturbación W resultan 
+De manera que hay ocho estados $\Ket{n=2,\ell,m_\ell,s,m_s}$ que al calcular esta perturbación $W$
+resultan 
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.9\textwidth]{images/teo2_21.pdf}
 	\end{center}
 	\caption{}
 \end{figure} 
-\[
-	dg
-\]
+
 El cálculo para las correcciones hiperfinas no condice la experiencia. Se necesita aquí mecánica cuántica 
 relativista. Los dos primeros niveles tienen la misma $\Delta E$ porque en MCR se ve que 
 \[
-	E = 
+	E = E(n,j) 
 \]
 es decir que no depende directamente de $\ell,s$.
 
 Un sketch de los métodos perturbativos
 \[
-	H_0 = 
+	H_0 = \begin{pmatrix}
+	       E_1 & \\
+	       & E_2 & \\
+	       & & E \\
+	       & & & E\\
+	       & & & & ...\\
+	       & & & & & E\\
+	       & & & & & & E_3\\
+	       & & & & & & & E_4
+	      \end{pmatrix}
+	      \hspace*{10mm}
+	      V =
+		\begin{pmatrix}
+		& \\
+		& \\
+		& & V_3 \\
+		& & & V_4 \\
+		& & & & ... \\
+		& & & & & V_{nn} \\
+		& \\
+		& 
+		\end{pmatrix}
 \]
+
+En $H$ tenenmos un bloque de energías degeneradas y se diagonalizará el bloque 
+correspondiente en la matriz del potencial perturbativo $V$.
+
 
 
 
