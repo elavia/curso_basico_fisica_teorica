@@ -470,22 +470,28 @@ Si $\{ H,\Theta \} = 0$
 
 Sea en $t=0$ un sistema en el estado $\Ket{\alpha}$
 \[
-	= = 
+	\Ket{\alpha} = \int dx' \Braket{x'|\alpha} \Ket{x'} 
 \]
 \[
-	\Psi
+	\Theta\Ket{\alpha} = \int dx' \Braket{x'|\alpha}^* \Theta \Ket{x'} =
+	\int dx' \Braket{x'|\alpha}^* \Ket{x'} 
+\]
+\[
+	\Psi_\alpha (x') \longrightarrow \Theta \longrightarrow \Psi_\alpha^* (x')
 \]
 Esto era lo que {\it vimos} en la ecuación de Schrödinger.
 
 \subsection{Reversión de movimiento sobre \vb{J}}
 
 
-no tiene sentido porque $J_x,J_y,J_z$ no conmutan entre ellos. Analizaremos $\Ket{\ell,m}$
+$\Theta \Ket{\vb{J}}$ no tiene sentido porque $J_x,J_y,J_z$ no conmutan entre ellos.
+Analizaremos $\Ket{\ell,m}$
 \[
-	\Theta \Ket{\vb{J}} 
+	Y_\ell^m(\theta,\phi) \longrightarrow\Theta\longrightarrow Y_\ell^m(\theta,\phi)^* =
+	Y_\ell^{-m}(\theta,\phi)(-1)^m
 \]
 \[
-	\equiv 
+	\Theta{\ell,m} \equiv (-1)^m {\ell,-m}
 \]
 
 Lo que hace $\Theta$ es invertir la componente de $\hat{z}$ y alterar la fase. Se ve que 
@@ -497,20 +503,52 @@ Lo que hace $\Theta$ es invertir la componente de $\hat{z}$ y alterar la fase. S
 
 Sea un estado general up de spin $\Ket{\hat{n};+}$, que se obtiene con dos rotaciones 
 \[
-	Sn
+	\hat{S}\cdot\hat{n} \Ket{\hat{n};+} = \frac{\hbar}{2} \Ket{\hat{n};+}
+\]
+entonces
+\[
+	\euler^{-i\frac{\alpha}{\hbar}S_z}\euler^{-i\frac{\beta}{\hbar}S_y} \Ket{+} \equiv
+	 \Ket{\hat{n};+}
 \]
 \[
-	\Theta
+	\Theta \Ket{\hat{n};+} = \euler^{-i\frac{\alpha}{\hbar}S_z}\euler^{-i\frac{\beta}{\hbar}S_y} =
+	\euler^{-i\frac{\alpha}{\hbar}S_z}\euler^{-i\frac{\beta}{\hbar}S_y} \eta\Ket{-}
 \]
 \[
-	a
+	\Theta \Ket{\hat{n};+} = \eta \Ket{\hat{n};-}
+\]
+pero 
+\[
+	\Ket{\hat{n};-} = \euler^{-i\frac{\alpha}{\hbar}S_z}\euler^{-i\frac{\beta}{\hbar}S_y}\Ket{+}
+\]
+dado que 
+\[
+	 \euler^{-i\frac{\pi}{\hbar}S_y} \Ket{+} = \Ket{-}
 \]
 \[
-	b
+	\Theta \Ket{\hat{n};+} = \eta \euler^{-i\frac{\alpha}{\hbar}S_z}\euler^{-i\frac{\beta}{\hbar}S_y}
+	\euler^{-i\frac{\pi}{\hbar}S_y} \Ket{+}
 \]
 \[
-	c
+	\Theta = \eta \euler^{-i\frac{\pi}{\hbar}S_y} \text{(Para sistemas de spin 1/2)}
 \]
+donde 
+\[
+	\Theta\Ket{+} = \eta_+ \Ket{-} \qquad \Theta\Ket{-} = \eta_- (-\Ket{+})
+\]
+y como
+\[
+	\Theta^2 = -\mathbb{1}
+\]
+\[
+	\Theta^2 ( c_+\Ket{+} + c_-\Ket{-}) = \Theta ( c_+^*\eta_+\Ket{-} + c_-^*\eta_-\Ket{+}) =
+	-c_+\eta^*\eta \Ket{+} - c_-\eta^*\eta \Ket{-} = -( c_+\Ket{+} + c_-\Ket{-})
+\]
+luego
+\[
+	\Theta\Ket{j,m} = i^{2m} \Ket{j,-m} = (-1)^m \Ket{j,-m}
+\]
+para todo $j$ entero o semientero.
 
 \subsection{Teorema}
 
@@ -519,13 +557,19 @@ hacerse real tomando una fase apropiada.
 
 Demostración 
 \[
-	H \Theta  \Ket{n} =
+	H\Theta\Ket{n} = \Theta H \Ket{n} = E_n \Theta \Ket{n} \longrightarrow \Theta \Ket{n} = \delta\Ket{n}
 \]
 \[
-	=
+	\Psi_n = \Braket{\vb{x}|n} \longrightarrow \Psi_{\tilde{n}} = \Braket{\vb{x}|\tilde{n}} =
+	\Braket{n|\vb{x}} = \Psi_n (\vb{x})^*
 \]
+y esto por ser antinunitario $\Theta$
 \[
-	=
+	\Psi_{\tilde{n}} = \Braket{\vb{x}|\Theta|n} = \delta\Braket{\vb{x}|n} = \delta\Psi_n(\vb{x})
+\]
+sea $\delta = 1 $ entonces 
+\[
+	\Psi_n^* = \Psi_n \quad \longrightarrow \quad \Psi_n(\vb{x}) \in \mathbb{R} 
 \]
 
 Si le aplico al sistema transformaciones dadas por operadores que conmutan con el H no lo sacamos del 
