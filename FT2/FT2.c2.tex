@@ -153,45 +153,51 @@ tiene sentido; es decir, si no surgen ambigüedades al tomar la potencia $n$-és
 
 Para el caso 1 es simplemente 
  \[
-	a
+	\euler{-i\frac{H}{\hbar}(t-t_0)} = 1 - i\frac{H}{\hbar}(t - t_0) + 
+	\frac{(-i)^2}{2}\left( \frac{H(t-t_0)}{\hbar} \right)^2 + ...
  \]
 pero para el caso 3 es 
  \[
-	a
+	\left( \int H(t') dt' \right)\left( \int H(t'') dt'' \right) \neq 
+	\left( \int H(t'') dt'' \int H(t') dt' \right)
  \]
 puesto que al operar es 
 \[
-	a
+	\int dt' dt'' H(t')H(t'') \neq \int dt' dt'' H(t'') H(t') 
 \]
-pues $[H(t'),H(t'')]\neq 0$. En el caso 2 $(\int_{t_0}^t H(t')dt' )^n$ no tiene problemas puesto que está provista la 
+pues $[H(t'),H(t'')]\neq 0$.
+En el caso 2 $(\int_{t_0}^t H(t')dt' )^n$ no tiene problemas puesto que está provista la 
 conmutatividad.
 
 \subsection{Soluciones útiles}
 
 Primeramente conseguimos un $\hat{A}$ tal que $[ A, H ]=0$ y entonces (estoy considerando $ H \neq H(t)$ )
 \[
-	a,
+	\Ket{\alpha} = \sum_{a'} \Ket{a'}\Braket{\alpha'|\alpha},
 \]
 luego 
 \[
-	a
+	U(t,t_0)\Ket{\alpha} = \sum_{a'} \euler{-i\frac{\hat{H}}{\hbar}(t-t_0)}\Ket{a'}\Braket{\alpha'|\alpha}
 \]
 con $\hat{H}$ y $\hat{A}$ conmutan se tiene
 \[
-	a
+	\hat{H}\Ket{a'}=E_{a'}\Ket{a'} \qquad \hat{A}\Ket{a'}= a'\Ket{a'}
 \]
 
 Entonces operamos con el $H$ para 
 \[
-	a
+	U(t,t_0) = \sum_{a'} \euler^{-i\frac{E_{a'}}{\hbar}(t-t_0)}\Ket{a'}\Bra{a'}
 \]
 y así 
 \[
-	a
+	U(t,t_0)\Ket{\alpha} = \sum_{a'} \euler^{-i\frac{E_{a'}}{\hbar}(t-t_0)}\Ket{a'}\Braket{a'|\alpha}
+\]
+\[
+	\Ket{\alpha,t_0,t} = \sum_{a'} \Braket{a'|\alpha} \euler{-i\frac{E_{a'}}{\hbar}(t-t_0)} \Ket{a'}
 \]
 de manera que comparando con 
 \[
-	a
+	\Ket{\alpha,t_0} = \sum_{a'} \Braket{a'|\alpha} \Ket{a'}
 \]
 El coeficiente es el mismo pero le hemos sumado una fase $\exp(-iE_{a'}(t-t_0)/\hbar)$ que no es global.
 
@@ -199,23 +205,30 @@ El coeficiente es el mismo pero le hemos sumado una fase $\exp(-iE_{a'}(t-t_0)/\
 
 Recordemos primeramente que los autoestados no evolucionan. Luego 
 \[
-	a
+	\Ket{\alpha} = \Ket{a'} \qquad \to \Ket{\alpha,t} = \Ket{a',t} =  
+		\euler^{-i\frac{E_{a'}}{\hbar}(t-t_0)} \Ket{a'}
 \]
 
 La fase es global es considerar una autoestado. La podemos descartar (setear igual a uno)
 \[
-	a
+	\Braket{a',t|B|a',t} = 
+	\braket{a'|\euler^{i\frac{E_{a'}}{\hbar}(t-t_0)}B\euler^{-i\frac{E_{a'}}{\hbar}(t-t_0)}|a'} = 
+	\braket{a'|B|a'}
 \]
 
 El valor de expectacion de un operador respecto a un autoestado no varía.
 \[
-	a
+	\braket{\alpha,t|B|\alpha,t} =
+	\braket{a''|\sum_{a''} \braket{a''|\alpha}^*\euler^{i\frac{E_{a'}}{\hbar}(t-t_0)} B 
+	\sum_{a'} \braket{a'|\alpha} \euler^{-i\frac{E_{a'}}{\hbar}(t-t_0)}|a'}
 \]
 \[
-	a
+	\braket{\alpha,t|B|\alpha,t} = \sum_{a',a''} C_{a''}^* C_{a'} 
+	\euler^{i\frac{E_{a''}-E_{a'}}{\hbar}(t-t_0)} \braket{a''|  B |a'}
 \]
+donde 
 \[
-	a
+	C_{a''}^* = \braket{\alpha,t_0|a''} \qquad C_{a'} = \braket{a'| \alpha,t_0}  
 \]
 
 El valor de expectación de un operador respecto a un estado general tiene una fase no global que produce términos de 
@@ -252,18 +265,20 @@ a las que podemos sumar
 \subsection{La ecuación de Schrödinger}
 
 \[
-	a \text{con} \qquad \hat{H} = \frac{\hat{p}^2}{2m} + V(\hat{x}) 
+	i\hbar\dpar{}{t}\Ket{\alpha,t_0,t} = H\Ket{\alpha,t_0,t} \text{con} 
+	\qquad \hat{H} = \frac{\hat{p}^2}{2m} + V(\hat{x}) 
 \]
 Puedo meter un bra $\Bra{x'}$ que no depende del tiempo y entonces 
 \[
-	a
+	i\hbar\dpar{}{t}\braket{x'|\alpha,t_0,t} = \braket{x'|H|\alpha,t_0,t}
 \]
 \[
-	a
+	i\hbar\dpar{}{t}\Psi_\alpha(x',t) = \braket{x'|\frac{p^2}{2m} + V(x)|\alpha,t_0,t}
 \]
 de manera que resulta la ecuación de Schrödinger
 \[
-	a .
+	i\hbar\dpar{}{t}\Psi_\alpha(x',t) = -\frac{\hbar^2}{2m}\dpar[2]{}{x}\Psi_\alpha(x',t) + 
+	V(x)\Psi_\alpha(x',t)
 \]
 
 \subsection{Representación de Heisenberg}
@@ -293,12 +308,17 @@ Deben notars que:
 \begin{enumerate}
  \item Los productos internos no cambian con el tiempo
  \[
-	a
+	\braket{\beta|\alpha} = \braket{\beta|U^\dagger U|\alpha} 
  \]
  \item Los valores de expectacion son los mismos en ambos esquemas
  \[
-	a
+	\braket{\alpha,t|A|\alpha,t} = \braket{\alpha,t|U^\dagger AU|\alpha,t} =
+	\begin{cases}
+	 \braket{A}^{(H)} \\
+	 \braket{A}^{(S)}
+	\end{cases}
  \]
+ de lo cual se deduce que 
  \[
 	\Braket{A}^{(S} = \Braket{A}^{(H} \qquad A(t)^H = U(t)^\dagger A^S U(t)
  \]
@@ -307,29 +327,35 @@ Deben notars que:
 El operador $\hat{A}$ en Schrödinger no depende explícitamente del tiempo. La idea es que le ``pegamos'' a los 
 operadores la evolución temporal de los kets.
 \[
-	a
+	(\Bra{ \alpha, t_0 } U^\dagger) A^{(S)} (U \Ket{\alpha, t_0 }) = 
+	\braket{ \alpha, t_0 | U^\dagger A^{(S)} US | \alpha, t_0 }
 \]
 pero a $t=t_0$ las representaciones coinciden,
 \[
-	a
+	\Ket{\alpha,t_0,t_0}^{(S)} = \Ket{\alpha}^{(H)}
 \]
 
 \subsubsection{La ecuación de Heisenberg}
 
 \[
-	a
+	A^H = U^\dagger A^S U \qquad \dpar{A^H}{t} = \dpar{U^\dagger}{t}A^S U + U^\dagger A^S \dpar{U}{t} +
+	U^\dagger A^S \dpar{U}{t}
 \]
 \[
-	\Rightarrow 
+	i\hbar \dpar{U}{t} \Rightarrow  \dpar{U}{t} = \frac{1}{i\hbar}HU \; \text{;} \;
+	\dpar{U^\dagger}{t} = \frac{1}{-i\hbar}U^\dagger H
 \]
 \[
-	a
+	(HU)^\dagger = U^\dagger H^\dagger = U^\dagger H 
 \]
 \[
-	a
+	\dpar{A^H}{t} = \frac{-1}{i\hbar} U^\dagger H A^S U + \underbrace{U^\dagger\dpar{A^S}{t} U}_{=0} +
+	U^\dagger A^S \frac{1}{i\hbar} H U
 \]
+pues $A^S$ no depende explícitamente del tiempo
 \[
-	a
+	\dpar{A^H}{t} = -\frac{1}{i\hbar} \left( U^\dagger HUU^\dagger A^SU -U^\dagger A^S U U^\dagger 
+	HU \right) =	\frac{1}{i\hbar}(-HA + AH)
 \]
 y llegamos a la ecuación de Heisenberg
 \[
@@ -341,58 +367,67 @@ En ese caso el operador no depende del tiempo y entonces $A^{(H)} = A^{(S)}$.
 \subsubsection{Evolución de autoestados}
 
 \[
-	a,
+	A^S \Ket{a'}^S = a' \Ket{a'}^S,
 \]
 aplico un $U^\dagger$ a ambos lados y entonces 
 \[
-	a
+	U^\dagger A^S UU^\dagger \Ket{a'}^S = a' U^\dagger \Ket{a'}^S
 \]
 los $a'$ no dependen de la representación porque tienen significado físico. Entonces los $\Ket{a'}$ evolucionan
 \[
-	a
+	A^H (U^\dagger\Ket{a'}^S) = a' (U^\dagger\Ket{a'}^S)
 \]
 \[
-	a
+	\Ket{a',t}^H = U^\dagger \Ket{a'}^S \qquad \qquad \dpar{}{t}\left( \Ket{a',t}^H \right) = 
+	\dpar{}{t} \left( U^\dagger \Ket{a'}^S \right)
 \]
 \[
-	a
+	\dpar{}{t}\Ket{a',t}^H = -\frac{1}{i\hbar} U^\dagger \Ket{a'}^S =  -\frac{1}{i\hbar} H U^\dagger 
+	\Ket{a'}^S
 \]
 puesto que recordemos, nota importante,
 \[
-	a
+	H^H = U^\dagger H^S U = U^\dagger U H^S = \mathbb{1}H^S = H^S
 \]
-entonces $H$ es el mismo en ambas puesto que $\hat{U} =\hat{U}(\hat{H}) $ y $[U,H]=0$.
+entonces $H$ es el mismo en ambas puesto que $\hat{U} =\hat{U}(\hat{H})$ y $[U,H]=0$.
 
 De esta forma los autoestados evolucionan al revés 
 \[
-	a
+	i\hbar \dpar{}{t} \Ket{a',t}^H = -H\Ket{a',t}^H
 \]
 
 Podemos ver de otro modo la equivalencia
 \[
-	a
+	A^H = U^\dagger \sum_{a'} A^S \Ket{a'}\Bra{a'}U = 
+	\sum_{a'} a'U^\dagger \Ket{a'}\Bra{a'}U
 \]
 pero 
 \[
-	a
+	A^H = \sum_{a'} A^H \Ket{a',t}\Bra{a',t} \equiv \sum_{a'}
 \]
 \[
-	a
+	A^H = \sum_{a'} a' \Ket{a',t}\Bra{a',t} \equiv \sum_{a'} a'(U^\dagger\Ket{a'})(\Bra{a'}U)
+\]
+\[
+	\Ket{a',t} = U^\dagger\Ket{a'}^S
 \]
 
 \subsubsection{Coeficientes}
 
 Los coeficientes en Schrödinger y en Heisenberg son 
 \[
-	a
+	C_{a'}^S(t) = ^S\braket{a'|\alpha,t_0,t}^S = ^S\Bra{a'}(U\Ket{\alpha,t_0}) \qquad 
+	C_{a'}^H(t) = ^H\braket{a',t|\alpha,t_0}^H = (^S\Bra{a'}U)\Ket{\alpha,t_0}
 \]
 Entonces en Schrödinger es 
 \[
-	a
+	\Ket{\alpha,t_0,t} = \sum_{a'} \Ket{a'}\braket{a'|\alpha,t_0,t} = 
+	\sum_{a'} \overbrace{\braket{a'|\alpha,t_0,t}}^{C_{a'}(t)}\Ket{a'}
 \]
 mientras que en Heisenberg es 
 \[
-	a
+	\Ket{\alpha,t_0} = \sum_{a'} \Ket{a',t}\braket{a',t|\alpha,t_0} = 
+	\sum_{a'} \overbrace{\braket{a',t|\alpha,t_0}}^{C_{a'}(t)}\Ket{a',t}
 \]
 
 Los coeficientes en las expresiones son iguales como corresponde a todo magnitud que tiene sentido físico, pues 
@@ -408,6 +443,7 @@ y se tiene
 \[
 	[x(t),x(0)] = -\frac{i\hbar}{m}t
 \]
+que es decir que es un operador que no conmuta a $t$ diferentes
 \[
 	H = \frac{p^2}{2m} + V(x)
 \]
