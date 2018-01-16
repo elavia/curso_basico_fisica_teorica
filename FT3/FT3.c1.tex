@@ -147,53 +147,37 @@ Si el sistema está aislado será
 alcanzando el máximo ya no puede disminuir la entropía.
 
 
-% % =================================================================================================
-% \section{Algebra?}
-% % =================================================================================================
-% 
-% El ket contiene toda la información cuántica del estado. Da el estado físico del sistema.
-% \begin{itemize}
-%  \item $\Ket{\alpha} + \Ket{\beta}$ la suma de kets es un ket
-%  \item $c\Ket{\alpha}= \Ket{\alpha} c$ con $c\in\mathbb{C}$
-%  \item  $c_1\Ket{\alpha} + c_2\Ket{\beta} = \Ket{\gamma}$ con $c_1,c_2 \in \mathbb{C}$
-%  \item $c\Ket{\alpha},\Ket{\alpha}$ representan el mismo estado cuántico
-% \end{itemize}
-% 
-% Se define un espacio de {\it Bra} dual al de "kets" al que se va mediante ``dual conjugado''
-% \[
-% 	\Ket{a}, \Ket{a'} \Leftrightarrow \Bra{a}, \Bra{a'}
-% \]
-% \[
-% 	\Ket{a} + \Ket{b} \leftrightarrow \Bra{a} + \Bra{b} \qquad 
-% 	c\Ket{a} \leftrightarrow c^*\Bra{a}
-% \]
-% 
-% Se define también un producto interno según
-% \[
-% 	(\Bra{\alpha})(\Ket{\beta}) \equiv \Braket{\alpha|\beta}
-% \]
-% que no es otra cosa que un número complejo. Se puede hacer entonces una equivalencia con los vectores
-% estándard del álgebra del siguiente modo 
-% \[
-% 	\text{ket} \sim \text{vector columna} \qquad \Ket{x} = \begin{pmatrix}
-% 	                                                       1 \\
-% 	                                                       0 \\
-% 	                                                      \end{pmatrix}
-% \]
-% \[
-% 	\text{bra} \sim \text{vector fila} \qquad \Bra{x} = ( 1 \; 0 )          
-% \]
-% y habiendo definido esta base escribimos, por ejemplo
-% \[
-% 	\Ket{a} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1  \\ \end{pmatrix}  =
-% 	\frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0  \\ \end{pmatrix}  + 
-% 	\frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ 1  \\ \end{pmatrix} =
-% 	\frac{1}{\sqrt{2}} \Ket{x} + \frac{1}{\sqrt{2}} \Ket{y} 
-% \]
-% \[
-% 	\Braket{a|x} = \frac{1}{\sqrt{2}}( 1 \; 1)\begin{pmatrix} 1 \\ 0  \\ \end{pmatrix} = \frac{1}{\sqrt{2}}
-% \]
-% y del mismo modo
+% =================================================================================================
+\section{Transformadas de Legendre de las funciones termodinámicas}
+% =================================================================================================
+
+\[
+	f(x,y,z) \qquad \text{con pendientes} \quad \dpar{f}{x},\dpar{f}{y},\dpar{f}{z}
+\]
+entonces 
+\[
+	\varphi(f_x,y,z) = f(x,y,z) - \left. x \dpar{f(x,y,z)}{x}\right|_{y,z}
+\]
+es la transformada de Legendre respecto de $x$, mientras que 
+\[
+	\varphi(f_x,f_y,z) = f(x,y,z) - x \dpar{f}{x} - y \dpar{f}{y}
+\]
+es la transformada de Legendre respecto de $y$.
+
+La transformada de Legendre transforma una función homogénea en otra función homogénea, mantiene el
+carácter de función de estado.
+\[
+	d\varphi(f_x,y,z) = df - dx \dpar{f}{x} - x d\left( \dpar{f}{y} \right)
+\]
+
+Para el caso de la energía
+\[
+	U=U(S,V,N) \qquad \qquad dU = TdS - pdV + \mu dN
+\]
+y entonces
+\[
+	A = U - \left. S\dpar{U}{S}\right|_{V,N} = U - ST \Rightarrow A=A(T,V,N)
+\]
 % \[
 % 	\left( \frac{1}{\sqrt{2}} \Bra{x} + \frac{1}{\sqrt{2}} \Bra{y}  \right)
 % 	\left( \Ket{x} \right)= \frac{1}{\sqrt{2}}
