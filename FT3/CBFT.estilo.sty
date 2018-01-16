@@ -1,0 +1,231 @@
+	%###########################################################################
+	%
+	%	Hoja de estilo para el Curso Básico de Física Teórica
+	%	v 1.2 [Abril 2016]
+	%
+	%
+	%###########################################################################
+	
+	% Básicamente se cargan los paquetes necesarios y la configuración actual de
+	% la plantilla para los capítulos.
+	% Es un trabajo en progreso de tal manera que son esperables cambios a medida
+	% que surja la necesidad de nuevas estructuras y macros.
+	
+	
+	%###########################################################################
+	%		TIPOGRAFÍAS para la hoja cls
+	%###########################################################################	
+
+	\newfontfamily\LibreBask[
+			Path = fonts/,
+			UprightFont = LibreBaskerville-Regular,
+			ItalicFont = LibreBaskerville-Italic,
+			BoldFont = LibreBaskerville-Bold
+		]{LibreBask}
+		
+	\newfontfamily\Stix[
+			Path = fonts/,
+			UprightFont = STIX-Regular,
+			ItalicFont = STIX-Italic,
+			BoldFont = STIX-Bold,
+			BoldItalicFont = STIX-BoldItalic
+		]{Stix}		
+	
+	
+	\def\helveticabold{cmssbx10 }
+	\font\chapternumberfont=\helveticabold at 14pt
+
+	%###########################################################################
+	%		COMANDOS PARA TIPEAR matemática y física
+	%###########################################################################
+	
+	% Para entornos matemáticos
+	\newcommand{\be}{\begin{equation}}
+	\newcommand{\ee}{\end{equation}}
+	\newcommand{\ben}{\begin{equation*}}
+	\newcommand{\een}{\end{equation*}}
+	
+	\newcommand{\eqn}[1]{\begin{equation} #1 \end{equation}}
+	\newcommand{\eqnn}[1]{\begin{equation*} #1 \end{equation*}}
+	
+	% Derivadas parcial de #2 con respecto a #3 #1 veces (el argumento 1 es opcional)
+	\newcommand{\dpar}[3][\hspace{-0.05em}]{\frac{\partial^{#1} {#2}}{\partial {#3}^{#1}}}
+	\newcommand{\dtot}[3][\hspace{-0.05em}]{\frac{d^{#1} {#2}}{d {#3}^{#1}}}
+	
+	% Para poner índices a tensores
+	\def\hx#1.#2.{_{#1}^{#2}}
+	
+	% Boldface para modo matemático y operadores varios
+	\newcommand{\vb}[1]{\ifmmode\mathbf{#1}\else$\mathbf{#1}$\fi} % Vector
+	\newcommand{\divem}[1]{\mathbf{\nabla}\mathbf{\cdot}\mathbf{#1}} % Divergencia
+	\newcommand{\rotorm}[1]{\mathbf{\nabla}\times \vb{#1}} % Rotor
+	\newcommand{\lapm}[1]{\nabla^2{#1}} % Laplaciano
+	\newcommand{\dparbis}[2]{\frac{\partial}{\partial #2}\left[ #1 \right]}
+	\newcommand{\dparcru}[3]{\frac{\partial^2 #1}{\partial #3\partial #2}} % Derivada parcial 2da cruzada
+	\newcommand{\ddpar}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+	\newcommand{\Nabla}{\mathbf{\nabla}} % Nabla vectorial
+	\newcommand{\pe}[2]{\vb{#1} \cdot \vb{#2}}
+	\newcommand{\pv}[2]{\vb{#1} \times \vb{#2}}
+	\newcommand{\re}{\mathfrak{ R }}
+	\newcommand{\im}{\mathfrak{ I }}
+	
+	
+	% Una buena ´e´ de Euler
+	\newcommand{\euler}{\:\mathrm{e}}
+	
+	% Para mecánica clásica
+	\newcommand{\Lag}{\mathscr{L}} % Lagrangiano screen
+	\newcommand{\Ham}{\mathscr{H}} % Hamiltoniano
+	\newcommand{\Lagc}{\mathcal{L}} % Lagrangiano caligráfico
+	\newcommand{\Hamc}{\mathcal{H}} % Hamiltoniano caligráfico
+	\newcommand{\Or}[1]{\mathcal{O}\left(#1\right)} % Para escribir el orden de aprox. de un método
+	
+	%###########################################################################
+	%		TAMAÑO DE HOJA
+	%###########################################################################	
+	
+	\usepackage[paperheight=210mm,paperwidth=168mm,bottom=1.7cm,top=1.7cm,left=1.0cm,
+	right=4.6cm,marginparwidth=4cm,marginparsep=0.3cm]{geometry} 
+	% Para pocket edition con notas. Tiene el tamaño A5 con 2 cm extra hacia la derecha
+
+	%###########################################################################
+	%		PAQUETES ESPECÍFICOS
+	%###########################################################################	
+	
+	\usepackage{marginnote}
+	\usepackage[margin=10pt,font=small,labelfont=bf,labelsep=quad]{caption}
+	\usepackage{tocloft}
+	\usepackage{rotating}
+	\usepackage{braket} % Para quantum
+	\usepackage{multirow}
+	
+	%###########################################################################
+	%		ENTORNOS PERSONALIZADOS
+	%###########################################################################
+	
+	% Entorno para notas marginales
+	\newcommand{\notamargen}[1]{\marginnote{\bfseries\footnotesize{#1}}[-0.5cm]}
+	
+	% Entorno para la sección de problemas
+	\newcounter{problemas_count}
+	\newenvironment{problemas}
+	{\vspace{6pt}\small {\bf PROBLEMAS}		
+	\begin{list}{{\indent}\bf \arabic{section}.\arabic{problemas_count} }{
+	\usecounter{problemas_count}
+	\footnotesize
+	\setlength{\labelsep}{1pt}
+	\setlength{\leftmargin}{13pt}
+	\setlength{\listparindent}{3pt}
+	}
+	}
+	{\end{list}}
+		
+	% Entorno para la sección de notas Finales
+	\newcounter{notas_contador}
+	\newenvironment{notasfinales}
+	{\vspace{6pt}\small {\bf NOTAS}		
+	\begin{list}{{\indent}\bf \arabic{section}.\arabic{notas_contador} }{
+	\usecounter{notas_contador}
+	\footnotesize
+	\setlength{\labelsep}{1pt}
+	\setlength{\leftmargin}{0pt}
+	\setlength{\labelwidth}{0pt}
+	\setlength{\listparindent}{3pt}
+	\setlength{\leftmargini}{0pt}
+	}
+	}
+	{\end{list}}		
+	
+	% Entorno para los ejemplos
+	\newcounter{ejscount}
+	\newenvironment{ejemplillo}[1]
+% 	[\scriptsize EJEMPLO \footnotesize \arabic{section}.\arabic{ejscount}]
+	{
+	\begin{trivlist}
+	{}{ % Si lo hago con 'list' son útiles estas opciones
+% 	\setlength{\leftmargin}{0pt}%
+% 	\setlength{\labelwidth}{0pt}%
+% 	\setlength{\labelsep}{5pt}%
+% 	\setlength{\itemsep}{0pt}
+% 	\setlength{\parskip}{0pt}
+% 	\setlength{\topsep}{0pt}
+% 	\setlength{\parsep}{0pt}
+	} 
+	\footnotesize\refstepcounter{ejscount}%\label{#2}
+	\item[\hskip \labelsep {\bfseries EJEMPLO \arabic{section}.\arabic{ejscount} #1}]
+	\mbox{}\\ % Para poder tener en una nueva línea el texto del entorno
+	}
+	{\end{trivlist}}
+	
+	% Entorno para nota fuera de cuerpo principal
+	\newenvironment{notas}[1]
+	{\begin{trivlist} \item 
+	{\footnotesize{\bf #1}}
+	\footnotesize
+	}    
+	{\end{trivlist}}
+	
+	
+	% Numeración del entorno referida a la sección
+	\numberwithin{ejscount}{section}
+	\renewcommand{\theejscount}{\arabic{section}.\arabic{ejscount}}
+	
+	%###########################################################################
+	%		CONFIGURACIÓN DE ELEMENTOS DEL DISEÑO
+	%###########################################################################	
+	
+	\newcommand{\sa}{\S} % La 's' del indicador de sección
+
+	\makeatletter
+	% \renewcommand\section{\@startsection{section}{1}{\z@}%
+	%                                    {-2.5ex \@plus -1ex \@minus -.2ex}%
+	%                                    {2.5ex \@plus.2ex}%
+	%                                    {\normalfont\normalsize\bfseries\color{red}}}
+	% \renewcommand{\thesection}{\Roman{section}}
+	
+	% Las ecuaciones resetean con la sección y con el capítulo
+	% \@addtoreset {equation}{chapter}
+	\@addtoreset {equation}{section}
+	\renewcommand\theequation
+	% Renumero ecuaciones de acuerdo a (secc.eq)
+	{\ifnum \c@section>\z@ \@arabic\c@section.\fi \@arabic\c@equation}
+	% Ajustar el espacio entre el número de la sección y su título
+	\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname\hspace{0.5em}}
+	% Para numerar diferente las figuras
+	\newcommand\thesectionfiguras {\@arabic\c@section} 
+	\renewcommand{\thefigure}{\thesectionfiguras.\arabic{figure}}
+	% Para los puntitos en la TOC
+	\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} 
+	\makeatother
+	
+
+	% Manera de cambiar nombres cuando tenemos babel o polyglossia en uso
+	\addto\captionsspanish{%
+	\renewcommand{\figurename}{Figura}%
+	\renewcommand{\contentsname}{\LARGE Contenidos}%
+	\renewcommand{\indexname}{\LARGE Indice}%
+	\renewcommand{\tablename}{\LARGE Tabla}
+% 	\renewcommand{\figurename}{\LARGE Figuras}
+	\renewcommand{\listfigurename}{\LARGE Indice de figuras} 
+	}
+	
+	
+	%###########################################################################
+	%		CÓDIGO BASURA
+	%###########################################################################		
+	
+	% \renewcommand\spanishtablename{Tabla}
+	% \renewcommand\spanishcontents{Contenidos}
+	% \renewcommand\spanishindexname{Indice}
+	
+	% \newcommand\contentsname{CONTENIDOS}
+	% \newcommand\listfigurename{List of Figures}
+	% \newcommand\listtablename{List of Tables}
+	% \newcommand\bibname{BIBLIOGRAFIA}
+	% \newcommand\indexname{INDICE}
+	% \newcommand\figurename{Figure}
+	% \newcommand\tablename{Table}
+	% \newcommand\partname{Part}
+	% \newcommand\chaptername{CAPITULO}
+	% \newcommand\appendixname{Appendix}
+	
