@@ -209,6 +209,100 @@ energética
 \section{Gas de Van der Waals}
 % =================================================================================================
 
+Van der Waals incorpora la interacción molecular. \notamargen{Esta subsección tiene cinco gráficos}
+\[
+	\left( p +\frac{an^2}{V^2} \right)(V- nb) = nRT
+\]
+donde $a,b(T)$ caracterizan al gas en cuestión.
+
+La función $p=p(V)$ tiene tres extremos para $T<T_c$,
+\[
+	\dpar{p}{V} = 0
+\]
+En $T=T_c$ es
+\[
+	\left.\dpar{p}{V} \right|_{T_c} = 0 \qquad \left.\dpar[2]{p}{V} \right|_{T_c} = 0
+\]
+punto de inflexión
+\[
+	v_c = 3b \qquad p_c = \frac{a}{27b^2} \qquad T_c = \frac{8a}{27Rb}
+\]
+y eso lleva a la ley de estados correspondientes
+\[
+	\left( \bar{p} + \frac{3}{\bar{v}^2} \right)(3 \bar{v} - 1)= 8\bar{T}
+\]
+
+De Van der Waals al virial
+\[
+	p = \frac{nRT}{(V-nb)} - a \left(\frac{n}{V} \right)^2 = 
+	\frac{nRT}{V(1-b/v)}- \frac{a}{v^2}
+\]
+\[
+	p = \frac{RT}{v}\left[ 1 + \frac{b}{v} - \frac{a}{vRT} \right] =
+	p = \frac{RT}{v}\left[ 1 + \frac{1}{v}\left( b - \frac{a}{RT} \right) \right]
+\]
+y el último paréntesis es el primer coeficiente del virial.
+
+Un potencial intermolecular está compuesto de una zona repulsiva (carozo duro) y una atractiva (cola)
+\[
+	V_{eff} = V-b \qquad (\mathrm{menor volumen por el carozo})
+\]
+\[
+	p = \frac{RT}{V-b} - \left(\frac{a}{V}\right)^2 \qquad (\mathrm{menor presión por la atractividad})
+\]
+y entonces, por mol de sustancia,
+\[
+	\left( p +\frac{a^2}{V^2} \right)(V- b)= RT
+\]
+
+$b$ corrige el volumen que es ahora menor porque las partículas ocupan espacio. $a$ corrige la presión dado que la 
+atracción tiende a formar pares bajando la presión sobre las paredes.
+
+Las funciones respuesta tienen signo errado dentro de la zona del rulo\notamargen{Recordemos que
+\[ -\frac{1}{v}\dpar{v}{p}=\kappa_T > 0\]}
+\[
+	\dpar{p}{V}>0 \rightarrow  \dpar{v}{p} >0 \Rightarrow \kappa_T < 0 \qquad (\mathrm{MAL})
+\]
+\[
+	dT = -SdT + VdP + \mu dN
+\]
+dada la isoterma y que $N$ es constante 
+\[
+	dG = Vdp \rightarrow dg = v dP \quad (\mathrm{molar})
+\]
+$G$ es cóncava en $p$ entonces 
+\[
+	v = \left.\dpar{g}{p} \right|_{T,N}, \qquad  
+	\dpar{v}{p} =\left.\dpar[2]{g}{p} \right|_{T,N} < 0
+\]
+y luego 
+\[
+	\Delta g = \int_{p_c}^{p_G} v dp = 0
+\]
+entonces 
+\[
+	\int_C^D + \int_D^E + \int_E^F + \int_F^G = 0
+\]
+y si se invierten puntos para tener un recorrido según las flechas se llega a 
+\[
+	\int_C^D - \int_E^D = \int_F^E - \int_F^G 
+\]
+
+Áreas inguales determinan entonces los puntos C y G de forma que se corrige Van Der Waals para dar curvaturas
+correctas. En la región de coexistencia hemos trocado
+\[
+	\dpar{p}{V} > 0 \quad \mathrm{por} \quad \dpar{p}{V}=0
+\]
+lo cual da $\kappa_T \to \infty$ en lugar del $\kappa_T < 0$ (que es incorrecto).
+
+
+
+
+
+
+
+
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
