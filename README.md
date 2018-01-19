@@ -219,7 +219,7 @@ fue posible conseguirlo) de las cuatro asignaturas de las cuales versará el CBF
     8. Evolución temporal de los sistemas macroscópicos.
 		Dinámica hamiltoniana y liouvilliana. Funciones dinámicas irreducibles. El
 		vector distribución: jerarquía BBGKY y su truncación para sistemas clásicos y
-		cuánticos. Ecuación de Vlasov. Prcesos de Markov en gases diluidos: ecuación
+		cuánticos. Ecuación de Vlasov. Procesos de Markov en gases diluidos: ecuación
 		de Boltzmann y casos cuántico.
     9. Gases diluidos en las proximidades del equilibrio.
 		Campos promedio y ecuaciones de balance local. Teorema H de Boltzmann.
