@@ -35,12 +35,115 @@
 
 
 % =================================================================================================
-% \section{Energía y entropía}
+\section{Procesos de Markov}
 % =================================================================================================
 
+Sea $Y$ una variable estocástica que puede tomar valores $y_1, y_2,...$\notamargen{Las $P$ son densidades
+de probabilidad, cuando el espacio muestral sea continuo.}
+\[
+	P_1(y_1,t) \equiv \text{Prob. de tomar $y_1$ en $t$ (1 paso)}
+\]
+\[
+	P_2(y_1,t_1;y_2,t_2) \equiv \text{Prob. conjunto de tomar $y_1$ en $t_1$ y $y_2$ en $t_2$}
+\]
+\[
+	P_{1/1}(y_1,t_1 | y_2, t_2) \equiv \text{Prob. condicional de tomar $y_2$ en $t_2$ habiendo 
+	tomado $y_1$ en $t_1$ (certeza de $y_1$) }
+\]
 
+Abreviaremos obviando el tiempo. Además se tiene 
+\[
+	P(y_1;y_2) \leq P(y_1 | y_2)
+\]
+donde el lhs evalúa los caminos que comunican $y_1, y_2$ del total y el rhs evalúa los cminos que comunican
+$y_1, y_2$ del subconjunto de los que parten de $y_1$.
 
+Además
+\[
+	P_2(y_1;y_2) = P_1(y_1) P_{1/1}(y_1|y_2)
+\]
+cumpliéndose lo siguiente
+\begin{itemize}
+ \item $ \int P_1(y_1) dy_1 = 1 \qquad  \text{normalización} $ 
+ \item $ \int P_{1/1}(y_1|y_2) dy_2 = 1 \qquad \text{normalización} $ 
+ \item $ \int P_2(y_1;y_2) dy_1 = \int P_1(y_1) P_{1/1}(y_1|y_2) dy_1 =  P_1(y_2) \qquad \text{reducción} $
+\end{itemize}
 
+\subsubsection{Ejemplito numérico}
+
+\[
+	P(y_1;y_2) = P(y_1)P(y_1|y_2) = \frac{4}{4}\frac{1}{2} = \frac{2}{7}
+\]
+\[
+	P(y_2;y_1) = P(y_2)P(y_2|y_1)  = \frac{3}{7}\frac{2}{3} = \frac{2}{7}
+\]
+Notemos que $P(A|B) \neq P(B|A)$ aunque $P(A;B) = P(B;A)$
+
+Las densidades de muchos pasos: $P(y_1;y_2;y_3)$ son relevantes cuando el sistema tiene ``memoria''.
+
+Un proceso es de Markov cuando el estado del sistema depende del paso inmediato anterior únicamente.
+Se define por 
+\[
+	P_1(y_1) , \quad P_{1/1}(y_1|y_2) \equiv \text{Probabilidad de transición} 
+\]
+\[
+	P_{3/1}(y_1,y_2,y_3|y_4) \underbrace{\rightarrow}_{\text{Markov}} \; P_{1/1}(y_3|y_4)
+\]
+
+Se puede demostrar una ecuación de Chapman-Kolmogorov
+\[
+	P_{1/1}(y_1|y_3) = \int P_{1/1}(y_1|y_2) P_{1/1}(y_2|y_3) dy_2
+\]
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\subsection{Ecuación maestra}
+
+Queremos ver la evolución de la $P_1(y_1,t)$
+\[
+	\dtot{P_1(y,t)}{t} = \lim_{\tau \to 0} \frac{P_1(y,t+\tau) - P_1(y,t) }{\tau}
+\]
+Usando que
+\[
+	P_1(y_2,t+\tau) = \int dy_1 P_1(y_1,t) P_{1/1}(y_1,t|y_2,t+\tau) 
+\]
+\[
+	P_1(y_2,t) = \int dy_1 P_1(y_1,t) P_{1/1}(y_1,t|y_2,t) 
+\]
+\[
+	\dtot{P_1(y,t)}{t} = \int dy_1 P_1(y_1,t) \left[ \lim_{\tau \to 0} 
+	\frac{1}{\tau} (P_{1/1}(y_1,t|y_2,t+\tau) - P_{1/1}(y_1,t|y_2,t))   \right]
+\]
+que se puede escribir de modo que 
+\[
+	\frac{1}{\tau} \left\{ [ 1 - \tau \int dy W(y_1,y)]\delta(y_1 - y_2) + \tau W(y_1,y_2) - \delta(y_1-y_2) 
+\right\}
+\]
+y entonces 
+\[
+	\dtot{P_1(y,t)}{t} = \int dy_1 P_1(y_1,t) \left[ -\int dy W(y_1,y) \delta(y_1-y_2) + W(y_1,y_2) \right]
+\]
+\[
+	\dtot{P_1(y,t)}{t} = \int dy_1 P_1(y_1,t) W(y_1,y_2) - \int dy_1 P_1(y_1,t) \int dy W(y_1,y)\delta(y_1-y_2)
+\]
+\[
+	\dtot{P_1(y,t)}{t} = \int dy_1 P_1(y_1,t) W(y_1,y_2) - \int dy P_1(y_2,t) W(y_2,y)
+\]
+\[
+	\dtot{P_1(y,t)}{t} = \int dy_1 P_1(y_1,t) W(y_1,y_2) - P_1(y_2,t) \int dy  W(y_2,y)
+\]
+donde el primer término en el rhs se interpreta como ganancia (lo que entra) y el segundo pérdida (pues la integral es 
+lo que sale).
+\[
+	W(y_1,y_2) \equiv \text{Transiciones $y_1\to y_2$ por la unidad de tiempo}
+\]
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\subsection{Camino aleatorio y ecuación de difusión}
+
+Si $\ell, \Tau$ son escalas y $n_2,s$ un número entero de pasos 
+\[
+	P_1(n_2\ell, s\Tau ) = \sum_{n_1} P_1( n_1\ell, [s-1]\Tau )P_{1/1}( n_1\ell, [s-1]\Tau|n_2\ell, s\Tau )
+\]
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
