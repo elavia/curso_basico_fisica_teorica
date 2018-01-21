@@ -292,6 +292,89 @@ y $\lambda_\beta=1$ autovalor de
 	\end{pmatrix}
 \]
 
+\section{Solución general a través de descomposición espectral}
+
+\[
+	\lambda_\alpha \chi_i^\alpha = \sum_j \chi_j^\alpha Q_{ij} 
+\]
+\[
+	\lambda_\alpha \psi_\ell^\alpha \chi_i^\alpha = \sum_j \psi_\ell^\alpha\chi_j^\alpha Q_{ij} 
+\]
+\[
+	\sum_\alpha \lambda_\alpha \psi_\ell^\alpha \chi_i^\alpha = 
+	\sum_j \sum_\alpha \psi_\ell^\alpha\chi_j^\alpha Q_{ij} =
+	\sum_j \delta_{\ell j} Q_{ji} = Q_{\ell i}
+\]
+y entonces 
+\[
+	Q_{\ell i} = \sum_\alpha \lambda_\alpha \psi_\ell^\alpha \chi_i^\alpha
+\]
+es una descomposición espectral.
+De esta forma 
+\[
+	Q_{\ell i}^s = \sum_\alpha \lambda_\alpha^s \psi_\ell^\alpha \chi_i^\alpha
+\]
+por ortogonalidad de $( \vec{\chi}, \vec{\psi} )$.
+
+\[
+	Q_{\ell i}^s = \lambda_1^s \psi_\ell^1 \chi_i^1 + 
+	\sum_{\alpha=2} \lambda_\alpha^s \psi_\ell^\alpha \chi_i^\alpha
+\]
+Y si $s \to \infty$ entonces $\lambda_1 = 1$ y $\psi^1 = (1,1,...,1)^t$ de modo que 
+\[
+	\lim_{s\to \infty} Q^s_{\ell i} = \overbrace{\psi_\ell^1}^{L\times 1} 
+	\overbrace{\chi_\ell^1}^{L\times 1} = \begin{bmatrix}
+	                                       \begin{pmatrix}
+	                                        1 \\
+	                                        1 \\ 
+	                                        ... \\
+	                                        1
+	                                       \end{pmatrix}
+						(\chi_1^1 \chi_2^1 ... \chi_L^1 )
+	                                      \end{bmatrix}_{\ell i}
+	= \chi_i^1
+\]
+\notamargen{Todas las filas son iguales.}
+\[
+	\lim_{s\to \infty} Q^s_{\ell i} = T_{\ell i} = \chi_i^1 \forall \ell
+\]
+entonces
+\[
+	T = \begin{pmatrix}
+	     [ \; \chi^1 \ ; ] \\
+	     [ \; \chi^1 \ ; ] \\
+	     ...\\
+	     [ \; \chi^1 \ ; ]
+	    \end{pmatrix}
+\]
+
+Luego $T$ tiene como filas al autovector que cumple
+\[
+	\vec{\chi} = \vec{chi} Q \qquad \text{El punto fijo de $Q$}
+\]
+Por otro lado
+\[
+	\lim_{s\to \infty} Q^s_{\ell i} = \lim_{s\to \infty} P_{1/1}(\ell, 0 | i,s) = P_1(i,0)
+\]
+
+La probabilidad de un estado $i$ final, una vez dentro del régimen estacionario, no depende del estado
+$\ell$ desde el cual partimos.
+
+La solución de equilibrio claramente es
+\[
+	\vec{P} = \vec{P} Q 
+\]
+pues si $\vec{P}(s+1) = \vec{P}(s)Q$ y obtenemos
+\[
+	\vec{P}(s+1) = \vec{P}(s) = \vec{P}(s)Q
+\]
+entonces resulta que 
+\[
+	\vec{P}(s)  = \vec{P}(s) Q
+\]
+es lo que hay que buscar.
+La moraleja es que $\vec{P}$ de equilibrio es el punto fijo de $Q$.
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
