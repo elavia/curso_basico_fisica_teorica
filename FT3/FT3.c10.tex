@@ -144,6 +144,153 @@ Si $\ell, \Tau$ son escalas y $n_2,s$ un número entero de pasos
 \[
 	P_1(n_2\ell, s\Tau ) = \sum_{n_1} P_1( n_1\ell, [s-1]\Tau )P_{1/1}( n_1\ell, [s-1]\Tau|n_2\ell, s\Tau )
 \]
+Quiero saber cuáles son las chances de estar en $n_2\ell$ al tiempo $s\Tau$ sumando todas 
+las
+transiciones desde diferentes lugares $n_1\ell$.
+
+Si la probabilidad es uniforme 
+\[
+	P_{1/1}(n_1\ell,[s-1]\Tau|n_2\ell,s\Tau) =
+	\frac{1}{2}\delta(n_2-[n_1+1]) + \frac{1}{2}\delta(n_2-[n_1-1]) = \frac{1}{2}
+	\begin{cases}
+	 \text{si} \; n_2 = n_1 + 1 \\
+	 \text{si} \; n_2 = n_1 - 1
+	\end{cases}
+\]
+\[
+	P_1(n_2\ell,s\Tau) = \sum_{n_1} P_1(n_1\ell,[s-1]\Tau)\left\{
+	\frac{1}{2}\delta(n_2-[n_1+1]) + \frac{1}{2}\delta(n_2-[n_1-1])
+	\right\}
+\]
+y sumando y restando convenientemente,
+\[
+	P_1(n_2\ell,s\Tau) = -\frac{1}{2}P_1([n_2-1]\ell,[s-1]\Tau) + 
+\frac{1}{2}P_1([n_2+1]\ell,[s-1]\Tau)
+	+ P_1(n_2\ell,[s-1]\Tau) - P_1(n_2\ell,[s-1]\Tau)
+\]
+\begin{multline}
+	\frac{P_1(n_2\ell,s\Tau) - P_1(n_2\ell,s\Tau)}{\Tau} = \\
+	\frac{\ell^2}{2\Tau} \left[ \frac{ P_1([n_2-1]\ell,[s-1]\Tau) - 
+2P_1(n_2\ell,[s-1]\Tau) + P_1([n_2+1]\ell,[s-1]\Tau) }{\ell^2} \right] 
+\end{multline}
+
+
+Pero esto no es otra cosa que expresiones de las derivadas, de manera que
+\[
+	\frac{\delta P(n_2\ell,s\Tau)}{\delta \Tau} =
+	\frac{\ell^2}{2\Tau} \frac{\delta^2 P(n_2\ell,[s-1]\Tau)}{\delta\ell^2}
+\]
+
+Esta es la ecuación de Fokker-Planck
+\[
+	\dpar{P(x,t)}{t} = C \dpar[2]{P(x,t)}{x}
+\]
+una ecuación de onda para la probabilidad (?)
+
+
+\section{Cadenas de Markov}
+
+Espacio muestral discreto (dimensión $L$) ; medimos el tiempo en pasos
+\[
+	P_1(y_j,1) = \sum_i^L P_1(y_i,0) P_{1/1}(y_i,0|y_j,1)
+\]
+donde la información sobre las transiciones se introduce en
+\[
+	Q : Q_{ij} \equiv P_{1/1}(y_i,0|y_j,1)
+\]
+que es la matriz estocástica.
+Se verifica
+\[
+	\sum_i^L Q_{ij} = 1 \; \forall i
+\]
+y entonces las filas son vectores de probabilidad
+\[
+	\overbrace{\vec{P(1)}}^{1\times L} =  \overbrace{\vec{P(0)}}^{1\times L} 
+\overbrace{Q}^{L\times L}
+\]
+\[
+	P_j(1) = P_i(0) Q_{ij} \quad \text{Asumimos convención de Einstein}
+\]
+\[
+	\vec{P(s)} = \vec{P(s-1)}Q = \vec{P(s-2)} Q Q = ... = \vec{P(0)}Q^s
+\] 
+y decimos que $Q$ es estocástica regular si existe $k : [Q^k]_{ij} > 0 \forall i,j$.
+
+Si $Q$ es estocástica regular entonces existe $s : Q^{s+1} = Q^s \equiv T$ y por lo tanto
+\[
+	Q T = Q^{s+1} = T
+\]
+\notamargen{$T$ es la solución de equilibrio, pues $T=QT$}
+Si $n>s$
+\[
+	\vec{P(n)} = \vec{P(0)} Q^n = \vec{P(0)} Q^{n-s} Q^s = \vec{P(0)} T
+\]
+
+\[
+	\lambda_\alpha \overbrace{\vec{P}^\alpha}^{1\times L} =  
+	\overbrace{\vec{P}^\alpha}^{1\times L} \overbrace{Q}^{L\times L}
+	\quad \rightarrow \quad 0 = \vec{P}^\alpha (Q-\lambda_\alpha \mathbb{1}) 
+\]
+\[
+	\lambda_\beta \overbrace{\vec{P}^\beta}^{1\times L} = 
+	\overbrace{\vec{P}^\beta}^{1\times L} \overbrace{Q}^{L\times L}
+	\quad \rightarrow \quad  0 = (Q-\lambda_\beta \mathbb{1}) \vec{P}^\beta
+\]
+\[
+	\lambda_\alpha \chi_j^\alpha = \chi_{1i}^\alpha Q_{ij} \qquad \vec{\chi} = (,,,)
+\]
+donde los índices $j,1i$ refieren a columnas y
+\[
+	\lambda_\beta \psi_{i1}^\beta = Q_{ij} \psi_{j1}^\beta \qquad \vec{\chi} = 
+\begin{pmatrix}
+                                                                            \\
+                                                                            \\
+                                                                            
+                                                                           \end{pmatrix}
+\]
+donde los índices $i1,j1$ refieren a filas.
+
+
+Y entonces deducimos que 
+\begin{itemize}
+ \item Autovectores a izquierda $\vec{\chi}$ y a derecha $\vec{\psi}$ son ortogonales.
+ \item Los autovalores son $|\lambda_\gamma|\leq 1$.
+ \item $\lambda = 1$ es siempre autovalor.
+\end{itemize}
+
+Sabemos que 
+\[
+	P(m,s) = \sum_n P(n,0) Q^s_{nm} \qquad \rightarrow \text{con $s=1$}
+\]
+\[
+	P(m,1) = \sum_n P(n,0) Q_{nm}
+\]
+y esto es 
+\[
+	\chi_m = \sum_n \chi_n Q_{nm}  \qquad (\lambda=1 \text{autovalor de $\vec{\chi}$ 
+estacionario})
+\]
+\notamargen{Siempre hay solución estacionaria $P=PQ$.}
+
+Para el autovector a derecha 
+\[
+	\lambda_\beta \psi_{\ell 1}^\beta = \sum_i Q_{\ell i} \psi_{i1}^\beta
+\]
+
+Si $ \vec{\psi}^\beta = (1,1,...,1)^t\rightarrow$
+\[
+	\lambda_\beta \psi_\ell^\beta = \lambda_\beta = \sum_i Q_{\ell i} \psi_i^\beta
+	= \sum_i Q_{\ell i} = 1
+\]
+y $\lambda_\beta=1$ autovalor de 
+\[
+	\vec{\psi}^\beta = \begin{pmatrix}
+	 1\\
+	 1\\
+	 ...\\
+	 1
+	\end{pmatrix}
+\]
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
