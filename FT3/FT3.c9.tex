@@ -38,9 +38,113 @@
 % \section{Energía y entropía}
 % =================================================================================================
 
+Sistema clásico diluido, procesos colisionales en términos de $\sigma$, sistema grande con paredes
+reflejantes
+\[
+	f(\vb{x}, \vb{p}, t) d^3 x d^3 p \equiv \# \text{de partículas en el cubo $d^3 p$, $d^3x$}
+\]
+siendo $f$ la función de distribución de un cuerpo.
 
+La teoría cinética busca hallar $f(\vb{x}, \vb{p}, t)$ para una dada interacción molecular.
+Sabemos que la interacción es a través de colisiones.
+\notamargen{Clásico implica $\lambda_{\text{deB}} \ll (V/N)^{1/3}$, $h/p \ll v^{1/3}$ o bien $\frac{h}{\sqrt{2mkT}} 
+\ll v^{1/3}$}
 
+Sin colisiones las moléculas evolucionan de acuerdo a
+\[
+	t \to t + \delta t \qquad \vb{x} \to \vb{x} + \vb{v}\delta t \qquad 
+	\vb{p} \to \vb{p} + \vb{F}\delta t 
+\]
+\[
+	f(\vb{x}, \vb{p}, t) d^3 x d^3 p = 
+	f(\vb{x} + \vb{v}\delta t , \vb{p} \to \vb{p} + \vb{F}\delta t , \vb{p}, t + \delta t) d^3 x' d^3 p'
+\]
 
+El volumencillo con sus partículas evoluciona en el espacio de fases $\mu$.
+El volumen evoluciona de acuerdo al jacobiano.
+\[
+	d^3r' d^3p' = |J| d^3r d^3p
+\]
+pero 
+\[
+	J = \frac{\partial(x',y',z',p_x',p_y',p_z')}{\partial(x,y,z,p_x,p_y,p_z)}
+\]
+da 
+\[
+	1 + \mathcal{O}(\delta t^3)
+\]
+con lo cual si $ \delta t \ll 1$ será $d^3r' d^3p' = d^3r d^3p$ y entonces
+\[
+	f(\vb{x} + \vb{v}\delta t , \vb{p} \to \vb{p} + \vb{F}\delta t , \vb{p}, t + \delta t) = 
+		f(\vb{x}, \vb{p}, t)
+\]
+pero si hay colisiones
+\[
+	f(\vb{x} + \vb{v}\delta t , \vb{p} \to \vb{p} + \vb{F}\delta t , \vb{p}, t + \delta t) = 
+		f(\vb{x}, \vb{p}, t)	+ \left. \dpar{f}{t} \right|_{ \text{col}} \delta t
+\]
+\[
+	\dpar{f}{t}  \delta t d^3r d^3p = (\bar{R}- R) \delta t d^3r d^3p
+\]
+donde $\bar{R} \delta t d^3r' d^3p'$ es el número de colisiones durante $\delta t$ en las que una
+partícula se halla al final en $d^3r' d^3p'$ y $R \delta t d^3r d^3p$ es correspondientemente el
+número de colisiones durante $\delta t$ en las que una partícula se halla al comienzo en $d^3r d^3p$.
+\notamargen{$R \delta t d^3r d^3p$ será finalmente el número de partículas en el cubo $d^3r d^3p$.}
+
+De $t$ a $t+\delta t$ algunas moléculas de A pasan a B y otras van hacia otros lados. Hacia B
+llegan moléculas de A y desde fuera.
+
+Dada la dilución consideramos colisiones binarias.
+\notamargen{Queremos ver cómo varía f en $\mu$.}
+
+$R$ es el número de colisiones en las cuales la partícula se halla en A y consecuentemente no llega 
+a B (pérdida) (en el cubo $d^3V_2$) y $\bar{R}$ es el número de colisiones en las cuales la partícula
+se halla fuera de A y consecuentemente por colisión llega a B (ganancia) (en el cubo $d^3V_2$).
+\[
+	\underbrace{ f( \vb{v}_2,t ) d^3V_2 }_{\text{d. blancos}}  
+	\underbrace{| \vb{V}_2 - \vb{V}_1 |}_{ \text{condición de colisión} } 
+	\underbrace{ f( \vb{v}_1,t ) d^3V_1 }_{\text{d. incidentes}}  
+	\underbrace{\sigma}_{ V_1V_2 \to V_1'V_2'} d^3V_1' d^3V_2'
+\]
+
+Si quiero conocer $R$ debo integrar: si la partícula con $\vb{V}_2$ se halla en A integrao en todas
+las $\vb{V}_1$ y en todos los destinos $\vb{V}_1'$ y $\vb{V}_2'$.
+\[
+	\underbrace{ f( \vb{v}_2',t ) d^3V_2' }_{\text{d. blancos}}  
+	\underbrace{| \vb{V}_2' - \vb{V}_1' |}_{ \text{condición de colisión} } 
+	\underbrace{ f( \vb{v}_1',t ) d^3V_1' }_{\text{d. incidentes}}  
+	\underbrace{\sigma}_{ V_1V_2 \to V_1'V_2'} d^3V_1 d^3V_2
+\]
+
+Si quiero conocer $\bar{R}$ debo integrar: si la partícula con $\vb{V}_2$ se halla en B integrao en todas
+las $\vb{V}_1'$ $\vb{V}_2'$ (orígenes) y en todos los destinos $\vb{V}_1'$.
+
+\[
+	d^3V_2 R = \int_{V_1} \int_{V_1'} \int_{V_2'}  f(\vb{V}_2,t) d^3V_2 | \vb{V}_2 - \vb{V}_1 |
+		f(\vb{V}_1,t) d^3V_1 \underbrace{\sigma}_{12 \to 1'2'}  d^3V_1' d^3V_2'
+\]
+\[
+	d^3V_2 \bar{R} = \int_{V_1} \int_{V_1'} \int_{V_2'}  f(\vb{V}_2',t) d^3V_2' | \vb{V}_2' - \vb{V}_1' |
+		f(\vb{V}_1',t) d^3V_1' \underbrace{\sigma}_{1'2' \to 12}  d^3V_1 d^3V_2
+\]
+
+\[
+	d^3V_2 R = \int_{V_1} \int_{V_1'} \int_{V_2'}  f_2 f_1  | \vb{V}_2 - \vb{V}_1 |
+		\underbrace{\sigma}_{12 \to 1'2'}  d^3V_1' d^3V_2' d^3V_2 d^3V_1
+\]
+\[
+	d^3V_2 \bar{R} = \int_{V_1} \int_{V_1'} \int_{V_2'}  f_2' f_1' | \vb{V}_2' - \vb{V}_1' |
+		 \underbrace{\sigma}_{1'2' \to 12}  d^3V_1 d^3V_2 d^3V_2' d^3V_1'
+\]
+y si usamos que $| \vb{V}_2 - \vb{V}_1 |=| \vb{V}_2' - \vb{V}_1' |$ y $  \underbrace{\sigma}_{12 \to 1'2'} =  
+\underbrace{\sigma}_{1'2' \to 12} $ entonces 
+\[
+	\left. \dpar{f_2}{t}\right|_{\text{col}} =(\bar{R}-R) d^3V_2 =
+	\int_{V_1} \int_{V_1'} \int_{V_2'}  ( f_1' f_2' -f_1 f_2 ) | \vb{V}_2 - \vb{V}_1 |
+		\underbrace{\sigma}_{12 \to 1'2'}  d^3V_1' d^3V_2' d^3V_2 d^3V_1
+\]
+
+Bajo estas líneas pueden verse los esquemas de integración,
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
