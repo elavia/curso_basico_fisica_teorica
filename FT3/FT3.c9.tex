@@ -146,6 +146,108 @@ y si usamos que $| \vb{V}_2 - \vb{V}_1 |=| \vb{V}_2' - \vb{V}_1' |$ y $  \underb
 
 Bajo estas líneas pueden verse los esquemas de integración,
 
+
+\subsection{Construcción de una cuenta}
+
+\[
+	\overbrace{\frac{|\vb{V}_2-\vb{V}_1|\delta t \delta A}{\delta t \delta A}}^{\text{Volumen dentro
+	del cual una partícula con $\vb{V}_1$ chocaría a una de $\vb{V}_2$.}}
+	\underbrace{f(\vb{V}_1,t) d^3V_1}_{\text{densidad de incidentes}}
+\]
+es el \# de partículas incidentes con $\vb{V}_1$ que podría colisionar con una de $\vb{V}_2$ en la unidad
+de tiempo y por unidad de área.
+\[
+	\sigma (\vb{V}_1\vb{V}_2 \to \vb{V}_1' \vb{V}_2') d^3V_1' d^3V_2'
+\]
+es la sección eficaz de dispersión del proceso $V_1V_2 \to V_1'V_2'$ teniendo como destinos $\vb{V}_1'$ y
+$\vb{V}_2'$.
+
+\[
+	\left[ |\vb{V}_2-\vb{V}_1| f(\vb{V}_1,t) d^3V_1 \right] \sigma_{ 12 \to 1'2'} d^3V_1' d^3V_2'
+\]
+es el \# de partículas incidentes con $\vb{V}_1$ dispersadas en $\vb{V}_1'$ y con el blanco yendo a $\vb{V}_2'$
+por unidad de tiempo y volumen.
+
+\[
+	[ f(\vb{V}_2,t) d^3V_2 ] |\vb{V}_2-\vb{V}_1| f(\vb{V}_1,t) d^3V_1 \sigma d^3V_1' d^3V_2'
+\]
+es el \# de partículas dispersadas hacia $\vb{V}_1'$ y $\vb{V}_2'$ proviniendo de $\vb{V}_1$ y $\vb{V}_2$ por 
+unidad de tiempo y de volumen.
+
+Quisiera conocer $R dt d^3r d^3v$ (\# de colisiones durante $dt$ en las cuales una partícula incial --blanco-- se
+halla en $d^3r$ con $d^3v_2$)\notamargen{pérdida; si golpeo un blanco en $\vb{V}_2$ lo saco del volumen}
+\[
+	R dt d^3r d^3v = \int_{V_1}\int_{V_1'}\int_{V_2'} dt d^3r 
+	f(\vb{V}_2,t) d^3V_2 |\vb{V}_2-\vb{V}_1| f(\vb{V}_1,t) d^3V_1 \sigma d^3V_1' d^3V_2'
+\]
+\notamargen{Se integra en las incidentes $V_1$ y en las destinos $V_1', V_2'$.}
+y también $\bar{R} dt d^3r d^3v$ (\# de colisiones durante $dt$ en las cuales una partícula final se halla en 
+$d^3r$ con $d^3v_2$)
+\notamargen{ganancia si golpeo}
+\[
+	\bar{R} dt d^3r d^3v = \int_{V_1}\int_{V_1'}\int_{V_2'} dt d^3r 
+	f(\vb{V}_2',t) d^3V_2' |\vb{V}_2'-\vb{V}_1'| f(\vb{V}_1',t) d^3V_1' \sigma d^3V_1 d^3V_2
+\]
+\[
+	\left. \dpar{f}{t}\right|_{col} \delta t = (\bar{R} - R)\delta t
+\]
+
+
+\subsection{otra}
+
+Supusimos un sistema diluido, con colisiones binarias y llegamos a
+\be
+	\left( \vb{v}\cdot\nabla_{\vec{r}} + \frac{1}{m}\vb{F}\cdot\nabla_{\vec{v}} + \dpar{}{t} \right)f_2 =
+	\dpar{f_2}{t} = \int\int\int d^3v_1 d^3v_1' d^3v_2' V \sigma (f_{1'}f_{2'} - f_1f_2)
+	\label{equilibrio_fdist}
+\ee
+
+Pensamos que en el equilibrio será $\partial f_2 /\partial t = 0$ y sabemos que 
+\[
+	\text{si} \;  f_{1'}f_{2'} - f_1f_2 = 0  \Rightarrow  \dpar{f}{t} = 0
+\]
+\notamargen{La función del equilibrio es MB, $f_0(\vb{v}) \to \dpar{f_0}{t}=0$}
+
+Definiendo $H(t) = \int d^3V f(\vb{v},t) \log( f(\vb{v},t) )$ vemos que 
+\[
+	\text{si} \; \dpar{f(\vb{v},t)}{t} = 0 \Rightarrow \dtot{H}{t} = 0
+\]
+
+Ahora, considerando que $f$ satisface \eqref{equilibrio_fdist} probamos que 
+\[
+	\text{si $f$ verifica \eqref{equilibrio_fdist}}  \Rightarrow \dtot{H}{t} \leq 0
+\]
+pero como el integrando en $dH/dt$ no cambia de signo nunca debe anularse para obtener el cero
+con lo cual 
+\[
+	\dtot{H}{t} = 0 \Rightarrow f_{1'}f_{2'} - f_1f_2 = 0 \Rightarrow \dpar{f}{t} = 0
+\]
+y en definitiva
+\[
+	\boxed{ \dtot{H}{t} = 0 \Leftrightarrow  \dpar{f}{t} = 0 }
+\]
+y prueba que con 
+\[
+	f(\vb{v},t)_{t\to \infty} \to f_0(\vb{v}) \quad \text{con} \quad \dpar{f_0}{t} = 0
+\]
+
+La ecuación \eqref{equilibrio_fdist} asume la hipótesis de CAOS MOLECULAR para su validez.
+
+$f(\vb{p},t)$ en principiao sólo satisface la ecuación de transporte de Boltzmann cuando vale
+CAOS MOLECULAR. Una tal $f$ es tal que 
+\[
+	\dtot{H}{t} \leq 0 \qquad \text{$H$ es decreciente siempre (un instante luego del CAOS MOLECULAR)}
+\]
+\[
+	\dtot{H}{t} = 0 \qquad \text{si $f(\vb{p},t) = f_{MB}$ con $\dpar{f}{t} = 0$ }
+\]
+
+CAOS MOLECULAR entonces significa que $H$ es máximo local, luego decrece rápidamente y además se sale
+de $f_{MB}$
+
+
+
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
