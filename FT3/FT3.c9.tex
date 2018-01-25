@@ -191,7 +191,54 @@ $d^3r$ con $d^3v_2$)
 \[
 	\left. \dpar{f}{t}\right|_{col} \delta t = (\bar{R} - R)\delta t
 \]
+Usando
+\[
+	|\vb{V}_2 - \vb{V}_1| = |\vb{V}_2' - \vb{V}_1'| \quad \sigma(12 \to 1'2') = \sigma(1'2' \to '2)
+\]
+\[
+	\left. \dpar{f}{t} \right|_{\text{col}} =
+	\int_{V_1} \int_{V_1'} \int_{V_2'} d^3v_1 d^3v_1' d^3v_2' |\vb{V}_2 - \vb{V}_1| \sigma 
+	( f(\vb{V}_1',t)f(\vb{V}_2',t) - f(\vb{V}_1,t)f(\vb{V}_2,t) ) 
+\]
 
+Por otro lado
+\[
+	f(\vb{r} + \vb{v} \delta t, \vb{p} + \vb{F} \delta t, t + \delta t) - f(\vb{r}, \vb{p}, t) = 
+	f(\vb{r},\vb{v} + \frac{\vb{F}}{m}\delta t, t + \delta t) - f(\vb{r},\vb{v}, t)
+\] 
+\[
+	\dpar{f}{\vb{r}} \vb{v} \delta t + \dpar{f}{\vb{v}} \frac{\vb{F}}{m} \delta t + \dpar{f}{t} \delta t = 
+	\vb{v}\cdot\nabla_{\vb{r}} + \frac{\vb{F}}{m}\cdot\nabla_{\vb{v}} + \dpar{f}{t} \delta t 
+\]
+y entonces con $\delta t \to 0$ es
+\[
+	\left( \vb{v}\cdot\nabla_{\vb{r}} + \frac{\vb{F}}{m}\cdot\nabla_{\vb{p}} + \dpar{}{t} \right)f =
+	\left. \dpar{f}{t} \right|_{\text{col}} 
+\]
+y somos conducidos a
+\[
+	\boxed{( \vb{v}\cdot\nabla_{\vb{r}} + \frac{\vb{F}}{m}\cdot\nabla_{\vb{v}} + \dpar{}{t} )f_2 =
+	\int_{V_1} \int_{V_1'} \int_{V_2'} d^3v_1 d^3v_1' d^3v_2' V \sigma 
+	(f_1'f_2' - f_1f_2) }
+\]
+la ecuación de transporte de Boltmann.
+\notamargen{La solución de equilibrio será aquella independiente del tiempo.
+Es decir $\dpar{f}{t} = 0$, $\int\int\int dV...V\sigma(f_1'f_2' - f_1f_2) = 0$}
+
+Se ha supuesto CAOS MOLECULAR, de modo que la correlación de dos cuerpos
+(función de distribución de dos cuerpos en el mismo punto espacial)
+\[
+	f(\vb{r},\vb{v}_1,\vb{v}_2, t) = f(\vb{r},\vb{v}_1, t) f(\vb{r},\vb{v}_2, t)
+\]
+y esto nos lleva a que las velocidades de dos partículas en el elemento $d^3r$
+no están correlacionadas. La probabilidad de encontrarlas simultáneamente es el
+producto de hallarlas a cada una por separado.
+
+Una condición suficiente es
+\[
+	f_1'f_2' - f_1f_2 = 0 \Rightarrow \left. \dpar{f}{t} \right|_{\text{col}} = 0
+\]
+y veremos que es también necesaria.
 
 \subsection{otra}
 
@@ -245,7 +292,103 @@ CAOS MOLECULAR. Una tal $f$ es tal que
 CAOS MOLECULAR entonces significa que $H$ es máximo local, luego decrece rápidamente y además se sale
 de $f_{MB}$
 
+\section{Teorema H y consecuencias}
 
+\[
+	H(t) = \int d^3p f( \vb{p}, t ) \log ( f( \vb{p}, t ) ) =
+	< \log f( \vb{p}, t ) >_{\text{no normalizado}}
+\]
+\[
+	\dpar{H(t)}{t} = \int d^3p \left( \dpar{f}{t} \log f + f \frac{1}{f} \dpar{f}{t} \right)
+\]
+\[
+	\dpar{H(t)}{t} = \int d^3p \dpar{f}{t}  \left( 1 + \log f \right)
+\]
+\[
+	\text{Si} \; \dpar{f}{t} = 0 \Rightarrow \dpar{H}{t} = 0
+\]
+Entonces la anulación de la derivada de $H$ es condición necesaria pero no suficiente para
+que la derivada de $f$ se anule.
+
+Por otro lado, también vale que si $f$ satisface la ecuación de Boltzmann, entonces
+\[
+	 \dtot{H}{t} = \dtot{}{t}< \log f( \vb{p}, t ) >_{\text{no normalizado}} \leq 0
+\]
+
+\[
+	\dpar{H(t)}{t} = \int d^3p \dpar{f}{t}(\vb{p},t)  \left( 1 + \log f \right)
+\]
+y si consideramos función de $\vb{v}_2$,
+\[
+	\dtot{H}{t} = \int d^3V_2 
+	\int_{V_1} \int_{V_1'} \int_{V_2'} d^3v_1 d^3v_1' d^3v_2' V \sigma 
+	(f_1'f_2' - f_1f_2) [1 + \log f_2]
+\]
+pero el intercambio de $V_1$ con $V_2$ no afecta la integral y podemos sumar dos medios,
+\begin{multline*}
+ \dtot{H}{t} = \frac{1}{2} \left[ \int d^3V_2 
+	\int_{V_1} \int_{V_1'} \int_{V_2'} d^3v_1 d^3v_1' d^3v_2' V \sigma 
+	(f_2'f_1' - f_2f_1) [1 + \log f_1] + \right.\\
+	\left. \int d^3V_2 \int_{V_1} \int_{V_1'} \int_{V_2'} d^3v_1 d^3v_1' d^3v_2' V \sigma 
+	(f_1'f_2' - f_1f_2) [1 + \log f_2] \right]
+\end{multline*}
+\[
+ \dtot{H}{t} = \frac{1}{2} \left[ \int d^3V_2 
+	\int_{V_1} \int_{V_1'} \int_{V_2'} d^3v_1 d^3v_1' d^3v_2' V \sigma 
+	(f_2'f_1' - f_2f_1) [2 + \log (f_1 f_2)] \right] 
+\]
+pero intercambio de $V_1',V_2'$ con $V_1,V_2$ tampoco afecta, entonces
+\begin{multline*}
+  \dtot{H}{t} = \frac{1}{4} \left[ \int d^3V_2 
+	\int_{V_1} \int_{V_1'} \int_{V_2'} d^3v_1 d^3v_1' d^3v_2' V \sigma 
+	(f_2f_1 - f_2'f_1') [2 + \log (f_1' f_2')] + \right. \\
+	\left. int d^3V_2 
+	\int_{V_1} \int_{V_1'} \int_{V_2'} d^3v_1 d^3v_1' d^3v_2' V \sigma 
+	(f_2'f_1' - f_2f_1) [2 + \log (f_1 f_2)] \right] 
+\end{multline*}
+\[
+	\dtot{H}{t} = \frac{1}{4} \int d^3V_2 
+	\int_{V_1} \int_{V_1'} \int_{V_2'} d^3v_1 d^3v_1' d^3v_2' V \sigma 
+	(f_2f_1 - f_2'f_1') [\log \left( \frac{f_1' f_2'}{f_1f_2} \right)]
+\]
+y como siempre es
+\[
+	(X-Y)\log\left( \frac{Y}{X} \right) \leq 0
+\]
+luego
+\[
+	\dtot{H}{t} \leq 0 
+\]
+y si 
+\[
+	\dpar{f}{t} = 0 \Rightarrow \dtot{H}{t} = 0 
+\]
+pero de la prueba que acabamos de finalizar vemos que si 
+\[
+	\dtot{H}{t} = 0 \Rightarrow f_1f_2 - f_1'f_2' = 0 \Rightarrow \dpar{f}{t} = 0
+\]
+luego 
+\[
+	\dtot{H}{t} = 0 \qquad \Leftrightarrow \qquad \dpar{f}{t}(\vb{v},t) = 0
+\]
+con $f$ de Boltzmann.
+
+Entonces $dH/dt = 0$ si y sólo si $f_1f_2 = f_1'f_2'$ para todas las colisiones. Esta 
+condición se conoce como {\it balance detallado} y es la condición de equilibrio para
+el gas.
+
+\[
+	E = \int d^3V f(\vb{v},t)|\vb{v}|^2 < \infty
+\]
+\[
+	H = \int d^3V f(\vb{v},t) \log f(\vb{v},t) 
+\]
+
+
+
+
+
+\notamargen{$H$ es el promedio en la distribución de $\log f(\vb{p},t)$ no normalizado.}
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
