@@ -33,6 +33,80 @@
 \chapter{Conjuntos estadísticos}
 % =================================================================================================
 
+La cantidad
+\[
+	\rho(\{ \vec{q}_i, \vec{p}_i\},t) d^{3N}qd^{3N}p
+\]
+es el número de microestados en el elemento $d^{3N}qd^{3N}p$ al tiempo $t$ centrado en $q,p$.
+Si los microestados son equiprobables $\rho \equiv cte.$. El conjunto $\{ \vec{q}_i, \vec{p}_i\}$ son
+$6N$ coordenadas.
+\[
+	\Omega = \int p d^{3N}qd^{3N}p
+\]
+\notamargen{La integral $\Omega$ es imposible porque es difícil determinar el volumen de integración.}
+
+XXX Dibujos XXXX
+
+el volumen en  $\mathbb{\Gamma}$ es proporcional al número de microestados compatibles con $E,N$,
+el volumen $ \mathbb{\Gamma}$ del macroestado es $\Omega\{ n_i \}$
+
+$n_i = f_i d^3q d^3p$ es el número de partículas en una celda $i$ (con su $\vec{p}$ en $\vec{p} + d\vec{p}$
+y con su $\vec{q}$ en $\vec{q} + d\vec{q}$ )
+
+Un microestados determina una distribución $f$ que da un conjunto $\{ n_i \}$. Pero una $f$ determina muchos
+microestados porque la función de distribución no distingue entre partículas (importan los números de 
+ocupación); entonces una $f$ determina un volumen en $\mathbb{\Gamma}$.
+\notamargen{Cada microestado tiene su $f$.}
+
+Suponemos que todos los microestados en $\mathbb{\Gamma}$ son igualmente probables.
+La $f$ que determina el mayor volumen en  $\mathbb{\Gamma}$ es la más probable. Suponemos que en el 
+equilibrio el sistema toma la $f$ más probable.
+Si $f_i$ es el valor de $f$ en cada celda $i$
+\[
+	f_i = \frac{n_i}{d^3p d^3q} \quad \text{promediada en el ensamble} \quad \bar{f}_i =  \frac{<n_i>}{d^3p d^3q}
+	\quad \text{en el equilibrio}
+\]
+\notamargen{$f_i$ es la distribución para un miembro en el ensamble.}
+
+Esta $\bar{f}_i$ es la de equilibrio, pero la cuenta no es fácil. Asumiremos que la $f$ de equilibrio es la más
+probable (la de mayor volumen en  $\mathbb{\Gamma}$); entonces maximizaremos dicho volumen para hallarla.
+
+Un microestado determina una $f$; diferentes microestados pueden determinar otras $f$ pero muchos coincidirán en
+una misma $f$.
+
+La $f$ en el equilibrio es la que tiene mayor cantidad de microestados (la más probable) pero 
+\[
+	\bar{f}_i =  \frac{<n_i>}{d^3p d^3q}
+\]
+es el promedio en el ensamble y no será exactamente igual a la $f_i$ del mayor volumen, salvo que el volumen de $f$
+sea mucho mayor al ocupado por $f',f''$, etc.
+
+Dado el volumen $\Omega \{ n_i\}$ extremaremos el mismo sujeto a las condiciones
+\[
+	E = \sum_i^K n_i e_i \qquad \qquad N = \sum_i^K n_i
+\]
+y llegamos a la $f$ de equilibrio que es $f_{MB}$.
+\notamargen{Necesito $\Omega = \Omega \{ n_i\}$ para obtener el $\{ \tilde{n}_i\}$.}
+
+El volumen $\Omega$ se escribe en función de los números de ocupación
+\[
+	\Omega \left( \{ n_i \} \right) = 
+	\frac{N!}{\prod_i^K n_i!} \prod_i^K g_i^{n_i} \qquad 
+	(i=1,2,...,K \quad \text{identifica celdas en}\;\mu )
+\]
+\[
+	\Omega \left( \{ n_i \} \right) = N! \prod_i^K \frac{g_i^{n_i}}{n_i!}
+\]
+donde $g_i$ son los subniveles en que podríamos dividir la celda $K$; es por matemática conveniencia y para abarcar 
+más casos (luego será $g_i=1 \forall i$).
+
+El conjunto $\{ \tilde{n}_i\}$ que extrema $\Omega \left( \{ n_i \} \right)$ es el más probable y consideraremos
+\[
+	\{ \tilde{n}_i\} = < n_i >
+\]
+Estaremos pensando que cuando $N \to \infty$ la mayor parte de los microestados van a una distribución $f_{MB}$
+
+
 
 % =================================================================================================
 % \section{Energía y entropía}
