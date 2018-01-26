@@ -35,11 +35,122 @@
 
 
 % =================================================================================================
-% \section{Energía y entropía}
+ \section{Teorema de Liouville}
 % =================================================================================================
 
+Un sistema de $N$ partículas en el espacio físico $3D$ descripto por 
+\[
+	\Ham = \Ham(\{ p_i, q_i\},t) \qquad 1 \leq i \leq 3N
+\]
+evolucionará de acuerdo a
+\[
+	\dot{p}_i = -\dpar{\Ham}{q_i} \qquad \dot{q}_i = \dpar{\Ham}{p_i}
+\]
 
+Entonces se tendrá que 
+\[
+	\dpar{\rho}{t} = 0 \qquad \dpar{\rho}{t} + 
+	\sum_i^{3N} \left[ \dpar{\rho}{p}\dpar{p}{t} + \dpar{\rho}{q}\dpar{q}{t} \right]
+\]
+\notamargen{$\rho = \rho(\{ p_i, q_i\},t)$ describe un ensamble}
 
+Pero el número de estados se conserva. Sea $\omega$ un volumen arbitrario, el número de estados en
+$\omega$ es
+\[
+	\Omega_\omega = \int \rho d^{3N}q d^{3N}p \equiv \int_\omega \rho d\omega
+\]
+\notamargen{Los estados que se fugan van a parar a otros $\omega$ dentro del ensamble}
+y entonces si hay una variación es porque se fugan estados de $\omega$ y 
+\[
+	-\dpar{}{t} \left( \Omega_\omega \right) = \int_{S=\partial \omega} \rho \vb{v} \cdot d\vb{S}
+\]
+siendo el rhs el flujo saliente de estados del volumen $\omega$ huyendo por la superficie $S$ y
+siendo $\vb{v} \equiv ( \dot{q}_1, \dot{q}_2, ..., \dot{q}_{3N}, \dot{p}_1, \dot{p}_2, ..., \dot{p}_{3N} )$.
+Aplicando teorema de la divergencia,
+\[
+	-\dpar{}{t} \int_\omega \rho d\omega = \int_\omega \mathrm{div}(\rho\vb{v}) d\omega
+\]
+\[
+	\int_\omega \left[ \dpar{\rho}{t} + \mathrm{div}(\rho\vb{v}) \right] d\omega = 0
+\]
+\[
+	\dpar{\rho}{t} +  \sum_i^{3N} \dpar{}{q_i}(\rho\dot{q}_i) + \dpar{}{p_i}(\rho\dot{p}_i) = 0
+\]
+\[
+	\dpar{\rho}{t} +  \sum_i^{3N} \dpar{\rho}{q_i} \dot{q}_i + \rho\dpar{\dot{q}_i}{q_i}  +
+	\dpar{\rho}{p_i} \dot{p}_i + \rho\dpar{\dot{p}_i}{p_i} = 0
+\]
+y vemos que se tiene un cero en
+\[
+	\rho \left( \dparcru{\Ham}{p_i}{q_i} - \dparcru{\Ham}{q_i}{p_i} \right) = 0 
+\]
+\[
+	\dpar{\rho}{t} +  \sum_i^{3N} \dpar{\rho}{q_i} \dot{q}_i + \dpar{\rho}{p_i} \dot{p}_i = 0
+\]
+
+El ensamble evoluciona como un fluido incompresible, pues el volumen se conserva.
+
+% =================================================================================================
+ \section{Jerarquía BBGKY}
+% =================================================================================================
+
+Podemos definir funciones de correlación $f_s$. Las ecuaciones de movimiento para calcularlas resultan
+acopladas de modo que relacionan $f_1$ con $f_2$, $f_2$ con $f_3$, etc.
+
+Este sistema es la jerarquía BBGKY. Truncándola se puede llegar a Boltzmann
+\[
+	z_i \equiv ( \vec{p}_i ,\vec{q}_i ) \quad \text{con} \; i = 1,2,...,N
+\]
+\notamargen{$f_s:$ probabilidad de hallar $s$ partículas con ciertos $\{ p_i, q_i\} \; (i=1,...,s)$}
+\[
+	1 = \int \rho(z_1, z_2, ... ,z_N) dz_1 ... dz_N \quad \text{normalizada}
+\]
+\[
+	f_s = \int dz_{s+1} ... dz_N \rho(z_1, z_2, ... ,z_N) \Rightarrow f_s = f_s(z_1, z_2, ... ,z_s)
+\]
+\notamargen{Es una matnera de pasar de $\mathbb{\Gamma}$ a $\mu$}
+
+Dadas $(N-s)$ partículas con cualesquiera $\vec{p},\vec{q}$ consideramos la probabilidad de tener $s$
+partículas con ciertos  $\vec{p},\vec{q}$
+\[
+	f_1 = f_1(z_1) \quad \text{es la función de distribución}
+\]
+Se reescribe Liouville $\partial{\rho}/\partial {t} = 0$ con $\rho = \rho( \{ p_i, q_i\},t )$
+\[
+	\dpar{\rho}{t} +  \sum_{i=1}^{3N} \dpar{\rho}{q_i} \dot{q}_i + \dpar{\rho}{p_i} \dot{p}_i = 0
+\]
+\[
+	\dpar{\rho}{q_i} \dpar{\Ham}{p_i} - \dpar{\rho}{p_i} \dpar{\Ham}{q_i} = 0
+\]
+\[
+	\dpar{\rho}{t} + \sum_{i=1}^{3N} \left[ \nabla_{\vec{q}_i}\rho \cdot \nabla_{\vec{p}_i}\Ham -
+	\nabla_{\vec{p}_i}\rho \cdot \nabla_{\vec{q}_i}\Ham \right] = 0 \qquad \text{con un $\Ham$ generico}
+\]
+\[
+	\Ham = \sum_i^N \frac{|\vec{p}_i|^2}{2m} + \sum_i^N U_i(q_i)+ \sum_{i<j}^N V_{ij}(q_i)
+\]
+y tomándole el gradiente
+\[
+	\nabla_{\vec{p}_k}\Ham = \frac{|\vec{p}_k|\hat{k}}{m} = \frac{\vec{p}_k}{m},\qquad
+	\nabla_{\vec{q}_k}\Ham = \nabla_{\vec{q}_k}U_k + \sum_{i<j}^N \nabla_{\vec{q}_k} V_{kj}
+% 	\sum_i^N \frac{|\vec{p}_i|^2}{2m} + \sum_i^N U_i(q_i)+ \sum_{i<j}^N V_{ij}(q_i)
+\]
+\[
+				, \nabla_{\vec{q}_k}\Ham = -\vec{F}_k - \sum_{i<j}^N \vec{K}_{kj}
+\]
+\[
+	\dpar{\rho}{t} + \frac{\vec{p}_i}{2m} \cdot \nabla_{\vec{q}_i}\rho + \vec{F}_i \cdot \nabla_{\vec{p}_i}\rho + 
+	\sum_{i<j}^N \vec{K}_{kj}\cdot \nabla_{\vec{p}_i} \rho = 0
+\]
+\[
+	\left[ \dpar{}{t} + \sum_i^N \frac{\vec{p}_i}{2m} \cdot \nabla_{\vec{q}_i} + 
+	\vec{F}_i \cdot \nabla_{\vec{p}_i} + \sum_{i\neq j}^N \frac{1}{2}\vec{K}_{kj}\cdot \left( \nabla_{\vec{p}_i} -
+	\nabla_{\vec{p}_j} \right) \right] \rho = 0
+\]
+\[
+	\left[ \dpar{}{t} + \underbrace{\sum_i^N S_i + \frac{1}{2} \sum_i^N\sum_j^N {i\neq j} P_{ij}}_{\equiv
+	h_N(1,2,...,N)} \right] \rho = 0
+\]
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
