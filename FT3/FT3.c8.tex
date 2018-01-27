@@ -151,7 +151,24 @@ y tomándole el gradiente
 	\left[ \dpar{}{t} + \underbrace{\sum_i^N S_i + \frac{1}{2} \sum_i^N\sum_j^N {i\neq j} P_{ij}}_{\equiv
 	h_N(1,2,...,N)} \right] \rho = 0
 \]
-
+\[
+	\left[ \dpar{}{t} + h_N(1,2,...,N) \right] \rho = 0
+\]
+\[
+	\left[ 
+	\dpar{}{t} + \sum_i^S S_i + \sum_{i=S+1}^N S_i + \frac{1}{2} \sum_i^S\sum_j^S {i\neq j} P_{ij} 
+	+ \frac{1}{2} \sum_{i=S+1}^N\sum_{j=S+1}^N {i\neq j} P_{ij}
+	\right] \rho = 0
+\]
+\[
+	\left[ 
+	\dpar{}{t} + h_S(1,2,...,S)  + h_{N-S}(S+1,...,N)  + \frac{1}{2} \sum_{i=1}^S\sum_{j=S+1}^N {i\neq j} P_{ij}
+	\right] \rho = 0
+\]
+Ahora
+\[
+	f_s(1,2,...,S) = \frac{N!}{(N-S)!} \int dz_{S+1} ... dz_N
+\]
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
