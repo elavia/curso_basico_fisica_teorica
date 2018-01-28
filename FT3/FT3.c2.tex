@@ -107,11 +107,68 @@ El conjunto $\{ \tilde{n}_i\}$ que extrema $\Omega \left( \{ n_i \} \right)$ es 
 Estaremos pensando que cuando $N \to \infty$ la mayor parte de los microestados van a una distribución $f_{MB}$
 
 
-
 % =================================================================================================
-% \section{Energía y entropía}
+\section{Microcanónico}
 % =================================================================================================
 
+\section{Solución de equilibrio}
+
+La solución de equilibrio satisfacía
+\[
+	f(p_1) f(p_2) = f(p_1') f(p_2')
+\]
+\[
+	\log f(p_1) + \log f(p_2) = \log f(p_1') + \log f(p_2')
+\]
+que luce como una ley de conservación y admite como solución
+\[
+	\log f(p) = A m + \vb{B}\cdot \vb{p} + C|\vb{p}|^2 
+	\qquad (A,\vb{B},C \text{ctes. adimensionales})
+\]
+que lista los {\it invariantes colisionales}. Completando cuadrados
+\[
+	f \propto C_1 \euler^{-C_2(\vb{p} - \vb{p}_0)^2}
+\]
+
+La expresión completa se ajusta con 
+\[
+	n = \int f(\vb{p},t) d^3p
+\]
+donde el $\vb{p}$ de una partícula es
+\[
+	<\vb{p}> = \frac{\int f(\vb{p}) \vb{p} \; d^3p d^3q}{\int f(\vb{p}) \; d^3p d^3q } = 
+	\frac{1}{n} \int f(\vb{p}) \; \vb{p} \; d^3p
+\]
+\notamargen{El cociente es $\vb{P}/N$.}
+y la energía por partícula
+\[
+	<e> = \frac{\int f(\vb{p}) \; \vb{p}^2/ (2m) \; d^3p d^3q}{\int f(\vb{p}) d^3p d^3q } = 
+	\frac{1}{n} \int f(\vb{p}) \frac{ \vb{p}^2 }{ 2m } \; d^3p
+\]
+
+Finalmente se llega a 
+\[
+	f(\vb{p}) = \frac{n}{(2\pi m k T)^{3/2}} \euler^{- \frac{( \vb{p} - \vb{p}_0 )^2}{2mkT} }
+\]
+
+que es la función de distribución de momentos de Maxwell-Boltzmann.
+\notamargen{Solución de equilibrio de la ecuación de transporte}
+
+\[
+	\text{(presión ideal)} \qquad p = \frac{2}{3} \frac{U}{V} = \frac{2}{3} n \epsilon =
+	\frac{2}{3} n \frac{3}{2} k T = nkT 
+\]
+
+\section{Método de la distribución más probable}
+
+Con este método también llegamos a $f_{MB}$ pero extremandolo el volumen $\Omega(\{ n_i \})$ que ocupa en el espacio
+$\mathbb{\Gamma}$ sujeto a los vínculos $E = \sum_i n_i e_i$ y $N = \sum_i n_i $.
+
+Luego podemos estimar qué tan probable es la distribución de MB (la más probable) considerando
+(ASUMIMOS)
+\[
+	\text{los \# de ocupación de MB} \quad \tilde{n}_i \cong <n_i> \quad \text{el promedio en el ensamble}
+\]
 
 
 
