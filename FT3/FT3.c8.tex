@@ -167,8 +167,41 @@ y tomándole el gradiente
 \]
 Ahora
 \[
-	f_s(1,2,...,S) = \frac{N!}{(N-S)!} \int dz_{S+1} ... dz_N
+	f_s(1,2,...,S) = \frac{N!}{(N-S)!} \int dz_{S+1} ... dz_N \rho(1,2,...,S,S+1,...,N)
 \]
+\[
+	\dpar{}{t}f_s + h_s f_s = -\frac{N!}{(N-S)!} \int dz_{S+1} ... dz_N
+	\left[ h_{N-S} + \sum_{i=1}^S \sum_{j=S+1}^N P_{ij} (i\neq j)\right]\rho(1,...,N)
+\]
+\[
+	\left( \dpar{}{t} + h_s \right) f_s = - \sum_{i=1}^S \frac{N!}{(N-S)!} \int dz_{S+1} ... dz_N
+	\left[ \sum_{j=S+1}^N P_{ij} \rho(1,...,N) \right]
+\]
+donde
+\[
+	\int dz_{S+1} ... dz_N h_{N-S} \rho = 0
+\]
+y donde 
+\[
+	\sum_{j=S+1}^N P_{ij}\rho(1,...,N) = P_{i,S+1}\rho + P_{i,S+2}\rho + ... + P_{i,N}\rho = (N-S)P_{i,S+1}
+\]
+entonces
+\[
+	= - \sum_{i=1}^S \frac{N!}{(N-S)!} \int dz_{S+1} P_{i,S+1} \int dz_{S+2} ... dz_N \rho(1,...,N)
+\]
+\[
+	= - \sum_{i=1}^S \int dz_{S+1} P_{i,S+1} \underbrace{ \frac{N!}{(N-S)!} \int dz_{S+2} ... dz_N \rho(1,...,N) 
+	}_{\equiv f_{S+1}(1,...,S+1)}
+\]
+y
+\[
+	\left( \dpar{}{t} + h_s \right) f_s = - \sum_{i=1}^S \int dz_{S+1} \vec{K}_{i,S+1}\cdot \nabla_{\vec{P}_i} 
+f_{S+1}(1,...,S+1)
+\]
+con ustedes la jerarquía BBGKY donde el término con $\nabla_{\vec{P}_{S+1}}$ no aporta.
+
+
+
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
