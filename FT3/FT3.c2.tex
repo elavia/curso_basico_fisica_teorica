@@ -202,19 +202,67 @@ son visitados.
 \subsection{Observaciones sobre el microcanónico}
 
 \[
-	\gamma(E) = \int_{E < \Ham < E + \Delta E} \rho d^{3n}p d^{3n}q \qquad 
+	\Gamma(E) = \int_{E < \Ham < E + \Delta E} \rho d^{3n}p d^{3n}q \qquad 
 	\Sigma(E) = \int_{\Ham < E} \rho d^{3n}p d^{3n}q
 \]
 entonces 
 \[
-	\gamma(E) = \Sigma( E + \Delta E ) - \Sigma( E ) \cong \dpar{\Sigma( E )}{E}\Delta E  
+	\Gamma(E) = \Sigma( E + \Delta E ) - \Sigma( E ) \cong \dpar{\Sigma( E )}{E}\Delta E  
 	\qquad \text{si}\; \Delta E \ll E
 \]
 $\Delta E$ es el {\it paso} entre medidas de energía 
 \[
 	\Gamma(E) = \Gamma_1(E_1) \Gamma_2(E_2) \qquad \text{(1 y 2 son subsistemas)}
 \]
+\[
+	E = E_1 + E_2 \Rightarrow \Gamma(E) = \sum_i^{E/\Delta E} \Gamma_1(E_i)\Gamma_2(E-E_i)
+\]
+siendo $E/\Delta E$ el número de términos tales que se cumple $ E = E_1 + E_2 $.
+Si se da $ N_1 \to \infty $ y $ N_2 \to \infty $ será
+\[
+	\log \Gamma_1 \propto N_1 \quad \log \Gamma_2 \propto N_2 \quad E \propto N_1 + N_2
+\]
+luego $\log(E/\Delta E)$ es despreciable pues $\Delta E$ es constante y entonces
+\notamargen{$\log(E/\Delta E) \propto \log(N)$ pues $E\propto N$ y $\Delta E$ cte.}
+\[
+	S(E,V) = S(\tilde{E}_1,V_1) + S(\tilde{E}_2,V_2) + \mathcal{O}(\log[N])
+\]
+con lo cual la mayoría de los microestados tienen los valores $\tilde{E}_1$ y $\tilde{E}_2$ de energía.
 
+Asimismo
+\[
+	\delta( \Gamma_1(\bar{E}_1)  \Gamma_2(\bar{E}_2) ) = 0 \qquad \delta( \bar{E}_1 + \bar{E}_2 ) = 0
+\]
+\[
+	\delta\Gamma_1 \Gamma_2 + \Gamma_1 \delta \Gamma_2 = 0 \quad \delta( \bar{E}_1 ) = -\delta ( \bar{E}_2 )
+\]
+\[
+	\frac{\delta\Gamma_1}{\bar{E}_1}\Gamma_2 = \Gamma_1\frac{\delta\Gamma_2}{\bar{E}_2} \Rightarrow 
+	\frac{1}{\Gamma_1} \dpar{\Gamma_1}{\bar{E}_1} = \frac{1}{\Gamma_2} \dpar{\Gamma_2}{\bar{E}_2} 
+\]
+\[
+	\dpar{}{\bar{E}_1}\left( k\log \Gamma_1(\bar{E}_1) \right) = 
+	\dpar{}{\bar{E}_2}\left( k\log \Gamma_1(\bar{E}_2) \right)
+\]
+\[
+	\left. \dpar{}{{E}_1}S(E_1)\right|_{\bar{E}_1} = \left. \dpar{}{{E}_2}S(E_2)\right|_{\bar{E}_2}
+	\equiv \frac{1}{T} \qquad \text{en equilibrio} \; T_1 = T_2
+\]
+
+La $T$ es el parámetro que gobierna el equilibrio entre partes del sistema.
+
+La idea es que dado un sistema de $E = E_1 + E_2$, sistema compuesto de dos subsistemas, hay muchos valores
+1,2 tales que $E = E_1 + E_2$ pero hay una combinación que maximiza $\Gamma(E)$ y es
+\[
+	\Gamma_{Max}(E) = \Gamma_1(\bar{E}_1)  \Gamma_2(\bar{E}_2) 
+\]
+\notamargen{El sistema es $E,N,V$ y yo lo pienso compuesto de dos partes $E_1,N_1,V_1$ y $E_2,N_2,V_2$.}
+
+Luego, con $N_1, N_2 \to \infty$ se da que la mayoría de los sistemas tendrán $E_1=\bar{E}_1$ y $E_2=\bar{E}_2$.
+Esa configuración, por supuesto, maximiza la entropía $S=k\log(\Gamma)$.
+
+El hecho de que $\Delta S> 0$ para un sistema aislado lo vemos considerando que tal sistema sólo puede variar
+$V$ (creciendo, como en la expansión libre de un gas), luego $V_F > V_I$ y entonces
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
