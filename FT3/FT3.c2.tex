@@ -169,8 +169,51 @@ Luego podemos estimar qué tan probable es la distribución de MB (la más proba
 \[
 	\text{los \# de ocupación de MB} \quad \tilde{n}_i \cong <n_i> \quad \text{el promedio en el ensamble}
 \]
+pero esto sólo valdrá si las desviaciones son pequeñas; es decir si $f_{MB}$ es muy muy probable.
 
+Calculamos la desviación cuadrática (varianza) se tiene 
+\[
+	<n_i^2> - <n_i>^2 = g_i \dpar{<n_i>}{g_i}
+\]
+donde se usó que 
+\[
+	<n_i> = \frac{\sum_{\{ n_j\}} n_i \Omega\{ n_j\} }{\sum_{\{ n_j\}} \Omega\{ n_j\}}
+\]
 
+Suponiendo que $ <n_i> \approx \tilde{n}_i$ entonces $ <n_i>  \propto f_{MB}$ con lo cual se tiene también 
+\[
+	<n_i^2> - <n_i>^2 \cong \tilde{n}_i
+\]
+\notamargen{como $ g_i \dpar{\tilde{n}_i}{g_i} = \tilde{n}_i $}
+y las fluctuaciones relativas
+\[
+	\sqrt{<\left( \frac{m_i}{N}\right)^2 > - <\left( \frac{m_i}{N}\right) >^2 } \cong 
+	\sqrt{ \frac{ \tilde{n}_i/N }{N} }\to_{N\to\infty} 0
+\]
+
+En el límite termodinámico MB es totalmente dominante.
+
+\subsection{Hipótesis ergódica}
+
+La trayectoria individual de casi cualquier punto en el $\Omega$ pasa, con el tiempo, a través de todos los
+puntos permitidos del espacio $\mathbb{\Gamma}$. Si esperamos lo suficiente, todos los microestados posibles
+son visitados.
+
+\subsection{Observaciones sobre el microcanónico}
+
+\[
+	\gamma(E) = \int_{E < \Ham < E + \Delta E} \rho d^{3n}p d^{3n}q \qquad 
+	\Sigma(E) = \int_{\Ham < E} \rho d^{3n}p d^{3n}q
+\]
+entonces 
+\[
+	\gamma(E) = \Sigma( E + \Delta E ) - \Sigma( E ) \cong \dpar{\Sigma( E )}{E}\Delta E  
+	\qquad \text{si}\; \Delta E \ll E
+\]
+$\Delta E$ es el {\it paso} entre medidas de energía 
+\[
+	\Gamma(E) = \Gamma_1(E_1) \Gamma_2(E_2) \qquad \text{(1 y 2 son subsistemas)}
+\]
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
