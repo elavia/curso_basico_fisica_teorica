@@ -111,7 +111,7 @@ Estaremos pensando que cuando $N \to \infty$ la mayor parte de los microestados 
 \section{Microcanónico}
 % =================================================================================================
 
-\section{Solución de equilibrio}
+\subsection{Solución de equilibrio}
 
 La solución de equilibrio satisfacía
 \[
@@ -159,7 +159,7 @@ que es la función de distribución de momentos de Maxwell-Boltzmann.
 	\frac{2}{3} n \frac{3}{2} k T = nkT 
 \]
 
-\section{Método de la distribución más probable}
+\subsection{Método de la distribución más probable}
 
 Con este método también llegamos a $f_{MB}$ pero extremandolo el volumen $\Omega(\{ n_i \})$ que ocupa en el espacio
 $\mathbb{\Gamma}$ sujeto a los vínculos $E = \sum_i n_i e_i$ y $N = \sum_i n_i $.
@@ -263,6 +263,79 @@ Esa configuración, por supuesto, maximiza la entropía $S=k\log(\Gamma)$.
 
 El hecho de que $\Delta S> 0$ para un sistema aislado lo vemos considerando que tal sistema sólo puede variar
 $V$ (creciendo, como en la expansión libre de un gas), luego $V_F > V_I$ y entonces
+\[
+	\Sigma(E) = \int_{\Ham < E} \rho d^{3N}p d^{3N}q \underbrace{\longrightarrow}_{\text{Si aumento el volumen}}
+	\Sigma(E)' = \int_{\Ham < E} \rho d^{3N}p d^{3N}q
+\]
+\notamargen{Será un número mayor porque el dominio de integración en $q$ es mayor.}
+\[
+	\Sigma(E)' > \Sigma(E) \qquad \Rightarrow \qquad \Delta S > 0
+\]
+
+Equipartición implica 
+\[
+	\left< x_i \dpar{\Ham}{x_j} \right> = \delta_{ij} k T
+\]
+y entonces
+\[
+	\left< p_i \dpar{\Ham}{p_i} \right> = \left< p_i \dot{q}_i \right> = kT 
+\]
+y
+\[
+	\left< q_i \dpar{\Ham}{q_i} \right> = \left< q_i \dot{p}_i \right> = kT 
+\]
+\[
+	\left< \sum_i^{3N} q_i \dpar{\Ham}{q_i} \right> =  \sum_i^{3N} \left< q_i \dpar{\Ham}{q_i} \right> =
+	\sum_i^{3N} k T = 3 N k T
+\]
+entonces llegamos al virial,
+\[
+	\sum_i^{3N} \left< q_i \dot{p}_i \right> = 3 N k T.
+\]
+
+Considerando un hamiltoniano armónico,
+\[
+	\left< \Ham \right> = E \qquad \text{con} \quad \Ham = \sum_i^{3N} a_i p_i^2 + b_i q_i^2
+\]
+\[
+	p_k \dpar{\Ham}{p_k} = 2 a_k p_k^2 \qquad q_k \dpar{\Ham}{q_k} = 2 b_k q_k^2
+\]
+de modo que 
+\[
+	\Ham =  \sum_i^{3N} \frac{1}{2} p_k \dpar{\Ham}{p_k} + \frac{1}{2} q_k \dpar{\Ham}{q_k}
+\]
+\[
+	\left< \Ham \right> =  \sum_i^{3N} \frac{1}{2} \left< p_k \dpar{\Ham}{p_k}\right> +
+		\frac{1}{2} \left< q_k \dpar{\Ham}{q_k} \right>
+\]
+y si $f$ es el número de constantes $a_k,b_k$ no nulos
+\[
+	\left< \Ham \right> =  \frac{1}{2} f k T
+\]
+
+Si fuesen todas no nulas entonces
+\[
+	\left< \Ham \right>  = 3 N k T.
+\]
+
+\subsection{Gas ideal (microcanónico)}
+
+\[
+	\Ham =  \sum_i^{N} \frac{p^2_i}{2m}
+\]
+\[
+	\Sigma(E) = \frac{1}{h^{3N}} \int_{\Ham < E} d^3p_1 ... d^3p_N d^3q_1 ... d^3q_N = 
+	\left( \frac{V}{h^{3N}} \right)^N \int_{\Ham < E} d^3p_1 ... d^3p_N
+\]
+donde la integral en $\{ q_i\}$ es inmediata porque no están los mismos en los límites y donde el
+límite de integración $\Ham < E$ implica la condición 
+\[
+	p_1^2 + p_2^2 + ... + p_N^2 < ( \sqrt{2mE} )^2
+\]
+\notamargen{Es una especie de radio $2mE$.}
+\[
+	\Sigma(E) = C_{3N} \left[ \frac{V}{h^3} (2mE)^{3/2}\right]^N
+\]
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
