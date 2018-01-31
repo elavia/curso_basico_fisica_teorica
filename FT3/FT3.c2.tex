@@ -337,6 +337,66 @@ límite de integración $\Ham < E$ implica la condición
 	\Sigma(E) = C_{3N} \left[ \frac{V}{h^3} (2mE)^{3/2}\right]^N
 \]
 
+Luego,
+\[
+	S = k \log \left\{ C\left( \frac{V}{h^3}(2mE)^{3/2}\right)^N \right\}
+\]
+\[
+	S = k \log C + N k \log \left[ \frac{V}{h^3}(2mE)^{3/2}\right]
+\]
+\notamargen{$ k\log C \approx -3/2 Nk \log 3N/2 $}
+\[
+	\left. \dpar{S}{E} \right|_{V,N} = \frac{1}{T} \qquad \Rightarrow \qquad \frac{1}{T} = Nk\frac{3}{2}\frac{1}{E}
+\]
+y entonces
+\[
+	E = \frac{3}{2} NkT \qquad \text{gas ideal}
+\]
+\notamargen{Vemos que la termodinámica es bastante insensible a las aproximaciones.}
+
+\subsection{Paradoja de Gibbs}
+
+\[
+	S \propto Nk\log(V) + Nk \log (E^{3/2})
+\]
+Supongamos dos gases idénticos con la misma $\rho$ y $T$
+\notamargen{Quitar la pared es una operación mental si los gases son idénticos (o al menos eso podemos pensar).}
+
+\[
+	\Delta S = Nk \log V + Nk \log (E^{3/2}) - N_1k \log V_1 - N_2k \log (E_1^{3/2})
+	- N_1k \log V_2 - N_2k \log (E_2^{3/2})
+\]
+\[
+	\Delta S = N_1 k \log \left( \frac{V}{V_1} \right) + N_2 k \log \left( \frac{V}{V_2} \right) +
+		N_1 k \log \left( \frac{E}{E_1} \right)^{3/2} + N_2 k \log \left( \frac{E}{E_2} \right)^{3/2}
+\]
+\notamargen{Si los gases son distintos está correcto $\Delta S > 0$ pero si son idénticos no porque un estado
+como F podría provenir de infinitas compartimentacionales las cuales darían todas difrentes $\Delta S$ y entonces
+la entropía $S$ no sería función de estado.}
+\[
+	\Delta S > 0 \quad \text{pues: } \; \frac{V}{V_1} = 1 + \frac{V_2}{V_1} > 1, \frac{V}{V_2} > 1, 
+	\frac{E}{E_1} > 1, \frac{E}{E_2} > 1
+\]
+
+Podemos hacer algo menos cuentoso tomando
+\[
+	S \propto Nk\log \left( V\left[ \frac{4\pi m E}{3 h^2 N} \right]^{3/2} \right)
+\]
+donde la $N$ viene de $k\log C_{3N}$ con $N \to \infty$. Vemos que $E/N$ mantiene el cambio en $S$ respecto de $E$
+igual, puesto que 
+\[
+	\frac{E}{N} = \frac{E_1 + E_2}{N_1 + N_2} = \frac{E_1}{N_1} = \frac{E_2}{N_2} = \epsilon
+\]
+pero $V$ no balance. Luego la inclusión de $1/N!$ hará que 
+\[
+	S = k \log (\frac{1}{N!}\Sigma(E,N,V)) = k \log (\Sigma) - k\log N!
+\]
+de forma que resultará
+\[
+	S \propto Nk\log \left( \frac{V}{N}\left[ \frac{4\pi m E}{3 h^2 N} \right]^{3/2} \right)
+\]
+y esta $S$ sí está libre de paradoja de Gibbs.
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
