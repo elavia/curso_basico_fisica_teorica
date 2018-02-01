@@ -397,6 +397,123 @@ de forma que resultará
 \]
 y esta $S$ sí está libre de paradoja de Gibbs.
 
+% =================================================================================================
+\section{Canónico}
+% =================================================================================================
+
+Consideramos un microcanónico con 
+\[
+	E = E_1 + E_2, \qquad N = N_1 + N_2, \qquad V = V_1 + V_2 
+\]
+donde $N_i, V_i$ están fijos y $E_i$ varían de acuerdo a
+\notamargen{Imagen del microcanónico...}
+\[
+	E = E_1 + E_2
+\]
+
+Consideramos un microcanónico 
+\[
+	\Gamma(E) = \Sigma_{E_1} \Gamma_1(E_1) \Gamma_2(E-E_1) \leq C \Gamma_1(\bar{E}_1) \Gamma_2(E-\bar{E}_1)
+	\approx C \Gamma_2(\bar{E}_1)
+\]
+\[
+	S(E-\bar{E}_1) \approx k \log \Gamma_2(E-\bar{E}_1)
+\]
+\[
+	S(E) + \left.\dpar{S(E)}{E}\right|_E(-\bar{E}_1) \approx k \log \Gamma_2(E-\bar{E}_1)
+\]
+\[
+	\euler^{\frac{S(E)}{k}} \euler^{-\frac{E_1}{kT}} \approx \Gamma_2(E-\bar{E}_1)
+\]
+
+Claramente como '1' siempre está metido dentro de '2' entre mayor sea el $\Gamma_2$ mayor también el tamaño de '1'
+en $\mathbb{\Gamma}$, luego:
+\[
+	\# \text{de config en } \mathbb{\Gamma} \text{ del sistema '1+2'} = \# \text{de config de '1' en '2'} \times 
+	\# \text{de config de '2' en} \mathbb{\Gamma}
+\]
+\[
+	\# \text{ config '1' } = \frac{ \# \text{ config '1+2'} }{ \# \text{ config '2'} } \approx 
+	\euler^{-\frac{E_1}{kT}} = C \int \euler^{-\Ham/kT} d^3p d^3q
+\]
+\[
+	Q_N(V,T) = \frac{1}{h^{3N}N!}\int \euler^{-\Ham/kT} d^3p d^3q
+\]
+\notamargen{$1/N!$ es el factor de buen conteo.}
+
+La función de partición es el volumen ocupado en $\mathbb{\Gamma}$.
+El vínculo con la termodinámica viene de
+\[
+	Q_N(V,T) = \euler^{-\beta A}
+\]
+\[
+	A = -kT\log [Q_N(V,T)]
+\]
+donde $A=A(T,V,N)$ es la energía libre de Helmholtz. Podemos ver que se deduce esto de 
+\[
+	< \Ham > = E = -\dpar{}{\beta} \log [ Q_N(V,T) ] = A + TS = A - T\left.\dpar{A}{T}\right|_{N,V}
+\]
+pero 
+\[
+	\dpar{}{\beta} = \dpar{}{T} \dpar{T}{\beta} = -k T^2 \dpar{}{T}, \qquad \text{pues } \dpar{\beta}{T} = - 
+	\frac{1}{kT^2}
+\]
+\[
+	\dpar{}{T}\left( \frac{A}{T} \right) = -\frac{A}{T^2} + \frac{1}{T}\dpar{A}{T}
+\]
+de modo que 
+\[
+	-T^2 \dpar{}{T}\left( \frac{A}{T} \right) = A - T \dpar{A}{T}
+\]
+\notamargen{$S=-\partial A / \partial T|_{N,V}$}
+y entonces
+\[
+	E = -k T^2 \dpar{}{T}\log Q_N = -T^2 \dpar{}{T}\left( \frac{A}{T} \right) 
+\]
+de lo que se desprende
+\[
+	\log Q_N = -\frac{A}{kT}
+\]
+
+Podemos usar $E=A+TS$ y llegar a $Q_n=\exp(-\beta A)$ o bien $Q_N=exp(-\beta A)$ y llegar a $E=A+TS$.
+
+\subsection{Equivalencia canónico y microcanónico}
+
+Vemos cómo son las fluctuaciones de energía en el canónico. Desde 
+\[
+	U = <\Ham> = \frac{\int \euler^{-\beta\Ham} \Ham d^3p d^3q}{\int \euler^{-\beta\Ham} d^3p d^3q}
+\]
+\[
+	\int \euler^{-\beta\Ham} U d^3p d^3q = \int \euler^{-\beta\Ham} \Ham d^3p d^3q
+\]
+\[
+	\dpar{}{\beta}\left[ \int \euler^{-\beta\Ham} (U-\Ham) d^3p d^3q\right] = \dpar{}{\beta}\left[ 0 \right] = 0
+\]
+\[
+	<\Ham^2> - <\Ham>^2 = kT^2C_V
+\]
+
+Las fluctuaciones van como el $C_V$, luego 
+\[
+	<\Ham^2/N^2> - <\Ham/N>^2 = kT^2c_V/N \qquad \text{donde } c_V = C_V/N
+\]
+\notamargen{$<\Ham> \propto N$ y $C_V \propto N$}
+de modo que las fluctuaciones relativas van a 0 con $N\to\infty$.
+
+Otro modo de verlo es considerando 
+\[
+	\frac{1}{h^{3N}N!}\int \euler^{-\beta\Ham} d^3p d^3q = \int_0^\infty dE \dpar{\Sigma(E)}{E} \euler^{-\beta E} =
+	\int_0^\infty dE \euler^{-\beta E + \log (\partial \Sigma(E)/\partial E)}
+\]
+donde 
+\[
+	\dpar{\Sigma(E)}{E} dE = \frac{d^3p d^3q}{h^{3N}N!}
+\]
+y como $S/k = \beta TS$
+\[
+	Q_N = \int_0^\infty dE \euler^{-\beta E + \beta T S }
+\]
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
