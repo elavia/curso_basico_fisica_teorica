@@ -514,6 +514,86 @@ y como $S/k = \beta TS$
 	Q_N = \int_0^\infty dE \euler^{-\beta E + \beta T S }
 \]
 
+Si suponemos que es $S$ máxima en $E=\bar{E}$ entonces $S_{MAX} = S(\bar{E})$ y será 
+\[
+	\left. \dpar{S}{E} \right|_{\bar{E}} = 0
+\]
+con lo cual
+\[
+	E + TS \cong \bar{E} + TS(\bar{E}) + \frac{1}{2}(E-\bar{E})^2 T \left. \dpar[2]{S}{E} \right|_{\bar{E}}
+\]
+\[
+	E + TS \cong \bar{E} + TS(\bar{E}) - (E-\bar{E})^2 \frac{1}{2kTC_V}
+\]
+de modo que 
+\[
+	Q_N = \int_0^\infty dE \euler^{-\beta [\bar{E} + TS(\bar{E})] - \beta \frac{(E-\bar{E})^2}{2kTC_V}}
+\]
+\[
+	Q_N = \euler^{-\beta [\bar{E} + TS(\bar{E})]} \int_0^\infty dE \euler^{- \beta \frac{(E-\bar{E})^2}{2kTC_V}}
+\]
+y vemos que la integral se va a una delta con $N\to \infty$ (pués $C_V \propto N$) en cuyo caso
+\[
+	Q_N = \euler^{-\beta [\bar{E} + TS(\bar{E})]} 
+\]
+y la mayor parte de los estados tienen energía $\bar{E}$, que es la de un sistema aislado a temperatura $T$.
+
+La densidad de estados va entonces de acuerdo al producto de dos efectos contrarios:
+\[
+	g(E) = \dpar{\Sigma(E)}{E}\euler^{-\beta E}
+\]
+
+\subsection{Ejemplos sencillos}
+
+\[
+	\Ham = \sum_i^N \frac{p_i^2}{2m} + \frac{m}{2}\omega_i^2 q_i^2 \quad \qquad \text{oscilador clásico 1D}
+\]
+\[
+	\Ham = \sum_i^N \left( n_i + \frac{1}{2} \right)\hbar\omega  \quad \qquad \text{oscilador Schrödinger 1D}
+\]
+\[
+	\Ham = \sum_i^N  n_i \hbar\omega \quad \qquad \text{oscilador Planck 1D}
+\]
+
+\[
+	U = NkT \rightarrow C_V = Nk  \qquad \text{Clásico}
+\]
+\[
+	U \approx \frac{N\hbar\omega}{2} \quad U \approx 0 (T\ll 1) \qquad \rightarrow C_V = 0 
+	\quad \text{Schrödinger-Planck}
+\]
+\[
+	U \approx N kT \; (T \gg 1) \qquad \rightarrow C_V = Nk 
+	\quad \text{Schrödinger-Planck}
+\]
+
+Los casos Schrödinger y Planck aproximan al $C_V$ clásico con $T$ altas.
+
+
+\subsection{Una derivación más del canónico}
+
+El tamaño del sistema '1' en $\mathbb{\Gamma}$ (su volumen $\Gamma_1(E_1)$) será proporcional al tamaño del sistema 
+'2' en $\mathbb{\Gamma}$ (su volumen $\Gamma_2(E-E_1)$) de manera que 
+\[
+	\Gamma_1(E_1) \propto \Gamma_2(E-E_1)
+\]
+\[
+	k\log \Gamma_1(E_1) \approx S(E) + \left.\dpar{S}{E}\right|_E (-E_1) = S(E) - \frac{E_1}{T} 
+	\text{ (del sistema '2') }
+\]
+\[
+	\Gamma_1(E_1) \approx \euler^{S(E)/k} \euler^{-E_1/kT} 
+\]
+\[
+	\text{ \# conf '1' } = \text{ \# conf '2' } \times \text{ densidad del '1' en el '2' }
+\]
+y finalmente
+\[
+	Q_N (V,T) = \frac{1}{h^{3N}N!} \int d^{3N}p d^{3N}q \euler^{-\Ham(\{ p_i,q_i\})/kT}
+\]
+
+
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
