@@ -592,7 +592,79 @@ y finalmente
 	Q_N (V,T) = \frac{1}{h^{3N}N!} \int d^{3N}p d^{3N}q \euler^{-\Ham(\{ p_i,q_i\})/kT}
 \]
 
+% =================================================================================================
+\section{El gran canónico}
+% =================================================================================================
 
+
+\subsection{Fluctuaciones de densidad}
+
+
+\subsection{Fluctuaciones de energía}
+
+
+\subsection{Gas ideal}
+
+
+\subsection{Equivalencia canónico-gran canónico}
+
+
+\subsection{Otra derivación del gran canónico}
+
+Podemos derivar el gran canónico desde 
+\notamargen{Es la probabilidad de hallar al sistema '1' en un estado con $ E_1, N_1 $.}
+\[
+	\text{Prob } \propto \Gamma_2(E-E_1, N-N_1)
+\]
+\[
+	\log  \Gamma_2(E-E_1, N-N_1) \cong  \log \Gamma_2( E, N ) + \frac{1}{k} \left. \dpar{S(E,N)}{E} \right|_E(-E_1)
+	+\frac{1}{k} \left. \dpar{S(E,N)}{N} \right|_N(-N_1)
+\]
+\[
+	\cong \log \Gamma_2( E, N ) - \frac{E_1}{kT} + \frac{N_1\mu}{kT}
+\]
+\[
+	\text{Prob } \propto \euler^{-\beta E}  \euler^{\beta \mu N}  = \euler^{-\beta E} z^N
+\]
+donde $T$ y $\mu$ son las asociadas al baño.
+\notamargen{$\partial S/\partial E = 1/T$ y $\partial S/\partial N = -\mu / T$.}
+
+
+
+
+% =================================================================================================
+\section{Entropía de Gibbs}
+% =================================================================================================
+
+
+\subsection{Observación promedios}
+
+\[
+	<G> = \frac{\sum_N z^N G Q_N(V,T) }{\Xi} = \frac{\sum_N z^N \sum_\nu G(E_\nu, N, T) Q_N(V,T) }{\Xi}
+\]
+donde el último factor en la sumatoria es $<G>_{\text{CAN}} Q_N(V,T)$.
+
+La parte crítica está en el pasaje de 
+\[
+	\sum_\nu \euler^{ -\beta E_\nu }
+\]
+a algún índice útil que permite realizar la sumatoria. En el caso de cuasipartículas, como osciladores, 
+tenemos
+\[
+	\hat{H} = \sum_i^N \left( n_i + \frac{1}{2} \right) \hbar \omega_i 
+\]
+donde $ n_i $ es el número de fotones del oscilador i-ésimo. Los fonones cumplen el rol de partículas
+\footnote{Porque podemos considerar que la $\sum$ se hace en niveles energéticos en lugar de entre osciladores
+y tenemos un \# indeterminado de ``particulas'' (fonones) distribuidas en 'N' niveles energéticos.}
+Un oscilador ddado puede tener en principio cualquier valor de energía (cualquier valor de $ n_i $) y esto 
+independientemente de los otros $ N-1 $ osciladores. El número total de fonones del sistema
+\[
+	\sum_i^N n_i
+\]
+no es una constante del mismo con lo cual no hay vínculo. Entonces
+\[
+	\sum_\nu \qquad \rightarrow \qquad \sum_{n_1=0}^\infty \sum_{n_2=0}^\infty ... \sum_{n_\nu=0}^\infty
+\]
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
