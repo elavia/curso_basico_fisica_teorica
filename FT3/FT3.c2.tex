@@ -672,8 +672,55 @@ La ecuación de estado se obtiene reemplazando $z$ en la expresión de \eqref{be
 
 \subsection{Fluctuaciones de densidad}
 
+\[
+	<N^2> - <N>^2 =  z\dpar{}{z}\left( z\dpar{}{z} \log \Xi \right)= kTV \dpar[2]{P}{\mu}
+\]
+\[
+	<N^2> - <N>^2 = kTV \dpar{}{\mu}\frac{1}{v} = kTV \frac{1}{v^2}\kappa_T = kT\frac{N^2}{V}\kappa_T 
+	= NkT \frac{\kappa_T}{v}
+\]
+\notamargen{Viene de $\dpar{}{\mu}\frac{1}{v} = -\frac{1}{v^2} \frac{1}{v} \dpar{v}{P} = \frac{1}{v^2}\kappa_T $}
+
+Si $A=Na$ entonces $a=u-Ts$ y entonces 
+\[
+	\dpar{a}{v} = -p
+\]
+\[
+	U = TS-pV+\mu N \quad \Rightarrow \quad u = Ts - pv
+\]
+\[
+	\dpar{\mu}{v} = -P -v\dpar[2]{a}{v} + p = v \dpar{p}{v} \qquad \dpar{p}{\mu} \qquad 
+			= \frac{\dpar{p}{v}}{\dpar{\mu}{v}}=\frac{1}{v}
+\]
+pues 
+\[
+	u - Ts = a = - pV + \mu \qquad \mu = a + pv
+\]
+
+Las fluctuaciones relativas tiende a cero cuando $N\to\infty$ provistos de que $\kappa_T < \infty$. Esto no vale 
+en la transición de fase de primer oden pues 
+\[
+	\left. \dpar{p}{v} \right|_{\text{punto crítico}} = 0 \qquad \frac{1}{v} \dpar{v}{p} \to \infty
+\]
+Se calculan como 
+\[
+	\sqrt{\frac{<N^2> - <N>^2}{N^2}} = \sqrt{ kT\dpar{\kappa_T}{v}\frac{1}{N}} \to 0 \text{ si } N\to\infty
+\]
 
 \subsection{Fluctuaciones de energía}
+
+\[
+	<\Ham^2> - <\Ham>^2 = kT^2 \left( \dpar{U}{T} \right)_{z,V}
+\]
+y como 
+\[
+	\left( \dpar{U}{T} \right)_{z,V} = \left.\dpar{U}{T}\right|_{N,V} + \left.\dpar{U}{N}\right|_{T,V} 
+	\left.\dpar{N}{T}\right|_{z,V}
+\]
+\[
+	<\Ham^2> - <\Ham>^2 = kT^2C_V +  \left[\left. \dpar{U}{N} \right|_{T,V}\right]^2 <(\Delta N)^2>
+\]
+siendo $ kT^2C_V $ fluctuación del canónico y $(\Delta N)^2 = <N^2> - <N>^2 $
 
 
 \subsection{Gas ideal}
