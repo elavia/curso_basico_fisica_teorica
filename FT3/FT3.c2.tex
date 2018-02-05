@@ -725,8 +725,46 @@ siendo $ kT^2C_V $ fluctuación del canónico y $(\Delta N)^2 = <N^2> - <N>^2 $
 
 \subsection{Gas ideal}
 
+\[
+	Q_N = \frac{(Vf(T))^N}{N!} \Rightarrow \Xi = \sum_{N=0}^\infty \frac{(zVf(t))^N}{N!} = \euler^{zVf(T)}
+\]
+\[
+	\beta pV = \log (\Xi) = zVf(T) \qquad <N> = z \dpar{}{z} \log (\Xi) = zVf(T)
+\]
+y luego 
+\[
+	\beta pV = <N> \qquad \rightarrow \quad pV = <N> k T
+\]
+y recuperamos la ecuación de estado del gas ideal.
+
 
 \subsection{Equivalencia canónico-gran canónico}
+
+Para ver que con $ N \to \infty $ son equivalentes consideramos 
+\[
+	\kappa_T = \frac{1}{v} \left( -\dpar{v}{p} \right) < \infty \qquad \dpar{p}{v} < 0
+\]
+
+Pero en la coexistencia de una transición de fase de 1er orden se da 
+\[
+	\dpar{p}{v} = 0  \rightarrow \kappa_T \to \infty \text{ (sistema homogéneo) }
+\]
+
+La idea es ver que 
+\begin{itemize}
+ \item Dado $z$ existe $N$ tal que $ \Xi = \sum_N z^N Q_N(V,T) $
+ \item Dado $N$ existe $z$ tal que $ \Xi = \sum_N z^N Q_N(V,T) $
+\end{itemize}
+
+Esto se comprueba. Además, si:
+\[
+	W (N) = z^N Q_N (V,T) \propto \text{ Prob. de que el sistema tenga $N$ partículas }
+\]
+
+XXX dibujos XXXX
+
+En la transición de fase, donde $ \dpar{p}{v} = 0  $ todos los $ N $ son igual de probables porque
+fluctúa la densidad. La $p$ se mantiene constante pero se varían los $ N_i $ de cada fase 'i'.
 
 
 \subsection{Otra derivación del gran canónico}
@@ -749,12 +787,101 @@ Podemos derivar el gran canónico desde
 donde $T$ y $\mu$ son las asociadas al baño.
 \notamargen{$\partial S/\partial E = 1/T$ y $\partial S/\partial N = -\mu / T$.}
 
+Pensamos en $\eta$ copias del sistema; $n_{E_1N_1} = \# $ de sistemas con energía $E_1$ y $N_1$ partículas,
+luego 
+\[
+	\sum_{\{ E_1, N_1 \}} n_{E_1N_1} = \eta \qquad \sum_{\{ E_1, N_1 \}} n_{E_1N_1}E_1 = n\bar{E}_1 \cong 
+	\text{ Energía Total }
+\]
+\[
+	\sum_{\{ E_1, N_1 \}} n_{E_1N_1} N_1 = \eta \bar{N}_1 \cong \text{ \# Total de partículas (no físico) }
+\]
+donde $ \bar{N}_1 $ es el número de medio.
+\[
+	\Omega\{ n_{E_1N_1} \} = \frac{\eta !}{\prod (n_{E_1N_1})!} \qquad \text{ combinatorio }
+\]
 
+La conbinación de mayor volumen será 
+\[
+	\log \Omega - \alpha \sum n E_1 - \beta_L \sum n N_1 = 0
+\]
+\[
+	-\sum \left[ n\log n - n - \alpha n E_1 - \beta_L n N_1 \right] = 0
+\]
+\[
+	-\sum n \left[ \log n - 1 - \alpha E_1 - \beta_L N_1 \right] = 0 
+	\rightarrow \log(\tilde{n}) = 1 + \alpha E_1 + \beta_L N_1
+\]
+\[
+	\tilde{n} \propto \euler^{\alpha E_1 + \beta_L N_1}
+\]
+que es el conjunto $n_{E_1N_1}$ de mayor volumen en $ \Omega $.
 
+Esperaremos qeu con $ \eta\to\infty $ sea $<n_{E_1N_1}> \cong \tilde{n}_{E_1N_1} $.
+Para determinar $\alpha, \beta$ usaremos 
+\[
+	\tilde{N} \cong <N> = \dpar{}{\beta_L}\left( \log \sum_{\{ E_1, N_1 \}} 
+	\euler^{\alpha E_1 + \beta_L N_1} \right)
+\]
+\[
+	\tilde{E} \cong <\Ham> =  \dpar{}{\alpha}\left( \log \sum_{\{ E_1, N_1 \}}
+	\euler^{\alpha E_1 + \beta_L N_1} \right)
+\]
 
 % =================================================================================================
 \section{Entropía de Gibbs}
 % =================================================================================================
+
+Sea $X$ extensiva mecánica,
+\[
+	S = k \log \Gamma (E,X) \qquad dU = TdS + Y dX, \; \frac{dS}{k} = \beta dU + \xi dX
+\]
+\notamargen{Donde $\beta Y = \xi $}
+Refiriéndo al estado $ \nu $
+\[
+	P_\nu = \frac{ \euler^{-\beta E_\nu - \xi X_\nu } }{ \sum_\nu \euler^{-\beta E_\nu - \xi X_\nu } } =
+	\frac{ \euler^{-\beta E_\nu - \xi X_\nu }}{\Theta}
+\]
+\[
+	<E> = -\dpar{}{\beta} \log \Theta  \qquad <X> = -\dpar{}{\xi} \log \Theta 
+\]
+\notamargen{Caso $X=N$ $z\dpar{}{z} \cong \dpar{}{\beta \mu }$ }
+\[
+	d( \log \Theta ) = -<E> d\beta - <X> d\xi 
+\]
+
+Sea 
+\[
+	\Lag \equiv -k \sum_\nu P_\nu \log P_\nu =
+	-k \sum_\nu P_\nu \log \left[ \euler^{-\beta E_\nu - \xi X_\nu } \Theta^{-1} \right]
+\]
+\[
+	\Lag = \sum_\nu P_\nu k \log \Theta + k P_\nu \beta E_\nu + k P_\nu \xi X_\nu
+\]
+\[
+	\Lag = k\log \Theta + k\beta <E> + k\xi <X>
+\]
+\[
+	d\Lag = k\beta d<E> + k\xi d<X>
+\]
+
+Es una transformada de Legendre que toma $\log \Theta$ y la lleva a una función de $ <E>, <X> $
+\[
+	d\Lag = k \beta dE + k \beta Y dX = dS = \frac{1}{T}dE + \frac{Y}{T} dX 
+\]
+entonces $\Lag$ es la entropía $S$.
+\[
+	\Lag = -k \sum_\nu P_\nu \log P_\nu 
+\]
+y $\nu$ son equiprobables
+\[
+	\Lag = -k \sum_\nu \frac{1}{\Gamma} \log \left( \frac{1}{\Gamma} \right) = 
+	\sum_\nu \frac{k}{\Gamma} \log(\Gamma)
+\]
+y entonces
+\[
+	\Lag = k \log( \Gamma ) \equiv S.
+\]
 
 
 \subsection{Observación promedios}
