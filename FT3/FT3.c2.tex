@@ -913,6 +913,94 @@ no es una constante del mismo con lo cual no hay vínculo. Entonces
 	\sum_\nu \qquad \rightarrow \qquad \sum_{n_1=0}^\infty \sum_{n_2=0}^\infty ... \sum_{n_\nu=0}^\infty
 \]
 
+
+\section{SUELTO: reubicar}
+
+\[
+	Z_N = \int d^{3N}q \prod_{i<j}^N (1+f_{ij}) \qquad \text{ integral configuracional }
+\]
+En realidad esta integral serán $ N(N-1)/2 $ integrales (N-grafos). Podemos factorizar los $ N(N-1)/2 $ grafos
+en l-racimos teniendo en cuenta que se cumple
+\[
+	N = \sum_{l=1}^N ln_l,
+\]
+de forma que cada N-grafo dtermina un conjunto $ \{ m_l \} = (m_1,m_2, ..., m_N) $ de '$m_1$' 1-racimos, '$m_2$' 
+2-racimos y '$m_N$' N-racimos. Por supuesto, un mismo conjunto $ \{ m_l \} $ determina muchos (en principio) N-grafos 
+en función de la permutación de etiquetas.
+\[
+	\frac{N(N-1)}{2} \text{ N-grafos } \rightarrow M \text{ conjuntos } \{ m_l \}
+\]
+y la 
+\[
+	Z_N = \sum_1^{N(N-1)/2 } \text{ N-grafos } \quad \equiv \quad \sum_ {\{ m_l \}}' S(\{ m_l \})
+\]
+donde 
+\[
+	S(\{ m_l \}) = \prod_{l=1}^N \left( \sum \text{ l-racimos de l partículas }\right)^{m_l}
+	\frac{N!}{ 1!^{m_1} 2!^{m_2} ..,N!^{m_N} m_1! m_2! ... m_N!}
+\]
+siendo la productoria entre todos los l-racimos posibles de l partículas y donde el combinatorio tiene en cuenta que 
+habría que permutar entre las etiquetas de las $N$ partículas (pués la sumatoria contempla l-racimos de l partículas).
+
+\[
+	S(\{ m_l \}) = \frac{N!}{ 1!^{m_1} 2!^{m_2} ..,N!^{m_N} m_1! m_2! ... m_N!} \prod_{l=1}^N
+	( l! \lambda^{3(l-1)}Vb_l )^{m_l} 
+\]
+\[
+	S(\{ m_l \}) = N! \lambda^{3N} \prod_{l=1}^N \left( \frac{Vb_l}{\lambda^3}\right)^{m_l}\frac{1}{m_l!}
+\]
+\[
+	Z_N = \sum_ {\{ m_l \}}' S(\{ m_l \})
+\]
+\[
+	Q_N = \frac{1}{N! \lambda^{3N}} Z_N = \sum_ {\{ m_l \}}' \prod_{l=1}^N 
+	\left( 	\frac{Vb_l}{\lambda^3}\right)^{m_l}\frac{1}{m_l!}
+\]
+\[
+	\Xi = \sum_{N=0}^\infty z^N Q_N(V,T) = \sum_{N=0}^\infty z^N \sum_ {\{ m_l \}}' \prod_{l=1}^N 
+	\left( 	\frac{Vb_l}{\lambda^3}\right)^{m_l}\frac{1}{m_l!}
+\]
+\[
+	\Xi = \sum_ {m_1=0}^\infty ... \sum_ {m_N=0}^\infty   z^N \prod_{l=1}^N 
+	\left( 	\frac{Vb_l}{\lambda^3}\right)^{m_l}\frac{1}{m_l!}
+\]
+donde hemos utilizado los resultados
+\[
+	z^N = z^{\sum_1^N l m_l } = \prod_1^N (z^l)^{m_l} \qquad 
+	\prod_{l=1}^N \frac{(l!)^{m_l}}{1!^{m_1}...N!^{m_l}} = 1
+\]
+\[
+	\prod_{l=1}^N  \lambda^{3lm_l} = \lambda^{3\sum_1^N lm_l} = \lambda^{3N}
+\]
+
+\[
+	\Xi = \sum_ {m_1=0}^\infty ... \sum_ {m_N=0}^\infty   z^N \prod_{l=1}^N 
+	\left( 	\frac{Vb_l}{\lambda^3}\right)^{m_l}\frac{1}{m_l!} = 
+	\prod_{l=1}^N  \sum_ {m_1=0}^\infty \frac{1}{m_l!} \left( \frac{z^l Vb_l}{\lambda^3}\right)^{m_l} =
+	\prod_{l=1}^N  \euler^{ \frac{z^l Vb_l}{\lambda^3} } 
+\]
+\[
+	\beta pV = \log \Xi = \sum_l \frac{z^l V b_l}{\lambda^3} = \frac{V}{\lambda^3} \sum_l z^l b_l
+\]
+\[
+	\begin{cases}
+	\beta p = \frac{1}{\lambda^3} \sum_z^l b_l \\
+	\frac{N}{V} = \frac{1}{\lambda^3} \sum_l z^l b_l
+	\end{cases}
+\]
+que es la cluster-expansion.
+
+\subsection{Integral configuracional y $Q_N(V,T)$}
+
+
+
+
+
+
+
+
+
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
