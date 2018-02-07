@@ -52,6 +52,10 @@
 	\newcommand{\dpar}[3][\hspace{-0.05em}]{\frac{\partial^{#1} {#2}}{\partial {#3}^{#1}}}
 	\newcommand{\dtot}[3][\hspace{-0.05em}]{\frac{d^{#1} {#2}}{d {#3}^{#1}}}
 	
+	% Derivada parcial evaluada de #2 con respecto a #3 a #4 constante (#1 es opcional)
+	\newcommand{\dpare}[4][\hspace{-0.05em}]{ \left.\frac{\partial^{#1} {#2}}{\partial {#3}^{#1}}\right|_{#4} }
+	
+	
 	% Para poner índices a tensores
 	\def\hx#1.#2.{_{#1}^{#2}}
 	
