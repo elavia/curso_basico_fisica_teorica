@@ -35,8 +35,132 @@
 
 
 % =================================================================================================
-% \section{Energía y entropía}
+\section{Cuánticos --reubicar}
 % =================================================================================================
+
+Ensamble de $ \mathcal{N} $ sistemas $(k=1,2,...,\mathcal{N})$. Cada uno tiene su estado descripto por 
+\[
+	\Psi^k(\vb{x},t), \qquad \qquad \hat{H} \Psi^k = i\hbar \dpar{\Psi^k}{t} \quad \forall k
+\]
+
+Si son estados puros entonces 
+\notamargen{Todos son la {\it misma} combinación lineal de la base.}
+\[
+	\Psi^k = \sum_n a_n(t) \phi_n(\vb{x}) \qquad \{ \phi_n \} \text{ set ortonormal }
+\]
+Un estado puro es superposición coherente de una base 
+\[
+	i \hbar \dpar{}{t} a_m^k = \sum_n H_{mn}a_n^k
+\]
+
+El sistema k-ésimo puede describirse a partir de $ \Psi^k $ o bien a partir de los coeficientes $ \{ a_n \}$.
+
+Definimos un operador de densidad,
+\notamargen{Promedio en el ensamble de la interferencia cuántica entre $\phi_m$ y $\phi_n$. $p_k$ es la probabilidad
+del estado $k$.}
+\[
+	\rho_{mn} \equiv \sum_{k=1}^\mathcal{N} p_k a_m^k (a_n^k)^*
+\]
+el cual proviene de 
+\[
+	\hat{\rho}_{mn} = \sum_{k=1}^\mathcal{N} p_k \Ket{\Psi^k}\Bra{\Psi^k}
+\]
+\notamargen{¿Y los índices $mn$ capo?}
+
+Puede verse que se cumple
+\[
+	i \hbar \dot{\rho} = [ \hat{H}, \hat{\rho} ],  
+\]
+un teorema de Liouville cuántico.
+ 
+Sea el valor medio de $ \hat{G} $
+\[
+	\braket{G}_{ENS} = \sum_{k=1}^\mathcal{N} p_k \braket{G}_k = 
+	\sum_{k=1}^\mathcal{N} p_k \braket{\Psi^k|\hat{G}|\Psi^k}_k = 
+	\sum_k p_k \int \sum_i a_i^{k*}\phi_i^* \hat{G}\sum_j a_j^k\phi_j dx
+\]
+\[
+	\braket{G}_{ENS} = \sum_k p_k \sum_i \sum_j a_i^{k*}  a_j^k \int \phi_i^* G \phi_j dx =
+	\sum_i \sum_j \left( \sum_k p_k a_i^{k*}  a_j^k \right) G_{ij}
+\]
+\[
+	\braket{G}_{ENS} = \sum_i \sum_j \rho_{ij} G_{ij} = 
+	\text{ Traza }(\hat{\rho}\hat{G}) = \sum_i [\rho G]_{ii}
+\]
+
+Ahora, si el conjunto $\{ \phi_n \}$ fuesen autoestados de $\hat{G}$ entonces 
+\[
+	\int dx \phi_i^* G \phi_j = \int dx \phi_i^* \phi_j g_j = \delta_{ij} g_j = g_i
+\]
+\[
+	\braket{G}_{ENS} = \sum_k p_k \sum_i a_i^{k*}  a_i^k g_i = 
+	\sum_k p_k \sum_i |a_i^k|^2 g_i
+\]
+
+La matriz densidad $\hat{\rho}$ se define de modo que sus elementos $\rho_{ij}$ resultan 
+\[
+	\braket{\phi_i|\hat{\rho}|\phi_j} = \sum_{k=1}^\mathcal{N} p_k \braket{\phi_i|\Psi^k} \braket{\Psi^k|\phi_j} =
+	\sum_{k=1}^\mathcal{N} p_k \int dx \phi^*_i \sum_l a_l^k \phi_l \int dx' \phi_j \sum_m a_m^{k*} \phi_m^*
+\]
+\[
+	\braket{\phi_i|\hat{\rho}|\phi_j} = 
+	\sum_{k=1}^\mathcal{N} p_k \sum_l \sum_m a_l^k a_m^{k*} \int dx \phi^*_i \phi_l \int dx' \phi_j \phi_m^* =
+	\sum_{k=1}^\mathcal{N} p_k \sum_l \sum_m a_l^k a_m^{k*} \delta_{il}\delta_{jm}
+\]
+\[
+	\rho_{ij} = \sum_k p_k a_i^k a_j^{k*}
+\]
+
+El primer postulado de la QSM es asegurarse de que $\rho_{ij} \propto \delta_{ij} $, es decir que
+EN PROMEDIO no hay correlación entre funciones $\{ \phi_i \}$ para diferentes miembros $k$ del ensamble.
+El elemento $\rho_{ij}$ es el promedio en el ensamble de la interferencia entre $\phi_i$ y $\phi_j$.
+
+
+En la práctica los ensambles serán mezcla, una superposición de estados puros pero incoherente, de modo
+que 
+\notamargen{Es muy difícil preparar un ensamble puro.}
+\[
+	\hat{\rho} = \sum_{k=1}^\mathcal{N} p_k \Ket{\Psi^k}\Bra{\Psi^k} \qquad p_k \geq 0 \quad \sum_k p_k = 1 
+\]
+donde $p_k$ serán las {\it abundancias relativas} de los estados puros $\Psi^k$.
+
+Para un ensamble puro sería
+\[
+	\hat{\rho} = \Ket{\Psi}\Bra{\Psi}
+\]
+donde no hay supraíndice $k$ puesto que todos son el mismo estado.
+
+Un estado puro puede escribirse 
+\[
+	\Psi^k = \sum_n a_n \phi_n, \quad \text{ o bien }\quad \Ket{\Psi^k} = \sum_n a_n \Ket{\phi_n}
+\]
+y sabemos que el valor de expectación será
+\[
+	\braket{A}_k = \braket{\Psi^k|\hat{A}|\Psi^k} = \int dx \Psi^{k*} A \Psi^k
+\]
+
+Un estado mezcla será en cambio 
+\be
+	\Ket{\xi} \cong \sum_n p_n\Ket{\phi_n}
+	\label{estado_mezcla}	
+\ee
+donde $\sum_n p_n =1$ y $p_n \in \mathbb{R}>0$. Pero $\Ket{\xi} $ no es un estado de sistema como $\Psi^k$ pués
+\be
+	\Ket{\xi} \neq \sum_n c_n\Ket{\phi_n}
+	\label{falso_mezcla}
+\ee
+no hay cambio de base que lleve \eqref{estado_mezcla} al miembro derecho de \eqref{falso_mezcla}.
+Entonces
+\[
+	\braket{A}_\xi \neq \braket{\xi|\hat{A}|\xi}
+\]
+
+Pero como en la práctica lo que se tiene son estados mezcla, la matriz de densidad $\hat{\rho}$ permite trabajar
+con ellos tranquilamente.
+
+
+
+
 
 
 
