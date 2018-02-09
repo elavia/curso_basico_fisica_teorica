@@ -158,10 +158,129 @@ Entonces
 Pero como en la práctica lo que se tiene son estados mezcla, la matriz de densidad $\hat{\rho}$ permite trabajar
 con ellos tranquilamente.
 
+Sea que evaluamos el valor medio de $ \hat{G} = \hat{\Ham} $ que será la energía $\braket{E}$ en autoestados de 
+$ \hat{\Ham} $.
+\[
+	\braket{\hat{\Ham}}_{ENS} = \braket{E} = \sum_k p_k \sum_i \sum_j a_i^{k*} a_j^k \int \phi_i^* \phi_j E_j =
+	\sum_k p_k \sum_j a_j^{k*} a_j^k E_j
+\]
+\[
+	\braket{E} = \sum_k p_k \sum_j a_j^{k*} a_j^k E_j = \sum_j \left( \sum_k p_k a_j^{k*} a_j^k \right) E_j =
+	\sum_j \rho_{jj} E_j
+\]
 
+Se tiene que $ \hat{\rho} $ es diagonal para un operador $\hat{G}$ tal que utilizamos la base de autoestados.
 
+Querremos que esto valga para cualquier base entonces necesitaremos que las fases sean números aleatorios:
+\[
+	\rho_{ij} = \sum_k^\mathcal{N} p_k a_i^{k*} a_j^k = 
+	\sum_k^\mathcal{N} p_k | a_i^k | | a_j^k |\euler^{i( \theta_i^k - \theta_j^k )}
+\]
+y asi además son equiprobables (microcanónico) los estados base accesibles,
+\[
+	p_k = \frac{1}{\mathcal{N}} \qquad \text{ y } \qquad |a^k_i| = |a_i| \quad \forall k
+\]
+y asimismo pedimos que para cada miembro del ensamble la amplitud sea la misma, se tiene 
+\[
+	\rho_{ij} = | a_i | | a_j | \frac{1}{\mathcal{N}} \sum_k^\mathcal{N} \euler^{i( \theta_i^k - \theta_j^k )}
+	= | a_i | | a_j | \delta_{ij}
+\]
+donde se han usado fases al azar, de modo que 
+\[
+	\rho_{ij} = | a_i |^2 \delta_{ij} = \rho_i \delta_{ij}
+\]
+\notamargen{Esto no está consistente: colapsas la delta o no, papi?}
+y entonces 
+\[
+	\begin{cases}
+	 \rho_i = \displaystyle{ \frac{1}{\Gamma} }\\
+	 \rho_i = 0
+	\end{cases}
+\]
 
+Entonces $ \rho_i $ será la probabilidad del estado de base $ \phi_i $. Se sigue que el operador densidad del
+microcanónico puede escribirse 
+\[
+	\hat{\rho} = \sum_i | a_i |^2 \Ket{\phi_i}\Bra{\phi_i}
+\]
+de manera que es una superposición incoherente de estados de la base $\{ \phi_i \}$
+\[
+	\hat{\rho} = \sum_i \rho_i \Ket{\phi_i}\Bra{\phi_i}
+\]
+y al final del día
+\[
+	\rho_{kl} = \braket{ \phi_k | \hat{\rho} | \phi_l } = \sum_i \rho_i 
+	\braket{ \phi_k | \phi_i }  \braket{ \phi_i | \phi_l } = \sum_i \rho_i \delta_{ki} \delta_{il} = 
+	\rho_k \delta_{kl}
+\]
 
+\[
+	\Omega = 1 \text{ ensamble puro } \qquad \qquad S = k\log \Omega = 0
+\]
+\[
+	\rho_{mn} = \frac{1}{\mathcal{N}} \sum_k^\mathcal{N} a_m^{k*} a_m^k = a_m a_n^* 
+\]
+si es la misma $\Psi \forall k$ el sistema se halla en una combinación lineal de $\phi_n$, o bien
+\[
+	\rho_{mn} = |a_m|^2 \delta_{mn}
+\]
+el sistema se halla en un único autoestado $ \phi_n $
+
+\[
+	\Omega > 1 \text{ ensamble mezcla }
+\]
+
+\subsection{Resumen formalismo}
+
+\[
+	\rho_{ij} = \rho_i \delta_{ij}
+\]
+\[
+	\rho_i = \frac{1}{\Omega} \qquad \text{ Microcanónico }
+\]
+\[
+	\rho_i = \frac{\euler^{-\beta E_i}}{Q_N(V,T)}  \qquad  \text{ Canónico }
+\]
+\[
+	\rho_i = \frac{\euler^{-\beta E_i + \beta \mu N_i }}{\Xi(z,V,T)}  \qquad  \text{ Gran canónico }
+\]
+
+\[
+	\hat{\rho} = \sum_i \Ket{ \phi_i } \rho_i \Bra{ \phi_i } \qquad \qquad \text{ Traza }(\hat{\rho} ) =
+	1 \text{ bien normalizado }
+\]
+\[
+	\hat{\rho} = \frac{1}{\Omega} \sum_i^{\text{ACC}} \Ket{ \phi_i } \Bra{ \phi_i } = 
+	\frac{1}{\Omega} \hat{\mathbb{1}}^{\text{ACC}}  \qquad \text{ Tr }(\hat{\rho} ) = 1 
+\]
+donde $ \hat{\mathbb{1}}^{\text{ACC}}  $ es una indentidad con 0 para los sitios de la diagonal donde no hay
+estado accesible. Luego $ \text{ Traza }(\hat{\mathbb{1}}^{\text{ACC}})  = \Omega $. Para los otros dos casos,
+\[
+	\hat{\rho} = \frac{\euler^{-\beta E_i}}{Q_N(V,T)}  \sum_i^{\text{ACC}} \Ket{ \phi_i } \Bra{ \phi_i } = 
+	\frac{\euler^{-\beta E_i}}{Q_N(V,T)} \hat{\mathbb{1}}^{\text{ACC}} 
+	\qquad \text{ Tr }(\hat{\rho} ) = \frac{1}{Q_N} \text{ Tr }( \euler^{-\beta E_i} \hat{\mathbb{1}}^{\text{ACC}} )
+\]
+\[
+	\hat{\rho} = \frac{\euler^{-\beta E_i + \beta \mu N_i }}{\Xi(z,V,T)} 
+	\sum_i^{\text{ACC}} \Ket{ \phi_i } \Bra{ \phi_i } = 
+	\frac{\euler^{-\beta E_i + \beta \mu N_i }}{\Xi(z,V,T)} \hat{\mathbb{1}}^{\text{ACC}} 
+	\qquad \text{ Tr }(\hat{\rho} ) = 
+	\frac{1}{\Xi} \text{ Tr }( \euler^{-\beta E_i + \beta \mu N_i } \hat{\mathbb{1}}^{\text{ACC}} ) 
+\]
+
+El conteo de estados se hace cuánticamente de modo que no hay paradoja de Gibbs. Los estados accesibles en el
+microcanónico $ (\Omega) $ son tales que sus probabilidad es 
+\[
+	| a_i |^2 = \frac{1}{\Omega} \quad \forall i \text{ accesible }
+\]
+Serán aquellos de la base $ \{ \phi_i \} $ en cuestión tales que la energía resulte vale entre $E$ y $E+\Delta E$.
+
+Los dos postulados
+\begin{itemize}
+ \item i) Equiprobabilidad
+ \item ii) Fases al azar
+\end{itemize}
+aseguran que no hay correlación entre las funciones $ \{ \phi_i \} $ (en promedio).
 
 
 
@@ -169,4 +288,4 @@ con ellos tranquilamente.
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
-\end{document}
+\end{document} 
