@@ -282,7 +282,531 @@ Los dos postulados
 \end{itemize}
 aseguran que no hay correlación entre las funciones $ \{ \phi_i \} $ (en promedio).
 
+% =================================================================================================
+\section{Sistemas de partículas indistinguibles y no interactuantes}
+% =================================================================================================
 
+\begin{itemize}
+ \item no interacción
+ \item indistinguibilidad (partículas idénticas)
+\end{itemize}
+
+\[
+	\hat{H} = \sum_i^N H_i (\vec{q}_i , \vec{p}_i )
+\]
+\[
+	\hat{H} \Psi_E = E \Psi_E \qquad \text{ donde }
+\]
+\[
+	\Psi_E = \prod_{i=1}^{N} u_{e_1}(q_i) \qquad \text{ y } u_{e_1}(q_i)
+\]
+siendo esta última la solución de una única partícula en el nivel $e_i$ 
+y donde $e_i$ es el nivel energético de la partícula 'i'.
+
+El sistema cuántico se describe mediante números de ocupación
+\[
+	E = \sum_{j=1}^L e_j n_j  \qquad \qquad  N = \sum_{j=1}^L  n_j
+\]
+siendo $n_j$ el número de partículas en el nivel de energía $e_j$ 
+\[
+	\Psi_E = \prod_{i=1}^{n_1} u_{e_1}(q_i) \cdot \prod_{i = n_1 + 1 }^{ n_1 + n_2 } u_{e_2}(q_i) \cdot ...
+\]
+
+Permutando coordenadas $(\vb{q}_1,\vb{q}_2,...,\vb{q}_N ) \to (P\vb{q}_1,P\vb{q}_2,...,P\vb{q}_N)$ llego a
+\[
+	\frac{N!}{n_1!n_2!...} = N! \prod_{i=1}^N \frac{1}{n_i!}
+\]
+diferentes estados. Cada vez que permuto dos partículas en diferentes niveles energéticos cuento un estado extra.
+
+Podemos construir una función de onda cuántica correcta (que no se altere por permutaciones) si respetamos
+\[
+	| P\Psi |^2 = | \Psi |^2 \quad \text{ dos casos }
+\]
+\[
+	P\Psi = \Psi \qquad \qquad \qquad P\Psi = 
+	\begin{cases}
+	+ \Psi \text{ número par de permutaciones } \\ 
+	- \Psi \text{ número impar de permutaciones } 
+	\end{cases}
+\]
+\[
+	\text{ simétrica } \qquad \qquad \qquad \qquad \text{ antisimétrica } 
+\]
+\[
+	\Psi = \sum_P P\Psi \qquad \qquad \qquad \Psi = \sum_P \delta_P P\Psi, \delta_P = \pm 1
+\]
+\notamargen{Faltaría el coeficiente de normalización}
+
+La antisimetría puede escribirse como determinante de Slater. Además, una función antisimétrica $\Psi$ será nula 
+al sumar en 'P' si existe más de una partícula en un mismo nivel energético. Esto equivale a tener dos filas
+iguales en el determinante de Slater.
+Vemos que el hecho de forzar la simetría de intercambio ha llevado al PRINCIPIO DE EXCLUSIÓN.
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+ & & \\
+BOSE-EINSTEIN & $ n_i = 0,1,2, ... , N $ & Cualquier ocupación es válida \\
+ (spin entero) & & \\
+FERMI-DIRAC  & $ n_i = o, 1 $ & Sólo puede haber a lo sumo una partícula por nivel \\
+ (spin semientero) & & \\
+\hline
+\end{tabular}
+\end{center}
+\notamargen{La exclusión es $\sum_i^L n_i^2 = N$}
+
+Entonces, dado un conjunto $ \{ n_i \} $ de números de ocupación tendré 
+
+\begin{itemize}
+\item 1 estado bosónico : $ \quad \Psi_S = \sum_P P \Psi_{\text{Boltz}}$
+\item 1 estado fermiónico : $ \quad \Psi_A = \sum_P \delta_P P \Psi_{\text{Boltz}} 
+	\; (\text{ si } N 0 \sum_i^N n_i^2 )$
+\item $ \frac{N!}{\prod_i^L n_i!} $ estados de Boltzmann $ \Psi_{\text{Boltz}} = \prod_{i=1}^N u_i(\vec{q}_i) $
+\end{itemize}
+
+
+\subsection{Gas ideal cuántico}
+
+Consideramos $N$ partículas no interactuantes indistinguibles ocupando un volumen $V$ y con energía $E$
+Un estado es un conjunto $ \{ n_i^\nu \} $ donde 'i' es nivel energético
+\be
+	E_\nu = \sum_i e_i n_i^\nu \qquad \qquad N_\nu = \sum_i n_i^\nu
+	\label{cond_EN}
+\ee
+
+En el microcanónico $ E_\nu = E $ y $ N_\nu = N $ para todo estado $\nu$. Pensamos en cierta estructura 
+fina de niveles
+
+
+donde $g_i$ es el número de subniveles energéticos en la celda 'i' y $n_i$ es el correspondiente número de
+partículas en la celda 'i'.
+
+DIBUJO
+
+Luego
+
+\[
+	\Gamma = \sum_{ \{ n_i \} }' W(\{ n_i \}) = \sum_{ \{ n_i \} }' \prod_i^L  \omega_i 
+\]
+tendremos
+\begin{itemize}
+ \item bosones $ \omega_i = \frac{ ( g_i - 1 + n_i)! }{ (g_i - 1)!n_i!} $
+ \item fermiones $ \omega_i = \frac{ ( g_i - n_i + n_i )! }{ (g_i - n_i)!n_i!} =
+		\frac{ g_i! }{ (g_i -n_i )! n_i!}$
+ \item boltzmanniones $ \omega_i = g_i^{n_i} $ y hay que multiplicar por el factor
+		$ N! / \prod n_i! $
+\end{itemize}
+donde $ \omega_i $ es el número de maneras de tener $ n_i $ en $ g_i $ subniveles.
+\notamargen{Permutaciones de partículas y paredes (bosones). Permutaciones de partículas y huecos
+$g_i \geq n_i $.}
+
+Para el caso de Boltzmann debemos multiplicar por el factor de buen conteo,
+\[
+	\Gamma = \frac{1}{N!} \sum_{ \{ n_i \} }' \prod_i^L \frac{N!}{\prod (n_i)!}(g_i)^{n_i}
+	= \sum_{ \{ n_i \} } \prod_i^L \frac{ (g_i)^{n_i} }{ (n_i)! }
+\]
+
+La entropía $S$ es
+\[
+	S = k \log \sum_{ \{ n_i \} }' W ( \{ n_i \} ) \approx k \log W( \hat{n}_i )
+\]
+donde se supone que el conjunto $ \{ \bar{n}_i \}$ domina la $ \sum' $. Buscaremos ese conjunto
+extremando $S$ sujeto a las condiciones \eqref{cond_EN}.
+
+\[
+	\delta ( k\log W( \{ n_i \} ) ) + \alpha \delta N + \beta \delta E = 0
+\]
+\[
+	\bar{n}_i = \frac{ g_i }{ \euler^{ -\beta \mu } \euler^{ \beta e_i } - 1 } \text{ Bose }
+\]
+\notamargen{Los coeficientes son para las dimensiones. Luego se ve que 
+$ \alpha = -\mu / kT \quad \beta = 1 / kT \quad z \equiv \euler^{ \beta \mu} $}
+\[
+	\bar{n}_i = \frac{ g_i }{ \euler^{ -\beta \mu } \euler^{ \beta e_i } + 1 } \text{ Fermi }
+\]
+\[
+	\bar{n}_i =  g_i \euler^{ \beta \mu } \euler^{ \beta e_i } \text{ Boltzmann }
+\]
+
+Esto da el número de partículas por celda energética 'e$_i$' pero interesará por nivel 'g$_i$'.
+Entonces dividiremos sobre 'g$_i$' y cambiamos el índice 
+\[
+	n_j = \frac{1}{z^{-1}\euler^{\beta e_j} + a} \qquad 
+	a = \begin{cases}
+	 1 \text{ Bose } \\
+	 -1 \text{ Fermi } \\
+	 0 \text{ Boltmann }
+	\end{cases}
+\]
+
+La identificación de los coeficientes puede hacerse desde 
+\[
+	U = TS - pV + \mu N \qquad TS = U  + pV - \mu N
+\]
+\[
+	\frac{S}{k} = \frac{E}{kT} + \frac{pV}{kT} - \frac{\mu}{kT}N \qquad 
+	\quad (S=S(E,V,N))
+\]
+\be
+	\frac{S}{k} = \frac{1}{kT} \sum_i n_i e_i + \frac{pV}{kT} - \frac{\mu}{kT} \sum_i n_i
+	\label{entropiaSoverk}
+\ee
+
+La idea es escribir $ S / k $ en \eqref{entropiaSoverk} de modo que queden explícitas las
+$\sum$ que definen $N$ y $E$. Para Bose es 
+\[
+	\frac{S}{k} = \sum_i n_i \log \left( 1 + \frac{g_i}{n_i} \right) + 
+	g_i \log \left( 1 + \frac{n_i}{g_i} \right)
+\]
+\[
+	n_i \log ( n_i + g_i ) - n_i \log ( n_i ) = 
+	n_i \log ( n_i \euler^{A} \euler^{Be_i} ) - n_i \log ( n_i )
+\]
+\[
+	\sum_i n_i (A + Be_i) + g_i
+\]
+\[
+	\frac{S}{k} = A \sum_i n_i + B \sum_i e_i n_i + \sum_i g_i \log \left( 1 + \frac{n_i}{g_i} \right)
+\]
+\[
+	A = - \frac{ \mu }{ k T } \qquad \qquad B = \frac{1}{ kT }
+\]
+
+\subsection{Microcanónico cuántico (gas ideal) de Boltzmann}
+
+Se puede hacer la cuenta explícitamente.
+\[
+	\frac{S}{k} = \log \left( \prod_i \frac{}{} \right) =
+	\sum_i n_i \log (g_i) - \log n_i!
+\]
+\[
+	\frac{S}{k} \approx 	\sum_i n_i \log \left(\frac{g_i}{n_i}\right) + n_i =
+	\sum_i n_i \left( \log (g_i/n_i) + 1 \right)
+\]
+\[
+	N = \sum_i g_i z \euler^{-\beta e_i} = \sum_j z\euler^{-\beta e_j} =
+	\frac{1}{h^3} \int d^3p z \euler^{-\beta p^2 / 2m } \int d^3 q =
+	\frac{zV}{h^3} (2\pi m k T)^{3/2} = \frac{zV}{\lambda^3}
+\]
+donde hemos preparado el paso al continuo
+
+En Boltmann es 
+\[
+	N = \frac{zV}{\lambda^3} \quad \rightarrow \quad z = \frac{\lambda^3}{v} \ll 1 
+\]
+\[
+	E = \frac{3}{2}NkT \qquad \frac{S}{k} = \beta E - N \log( z ) + N
+\]
+
+
+% =================================================================================================
+\section{Cuánticos II}
+% =================================================================================================
+
+\begin{itemize}
+ \item Gas ideal en el gran canónico, entonces el cálculo de $Q_N$ previamente
+ \item Gas ideal (Boltmann) en el canónico $\to$ multinomial
+\[
+	Q_N = \frac{1}{N!} \sum_{n_1}' \sum_{n_2}' ...  \sum_{n_i}' \frac{N!}{n_1!n_2!...}
+	\euler^{ -\beta \sum_i n_i e_i }
+\]
+\[
+	Q_N = \frac{1}{N!} \sum_{n_1}' \sum_{n_2}' ...  \sum_{n_i}' \frac{N!}{n_1!n_2!...}
+	\prod_i^L \euler^{ -\beta n_i e_i }
+\]
+\[
+	Q_N = \frac{1}{N!} \left( \euler^{-\beta e_1 } + \euler^{ -\beta e_2 } + ... \right)^N
+	= \frac{1}{N!} \left( \sum_i \euler^{-\beta e_i } \right)^N =
+	\frac{1}{N!} \left( \frac{V}{\lambda^3} \right)^N 
+\]
+\[
+	\log (Q_N) = N \log ( V/\lambda^3 ) - N \log N + 1
+\]
+\[
+	\frac{1}{N} \approx \log \left( \frac{v}{\lambda^3} \right)
+\]
+\[
+	\boxed{ \log Q_N = N \left[ \log \left( \frac{v}{\lambda^3} \right) + 1 \right]}
+\]
+\item Gas ideal (Fermi y Bose) en el canónico $\to$ {\it hard} $\to$ paso al gran canónico.
+\[
+	\Xi = \sum_{n=0}^\infty z^N Q_N(V,T)
+\]
+\[
+	\Xi = \sum_{n=0}^\infty \euler^{\beta \mu N} \sum_{n_1}' \sum_{n_2}' ...  \sum_{n_i}' 
+	\euler^{ -\beta \sum_i n_i e_i }
+\]
+y con un {\it magic pass}
+\[
+	\Xi =  \sum_{n_1}^\infty \sum_{n_2}^\infty ... \sum_{n_i}^\infty
+	\euler^{ \beta \mu \sum_i n_i } \euler^{ -\beta \sum_i n_i e_i }
+	= \sum_{n_1}^\infty \sum_{n_2}^\infty  ... \sum_{n_i}^\infty \prod_i \euler^{\beta(\mu -e_i )n_i}
+\]
+\[
+	\Xi =  \prod_i^L \left( \sum_{n_i=0}^\infty \euler^{\beta(\mu -e_i )n_i} \right)
+\]
+
+Para Boltzmann el gran canónico será 
+\[
+	\Xi = \sum_{N=0}^\infty \frac{1}{N!} \left( \frac{zV}{\lambda^3}\right)^N
+\]
+\[
+	\Xi(z,V,T) = \begin{cases}
+	              \prod_i \frac{1}{1- \euler^{\beta(\mu - e_i)}} \qquad \text{ Bose } \\
+	              \prod_i 1 + \euler^{\beta(\mu - e_i)} \qquad \text{ Fermi } \\
+	              \euler^{zV/\lambda^3} \qquad \text{ Boltzmann }
+	             \end{cases}
+\]
+\[
+	\log \Xi(z,V,T) = \frac{pV}{kT} = \begin{cases}
+	              \sum_i -\log (1 - \euler^{\beta(\mu - e_i)} ) \qquad \text{ Bose } \\
+	              \sum_i \log (1 + \euler^{\beta(\mu - e_i)} )  \qquad \text{ Fermi } \\
+	              \frac{zV}{\lambda^3} = z\sum_i^L \euler^{-\beta e_i} \qquad \text{ Boltzmann }
+	             \end{cases}
+\]
+
+El número de partículas sale desde 
+\[
+	\braket{N} = z\dpar{}{z} ( \log \Xi(z,V,T) )
+\]
+\[
+	\braket{N} = \begin{cases}
+	             z \sum_i -\frac{1}{1-z\euler^{-\beta e_i}} (-\euler^{-\beta e_i}) =
+	             \sum_i \frac{1}{ z^{-1}\euler^{\beta e_i} - 1 } \qquad \text{ Bose } \\
+	             z \sum_i \frac{1}{1+z\euler^{-\beta e_i}} (\euler^{-\beta e_i}) =
+	             \sum_i \frac{1}{ z^{-1}\euler^{\beta e_i} + 1 } \qquad  \text{ Fermi } \\
+	             \frac{zV}{\lambda^3} \qquad \qquad \text{ Boltzmann }
+	             \end{cases}
+\]
+\[
+	\braket{n_j} = -\dpar{}{\beta e_j} ( \log \Xi(z,V,T) )
+\]
+\[ 
+	\braket{n_j} = \begin{cases}
+	 \displaystyle   -\frac{-1}{1-z\euler^{-\beta e_i}} (-z\euler^{-\beta e_i})(-1) =
+			\frac{1}{ z^{-1}\euler^{\beta e_i} - 1 } \qquad \text{ Bose } \\
+			\\
+	 \displaystyle    \frac{-1}{1+z\euler^{-\beta e_i}} (z\euler^{-\beta e_i})(-1) =
+	             \frac{1}{ z^{-1}\euler^{\beta e_i} + 1 } \qquad  \text{ Fermi } \\
+	             \\
+	 \displaystyle  z \euler^{-\beta e_j} \qquad \qquad \qquad \qquad \qquad \qquad \text{ Boltzmann }
+	             \end{cases}
+\]
+\end{itemize}
+
+
+\subsection{Funciones termodinámicas}
+
+Todo comienza desde la función de partición
+
+\begin{center}
+\begin{tabular}{c|c}
+ Fermi &  Bose \\
+  & \\
+$ \displaystyle \Xi = \prod_i 1 + \euler^{-\beta(e_i - \mu)} $ & 
+$ \displaystyle \Xi = \prod_i \frac{1}{1 - \euler^{-\beta(e_i - \mu)}} $ \\
+  & \\
+$ \displaystyle \beta p V = \sum_i \log (1 + \euler^{-\beta(e_i - \mu)}) $  & 
+$ \displaystyle \beta p V = \sum_i -\log (1 - \euler^{-\beta(e_i - \mu)}) $ \\
+ & 
+\end{tabular}
+\end{center}
+
+En gas ideal es, en cartesianas, 
+\[
+	e = \frac{|\vec{p}|^2}{2m} = ( p_x^2 + p_y^2 + p_z^2 )/2m 
+\]
+o en esféricas
+\[
+	e = \frac{p^2}{2m} 
+\]
+
+Un gas ideal cuántico generalizará al gas ideal clásico y para valores determinados de los
+parámetros ($T,V$ grandes) debería devolver el resultado clásico.
+\begin{center}
+\begin{tabular}{c|c}
+  & \\
+$ \displaystyle \braket{N} = \sum_i \frac{1}{\euler^{\beta(e_i - \mu)} + 1} $ & 
+$ \displaystyle \braket{N} = \sum_i \frac{1}{\euler^{\beta(e_i - \mu)} - 1} $ \\
+  & 
+\end{tabular}
+\end{center}
+
+El paso al continuo y la integración por partes luego del reemplazo
+\[
+	\beta e = \frac{\beta p^2}{2m} = \frac{p^2}{2mkT} \cong x
+\]
+llevará a 
+\begin{center}
+\begin{tabular}{c|c}
+$ \displaystyle \beta p = \frac{1}{\lambda^3} f_{5/2}(z) $ & 
+$ \displaystyle \beta p = \frac{1}{\lambda^3} g_{5/2}(z) $ \\
+  & \\
+$ \displaystyle \frac{\braket{N}}{V} = \frac{1}{\lambda^3} f_{3/2}(z) $ & 
+$ \displaystyle \frac{\braket{N}}{V} - \frac{N_0}{V}= \frac{1}{\lambda^3} g_{3/2}(z) $ \\
+  & 
+\end{tabular}
+\end{center}
+
+
+\notamargen{$ n_0 = \frac{1}{z^{-1} - 1 } = \frac{z}{1-z}$ se va a $\infty$ con 
+$z\to 1$ que es $\mu \to 0$.}
+Así queda todo en función de 
+\[
+	f_\nu(z) = \frac{1}{\Gamma(\nu)} \int_0^\infty \frac{x^{\nu-1}}{z^{-1}\euler^x + 1} dx \qquad \text{ y }
+	g_\nu(z) = \frac{1}{\Gamma(\nu)} \int_0^\infty \frac{x^{\nu-1}}{z^{-1}\euler^x - 1} dx
+\]
+\begin{center}
+\begin{tabular}{c|c}
+  & \\
+$ \displaystyle \frac{\lambda^3}{v} = f_{3/2}(z) $ & 
+$ \displaystyle \frac{\lambda^3}{v}( N - n_0 ) = g_{3/2}(z) $ \\
+  & 
+\end{tabular}
+\end{center}
+\notamargen{$N-n_0$ es la población en los estados excitados.}
+
+Pero tenemos expresiones en términos de $z$
+\begin{center}
+\begin{tabular}{c|c}
+  & \\
+$ \displaystyle f_\nu (z) = \sum_{j=1}^\infty \frac{(-1)^{j+1}z^j}{j^\nu} $ & 
+$ \displaystyle g_\nu (z) = \sum_{j=1}^\infty \frac{z^j}{j^\nu}  $ \\
+  & 
+\end{tabular}
+\end{center}
+
+Podemos escribir
+\begin{center}
+\begin{tabular}{c|c}
+  & \\
+$ \displaystyle \frac{\lambda^3}{v} = z - \frac{z^2}{2^{3/2}} + \frac{z^3}{3^{3/2}}  - ... \qquad $ & 
+$ \displaystyle \frac{\lambda^3}{v}( N - n_0 ) = z + \frac{z^2}{2^{3/2}} + \frac{z^3}{3^{3/2}}  - ... \qquad $ \\
+  & 
+\end{tabular}
+\end{center}
+con lo cual con $z \ll 1$ nos podemos quedar con los primeros términos.
+Asimismo $ n_0 \ll N$.
+\begin{center}
+\begin{tabular}{c|c}
+  & \\
+$ \displaystyle \beta p = \frac{z - \frac{z^2}{2^{5/2}} + ... }{v(z - \frac{z^2}{2^{3/2}} + ...)} $ & 
+$ \displaystyle \beta p = \frac{z + \frac{z^2}{2^{5/2}} + ... }{v(z + \frac{z^2}{2^{3/2}} + ...)} $ \\
+  & \\
+$ \displaystyle \frac{pV}{NkT} \cong 1 + \frac{\lambda^3}{v 2^{5/2}} $ & 
+$ \displaystyle \frac{pV}{NkT} \cong 1 - \frac{\lambda^3}{v 2^{5/2}} $ \\
+  & 
+\end{tabular}
+\end{center}
+
+Así vemos la corrección positiva (negativa) de origen cuántico.
+La presión en el caso de Fermi es mayor (por exclusión) que la ideal; en cambio en
+Bose es mayor (condensación).
+El gas de Boltzmann tendrá como solución
+\[
+	\frac{\lambda^3}{v} = z
+\]
+clásicamente
+\[
+	\underbrace{ \frac{h^3}{(2 \pi m k T)^{3/2}} }_{ \text{ chico } } 
+	\underbrace{\frac{N}{V}}_{ \text{ chico } } = z = \euler^{\mu / kT}
+\]
+y además como 
+\[
+	\euler^{\frac{\mu}{kT}} \ll 1 \qquad \frac{\mu}{kT} \ll 0
+\]
+y entonces
+\[
+	|\mu| \gg 1, \mu < 0
+\]
+pero $\mu \equiv \partial U / \partial N$ con lo cual decimos que clásicamente al
+aumentar un $\delta N$ tenemos un decrecimiento de la energía $\delta U$ muy grande 
+(con $\delta V = \delta S = 0$).
+\notamargen{Anoté {\it investigarlo} este asunto.}
+
+Hemos pedido que $\euler^{\beta(\mu - e_i )} < 1 $ para Bose de modo que 
+\[
+	\beta(\mu - e_i ) < 0 \qquad \mu < e_i \forall i
+\]
+es el requerimiento para Bose y si $ e_i $ es el ground entonces $ \mu < 0 $.
+Si se da que $ \mu \to 0^- $ con $ e_i = 0 $ entonces $ \braket{n_0} \to \infty $.
+
+Para Fermi no hay requerimientos pero 
+\[
+	0 \leq \braket{n_0} \leq 1
+\]
+
+\subsection{Ecuaciones de estado para los gases ideales}
+
+Hay que pasar al continuo
+\[
+	\frac{pV}{kT} = \log \left[ \Xi (z,V,T) \right] \qquad \qquad 
+	\braket{N} = z\dpar{}{z}\left\{ \log \left[ \Xi (z,V,T) \right] \right\}
+\]
+
+En el caso de Fermi,
+\notamargen{$ x = \beta e = p^2 / 2mkT $}
+\[
+	\frac{pV}{kT} = \frac{V}{\lambda^3} \frac{4}{3\sqrt{\pi}} \int_0^\infty 
+	\frac{x^{3/2}}{z^{-1}\euler^x + 1} = \frac{V}{\lambda^3} f_{5/2}(z)
+\]
+\[
+	\frac{\braket{N}}{V} = \frac{1}{\lambda^3} \frac{1}{2\sqrt{\pi}} \int_0^\infty 
+	\frac{x^{1/2}}{z^{-1}\euler^x + 1} = \frac{1}{\lambda^3} f_{3/2}(z)
+\]
+\[
+	f_\nu(z) = \frac{1}{\Gamma(\nu)} \int_0^\infty \frac{x^{\nu - 1}}{z^{-1}\euler^x + 1} =
+	\sum_{j=1}^\infty (-1)^{j+1} \frac{z^j}{j^\nu}
+\]
+y en el caso de Bose
+\notamargen{No pasamos al continuo el estado fundamental porque puede diverger}
+\[
+	\frac{pV}{kT} = \frac{V}{\lambda^3} \frac{4}{3\sqrt{\pi}} \int_0^\infty 
+	\frac{x^{3/2}}{z^{-1}\euler^x - 1} - \log ( 1 - z ) = 
+	\frac{V}{\lambda^3} g_{5/2}(z) - \log ( 1 - z )
+\]
+\[
+	\frac{\braket{N}}{V} = \frac{1}{\lambda^3} \frac{1}{2\sqrt{\pi}} \int_0^\infty 
+	\frac{x^{1/2}}{z^{-1}\euler^x - 1} + \frac{1}{V} \left( \frac{ 1 }{ z^{-1} - 1 } \right) = 
+	\frac{1}{\lambda^3} g_{3/2}(z) + \frac{\braket{n_0}}{V}
+\]
+\[
+	g_\nu(z) = \frac{1}{\Gamma(\nu)} \int_0^\infty \frac{x^{\nu - 1}}{z^{-1}\euler^x - 1} =
+	\sum_{j=1}^\infty \frac{z^j}{j^\nu}
+\]
+
+
+
+La energía siempre resulta valer
+\[
+	\braket{E} = \frac{3}{2}pV
+\]
+valor que es universal y no depende por lo tanto de la ecuación de estado.
+
+El límite clásico es cuando 
+\[
+	z^{-1}\euler^{\beta e_i} \ggg 1 \qquad \Rightarrow \qquad \frac{\euler^{\beta e_i}}{z} \ggg 1
+\]
+y como $ e_i > 0 $ se da $ \euler^{e_i/kT} > 1 $
+\[
+	z \ll 1 \qquad \euler^{\beta\mu} \ll 1 \qquad \beta\mu \ll 0 \qquad \frac{\mu}{kT} \ll 0
+\]
+\[
+	\mu < 0 \qquad \text{ y } |\mu| \to \infty 
+\]
+pues $ kT \propto 10^{-19} $ Joules (a 10000 $^\circ$K).
+El límite clásico se da con T altas, $ \mu \to -\infty $ y por ello $ z \lll 1$.
+
+DIBUJOS
+
+Sea un sistema ideal de bosones $ \mu < 0 $ $ 0 \leq e $
+\[
+	\braket{n} = \frac{1}{ \euler^{-\beta\mu} \euler^{\beta e} - 1 }
+\]
+se tiene que para $ e=0 $ y $ \beta\mu = -1 $ es $ \braket{n} = $ 0.582 y para $ e=0 $ y $ \beta\mu = -0.5 $
+es $ \braket{n} = $ 1.541
+
+Vemos entonces que el condensado de Bose debe producirse con $ \mu \to 0^{-}$.
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
