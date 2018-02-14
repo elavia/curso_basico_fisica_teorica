@@ -33,11 +33,132 @@
 \chapter{Gas de Fermi}
 % =================================================================================================
 
+DIBUJOS
+\[
+	\braket{n_e} = \frac{1}{z^{-1} \euler^{\beta e} + 1 } = \frac{1}{ \euler^{\beta ( \mu - e) } + 1 }
+\]
+Si $ \mu < 0 $ como $ e > 0 $ siempre, ni aún en el estado de más baja energía se llega a ocupar el
+nivel (restan muchos niveles vacíos).
+
+Sea que $ T \to \infty $ entonces $ \beta \to \infty $ y se sigue que 
+\[
+	\euler^{\beta(e-\mu)} \to \infty e> \mu
+\]
+\[
+	\euler^{\beta(e-\mu)} \to 0 e< \mu
+\]
+\[
+	\euler^{\beta(e-\mu)} \to 1 e = \mu
+\]
+Luego, con $ T = 0 $ es Fermi un escalón. El valor de $ \mu $ que determina el último
+estado ocupado se llama $ e_F$ 
+
+DIBUJO
+
+\[
+	f_{3/2}(z) = \frac{\lambda^3}{v} = \int_0^{\xi = \beta\mu } \frac{x^{1/2}}{\Gamma(3/2)3/2}dx =
+	\frac{4}{3} \frac{1}{\pi^{1/2}} ( \beta\mu )^{3/2} = 
+	\frac{4}{3} \frac{1}{\pi^{1/2}} ( \beta e_F )^{3/2}
+\]
 
 % =================================================================================================
-% \section{Energía y entropía}
+\section{Análisis del gas ideal de Fermi}
 % =================================================================================================
 
+La primera aproximación consiste en 
+\begin{itemize}
+ \item Caso no degenerado : $\frac{\lambda^3}{v} \ll 1 $  que lleva a $ T $ alta y $ v $ alto
+ por ende $ N/V $ chico.
+ \[	
+	z \ll 1 \qquad f_\nu(z) \approx z \qquad \frac{\lambda^3}{v} \approx z
+ \]
+ Si vale la condición entonces 
+ \[
+	\frac{\lambda^3}{v} = \sum_{l=1}^\infty \frac{(-1)^{l+1} z^l }{l^{3/2}} \ll 1 \qquad z \ll 1
+ \]
+ \[
+	\beta p V \approx 1 + \frac{\lambda^3}{v 2^{5/2}} \qquad \qquad U = \frac{3}{2} \frac{N}{\beta}
+	\left( 1 + \frac{\lambda^3}{v 2^{5/2}} \right)
+ \]
+ \item $\frac{\lambda^3}{v} < 1 $ entonces $ z < 1 $ y hay que expandir el virial,
+ \[
+	\beta p V = \sum_{l=1}^\infty (-1)^{l-1} a_l \left(\frac{\lambda^3}{v} \right)^{l-1}
+ \]
+ que igualando coeficientes se hace (¿?)
+ \notamargen{ $\lambda^3 / v $ a orden 1 hay efectos cuánticos }
+ \[
+	f_{5/2}(z) = f_{3/2}(z) \cdot \sum_{l=1}^\infty (-1)^{l-1} a_l \left(\frac{\lambda^3}{v} \right)^{l-1}
+ \]
+ \item $\frac{\lambda^3}{v} \approx 1 $ Cálculo numérico
+ \item Caso altamente degenerado : $\frac{\lambda^3}{v} \gg 1 $ se tiene $ z \gg 1 $ 
+ Se puede expandir $ f_\nu(z) $ en función de $ (\log )^{-1} $ mediante lema de Sommerfeld
+ \notamargen{ $ z \ggg 1 $ entonces $ \log z \gg 1 $ $ ( \log z )^{-1} \ll 1 $ $ \log z = \beta \mu $ }
+ \[
+	f_{5/2}(z) = \frac{8}{15\pi^{1/2}} (\log z)^{5/2} \left[ 1 + \frac{5\pi^2}{8}(\log z)^{-2} + ... \right]
+ \]
+ \[
+	f_{3/2}(z) = \frac{4}{3\pi^{1/2}} (\log z)^{3/2} \left[ 1 + \frac{\pi^2}{8}(\log z)^{-2} + ... \right]
+ \]
+ y entonces
+ \[
+	\frac{\lambda^3}{v} = \frac{4}{3\pi^{1/2}} (\log z)^{3/2}  \quad \text{ a orden 0 }
+ \]
+ \[
+	\frac{h^3}{ (2\pi mkT)^{3/2} } \frac{N}{V} \frac{3\pi^{1/2}}{4} (kT)^{3/2} = \mu^{ 3/2 }
+ \]
+ \[
+	\frac{ h^3 }{ \pi } \frac{ N }{ V } \frac{ 3 }{ ( 2m )^{ 3/2 } 4 } = \mu^{ 3/2 } = e_F^{3/2}
+ \]
+ \[
+	\frac{\lambda^3}{v}\frac{3\pi^{1/2}}{4} (kT)^{3/2} = 
+	\mu^{3/2}\left[ 1 + \frac{\pi^2}{8}(\log z)^{-2} + ... \right]
+ \]
+ \[
+	\frac{ h^3 }{ \pi } \frac{ N }{ V } \frac{ 3 }{ ( 2m )^{ 3/2 } 4 } = e_F^{3/2} \approx
+	\mu^{3/2} \left[ 1 + \frac{\pi^2}{8}(\log z)^{-2} \right]
+ \]
+ \[
+	e_F \approx \mu \left[ 1 + \frac{\pi^2}{8}( \frac{ \mu }{ kT } )^{-2} \right]^{ 2/3 } \approx 
+	\mu \left[ 1 + \frac{\pi^2}{12}( \frac{ kT }{ \mu } )^{2} \right]
+ \]
+ \notamargen{Anoté {\it investigar este pasaje}. }
+ \[
+	e_F \approx \mu \left[ 1 - \frac{\pi^2}{12}( \frac{ kT }{ e_F } )^{2} \right]
+ \]
+ y consideramos
+ \[
+	\frac{1}{\mu^2} \approx \frac{1}{e_F^2}
+ \]
+ pués $ \mu $ es muy grande.
+ \[
+	\beta p v = \frac{ f_{5/2}(z) }{ f_{3/2}(z) } \approx \frac{ 2 \beta \mu }{ 5 } 
+	\left[ 1 + \frac{ 5\pi^2 }{ 8 } \left( \frac{kT}{\mu} \right)^2 \right]
+	\left[ 1 - \frac{ \pi^2 }{ 8 } \left( \frac{kT}{\mu} \right)^2 \right]
+ \]
+ Hasta orden dos en $ T $ resulta 
+ \[
+	pv \approx \frac{ 2 \mu }{ 5 } \left[ 1 + \frac{ \pi^2 }{ 2 } \left( \frac{kT}{\mu} \right)^2 \right] =
+	\frac{ 2 e_F }{ 5 }\left[ 1 - \frac{ \pi }{ 12 } \left( \frac{kT}{e_F} \right)^2 \right] 
+	\left[ 1 + \frac{ \pi^2 }{ 2 } \left( \frac{kT}{e_F} \right)^2 \right] 
+ \]
+ \[
+	pv \approx \frac{ 2 e_F }{ 5 } \left[ 1 + \frac{ 5 \pi^2 }{ 12 } \left( \frac{kT}{e_F} \right)^2 \right] 
+ \]
+ \[
+	U = \frac{3}{2} p v \approx \frac{3}{5} N e_F 
+	\left[ 1 + \frac{ 5 \pi^2 }{ 12 } \left( \frac{kT}{e_F} \right)^2 \right] 
+ \]
+ \[
+	C_V = \dpar{U}{T} \approx \frac{ N \pi^2 k^2 T }{ 2e_F } \qquad C_V \propto T
+ \]
+ \[
+	C_V \approx \frac{\pi^2}{2} Nk \left( \frac{T}{T_F} \right)
+ \]
+ DIBUJO 
+ $T_F$ siempre estará ene general en la zona clásica donde no vale la aproximación degenerada.
+ 
+ Calor específico Fermi (¿?)
+\end{itemize}
 
 
 
