@@ -159,6 +159,49 @@ La primera aproximación consiste en
  $T_F$ siempre estará ene general en la zona clásica donde no vale la aproximación degenerada.
  
  Calor específico Fermi (¿?)
+ \item Caso totalmente degenerado : $\frac{\lambda^3}{v} \to \infty \qquad (T \to 0) \qquad z \to \infty $
+ 
+ La distribución de estados es escalón,
+ \[
+	\braket{N} = \frac{ 4 \pi V }{ h^3 } \int_0^{p_F} p^2 \Frac{ 1 }{ z^{-1} \euler^{\beta p^2 / 2m } + 1} dp
+ \]
+ \notamargen{$ z = \euler^{\beta\mu} $ y $z(T\to 0) = \euler^{\beta e_F } \to \infty $}
+ \[
+	\braket{N} = \frac{ 4 \pi V }{ h^3 } \int_0^{p_F} p^2 dp
+ \]
+ 
+ Notemos que 
+ \notamargen{Teniendo el límite sale la cuenta}
+ \[
+	pV = \frac{ 4 \pi V }{ h^3 } \int_0^{p_F} p^2 kT \log (1 + \euler^{ -1/kT( p^2/2m - \mu_0 )} ) dp
+ \]
+ tiene un comportamiento no trivial con $ T \to 0 $. Si $ kT \to 0 $ entonces si $e > \mu_0$ el $\log \to 0$
+ y si $e < \mu_0$ el $\log \to \infty $.
+ Parecería que con $ T \to 0 $ es
+ \[
+ 	pV = \frac{ 4 \pi V }{ h^3 } \int_0^{p_F} p^2 \left( \frac{ p^2 }{ 2m } - \mu_0 \right) dp
+ \]
+ y haciendo el cambio de variables de acuerdo a $ p^2 / 2m = e $, que lleva a $ pdp = m de $, se tiene 
+ \[
+ 	pV = \frac{ 4 \pi V }{ h^3 } \int_0^{e_F} \sqrt{2e} m^{3/2} ( e -\mu_0 ) de
+ \]
+ \[
+	pV = \frac{ 4 \pi V }{ h^3 } 2^{ 1/2 } m^{ 3/2 } 
+	\left( \frac{e_F^{ 5/2 }}{5/2} - \mu_0 \frac{e_F^{ 5/2 }}{3/2} \right) =
+	\frac{ 4 \pi V }{ h^3 }2^{ 1/2 } m^{ 3/2 } e_F^{ 5/2 } \frac{ 4 }{ 15 }
+ \]
+ \[
+	U = \frac{3}{2} p V = \frac{ 4 \pi V }{ h^3 }2^{ 1/2 } m^{ 3/2 } e_F^{ 5/2 } \frac{ 2 }{ 5 }
+ \]
+ \[
+	p = \frac{2}{5} e_F \frac{\braket{N}}{V} \qquad U = \frac{3}{5} e_F \braket{N} 
+ \]
+ A $ T = 0 $ tenemos presión y energía no nulas; las partículas no se acomodan todas en un único nivel energético
+ (exclusión de Pauli).
+ Para $ T \approx 0 $ ( $T$ bajas) el escalón en estados apenas se desdibuja
+ 
+ DIBUJO.
+ 
 \end{itemize}
 
 
