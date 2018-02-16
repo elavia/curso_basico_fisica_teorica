@@ -204,6 +204,93 @@ La primera aproximación consiste en
  
 \end{itemize}
 
+% =================================================================================================
+\section{Cuánticos III --reubicar--}
+% =================================================================================================
+ 
+ \subsection{Los números de ocupación}
+ 
+ DIBUJO
+ 
+ Se ve que para Bose $ \mu < 0 $ siempre pero $ \braket{n} \to \infty $ si $ \mu \to 0^+ $.
+ El gráfico es para $T$ alta. Con $ T $ bajas todo tiende a suceder más pegado al eje $ \beta(e-\mu) = 0 $
+ 
+ \subsection{Comportamiento de $ f_{3/2}(z) $}
+ 
+ \[
+	f_{3/2}(z) = \sum_{j=1}^\infty (-1)^{j+1}\frac{z^j}{j^{3/2}} \approx z - \frac{z^2}{2^{3/2}} \qquad 
+	\text{ $z$ chico }
+ \]
+ \[
+ 	f_{3/2}(z) = \frac{1}{\Gamma(3/2)} \int_0^\infty \frac{x^{1/2}}{z^{-1}\euler^{x} + 1} dx \approx  
+ 	\frac{1}{\Gamma(3/2)} \int_0^{\log z = \beta\mu} x^{1/2} dx
+ \]
+ 
+Notemos que con $ \beta \mu $ grande el integrando es 1 o 0 (DIBUJO); en realidad es un escalón en el límite
+en que $ \xi \equiv \beta\mu \to \infty$
+\notamargen{Definimos $ \log z \equiv \xi $ para no especular con temperaturas. }
+
+\[
+	f_{3/2}(z) = \frac{4}{ 3 \sqrt{\pi} } (\log z )^{3/2} \text{ $z$ muy alto }
+\]
+\[
+	f_{3/2}(z) = \frac{4}{ 3 \sqrt{\pi} } \left[ (\log z )^{3/2} + \frac{\pi^2}{8}(\log z )^{-1/2} + ... \right]
+\]
+
+El valor $ \lambda^3 / v $ determina relación entre $ T,V,N $ que son los parámetros macroscópicos que uno fija.
+
+\subsection{Casos}
+
+\begin{itemize}
+ \item Comportamiento clásico: $\frac{\lambda^3}{v} \ll 1$ Altas $T$ y bajas $n\equiv \frac{N}{V}$ 
+ \[
+	\frac{\lambda^3}{v} = f_{3/2}(z) \approx z - \frac{z^2}{2^{3/2}}
+ \]
+ y por inversión de la serie 
+ \[
+	z = \frac{\lambda^3}{v} + \Frac{\lambda^3}{v}^2 2^{-3/2}
+ \]
+ \notamargen{Sabemos que en Boltzmann es $\frac{\lambda^3}{v} = z$ }
+ y entonces si $\frac{\lambda^3}{v} \ll 1$ se tiene que $ z \ll 1 $
+ \[
+	\frac{pv}{kT} = \frac{v}{\lambda^3} f_{5/2}(z) \qquad \qquad \frac{\lambda^3}{v} = f_{3/2}(z)
+ \]
+ \[
+	\frac{pv}{kT} = \frac{f_{5/2}(z)}{f_{3/2}(z)} \approx \frac{z - z^2/2^{5/2}}{z - z^2/2^{3/2}}
+	\approx 1 + \frac{1}{2^{3/2}} \Frac{\lambda^3}{v}
+ \]
+ siendo el último término una corrección cuántica.
+ 
+  \item Comportamiento cuántico : $\frac{\lambda^3}{v} \gg 1$ Bajas $T$ y altas $n\equiv \frac{N}{V}$ 
+  
+  A $ T = 0 $ determinamos la $ e_F $ como (con el límite de $T\to 0$)
+  \[
+	\frac{\lambda^3}{v} = \frac{1}{\Gamma(3/2)} \int_0^{\log z = \beta\mu} x^{1/2} dx = 
+	 \frac{4}{ 3 \sqrt{\pi} } (\log z )^{3/2}
+  \]
+  \[
+	\Frac{ 3  \lambda^3  \sqrt{\pi} }{4v}^{2/3} = \Frac{ 3  h^3  \sqrt{\pi} }{4(2\pi m k T)^{3/2}v}^{2/3} 
+	= \log z =  \beta e_F
+  \]
+  \[
+	\frac{h^2}{2m}\Frac{3}{4\pi v}^{2/3} = e_F = \frac{\hbar}{2m}\Frac{6\pi^2}{v}^{2/3}
+  \]
+  A $ T = 0 $ la ocupación por nivel es un escalón ($e_F = \mu(T=0) $) 
+  \[
+	\braket{n_e} = 	\begin{cases}
+			1 \qquad e < e_F \\
+			0 \qquad e > e_F
+			\end{cases}
+  \]
+\end{itemize}
+
+\subsection{Funciones termodinámicas con $T$ baja y $n$ alta}
+
+Usamos Sommerfeld
+\[
+	\frac{\lambda^3}{v} = f_{3/2}(z) \qquad  \qquad \mu = e_F
+\]
+
 
 
 
