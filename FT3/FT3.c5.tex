@@ -119,7 +119,7 @@ La primera aproximación consiste en
  \]
  \[
 	e_F \approx \mu \left[ 1 + \frac{\pi^2}{8}( \frac{ \mu }{ kT } )^{-2} \right]^{ 2/3 } \approx 
-	\mu \left[ 1 + \frac{\pi^2}{12}( \frac{ kT }{ \mu } )^{2} \right]
+	\mu \left[ 1 + \frac{\pi^2}{12} \Frac{ kT }{ \mu }^{2} \right]
  \]
  \notamargen{Anoté {\it investigar este pasaje}. }
  \[
@@ -290,7 +290,90 @@ Usamos Sommerfeld
 \[
 	\frac{\lambda^3}{v} = f_{3/2}(z) \qquad  \qquad \mu = e_F
 \]
+orden 1
+\[
+	\frac{\lambda^3}{v} =  
+	\frac{4}{3\sqrt{\pi} } (\log z )^{3/2} \left[ 1 + \frac{\pi^2}{8}(\log z )^{-2} \right] 
+\]
+\[
+	\frac{\lambda^3}{v} \frac{3\sqrt{\pi} }{4} \left[ 1 + \frac{\pi^2}{8}(\log z )^{-2} \right]^{-1} 
+	\approx (\log z)^{3/2} 
+\]
+\[
+	e_F \left( 1- \frac{\pi^2}{12}\Frac{T}{T_F}^2 \right) \approx \mu( T ) \text{ cumple $\mu(T=0)=e_F$}
+\]
+Puede verse que con $ \frac{\lambda^3}{v} \ggg 1 $ ($T$ baja y $n$ alta) es
+\[
+	C_V \approx \frac{N \pi^2 k^2 T}{2 e_F}
+\]
+DIBUJO
 
+Aún a $T=0$ hay presión no nula pero $S \to 0$ con $T \to 0$ respetando la tercera ley.
+Existe una relación de recurrencia
+\[
+	z\dpar{}{z} f_\nu(z) = z\dpar{}{z} \sum_{l=1}^\infty (-1)^{l+1} \frac{z^l}{l^\nu} =
+	\sum_{l=1}^\infty (-1)^{l+1} \frac{l z^{l-1} z}{l^\nu} = 
+	\sum_{l=1}^\infty (-1)^{l+1} \frac{z^l}{l^{\nu-1}} = f_{\nu-1}(z)
+\]
+\[
+	f_\nu(z) = \int \frac{1}{z} f_{\nu-1}(z) dz
+\]
+\[
+	f_{3/2}(z) \approx \frac{4}{3\sqrt{\pi}} (\log z)^{5/2}
+\]
+entonces
+\[
+	f_{5/2}(z) = \int dz \frac{4}{3\sqrt{\pi}} \frac{(\log z)^{3/2}}{z} =
+	 \frac{4}{3\sqrt{\pi}} \int dz \frac{ 2 }{ 5 } \dpar{}{z} (\log z)^{5/2} =
+	\frac{8}{15\sqrt{\pi}}(\log z)^{5/2}
+\]
+\notamargen{Usamos $d(\log z)^n = n (\log z)^{n-1}/z $}
+
+\notamargen{¿Y estas cuentas sueltas?}
+\[
+	n_x^2 + n_y^2 + n_z^2 = r^2 \qquad V=\frac{4}{3}\pi r^3 \qquad dV = 4\pi r^2 dr
+\]
+\[
+	E = \frac{(\hbar \pi)^2}{2ma^2}r^2 \qquad \qquad dE = \frac{(\hbar \pi)^2}{ma^2}r dr
+\]
+\[
+	N(r) dr = \frac{\pi}{2} r^2 dr 
+\]
+será lo mismo que el incremento en niveles energéticos
+\[
+	N(e)de = \frac{m^2 a^3}{\pi^2 \hbar^3} \Frac{E}{2}^{1/2} dE
+\]
+Pensamos un conjunto de nucleones como un gas de Fermi. 
+\notamargen{Recordemos que a $T=0$ era $pV=2/5 N e_F$ y $U=3/5 N e_F$}
+Claramente
+\[
+	N = 2 \int_0^{e_F} N(e) \; de
+\]
+porque tenemos la ocupación en función de la energía
+\[
+	e_F \propto \Frac{N}{V}^{2/3} \text{ según la definición de $e_F$ }
+\]
+
+Para un núcleo se tienen N=A-Z nucleones, siendo Z protones y A nucleones.
+\[
+	E = \frac{3}{5}N_Te_F (\text{ a } T=0)
+\]
+\[
+	E = \frac{3}{5}\left[ Z\Frac{Z}{V}^{2/3} + (A-Z)\Frac{A-Z}{V}^{2/3} \right] =
+	\frac{3}{5}\Frac{ Z^{5/3} + (A-Z)^{5/3} }{A^{2/3}}
+\]
+\notamargen{$V \propto A$}
+donde hemos supuesto ambos pozos iguales. Si los pozos no fueran iguales cambia la
+$e_F$.
+
+Se minimiza $E$ con $Z=A/2$ (simetría)
+\[
+	f_4 \propto E-E_0 = \frac{3}{5A^{2/3}} \left[ Z^{5/3} + (A-Z)^{5/3} - 2(A/2)^{5/3} \right]
+\]
+que se puede reescribir como 
+\[
+	f_4 \propto \frac{(A/2 - Z)^2}{A} \text{ término de simetría }
+\]
 
 
 
