@@ -375,6 +375,76 @@ que se puede reescribir como
 	f_4 \propto \frac{(A/2 - Z)^2}{A} \text{ término de simetría }
 \]
 
+\subsection{Cuánticos 3 -- más material para reubicar--}
+
+Un esquema de temas:
+comportamiento de los números de ocupación
+gas de Fermi : comportamiento de $f_\nu(z)$ con $ \nu = 3/2 $
+gas de Fermi con condiciones extremas
+\[
+	\lambda^3 / v \ggg 1 \qquad \qquad \lambda^3 / v \lll 1
+\]
+$e_F$ con degeneración $g$
+funciones termodinámicas con $\lambda^3 / v \ggg 1$ $ S \to 0 $ con $ T\to 0$
+Aproximación de gas de Fermi para núcleo
+densidad de estados $g(e)$
+
+
+La expresión para $ \mu(T) $ con $ T \geq 0 $ sale de 
+\[
+	\frac{\lambda^3}{v} =  
+	\frac{4}{3\sqrt{\pi} } (\log z )^{3/2} \left[ 1 + \frac{\pi^2}{8}(\log z )^{-2} \right] 
+\]
+\[
+	( \log z )^{3/2} = \frac{ 3\sqrt{\pi} h^3 }{ ( 2 \pi m )^{3/2} (kT)^{3/2} 4v }   
+	\frac{1}{\left[ 1 + \frac{\pi^2}{8}(\log z )^{-2} \right] }
+\]
+\[
+	\mu = \Frac{3 \sqrt{\pi} }{4v}^{2/3} \frac{h^2}{2\pi m}
+	\left( 1 + \frac{\pi^2}{8\log^2 z}\right)^{-2/3}
+\]
+\[
+	\mu = e_F \left[ 1 - \frac{\pi^2}{12} \Frac{kT}{e_F}^2 \right]
+\]
+y con $T$ baja podemos escribir todo en función de la $e_F$.
+\notamargen{Hay un yeite en la deducción que refiere a que abajo es lo mismo usar orden 1 que
+orden dos y reemplazo $ (\beta \mu)^{-2} $ por $(\beta e_F)^{-2}$}
+\[
+	E = \frac{3}{5}Ne_F \qquad \qquad \text{ con } T=0
+\]
+
+Lo importante de tener $ f_{3/2}(z) $ en función de $ \lambda^3/v $, desde 
+\[
+	 \lambda^3/v  = f_{3/2}(z) 
+\]
+DIBUJO
+
+es que vemos que $z$ chico lleva a $ \lambda^3/v $ grande y consecuentemente $z$ grande lleva a
+$ \lambda^3/v $ grande.
+
+Luego,
+\begin{multline*}
+	\text{ clásico } z \ll 1 \\
+	\frac{ \lambda^3 }{ v } \ll 1 \text{ independientemente }
+\end{multline*}
+\begin{multline*}
+	\text{ cuántico } z \gg 1 \\
+	\frac{ \lambda^3 }{ v } \gg 1 \text{ independientemente }
+\end{multline*}
+
+Con $ T=0$ es $\mu(T=0)=e_F$
+DIBUJO escalón
+
+Cuántico (límite máximo) entonces
+\[
+	z \to \infty \Rightarrow \frac{ \lambda^3 }{ v } = \frac{4(\log z)^{3/2}}{3\sqrt{\pi}}
+\]
+\[
+	\frac{ \lambda^3 }{ v } = \frac{4}{2\sqrt{\pi}}(\beta e_F)^{3/2} \text{ con } z=\euler^{\beta e_F}
+\]
+
+Entonces $e_F$ es el nivel tal que debajo de él hay N estados. En el espacio de momentos las partículas
+ocupan una esfera de radio $p_F$.
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
