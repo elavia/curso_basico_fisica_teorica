@@ -329,6 +329,49 @@ entonces
 \]
 \notamargen{Usamos $d(\log z)^n = n (\log z)^{n-1}/z $}
 
+\subsection{Sobre la aproximación de gas de Fermi para el núcleo}
+
+En lo que sigue una deducción más detallada del cálculo.
+Considero una caja de lados $L$
+\[
+	\vb{k} = \frac{2\pi}{L} \vb{n} \qquad \hbar \vb{k} = \vb{p} = \frac{h}{L} \vb{n}
+\]
+\notamargen{Tomo en el origen de coordenadas $n_i = \pm 1, \pm 2, ...$ y así voy de $-L/2$ a $L/2<$.}
+\[
+	E = \frac{( \hbar |\vb{k}| )^2}{ 2m } = \frac{ \hbar^2 }{ m } \frac{2\pi^2}{L^2}
+	(n_x^2 + n_y^2 + n_z^2) \qquad n_i \in \mathbb{Z}
+\]
+Quiero saber qué densidad de estados energéticos tengo. Para ello, en esféricas
+\[
+	E = \frac{ \hbar^2 }{ m } \frac{2\pi^2}{L^2} r^2
+\]
+donde $r$ vive en la esfera (no es necesario tomar el octante y dividir sobre 8)
+\[
+	g(E) dE = N(r) dr = 4\pi r^2 dr
+\]
+siendo $g(E) dE$ el número de puntos entre $E$ y $E+dE$,
+\[
+	dE = \frac{(\hbar \pi)^2}{L^2 m}4 r dr 
+\]
+\[
+	g(E) dE = \frac{ L^3 m^{3/2} E^{1/2} }{ \hbar^{3/2} \pi^2  \sqrt{2}}dE
+\]
+\[
+	N = g\int_0^{e_F} g(E) dE = \sqrt{2} \frac{ V m^{3/2} }{ \hbar^3 \pi^2 } 
+	\int_0^{e_F} e^{1/2} dE
+\]
+\[
+	N = \frac{ V m^{3/2} }{ \hbar^3 \pi^2 } \frac{2^{3/2}}{3} e_F^{3/2}
+\]
+\[
+	\frac{1}{v} = \frac{ m^{3/2} }{ \hbar^3 \pi^2 } \frac{2^{3/2}}{3} e_F^{3/2}
+\]
+y entonces deducimos de aquí que 
+\[
+	e_F = \frac{\hbar}{2m} \Frac{3\pi^2}{v}^{2/3}
+\]
+que coincide con la expresión para $e_F$ con degeneración $g=2$
+
 \notamargen{¿Y estas cuentas sueltas?}
 \[
 	n_x^2 + n_y^2 + n_z^2 = r^2 \qquad V=\frac{4}{3}\pi r^3 \qquad dV = 4\pi r^2 dr
@@ -354,25 +397,43 @@ porque tenemos la ocupación en función de la energía
 	e_F \propto \Frac{N}{V}^{2/3} \text{ según la definición de $e_F$ }
 \]
 
-Para un núcleo se tienen N=A-Z nucleones, siendo Z protones y A nucleones.
+Al aplicar este modelo (del gas de Fermi) al núcleo hacemos algunas consideraciones
+\[
+	R = a_0 A^{1/3} \qquad V \propto A 
+\]
+siendo $A$ el número de nucleones.
+
+Para un núcleo se tienen N=A-Z neutrones, siendo Z protones y A nucleones.
 \[
 	E = \frac{3}{5}N_Te_F (\text{ a } T=0)
+\]
+y tenemos un $e_F$ de protones y de neutrones, que son 
+\[
+	e_{Fp} \propto \Frac{Z}{A}^{2/3} \qquad \qquad 
+	e_{Fn} \propto \Frac{A-Z}{A}^{2/3}
 \]
 \[
 	E = \frac{3}{5}\left[ Z\Frac{Z}{V}^{2/3} + (A-Z)\Frac{A-Z}{V}^{2/3} \right] =
 	\frac{3}{5}\Frac{ Z^{5/3} + (A-Z)^{5/3} }{A^{2/3}}
 \]
-\notamargen{$V \propto A$}
 donde hemos supuesto ambos pozos iguales. Si los pozos no fueran iguales cambia la
 $e_F$.
 
-Se minimiza $E$ con $Z=A/2$ (simetría)
+Se minimiza $E$ con $Z=N=A/2$ (simetría)
 \[
 	f_4 \propto E-E_0 = \frac{3}{5A^{2/3}} \left[ Z^{5/3} + (A-Z)^{5/3} - 2(A/2)^{5/3} \right]
 \]
-que se puede reescribir como 
+que se puede reescribir en función de $D = (N-Z)/2 = (A - 2Z)/2 = A/2 - Z$ (que será chico) y
+de esta manera 
 \[
-	f_4 \propto \frac{(A/2 - Z)^2}{A} \text{ término de simetría }
+	Z = \frac{A}{2} - D \qquad A-Z = \frac{A}{2} + D
+\]
+\[
+	f_4 \propto \frac{3}{5} \left( \frac{ [A/2 - D]^{5/3} + [A/2 + D]^{5/3} - 2[ A/2 ]^{5/3} }{A^{2/3}}\right)
+\]
+y que con un Taylor en $ D \approx 0 $ resulta 
+\[
+	f_4 \propto \frac{(A/2 - Z)^2}{A} \propto D^2 \text{ término de simetría }
 \]
 
 \subsection{Cuánticos 3 -- más material para reubicar--}
