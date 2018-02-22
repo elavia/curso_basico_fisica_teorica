@@ -508,6 +508,93 @@ Entonces $e_F$ es el nivel tal que debajo de él hay N estados. En el espacio de
 ocupan una esfera de radio $p_F$.
 
 
+\subsection{Estadísticas --otra cosa para reubicar--}
+
+Esta sección es un sketchi
+
+\[
+	\braket{n}_i = \frac{1}{ \euler^{\beta(e_i - \mu)} + a} \qquad \qquad 
+	\begin{cases}
+	 a = 0 \quad \text{ MB } \\
+	 a = -1 \quad \text{ BE } \\
+	 a = 1 \quad \text{ FD } 
+	\end{cases}
+\]
+
+DIBUJO 
+
+Graficamos $1/ \euler^x + a $
+En la zona clásica coinciden las tres y es
+\[
+	\euler^{\beta (e_i - \mu)} \gg 1 \forall e_i \; \text{ de interés }
+\]
+\[
+	z^{-1} \euler^{\beta e_i } \gg 1 \qquad \qquad \beta(e_i - \mu) \gg 0
+\]
+\[
+	\euler^{\beta e_i } \gg z \qquad \qquad e_i \gg \mu
+\]
+de (2) se deduce que como $e_i$ pueden ser $\approx 0$ entonces $0\gg\mu$ y por lo tanto
+$\euler^{\beta\mu} \equiv z \ll 1$ de (1)
+\[
+	1 \gg \euler^{\beta\mu} \qquad \qquad 0 \gg \beta\mu
+\]
+
+Clásicamente $\euler^{\beta\mu}$ domina sobre $z$
+\[
+	\mu < 0 \text{ y } |\mu| \gg 1 
+\]
+\[
+	\text{ Bose } \mu < \text{ todo } e
+\]
+\[
+	\text{ Fermi } \mu \text{ sin restricción }
+\]
+
+
+Para $ z \ggg 1 $ conviene definir $ \xi = \log z $ y entonces 
+\[
+	f_\nu(z) = \frac{1}{\Gamma(\nu)} \int_0^\infty \frac{x^{\nu-1}}{\euler^{x-\xi}+1} dx
+\]
+
+Siendo $\xi$ grande se tendrá que 
+\[
+	F = \frac{ 1 }{ \euler^{x-\xi} + 1 } = \begin{cases}
+	                  1 \qquad x < \xi \\
+	                  1/2 \qquad x=\xi \\
+	                  0 \qquad z > \xi
+	                 \end{cases}
+\]
+En este supuesto $ \xi \ggg 1 $ podemos integrar
+\[
+	f_\nu(z) \approx \frac{1}{\Gamma(\nu)} \int_0^\infty x^{\nu-1} dx
+\]
+donde suponemos $ T \gtrsim 0 $ con lo cual $ \beta\mu \to \infty, \xi \to \infty$ y 
+$z^{-1} \to 0, \euler^{-\xi} \to 0$
+
+\[
+	f_\nu(z) \approx \frac{ \xi^\nu }{\Gamma(\nu) \nu}
+\]
+
+Con $ \nu = 3/2 $ resulta 
+\[
+	f_{3/2}(z) \approx \frac{ (\log z)^{3/2} }{\Gamma(3/2) 3/2}
+\]
+\[
+	\frac{\lambda^3}{v} = \frac{4}{3} \frac{1}{\pi^{1/2}}(\beta\mu)^{3/2} \to
+	\left( f_{3/2}(z) \frac{3\sqrt{\pi}}{4}\right)^{2/3} \frac{1}{\beta} = e_F
+\]
+\[
+	\frac{h^2}{2m} \Frac{3}{4v\pi}^{2/3} = \mu = e_F (\mu \text{ a } T=0 )
+\]
+
+La $e_F (\mu \text{ a } T=0 )$ es la energía hasta la cual se hallan ocupados los
+niveles energéticos. Con $ T \gtrsim 0$ la ocupación es un escalón
+
+DIBUJO 
+
+La $e_F$ es el valor de $\mu (T=0)$
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
