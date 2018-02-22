@@ -595,6 +595,39 @@ DIBUJO
 
 La $e_F$ es el valor de $\mu (T=0)$
 
+La energía $U$ es 
+\[
+	U  = \frac{3}{2} p V = \frac{3V}{2\beta\lambda^3} f_{3/2}(z) = \frac{3N}{2\beta} \frac{f_{5/2}(z)}{f_{3/2}(z)}
+\]
+
+Tenemos una aproximación de Sommerfeld para $z$ grande 
+\[
+	f_{3/2}(z) = \frac{ 4 }{ 3\sqrt{\pi} } (\log z)^{3/2} \left[ 1 + \frac{\pi^2}{8}(\log z)^{-2} + ... \right]
+\]
+\[
+	f_{5/2}(z) = \frac{ 8 }{ 15\sqrt{\pi} } (\log z)^{5/2} \left[ 1 + \frac{5\pi^2}{8}(\log z)^{-2} + ... \right]
+\]
+\[
+	U = \frac{ 3N }{ 5\beta } (\log z) 
+	\left[ 1 + \frac{5\pi^2}{8}(\log z)^{-2} + ... \right]
+	\left[ 1 + \frac{\pi^2}{8}(\log z)^{-2} + ... \right]^{-1}
+\]
+\[
+	U = \frac{3\mu}{5} \left[ 1 + \frac{5\pi^2}{8}(\log z)^{-2} + ... \right] =
+	\frac{3\mu}{5} + \frac{15\pi^2\mu}{60} \Frac{1}{\beta\mu}^2 + ...
+\]
+\[
+	C_v \equiv \dpar{}{T}U/N \cong \frac{\pi^2}{2} \frac{k^2 T}{\mu}
+\]
+entonces con $T \gtrsim 0$ es $C_v \propto T$ y con $T=0$ es
+\[
+	\frac{ U}{N} = \frac{3}{5} e_F
+\]
+\[
+	\frac{ U}{N} = \frac{3}{5} e_F \left( 1 + \frac{5\pi^2}{12} 
+	\Frac{T}{\underbrace{e_F/k}_{\equiv T_F}}^2 + ... \right) 
+\]
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
