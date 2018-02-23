@@ -35,12 +35,53 @@
 
 
 % =================================================================================================
-% \section{Energía y entropía}
+\section{Cuánticos IV --reubicar--}
 % =================================================================================================
 
+algunos temitas sueltos:
 
+números de ocupación
 
+gas de Fermi $p$ y $c_v$
 
+gas de Fermi $p$ y $c_v$
+
+Condensado de Bose
+
+\notamargen{¿El condensado BE requiere población de los niveles o $V$ total de algún tipo?}
+
+El coeficiente lineal del virial $ 1/ 2^{5/2} = 0.1767767 $ sale considerando las $ f_{\nu}(z) $ hasta orden
+uno y tirando términos más allá.
+
+\notamargen{Tenía unas consultas agarradas con clip: ¿porqué hay una cúspide en $C_v$? ¿transiciones?}
+
+El requerimiento $ \mu < 0 $ viene de que el fundamental $ n_0 $ no puede tener población negativa
+\[
+	n_0 = \frac{1}{\euler^{\beta(e_0 - \mu)} -1} = \frac{1}{\euler^{-\beta\mu} -1} \geq 0
+\]
+\[
+	\euler^{-\beta\mu} -1 > 0 \qquad \Rightarrow \quad \mu < 0
+\]
+Con $\mu \to 0^-$ tenemos $ n \to \infty $
+
+En el caso del condensado establecemos desde 
+\[
+	\frac{\lambda^3(T)}{v} = g_{3/2}(1) 
+\]
+que lleva para $T_c$ (para $v$ fijo) o $v_c$ (para $T$ fija) versiones evaluadas de la anterior ecuación.
+
+Para la población de los estados excitados
+\[
+	p_x = \frac{h}{V^{1/3}}n_x \Rightarrow  \vb{p} = \frac{h}{V^{1/3}} \vb{n}
+\]
+\[
+	\frac{n_{e_i}}{V} = \frac{1}{V} \frac{1}{ z^{-1}\euler^{\beta e_i} - 1 } \leq 
+	\frac{1}{V(\euler^{\beta e_i} - 1)} = \frac{1}{V(\sum_{l=1}^\infty (\beta e_i )^l/l!)}
+\]
+pués $z^{-1} = 1/z \leq 1$
+\[
+	\beta e = 
+\]
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
