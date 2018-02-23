@@ -628,6 +628,58 @@ entonces con $T \gtrsim 0$ es $C_v \propto T$ y con $T=0$ es
 	\Frac{T}{\underbrace{e_F/k}_{\equiv T_F}}^2 + ... \right) 
 \]
 
+Para $z \approx 1$ se debe expandir en el virial
+\[
+	\frac{pV}{NkT} = \sum_{l=1}^\infty a_l \Frac{\lambda^3}{gv}^{l-1} (-1)^{l-1}
+\]
+
+Sabemos que 
+\[
+	\frac{p}{kT} = \frac{f_{5/2(z)}}{\lambda^3}
+\]
+y entonces con las expresiones de $f_\nu$,
+\[
+	\frac{pV}{NkT} = \frac{ \sum_{j=1}^\infty (-1)^{j+1} z^j / j^{5/2} }
+	{ \sum_{k=1}^\infty (-1)^{k+1} z^k / k^{3/2} }
+\]
+
+Debemos usar toda la serie 
+\[
+	\left[ \sum_{l=1}^\infty a_l \Frac{\lambda^3}{gv}^{l-1} (-1)^{l-1} \right]
+	\left[ \sum_{k=1}^\infty (-1)^{k+1} z^k / k^{3/2} \right] =
+	\sum_{j=1}^\infty (-1)^{j+1} z^j / j^{5/2}
+\]
+
+Resultan
+\[
+	\begin{cases}
+	 a_1 = 1 \\
+	 a_2 = -0.17678 \\
+	 a_3 = -0.00330
+	\end{cases}
+\]
+\[
+	\frac{pV}{NkT} = 1 + 0.17678 \underbrace{\Frac{\lambda^3}{gv}}_{\propto T^{-3/2}} 
+	- 0.00330\Frac{\lambda^3}{gv}^2
+\]
+
+Usando 
+\[
+	U = 3/2 p V
+\]
+\[
+	\frac{U}{N} \cong 3/2 kT \left( 1 + 0.17678 \Frac{\lambda^3}{gv} \right)
+\]
+\[
+	\dpar{}{T} \frac{U}{N} = C_v = 3/2 kT \left( 1 + 0.17678 \Frac{\lambda^3}{gv} \right)
+	+ \frac{3}{2} kT 0.17678 \frac{h^3}{gv(2\pi mk)^{3/2}2/3 T^{5/2}}
+\]
+y se puede despejar
+\[
+	c_v = \frac{3}{2} k \left[ 1- 0.08839 \Frac{\lambda^3}{gv}  \right]
+\]
+
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
