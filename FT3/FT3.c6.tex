@@ -33,6 +33,79 @@
 \chapter{Gas de Bose}
 % =================================================================================================
 
+Para Bose debe cumplirse $ \mu < \text{ todo } e $ 
+y como $ e \geq 0$ eso dice que 
+\[
+	\mu < 0
+\]
+
+Pero si en un sistema tiene $ e_0 $ como mínimo y $ e_0 > 0 $ entonces, ¿puede ser $ \mu > 0 $?
+Aparentemente sí (al menos recordando que la restricción sale de la serie).
+\notamargen{Ya lo entendí esto: pero no para partícula libre.}
+
+Además $ \braket{n_e} \geq 0 $, el número de partículas debe ser positivo.
+\[
+	\beta p V = \log (\Xi) = \sum_e - \log ( 1 - \euler^{-\beta(e-\mu)})
+\]
+\[
+	\beta p = \sum_{e \neq 0} \frac{- \log ( 1 - \euler^{-\beta(e-\mu)}) }{V} - \frac{\log (1-z)}{V}
+\]
+
+El último término será negligible para todo $z$, incluso con $z\to 1$ pues en ese caso $V \to \infty$ mucho
+más rápido
+\[
+	\braket{n_0} = \frac{1}{z^{-1}-1} = \frac{z}{1-z}
+\]
+y $ \braket{n_0} / V $ es finito incluso con $z\to 1$, entonces
+\[
+	\braket{n_0} - z \braket{n_0} - z = 0 \qquad z = \frac{\braket{n_0}}{1+\braket{n_0}}
+\]
+\[
+	1-z = \frac{1}{1+\braket{n_0}}
+\]
+\[
+	- \frac{\log (1-z)}{V} = \frac{\log (1+\braket{n_0})}{V}
+\]
+ 
+y dado que $ \log (\braket{n_0}) \ll \braket{n_0} $ despreciamos $ \log (1-z) / V $.
+
+Como $ 0 > \mu $ entonces $ \euler^{\beta \mu} \equiv z < 1 $
+
+En Bose la fugacidad está acotada
+\[
+	\frac{N}{V} = \frac{1}{\lambda^3} g_{3/2}(z) + \frac{1}{V}\Frac{z}{1-z}
+\]
+\[
+	\frac{\lambda^3}{v} =  g_{3/2}(z) + \frac{\lambda^3}{V} n_0
+\]
+\[
+	\underbrace{\frac{N}{V}}_{\text{ densidad total }} =
+	\underbrace{\frac{1}{\lambda^3} g_{3/2}(z)}_{\text{ densidad en los excitados }} +
+	\underbrace{\frac{1}{V}\Frac{z}{1-z}}_{\text{ densidad en el fundamental }}
+\]
+
+Por otro lado como $ 0 < z < 1 $ entonces $ g_{3/2}(z) $ está acotada 
+\[
+	g_{3/2}(1) = \sum_{j=1}^\infty \frac{1}{j^{3/2}} = 2.612
+\]
+
+Con $z\approx 1$ da
+\[
+	\frac{\lambda^3}{v} = g_{3/2}(1) + \lambda^3 \frac{n_0}{V} 
+\]
+cuando se aumenta $N$ necesariamente las partículas se apilan en el fundamental; es una
+fracción macroscópica pués $ V \to \infty $ y entonces $ n_0 \to \infty $.
+
+Se da con 
+\[
+	\frac{\lambda^3}{v} = \frac{\lambda^3}{V} N = \frac{h^3}{(2\pi m kT)^{3/2}} \frac{N}{V} > 2.612
+\]
+\notamargen{Destaco en esta expresión $T$ baja dividiendo y $n$ alta multiplicando.}
+
+El condensado de Bose surge cuando se saturan los excitados; ello pasa con $T$ baja, $N/V$
+alta y $ \mu \to 0$
+
+GRAFIQUETE
 
 % =================================================================================================
 \section{Cuánticos IV --reubicar--}
@@ -113,6 +186,26 @@ DIBUJITOS
 Con $ z \ll 1$ es $ \lambda^3 / v \approx z $ y entonces $ z \approx 1/ (v/\lambda^3) $.
 Con $ z=1 $ es $ \lambda^3 / v = 2.612$n pero si $ \lambda^3 / v > 2.612 $ entonces $z$ no se mueve y
 sigue en su valor 1.
+
+
+\subsection{Cuánticos 5 - Cuánticos 5b --reubicar--}
+
+presión gas de Bose
+
+$C_V$ gas de Bose
+
+Condensado de Bose $\to$ transición de fase de primer orden
+
+límite clásico función de partición
+
+cálculo de $ Tr (\euler^{-\beta A} ) = Q_N(V,T) $
+
+diferencia con el caso clásico
+
+potencial efectivo
+
+\notamargen{Ver la transición de fase con el tema del calor latente. ¿Cómo era lo de Clayperon?}
+
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
