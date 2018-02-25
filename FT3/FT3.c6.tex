@@ -107,6 +107,88 @@ alta y $ \mu \to 0$
 
 GRAFIQUETE
 
+El condensado de Bose podemos pensarlo como la coexistencia de dos fluidos ($e=0$ y $e\neq 0$).
+Podemos definir un $ T_c, v_c $ desde 
+\[
+	\frac{\lambda^3}{v} = g_{3/2}(1) = 2.612 = \frac{h^3}{(2 \pi m k T)^{3/2}} \frac{1}{v}
+\]
+que lleva a que para un dado $v$ tenemos una cierta $T_c$ y para una cierta $T$ tenemos un 
+dado $v_c$ dados ambos por 
+\[
+	T_c^{3/2} = \frac{h^3}{(2 \pi m k T)^{3/2}} \frac{1}{v} \frac{1}{g_{3/2}(1)} \qquad 
+	v_c = \frac{\lambda^3(T)}{g_{3/2}(1)}
+\]
+De esta forma si $ T<T_c$ y $v<v_c$ se tiene la condensación de Bose
+\[
+	\lambda^3\frac{N}{V} = g_{3/2}(1) + \lambda^3\frac{N_0}{V}
+\]
+que es válida a partir de la condensación ($T<T_c$)
+\[
+	N =  \frac{(2 \pi m k )^{3/2}}{h^3} T^{3/2} g_{3/2}(1)  V + N_0 = N \Frac{T}{T_c}^{3/2} + N_0
+\]
+\notamargen{$N_e = N\Frac{T}{T_c}^{3/2}$}
+\[
+	N_o = N \left( 1 - \Frac{T}{T_c}^{3/2} \right),
+\]
+que es válida por supuesto con $T<T_c$.
+A partir de haber alcanzado la condensación $z=1$, añadir partículas ($N++$) o reducir el volumen 
+($V--$) hace que $N_e/V \to 0 $ pues $V \to \infty$
+
+DIBUJO con observaciones
+
+Cuando $v/\lambda^3$ es chico se saturan los $N_e$ y entonces $ z \to 1 $.
+
+Cuando $v/\lambda^3$ es grande no hay condensado y entonces $ \lambda^3/v \approx z $ o bien
+$ 1/ (v/\lambda^3) \approx z $.
+
+Para la presión tendremos
+\[
+	\beta p = \frac{1}{\lambda^3} g_{5/2}(z)
+\]
+con $ z = 1 ( T < T_c ) $
+\[
+	\frac{p}{kT} = \frac{(2\pi m k T)^{3/2}}{h^3} g_{5/2}(1) = 
+	\frac{1}{ v (T_c/T)^{3/2} g_{3/2}(1) } g_{5/2}(1)
+\]
+\[
+	p = 1.34 \frac{(2\pi m )^{3/2}}{h^3} (kT)^{5/2} \qquad \qquad 
+	\frac{pV}{NkT} = 0.513 \Frac{T}{T_c}^{3/2}
+\]
+con $ z = 1 ( T = T_c ) $
+\[
+	\beta p = \frac{ g_{5/2}(1) }{ g_{3/2}(1) v } = \frac{0.513}{v}
+\]
+\[
+	p = 0.513 \frac{NkT}{V} \qquad \text{ es aprox. $1/2 p$ gas ideal clásico }
+\]
+con $ z \lesssim 1 ( T > T_c ) $
+\[
+	\beta p = \frac{1}{v} \frac{ g_{5/2}(z) }{ g_{3/2}(z) }
+\]
+pero no podemos expandir en el virial porque $ \lambda^3 / v $ no es chico.
+Con $ z \approx 0 ( T \gg T_C ) $
+\[
+	\beta p v = \frac{pV}{NkT} = \sum_{l=0}^\infty a_l \Frac{\lambda^3}{v}^{l-1}
+\]
+usando toda la serie y procediendo en modo análogo a Fermi se obtienen
+\[
+	\begin{cases}
+	 a_1 = 1 \\
+	 a_2 = -0.17678 \\
+	 a_3 = -0.00330
+	\end{cases}
+\]
+\[
+	\frac{pV}{NkT} = 1 - 0.17678 \Frac{\lambda^3}{v} - 0.00330 \Frac{\lambda^3}{v}^2
+\]
+
+DIBUJO 
+
+El virial vale en $\lambda^3/v \ll 1$ (alta $T$ y baja $N/V$ )
+
+A bajas $T$ se comportan de modo muy diferente, $p_{\text{ Fermi }} > 0 $ y
+$p_{\text{ Bose }} \approx 0$
+
 % =================================================================================================
 \section{Cuánticos IV --reubicar--}
 % =================================================================================================
