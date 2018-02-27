@@ -262,6 +262,78 @@ y entonces
 
 DIBUJO
 
+\subsection{Condensado de Bose como transición de fase}
+
+\[
+	\frac{N_0}{N} = 1 - \Frac{T}{T_c}^{3/2}
+\]
+\[
+	\frac{N_0}{N} = 1 - \frac{v}{v_c}
+\]
+que se obtiene desde las siguientes
+\[
+	\frac{\lambda^3(T_c)}{v} = g_{3/2}(1) \qquad \qquad  \frac{\lambda^3(T)}{v_c} = g_{3/2}(1)
+\]
+para llegar a la relación útil:
+\[
+	\Frac{T}{T_c}^{3/2} = \frac{v}{v_c}
+\]
+\notamargen{ $\lambda^3 = h^3/(2\pi m k T)^{3/2}$ y $\frac{\lambda^3}{v_c} = g_{3/2}(1) = \frac{\lambda^3}{v} 
+\frac{v}{v_c}  $}
+
+En $ \frac{\lambda^3}{v} \leq g_{3/2}(1) $ vale 
+\[
+	\frac{\lambda^3}{v} = g_{3/2}(z) \text{ no tengo en cuenta $N_0$ }
+\]
+\[
+	\frac{v_c}{v} = \frac{ g_{3/2}(z) }{ g_{3/2}(1) } \quad \Rightarrow \quad 
+	\Frac{T}{T_c}^{3/2} = \frac{ g_{3/2}(z) }{ g_{3/2}(1) } 
+\]
+
+Se vio que con $ V \to \infty $
+\[
+	\frac{1}{V} \log (1-z) \to 0 
+\]
+y entonces 
+\[
+	\beta p = \frac{1}{\lambda^3} g_{5/2}(z) \qquad v > v_c
+\]
+\[
+	\beta p = \frac{1}{\lambda^3} g_{5/2}(1) \qquad v \leq v_c
+\]
+\[
+	\beta p = \frac{ g_{5/2}(1) }{ v_c g_{3/2}(1) }
+\]
+es decir que la presión $p$ no depende del $v$
+
+Con $v > v_c$ 
+\[
+	p = \frac{ k T g_{5/2}(z) }{\lambda^3} = \Frac{h^2}{ 2\pi m } \frac{1}{\lambda^3} g_{5/2}(z)
+\]
+que conlleva a 
+\[
+	kT = \Frac{h^2}{ 2\pi m } \frac{1}{\lambda^2} \qquad 
+	p =  \Frac{h^2}{ 2\pi m } \frac{ g_{5/2}(z) }{ v^{5/3} [ g_{3/2}(z) ]^{5/3} }
+\]
+y con $v > v_c$ 
+\[
+	pv^{5/3} = \Frac{h^2}{ 2\pi m } \frac{ g_{5/2}(z) }{ [ g_{3/2}(z) ]^{5/3} }
+\]
+con $v \leq v_c$ 
+\[
+	p = \frac{ k T }{ v_c } \frac{ g_{5/2}(1) }{ g_{3/2}(1) }
+\]
+
+Vemos que en $ v = v_c $ es
+\[
+	pv^{5/3} = \Frac{h^2}{ 2\pi m } \frac{ g_{5/2}(1) }{ [ g_{3/2}(1) ]^{5/3} }
+\]
+\[
+	p = \Frac{h^2}{ 2\pi m } \frac{ g_{5/2}(1) }{ v_c g_{3/2}(1) }\frac{1}{\lambda^2} =
+	\frac{kT}{v_c}\frac{ g_{5/2}(1) }{ g_{3/2}(1) }
+\]
+y entonces se ve que es continua.
+
 % =================================================================================================
 \section{Cuánticos IV --reubicar--}
 % =================================================================================================
