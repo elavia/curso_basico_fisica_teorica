@@ -334,6 +334,99 @@ Vemos que en $ v = v_c $ es
 \]
 y entonces se ve que es continua.
 
+\begin{center}
+\begin{tabular}{c|c}
+ $\displaystyle \beta p = \frac{1}{\lambda^3} g_{5/2}(z) \quad v \geq v_c \quad $ & 
+ $\displaystyle \quad \beta p = \frac{1}{\lambda^3} g_{5/2}(1) \quad v \leq v_c \quad $\\
+ & \\
+ $\displaystyle \frac{\lambda^3}{v} = g_{3/2}(z) \quad v > v_c \quad $ 
+ & $\displaystyle \quad \frac{\lambda^3}{v} = g_{3/2}(1) \quad v = v_c \quad $
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+ \item $ v \geq v_c $
+ \[
+	p = \frac{ kT }{v_c} g_{5/2}(z) = \frac{ ( 2 \pi m )^{3/2} }{ h^3 } ( kT )^{5/2} g_{5/2}(z)
+ \]
+ \[
+	p = \Frac{h^2}{2\pi m}\frac{1}{\lambda^5}g_{5/2}(z) = 
+	\Frac{h^2}{2\pi m} \frac{g_{5/2}(z)}{v_c^{5/3} [g_{3/2}(z)]^{5/3}}
+ \]
+ \[
+	\boxed{ p v^{5/3} = \Frac{h^2}{2\pi m} \frac{g_{5/2}(z)}{ g_{3/2}(z)^{5/3}} }
+ \]
+ \item $ v \leq v_c$
+ \[
+	p = \frac{ kT }{v_c} g_{5/2}(1) = \boxed{ \Frac{kT}{v_c} \frac{g_{5/2}(1)}{g_{3/2}(1)} }
+ \]
+ 
+ Las isotermas del gas ideal de Bose serán algo como 
+ 
+ DIBUJO
+ 
+ Una dada $ T_1 $ determina un $v_{c_1}$ pués
+ \[
+	\frac{\lambda^3(T_1)}{v_{C_1}} = g_{3/2}(1) \quad \to \quad v_{C_1} = \frac{\lambda^3(T_1)}{g_{3/2}(1)} 
+ \]
+ y en la zona condensada $p$ no depende del $v$.
+ 
+ \notamargen{ $ \lambda^3(T) \propto T^{-3/2} $ A medida que $T$ sube el $v_c$ es más pequeño.}
+ 
+ Si ponemos todo en función de $T$ resulta 
+ \[
+	v \leq v_c \qquad p = \frac{ ( 2 \pi m )^{3/2} }{ h^3 } ( kT )^{5/2} g_{5/2}(1)
+ \]
+ \[
+	\dtot{p}{T} =   \frac{5}{2} \frac{ ( 2 \pi m )^{3/2} }{ h^3 }  ( k )^{5/2} T^{3/2} g_{5/2}(1) =
+	\frac{5}{2} \frac{k}{\lambda^3} g_{5/2}(1) = \frac{5}{2} \frac{k}{v_c} \frac{g_{5/2}(1)}{g_{3/2}(1)}
+ \]
+  
+ DIBUJO 
+ \[
+	\dtot{ p }{ T } = \frac{ ( 5/2 ) k T g_{5/2}(1) }{T v_c g_{3/2}(1) } 
+ \]
+ pero Clapeyron era
+ \[
+	\dtot{ p }{ T } = \frac{ L }{ T \Delta V } \qquad \Rightarrow \qquad 
+	\boxed{  \dtot{ p }{ T } = \frac{ ( 5/2 ) k T g_{5/2}(1) / g_{3/2}(1) }{T v_c} }
+ \]
+ 
+Es una transición de fase de primer orden 
+ \notamargen{ $ \dtot{ p }{ T } = \frac{ L }{ T \Delta V } = \frac{ T \Delta S }{ T \Delta V } = 
+ \frac{ \Delta S }{ \Delta V } $}
+ \[
+	S = \frac{U + pV - \mu N}{T} = \frac{ 5/2 pV - \mu N }{T}
+ \]
+ \[
+	\frac{S}{kN} = \frac{5}{2} \frac{pV}{NkT} - \frac{\mu}{kT}
+ \]
+y entonces 
+ \[
+	T > T_c \qquad \qquad \frac{S}{kN} = \frac{5}{2} \frac{ g_{5/2}(z) }{ g_{3/2}(z) } - \log z
+ \]
+ \[
+	T < T_c \qquad \qquad \frac{S}{kN} = \frac{5}{2} 0.513 \Frac{T}{T_c}^{3/2}
+ \]
+ \notamargen{$ \Frac{T_c}{T}^{3/2} = \frac{ \lambda^3 }{ g_{3/2}(1) v } $}
+ \[
+	\text{Con } T \to 0 \qquad \qquad \frac{S}{kN} \propto T^{3/2} 
+ \]
+y por lo tanto vale la tercer de la termodinámica.
+Para $ T < T_c $ es
+\[
+	S = N k \frac{5}{2} \frac{ g_{5/2}(1) }{ g_{3/2}(1) } \Frac{v}{v_c} \quad \to \quad 
+	\dpar{S}{V} = \frac{\partial S/N}{\partial V/N} = \dpar{s}{v}
+\]
+siendo $s$ entropía por unidad y $v$ volumen específico.
+\[
+	\dpar{s}{v} =  \frac{ ( 5/2 ) k g_{5/2}(1) / g_{3/2}(1) }{v_c} = \dtot{p}{T}
+\]
+y acá es donde vemos que es una transición de fase de primer orden.
+\end{itemize}
+
+
+
 % =================================================================================================
 \section{Cuánticos IV --reubicar--}
 % =================================================================================================
