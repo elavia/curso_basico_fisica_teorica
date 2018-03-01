@@ -282,6 +282,102 @@ Los dos postulados
 \end{itemize}
 aseguran que no hay correlación entre las funciones $ \{ \phi_i \} $ (en promedio).
 
+
+% =================================================================================================
+\section{Gases reales}
+% =================================================================================================
+
+Función canónica de un gas real. Surge una integral configuracional
+\[
+	Z_N =  \int d^3q_1 ... d^3q_N \euler^{ - \beta \sum_{i<j} V_{ij} }
+\]
+En el gran canónico tenemos $ \Xi( Z_N ) $. Potencial de Lenard-Jones
+\[
+	\frac{1}{r^{12}} - \frac{1}{r^{6}}
+\]
+
+Definimos $ f_{ij} = \euler^{-\beta V_{ij}} - 1 $ y expresamos todo en términos de $ f_{ij} $.
+Estudiamos con los N-grafos.
+
+El gas real lo estudiamos clásicamente, entonces 
+\[
+	Q_N = \frac{1}{N! h^{3N} } \int  d^{3N}q d^{3N}p  \euler^{ - \beta H(p,q) }
+\]
+si bien aparece $h$ (constante de Planck) no hablamos de funciones de onda; como sí sucede en una
+expansión cuántica 
+\[
+	Z_N = \int  d^{3N}q \prod_{i<j} ( 1 + f_{ij} )
+\]
+\notamargen{Cada grafo puede verse en una matriz de adyacencias $M_{ij}$}
+la cual tendrá $ (N-1)N/2 $ productos y $ 2^{N(N-1)/2} $ términos sumando de modo que serán esa cantidad
+de integrales
+\begin{center}
+\begin{tabular}{cc}
+N=2 $ \to $ & $1$ producto y $2^1$ términos \\
+N=3 $ \to $ & $3$ productos y $2^3=8$ términos \\
+N=4 $ \to $ & $6$ productos y $2^6=64$ términos \\
+N=10 $ \to $ & $45$ productos y $2^{45} \cong 3.5\cdot 10^{13}$ términos 
+\end{tabular}
+\end{center}
+
+Cada uno de los N-grafos (integrales) puede factorizarse en l-racimos (l-grafo conexo).
+\notamargen{Cada integral puede verse como un grafo.}
+Un dado N-grafo, por ejemplo
+
+DIBUJO=
+\begin{multline*}
+	\int d^3r_1 d^3r_2 f_{12} \int d^3r_3  \int d^3r_4 d^3r_6 f_{46} \int d^3r_5 \times  \\
+	\int d^3r_7 d^3r_8 d^3r_9 d^3r_{10} f_{78} f_{79} f_{710} f_{89} f_{910} 
+\end{multline*}
+tiene dos 1-racimo, dos 2-racimos y un 4-racimo.
+
+\notamargen{Términos $f_{ij}$ son los links en el lenguaje de grafos.}
+Un dado l-racimo tendrá al menos l-1 términos $f_{ij}$ para asegurar la conexión. El máximo será $l(l-1)/2$.
+Se cumple 
+\be
+	N = \sum_{l=1}^N  \; l \cdot m_l \quad \text{ suma en racimos }
+	\label{constraint}
+\ee
+siendo $l$ el número de partículas del racimo y $m_l$ el número de l-racimos y sujeta a
+\[
+	N = 1 \cdot 2 + 2 \cdot 2 + 4 \cdot 1 = 10 \qquad  \{ m_l \} = ( 2,2,0,1,0,0,0,0,0,0 )
+\]
+
+DIBUJO 
+
+Claramente separando en racimos cuento las partículas con \eqref{constraint}.
+
+\notamargen{Cada N-grafo se divide en varios l-racimos. Un l-racimo tendrá de 1 a N partículas.}
+DIBUJO 
+
+Pero el set $ \{ m_l \} $ tiene degeneración pues es equivalente a este otro arreglo de racimos.
+
+Se definen las integrales de racimo como 
+\[
+	b_l = \frac{1}{l! \lambda^{3l-3} V} \left[ \text{ suma de todos los l-racimos posibles }\right]
+\]
+donde sumar los l-racimos es en todas las configuraciones de l-bolas conexas DIBUJITO.
+\[
+	b_1 = \frac{1}{1! \lambda^0 V} \int d^3r_1 \leftarrow \sum \boxed{1}
+\]
+\notamargen{Cambiar los boxed por circled!!!}
+\[
+	b_2 = \frac{1}{2! \lambda^3 V} \int d^3r_1 d^3r_2  f_{12} \leftarrow \sum \boxed{1} -- \boxed{2}
+\]
+\begin{multline*}
+	b_3 = \frac{1}{3! \lambda^6 V} \int d^3r_1 d^3r_2 d^3r_3 (f_{12}f_{23} + f_{12}f_{13} + f_{13}f_{23}+
+	f_{12}f_{13}f_{23} ) \\
+	\leftarrow \sum_{\text{ perm. etiqu. }} \left[ \; \boxed{\phantom{a}}-\boxed{\phantom{a}} + 
+	\boxed{\phantom{a}}-\boxed{\phantom{a}}-\boxed{\phantom{a}} \; \right]
+\end{multline*}
+
+Sea $ S( \{ m_l \} ) $ la suma de todos los l-racimos compatibles con el conjunto $ \{ m_l \}$
+\[
+	S( \{ m_l \} ) = \sum_{\text{ perm. conectores. }} \left[ \boxed{ \phantom{a} } \right]^2 \cdot 
+	\left[ \boxed{ \phantom{a} }-- \right]^2 \left[ \boxed{ \phantom{a} } ---- \right]^1
+\]
+donde los conectores se permutan dentro de cada racimo.
+
 % =================================================================================================
 \section{Sistemas de partículas indistinguibles y no interactuantes}
 % =================================================================================================
