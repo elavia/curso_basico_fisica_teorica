@@ -377,6 +377,101 @@ Sea $ S( \{ m_l \} ) $ la suma de todos los l-racimos compatibles con el conjunt
 	\left[ \boxed{ \phantom{a} }-- \right]^2 \left[ \boxed{ \phantom{a} } ---- \right]^1
 \]
 donde los conectores se permutan dentro de cada racimo.
+\[
+	Z_N = \int d^3q_1 d^3q_2 ... d^3q_N \: ( 1 + f_{12} + f_{13} + ... + f_{12}f_{13} + ... )
+\]
+
+Tenemos $ 2^{N(N-1)/2} $ integrales
+\[
+	Z_N = \int d^3q_1 1 + \int d^3q_2 f_{12} + ... + \int d^3q_N f_{12}f_{13} 
+\]
+Cada integral es un N-grafo (N bolas unidas por un número $m$ de links ($m$ es igual al número de $f_{ij}$)).
+
+Cada N-grafo se factoriza en l-racimos y se puede escribir 
+\[
+	N = \sum_{l=1}^N  \; l \cdot m_l \quad \text{ suma en racimos }
+\]
+siendo $l$ el número de partículas en el racimo $l$ y $m_l$ el número de l-racimos. 
+El conjunto $ \{ m_l \} $ es la distribución de l-racimos de un grafo
+\[
+	1. \text{ es } \{ m_l \} = ( N, 0, 0 , ..., 0 ) \qquad \text{ tiene $N$ 1-racimos }
+\]
+\[
+	2.  \{ m_l \} = ( N-2, 1, 0 , ..., 0 ) \qquad \text{ tiene $N-2$ 1-racimos y $1$ 2-racimo }
+\]
+\[
+	3. \{ m_l \} = ( N-3, 0, 1 , ..., 0 ) \qquad \text{ tiene $N-3$ 1-racimos y $1$ 3-racimo }
+\]
+\notamargen{ \[ N = N\cdot 1 \] \[ N = (N-2)\cdot 1 + 1 \cdot 2 \] \[ N = 1\cdot(N-3) + 3\cdot 1\]}
+
+Sea $ S( \{ m_l \} ) $ la suma de todos los l-racimos compatibles con un conjunto $ \{ m_l \}$ dado,
+\[
+	S( \{ m_l \} ) = \sum_{\text{ perm. conectores. }} \left[ \boxed{ \phantom{a} } \right]^{m_1} \cdot 
+	\left[ \boxed{ \phantom{a} }-- \right]^{m_2} \left[ \boxed{ \phantom{a} } ---- \right]^{m_3} \times ...
+\]
+
+Por ejemplo, para $m_3=2$ (dos 3-racimos)
+\[
+	\equiv 
+\]
+\[
+	\equiv 
+\]
+\notamargen{Faltan los diagramáticos de estas cosas.}
+y entonces 
+\[
+	\oplus
+\]
+lo que da un total de 16 términos.
+
+Esto da el número de formas de construir un 6-grafo compuesto de dos 3-racimos
+
+DIBUJO
+
+Cada set $ \{ m_l \} $ define un conjunto de $ R = \sum m_l $ racimos correspondiente a un conjunto de 
+N-grafos. Así:
+\[
+	\{ m_l \} = ( N-2, 1, 0, ..., 0 )
+\]
+representa
+
+DIBUJO 
+
+una gran cantidad de N-grafos dada por permutar etiquetas. Pero si quiero economizar cuentas similares consideraré
+un factor 
+\[
+	\frac{1}{ 1!^{m_1} 2!^{m_2} 3!^{m_3} ... N!^{m_N} }
+\]
+por permutaciones de índices en cada racimo 
+\[
+	\frac{1}{ m_1! m_2! ... m_N! }
+\]
+por permutaciones de índices entre racimos iguales.
+
+Para el ejemplo es 
+\[
+	\frac{1}{1!^{N-1} 2!^1} \frac{1}{(N-2)! 1!}
+\]
+Entonces
+\[
+	S( \{ m_l \} ) = \frac{1}{ 1!^{m_1} 2!^{m_2} 3!^{m_3} ... N!^{m_N} } \frac{1}{ m_1! m_2! ... m_N! }
+	\left[ \boxed{ \phantom{a} } \right]^{m_1} \times \left[ \boxed{ \phantom{a} }-- \right]^{m_2} \times ...
+\]
+\[
+	S( ( N-2, 1, 0, ..., 0 ) ) = \frac{ N(N-1) }{2!}
+	\left[ \boxed{ \phantom{a} } \right]^{m_1} \times \left[ \boxed{ \phantom{a} }-- \right]^{m_2} \times
+	\left[ \boxed{ \phantom{a} } ---- \right]^{m_3} \times ...
+\]
+
+Recordando 
+\[
+	b_l = \frac{ 1 }{ l! \lambda^{3(l-1)} V }\cdot ( \text{ Suma de todos los l-racimos } )
+\]
+será 
+\[
+	S( \{ m_l \} ) = \frac{1}{ 1!^{m_1} 2!^{m_2} 3!^{m_3} ... N!^{m_N} } \: \prod_{l}^N \: 
+	\frac{ ( l! \lambda^{3(l-1)} V b_l )^{ m_l } }{ m_1! m_2! ... m_N! }
+\]
 
 % =================================================================================================
 \section{Sistemas de partículas indistinguibles y no interactuantes}
