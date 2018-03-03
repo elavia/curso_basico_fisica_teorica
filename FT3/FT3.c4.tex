@@ -469,9 +469,66 @@ Recordando
 \]
 será 
 \[
-	S( \{ m_l \} ) = \frac{1}{ 1!^{m_1} 2!^{m_2} 3!^{m_3} ... N!^{m_N} } \: \prod_{l}^N \: 
-	\frac{ ( l! \lambda^{3(l-1)} V b_l )^{ m_l } }{ m_1! m_2! ... m_N! }
+	S( \{ m_l \} ) = \frac{N!}{ 1!^{m_1} 2!^{m_2} 3!^{m_3} ... N!^{m_N} } \: \prod_{l}^N \: 
+	\frac{ ( l! \lambda^{3(l-1)} V \: b_l )^{ m_l } }{ m_1! m_2! ... m_N! }
 \]
+\[
+	S( \{ m_l \} ) = N! \: \prod_{l}^N \: 
+	\frac{ ( \lambda^{3(l-1)} V \: b_l )^{ m_l } }{ m_1! m_2! ... m_N! }
+\]
+
+Luego
+\[
+	Z_N = \sum_{\{ m_l \} } ' S( \{ m_l \} ) = N! \lambda^{3N}  \sum_{\{ m_l \} }' \prod_{l}^N 
+	\frac{1}{m_l!} \Frac{ V \: b_l }{ \lambda^3 }^{m_l}
+\]
+\[
+	Q_N = \frac{1}{N! \lambda^{3N}} Z_N = 
+	\sum_{\{ m_l \} }' \prod_{l}^N \frac{1}{m_l!} \Frac{ V \: b_l }{ \lambda^3 }^{m_l}
+\]
+\[
+	\Xi = \sum_{N=0}^\infty z^N Q_N =  \sum_{m_1=0}^\infty \sum_{m_2=0}^\infty ...  \sum_{m_N=0}^\infty
+	z^N \prod_{l}^N \frac{1}{m_l!} \Frac{ V \: b_l }{ \lambda^3 }^{m_l}
+\]
+\[
+	\Xi = \sum_{m_1=0}^\infty \sum_{m_2=0}^\infty ...  \sum_{m_N=0}^\infty
+	\prod_{l}^N \frac{1}{m_l!} \Frac{ z^l V \: b_l }{ \lambda^3 }^{m_l}
+\]
+\[
+	\Xi = \prod_{l=1}^N \sum_{m_l=0}^\infty \frac{1}{m_l!} \Frac{ z^l V \: b_l }{ \lambda^3 }^{m_l}
+	= \prod_{l=1}^N \euler^{ \frac{ z^l V \: b_l }{ \lambda^3 } }
+\]
+\[
+	\log \Xi = \sum_{l=1}^N \log\left( \euler^{ \frac{ z^l V \: b_l }{ \lambda^3 } } \right) =
+	\sum_{l=1}^N  \frac{ z^l V \: b_l }{ \lambda^3 }
+\]
+de modo que 
+\[
+	\beta p = \frac{ 1 }{ \lambda^3 } \sum_{l=1}^N  z^l b_l .
+\]
+	
+\[
+	b_1 = \frac{1}{1!\lambda^{3(1-1)}V} \int d^3r = \frac{V}{\lambda^0 V} = 1
+\]
+\[
+	b_2 = \frac{1}{2\lambda^3 V} \int d^3r d^3r' f_{rr'} = \frac{1}{2\lambda^3 V} \int d^3r \int d^3u f_u
+\]
+\notamargen{$r-r'= u$ y entonces $-dr'= du$.}
+
+Sea un sistema de esferas rígidas (potencial esférico)
+\[
+	f_u = \euler^{-\beta V_u} - 1 = \begin{cases}
+	                                 -1 \quad r < \sigma \\
+	                                  0 \quad r > \sigma
+	                                \end{cases}
+\]
+
+DIBUJO 
+
+\[
+	b_2 = \frac{1}{2\lambda^3 V} \int_0^\infty du 4 \pi u^2 f_u = \frac{-1}{2\lambda^3 V} \frac{4\pi\sigma^3}{3}
+\]
+
 
 % =================================================================================================
 \section{Sistemas de partículas indistinguibles y no interactuantes}
