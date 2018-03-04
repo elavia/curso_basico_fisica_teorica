@@ -529,6 +529,264 @@ DIBUJO
 	b_2 = \frac{1}{2\lambda^3 V} \int_0^\infty du 4 \pi u^2 f_u = \frac{-1}{2\lambda^3 V} \frac{4\pi\sigma^3}{3}
 \]
 
+\[
+	Z_3 = \int d^3q_1 \int d^3q_2 \int d^3q_3 \; ( 1 + f_{12} ) ( 1 + f_{13} ) ( 1 + f_{23} )
+\]
+\begin{multline*}
+	Z_3 = 	\int d^3q_1 d^3q_2 d^3q_3 + \int d^3q_1 d^3q_2 d^3q_3 \: f_{12} +
+	\int d^3q_1 d^3q_2 d^3q_3 \: f_{13} + \\ \int d^3q_1 d^3q_2 d^3q_3 \: f_{23} +
+	\int d^3q_1 d^3q_2 d^3q_3 \: f_{12}f_{13}  + \int d^3q_1 d^3q_2 d^3q_3 \: f_{12}f_{23} + \\
+	\int d^3q_1 d^3q_2 d^3q_3 \: f_{13}f_{23} + \int d^3q_1 d^3q_2 d^3q_3 \: f_{12}f_{13}f_{23} 
+\end{multline*}
+\[
+	=
+\]
+
+Se observa cierta degeneración. Podemos dar los números de ocupación de cada N-grafo
+\[
+\begin{aligned}
+	\{ m_l \} = & (3,0,0) \qquad \text{ 1er N-grafo } \\
+	\{ m_l \} = & (1,1,0) \qquad \text{ 2-4 N-grafo } \\
+	\{ m_l \} = & (0,0,1) \qquad \text{ 5-8 N-grafo }
+\end{aligned}
+\]
+
+Son sólo tres conjuntos $\{ m_l \}$ que describen todos los ocho 3-grafos. Sumamos los diferentes permutaciones de 
+etiquetas distinguibles de cada conjunto $\{ m_l \}$
+\[
+	=
+\]
+\[
+	=
+\]
+\[
+	=
+\]
+\[
+	=
+\]
+
+\subsection{hoja suelta --reubicar--}
+\[
+	=
+\]
+\[
+	1 = 
+\]
+\[
+	=
+\]
+
+Pero la traza debe evaluarse en alguna base dada,
+\[
+	=
+\]
+\[
+	=
+\]
+\[
+	=
+\]
+donde $\Ket{\Psi_E}$ son autoestados de energía del $\hat{H}$. Usaremos la función de onda simetrizada y normalizada
+\[
+	=
+\]
+\[
+	=
+\]
+
+Una función de onda de $N$ partículas correctamente normalizada y simetrizada
+\be
+	=
+	\label{fun_onda_norm}
+\ee
+\notamargen{$\mathbb{P}$ es el operador de permutaciones}
+donde 
+\[
+	=
+\]
+es una función para partículas distinguibles (de Boltzmann).
+
+Cada
+\[
+	=
+\]
+es función de onda de la partícula i-ésima en el ninvel energético $e_i$ dado por 
+\[
+	=
+\]
+
+Dado que sumamos en todas las permutaciones de \eqref{fun_onda_norm} es lo mismo permutar coordenadas que vectores
+\[
+	=
+\]
+\[
+	=
+\]
+
+Dado que las permutaciones sólo difieren en el orden de los términos consideramos sólo una permutación repetida $N!$ 
+veces, con lo cual 
+\[
+	=
+\]
+\[
+	=
+\]
+\notamargen{
+\[
+	\delta \mathbb{P} = \begin{cases}
+	                     1 \qquad \text{ bosones } \\
+	                     \pm 1 \qquad \text{ fermiones}\\
+	                     \text{ (perm par o impar) }
+	                    \end{cases}
+\]}
+
+Ahora sea el sistema de las $N$ partículas con energía $E$, es decir 
+\[
+	=
+\]
+el estado energético será función de un vector $\vb{P}$
+\[
+	=
+\]
+quiero evaluar 
+\[
+	=
+\]
+\notamargen{Suma en todos los $P$ posibles.}
+pero esta sumatoria en $P$ es equivalente a 
+\[
+	=
+\]
+
+\[
+	=
+\]
+\[
+	=
+\]
+donde 
+\[
+	=
+\]
+
+La cuenta entre paréntesis es integrable pasando al continuo con 
+\[
+	=
+\]
+\[
+	=
+\]
+
+Descomponemos cada integral en tres
+\[
+	=
+\]
+
+Usamos que 
+\[
+	=
+\]
+\[
+	=
+\]
+\[
+	=
+\]
+
+Luego,
+\[
+	=
+\]
+
+Definimos
+\[
+	=
+\]
+
+Resultando 
+\[
+	=
+\]
+\[
+	=
+\]
+\[
+	=
+\]
+\[
+	=
+\]
+
+Analizamos la $\sum_{\mathbb{P}}$. Como se suma en todas las permutaciones, tendremos
+\[
+	=
+\]
+
+Veamos la permutación de $q_1$ y $q_2$
+\[
+	=
+\]
+\[
+	=
+\]
+
+\[
+	=
+\]
+\[
+	=
+\]
+
+\[
+	=
+\]
+\[
+	=
+\]
+
+\[
+	=
+\]
+
+Veamos los límites clásico y el surgimiento de fenómenos cuánticos 
+\[
+	=
+\]
+\[
+	=
+\]
+\[
+	=
+\]
+\[
+	=
+\]
+
+\[
+	=
+\]
+donde 
+\[
+	=
+\]
+
+Con $ | \vb{q}_i - \vb{q}_j| \to 0 $ es
+\[
+	=
+\]
+
+DIBUJO 
+
+El potencial efectivo $\beta V_{ij}$ luce como la Figura
+
+
+Límite clásico $\to$ no permutación 
+
+Cuando hay overlap de las funciones de onda de las partículas hay que realizar las permutaciones correspondientes.
+
+La simetría (por la indistinguibilidad que hace necesaria la permutación) lleva a términos efectivos de interacción 
+repulsivos (FD) o a atractivos (BE).
 
 % =================================================================================================
 \section{Sistemas de partículas indistinguibles y no interactuantes}
