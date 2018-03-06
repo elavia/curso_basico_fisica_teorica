@@ -610,40 +610,54 @@ donde $\Ket{\Psi_E}$ son autoestados de energía del $\hat{H}$. Usaremos la func
 
 Una función de onda de $N$ partículas correctamente normalizada y simetrizada
 \be
-	=
+	\Psi (\vb{q}_1,..., \vb{q}_N ) = \frac{1}{\sqrt{N!}} \sum_{ \mathbb{P} } \delta \mathbb{P} \; \mathbb{P}
+	\{ u_1(\vb{q}_1) u_2(\vb{q}_2) ... \}
 	\label{fun_onda_norm}
 \ee
 \notamargen{$\mathbb{P}$ es el operador de permutaciones}
 donde 
 \[
-	=
+	\Psi_B (\vb{q}_1,..., \vb{q}_N ) = \prod_{i=1}^{n_1} u_1(\vb{q}_1) \prod_{i=n_1+1}^{n_1+n_2} u_2(\vb{q}_2)
 \]
 es una función para partículas distinguibles (de Boltzmann).
 
 Cada
+\notamargen{Estas $\Psi$ son autofunciones del $\hat{H}$.}
 \[
-	=
+	u_{p_i}(\vb{q}_i) = \frac{1}{\sqrt{V}} \euler^{ i \vb{p}_i \cdot \vb{q}_i / \hbar }
 \]
 es función de onda de la partícula i-ésima en el ninvel energético $e_i$ dado por 
 \[
-	=
+	e_i = \frac{|\vb{p}_i|^2}{2m}
 \]
 
 Dado que sumamos en todas las permutaciones de \eqref{fun_onda_norm} es lo mismo permutar coordenadas que vectores
 \[
-	=
+	\Psi (\vb{q}_1,..., \vb{q}_N ) = \frac{1}{\sqrt{N!}} \sum_{ \mathbb{P} } \delta \mathbb{P} \;
+	\left( u_{\mathbb{P}_1}(1) u_{\mathbb{P}_2}(2) ... \right) = 
+	\frac{1}{\sqrt{N!}} \sum_{ \mathbb{P} } \delta \mathbb{P} \;
+	\left( u_1({\mathbb{P}_1}) u_2({\mathbb{P}_2}) ... \right)
 \]
-\[
-	=
-\]
+\begin{multline*}
+	\Psi (\vb{q}_1,..., \vb{q}_N ) \Psi^* (\vb{q}_1',..., \vb{q}_N' ) = \frac{1}{N!} \times \\
+	\sum_{\mathbb{P}} \;  \delta \mathbb{P} \; \left(  u_1({\mathbb{P}_1}) u_2({\mathbb{P}_2}) ...\right)
+	\sum_{\mathbb{P}'} \;  \delta \mathbb{P}' \; \left(  u_{\mathbb{P}_1}^*(1') u_{\mathbb{P}_2}^*(2') ... \right)\\
+	= \frac{1}{N!} \sum_{\mathbb{P},\mathbb{P}'}\delta \mathbb{P} \delta \mathbb{P}'
+	\left[ u_1({\mathbb{P}_1}) u_{\mathbb{P}_1}^*(1') u_2({\mathbb{P}_2}) u_{\mathbb{P}_2}^*(2') ... \right]
+\end{multline*}
 
 Dado que las permutaciones sólo difieren en el orden de los términos consideramos sólo una permutación repetida $N!$ 
 veces, con lo cual 
 \[
-	=
+	\Psi (\vb{q}_1,..., \vb{q}_N ) \Psi^* (\vb{q}_1',..., \vb{q}_N' ) =
+	\sum_{\mathbb{P}} \delta \mathbb{P} 
+	\left[ u_1({\mathbb{P}_1}) u_{\mathbb{P}_1}^*(1') u_2({\mathbb{P}_2}) u_{\mathbb{P}_2}^*(2') ... \right]
 \]
 \[
-	=
+	\Psi (\vb{q}_1,..., \vb{q}_N ) \Psi^* (\vb{q}_1',..., \vb{q}_N' ) =
+	\sum_{\mathbb{P}} \delta \mathbb{P}
+	\left[ \frac{\euler^{ i \vb{p}_1 \cdot ( \mathbb{P}\vb{q}_1 - \vb{q}_1' )/\hbar} }{V} \times 
+	\frac{\euler^{ i \vb{p}_2 \cdot ( \mathbb{P}\vb{q}_2 - \vb{q}_2' )/\hbar}}{V} \times ... \right]
 \]
 \notamargen{
 \[
@@ -656,20 +670,23 @@ veces, con lo cual
 
 Ahora sea el sistema de las $N$ partículas con energía $E$, es decir 
 \[
-	=
+	E = \sum_i^N \; \frac{|\vb{p}_i|^2}{2m} =
+	\frac{1}{2m} \left( |\vb{p}_1|^2 + |\vb{p}_2|^2 + ... + |\vb{p}_N|^2 \right)
 \]
 el estado energético será función de un vector $\vb{P}$
 \[
-	=
+	\vb{P} = (\vb{p}_1, \vb{p}_2, ..., \vb{p}_N )
 \]
 quiero evaluar 
 \[
-	=
+	\braket{ \{ \vb{q} \} | \euler^{\beta \hat{H}} | \{ \vb{q} \} } =
+	\sum_P \euler^{-\beta E(P)} \Psi (\vb{q}_1,..., \vb{q}_N ) \Psi^* (\vb{q}_1',..., \vb{q}_N' )
 \]
 \notamargen{Suma en todos los $P$ posibles.}
 pero esta sumatoria en $P$ es equivalente a 
 \[
-	=
+	\frac{1}{N!} = \sum_{\vb{p}_1} \sum_{\vb{p}_2} ... \sum_{\vb{p}_N} 
+	\euler^{-\beta/2m \left( |\vb{p}_1|^2 + |\vb{p}_2|^2 + ... + |\vb{p}_N|^2 \right)}
 \]
 
 \[
