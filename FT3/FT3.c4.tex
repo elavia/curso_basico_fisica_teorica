@@ -569,32 +569,44 @@ etiquetas distinguibles de cada conjunto $\{ m_l \}$
 
 \subsection{hoja suelta --reubicar--}
 \[
-	=
+	\hat{\rho} = \frac{\euler^{\beta \hat{H}}}{Q_N(V,T)} \quad \rightarrow \quad 
+	\text{ Tr }(\hat{\rho}) = \frac{1}{Q_N(V,T)} \text{ Tr }(\euler^{\beta \hat{H}})
 \]
 \[
-	1 = 
+	1 =  \frac{1}{Q_N(V,T)} \text{ Tr }(\euler^{\beta \hat{H}})
 \]
 \[
-	=
+	Q_N(V,T) = \text{ Tr }(\euler^{\beta \hat{H}})
 \]
 
 Pero la traza debe evaluarse en alguna base dada,
 \[
-	=
+	\text{ Tr }(\euler^{\beta \hat{H}}) = 
+	\int \Bra{\vb{q}_1,..., \vb{q}_N} \euler^{-\beta \hat{H}} \Ket{\vb{q}_1,..., \vb{q}_N} d^{3N}q
 \]
 \[
-	=
+	= \int \Bra{\vb{q}_1,..., \vb{q}_N} \euler^{-\beta \hat{H}} 
+	\sum_E \Ket{\Psi_E} \braket{\Psi_E | \vb{q}_1,..., \vb{q}_N} d^{3N}q
 \]
 \[
-	=
+	= \int  \sum_E \euler^{ -\beta E }  \braket{\vb{q}_1,..., \vb{q}_N | \Psi_E} 
+	\braket{\Psi_E | \vb{q}_1,..., \vb{q}_N} d^{3N}q
+\]
+\[
+	\text{ Tr }(\euler^{\beta \hat{H}}) = 
+	\int \sum_E \euler^{ -\beta E }  \Psi_E (\vb{q}_1,..., \vb{q}_N ) 
+	\Psi_E^*(\vb{q}_1,..., \vb{q}_N ) d^{3N}q
 \]
 donde $\Ket{\Psi_E}$ son autoestados de energía del $\hat{H}$. Usaremos la función de onda simetrizada y normalizada
 \[
-	=
+	\Psi_E (\vb{q}_1,..., \vb{q}_N )  =
 \]
-\[
-	=
-\]
+\begin{multline*}
+	\Psi_E \Psi_E* = \frac{1}{N!} \sum_{\mathbb{P},\mathbb{P}'} \delta \mathbb{P} u_1(\mathbb{P}_1)
+	u_2(\mathbb{P}_2) ... \delta \mathbb{P}' u(\mathbb{P}'_1)(1) u(\mathbb{P}'_2) (2) ... \\
+	\sum_{\mathbb{P}} \delta(\mathbb{P}) u_1(\mathbb{P}_1) u_1^*(1) u_2(\mathbb{P}_2) u_2^*(2) ...
+\end{multline*}
+
 
 Una función de onda de $N$ partículas correctamente normalizada y simetrizada
 \be
