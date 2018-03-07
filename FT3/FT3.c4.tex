@@ -685,48 +685,63 @@ quiero evaluar
 \notamargen{Suma en todos los $P$ posibles.}
 pero esta sumatoria en $P$ es equivalente a 
 \[
-	\frac{1}{N!} = \sum_{\vb{p}_1} \sum_{\vb{p}_2} ... \sum_{\vb{p}_N} 
+	\frac{1}{N!} \sum_{\vb{p}_1} \sum_{\vb{p}_2} ... \sum_{\vb{p}_N} 
 	\euler^{-\beta/2m \left( |\vb{p}_1|^2 + |\vb{p}_2|^2 + ... + |\vb{p}_N|^2 \right)}
 \]
 
+\begin{multline*}
+	= \frac{1}{N!} \sum_{\vb{p}_1} \sum_{\vb{p}_2} ... \sum_{\vb{p}_N} 
+	\euler^{-\beta/2m \left( |\vb{p}_1|^2 + |\vb{p}_2|^2 + ... + |\vb{p}_N|^2 \right)} \times \\ 
+	\sum_{ \mathbb{P} } \delta\mathbb{P} \: \frac{\euler^{ i \vb{p}_1 \cdot ( \mathbb{P}\vb{q}_1 - \vb{q}_1')/ 
+	\hbar} }{V} \times \frac{\euler^{ i \vb{p}_2 \cdot ( \mathbb{P}\vb{q}_2 - \vb{q}_2' )/\hbar} }{V}\times ...
+\end{multline*}
 \[
-	=
-\]
-\[
-	=
+	= \frac{1}{N!}\sum_{ \mathbb{P} } \delta\mathbb{P} \: \left( 
+	\sum_{\vb{p}_1} \frac{\euler^{ -\beta/2m|\vb{p}_1|^2 + i \vb{p}_1 \cdot \vb{r}_1/ \hbar} }{V} \times 
+	\sum_{\vb{p}_2} \frac{\euler^{ -\beta/2m|\vb{p}_2|^2 + i \vb{p}_2 \cdot \vb{r}_2/ \hbar} }{V} \times ...
+	\right)
 \]
 donde 
 \[
-	=
+	\vb{r}_i = ( \mathbb{P}\vb{q}_i - \vb{q}_i')
 \]
 
 La cuenta entre paréntesis es integrable pasando al continuo con 
 \[
-	=
+	\frac{V}{h^3} \delta \vb{p}_i = 1 \quad \rightarrow \quad \frac{d\vb{p}_i}{h^3} = \frac{1}{V}
 \]
 \[
-	=
+	= \frac{1}{N!} \sum_{ \mathbb{P} } \delta\mathbb{P} \: \left( 
+	\frac{1}{h^3} \int d\vb{p}_1 \euler^{ -\beta/2m|\vb{p}_1|^2 + i \vb{p}_1 \cdot \vb{r}_1/ \hbar} \times 
+	\frac{1}{h^3} \int d\vb{p}_2 \euler^{ -\beta/2m|\vb{p}_2|^2 + i \vb{p}_2 \cdot \vb{r}_2/ \hbar} \times ...
+	\right)
 \]
 
 Descomponemos cada integral en tres
 \[
-	=
+	I \equiv \left[ \frac{1}{h} \int dp_x \euler^{ -\beta/2m p_x^2 + i p_x r_x/ \hbar} \right] 
+	\left[ \frac{1}{h} \int dp_y ... \right] \left[ \frac{1}{h} \int dp_z ... \right]
 \]
 
 Usamos que 
 \[
-	=
+	\int dp \euler^{-ap^2} \euler^{-ibp} = \frac{\sqrt{\pi}}{\sqrt{a}} \euler^{-b^2/(4a)}
 \]
 \[
-	=
+	I_x = \frac{1}{h} \sqrt{\frac{2\pi m}{\beta}} \euler^{-\frac{2r^2m}{4\beta \hbar^2}} =
+	\frac{1}{h} \sqrt{2\pi m kT} \euler^{-\frac{2mkT\pi^2 r^2}{h^2}} = 
+	\frac{1}{\lambda} \euler^{-r_x^2\pi /\lambda^2}
 \]
 \[
-	=
+	I = I_x I_y I_z = \frac{1}{\lambda^3} \euler^{ -\frac{\pi}{\lambda^2}
+	[ (\mathbb{P}q_x-q_x')^2 + (\mathbb{P}q_y-q_y')^2 + (\mathbb{P}q_z-q_z')^2 ]} = 
+	\frac{1}{\lambda^3} \euler^{ -\frac{\pi}{\lambda^2} |\vb{r}|^2 }
 \]
 
 Luego,
 \[
-	=
+	= \frac{1}{N!} \sum_{ \mathbb{P} } \delta\mathbb{P} \frac{1}{\lambda^{3N}}
+	\euler^{ -\frac{\pi}{\lambda^2} |\vb{r}_1|^2 } \times \euler^{ -\frac{\pi}{\lambda^2} |\vb{r}_2|^2 } \times ...
 \]
 
 Definimos
