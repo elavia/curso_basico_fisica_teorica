@@ -746,21 +746,29 @@ Luego,
 
 Definimos
 \[
-	=
+	f( \vb{r}_i ) = \euler^{ -\frac{ \pi |\vb{r}_i|^2 }{ \lambda^2 } } \qquad 
+	f( \mathbb{P}\vb{q}_i - \vb{q}_i' ) = \euler^{ -\frac{ \pi }{ \lambda^2 }(\mathbb{P}\vb{q}_i - \vb{q}_i')^2 }
 \]
 
 Resultando 
 \[
-	=
+	= \frac{1}{N!\lambda^{3N}} \sum_{\mathbb{P}} \delta\mathbb{P} [ f( \mathbb{P}\vb{q}_1 - \vb{q}_1' ) ... 
+	f( \mathbb{P}\vb{q}_N - \vb{q}_N' )]
 \]
 \[
-	=
+	\braket{ \vb{q}_1,..., \vb{q}_N|\euler^{-\beta\hat{H}}| \vb{q}_1',..., \vb{q}_N' } = 
+	\frac{1}{N!\lambda^{3N}} \sum_{\mathbb{P}} \delta\mathbb{P} [ f( \mathbb{P}\vb{q}_1 - \vb{q}_1' ) \times 
+	... \times f( \mathbb{P}\vb{q}_N - \vb{q}_N' )]
 \]
+\begin{multline*}
+	\text{ Tr} (\euler^{-\beta\hat{H}}) = \int d^{3N} q
+	\braket{ \vb{q}_1,..., \vb{q}_N|\euler^{-\beta\hat{H}}| \vb{q}_1',..., \vb{q}_N' } =\\
+	\frac{1}{N!\lambda^{3N}} \int d^{3N}q \sum_{\mathbb{P}} \delta\mathbb{P} [ f( \mathbb{P}\vb{q}_1 - \vb{q}_1' ) 
+	\times ... \times f( \mathbb{P}\vb{q}_N - \vb{q}_N' )]
+\end{multline*}
 \[
-	=
-\]
-\[
-	=
+	\text{ Tr} (\euler^{-\beta\hat{H}}) = \frac{1}{N!\lambda^{3N}} \int d^{3N}q \sum_{\mathbb{P}} 
+	\delta\mathbb{P} \prod_i f( \mathbb{P}\vb{q}_i - \vb{q}_i )
 \]
 
 Analizamos la $\sum_{\mathbb{P}}$. Como se suma en todas las permutaciones, tendremos
