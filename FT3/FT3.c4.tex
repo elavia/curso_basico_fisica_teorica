@@ -773,56 +773,90 @@ Resultando
 
 Analizamos la $\sum_{\mathbb{P}}$. Como se suma en todas las permutaciones, tendremos
 \[
-	=
+	\sum_{\mathbb{P}} f(\mathbb{P}{q}_1 - {q}_1) f(\mathbb{P}{q}_2 - {q}_2) ... =
+\]
+\[
+	1 \: f(0) \pm \sum_{i<j} f_{ij} f_{ji} + \sum_{i<j<k} f_{ij} f_{jk} f_{ki} \pm ...
+\]
+\[
+	\text{ 0 permut } \qquad \text{ 1 permut } \qquad \text{ 2 permut }
 \]
 
 Veamos la permutación de $q_1$ y $q_2$
 \[
-	=
+	\underbrace{\mathbb{P}}_{=1} (\prod_i f( \mathbb{P}\vb{q}_i - \vb{q}_i ) ) =
+	\underbrace{f(\mathbb{P}{q}_1 - {q}_1) f(\mathbb{P}{q}_2 - {q}_2)}_{f_{ij}f_{ji}}
+	\underbrace{\prod_{i=3}^N f(q_i - q_i)}_{\prod f(0)=1}
 \]
 \[
-	=
-\]
-
-\[
-	=
+	q_1 \; q_2 \; q_3 \; ... \; q_N
 \]
 \[
-	=
+	q_1 \; q_2 \; q_3 \; ... \; q_N
 \]
 
 \[
-	=
+	\underbrace{\mathbb{P}}_{=2} (\prod_i f( \mathbb{P}\vb{q}_i - \vb{q}_i ) ) =
+	\underbrace{f( {q}_2 - {q}_1 )}_{f_{ij}} \underbrace{f( {q}_3 - {q}_2 )}_{f_{ki}}
+	\underbrace{f( {q}_1 - {q}_3 )}_{f_{jk}}
+	\prod_{i=4}^N f(0)
 \]
 \[
-	=
+	q_1 \; q_2 \; q_3 \; ... \; q_N
+\]
+\[
+	q_1 \; q_2 \; q_3 \; ... \; q_N
 \]
 
 \[
-	=
+	\underbrace{\mathbb{P}}_{=3} (\prod_i f( \mathbb{P}\vb{q}_i - \vb{q}_i ) ) =
+	f( {q}_2 - {q}_1 ) f( {q}_1 - {q}_2 ) f( {q}_4 - {q}_3 ) f( {q}_3 - {q}_4 ) 
+	\prod_{i=5}^N f(0)
+\]
+\[
+	q_1 \; q_2 \; q_3 \; q_4 \; ... \; q_N
+\]
+\[
+	q_1 \; q_2 \; q_3 \; q_4 \; ... \; q_N
+\]
+\[
+	\text{ Tr} (\euler^{-\beta\hat{H}}) = \frac{1}{N!\lambda^{3N}} \int d^{3}q 
+	\left( 1 \pm \sum_{i<j} f_{ij} f_{ji}  \right)
+\]
+\notamargen{El $+$ es por bosones y el $-$ por fermiones.}
+\[
+	f_{ij} = \euler^{ -\frac{\pi}{\lambda^2} |\vb{q}_i - \vb{q}_j|^2} =
+	\euler^{ -\frac{\pi}{h} 2\pi k T |\vb{q}_i - \vb{q}_j|^2}
 \]
 
 Veamos los límites clásico y el surgimiento de fenómenos cuánticos 
 \[
-	=
+	\text{ CLÁSICO } \qquad v = \frac{V}{N} \ggg 1 \quad \Rightarrow \quad 
+	|\vb{q}_i - \vb{q}_j| \gg 1 \qquad T \ggg 1
+\]
+y por lo tanto
+\[
+	\euler^{ -\frac{\pi}{h} 2\pi k T |\vb{q}_i - \vb{q}_j|^2} \to 0
 \]
 \[
-	=
+	\text{ Tr} (\euler^{-\beta\hat{H}}) = \frac{1}{N!\lambda^{3N}} \int d^{3}q (1) =
+	\frac{1}{N!}\Frac{V}{\lambda^3}^N
 \]
 \[
-	=
+	\Or(v) \approx 1 \quad \Rightarrow \quad \Or(|\vb{q}_i - \vb{q}_j|) \approx 1 \qquad
+	\Or(T) \approx 1
+\]
+y en este caso es
+\[
+	\euler^{ -\frac{\pi}{h} 2\pi k T |\vb{q}_i - \vb{q}_j|^2} \to 1
 \]
 \[
-	=
+	\text{ Tr} (\euler^{-\beta\hat{H}}) \cong \frac{1}{N!\lambda^{3N}} \int d^{3}q 
+	\left( 1 \pm \sum_{i<j} f_{ij} f_{ji}  \right) \cong 
+	\frac{1}{N!\lambda^{3N}} \int d^{3}q 
+	\left[ \prod_{i<j} (1 \pm f_{ij} f_{ji} ) \right] 
 \]
-
-\[
-	=
-\]
-donde 
-\[
-	=
-\]
+\notamargen{Este pasaje vale si $f_{ij} f_{ji}$ es pequeño.}
 
 Con $ | \vb{q}_i - \vb{q}_j| \to 0 $ es
 \[
