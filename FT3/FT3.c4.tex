@@ -850,17 +850,33 @@ y en este caso es
 \[
 	\euler^{ -\frac{\pi}{h} 2\pi k T |\vb{q}_i - \vb{q}_j|^2} \to 1
 \]
-\[
+\begin{multline*}
 	\text{ Tr} (\euler^{-\beta\hat{H}}) \cong \frac{1}{N!\lambda^{3N}} \int d^{3}q 
-	\left( 1 \pm \sum_{i<j} f_{ij} f_{ji}  \right) \cong 
-	\frac{1}{N!\lambda^{3N}} \int d^{3}q 
+	\left( 1 \pm \sum_{i<j} f_{ij} f_{ji}  \right) \\ 
+	\cong \frac{1}{N!\lambda^{3N}} \int d^{3}q 
 	\left[ \prod_{i<j} (1 \pm f_{ij} f_{ji} ) \right] 
-\]
+\end{multline*}
 \notamargen{Este pasaje vale si $f_{ij} f_{ji}$ es pequeño.}
+
+\begin{multline*}
+	\prod_{i<j} ( 1 \pm f_{ij}f_{ji}) = \displaystyle \euler^{\log \prod_{i<j} ( 1 \pm f_{ij}f_{ji}) } =
+	\euler^{\displaystyle \sum_{i<j} \log ( 1 \pm f_{ij}f_{ji}) } = \\
+	\euler^{\displaystyle -\beta \sum_{i<j}  kT \log ( 1 \pm f_{ij}f_{ji}) } =
+	\euler^{\displaystyle -\beta \sum_{i<j}  V_{ij}^{\pm} }
+\end{multline*}
+donde 
+\[
+	V_{ij}^{\pm} = -kT\log \left( 1 \pm \euler^{-\frac{\pi}{\lambda^2}|\vb{q}_i - \vb{q}_j|^2} 
+	\euler^{-\frac{\pi}{\lambda^2}|\vb{q}_j - \vb{q}_i|^2} \right) =
+	-kT\log \left( 1 \pm  \euler^{-2\frac{\pi}{\lambda^2}|\vb{q}_i - \vb{q}_j|^2} \right)
+\]
 
 Con $ | \vb{q}_i - \vb{q}_j| \to 0 $ es
 \[
-	=
+	V_{ij}^{\pm} = -kT\log ( 1 \pm 1 ) = \begin{cases}
+	                                           -kT\log (2) \quad \text{ bosones } \\
+	                                           -kT\log (o^+) \quad \text{ fermiones } 
+	                                          \end{cases}
 \]
 
 DIBUJO 
