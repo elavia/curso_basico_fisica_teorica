@@ -999,36 +999,43 @@ ver tema de ondas de sonido en sólidos.
 
 Modelamos un metal como una red de átomos que pueden oscilar y un gas de electrones
 \[
-	=
+	(\vb{x}_1, ...,\vb{x}_N ) \qquad \qquad \text{ $N$ átomos }
+\]
+\[
+	(\vb{x}_1^0, ...,\vb{x}_N^0 ) \qquad \qquad \text{ Equilibrio fundamental }
 \]
 
 PICTURE 
 
 Los desplazamientos del equilibrio serán 
 \[
-	=
+	\vb{x}_i - \vb{x}_i^0 = \vec{\xi}_i
+\]
+\notamargen{Planteo de un potencial de pequeñas oscilaciones}
+\[
+	K = \sum_i \frac{m}{2} | \vec{\xi}_i|^2 \qquad \text{ cinética }
 \]
 \[
-	=
+	V =
 \]
 \[
-	=
+	V = V_0 + \sum_{i,j} \frac{1}{2} k_{ij}  \vec{\xi}_i\cdot  \vec{\xi}_j \qquad \text{ potencial }
 \]
 siendo las constantes de fuerza $k_{ij}$ las que controlan la interacción 
 \[
-	=
+	H = V_0 + \frac{m}{2} | \vec{\xi}_i|^2  + \sum_{i,j} \frac{1}{2} k_{ij}  \vec{\xi}_i\cdot  \vec{\xi}_j
 \]
 
 Este hamiltoniano se puede pasar a modos normales diagonalizando la matriz de fuerzas
 \[
-	=
+	H = V_0 + \frac{m}{2}  \sum_i^{3N} \left( \dot{q}_i^2 + \omega_i^2 q_i^2 \right)
 \]
 y $\omega_i$ son las frecuencias de los $3N$ modos normales del sistema de $N$ grados de libertad en
 3D. En modos normales el hamiltoniano del sistema es el de $3N$ osciladores armónicos independientes
 (no acoplados. 
 Puede resolverse mediante los operadores de bajada y de subida (cuántica) resultando en
 \[
-	=
+	E = \sum_i^{3N} \left( n_i + \frac{1}{2} \right) \hbar \omega_i
 \]
 donde $n_i$ es el número de fonones (ocupación) del modo normal $i-$ésimo.
 
@@ -1038,37 +1045,47 @@ Estos fonones, cuasipartículas, son bosones porque pueden ser
 \]
 y su número total no está fijo ($\mu=0$ pues la energía no depende del número de fonones)
 \[
-	=
+	n_i = \frac{1}{\euler^{\beta\hbar \omega_i} -1 }
 \]
 pues $\hbar\omega_i$ es la energía del estado $i-$ésimo
 \[
-	=
+	n_i = \frac{1}{\euler^{ \hbar \omega_i / kT } -1 }
 \]
 \[
-	=
+	E = V_0 + \frac{1}{2} \sum_i^{3N} \hbar \omega_i + \sum_i^{3N} n_i \hbar \omega_i
 \]
 
 La función de partición canónica será 
 \[
-	=
+	Q = \sum_E \euler^{ -\beta E } =
+	\sum_E \euler^{ -\beta \left( \frac{1}{2} \sum \hbar \omega_i + \sum n_i \hbar \omega_i \right) }
 \]
 \[
-	=
+	Q = \sum_{n_1=0}^\infty \sum_{n_2=0}^\infty ... \sum_{n_N=0}^\infty 
+	\euler^{ -\beta \sum \left( \hbar \omega_i /2  + n_i \hbar \omega_i \right) }
 \]
 \[
-	=
+	Q = \sum_{n_1} \euler^{ -\beta \left( \hbar \omega_1 /2 + n_1 \hbar\omega_1 \right) }
+	\sum_{n_2} \euler^{ -\beta \left( \hbar \omega_2 /2 + n_2 \hbar\omega_2 \right) } \; ...
 \]
 \[
-	=
+	Q = \prod_i^{3N} \left(
+	\sum_{n_i=0} \euler^{ -\beta \left( \hbar \omega_i /2 + n_i \hbar\omega_i \right) } 
+	\right) = \prod_i^{3N} \left(
+	\sum_{n_i=0} \euler^{ -\beta n_i \hbar\omega_i } \right) \euler^{ -\beta \hbar \omega_i /2 }
 \]
 \[
-	=
+	Q = \prod_i^{3N} \left(
+	\frac{1}{1-\euler^{ -\beta \hbar \omega_i } } \right)  \euler^{ -\beta \hbar \omega_i /2 } = 
+	\prod_i^{3N} \left( \frac{1}{ \euler^{ \beta \hbar \omega_i } -\euler^{ -\beta \hbar \omega_i } } \right)
 \]
 \[
-	=
+	\log Q = \sum_i^{3N} \log \left( \frac{1}{ \euler^{ \beta \hbar \omega_i } -\euler^{ -\beta \hbar \omega_i } } 
+	\right) = 
+	\sum_i^{3N} - \log \left( { \euler^{ \beta \hbar \omega_i } -\euler^{ -\beta \hbar \omega_i } } \right)
 \]
 \[
-	=
+	\log Q = \sum_i^{3N} - \log \left( 2 \sinh \Frac{\hbar\omega_i}{2kT} \right)
 \]
 
 Si quisiéramos pasar al continuo resultaría (con $N \to \infty$)
