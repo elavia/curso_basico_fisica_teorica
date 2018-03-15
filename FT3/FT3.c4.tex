@@ -1090,49 +1090,59 @@ La función de partición canónica será
 
 Si quisiéramos pasar al continuo resultaría (con $N \to \infty$)
 \[
-	=
+	\log Q = - \int_0^\infty d\omega g(\omega) \log \left[ 2 \sinh \Frac{\beta\hbar\omega_i}{2} \right]
 \]
 donde $ g(\omega) $ es la densidad de estados y 
 \[
-	=
+	d\omega g(\omega) = \text{ \# de modos normales con frecuencia entre $\omega$ y $\omega + d\omega$ }
 \]
 
 Tenemos dos métodos de cálculo de energía
 \begin{center}
-\begin{tabular}{ll}
-× & ×\\
-× & ×\\
-× & ×
+\begin{tabular}{l|l}
+$ \displaystyle E = \sum_i^{3N} ( n_i + 1/2 )\hbar\omega_i $ & 
+$ \displaystyle -\dpar{\log Q}{\beta} = \sum_i^{3N} \frac{1}{\euler^\Box - \euler^{-\Box}}( \euler^\Box + 
+\euler^{-\Box} )\frac{\hbar\omega_i}{2} $ \\
+& \\
+$ \displaystyle \sum_i^{3N} \hbar\omega_i\Frac{1/2\euler^{\beta\hbar\omega_i}+1/2}{\euler^{\beta\hbar\omega_i}-1} $  & 
+$ \displaystyle -\dpar{\log Q}{\beta} = \sum_i^{3N} \Frac{\euler^\Box + \euler^{-\Box}} {\euler^\Box - \euler^{-\Box}} 
+\frac{\hbar\omega_i}{2} $ \\
+& \\
+$ \displaystyle \sum_i^{3N} \frac{\hbar\omega_i}{2}\Frac{\euler^{\beta\hbar\omega_i}+1}{\euler^{\beta\hbar\omega_i}-1} $ 
+& $ \displaystyle = \sum_i^{3N} \Frac{\euler^{2\Box} + 1 }{ \euler^{2\Box} - 1 } \frac{\hbar\omega_i}{2} $ \\
 \end{tabular}
 \end{center}
 
 Por supuesto ambas coinciden. Observemos que 
 \[
-	=
+	\text{ \# de fonones } = \sum_i^{3N} n_i
 \]
 es una cantidad que no es fija (se crean y se destruyen). Por ello podemos evaluar fácilmente el
 $Q$.
 
 Desde $E$ se puede evaluar el $C_v$
 \[
-	=
+	\dpar{E}{T} = \sum_i^{3N} \frac{\hbar\omega_i}{2} \dpar{}{T}\Frac{ \cosh \Box }{ \sinh \Box } 
 \]
 \[
-	=
+	C_v = \sum_i^{3N} \frac{\hbar\omega_i}{2} \left[ 
+	\frac{ \sinh \Box }{ \sinh \Box }\dpar{\Box}{T} - \frac{ \cosh^2 \Box }{ \sinh^2 \Box } \dpar{\Box}{T}
+	\right]
 \]
 \[
-	=
+	C_v = \sum_i^{3N} \frac{\hbar\omega_i}{2}  \frac{\hbar\omega_i}{2k} \Frac{-1}{T^2} 
+	\Frac{-1}{\sinh^2 \Box}
 \]
 
 Tenemos el modelo de Einstein, que usa $ \omega_i = \omega_E \forall i $ y entonces 
 \[
-	=
+	C_v = 3N k \Frac{\hbar\omega_E}{kT}^2 \frac{1}{[\euler^{\hbar\omega_E/kT2} -\euler^{-\hbar\omega_E/kT2}]^2}
 \]
 \[
-	=
+	C_v = 3Nk \left[ \Frac{1}{t}^2 \Frac{1}{\euler^{1/(2t)}-\euler^{-1/(2t)} }^2 \right]
 \]
 
-Con $ T \ggg 1 $ es $ [] \to 1$ y $C_V = 3Nk $ (clásico). Con $ T < 1 $ se comporta exponencialmente.
+Con $ T \ggg 1 $ es $ [ ... ] \to 1$ y $C_V = 3Nk $ (clásico). Con $ T < 1 $ se comporta exponencialmente.
 
 Dibujo 
 
@@ -1142,18 +1152,23 @@ $ C_v \to 3Nk $  con $ T \ggg 1 $, $ C_v \to 0 $ con $ T \to 0 $ Tiende a cero m
 
 Las frecuencias se distribuyen continuamente de modo que hay 
 \[
-	=
+	\int_0^{\omega_D} g(\omega) d\omega = 3N
 \]
 modos normales; es decir que se integra hasta una frecuencia de corte $\omega_D$. $g(\omega)$ la extraemos de 
 considerar frecuencias permitidas de una onda plana de sonido en un sólido de lados $L$.
 \[
-	=
+	\vb{p} = \frac{h}{L}\vb{n} = \frac{h}{2\pi}\vb{k} \qquad \rightarrow  \qquad \vb{k} = \frac{2\pi}{L}\vb{n}
+	\qquad \delta |\vb{k}| = \frac{(2\pi)^3}{V}
 \]
 \[
-	=
+	c_s = \frac{\omega}{|\vb{k}|} \qquad \rightarrow \qquad  4 \pi k^2 \frac{V}{(2\pi)^3} dk = 1 \text{ esféricas }
 \]
 \[
-	=
+	d|\vb{k}| = \frac{d\omega}{c_s}
+\]
+y será 
+\[
+	\frac{V}{2\pi^2} k^2 dk = \frac{V}{2\pi^2} \frac{\omega^2}{c^3} d\omega
 \]
 
 En realidad hay que considerar los tres modos: uno longitudinal y dos transversales,
