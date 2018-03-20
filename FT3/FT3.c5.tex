@@ -995,20 +995,26 @@ Con $ x_D \gg 1 (T \ll 1) $ tiende a $0$ como resulta experimentalmente.
 
 Consideramos bajas temperaturas y altas densidades
 \[
-	=
+	\frac{\lambda^3}{v} \gg 1 \qquad \text{ CASO DEGENERADO }
+\]
+\[
+	\frac{\lambda^3}{v} = f_{3/2}(z) \quad \text{ con } \; z \gg 1 (T=0)
 \]
 Usamos aproximación de Sommerfeld (1928)
 \[
-	=
+	\frac{\lambda^3}{v} = \frac{4}{3\pi^{1/2}} [ \log (x) ]^{3/2} \qquad \text{ a orden cero }
 \]
 \[
-	=
+	\frac{h^3}{v( 2 \pi m k T )^{3/2}} = \frac{4}{3\pi^{1/2}} \Frac{e_F}{kT}^{3/2}
 \]
 \[
-	=
+	e_F = \frac{h^2 3^{2/3}}{2m(4\pi v)^{2/3}}
 \]
 \[
-	=
+	e_F = \frac{\hbar^2}{2m} \Frac{3 2^3 \pi^2 }{4v}^{2/3} = \frac{\hbar^2}{2m}\Frac{6\pi^2}{v}^{2/3}
+\]
+\[
+	z = \euler^{\beta \mu(T=0)} = \euler^{\beta e_F} 
 \]
 
 Veamos que la $e_F$ disminuye con el aumento de $v$ y $m$. Para la distribución de
@@ -1017,28 +1023,25 @@ Fermi teníamos
 DIBUJO 
 
 \[
-	=
+	\frac{1}{\euler^{\frac{e-\mu(T)}{kT}} + 1 }
 \]
+Sea un $\delta e$
 \[
-	=
-\]
-\[
-	=
+	n_e = \frac{1}{ \euler^{ (e_F +\delta e - e_F + (\pi^2/12)(T'/T_F)^2 e_F )/(kT')} + 1} =
+	\frac{1}{ \euler^{ \frac{\delta e}{kT'} + (\pi^2/12)(T'/T_F) } + 1}
 \]
 Usamos que 
 \[
-	=
+	\mu = e_F \left( 1 - \frac{\pi^2}{12}\Frac{T}{T_F}^2 \right)
 \]
-\[
-	=
-\]
+y como $\pi^2/12 \sim 1$ se tiene $\euler^{ \delta e/(kT') + kT'/(kT_F)}$
 
-Si $ kT' \ll kT_F $ entonces 
+Si $ kT' \ll kT_F $ entonces se tiene 
 \[
-	=
+	\frac{1}{\euler^{\delta e/(kT')} + 1}
 \]
-dice que con $ \delta e = 2kT'$ es $ n_e \sim 0.11 $ y es $ 2kT' $ justamente el apartamiento del 
-caso degenerado
+lo cual dice que con $ \delta e = 2kT'$ es $ n_e \sim 0.11 $ y es $ 2kT' $ justamente el apartamiento del 
+caso degenerado.
 
 Si, como sucede con $T_{\text{ AMB }}$ en un gas de electrones por ejemplo,
 \[
