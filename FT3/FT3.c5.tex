@@ -1097,34 +1097,45 @@ $R$ el número de electrones en la unidad de tiempo y de área $nv_z$, i.e.
 	R = n \frac{p_z}{m} = \frac{Np_z}{Vm}
 \]
 \[
-	=
+	R = \sum_{e_i} \frac{ n_i p_z}{V m} \qquad \qquad  \frac{V\delta|\vb{p}|}{h^3} = 1
 \]
 \[
-	=
+	R = \int^\infty_{(2mW)^{1/2}} dp_z \int_0^\infty dp_x \int_0^\infty dp_y \:
+	\frac{1}{ \euler^{[p^2/(2m) - \mu ]/ (kT)} + 1 } \Frac{p_z}{m} \frac{1}{h^3}
 \]
 
 Pasamos $dp_x dp_y = p' 2\pi dp' $ (polares)
 \[
-	=
+	\frac{2\pi}{h^3} \int^\infty_{(2mW)^{1/2}} dp_z \Frac{p_z}{m} \int_0^\infty 
+	\frac{p'}{ \euler^{[ p_z^2/(2m) + p^2/(2m) - \mu ]/ (kT)} + 1 } dp' 
+\]
+y con un cambio de variables $\xi = p'^2/(2mkT)$
+\[
+	\frac{2\pi}{h^3} \int^\infty_{(2mW)^{1/2}} dp_z 2 p_z \int_0^\infty 
+	\frac{ kT }{ \euler^{p_z^2/(2m kT)} \euler^\xi \euler^{-\mu/(kT)} + 1 } d\xi
 \]
 \[
-	=
+	\frac{4\pi kT}{h^3} \int^\infty_{(2mW)^{1/2}} dp_z p_z \log( 1 + \euler^{ [ -p_z^2/(2m) + \mu ]/ (kT) })
 \]
 a $T$ altas resulta 
 \[
-	=
+	R = \frac{4\pi kT}{h^3} \int^\infty_{(2mW)^{1/2}} dp_z p_z \euler^{ [ -p_z^2/(2m) + \mu ]/ (kT) }
+\]
+y con otro cambio de variables $ p_z^2/(2mkT) = e $
+\[
+	R = kT \int^\infty_{ W/(kT) }  2m de \euler^{-e} \euler^{\mu/(kT)}
 \]
 \[
-	=
+	R = \frac{ 4 \pi kT }{ h^3 } 2mkT \euler^{\mu/(kT)} \euler^{-W/(kT)} =
+	\frac{8 \pi m (kT)^2 }{ h^3 } \euler^{(\mu-W)/kT}
 \]
-
 a $T$ bajas también es 
 \[
-	=
+	\log( 1 + \euler^{(\mu-p_z^2/sm)/kT}) \approx \euler^{[ \mu-p_z^2/2m ]/ (kT)}
 \]
 con lo cual la integral da lo mismo
 \[
-	=
+	R = \frac{8 \pi m (kT)^2 }{ h^3 } \euler^{(\mu-W)/kT} \euler^{-W/(kT)}
 \]
 pero aquí 
 \[
