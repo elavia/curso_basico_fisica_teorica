@@ -35,10 +35,138 @@
 
 
 % =================================================================================================
-% \section{Energía y entropía}
+\section{Ising 1}
 % =================================================================================================
 
+\begin{itemize}
+ \item Modelo sencillo de sistema interactuante
+ \item Magnetización espontánea 1D y 2D:
+ \subitem En 1D no hay magnetización espontánea
+ \subitem En 2D hay magnetización espontánea
+\end{itemize}
 
+Fase es una porción de materia física y químicamente homogénea (asociada a la densidad atómica o molecular
+uniforme) que no puede separarse por medios mecánicos.
+
+Una fase puede ser una única sustancia o una mezcla.
+
+El concepto de fase está también relacionado con el pasaj de la materia de una a otra fase.
+
+\notamargen{corregir}
+
+Estados de agregación (en función de la proximidad de sus componentes). Agua y aceite (líquido) es un sistema de dos 
+fases.
+
+La materia puede encontrarse en gran variedad de fases; las más conocidas están relacionadas con los estados de 
+agregación. Pero dentro del estado sólido tenemos fases dependiendo de cómo sea la estructura interna.
+
+Tenemos también sistemas que manifiestan fases ordenadas y desordenadas; aleaciones de sólidos, superconductividad.
+
+Transición de fase: cuando una propiedad del sistema cambia discontinuamente frente a la variación de un parámetro 
+intensivo ($T, p$ campo magnético).
+
+\[
+	\text{ interacciones entre partículas } \qquad \rightarrow \qquad \text{ CORRELACIÓN A GRAN ESCALA }  
+\]
+
+Las transiciones de fase emergen de la interacción. Uno de los modelos más sencillos fuera del gas ideal es el modelo de
+Ising (red con interacción entre primeros vecinos)
+\[
+	E_\nu =
+	\label{energia_ising}
+\]
+\notamargen{Ising es energía dada por \eqref{energia_ising} e interacción a primeros vecinos.}
+
+dibujo 
+
+donde $\nu$ es una dada configuración de la red (valores $S_i$ con $i=1,2,...,N$)
+\[
+	=
+\]
+donde $\mu>0$, $J$ es constante de acoplamiento y $\sum_{<i,j>}$ se extiende sobre los pares de vecinos (primeros).
+
+Con $J>0$ es favorable que todos los spines se hallen alineados. Entonces esto llevará a la magnetización espontánea: 
+fenómeno de cooperación; la mayoría de los spines se orienta en una dirección y dan un valor de magnetización 
+$\braket{M} \neq 0$
+\[
+	\text{ (Magnetización) }
+\]
+\notamargen{$J>0$ ferromagnetismo y $J<0$ paramagnetismo}
+
+Si los spines están orientados al azar, entonces habrá igual cantidad de $+1$ que de $-1$ y entonces
+\[
+	M \approx 0
+\]
+
+Si $H=0$ entonces $M$ es la magnetización espontánea.
+\notamargen{$M$ se define como un momento dipolar magnético por unidad de volumen.}
+
+Habrá magnetización con $T$ baja (o $J$ alto) y hasta una $T_\text{curie}$
+\[
+	Q_N(H,T) = \sum_{s_1=-1}^{+1} 
+\]
+donde las sumatorias toman para cada $i$ los valores $S_i = +1, -1$
+\[
+	A = -kT\log Q \qquad \braket{E} = -\dpar{}{\beta}\log Q = kT^2 \dpar{}{T} \log Q
+\]
+
+Como es
+\[
+	E_\nu =
+\]
+\[
+	=
+\]
+\[
+	\braket{M} = 
+\]
+\[
+	\braket{M} = 
+\]
+
+\subsection{No hay magnetización espontánea en 1D}
+
+DIBUJO 
+
+\[
+	=
+\]
+
+Varían los términos asociados a la pared
+\[
+	=
+\]
+
+La variación de $S$ está asociada con el número de formas de ubicar la pared
+\[
+	S = l \log (N-1)
+\]
+y es la $S$ del estado con una pared, el desordenado.
+\[
+	\Delta S = k \log(N-1)	\qquad (S_0 \equiv 0)
+\]
+que define al estado sin pared como de entropía $S_0=0$
+\[
+	A = U - TS \quad \rightarrow \quad \delta A = \delta U - T \delta S
+\]
+\[
+	\delta J - kT \log(N-1)
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+% =================================================================================================
+\section{Ising 2}
+% =================================================================================================
 
 
 
