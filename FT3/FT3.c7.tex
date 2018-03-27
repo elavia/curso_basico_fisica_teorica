@@ -247,8 +247,69 @@ y entonces
 
 Nótese que estamos considerando paredes abiertas y cerradas.
 
+Luego,
+\[
+	\braket{N_-} \leq \sum_b \sum_i^{N3^{b-1}} \chi([b,i]) \underbrace{S([b,i])}_{\leq b^2/16}
+\]
+\[
+	N_- \leq \sum_b \frac{b^2}{16} \sum_i^{N3^{b-1}} \chi([b,i])
+\]
+\[
+	\braket{N_-} \leq \sum_b \frac{b^2}{16} \sum_i^{N3^{b-1}} \braket{\chi([b,i])}
+\]
 
+Pero
+\[
+	\braket{\chi([b,i])} = \frac{ \sum_{\{Si\}}' \euler^{-\beta E_{\{Si\}}} }
+	{ \sum_{\{Si\}} \euler^{-\beta E_{\{Si\}}} }
+\]
+donde la sumatoria es en aquellas configuraciones que contienen al dominio $(b,i)$.
 
+\notamargen{num: de todas las configuraciones posibles aquellas en las cuales se da el dominio $(b,i)$.
+den: todas las configuraciones posibles.}
+
+Removemos términos del denominador para acotar: pensamos que si en una dada configuración $C$ con $\{b,i\}$ revertimos 
+en el dominio $\{b,i\}$ los spines llegamos a una configuración $\tilde{C}$
+\[
+	E_C - E_{\tilde{C}} = 2 \varepsilon b
+\]
+
+Al revertir los spines de un dominio pasamos a una configuración más ordenadas y por ende de menor energía
+ 
+ DIBUJO
+ 
+\[
+	\frac{ \sum_{\{Si\}}' \euler^{-\beta E_{\{Si\}}} }{ \sum_{\{Si\}} \euler^{-\beta E_{\{Si\}}} }
+	\leq 
+	\frac{ \sum_{\{C\}} \euler^{-\beta E_C} }{ \sum_{\{C'\}} \euler^{-\beta E_{\tilde{C}}} } =
+	\frac{ \sum_{\{C\}} \euler^{-\beta E_C} }{ \sum_{\{C\}} \euler^{-\beta E_{\tilde{C}}} 
+	\euler^{2\beta\varepsilon b} } = \euler^{-2\beta \varepsilon b}
+\] 
+\[
+	\braket{N_-} \leq \sum_b \frac{b^2}{16} \euler^{-2\beta \varepsilon b} N 3^{b-1} =
+	\frac{N}{48} \sum_b b^2 [ 3 \euler^{-2\beta \varepsilon } ]^b
+\]
+\[
+	\braket{N_-} \leq \frac{N}{48} \sum_{b=4,6,8,...} b^2 x^2,
+\]
+con $ x \equiv 3 \euler^{-2\beta \varepsilon } $
+
+\[
+	\braket{N_-} \leq \frac{N}{48} (16x^4 + 36x^6 + 64x^8 + ...) 
+\]
+Sea $b=2n$, entonces
+\[
+	\braket{N_-} \leq \frac{N}{48} \sum_{n=2,3,4,...} 4 n^2 (x^2)^n,
+\]
+con $x^2 = 9 \euler^{-4\beta\varepsilon} $
+\[
+	\braket{N_-} \leq \frac{N}{12} \sum_{n=2}^\infty n^2 r^n,
+\]
+con $r=9 \euler^{-4\beta\varepsilon}$
+\[
+	\braket{N_-} \leq \frac{N}{3} \frac{r^2}{(1-r)^3} \left[ 1 - \frac{3}{4}r + \frac{1}{4}r^2 \right]
+\]
+y esta cantidad para algún $\beta$ grande pero finito es menor a $N/2$.
 
 
 
