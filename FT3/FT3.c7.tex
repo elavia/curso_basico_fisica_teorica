@@ -152,9 +152,100 @@ que define al estado sin pared como de entropía $S_0=0$
 \[
 	\delta J - kT \log(N-1)
 \]
+\notamargen{Para $p$ paredes es 
+$\Delta A = 2Jp - kT \log [(N-1)(N-2)...(N-p)]$}
+
+Con $T > 0$ tenemos que si desordeno (agrego paredes) sube $U$ y sube $S$.
+En general, como 
+\[
+	\frac{\delta A}{kT} = \frac{2J}{kT} - \log(N-1)
+\]
+vemos que para $N\to\infty$ $\delta A < 0$ a menos de que $J/kT$ sea muy grande.
+
+\notamargen{$S$ domina la minimización de $A$.}
+
+En un sistema macroscópico 1D el desorden baja la $A$, entonces el equilibrio tiende
+al desorden (no al orden).
+
+Es decir, un sistema 1D de spines a $ T \neq 0 $ espontáneamente irá hacia $ A $
+mínimas (mayor aleatoriedad), no se tiende a alcanzar estados ordenados.
+
+\subsection{Magnetización espontánea en 2D}
+
+La magnetización media por spín es
+\[
+	\mathcal{M} = \frac{1}{2} \Frac{N_+ - N_-}{N}
+\]
+Con $N\to\infty$ claramente será 0 a no ser que exista una preferencia por cierta dirección $+$ o $-$.
+
+Queremos calcular todas las configuraciones posibles de un arreglo 2D de spines.
+Para ello sistematizamos una dada construcción en dominios $\Box$ que engloban spines ($-$) y están
+limitados por paredes.
+
+DIBUJO ising
 
 
+Los spines $+$ son una condición de contorno que con $N\to\infty$ es una perturbación que rompe la
+simetría. También sirven para cerrar los dominios.
 
+Cada dominio tiene una longitud $b$ medido en paredes $|$ y una dirección de recorrido de forma que 
+los spines $-$ están siempre a la izquierda de la pared.
+El tamaño de la red es $\sqrt{N} \times \sqrt{N} = N$. El área se mide en términos del dominio 
+mínimo ``$\Box$''
+\[
+	\text{ dominio } = (b,i)
+\]
+donde $b$ es el número de paredes e $i$ una etiqueta.
+
+A un mismo número de paredes según forma y localización tendrá varios dominios.
+
+Una dada configuración del sistema tendrá ciertos dominios $(b,i)$
+
+\begin{center}
+\begin{tabular}{llll}
+ & $b$ (paredes) & Areas (spines) & $b^2/16$ \\
+\hline
+ & 4 & 1 & 1\\
+ & 6 & 2 & 2.25\\
+ & 8 & 3,4 & 4
+\end{tabular}
+\end{center}
+
+Si cada spin ocupa un área de 1, en términos de paredes el área que engloba un dominio de $b$ paredes
+es 
+\[
+	\text{ Área dominio } \neq \frac{b^2}{16} \qquad \rightarrow \qquad S([b,i]) = \text{ Área dominio}
+\]
+\notamargen{Tengo una figura de longitud $b$ y si la quiero llevar a un cuadrado con suerte el lado
+será $b/4$ de modo que su área es $b^2/16$}
+
+Definimos ahora 
+\[
+	\chi([b,i]) = \begin{cases}
+	              1 \qquad \text{ Si (b,i) ocurre en una dada configuración } \\
+	              0 \qquad \text{ En caso contrario}
+	             \end{cases}
+\]
+y $m(b)$ número de dominios de $b$ paredes.
+
+Luego;
+\[
+	\boxed{ N_- = \sum_b \sum_i^{m(b)} \chi([b,i]) S([b,i]) } \quad [1]
+\]
+en el caso dibujado sería
+\[
+	N_- = 1 \cdot S(6,i) + 1 \cdot S(8,i') + 1 \cdot S(26,i'') \qquad 
+	N_- = 1 \cdot  2 + 1 \cdot  4 + 1 \cdot 12 = 18
+\]
+
+Por la [1] se puede acotar, empezando por $m(b)$. Para ver el número de dominios de longitud $b$ piénsese que 
+para la primera pared tengo $N$ posibilidades; para las siguientes $b-1$ tengo tres opciones pues no puedo volver,
+y entonces 
+\[
+	m(b) \leq N 3^{b-1}
+\]
+
+Nótese que estamos considerando paredes abiertas y cerradas.
 
 
 
