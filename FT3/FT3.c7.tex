@@ -50,7 +50,7 @@ uniforme) que no puede separarse por medios mecánicos.
 
 Una fase puede ser una única sustancia o una mezcla.
 
-El concepto de fase está también relacionado con el pasaj de la materia de una a otra fase.
+El concepto de fase está también relacionado con el pasaje de la materia de una a otra fase.
 
 \notamargen{corregir}
 
@@ -72,16 +72,17 @@ intensivo ($T, p$ campo magnético).
 Las transiciones de fase emergen de la interacción. Uno de los modelos más sencillos fuera del gas ideal es el modelo de
 Ising (red con interacción entre primeros vecinos)
 \[
-	E_\nu =
+	\boxed{ E_\nu = -H \sum_{i=1}^N (\mu S_i) - J \sum_{\braket{i,j}} S_i \cdot S_j }
 	\label{energia_ising}
 \]
 \notamargen{Ising es energía dada por \eqref{energia_ising} e interacción a primeros vecinos.}
 
 dibujo 
 
+
 donde $\nu$ es una dada configuración de la red (valores $S_i$ con $i=1,2,...,N$)
 \[
-	=
+	S_i = \pm 1 \qquad \rightarrow \qquad \pm \mu S_i \text{ Momento magnético del spin i-ésimo }
 \]
 donde $\mu>0$, $J$ es constante de acoplamiento y $\sum_{<i,j>}$ se extiende sobre los pares de vecinos (primeros).
 
@@ -89,6 +90,7 @@ Con $J>0$ es favorable que todos los spines se hallen alineados. Entonces esto l
 fenómeno de cooperación; la mayoría de los spines se orienta en una dirección y dan un valor de magnetización 
 $\braket{M} \neq 0$
 \[
+	M_\nu = \sum_{i=1}^N \mu \cdot S_i^\nu
 	\text{ (Magnetización) }
 \]
 \notamargen{$J>0$ ferromagnetismo y $J<0$ paramagnetismo}
@@ -103,39 +105,65 @@ Si $H=0$ entonces $M$ es la magnetización espontánea.
 
 Habrá magnetización con $T$ baja (o $J$ alto) y hasta una $T_\text{curie}$
 \[
-	Q_N(H,T) = \sum_{s_1=-1}^{+1} 
+	Q_N(H,T) = \sum_{s_1=-1}^{+1} \; \sum_{s_2=-1}^{+1} \; ... \sum_{s_N=-1}^{+1} \;
+	\euler^{ +\beta H \mu \sum_i^N S_i + \beta J \sum_{\braket{i,j}} S_i \cdot S_j }
 \]
 donde las sumatorias toman para cada $i$ los valores $S_i = +1, -1$
 \[
 	A = -kT\log Q \qquad \braket{E} = -\dpar{}{\beta}\log Q = kT^2 \dpar{}{T} \log Q
 \]
 
+\begin{ejemplillo}{(Ejercicio 5.1 Chandler)}
+\[
+	E_0 = -J \sum_{\braket{i,j}} S_i \cdot S_j = -J  \sum_i^N \sum_j^\gamma \frac{S_i S_j}{2}
+\]
+para cada $i$ sumo en sus $\gamma$ vecinos el $j$ (sobre 2 para no contar dos veces).
+\[
+	E_0 = -J \sum_i^N \frac{S_i\gamma}{2} = -J N\frac{\gamma}{2} = -JND
+\]
+donde $D$ es la dimensionalidad.
+\end{ejemplillo}
+
+
 Como es
 \[
-	E_\nu =
+	E_\nu =  -H \sum_{i=1}^N \mu \cdot S_i - J \sum_{\braket{i,j}} S_i \cdot S_j \qquad
+	\text{ y } \qquad \braket{M} = \braket{ \sum_i^N \mu \cdot S_i }
+\]
+entonces
+\[
+	\braket{M} = \braket{ \sum_i^N \mu \cdot S_i } = 
+	\frac{ \sum_{s_1} \; \sum_{s_2} \; ... \sum_{s_N} \;
+	\euler^{ \beta H \mu \sum_i^N S_i + \beta J \sum_{\braket{i,j}} S_i \cdot S_j } }{Q_N}
 \]
 \[
-	=
+	\braket{M} = \frac{ \sum_{s_1} \; \sum_{s_2} \; ... \sum_{s_N} \;
+	\dpar{}{\beta H} \left[ \euler^{ \beta H \mu \sum_i^N S_i + \beta J \sum_{\braket{i,j}} S_i \cdot S_j } 
+	\right]}{Q_N} = \frac{\dpar{}{\beta H}(Q_N)}{Q_N}
 \]
 \[
-	\braket{M} = 
-\]
-\[
-	\braket{M} = 
+	\braket{M} = \dpar{}{\beta H}\left( \log Q_N \right) = \dpar{}{\beta H}\left( -\beta A \right) =
+	\dpar{}{H}\left( A \right)
 \]
 
 \subsection{No hay magnetización espontánea en 1D}
 
+\notamargen{Error en Huang (14.6); es $-\dpar{}{H}(A_I)$}
+
 DIBUJO 
 
+Con $H=0$ invierto spines detrás de una pared.
 \[
-	=
+	E_0 = -J(N-1) \qquad E_f = -J[(N-1)-2p]
 \]
+\notamargen{$p$ es el número de paredes}
 
 Varían los términos asociados a la pared
 \[
-	=
+	\Delta E = E_f - E_0 = 2Jp > 0
 \]
+con $p=1$ es $\Delta E = 2J$ y con $p=2$ es $\Delta E = 4J$ (es 2 por pared puesto que desaparece un $+$ y aparece
+en su lugar un $-$).
 
 La variación de $S$ está asociada con el número de formas de ubicar la pared
 \[
