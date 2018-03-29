@@ -340,15 +340,223 @@ con $r=9 \euler^{-4\beta\varepsilon}$
 y esta cantidad para algún $\beta$ grande pero finito es menor a $N/2$.
 
 
-
-
-
-
 % =================================================================================================
 \section{Ising 2}
 % =================================================================================================
 
+La energía se podía escribir como
+\[
+	=
+\]
 
+El grado de un nodo es $\gamma$ que depende de la red y de la dimensión,
+\begin{center}
+\begin{tabular}{lll}
+2D & cuadrada & $\gamma=4$ \\
+3D & SC & $\gamma=6$ \\
+3D & BCC & $\gamma=8$
+\end{tabular}
+\end{center}
+
+\notamargen{$\gamma$ es el número de vecinos. De cada nodo salen $\gamma$ líneas.}
+
+\[ = \]
+
+dibujos
+
+Tomando un nodo y trazando líneas a sus $\gamma$ vecinos tengo $ \gamma N/2 $ líneas dibujadas
+(se divide en 2 por el doble conteo).
+
+Tomando cada $\oplus$ trazo líneas a sus vecinos y defino
+\[ = \]
+\begin{itemize}
+ \item 1)
+ \item 2)
+ \item 3)
+\end{itemize}
+
+\[=\]
+
+Podemos poner todo en términos de $N_{++}, N_+, N$ y entonces
+\[=\]
+\[=\]
+
+La energía se puede escribir en función de estas variables
+\[=\]
+\[=\]
+
+\notamargen{La energía depende de las cantidades $N,N_+,N_{++}$ y no del detalle de la distribución
+de los mismos.}
+
+La función canónica será
+\[=\]
+donde $g(N_+,N_{++})$ es el número de configuraciones de $N_{++}$ y $N_{+}$ y la sumatoria primada se hace 
+sobre los valores de $N_{++}$ consistentes con que hay $N_{+}$ spines up.
+
+Esta expresión no ha sido resuelta salvo en 2D.
+
+\subsection{Aproximación de Bragg-Williams}
+
+\[= \text{ (promedio) $\leftarrow$ correlaciones de largo rango } \]
+\[= \text{  $\leftarrow$ correlaciones de corto rango } \]
+
+y entonces $N_{+}/N$ está asociado a una visión global del sistema (un cuerpo), mientras que $N_{++}/(\gamma/2 N)$ 
+lo está a una visión local del sistema (dos cuerpos).
+
+Si un dado spin es $\oplus$ entonces tiene en promedio $N_{++}/(\gamma/2 N)$ vecinos del tipo $\oplus$.
+
+Definimos unos parámetros de orden $L$ y $\sigma$
+\[=\]
+\[=\]
+\notamargen{Estamos viendo todo del lado de los spines $\oplus$.}
+pero 
+\[=\]
+\[=\]
+\[=\]
+\[=\]
+
+La energía es 
+\[=\]
+y por partícula,
+\[=\]
+
+Hasta aquí el planteo es exacto; Bragg-Williams hace la aproximación
+\[=\]
+\notamargen{Significa que no hay correlaciones de orden corto salvo las que surgen
+del orden largo. Me quedo sólo con el parámetro $L$.}
+\[=\]
+\[ 
+	\boxed{ E = -\mu H N L - \frac{JN\gamma }{2}L^2 },
+\]
+que es la $E$ en Bragg-Williams.
+\[=\]
+donde $\{ s_i\}$ es la configuración de los N spines.
+
+La suma se extiende sobre todos los conjuntos $\{ s_i\}$, pero el sumando sólo depende de $L$.
+Queremos saber cuántos conjuntos $\{ s_i\}$ tienen el mismo $L$,
+\[=\]
+\[=\]
+
+La suma es ahora en todos los $L$ posibles. Con $N\to\infty$ el logaritmo de $Q$ es dominado por el término
+(con $\bar{L}$) que maximiza el sumando.
+\notamargen{La clave es el término que maximiza el sumando en valor absoluto. Será máximo o mínimo. }
+\[=\]
+\[=\]
+y usando Stirling,
+\[=\]
+pero no sabemos quién es $\bar{L}$. Y si hacemos
+\[=\]
+llegamos a que el valor de $\bar{L}$ sale de
+\[=\]
+
+Con $H=0$ es 
+\[=\]
+
+DIBUJO 
+
+busco igualar $f=\tanh(\beta\gamma J\bar{L})$ con $f=\bar{L}$.
+
+Entonces, si
+\[=\]
+siendo $T_c$ la temperatura de Curie.
+\notamargen{El $L$ máximo, el $\bar{L}$, es el que domina en $\log Q$.
+Asimismo, como $A = -kT\log Q$, el valor que maximiza $\log Q$ también minimiza $A$.}
+Usando (2) en (1) podemos escribir 
+\[=\]
+\[=\]
+pero (3) vale para el $\bar{L}$ que maximiza $\log Q$. Vemos que es independiente de $H$.
+Es más, (3) graficado en función de $\bar{L}$ no me dice nada. Lo que es valioso es (1).
+Desde allí,
+\[=\]
+
+Considerando $H=0$ resulta
+\[=\]
+
+DIBUJOS
+
+\[=\]
+
+El efecto del $H\neq 0$ es entonces romper la degeneración. Por otro lado $\bar{L}$ es el valor de
+magnetización por partícula. Entonces podemos graficar $A(\mu)$
+
+DIBUJO
+
+Las otras funciones termodinámicas resultan (con $H=0$)
+\[=\]
+\[=\]
+\[=\]
+\[=\]
+donde $L_0$ debe computarse numéricamente pero podemos aproximar en dos límites $T\approx 0$ y $T\approx T_c$
+
+\[=\]
+\[=\]
+
+DIBUJOS
+
+\subsection{Aproximación de Bette-Peierls}
+
+Tiene en cuenta correlaciones de corto orden. Se piensa en un elemento fundamental de la red de spines y el
+efecto de toda la red sobre el mismo.
+\[
+	z \equiv \text{ parámetro que mide el efecto de la red sobre el elemento }
+\]
+\[=\]
+\[=\]
+
+Para un dado $n$ hay $(\gamma n)$ [combinatorio] posibles ordenamientos.
+Se propone:
+\[=\]
+\[=\]
+con $q$ una normalización.
+\[=\]
+\[=\]
+\notamargen{Estamos usando teorema del binomio, ponerlo en apéndice de cuentas.}
+\[=\]
+
+Ahora se tendrá
+\[=\]
+\[=\]
+y suponemos que estas dos ecuaciones se cumplen en toda la red.
+Entonces tenemos $L,\sigma$ en función de $z$ y $T$.
+Dado que los centros son indistinguibles de un vecino,
+\[=\]
+pero
+\[=\]
+y podemos calcular
+\[=\]
+considerando $x\equiv \frac{\gamma}{\gamma -1}$
+
+Pero (1) debe hacerse gráficamente
+\begin{itemize}
+ \item $z=1$ es solución siempre 
+ \item Si $z_0$ es solución, entonces $1/z_0$ también lo es
+ \item $z=1$ hace $L=0$ y $z\to\infty$ hace $L=1$
+\end{itemize}
+
+DIBUJO
+
+Hay que ver la pendiente $C$ de la curva azul en $z=1$,
+\[=\]
+
+\[=\]
+
+\[=\]
+
+La $T_c$ se impone desde
+\[=\]
+\[=\]
+\[ 
+	\boxed{ kT_c = \frac{2J}{\log \Frac{\gamma}{\gamma -2 } }}
+\]
+
+\[=\]
+\[=\]
+y en este último caso hay magnetización espontánea.
+
+DIBUJO
+
+El $c_V$ no se va a cero para $T>T_c$.
+La solución exacta, Onsager, tiene allí una divergencia logarítmica.
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
