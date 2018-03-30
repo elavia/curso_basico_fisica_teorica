@@ -558,6 +558,342 @@ DIBUJO
 El $c_V$ no se va a cero para $T>T_c$.
 La solución exacta, Onsager, tiene allí una divergencia logarítmica.
 
+\subsection{Cosas sin título}
+
+dibujillos tipo tablero de ajedrez
+
+\begin{center}
+\begin{tabular}{l|l|l|l}
+dibujo & dibujo & dibujo & dibujo \\
+$ \displaystyle \frac{N_+}{N} =\frac{1}{2} \to L=0 $ & $ \displaystyle \frac{N_+}{N} =\frac{1}{2} \to L=0 $ & 
+$ \displaystyle \frac{N_+}{N} =\frac{1}{2} \to L=0 $ & $ \displaystyle \frac{N_+}{N} =1 \to L=1 $ \\
+ & & & \\
+$ \displaystyle \frac{N_{++}}{\gamma/2 N} =\frac{1}{2} \to \sigma=0 $ & 
+$ \displaystyle \frac{N_{++}}{\gamma/2 N} = 0 \to \sigma=-1 $ & 
+$ \displaystyle \frac{N_{++}}{\gamma/2 N} =\frac{1}{4} \to \sigma=-\frac{1}{2} $ & 
+$\displaystyle \frac{N_{++}}{\gamma/2 N} = 1 \to \sigma=1$ \\
+ & & & \\
+$\mathcal{M}=0$ & $\mathcal{M}=0$ & $\mathcal{M}=0$ & $\mathcal{M}=1$
+\end{tabular}
+\end{center}
+
+Ahora las energías son
+\[=\]
+\begin{center}
+\begin{tabular}{l|l|l|l}
+dibujo & dibujo & dibujo & dibujo \\
+ $E=-\frac{J\gamma N}{2}$ & & & 
+\end{tabular}
+\end{center}
+
+Notemos que $N_{++}/(\gamma/2)N$ significa que todas las líneas $\oplus - \oplus$ dividido sobre todas
+las líneas posibles $(\oplus - \oplus, \oplus - \ominus, \ominus - \ominus)$.
+
+\subsection{Orden corto y orden largo}
+
+dibujo bola spines
+
+$N_+ / N$ : no me dice algo preciso en A. Creciendo hacia B va adquiriendo cada vez más sentido, entonces
+es un parámetro global.
+
+$N_{++}/(\gamma/2)N$ : tiene sentido en A. Creciendo hacia B ya en general no lo conservará, entonces es
+un parámetro local.
+
+\notamargen{En $N_{++}2/(\gamma N)$} note que nos paramos en un $\oplus$ para que tenga el sentido de
+vecinos con $\oplus$.
+\[
+	A = U - TS
+\]
+
+Con $ST$ chicos la minimización de $A$ la domina $U$ (min.) pero con $U$ chicas la minimización de $A$ la domina
+$TS$ (ma)
+
+\subsection{Comentario magnetización}
+
+DIBUJETE
+
+Con $H=0$ es claro que deberíamos tener $ \braket{M}=0 $ por simetría entre $\oplus$ y $\ominus$.
+
+Los dos ramos son equivalentes, pero el sistema cae en una u otra por una ``rotura espontánea de simetría''
+llevada a cabo por un $ H \to 0 $ o por impurezas.
+
+Acá hay una cuenta que no paso que tiene que ver con el $ \log Q $.
+
+El mínimo de $A$ será 
+\[ = \]
+
+dibujo
+
+dibujo
+
+dibujo
+
+La presencia de $ H \neq 0 $ añade un término 
+\[
+	A \approx - N H \mu I + ...
+\]
+que hará menor a $ A $ en $ + L_0 $ y mayor en $ - L_0 $. Rompe degeneración.
+
+\[=\]
+
+\subsection{Metropolis Monte-Carlo}
+
+Repaso de teoría de procesos de Markov.
+
+$Y$ es una variable estocástica en un espacio muestral $(y_1, y_2,...)$
+Sea por simplicidad todo equiprobable, entonces
+\[
+	P(y_1) = \frac{1}{4}
+\]
+\[=\]
+\notamargen{$Y$ puede tomar cualquier valor de su espacio muestral.}
+\[=\]
+Asumo que estoy con probabilidad 1 (certeza) en $y_1$ tengo tres flechas
+\[ = \]
+
+Las normalizaciones vienen de integrar
+\begin{itemize}
+ \item $ \int P(y_1) dy_1 = 1 $
+ \item $ \int P(y_1|y_2) dy_2 = 1 $
+\end{itemize}
+
+Para procesos de Markov sólo interesará un único paso anterior. El sistema no tiene mucha memoria que 
+digamos.
+\[
+	P(y_1|y_2) \equiv \text{ Probabilidad de transición }
+\]
+El proceso de Markov lo definimos por 
+\[=\]
+\[=\]
+\[=\]
+\[=\]
+
+Sea ahora un espacio muestral discreto $(y_1,y_2,...,y_L)$ con el tiempo discretizado
+\[=\]
+\notamargen{Cadenas de Markov son en espacios discretos.}
+\[=\]
+
+La información de las transiciones se introduce en 
+\[=\]
+
+Para todo el sistema podemos definir un vector de dimensión $L$
+\[=\]
+\[=\]
+\[=\]
+
+Es regular la matriz estocástica $ Q $ si existe $ k : [ Q^k ]_{ij} > 0 \forall i,j $
+Si es regular, entonces existe $ \$ : Q^\$ =  Q^{\$+1} $ y entonces $T = QT$ con $T\equiv Q^\$$.
+
+Llegado un momento, $\$$ pasos, el sistema ya no cambia. A partir del paso $\$$ la matriz Q ya no cambia
+la distribución en $\vec{P}$.
+
+\notamargen{Hay una hoja con algunas preguntas pegada acá.}
+
+\[=\]
+\[=\]
+\[
+	\vec{P} = \vec{P} Q,
+\]
+lo cual define el equilibrio. Este punto fijo define
+\[ =\]
+
+% =================================================================================================
+\section{Método de Metropolis Monte Carlo}
+% =================================================================================================
+
+Tenemos el espacio $ \mathbb{\Gamma} $ 3DN dimensional para un sistema de N partículas.
+Un punto es el estado del sistema.
+
+DIBUJETE
+
+Queremos generar una cadena de Markov con probabilidades constantes de transición.
+
+Subdividimos el volumen $ \mathbb{\Gamma} $  en S celdas; el estado del sistema a un paso $n$ es su
+ubicación en la celda $S_k$, $k=1,2,...,S$. La energía en ese estado es $U_k$.
+
+DIBUJO 
+
+El sistema visita estados en un paso de tiempo (no es el tiempo físico)
+
+\[=\]
+
+que es la probabilidad de ir desde 1 a 2 (transición)
+
+Los estados se ponderan de acuerdo a su energía $U_k$ para que aparezcan en la cadena con frecuencia
+$ \propto \exp(-\beta U_k ) $
+
+De esta forma la cuenta converge al canónico.
+\[=\]
+\[=\]
+\[=\]
+\[=\]
+
+El tiempo medio de recurrencia es
+\[=\]
+con la condición 
+\[=\]
+
+Estamos viendo la suma entre todos los caminos para llegar desde $i$ a $j$; debe dar uno.
+Siempre hay un camino entre dos estados (la red es conexa).
+
+\[=\]
+
+Un estado $i$ es recurrente si 
+\[=\]
+\[=\]
+\[=\]
+\[=\]
+
+
+Si los estados pertenecen a la misma clase cumplen UNA de estas condiciones 
+\begin{itemize}
+ \item Son todos no recurrentes
+ \item Son todos positivos
+ \item Son todos nulos
+\end{itemize}
+
+Todos los estados están conectados en $ \mathbb{\Gamma} $  (su probabilidad es no nula) y entonces
+si uno solo de ellos es nulo y son de la misma clase entonces deben ser todos nulos.
+Lo mismo si uno es positivo, todos deben serlo.
+
+DIBUJO 
+
+Cadena ergódica: cadena irreducible finita, con todos sus estados aperiódicos. 
+Se dará que:
+\[=\]
+
+Con infinitos loops la probabilidad de llegar desde cualquier 'j' no depende del punto inicial 'j'.
+La probabilidad del estado 'k' tiene un valor asintótico estable
+\[
+	\pi_k = \frac{1}{n_k} \qquad \text{ (razonable) } 
+\]
+\[=\]
+\[=\]
+
+dibujin
+
+\subsection{Metropolis}
+
+\[= \text{ Promedio en el ensamble } \]
+
+La probabilidad del estado asintótico del sistema será:
+\[=\]
+pero no conozco todos los posibles 's' y no puedo evaluar $\sum_s$.
+Pido reversibilidad macroscópica y entonces
+\[=\]
+luego,
+\[=\]
+
+Entonces, si se da 
+REVERSIBILIDAD + ERGODICIDAD + NORMALIZACIÓN
+se tiene que la cadena converge.
+
+El método:
+Se propone una $P^*$ cadena de Markov con 
+\[=\]
+\[=\]
+\[=\]
+\[=\]
+
+Tenemos tres situaciones $ \pi_i < \pi_j , \pi_i = \pi_j, \pi_i > \pi_j$
+\[=\]
+\[=\]
+
+\subsection{Aplicación a Ising}
+
+\[=\]
+\[=\]
+\[=\]
+
+Las probabilidades de transición serán:
+\[=\]
+de modo que para un sistema con single spin flip se tendrá:
+\begin{center}
+\begin{tabular}{llll}
+1 &  & $ \Delta E = 8J $  & El menos conveniente \\
+4 &  & $ \Delta E = 4J $ &  \\
+6 &  & $ \Delta E = 0 $ & Caso neutro \\
+4 &  & $ \Delta E = -4J $ &  \\
+1 &  & $ \Delta E = -8J $ & Es más conveniente
+\end{tabular}
+\end{center}
+
+Con estas consideraciones tengo todas las probabilidades de MMC
+
+tres dibujetes seguidos
+
+% =================================================================================================
+\section{Fenómenos críticos}
+% =================================================================================================
+
+Existe analogía entre sistemas magnéticos $(H,M)$ y gases $(p,V)$
+\[=\]
+\[=\]
+\[=\]
+\[=\]
+\[=\]
+\[=\]
+
+Derivando ambos lados:
+
+dibujos
+
+$L$ revienta en $T=T_c$
+
+y las derivadas segundas de $G$ discontinuas en $T_c$
+
+Landau propone una teoría unificada de comportamiento de un sistema cerca del punto crítico.
+Introduce el parámetro de orden $m_0$ que vale 0 si $T>T_c$ y $\neq 0$ si $T<T_c$.
+
+La idea es expandir $ A = A(m_0) $.
+Con $H=0$ el sistema es simétrico y entonces términos pares
+\[=\]
+\[=\]
+\[=\]
+\[=\]
+\[=\]
+
+Elegimos
+\[=\]
+\[=\]
+\[=\]
+\[=\]
+
+dibujo
+
+\[=\]
+\[=\]
+
+Si hay campo externo :
+\[=\]
+\[=\]
+
+Con $f \to 0$ recordamos
+\[=\]
+\[=\]
+
+Ambos revienta en $T_c$
+
+DIBUJO
+
+% =================================================================================================
+\section{Exponentes críticos}
+% =================================================================================================
+
+\begin{itemize}
+ \item Al cruzar el punto crítico el parámetro de orden crece.
+ \item En la vecindad del punto crítico el sistema sobrelleva procesos de ajuste, entonces
+ hay grandes fluctuaciones.
+ \item Algunas fluctuaciones termodinámicas tienen diferentes comportamientos.
+\end{itemize}
+
+Los exponentes críticos describen la naturaleza de las singularidades en el punto crítico.
+Son seis: $ \alpha, \beta, \gamma, \delta, \eta, \nu $
+\[
+	t = \frac{T-T_c}{T_c} \qquad \text{ parámetro } 
+\]
+
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
