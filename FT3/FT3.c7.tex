@@ -515,10 +515,24 @@ N-N_+$
 La suma es ahora en todos los $L$ posibles. Con $N\to\infty$ el logaritmo de $Q$ es dominado por el término
 (con $\bar{L}$) que maximiza el sumando.
 \notamargen{La clave es el término que maximiza el sumando en valor absoluto. Será máximo o mínimo. }
-\[=\]
-\[=\]
+\[
+	\log (Q(H,T)) = \log \left( \sum_L \frac{N!}{N_+!(N-N_+)!} \euler^{\beta N f(L)} \right)
+\]
+si pensamos que la suma está dominada por un término,
+\[
+	\log (Q(H,T)) \approx \log \left( \frac{N!}{ N/2(\bar{L}+1)!N/2(1-\bar{L})!} 
+	\euler^{\beta N f(\bar{L})} \right)
+\]
+\[
+	\log (Q(H,T)) \approx \log N! - \log N/2(\bar{L}+1)!N/2(1-\bar{L})! + 
+	\beta N ( H\mu \bar{L} + J\bar{L}^2 \gamma/2 ) 
+\]
 y usando Stirling,
-\[=\]
+\[
+	\log Q = \beta N H \mu \bar{L} + \beta \frac{NJ}{2} \gamma \bar{L}^2 -
+	\frac{N}{2} \log \Frac{1-\bar{L}^2}{4} - \frac{N\bar{L}}{2} \log \Frac{1+\bar{L}}{1-\bar{L}}
+	\qquad [1]
+\]
 pero no sabemos quién es $\bar{L}$. Y si hacemos
 \[
 	\dpar{}{\bar{L}}( \log Q[H,T] ) = 0
@@ -567,10 +581,29 @@ magnetización por partícula. Entonces podemos graficar $A(\mu)$
 DIBUJO
 
 Las otras funciones termodinámicas resultan (con $H=0$)
-\[=\]
-\[=\]
-\[=\]
-\[=\]
+\[
+	\frac{M}{\mu N} = \begin{cases}
+	                   0 \qquad T > T_c \\
+	                   L_0 \qquad T< T_c
+	                  \end{cases}
+\]
+\[
+	\frac{A}{N} = \begin{cases}
+	                   0 \qquad T > T_c \\
+	                   \frac{\gamma J}{2}\bar{L_0}^2 + \frac{kT}{2} \log \Frac{1-\bar{L_0}^2}{4}
+	                   \qquad T< T_c
+	                  \end{cases}
+\]
+\[
+	\frac{U}{N} = \begin{cases}
+	                   0 \qquad T > T_c \\
+	                   -\frac{\gamma J}{2}\bar{L_0}^2 \qquad T< T_c
+	                  \end{cases}
+\]
+\[
+	\frac{C}{N} = \dpar{}{T}\Frac{U}{N} = \dpar{}{T}\left(-\frac{\gamma J}{2}\bar{L_0}^2 \right)
+	= - \gamma J L_0 \dtot{L_0}{T}
+\]
 donde $L_0$ debe computarse numéricamente pero podemos aproximar en dos límites $T\approx 0$ y $T\approx T_c$
 
 \[=\]
