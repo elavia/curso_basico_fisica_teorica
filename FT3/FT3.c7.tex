@@ -482,21 +482,35 @@ y por partícula,
 \]
 
 Hasta aquí el planteo es exacto; Bragg-Williams hace la aproximación
-\[=\]
 \notamargen{Significa que no hay correlaciones de orden corto salvo las que surgen
 del orden largo. Me quedo sólo con el parámetro $L$.}
-\[=\]
+\[
+	\frac{N_{++}}{\gamma/2 N}= \Frac{N_+}{N}^2
+\]
+\[
+	\frac{1}{2}(\sigma + 1) \approx \frac{1}{2^2} (L+1)^2 \quad \rightarrow \quad 
+	\sigma \approx \frac{L^2 + 2L + 1}{2}
+\]
 \[ 
 	\boxed{ E = -\mu H N L - \frac{JN\gamma }{2}L^2 },
 \]
 que es la $E$ en Bragg-Williams.
-\[=\]
+\[
+	Q(H,T) = \sum_{\{ s_i\}} \euler^{-\beta N(- \H\mu L - JL^2 \gamma / 2) }
+\]
 donde $\{ s_i\}$ es la configuración de los N spines.
 
 La suma se extiende sobre todos los conjuntos $\{ s_i\}$, pero el sumando sólo depende de $L$.
 Queremos saber cuántos conjuntos $\{ s_i\}$ tienen el mismo $L$,
-\[=\]
-\[=\]
+\[
+	\frac{N!}{N_+!(N-N_+)!}
+\]
+que es el número de maneras de tomar $N_+$ de $N$ indistinguibilizando dentro de $N_+$ y de $N_-\equiv
+N-N_+$
+\[
+	Q(H,T) = \sum_{L=-1}^{L=1} \frac{N!}{N_+!(N-N_+)!}
+	 \euler^{\beta N( \H\mu L + JL^2 \gamma / 2) }
+\]
 
 La suma es ahora en todos los $L$ posibles. Con $N\to\infty$ el logaritmo de $Q$ es dominado por el término
 (con $\bar{L}$) que maximiza el sumando.
@@ -506,12 +520,22 @@ La suma es ahora en todos los $L$ posibles. Con $N\to\infty$ el logaritmo de $Q$
 y usando Stirling,
 \[=\]
 pero no sabemos quién es $\bar{L}$. Y si hacemos
-\[=\]
-llegamos a que el valor de $\bar{L}$ sale de
-\[=\]
+\[
+	\dpar{}{\bar{L}}( \log Q[H,T] ) = 0
+\]
+llegamos a que debe valer [2]
+\[
+	\log \frac{1+\bar{L}}{1-\bar{L}} = 2\beta H\mu + 2\beta \gamma \bar{L} J
+\]
+y por ello el valor de $\bar{L}$ sale de
+\[
+	\bar{L} = \tanh( \beta H \mu + \beta \gamma J \bar{L} )
+\]
 
 Con $H=0$ es 
-\[=\]
+\[
+	\boxed{ \bar{L} = \tanh( \beta \gamma J \bar{L} ) } \qquad \text{ condición para $\bar{L}$ }
+\]
 
 DIBUJO 
 
