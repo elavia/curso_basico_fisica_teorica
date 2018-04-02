@@ -556,24 +556,50 @@ DIBUJO
 busco igualar $f=\tanh(\beta\gamma J\bar{L})$ con $f=\bar{L}$.
 
 Entonces, si
-\[=\]
+\[
+	T_c \equiv \frac{\gamma J}{k} > T \qquad \rightarrow \quad \bar{L} = 0, L_0, -L_0 \; 
+	\text{ son soluciones } 
+\]
+\[
+	T_c \equiv \frac{\gamma J}{k} \geq T \qquad \rightarrow \quad \bar{L} = 0 \; 
+	\text{ es solución } 
+\]
 siendo $T_c$ la temperatura de Curie.
 \notamargen{El $L$ máximo, el $\bar{L}$, es el que domina en $\log Q$.
 Asimismo, como $A = -kT\log Q$, el valor que maximiza $\log Q$ también minimiza $A$.}
 Usando (2) en (1) podemos escribir 
-\[=\]
-\[=\]
+\[
+	- \beta A = \log Q(H,T) \approx - \beta \frac{\gamma J N}{2} \bar{L}^2 
+	- \frac{N}{2} \log \Frac{1-\bar{L}^2}{4}
+\]
+\[
+	\log Q(H,T) \approx - \Frac{T_c}{T}\frac{N}{2}\bar{L}^2 - \frac{N}{2} \log \Frac{1-\bar{L}^2}{4}
+	\; [3]
+\]
 pero (3) vale para el $\bar{L}$ que maximiza $\log Q$. Vemos que es independiente de $H$.
 Es más, (3) graficado en función de $\bar{L}$ no me dice nada. Lo que es valioso es (1).
 Desde allí,
-\[=\]
+\[
+	A \approx -NH\mu \bar{L} - kT_C \frac{N}{2}\bar{L}^2  + kT\frac{N}{2} \log \Frac{1-\bar{L}^2}{4}
+	+ kT \frac{N}{2} L \log \Frac{1+\bar{L}}{1-\bar{L}}
+\]
 
 Considerando $H=0$ resulta
-\[=\]
+\[
+	\frac{\beta A}{N/2} \approx -\frac{T_c}{T} \bar{L}^2 + \log \Frac{1-\bar{L}^2}{4}
+	+ \bar{L} \log \Frac{1+\bar{L}}{1-\bar{L}}
+\]
+y si 
+\[
+	-\frac{2H\mu}{kT}\bar{L},
+\]
+siendo chico el factor,
 
 DIBUJOS
 
-\[=\]
+\[
+	A \approx k T_c \frac{N}{2} \bar{L}^2 + k T N \log \Frac{1-\bar{L}^2}{4}
+\]
 
 El efecto del $H\neq 0$ es entonces romper la degeneración. Por otro lado $\bar{L}$ es el valor de
 magnetización por partícula. Entonces podemos graficar $A(\mu)$
@@ -606,8 +632,18 @@ Las otras funciones termodinámicas resultan (con $H=0$)
 \]
 donde $L_0$ debe computarse numéricamente pero podemos aproximar en dos límites $T\approx 0$ y $T\approx T_c$
 
-\[=\]
-\[=\]
+\[
+	L_0 = \tanh\Frac{T_c L_0}{T} = \frac{(1-\euler^{-2x})}{1+\euler^{-2x}}
+	\approx (1-\euler^{-2x})^2
+\]
+siendo $x\equiv T_cL_0/T$ y amasando tenemos
+\[
+	\begin{cases}
+	L_0 \approx 1 - 2\euler^{-T_cL_0/T} \quad \text{ si } T_c/T \gg 1 \\
+	L_0 \approx 3^{1/2}\left( 1 - \frac{T}{T_c} \right)^{1/2} \quad \text{ si } T_c \approx T 
+	\end{cases}
+\]	
+
 
 DIBUJOS
 
@@ -618,16 +654,33 @@ efecto de toda la red sobre el mismo.
 \[
 	z \equiv \text{ parámetro que mide el efecto de la red sobre el elemento }
 \]
-\[=\]
-\[=\]
+
+dibujete
+
+$P(s,n)$ es la probabilidad de que el spin central tenga valor 's' y halla 'n' vecinos $\oplus$
+de manera que 
+\[
+	P(+,n) \quad \rightarrow \qquad n \text{ pares } ++, \quad \gamma_- n \text{ pares } +- 
+\]
+\[
+	P(-,n) \quad \rightarrow \qquad n \text{ pares } +-, \quad \gamma_- n \text{ pares } -- 
+\]
 
 Para un dado $n$ hay $(\gamma n)$ [combinatorio] posibles ordenamientos.
 Se propone:
-\[=\]
-\[=\]
+\[
+	P(+,n) = \frac{1}{q}\binom{\gamma}{n} \euler^{\beta J (2n-\gamma)} z^n
+\]
+\[
+	P(-,n) = \frac{1}{q}\binom{\gamma}{n} \euler^{\beta J (\gamma-2n)} z^n
+\]
 con $q$ una normalización.
-\[=\]
-\[=\]
+\[
+	\sum_{n=0}^\gamma [ P(+,n) + P(-,n) ] = 1
+\]
+\[
+	q =
+\]
 \notamargen{Estamos usando teorema del binomio, ponerlo en apéndice de cuentas.}
 \[=\]
 
