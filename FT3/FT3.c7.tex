@@ -679,25 +679,48 @@ con $q$ una normalización.
 	\sum_{n=0}^\gamma [ P(+,n) + P(-,n) ] = 1
 \]
 \[
-	q =
+	q = \sum_{n=0}^\gamma \binom{\gamma}{n} z^n 
+	\left[ \euler^{2\beta J n} \cdot \euler^{-\beta J \gamma} + 
+	\euler^{-2\beta J n} \cdot \euler^{\beta J \gamma} \right]
 \]
+y armando binomios dentro del paréntesis puede arribarse a
 \notamargen{Estamos usando teorema del binomio, ponerlo en apéndice de cuentas.}
-\[=\]
+\[
+	q = \left[ z\euler^{\beta J} + \euler^{-\beta J} \right]^\gamma +
+	\left[ \euler^{\beta J} + z\euler^{-\beta J} \right]^\gamma
+\]
 
 Ahora se tendrá
-\[=\]
-\[=\]
+\[
+	\frac{N_+}{N} = \frac{1}{2}(L+1) = \sum_{n=0}^\gamma P(+,n) =
+	\frac{1}{q} \left[ \euler^{\beta J} + z\euler^{-\beta J} \right]^\gamma
+\]
+\[
+	\frac{N_{++}}{N\gamma/2} = \frac{1}{2}(\sigma+1) = \frac{1}{\gamma} \sum_{n=0}^\gamma n P(+,n) =
+	\frac{z}{q} \euler^{\beta J} \left[ \euler^{-\beta J} + z\euler^{\beta J} \right]^{\gamma-1}
+\]
 y suponemos que estas dos ecuaciones se cumplen en toda la red.
 Entonces tenemos $L,\sigma$ en función de $z$ y $T$.
 Dado que los centros son indistinguibles de un vecino,
-\[=\]
+\[
+	\sum_{n=0}^\gamma P(+,n) = \frac{1}{\gamma} \sum_{n=0}^\gamma n \left[ P(+,n) + P(-,n) \right]
+\]
 pero
-\[=\]
+\[
+	\dpar{}{z}P(+,n) = P(+,n)\frac{n}{Z}
+\]
+de manera que 
+\be
+	z = \Frac{1+z\euler^{2\beta J}}{z+\euler^{2\beta J}}^{\gamma -1}
+	\label{z_equation}
+\ee
 y podemos calcular
-\[=\]
+\[
+	L = \frac{z^x - 1}{z^x + 1} \qquad \qquad \sigma = \frac{2z^2}{(1+z\euler^{-2\beta J})(1+z^x)} -1
+\]
 considerando $x\equiv \frac{\gamma}{\gamma -1}$
 
-Pero (1) debe hacerse gráficamente
+Pero \eqref{z_equation} debe hacerse gráficamente
 \begin{itemize}
  \item $z=1$ es solución siempre 
  \item Si $z_0$ es solución, entonces $1/z_0$ también lo es
