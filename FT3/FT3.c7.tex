@@ -926,17 +926,28 @@ y por ``reducción'',
 \]
 
 Sea ahora un espacio muestral discreto $(y_1,y_2,...,y_L)$ con el tiempo discretizado
-\[=\]
+\[
+	P_1(y_j,1) = \sum_i^L P_1(y_i,1) P_{1/1}(y_i,0|y_j,1) = \sum_i^L P_2(y_i,0 ; y_j,1)
+\]
+donde $1$ es el paso de tiempo.
 \notamargen{Cadenas de Markov son en espacios discretos.}
-\[=\]
 
 La información de las transiciones se introduce en 
-\[=\]
+\[
+	Q_{ij} = P(y_i,0|y_j,1) \rightarrow \sum_i^L Q_{ij} = 1 \forall j 
+\]
 
 Para todo el sistema podemos definir un vector de dimensión $L$
-\[=\]
-\[=\]
-\[=\]
+\[
+	\vec{P}(1) = [ (y_1,1) (y_2,1) ... (y_L,1 )]
+\]
+\[
+	\vec{P}(1) = \vec{P}(0) Q \Rightarrow  \vec{P}(s) = \vec{P}(s-1) Q = \vec{P}(s-2) Q^2 = ...
+\]
+\[
+	\vec{P}(s) = \vec{P}(0) Q^s
+\]
+con $s$ número de pasos.
 
 Es regular la matriz estocástica $ Q $ si existe $ k : [ Q^k ]_{ij} > 0 \forall i,j $
 Si es regular, entonces existe $ \$ : Q^\$ =  Q^{\$+1} $ y entonces $T = QT$ con $T\equiv Q^\$$.
@@ -946,13 +957,24 @@ la distribución en $\vec{P}$.
 
 \notamargen{Hay una hoja con algunas preguntas pegada acá.}
 
-\[=\]
-\[=\]
+\[
+	P(\$) = P(0) Q^\$
+\]
+\[
+	P(\$+1) = P(0) Q^{\$+1} = P(0) Q^\$
+\]
 \[
 	\vec{P} = \vec{P} Q,
 \]
 lo cual define el equilibrio. Este punto fijo define
-\[ =\]
+\[
+	T = Q^s = \begin{pmatrix}
+	         \alpha & \beta & ... & \omega \\
+	         \alpha & \beta & ... & \omega \\
+	         .. & .. & ... & .. \\
+	         \alpha & \beta & ... & \omega \\
+	        \end{pmatrix}
+\]
 
 % =================================================================================================
 \section{Método de Metropolis Monte Carlo}
@@ -972,7 +994,9 @@ DIBUJO
 
 El sistema visita estados en un paso de tiempo (no es el tiempo físico)
 
-\[=\]
+\[
+	P_{12} \equiv P_{1/1}( y_1, t_1 | y_2, t_2 )
+\]
 
 que es la probabilidad de ir desde 1 a 2 (transición)
 
