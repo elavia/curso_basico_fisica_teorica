@@ -1004,27 +1004,60 @@ Los estados se ponderan de acuerdo a su energía $U_k$ para que aparezcan en la 
 $ \propto \exp(-\beta U_k ) $
 
 De esta forma la cuenta converge al canónico.
-\[=\]
-\[=\]
-\[=\]
-\[=\]
+\[
+	\sum_{k=1}^S p_{jk} = 1 \forall j \quad \text{ normalización }
+\]
+\[
+	f_{ij}^{(n)} = P( y_t, y_{t-1}, ..., y_{t-n+1} | y_{t-n} )
+\]
+y con $n=3$
+\[
+	f_{ij}^{(3)} = P( \underbrace{y_t}_{S_j}, y_{t-1}, y_{t-2} | \underbrace{y_{t-3}}_{S_i} )
+\]
+\[
+	f_{ij}^{(1)} = P( \underbrace{y_t}_{S_j} | \underbrace{y_{t-1}}_{S_i} )
+\]
+\[
+	f_{ij}^{(n)} = = p_{ij}^{(n+1)} - \sum_{r=1}^n f_{ij}^{(r)} p_{ij}^{(n-r+1)}
+\]
 
 El tiempo medio de recurrencia es
-\[=\]
-con la condición 
-\[=\]
-
-Estamos viendo la suma entre todos los caminos para llegar desde $i$ a $j$; debe dar uno.
+\[
+	m_{ij} = \sum_{n=1}^\infty n f_{ij}^{(n)}, 
+\]
+(que es el tiempo de recurrencia medio entre los estados $i$ y $j$) con la condición 
+\[	
+	1 = \sum_{n=1}^\infty f_{ij}^{(n)}
+\]
+donde aquí estamos viendo la suma entre todos los caminos para llegar desde $i$ a $j$; debe dar uno.
 Siempre hay un camino entre dos estados (la red es conexa).
 
-\[=\]
+ESQUEMITA
+
+$m_{ij}$ me dice el número medio de pasos de tiempo $n$ que tengo entre $i$ y $j$.
 
 Un estado $i$ es recurrente si 
-\[=\]
-\[=\]
-\[=\]
-\[=\]
+\[
+	\sum_{n=1}^\infty f_{ii}^{(n)} = 1
+\]
+partiendo de $i$, si espero $n=\infty$ pasos vuelvo con certeza a $i$.
 
+\[
+	m_{ii} < \infty \rightarrow \text{ positivos }
+\]
+\[
+	m_{ii} = \infty \rightarrow \text{ nulos }
+\]
+\[
+	\text{ si } p_{mn}^{(n)} \neq 0 \text{ sólo con } n=\alpha d (\alpha \in \mathbb{Z}) \rightarrow 
+	\text{ periódicos } 
+\]
+y en cambio si $d=1$ entonces son aperiódicos.
+
+Si para algún $m,n$, $p_{ij}^{(n)} \neq 0$ y $p_{ji}^{(n)} \neq 0$, entonces $S_i$ y $S_j$ son mutuamente accesibles 
+(misma clase). DIBUJO.
+
+Cadena de estados que pertenecen a la misma clase: IRREDUCIBLE.
 
 Si los estados pertenecen a la misma clase cumplen UNA de estas condiciones 
 \begin{itemize}
