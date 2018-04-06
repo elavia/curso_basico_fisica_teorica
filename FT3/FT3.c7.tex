@@ -1195,18 +1195,54 @@ tres dibujetes seguidos
 % =================================================================================================
 
 Existe analogía entre sistemas magnéticos $(H,M)$ y gases $(p,V)$
-\[=\]
-\[=\]
-\[=\]
-\[=\]
-\[=\]
-\[=\]
+\[
+	H,M,T	\qquad \qquad \qquad p,V,T
+\]
+\[
+	H \equiv P \qquad -M \equiv V
+\]
+\[
+	dU = TdS + HdM + \mu dM 
+\]
+y con $N$ fijo,
+\[
+	T.dS = dU - H.dM	
+\]
+\[
+	c_V = \dtot{Q}{T}|_V, \kappa_T = \dpar{V}{T}|_T
+\]
+\[
+	A = U - TS \qquad dA = dT - TdS - SdT = HdM + \mu dM - SdT
+\]
 
+\[
+	c_M = T\dtot{S}{T}|_M = T \dpar{S}{T}|_M = -T\dpar[2]{A}{T}|_M 
+\]
+\[
+	\dpar{A}{T}|_{M,N} = -S \qquad \dpar[2]{A}{T}|_{M,N} = -\dpar{S}{T}|_{M,N}
+\]
+\[
+	\chi_T \equiv \dpar{M}{H}|_T = \dpar{}{H}\left(\dpar{G}{H}|_T\right)_T = - \dpar[2]{G}{H}|_T
+\]
+\[
+	G = U - TS -HM \qquad dG = dA - HdM - MdH = \mu dN - SdT - M dH
+\]
+\[
+	M = \sum s_i = NL \qquad \chi_T = \dpar{NL}{H}|_T
+\]
+sabiendo que 
+\[
+	\overline{L} = \tanh ( \beta H \mu + \beta \gamma J \overline{L} )
+\]
 Derivando ambos lados:
 
 dibujos
 
 $L$ revienta en $T=T_c$
+
+\notamargen{ \[
+N \dpar{L}{H} = N \dpar{L}{T} \dpar{T}{H}
+\] y la derivada parcial del medio revienta. }
 
 y las derivadas segundas de $G$ discontinuas en $T_c$
 
@@ -1215,7 +1251,9 @@ Introduce el parámetro de orden $m_0$ que vale 0 si $T>T_c$ y $\neq 0$ si $T<T_
 
 La idea es expandir $ A = A(m_0) $.
 Con $H=0$ el sistema es simétrico y entonces términos pares
-\[=\]
+\[
+	t \equiv \frac{T-T_c}{T_c} = \frac{T}{T_c} -1  \qquad Y = \text{ Fuerza generalizada }
+\]
 \[=\]
 \[=\]
 \[=\]
