@@ -1254,21 +1254,55 @@ Con $H=0$ el sistema es simétrico y entonces términos pares
 \[
 	t \equiv \frac{T-T_c}{T_c} = \frac{T}{T_c} -1  \qquad Y = \text{ Fuerza generalizada }
 \]
-\[=\]
-\[=\]
-\[=\]
-\[=\]
+\[
+	\Psi( t, m_0,Y ) = \Psi_0( t, Y ) + r(t) m_0^2 + s(t) m_0^4
+\]
+\[	
+	\dpar{\Psi}{m_0} = 0 \qquad  \qquad  \dpar[2]{\Psi}{m_0} \geq 0
+\]
+\[	
+	\dpar{\Psi}{m_0} = 2 r(t) m_0 + 4 s(t) m_0^3 = 0 \qquad \qquad 
+	\dpar{\Psi}{m_0} = 2 r(t) + 12 s(t) m_0^2 \geq 0
+\]
+\[	
+	m_0^2 = -\frac{r(t)}{2s(t)}
+\]
+y con $m_0$ grande se tiene que $s(t)>0$ controla la concavidad.
 
 Elegimos
-\[=\]
-\[=\]
-\[=\]
-\[=\]
+\[
+	r > 0 \quad T > T_c \quad \rightarrow \quad \text{ mínimo en } m_0 = 0
+\]
+\[
+	r < 0 \quad T < T_c \quad \rightarrow \quad \text{ mínimos en } m_0 \neq 0
+\]
+siendo estos mínimos localizados en $\pm \sqrt{ -r(t)/(2s(t))}$.
+\[
+	\Psi \text{ continua en } t=0 \rightarrow r=0 \text{ en } T=T_c
+\]
+\[
+	r(t) = \alpha_2 t \qquad \qquad s(t) = 2 \alpha_4 > 0 \quad \text{ así }
+\]
+\[
+	2 \alpha_2 t - 3 \alpha_2 t = - \alpha_2 t = -\alpha_2 \left( \frac{T}{T_c} - 1 \right)\geq 0
+\]
+y esta cuenta significa que si $T<T_c$ es $\alpha_2 <0$ y si $T>T_c$ es $\alpha_2 >0$
 
 dibujo
 
-\[=\]
-\[=\]
+\[
+	\Psi = \Psi_0 - \frac{\alpha_2^2t^2}{4\alpha_4} \qquad T < T_c
+\]
+\[
+	\Psi = \Psi_0 \qquad T>T_c
+\]
+\[
+	C_M = - T \dpar[2]{A}{T}|_M = \begin{cases}
+	                        \displaystyle -T \dpar[2]{\Psi_0}{T} \\
+	                        \\
+	                        \displaystyle -T \dpar[2]{\Psi_0}{T} + 2 T \frac{\alpha_2}{4\alpha_4} \frac{1}{T_c^2}
+	                        \end{cases}
+\]
 
 Si hay campo externo :
 \[=\]
