@@ -1305,12 +1305,29 @@ dibujo
 \]
 
 Si hay campo externo :
-\[=\]
-\[=\]
+\[
+	\Psi = \Psi_0 + \alpha_2 t m_0^2 + 2 \alpha_4 m_0^4 - f m_0
+\]
+\[
+	\dpar{\Psi}{m_0} = 2 \alpha_2 t m_0 + 8 \alpha_4 m_0^3 - f =  0
+\]
+y derivando contra $f$,
+\[
+	2 \alpha_2 t \dtot{m_0}{f} + 24 \alpha_4 m_0^2 \dtot{m_0}{f} - 1 = 0
+\]
+\[
+	\chi = \dtot{m_0}{f} = \frac{1}{2\alpha_2 t + 24 \alpha_4 m_0^2}
+\]
 
 Con $f \to 0$ recordamos
-\[=\]
-\[=\]
+\[
+	T > T_c \quad m_0 = 0 \quad \rightarrow \quad \chi \to \frac{1}{2\alpha_2 t} = 
+	\frac{T_c}{2\alpha_2(T-T_c)}
+\]
+\[
+	T < T_c \quad m_0 = -\frac{\alpha_2 t}{4\alpha_4} \quad \rightarrow \quad \chi \to 
+	-\frac{1}{4\alpha_2 t} = -\frac{T_c}{4\alpha_2(T-T_c)}
+\]
 
 Ambos revienta en $T_c$
 
@@ -1334,37 +1351,76 @@ Son seis: $ \alpha, \beta, \gamma, \delta, \eta, \nu $
 \]
 
 Cerca del punto crítico las funciones termodinámicas pueden escribirse como:
-\[=\]
-\[=\]
+\[
+	f(t) = A t^\lambda ( 1 + Bt^y + ... ), \quad y > 0 
+\]
+y tenemos un exponente crítico $\lambda$
+\[
+	\lambda = \lim_{t\to 0} \frac{\log f(t)}{\log t}  \begin{cases}
+	                                                   < 0 \quad \text{ diverge }  f(t) \\
+	                                                   > 0 \quad \text{ a 0 } \\
+	                                                   = 0 \quad \text{ divergencia logarítmica } 
+	                                                  \end{cases}
+\]
 
 \begin{center}
 \begin{tabular}{lll}
  & expresión & rango \\
 \hline
 $C_M, C_v$ & $(-t)^{-\alpha}$ & $t < 0$  \\
-× & × & ×\\
-× & × & ×\\
-× & × & ×\\
-× & × & ×\\
-× & × & ×\\
-× & × & ×
+ & $ (t)^{-\alpha}$ & $t > 0$\\
+$M$  & $ (-t)^\beta $ & $t < 0 $ \\
+$\dpar{V}{p} \propto \kappa_T, \chi_T $ & $ (-t)^{-\gamma '}$  & $t < 0$ \\
+ & $ (t)^{-\gamma'} $ & $t > 0$ \\
+$H$ & $ |M|^\delta $ & $t=0$ \\
+$P$ & $ \rho^\delta $ & $t=0$ 
 \end{tabular}
 \end{center}
 
+\notamargen{Justamente $M$ es el parámetro de orden y $M=0$ con $t>0$} 
+
 Se cumplen ciertas desigualdades entre exponentes:
-\[=\]
-\[=\]
+\[
+	\text{ Rushbroke } \qquad \qquad 2 \leq \gamma ' + 2 \beta + \alpha ' \quad (H=0)  
+\]
+\[
+	\text{ Griffiths } \qquad \qquad \alpha ' + \beta(1+\delta) \geq 2  
+\]
 
 \subsection{Exponentes críticos Van Der Waals} 
 
-\[=\]
-\[=\]
-\[=\]
+\[
+	\left( p + \frac{an^2}{V^2}\right) (V-nb)= nRT
+\]
+\[
+	\overline{p} = \frac{p}{p_c} \quad \to \quad \frac{p-p_c}{p_c} = \overline{p}-1 = \mathcal{p}, v, t
+\]
+Y como en $T=T_c$ es $ t = 0 $ entonces 
+\[
+	2p(1+\frac{7v}{2} + 4v^2 + \frac{3v^2}{2}) = -3v^3 + 8t(1+2v + v^2)
+\]
+pero $t=0$,
+\[
+	p = -\frac{3}{2} v^3 \left(1+\frac{7v}{2} + 4v^2 + \frac{3v^2}{2}\right)^{-1}
+\]
+\[
+	\delta = 3
+\]
 
 Para la teoría de Landau es:
-\[=\]
-\[=\]
-\[=\]
+\[
+	M = m_0 = \Frac{\alpha_2}{2\alpha_4}^{1/2}(T_c-T)^{1/2} \quad \to \quad \beta = 2
+\]
+\[
+	\chi = \begin{cases}
+		\propto \frac{1}{t} \quad t>0 \\
+		\propto \frac{1}{-t} \quad t<0 \\
+	       \end{cases} 
+	\quad \to \quad \gamma = \gamma ' = 1       
+\]
+$C_H$ tiene $\alpha \approx 0$, $\alpha ' \approx 0 $ (ver que no dependen de $t$ )
+
+\notamargen{Las transformaciones de primer orden $\dpar{G}{T}, \dpar{G}{x}$ son discontinuas.}
 
 \subsection{Sobre trabajo y relación $p,V$ [mover]}
 
@@ -1380,12 +1436,25 @@ pues $ p > p_{ext} $
 El sistema absorbe energía en forma de trabajo si $ pdV < 0 $ y entonces $ dV < 0 $ (compresión)
 pues $ p < p_{ext} $
 \notamargen{$p$ y $V$ no varían separadamente; si $p$ sube entonces $V$ baja.}
-\[=\]
-\[=\]
-\[=\]
+
+\[
+	\text{ Si } p > p_{ext} \to \text{ exp. } dV > 0 (dp < 0)
+\]
+\[
+	\text{ Si } p < p_{ext} \to \text{ comp. } dV < 0 (dp > 0)
+\]
+y $V$ drecrece con $p$ subiendo.
+
+\[
+	\underbrace{p}_{\text{intensiva}} \underbrace{dV}_{\text{extensiva}} = 
+	dW \qquad \qquad p>0 \text{ siempre }
+\]
 
 Para el sistema magnético si $ H > 0 $ entonces $ dM > 0 $
-\[=\]
+\[
+	dU = dQ + H dM
+\]
+donde el segundo miembro es el trabajo magnético realizado por el sistema.
 
 Si el sistema se ordena $dM>0$ y baja su energía y por ende hace trabajo.
 \notamargen{Este sistema hace trabajo no mecánico.}
@@ -1393,7 +1462,12 @@ Si el sistema se ordena $dM>0$ y baja su energía y por ende hace trabajo.
 \subsection{Comentarios varios [mover]}
 
 Los efectos de la estadística cuántica surgen de la indistinguibilidad de las partículas.
-\[=\]
+\[
+	\frac{\lambda^3}{v} \ll 1 \text{(Clásico)}
+\]
+\[
+	\frac{\lambda^3}{v} \approx 1 \text{(Cuántico)}
+\]
 Cuando $\lambda^3/v \approx 1$ surgen efectos cuánticos y tiene importancia la estadística de las
 partículas (BE o FD).
 
@@ -1402,11 +1476,54 @@ Para un sistema de cuasipartículas es $\mu=0$. En general,
 	\mu = \mu(T)
 \]
 es un valor único para el sistema y depende de la temperatura.
-\[=\]
-\[=\]
-\[=\]
+\begin{itemize}
+ \item gas ideal
+ \subitem clásico : partículas no interactuantes. $T$ alta y $v$ alto.
+ \subitem cuántico : partículas no interactuantes. $T$ baja y $v$ bajo.
+ \item bosones 
+ \subitem partículas
+ \subitem cuasipartículas : no tienen masa. $N$ no está fijo.
+ \item fermiones 
+ \subitem partículas
+\end{itemize}
 
-RESTA UNA HOJA DE EXPRESIONES Y CUENTAS QUE DEJAMOS PARA EL futuro APÉNDICE.
+
+\subsection{Para apéndice [mover]}
+
+\[
+	\Gamma \left( m +\frac{1}{2} \right) = \left( m -\frac{1}{2} \right) \left( m -\frac{3}{2} \right)
+	... \frac{3}{2} \cdot \frac{1}{2} \cdot \Gamma(1/2), m \in \mathbb{N}
+\]
+\[
+	\Gamma(3/2) = \Gamma(1+ 1/2) =\frac{1}{2} \Gamma(1/2) = \frac{\pi^{1/2}}{2}
+\]
+
+Calculando momentos permitidos en una caja es de lo más divertido y resulta 
+\[
+	\frac{V}{h^3} d|\vb{p}| = 1 
+\]
+donde $ d\vb{p} = dx \hat{x} + dy \hat{y}+ dz \hat{z}$ y $ d|\vb{p}| = dx dy dz $   en cartesianas.
+En cambio en esféricas es
+\[
+	4 \pi p^2 \frac{V}{h^3} dp = 1
+\]
+\[
+	1 = \frac{ V \hbar dk \hbar^2 k^2 4 \pi  }{ h^3 } = \frac{V 4\pi k^2 dk}{ (2\pi)^3 }
+\]
+
+Para pasaje de $\sum_\vb{p}$ a $\int d^3p d^3q $ utilizamos los siguientes 
+\[
+	dp_x dx  = h \qquad \text{ Incertidumbre }
+\]
+y entonces 
+\[
+	d^3p d^3x = h^3 \quad \to \quad \frac{1}{h^3 }d^3p d^3x = 1 
+\]
+y parece que 
+\[
+	\frac{V}{h^3} \int d^3 p = 1 
+\]
+\notamargen{Anoté que no estoy seguro de esta última cuenta, en lápiz tenue.}
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
