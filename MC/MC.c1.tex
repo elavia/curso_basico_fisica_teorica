@@ -45,7 +45,7 @@ busca reemplazar la mecánica basada en las ecuaciones de Newton,
 \[
 	\vb{F} = m \vb{a} 
 \]
-por un {\it formalismo} más poderoso y que se podrá aplicar luego a otros campos.
+por un \emph{formalismo} más poderoso y que se podrá aplicar luego a otros campos.
 Este formalismo es el corazón de la mecánica clásica.
 
 \begin{figure}[hbt]
@@ -69,7 +69,7 @@ Este formalismo es el corazón de la mecánica clásica.
 \]
 \begin{figure}[hbt]
 	\begin{center}
-	\includegraphics[width=0.3\textwidth]{images/fig_mc_angularmom.pdf}	
+	\includegraphics[width=0.6\textwidth]{images/fig_mc_angularmom.pdf}	
 	\end{center}
 	\caption{}
 \end{figure} 
@@ -123,67 +123,94 @@ es decir si
 \section{Trabajo y energía}
 % =================================================================================================
 
-\[
-	T_2 - T_1 = W_{1 \to 2} = U_1 - U_2 
-\]
-donde la primera igualdad vale siempre y la segunda se da si se puede escribir la fuerza como el
-gradiente de un potencial, i.e.
-\[
-	\vb{F} = - \nabla U
-\]
-y entonces se conserva la energía
-\[
-	T_2 + U_2 = T_1 + U_1
-\]
 
 Sólo las componentes tangenciales de la fuerza producen trabajo.
 
 Consideremos una partícula de masa $ m $ que se mueve sobre una cierta trayectoria suave, ver {Figura} 
 \ref{fig_mc_workenergy}, debido a la acción de una fuerza \vb{F}.
-Su velocidad \vb{v} es en todo momento tangente a la trayectoria y define de esta forma un versor $ \hat{t} $
+Su velocidad \vB{v} es en todo momento tangente a la trayectoria y define de esta forma un versor $ \hat{t} $
 colineal con la misma. Asimismo podemos definir un versor $ \hat{n} $ normal a la trayectoria.
 Descomponiendo la fuerza y la velocidad en estas dos direcciones, se tiene 
 \[
-	\vb{F} = F_{\hat{t}} \hat{t}  + F_{\hat{n}} \hat{n} \qquad \qquad \vb{v} = v_{\hat{t}} \hat{t}
+	\vb{F} = F_{\hat{t}} \hat{t}  + F_{\hat{n}} \hat{n} \qquad \qquad \vB{v} = v_{\hat{t}} \: \hat{t}
 \]
-de manera que la segunda ley de Newton puede escribirse
+de manera que la segunda ley de Newton 
+\[
+	m \dtot{\vB{v}}{t} = \vb{F}
+\]
+en la componente $\hat{t}$ es
 \[
 	m \dtot{v}{t} = F_{\hat{t}}
 \]
 donde hemos despojado del subíndice a $v$. Involucrando al diferencial de arco $ ds = | d\vb{x} | $ a lo largo de la 
 trayectoria es
 \[
-	m \: dv \:\dtot{s}{t} = m \: v \: dv = F_{\hat{t}} ds = \vb{F} \cdot d\vb{x},
+	m \: dv \:\dtot{s}{t} = m \: v \: dv = F_{\hat{t}} \: ds = \vb{F} \cdot d\vb{x},
 \]
 donde la última igualdad se ha escrito en virtud de que $ F_{\hat{n}} \perp d\vb{x} $ siempre.
 
-
 \begin{figure}[hbt]
 	\begin{center}
-	\includegraphics[width=0.5\textwidth]{images/fig_mc_workenergy.pdf}	
+	\includegraphics[width=0.9\textwidth]{images/fig_mc_workandenergy.pdf}	
 	\end{center}
 	\caption{}
 	\label{fig_mc_workenergy}
 \end{figure} 
 
+Podemos integrar ambos miembros de la anterior ecuación entre $\vB{x}(t_0) \equiv \vB{x}_0$ y su 
+correspondiente velocidad $v(t_0) \equiv v_0$ hasta $\vB{x}, \vB{v}$, 
 \[
-	m \dtot{\vb{v}}{t} = \vb{F}
+	m \int_{v_0}^v \: v \: dv = \int_{\vB{x}_0}^{\vB{x}}  \vb{F} \cdot d\vb{x}
 \]
-entonces
+obteniendo
 \[
-	m \dtot{v}{t} = F_t \qquad m \frac{v^2}{\rho} = F_n
+	\left. \frac{1}{2} m v^2 \right|_{v_0}^v = W_{\vB{x}_0 \to \vB{x}} 
 \]
-y haciendo un cambio de variable a desplazamiento $s$
+que es el llamado \emph{teorema de las fuerzas vivas} para una partícula de masa $m$ y nos dice que la
+variación de energía cinética en la trayectoria es igual al trabajo de todas las fuerzas que actúan
+sobre la misma,
 \[
-	m dv \dtot{s}{t} = F_t ds
+	\Delta T = W.
 \]
+
+En el caso particular en que la fuerza sea normal en toda la trayectoria integrada se tendrá $\Delta T = 0 $,
+es decir se conserva la energía cinética a lo largo de toda la trayectoria. El trabajo de una fuerza
+está asociado a las componentes tangenciales de la fuerza; las componentes normales no hacen trabajo.
+
+\notamargen{ Falta meter lo de \[ 	 m \frac{v^2}{\rho} = F_n \] }
+
+Si la fuerza proviene de un potencial\footnote{El menos delante del gradiente es una convención, como se verá a
+continuación}, se tiene 
+\be
+	\vB{F} = - \nabla V
+	\label{fuerza_prov_potencial}
+\ee
+y podemos expresar en coordenadas cartesianas esta equivalencia \eqref{fuerza_prov_potencial}
 \[
-	m \int v dv = \int F_t ds = \int \vb{F} \cdot d\vb{s}
+	\vB{F} = -\left( \dpar{V}{x_1}, \dpar{V}{x_2}, \dpar{V}{x_3} \right)
 \]
+y evaluar la integral del trabajo para obtener
 \[
-	\left. \frac{1}{2} m v^2 \right|_i^f = W_{i \to f}
+	W = \int_{\vB{x}_0}^{\vB{x}_1}  \vb{F} \cdot d\vb{x} =
+	\int_{t_0}^{t_1}  \vb{F}(\vB{x}[t]) \cdot \dotvB{ x } \: dt =
+	- \int_{t_0}^{t_1}  \sum_{k=1}^3 \left[ \dpar{V}{x_k} \dtot{x_k}{t} \right] \: dt =
+	\Phi_0 - \Phi_1
 \]
-siendo este resultado el llamado {\it teorema de las fuerzas vivas}. 
+lo cual significa que la integral es independiente de la trayectoria $\vB{x}_0 \to \vB{x}_1$.
+
+Entonces, juntando
+\[
+% 	\underbrace{T_1 - T_0 = W_{0 \to 1}}_{\text{Vale siempre}} = \Phi_0 - \Phi_1 
+	\rlap{ $\overbrace{\phantom{T_1 - T_0 = W_{0 \to 1}}}^{\text{Vale siempre}} $}  T_1 - T_0 =
+	\underbrace{ W_{0 \to 1} = \Phi_0 - \Phi_1 }_{\text{Si $\vB{F}$ proviene de potencial} }
+\]
+y pasando de miembros
+\[
+	(T_1 + \Phi_1) = (T_0 + \Phi_0 ) 
+\]
+se tiene que la cantidad $ E = T + V $ (la energía mecánica) se conserva si la fuerza $\vB{F}$ proviene de un 
+potencial $V$.
+
 Notemos que el versor desplazamiento $d\vb{s}$ {\it camina} por la trayectoria.
 
 \[

@@ -1,7 +1,7 @@
 	%###########################################################################
 	%
 	%	Hoja de estilo para el Curso Básico de Física Teórica
-	%	v 1.4 [Febrero 2018]
+	%	v 1.5 [Abril 2018]
 	%
 	%
 	%###########################################################################
@@ -10,6 +10,8 @@
 	% la plantilla para los capítulos.
 	% Es un trabajo en progreso de tal manera que son esperables cambios a medida
 	% que surja la necesidad de nuevas estructuras y macros.
+	
+	% Se fixeó el asunto de tener mejores versiones bold de las cantidades vectoriales
 	
 	
 	\usepackage{fixmath} % Para caracteres en negrita
@@ -65,15 +67,20 @@
 	\def\hx#1.#2.{_{#1}^{#2}}
 	
 	% Boldface para modo matemático y operadores varios
-	\newcommand{\vb}[1]{\ifmmode\mathbf{#1}\else$\mathbf{#1}$\fi} % Vector
-	\newcommand{\vB}[1]{\ifmmode\mathbold{#1}\else$\mathbold{#1}$\fi} % Vector
+	\newcommand{\vb}[1]{\ifmmode\mathbf{#1}\else$\mathbf{#1}$\fi} % Vector usando mathbf
+	\newcommand{\vB}[1]{\ifmmode\mathbold{#1}\else$\mathbold{#1}$\fi} % Vector usando mathbold 
+	\newcommand{\dotvB}[1]{ \kern0.5ex \raisebox{1ex}\cdot \kern-1.1ex\vB{ #1 } } % Derivada temporal del vector
+	
+	\newcommand{\vS}[1]{\ifmmode\boldsymbol{#1}\else$\boldsymbol{#1}$\fi} % Vector usando boldsymbol
+	
+	
 	\newcommand{\divem}[1]{\mathbf{\nabla}\mathbf{\cdot}\mathbf{#1}} % Divergencia
 	\newcommand{\rotorm}[1]{\mathbf{\nabla}\times \vb{#1}} % Rotor
 	\newcommand{\lapm}[1]{\nabla^2{#1}} % Laplaciano
 	\newcommand{\dparbis}[2]{\frac{\partial}{\partial #2}\left[ #1 \right]}
 	\newcommand{\dparcru}[3]{\frac{\partial^2 #1}{\partial #3\partial #2}} % Derivada parcial 2da cruzada
 	\newcommand{\ddpar}[2]{\frac{\partial^2 #1}{\partial #2^2}}
-	\newcommand{\Nabla}{\mathbf{\nabla}} % Nabla vectorial
+	\newcommand{\Nabla}{\boldsymbol{\nabla}} % Nabla vectorial
 	\newcommand{\pe}[2]{\vb{#1} \cdot \vb{#2}}
 	\newcommand{\pv}[2]{\vb{#1} \times \vb{#2}}
 	\newcommand{\re}{\mathfrak{ R }}
