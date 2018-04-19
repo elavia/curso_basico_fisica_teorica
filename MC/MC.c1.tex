@@ -137,11 +137,33 @@ y entonces se conserva la energía
 \]
 
 Sólo las componentes tangenciales de la fuerza producen trabajo.
+
+Consideremos una partícula de masa $ m $ que se mueve sobre una cierta trayectoria suave, ver {Figura} 
+\ref{fig_mc_workenergy}, debido a la acción de una fuerza \vb{F}.
+Su velocidad \vb{v} es en todo momento tangente a la trayectoria y define de esta forma un versor $ \hat{t} $
+colineal con la misma. Asimismo podemos definir un versor $ \hat{n} $ normal a la trayectoria.
+Descomponiendo la fuerza y la velocidad en estas dos direcciones, se tiene 
+\[
+	\vb{F} = F_{\hat{t}} \hat{t}  + F_{\hat{n}} \hat{n} \qquad \qquad \vb{v} = v_{\hat{t}} \hat{t}
+\]
+de manera que la segunda ley de Newton puede escribirse
+\[
+	m \dtot{v}{t} = F_{\hat{t}}
+\]
+donde hemos despojado del subíndice a $v$. Involucrando al diferencial de arco $ ds = | d\vb{x} | $ a lo largo de la 
+trayectoria es
+\[
+	m \: dv \:\dtot{s}{t} = m \: v \: dv = F_{\hat{t}} ds = \vb{F} \cdot d\vb{x},
+\]
+donde la última igualdad se ha escrito en virtud de que $ F_{\hat{n}} \perp d\vb{x} $ siempre.
+
+
 \begin{figure}[hbt]
 	\begin{center}
 	\includegraphics[width=0.5\textwidth]{images/fig_mc_workenergy.pdf}	
 	\end{center}
 	\caption{}
+	\label{fig_mc_workenergy}
 \end{figure} 
 
 \[
