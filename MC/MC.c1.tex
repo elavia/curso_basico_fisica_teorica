@@ -1,15 +1,15 @@
 	\documentclass[10pt,oneside]{CBFT_book}
 	
 	% Algunos paquetes
-	
-
 	\usepackage{amsmath}
 	\usepackage{amssymb}
 	\usepackage{graphicx}
 	\usepackage{libertine}
-% 	\usepackage[no-math]{fontspec}
- 	\usepackage[bold-style=TeX]{unicode-math}
-
+%   	\usepackage[bold-style=TeX]{unicode-math}
+  	\usepackage[ math-style=TeX, bold-style=ISO ]{unicode-math}
+% 	Este package es el que configura cómo salen las cosas en negrita, y en general
+% 	en math mode.
+  	
 	\usepackage{lipsum}
 
 	\usepackage[numbers]{natbib}
@@ -43,7 +43,7 @@
 Tal vez sea una simplificación, pero no una muy terrible, decir que el curso de mecánica clásica
 busca reemplazar la mecánica basada en las ecuaciones de Newton,
 \[
-	\vb{F} = m \vB{a}
+	\vb{F} = m \vb{a} 
 \]
 por un {\it formalismo} más poderoso y que se podrá aplicar luego a otros campos.
 Este formalismo es el corazón de la mecánica clásica.
