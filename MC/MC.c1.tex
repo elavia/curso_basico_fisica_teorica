@@ -276,18 +276,35 @@ suma de las diferencias entre las energías potenciales de las partículas entre
 	W^{\text{ext}} = - \sum_{i=1}^N \left. \Delta V_i(\vb{x}_i) \right|_0^1
 \]
 
+El trabajo interno corresponde a la suma sobre cada partícula $i$ de la fuerza ejercida por todas las otras partículas 
+$j \neq i$ del sistema, es decir
+\be
+	W^{\text{int}} = \sum_{i=1}^N \sum_{j\neq i}^N \int_0^1 \vb{F}_{ij} \cdot d\vb{x}_i
+	\label{internal_work}
+\ee
+donde $\vb{F}_{ij} $ es la fuerza sobre $i$ ejercida por $j$. La restricción en la sumatoria sobre $j$ descarta la suma 
+de autofuerzas. Es claro que la expresión \eqref{internal_work} se puede escribir equivalentemente como
+\[
+	\frac{1}{2} \sum_{i=1}^N \sum_{j\neq i}^N \int_0^1 
+	\left( \vb{F}_{ij} \cdot d\vb{x}_i + \vb{F}_{ji} \cdot d\vb{x}_j \right) 
+\]
+y si ahora aceptamos que vale el principio de acción y reacción
+\[
+	\frac{1}{2} \sum_{i=1}^N \sum_{j\neq i}^N \int_0^1 
+	\vb{F}_{ij} \cdot \left(d\vb{x}_i - d\vb{x}_j \right) .
+\]
+Definiendo luego un vector de separación relativa $ \vb{r}_{ij} = \vb{x}_i - \vb{x}_j $ se tiene que las integrales son 
+de la forma 
+\[
+	\int \vb{F}_{ij} \cdot d\vb{r}_{ij}
+\]
+y sabemos, por analogía con lo anterior, que si $\vb{F}_{ij}$ depende del vector de separación $ \vb{r}_{ij} $ y es de 
+rotor nulo entonces las fuerzas internas son conservativas.
+En estos casos
+\[
+	\Delta E = \sum_{i=1}^N ( \Delta T_i - \Delta V_i ) + \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \Delta V_{ij}
+\]
 
-Para el trabajo interno
-\[
-	W_i^{int} = \int \sum_j^N  \vb{F}_{ij} \cdot d\vb{s}_i
-\]
-\[
-	W^{int} = \sum_i \int \sum_j  \vb{F}_{ij} \cdot d\vb{s}_i
-\]
-\[
-	\frac{1}{2} \sum_i \sum_j \int \vb{F}_{ij} \cdot d\vb{s}_i + \vb{F}_{ji} \cdot d\vb{s}_j =
-	\frac{1}{2} \sum_i \sum_j \int \vb{F}_{ij} \cdot \left( d\vb{s}_i - d\vb{s}_j \right)
-\]
 
 % =================================================================================================
 \section{Definiciones}
