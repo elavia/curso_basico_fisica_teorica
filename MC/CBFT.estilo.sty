@@ -14,7 +14,8 @@
 	% Se fixeó el asunto de tener mejores versiones bold de las cantidades vectoriales
 	
 	
-	\usepackage{fixmath} % Para caracteres en negrita
+ 	\usepackage{fixmath} % Para caracteres en negrita
+	% Con este usamos 'mathbold'
 	
 	%###########################################################################
 	%		TIPOGRAFÍAS para la hoja cls
@@ -69,7 +70,7 @@
 	% Boldface para modo matemático y operadores varios
 	\newcommand{\vb}[1]{\ifmmode\mathbf{#1}\else$\mathbf{#1}$\fi} % Vector usando mathbf
 	\newcommand{\vB}[1]{\ifmmode\mathbold{#1}\else$\mathbold{#1}$\fi} % Vector usando mathbold 
-	\newcommand{\dotvB}[1]{ \kern0.5ex \raisebox{1ex}\cdot \kern-1.1ex\vB{ #1 } } % Derivada temporal del vector
+	\newcommand{\dotvb}[1]{ \kern0.7ex \raisebox{1ex}\cdot \kern-1.1ex\vb{ #1 } } % Derivada temporal del vector
 	
 	\newcommand{\vS}[1]{\ifmmode\boldsymbol{#1}\else$\boldsymbol{#1}$\fi} % Vector usando boldsymbol
 	

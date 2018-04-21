@@ -123,104 +123,160 @@ es decir si
 \section{Trabajo y energía}
 % =================================================================================================
 
-
-Sólo las componentes tangenciales de la fuerza producen trabajo.
-
-Consideremos una partícula de masa $ m $ que se mueve sobre una cierta trayectoria suave, ver {Figura} 
+Consideremos una partícula de masa $ m $ que se mueve sobre una cierta trayectoria suave $\vb{x}(t)$, ver {Figura} 
 \ref{fig_mc_workenergy}, debido a la acción de una fuerza \vb{F}.
-Su velocidad \vB{v} es en todo momento tangente a la trayectoria y define de esta forma un versor $ \hat{t} $
-colineal con la misma. Asimismo podemos definir un versor $ \hat{n} $ normal a la trayectoria.
-Descomponiendo la fuerza y la velocidad en estas dos direcciones, se tiene 
-\[
-	\vb{F} = F_{\hat{t}} \hat{t}  + F_{\hat{n}} \hat{n} \qquad \qquad \vB{v} = v_{\hat{t}} \: \hat{t}
-\]
-de manera que la segunda ley de Newton 
-\[
-	m \dtot{\vB{v}}{t} = \vb{F}
-\]
-en la componente $\hat{t}$ es
-\[
-	m \dtot{v}{t} = F_{\hat{t}}
-\]
-donde hemos despojado del subíndice a $v$. Involucrando al diferencial de arco $ ds = | d\vb{x} | $ a lo largo de la 
-trayectoria es
-\[
-	m \: dv \:\dtot{s}{t} = m \: v \: dv = F_{\hat{t}} \: ds = \vb{F} \cdot d\vb{x},
-\]
-donde la última igualdad se ha escrito en virtud de que $ F_{\hat{n}} \perp d\vb{x} $ siempre.
+Su velocidad \vb{v} es en todo momento tangente a la trayectoria y define de esta forma un versor $ \hat{t} $
+colineal con la misma. Esto define un plano, mostrado en la parte derecha de la figura, para el cual todo vector
+perteneciente al mismo es normal a la trayectoria. Elegimos un versor $ \hat{n} $ que está en la dirección de
+la proyección de \vb{F} sobre dicho plano.
 
-\begin{figure}[hbt]
+\begin{figure}[!h]
 	\begin{center}
 	\includegraphics[width=0.9\textwidth]{images/fig_mc_workandenergy.pdf}	
 	\end{center}
-	\caption{}
+	\caption{Partícula de masa $m$ que se mueve sobre una trayectoria $\vb{x}(t)$ bajo la acción de una fuerza 
+\vb{F} (izquierda). En el detalle de la derecha se muestra la descomposición del movimiento en direcciones
+tangencial $\hat{t}$ y normal $\hat{n}$.}
 	\label{fig_mc_workenergy}
 \end{figure} 
 
-Podemos integrar ambos miembros de la anterior ecuación entre $\vB{x}(t_0) \equiv \vB{x}_0$ y su 
-correspondiente velocidad $v(t_0) \equiv v_0$ hasta $\vB{x}, \vB{v}$, 
+Descomponiendo la fuerza y la velocidad en estas dos direcciones, se tiene 
 \[
-	m \int_{v_0}^v \: v \: dv = \int_{\vB{x}_0}^{\vB{x}}  \vb{F} \cdot d\vb{x}
+	\vb{F} = F^t \: \hat{t}  + F^n \: \hat{n} \qquad \qquad \vb{v} = v \: \hat{t}
+\]
+de manera que la segunda ley de Newton, 
+\[
+	m \: \dtot{\vb{v}}{t} = \vb{F},
+\]
+para la componente $\hat{t}$ resulta
+\[
+	m \dtot{v}{t} = F^t
+\]
+\notamargen{Notemos que el versor desplazamiento $d\vb{s}$ {\it camina} por la trayectoria.}
+Involucrando al diferencial de arco $ ds = | d\vb{x} | $ a lo largo de la trayectoria, la ecuación anterior se
+puede escribir como
+\be
+	m \: dv \:\dtot{s}{t} = m \: v \: dv = F^t \: ds = \vb{F} \cdot d\vb{x},
+	\label{ec_trabajo}
+\ee
+donde la última igualdad es posible en virtud de que $ F^n \perp d\vb{x} $ por construcción.
+
+Podemos integrar ambos miembros de \eqref{ec_trabajo} entre $\vb{x}(t_0) \equiv \vb{x}_0$ y su 
+correspondiente velocidad $v(t_0) \equiv v_0$ hasta $\vb{x}_1, \vb{v}_1$, 
+\[
+	m \int_{v_0}^{v_1} \: v \: dv = \int_{\vb{x}_0}^{\vb{x}_1}  \vb{F} \cdot d\vb{x}
 \]
 obteniendo
 \[
-	\left. \frac{1}{2} m v^2 \right|_{v_0}^v = W_{\vB{x}_0 \to \vB{x}} 
+	\left. \frac{1}{2} m v^2 \right|_{v_0}^{v_1} = W_{\vb{x}_0 \to \vb{x}_1} 
 \]
 que es el llamado \emph{teorema de las fuerzas vivas} para una partícula de masa $m$ y nos dice que la
 variación de energía cinética en la trayectoria es igual al trabajo de todas las fuerzas que actúan
-sobre la misma,
-\[
-	\Delta T = W.
-\]
+sobre la misma, i.e.
+\be
+	T_1 - T_0 = \Delta T_{\vb{x}_0 \to \vb{x}_1}  = W_{\vb{x}_0 \to \vb{x}_1} .
+	\label{conser_energia}
+\ee
 
-En el caso particular en que la fuerza sea normal en toda la trayectoria integrada se tendrá $\Delta T = 0 $,
-es decir se conserva la energía cinética a lo largo de toda la trayectoria. El trabajo de una fuerza
-está asociado a las componentes tangenciales de la fuerza; las componentes normales no hacen trabajo.
+En el caso particular en que la fuerza sea normal a la trayectoria en todo el intervalo $[t_0,t_1]$ se 
+tendrá $\Delta T = 0 $, es decir que se conserva la energía cinética a lo largo de toda la trayectoria.
+Sólo las componentes tangenciales de la fuerza producen trabajo y esto es solamente debido a que este proviene
+de un producto escalar (una proyección); las componentes normales no hacen trabajo.
 
 \notamargen{ Falta meter lo de \[ 	 m \frac{v^2}{\rho} = F_n \] }
 
 Si la fuerza proviene de un potencial\footnote{El menos delante del gradiente es una convención, como se verá a
 continuación}, se tiene 
 \be
-	\vB{F} = - \nabla V
+	\vb{F} = - \nabla V
 	\label{fuerza_prov_potencial}
 \ee
 y podemos expresar en coordenadas cartesianas esta equivalencia \eqref{fuerza_prov_potencial}
 \[
-	\vB{F} = -\left( \dpar{V}{x_1}, \dpar{V}{x_2}, \dpar{V}{x_3} \right)
+	\vb{F} = -\left( \dpar{V}{x_1}, \dpar{V}{x_2}, \dpar{V}{x_3} \right)
 \]
 y evaluar la integral del trabajo para obtener
 \[
-	W = \int_{\vB{x}_0}^{\vB{x}_1}  \vb{F} \cdot d\vb{x} =
-	\int_{t_0}^{t_1}  \vb{F}(\vB{x}[t]) \cdot \dotvB{ x } \: dt =
-	- \int_{t_0}^{t_1}  \sum_{k=1}^3 \left[ \dpar{V}{x_k} \dtot{x_k}{t} \right] \: dt =
-	\Phi_0 - \Phi_1
+	W = \int_{\vb{x}_0}^{\vb{x}_1}  \vb{F} \cdot d\vb{x} =
+	\int_{t_0}^{t_1}  \vb{F}(\vb{x}[t]) \cdot \dotvb{ x } \: dt =
+	- \int_{t_0}^{t_1}  \sum_{i=1}^3 \left[ \dpar{V}{x_i} \dtot{x_i}{t} \right] \: dt = V_0 - V_1
 \]
-lo cual significa que la integral es independiente de la trayectoria $\vB{x}_0 \to \vB{x}_1$.
+donde la última igualdad se obtiene por integración de un gradiente. Esto 
+significa que la integral es independiente de la trayectoria $\vb{x}_0 \to \vb{x}_1$.
 
-Entonces, juntando
+Entonces, volviendo a \eqref{conser_energia}
 \[
-% 	\underbrace{T_1 - T_0 = W_{0 \to 1}}_{\text{Vale siempre}} = \Phi_0 - \Phi_1 
-	\rlap{ $\overbrace{\phantom{T_1 - T_0 = W_{0 \to 1}}}^{\text{Vale siempre}} $}  T_1 - T_0 =
-	\underbrace{ W_{0 \to 1} = \Phi_0 - \Phi_1 }_{\text{Si $\vB{F}$ proviene de potencial} }
+ 	\rlap{ $\overbrace{\phantom{T_1 - T_0 = W_{0 \to 1}}}^{\text{Vale siempre}} $}  T_1 - T_0 =
+	\underbrace{ W_{0 \to 1} = V_0 - V_1 }_{\text{Si $\vb{F}$ proviene de potencial} }
 \]
-y pasando de miembros
+y pasando de miembros se tiene 
 \[
-	(T_1 + \Phi_1) = (T_0 + \Phi_0 ) 
+	(T_1 + V_1) = (T_0 + V_0 ) 
 \]
-se tiene que la cantidad $ E = T + V $ (la energía mecánica) se conserva si la fuerza $\vB{F}$ proviene de un 
-potencial $V$.
+que viene a significar que la cantidad $ E = T + V $ (la energía mecánica) se conserva si la fuerza $\vb{F}$ 
+proviene de un potencial $V$. 
+Por dicha razón, las fuerzas para las cuales se verifica \eqref{fuerza_prov_potencial} se llaman {\it fuerzas
+conservativas}. En una dimensión, cualquier $ F(x) $ se puede hacer provenir de un potencial si verifica ser integrable,
+es decir si podemos definir
+\[
+	V(x) = \int F(x) \: dx.
+\]
+Para tres dimensiones no cualquier $ F(\vb{x}) $ es conservativa.
 
-Notemos que el versor desplazamiento $d\vb{s}$ {\it camina} por la trayectoria.
+El signo negativo en \eqref{fuerza_prov_potencial} hace que la cantidad conservada sea $T+V$ en lugar de $T-V$.
+Tiene más sentido físico que se conserve una suma de energías antes que una resta de las mismas.
 
+\subsection{Trabajo y energía para un sistema de partículas}
+
+Para un sistema de $ N $ partículas la energía cinética simplemente es la suma de las energías cinéticas de cada 
+partícula,
 \[
-	W = W^{ext} + W^{int}
+	T = \sum_{i=1}^N \: \frac{1}{2} \: m_i v_i^2.
 \]
-y entonces como el trabajo externo viene de 
+
+La definición del trabajo, en cambio, es un poco más complicada. Entre dos instantes de tiempo $ t $ y $ t + \Delta t $ 
+el sistema está caracterizado por las $ N $ posiciones $ \{\vb{x}_i\} $ de todos sus integrantes y cada partícula 
+experimenta un desplazamiento $ \Delta \vb{x}_i $ asociado con la fuerza que actúa sobre ella.
+
+En principio la fuerza sobre cada partícula puede dividirse en interna (debida a las otras partículas del sistema) y 
+externas (debida a agentes exteriores al sistema), lo cual permite escribir
 \[
-	\sum_i^N \int \vb{F}^{ext}_i \cdot d\vb{s}_i
+	\vb{F} = \vb{F}^{\text{int}} + \vb{F}^{\text{ext}}
 \]
-necesito $\vb{F}_i = \vb{F}_i(\vb{r}_i)$ y $\nabla \times \vb{F}_i=0$.
+y consecuentemente
+\[
+	W = W^{\text{int}} + W^{\text{ext}}
+\]
+
+El $ W $ entre dos instantes de tiempo $t_0$ y $t_1$ corresponde ahora a la integral entre la configuración del sistema 
+a $t_0$ dada por $ \{\vb{x}_i(t_0)\} $ hasta la configuración $ \{\vb{x}_i(t_1)\} $, las cuales etiquetaremos como 0 y 
+1 respectivamente. 
+
+Entonces el trabajo externo es
+\[
+	W^{\text{ext}} = \sum_{i=1}^N \int_0^1 \vb{F}^{\text{ext}}_i \cdot \: d\vb{x}_i
+\]
+siendo $ \vb{F}^{\text{ext}}_i $ la fuerza externa sobre la partícula $i$. Para que valga la conservatividad es 
+necesario que 
+\begin{itemize}
+ \item La fuerza sobre $i$ dependa solamente de las coordenadas $\vb{x}_i$ de esa partícula. Es decir:
+ \[
+	\vb{F}_i = \vb{F}_i(\vb{x}_i)
+ \]
+ \item Se verifique para cada $\vb{F}_i$ 
+ \[
+	\Nabla \times \vb{F}_i = 0,
+ \]
+ donde el operador $\nabla$ se toma con respecto a las coordenadas de la partícula $i$ en cuestión.
+\end{itemize}
+
+Estas condiciones permiten escribir la fuerza como el gradiente de un potencial y entonces el trabajo externo es la 
+suma de las diferencias entre las energías potenciales de las partículas entre las configuraciones 0 y 1, o bien
+\[
+	W^{\text{ext}} = - \sum_{i=1}^N \left. \Delta V_i(\vb{x}_i) \right|_0^1
+\]
+
+
 Para el trabajo interno
 \[
 	W_i^{int} = \int \sum_j^N  \vb{F}_{ij} \cdot d\vb{s}_i
