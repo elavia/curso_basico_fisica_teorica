@@ -288,6 +288,13 @@ de autofuerzas. Es claro que la expresión \eqref{internal_work} se puede escrib
 	\frac{1}{2} \sum_{i=1}^N \sum_{j\neq i}^N \int_0^1 
 	\left( \vb{F}_{ij} \cdot d\vb{x}_i + \vb{F}_{ji} \cdot d\vb{x}_j \right) 
 \]
+\notamargen{¿nota final con la justificación de que se puede escribir así?}
+% justificación :
+% Esta sumatoria tiene N(N-1) términos que resultan de los N por N posibilidades excluyendo los N tales que i=j
+% Por cada término del tipo F_ij dx_i hay un correspondiente F_ji dx_j; por ejemplo está F_13 dx_1 (i=1 u j=3) y F_31 
+% dx_3 que viene de i=3 y j=1. Luego podemos sumar todo dos veces considerando un sumando general F_ijdx_i + F_jidx_j 
+% preo dividiendo por dos para compensar. 
+%
 y si ahora aceptamos que vale el principio de acción y reacción
 \[
 	\frac{1}{2} \sum_{i=1}^N \sum_{j\neq i}^N \int_0^1 
