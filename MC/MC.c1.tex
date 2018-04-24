@@ -5,10 +5,7 @@
 	\usepackage{amssymb}
 	\usepackage{graphicx}
 	\usepackage{libertine}
-%   	\usepackage[bold-style=TeX]{unicode-math}
-  	\usepackage[ math-style=TeX, bold-style=ISO ]{unicode-math}
-% 	Este package es el que configura cómo salen las cosas en negrita, y en general
-% 	en math mode. Conviene usar 'symbf' en lugar de 'mathbf'
+
   	
 	\usepackage{lipsum}
 
@@ -270,6 +267,15 @@ necesario que
  donde el operador $\nabla$ se toma con respecto a las coordenadas de la partícula $i$ en cuestión.
 \end{itemize}
 
+\begin{figure}[!h]
+	\begin{center}
+	\includegraphics[width=0.75\textwidth]{images/fig_mc_work_system.pdf}	
+	\end{center}
+	\caption{Elementos implicados en la evaluación del trabajo interno $ W^{\text{int}} $ para un sistema
+	de partículas.}
+	\label{fig_mc_work_system}
+\end{figure} 
+
 Estas condiciones permiten escribir la fuerza como el gradiente de un potencial y entonces el trabajo externo es la 
 suma de las diferencias entre las energías potenciales de las partículas entre las configuraciones 0 y 1, o bien
 \[
@@ -368,6 +374,35 @@ o bien
 \[
 	\nabla f \cdot \vb{\delta r} = 0
 \]
+
+% =================================================================================================
+\section{Sistemas de coordenadas}
+% =================================================================================================
+
+\subsection{Coordenadas polares}
+
+\[
+	\vb{r} = r \:\hat{r}
+\]
+y la derivada temporal se hace con la regla de Leibniz
+\[
+	\dtot{\vb{r}}{t} = \dtot{r}{t} \:\hat{r} + r \:\dtot{\hat{r}}{t}
+\]
+y para evaluar la evolución temporal pasamos la expresión a cartesianas según
+\[
+	\hat{r} = \cos( \varphi ) \:\hat{x} + \sin( \varphi ) \:\hat{y}
+\]
+\[
+	\hat{\varphi} = -\sin \varphi  \:\hat{x} + \cos  \varphi \:\hat{y}
+\]
+
+
+\subsection{Coordenadas esféricas}
+
+
+
+\subsection{Rotación del sistema de coordenadas}
+
 % Como ejemplo citamos \cite{einstein}.
 % O bien \cite{example}.
 % Tal vez \citep{Aspnes:1973}
