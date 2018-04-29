@@ -381,6 +381,15 @@ o bien
 
 \subsection{Coordenadas polares}
 
+La gran ventaja de las coordenadas cartesianas es que los versores $ \hat{i}, \hat{j}, \hat{k}$ no varían con el tiempo,
+entonces
+\[
+	\vb{r}(t) = x \hat{i} + y \hat{j}
+\]
+lleva a que 
+\[
+	\vb{v} = \dtot{\vb{r}}{t} = \dot{x}\hat{i} + \dot{y}\hat{j}
+\]
 \[
 	\vb{r} = r \:\hat{r}
 \]
@@ -390,15 +399,60 @@ y la derivada temporal se hace con la regla de Leibniz
 \]
 y para evaluar la evolución temporal pasamos la expresión a cartesianas según
 \[
-	\hat{r} = \cos( \varphi ) \:\hat{x} + \sin( \varphi ) \:\hat{y}
+	\hat{r} = \cos \varphi \:\hat{x} + \sin \varphi \:\hat{y}
 \]
 \[
 	\hat{\varphi} = -\sin \varphi  \:\hat{x} + \cos  \varphi \:\hat{y}
 \]
 
+\[
+	\dtot{\vb{r}}{t} = \dot{r} \hat{r } + r( - \sin \vp \dot{\vp} \:\hat{x} + \cos \vp \dot{\vp} \:\hat{y} )
+\]
+que se puede escribir como 
+\[
+	\dtot{\vb{r}}{t} = \dot{r} \: \hat{r } + r \dot{\vp} \: \hat{\vp} = \dot{\vb{r}}
+\]
+y extraemos de conclusión que 
+\[
+	\dtot{\hat{r}}{t} = \dot{\vp} \: \hat{\vp}
+\]
 
+Luego, para la aceleración hay que derivar la velocidad con respecto al tiempo
+\[
+	\ddot{\vb{r}} = \dtot{}{t} ( \dot{r} \hat{r} + r\dot{\vp} \hat{\vp} ) 
+\]
+\[
+	\ddot{\vb{r}} = \dtot{\dot{r}}{t} \hat{r} + \dot{r}\dtot{\hat{r}}{t} + \dtot{r}{t} \dot{\vp} \hat{\vp}
+	+ r \left( \dtot{\dot{vp}}{t}\phiver + \dot{\vp}\dtot{\phiver}{t} \right)
+\]
+\[
+	\ddot{\vb{r}} = ( \ddot{r} - r\dot{\vp}^2 ) \rver + ( r\ddot{\vp} + 2 \dot{r} \dot{\vp} ) \phiver
+\]
 \subsection{Coordenadas esféricas}
 
+\[
+	\rver = \cos\vp \sin\theta\xver + \sin\vp\sin\theta\yver + \cos\theta\zver
+\]
+\[
+	\phiver = -\sin\vp \xver + \cos\vp \yver
+\]
+\[
+	\thetaver = \cos\theta \cos\vp \xver + \cos\theta\sin\vp\yver - \sin\theta\zver
+\]
+
+\[
+	\vb{r} = r \rver
+\]
+\[
+	\vb{v} = \dot{r} \rver + r\dot{\theta}\thetaver + r\dot{\vp}\sin\theta\phiver
+\]
+
+\begin{multline*} % No puedo usar \vb porque no se da cuenta que multline ES modo matemático
+	\symbf{a} = ( \ddot{r} - r\dot{\theta}^2 - r\dot{\vp}^2 \sin^2 \theta )\rver +
+	( r\ddot{\theta} + 2\dot{r}\dot{\theta} - r\dot{\vp}^2 \sin \theta \cos\theta )\thetaver + \\
+	( r\ddot{\vp}\sin\theta + 2\dot{r}\dot{\vp}\sin\theta + 2r\dot{\theta}\dot{\vp}\cos\theta )\phiver 
+\end{multline*}
+	
 
 
 \subsection{Rotación del sistema de coordenadas}
