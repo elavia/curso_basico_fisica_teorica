@@ -35,7 +35,7 @@
 \begin{document}
 % \maketitle
 % \tableofcontents
-\chapter{Mecánica newtoniana}
+\chapter{Conceptos de mecánica newtoniana}
 
 Tal vez sea una simplificación, pero no una muy terrible, decir que el curso de mecánica clásica
 busca reemplazar la mecánica basada en las ecuaciones de Newton,
@@ -43,7 +43,43 @@ busca reemplazar la mecánica basada en las ecuaciones de Newton,
 	\vb{F} = m \vb{a} 
 \]
 por un \emph{formalismo} más poderoso y que se podrá aplicar luego a otros campos.
-Este formalismo es el corazón de la mecánica clásica.
+Este formalismo constituye el corazón de la mecánica clásica.
+
+El contenido de este capítulo forma un núcleo básico de los resultados de le mecánica newtoniana que necesitaremos 
+tener a mano para lo subsiguiente (leyes de conservación del momento lineal, momento angular y energía) así como 
+ciertos rudimentos mínimos de la matemática usual en la resolución de los problemas.
+
+% =================================================================================================
+\section{Leyes de conservación}
+% =================================================================================================
+
+Repasaremos a continuación las leyes de conservación fundamentales de la mecánica para sistemas de partículas.
+
+\subsection{Momento lineal}
+
+La segunda ley de Newton se podía escribir en función del momento lineal de una partícula de masa $ m $ como
+\[
+	\dtot{\vb{p}}{t} = \vb{F}
+\]
+siendo $ \vb{p} = m\vb{v} $ el momento de la partícula y $ F $ la fuerza total que actuaba sobre la misma.
+Si el resultado de las fuerzas sobre la partícula era nulo entonces se tiene que $ \vb{p} = cte. $ (el momento lineal 
+es una constante de movimiento).
+
+En el caso de un sistema de $N$ partículas como el mostrado en la Figura \ref{fig_mc_leyes_cons} el momento total del 
+sistema es la suma de los momentos individuales, es decir
+\[
+	\vb{P} = \Sum{i=1}{N} \vb{p}_i = \Sum{i=1}{N} m_i \vb{v}_i = \Sum{i=1}{N} m_i \dtot{\vb{x}_i}{t}
+\]
+luego la segunda ley para el sistema serán las $ N $ ecuaciones
+\[
+	\dtot{\vb{P}}{t} = \Sum{i=1}{N} m_i \dtot[2]{\vb{x}_i}{t} = \Sum{i=1}{N} \vb{F}_i
+\]
+donde $ \vb{F}_i$ es la fuerza total sobre la partícula $i$-ésima que puede descomponerse según
+\[
+	\vb{F}_i = \vb{F}_i^\text{ext} + \Sum{ j \neq i }{N} \vb{F}_{ij}
+\]
+siendo $ \vb{F}_i^\text{ext} $ las fuerzas debidas a agentes externos y $\vb{F}_{ij}$ la fuerza sobre la partícula $i$ 
+debido a la partícula $j$.
 
 \begin{figure}[hbt]
 	\begin{center}
@@ -54,12 +90,39 @@ Este formalismo es el corazón de la mecánica clásica.
 	\label{fig_mc_leyes_cons}
 \end{figure} 
 
+Entonces 
+\[
+	\dtot{\vb{P}}{t} = \Sum{i=1}{N} m_i \dtot[2]{\vb{x}_i}{t} = \Sum{i=1}{N} \vb{F}_i^\text{ext} + 
+	\Sum{i=1}{N} \Sum{ j \neq i }{N} \vb{F}_{ij}
+\]
+pero el último término del RHS es nulo puesto que por cada sumando $ \vb{F}_{ij} $ también aparece el sumando 
+$ \vb{F}_{ji} $ y por acción y reacción estas fuerzas tienen la misma dirección y sentido opuesto, i.e.
+\[
+	\vb{F}_{ij} = - \vb{F}_{ji}.
+\]
 
-% =================================================================================================
-\section{Momento angular}
-% =================================================================================================
+De esta forma la ley de conservación para el sistema es 
+\[
+	\dtot{\vb{P}}{t} = \Sum{i=1}{N} \vb{F}_i^\text{ext} = \vb{F}^\text{ext}_\text{total}
+\]
+y el momento $ \vb{P} $ del sistema se conserva si la resultante de todas las fuerzas externas es nula. 
+
+Definiendo el vector de posición del centro de masa como 
+\[
+	\vb{x}_\text{cm} = \frac{\sum_i m_i \vb{x}_i }{\sum_i m_i} = \frac{\sum_i m_i \vb{x}_i }{M}
+\]
+donde $ M $ es la masa del sistema, se tiene el resultado clásico de que
+\[
+	\dtot{}{t}( M \vb{x}_\text{cm} ) = \Sum{i=1}{N} m_i \vb{v}_i = M \vb{v}_\text{cm} = \vb{P},
+\]
+el sistema como un todo tiene un momento total que puede asociársele al de una única partícula {\it centro de masa} de 
+masa $M$ y que se mueve con velocidad $ \vb{v}_\text{cm} $.
+
+Si $\vb{P}$ se conserva, entonces $ \vb{v}_\text{cm} $ es una constante, el sistema posee un punto (el centro de masas) 
+que se mueve con velocidad constante sin importar qué tan complejo sea el movimiento del conjunto total.
 
 
+\subsection{Momento angular}
 
 \[
 	\vb{L} = \vb{r} \times \vb{p}
@@ -116,9 +179,7 @@ es decir si
 	\vb{r}_i - \vb{r}_j \parallel F_{ij}.
 \]
 
-% =================================================================================================
-\section{Trabajo y energía}
-% =================================================================================================
+\subsection{Trabajo y energía}
 
 Consideremos una partícula de masa $ m $ que se mueve sobre una cierta trayectoria suave $\vb{x}(t)$, ver {Figura} 
 \ref{fig_mc_workenergy}, debido a la acción de una fuerza \vb{F}.
