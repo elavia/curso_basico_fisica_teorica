@@ -75,9 +75,10 @@ luego la segunda ley para el sistema serán las $ N $ ecuaciones
 	\dtot{\vb{P}}{t} = \Sum{i=1}{N} m_i \dtot[2]{\vb{x}_i}{t} = \Sum{i=1}{N} \vb{F}_i
 \]
 donde $ \vb{F}_i$ es la fuerza total sobre la partícula $i$-ésima que puede descomponerse según
-\[
+\be
 	\vb{F}_i = \vb{F}_i^\text{ext} + \Sum{ j \neq i }{N} \vb{F}_{ij}
-\]
+	\label{descomp_fuerzas}
+\ee
 siendo $ \vb{F}_i^\text{ext} $ las fuerzas debidas a agentes externos y $\vb{F}_{ij}$ la fuerza sobre la partícula $i$ 
 debido a la partícula $j$.
 
@@ -121,12 +122,117 @@ masa $M$ y que se mueve con velocidad $ \vb{v}_\text{cm} $.
 Si $\vb{P}$ se conserva, entonces $ \vb{v}_\text{cm} $ es una constante, el sistema posee un punto (el centro de masas) 
 que se mueve con velocidad constante sin importar qué tan complejo sea el movimiento del conjunto total.
 
-
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \subsection{Momento angular}
 
+El momento angular de una partícula con momento lineal \vb{p} es 
 \[
-	\vb{L} = \vb{r} \times \vb{p}
+	\vb{l} = \vb{x} \times \vb{p} = m \: \vb{x} \times \vb{v}
 \]
+como puede verse en la Figura \ref{fig_mc_mom_ang_particula}. 
+La variación temporal del momento angular,
+\[
+	\dtot{\vb{l}}{t} = \dtot{\vb{x}}{t} \times \vb{p} + \vb{x} \times \dtot{\vb{p}}{t} 
+\]
+se reduce al segundo término, puesto que $ d\vb{x}/dt = \vb{v} $ es paralela a $ \vb{p} $, y
+se tiene finalmente el resultado conocido
+\be
+	\dtot{\vb{l}}{t} = \vb{x} \times \dtot{\vb{p}}{t} = \vb{x} \times \vb{f} = \vb{\tau}
+	\label{conserv_mom_ang}
+\ee
+de que la variación del momento angular es el torque $\vb{\tau}$ causado por la fuerza $ \vb{f} $ 
+que actúa sobre la partícula.
+
+\begin{figure}[hbt]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{images/fig_mc_mom_ang_particula.pdf}	
+	\end{center}
+	\caption{Una partícula de masa $m$ se desplaza en una trayectoria. En un punto \vb{x} de la misma se
+	indican su velocidad \vb{v}, su momento angular \vb{l} y la fuerza \vb{f} a la que está sometida y el
+	torque resultante \vb{\tau} por esa fuerza.
+	El momento angular es perpendicular al plano (en marrón) definido por los vectores \vb{x} y \vb{v} mientras que 
+	el torque los es al plano (en gris) definido por \vb{x} y \vb{f}.}
+	\label{fig_mc_mom_ang_particula}
+\end{figure} 
+
+Dado que la definición de $ \vb{l} $ y de $ \vb{\tau} $ implica el vector de posición $ \vb{x} $ se sigue que ambas 
+magnitudes dependen de la elección del origen del sistema de coordenadas. 
+Es decir que una determinación de $ \vb{l} $ y $ \vb{\tau} $ tiene sentido únicamente con respecto a un cierto origen 
+de coordenadas.
+
+De la ecuación \eqref{conserv_mom_ang} se deduce que si la fuerza es siempre paralela al vector de posición de una 
+partícula ($\vb{f} \parallel \vb{x}$) entonces el momento angular \vb{l} se conserva puesto que el torque es 
+$\vb{\tau}=0$ en ese caso. Es lo que se llama una fuerza central.
+\notamargen{Habría que destacar lo de fuerza central con un dibujo. Es importante.}
+
+\subsubsection{Momento angular para un sistema de partículas}
+
+Si ahora tenemos un sistema de $N$ partículas el momento angular correspondiente (con respecto a un dado origen de
+coordenadas) será
+\[
+	\vb{L} = \Sum{i=1}{N} \: \vb{x}_i \times \vb{p}_i
+\]
+
+De manera equivalente, la variación temporal es 
+\[
+	\dtot{\vb{L}}{t} = \Sum{i=1}{N} \vb{x}_i \times \vb{f}_i
+\]
+y si utilizamos la descomposición \eqref{descomp_fuerzas} para la fuerza $\vb{f}_i$ resulta
+\[
+	\dtot{\vb{L}}{t} = \Sum{i=1}{N} \vb{x}_i \times \vb{F}_i^\text{ext}  +
+	\Sum{i=1}{N} \Sum{j\neq i}{N}  \vb{x}_i \times \vb{F}_{ij}
+\]
+
+Es claro\footnote{Nota \ref{nota_suma_ineqj}} que el segundo término puede expresarse de manera equivalente como 
+\[
+	\Sum{i=1}{N} \Sum{j\neq i}{N}  \vb{x}_i \times \vb{F}_{ij} =
+	\frac{1}{2} 
+	\Sum{i=1}{N} \Sum{j \neq i}{N}  \left[ \vb{x}_i \times \vb{F}_{ij} + \vb{x}_j \times \vb{F}_{ji} \right]
+\]
+y aceptando que las fuerzas internas son pares acción-reacción se tiene 
+\[
+	\Sum{i=1}{N} \Sum{j\neq i}{N}  \vb{x}_i \times \vb{F}_{ij} =
+	\frac{1}{2} 
+	\Sum{i=1}{N} \Sum{j \neq i}{N}  \left[ \vb{x}_i - \vb{x}_j \right] \times \vb{F}_{ij},
+\]
+de manera que la derivada del momento angular total es 
+\[
+	\dtot{\vb{L}}{t} = \Sum{i=1}{N} \vb{x}_i \times \vb{F}_i^\text{ext}  +
+	\frac{1}{2} \Sum{i=1}{N} \Sum{j \neq i}{N}  \left[ \vb{x}_i - \vb{x}_j \right] \times \vb{F}_{ij} 
+\]
+
+La conservación de \vb{L} requiere entonces que las fuerzas externas sean centrales y que se verifique 
+\[
+	\vb{F}_{ij}  \parallel ( \vb{x}_i - \vb{x}_j ),
+\]
+es decir que la fuerza sobre $i$ ejercida por la partícula $j$ tenga la dirección del vector que une las dos 
+partículas.
+
+\begin{figure}[hbt]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_parstrong.pdf}	
+	\end{center}
+	\caption{Principio de acción y reacción fuerte para dos partículas de masas $m_i$ y $m_j$.}
+	\label{fig_mc_parstrong}
+\end{figure} 
+
+Esto establece lo que se llama un ``principio de acción y reacción {\it fuerte}''; las fuerzas son iguales y opuestas 
+(de esto se trata el principio de acción y reacción), pero además colineales.
+Dadas dos partículas del sistema cualesquiera con posiciones $ \vb{x}_i, \vb{x}_j $ y de masas $ m_i, m_j $, como se 
+muestra en la Figura \ref{fig_mc_parstrong}, la fuerza $\vb{F}_{ij}$ sobre $i$ debido a $j$ debe estar contenida en la 
+dirección del vector $ \vb{x}_i - \vb{x}_j $ lo cual le otorga las dos posibilidades indicadas por las flechas rojas 
+gruesas. Para la fuerza $\vb{F}_{ji}$ el razonamiento es, por supuesto, idéntico.
+
+\notamargen{Acá hay más para extraer: poner un gráfico con lo que no puede pasar. Poner un código de colores para
+las flechas, puesto que si son iguales y opuestas las fuerzas están hermanadas las externas por un lado y las internas
+por el otro.}
+
+La existencia de un principio de acción y reacción fuerte sobreviene por la naturaleza puntual de los cuerpos. De no 
+ser puntuales se tendrá principio de acción y reacción a secas.
+
+Existe otras descomposición interesante para el momento angular \vb{L} de un sistema de $N$ partículas en términos de 
+sus distancias al centro de masas.
+
 \begin{figure}[hbt]
 	\begin{center}
 	\includegraphics[width=0.6\textwidth]{images/fig_mc_angularmom.pdf}	
@@ -284,7 +390,7 @@ Para tres dimensiones no cualquier $ F(\vb{x}) $ es conservativa.
 El signo negativo en \eqref{fuerza_prov_potencial} hace que la cantidad conservada sea $T+V$ en lugar de $T-V$.
 Tiene más sentido físico que se conserve una suma de energías antes que una resta de las mismas.
 
-\subsection{Trabajo y energía para un sistema de partículas}
+\subsubsection{Trabajo y energía para un sistema de partículas}
 
 Para un sistema de $ N $ partículas la energía cinética simplemente es la suma de las energías cinéticas de cada 
 partícula,
@@ -603,6 +709,45 @@ Si $\omega = cte.$ entonces la fuerza lineal es nula.
 % Como ejemplo citamos \cite{einstein}.
 % O bien \cite{example}.
 % Tal vez \citep{Aspnes:1973}
+
+\begin{notasfinales}
+
+\label{nota_suma_ineqj}
+\item{ \bf Sumatoria de torques}
+Una manera de convencerse de que esta escritura es posible es hacer un diagrama de los diferentes términos que
+aparecen en esta doble sumatoria. Es fácil de ver que con el añadido del término $\vb{x}_j \times \vb{F}_{ji} $ se está 
+haciendo un doble conteo que justifica el $1/2$ que aparece luego.
+
+Una demostración más matemática puede lograrse escribiendo la sumatoria $ j\neq i $ sin esta restricción, lo cual se 
+puede hacer así:
+\[
+	\Sum{i=1}{N} \Sum{j\neq i}{N}  \vb{x}_i \times \vb{F}_{ij} = 
+	\Sum{i=1}{N} \Sum{j=1}{N}  \vb{x}_i \times \vb{F}_{ij} ( 1 - \delta_{ij} )
+\]
+siendo $ \delta_{ij} $ la delta de Kronecker. Es claro que podemos hacer un cambio de etiquetas en las sumatorias 
+puesto que los índices sumados son {\it mudos}, i.e.
+\[
+	\Sum{i=1}{N} \Sum{j=1}{N}  \vb{x}_i \times \vb{F}_{ij} ( 1 - \delta_{ij} ) = 
+	\Sum{j=1}{N} \Sum{i=1}{N}  \vb{x}_j \times \vb{F}_{ji} ( 1 - \delta_{ij} )
+\]
+y dado que el orden de las sumatorias es irrelevante llegamos a
+\[
+	\Sum{i=1}{N} \Sum{j\neq i}{N}  \vb{x}_i \times \vb{F}_{ij} = \frac{1}{2}
+	\Sum{i=1}{N} \Sum{j=1}{N} \left[ \vb{x}_i \times \vb{F}_{ij} ( 1 - \delta_{ij} ) +
+	\vb{x}_j \times \vb{F}_{ji} ( 1 - \delta_{ij} )
+	\right] 
+\]
+
+Regresando ahora a las sumatoria restringida obtenemos 
+\[
+	\Sum{i=1}{N} \Sum{j\neq i}{N}  \vb{x}_i \times \vb{F}_{ij} = \frac{1}{2}
+	\Sum{i=1}{N} \Sum{j \neq i }{N} \left[ \vb{x}_i \times \vb{F}_{ij} + \vb{x}_j \times \vb{F}_{ji} \right] 
+\]
+que es el resultado buscado.
+
+
+\end{notasfinales}
+
 
 % ============================================================================
 
