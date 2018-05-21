@@ -6,9 +6,7 @@
 	\usepackage{amsmath}
 	\usepackage{graphicx}
 	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
-
 	\usepackage[numbers]{natbib}
 	\setcitestyle{square}
 
@@ -36,6 +34,25 @@
 % \maketitle
 % \tableofcontents
 \chapter{Mecánica lagrangiana}
+
+Análisis energético de un potencial
+
+Dada una fuerza 1D 
+\[
+	F(x) = -k x + \frac{a}{x^3}
+\]
+se realiza un análisis del potencial resultante y de la energía.
+
+A partir de esta fuerza, que es la del oscilador armónico 1D sumada a una perturbación controlada por el parámetro 
+$a$, procedemos a calcular el potencial,
+
+\[
+	F(x)  = -\dpar{V(x)}{x}
+\]
+de modo que (a menos de una constante aditiva que no interesa aquí)
+\[
+	V(x) = \frac{1}{2} k x^2 + \frac{1}{2} \frac{a}{x^2}
+\]
 
 % =================================================================================================
 \section{Principio de los trabajos virtuales}
