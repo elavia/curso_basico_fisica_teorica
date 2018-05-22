@@ -313,6 +313,7 @@ siendo el primer término del RHS el momento angular orbital y el segundo el mom
 % 	\vb{r}_i - \vb{r}_j \parallel F_{ij}.
 % \]
 
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \subsection{Trabajo y energía}
 
 Consideremos una partícula de masa $ m $ que se mueve sobre una cierta trayectoria suave $\vb{x}(t)$, ver {Figura} 
@@ -512,6 +513,29 @@ En estos casos
 \[
 	\Delta E = \sum_{i=1}^N ( \Delta T_i - \Delta V_i ) + \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \Delta V_{ij}
 \]
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{ejemplo}{\bfseries Análisis energético de un potencial }
+\label{ejemplo_analisis_potencial}
+Dada una fuerza 1D 
+\[
+	F(x) = -k x + \frac{a}{x^3}
+\]
+se realiza un análisis del potencial resultante y de la energía.
+
+A partir de esta fuerza, que es la del oscilador armónico 1D sumada a una perturbación controlada por el parámetro 
+$a$, procedemos a calcular el potencial, a través de la relación
+\[
+	F(x)  = -\dpar{V(x)}{x}
+\]
+de modo que (a menos de una constante aditiva que no interesa aquí) se obtiene
+\[
+	V(x) = \frac{1}{2} k x^2 + \frac{1}{2} \frac{a}{x^2}
+\]
+
+\end{ejemplo}
+
+
 
 
 % =================================================================================================
