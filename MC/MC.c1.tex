@@ -408,9 +408,10 @@ proviene de un potencial $V$.
 Por dicha razón, las fuerzas para las cuales se verifica \eqref{fuerza_prov_potencial} se llaman {\it fuerzas
 conservativas}. En una dimensión, cualquier $ F(x) $ se puede hacer provenir de un potencial si verifica ser
 integrable, es decir si podemos definir
-\[
+\be
 	V(x) = \int F(x) \: dx.
-\]
+	\label{potencial_1d}
+\ee
 Para tres dimensiones no cualquier $ F(\vb{x}) $ es conservativa.
 
 El signo negativo en \eqref{fuerza_prov_potencial} hace que la cantidad conservada sea $T+V$ en lugar de $T-V$.
@@ -521,14 +522,20 @@ Dada una fuerza 1D
 se realiza un análisis del potencial resultante y de la energía.
 
 A partir de esta fuerza, que es la del oscilador armónico 1D sumada a una perturbación controlada por el parámetro 
-$a$, procedemos a calcular el potencial, a través de la relación
-\[
-	F(x)  = -\dpar{V(x)}{x}
-\]
-de modo que (a menos de una constante aditiva que no interesa aquí) se obtiene
+$a$, procedemos a calcular el potencial, a través de la relación \eqref{potencial_1d} de modo que (a menos de una 
+constante aditiva que no interesa aquí) se obtiene
 \[
 	V(x) = \frac{1}{2} k x^2 + \frac{1}{2} \frac{a}{x^2}
 \]
+
+% Para analizar el movimiento bajo este potencial consideraremos tres relaciones diferentes entre los parámetros $k,a$ 
+% para poder graficar $ V(x) $. Consideraremos tres casos numéricos $ k = 100 a, 20 a, 5 a $ (dado que $k$ y $a$ son 
+% magnitudes dimensionalmente diferentes es evidente que estos números 100, 20 y 5 tienen unidades, aunque no interesan 
+% para este análisis).
+
+Para analizar el movimiento bajo este potencial dividimos ambos miembros sobre $ a $ y definiendo un $\tilde{V} = V/a$
+y consideraremos tres casos representativos $ k/a = 5, 20, 100 $. Este potencial $ \tilde{V} $ es una especie de 
+potencial por unidad de $ a $ 
 
 \end{ejemplo}
 
