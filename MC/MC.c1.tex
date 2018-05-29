@@ -527,7 +527,11 @@ constante aditiva que no interesa aquí) se obtiene
 \[
 	V(x) = \frac{1}{2} k x^2 + \frac{1}{2} \frac{a}{x^2}
 \]
-
+siendo la energía total 
+\[
+	E = T + V( x ), 
+\]
+la cual es una cantidad conservada.
 % Para analizar el movimiento bajo este potencial consideraremos tres relaciones diferentes entre los parámetros $k,a$ 
 % para poder graficar $ V(x) $. Consideraremos tres casos numéricos $ k = 100 a, 20 a, 5 a $ (dado que $k$ y $a$ son 
 % magnitudes dimensionalmente diferentes es evidente que estos números 100, 20 y 5 tienen unidades, aunque no interesan 
@@ -535,23 +539,39 @@ constante aditiva que no interesa aquí) se obtiene
 
 Para analizar el movimiento bajo este potencial dividimos ambos miembros sobre $ a $ y se define $ v \equiv V/a$ para 
 considerar tres casos representativos $ k / a = 5, 20, 100 $. Este potencial $ v $ es una especie de potencial por 
-unidad de $ a $.
+unidad de $ a $. Consecuentemente, tendremos una energía reescalada $ e = t + v $.
+
 Para el caso $ k / a = 100 $ la Figura \ref{fig_mc_problema2_1} muestra la gráfica de $ v $ junto con la de cada 
-uno de los términos de que componen este potencial; el término $k/(2a) x^2$ (cuadrático) y $1/(2x^2)$ (una 
-ley de potencias de exponente -2). En la zona de $ x $ pequeña domina la ley de potencias mientras que para $ x $ grande 
-domina la cuadrática. 
+uno de los términos que componen este potencial; el término $k/(2a) x^2$ (cuadrático) y $1/(2x^2)$ (una ley de potencias 
+de exponente -2). En la zona de $ x $ pequeña domina la ley de potencias mientras que para $ x $ grande domina la 
+cuadrática. 
 
 \begin{figure}[!ht]
 	\begin{center}
-	\includegraphics[width=0.75\textwidth]{images/fig_mc_problema2_1.pdf}	
+	\includegraphics[width=0.85\textwidth]{images/fig_mc_problema2_1.pdf}	
 	\end{center}
-	\caption{Potencial.}
+	\vspace*{-5mm}
+	\caption{Gráfico del potencial $v=V(x)/a$ y energía $e=E/a$ escalados para el ejemplo del oscilador perturbado 
+	($ k/a $= 100).}
 	\label{fig_mc_problema2_1}
 \end{figure} 
 
-La figura XXX exhibe estos tres potenciales junto con una línea horizontal $ E $ que define una energía total $ E 
-= T + V $. A medida que $ a $ es más importante ($k/a$ disminuye) la parte $ 1 / x^2 $ del potencial actúa hasta 
-valores de $ x $ mayores.
+También está indicada una línea de $ e $ constante que define la energía total $t + v$. Dada la restricción $ e = t + 
+v$, la energía cinética $t$ está representada por la distancia vertical entre $e$ y $v$ para todo $x$ comprendido entre 
+los puntos indicados por cuadrados azules. Estos son aquellos puntos para los cuales $t=0$ (la velocidad es nula) y 
+definen por ende un punto de cambio de movimiento; son los llamados {\it turning points} (puntos de retroceso). 
+En la Figura se indica con una doble flecha vertical la magnitud de $t$ para $x =$ 0.4.
+
+Las regiones por fuera de los puntos de retroceso están prohibidas puesto que $ t < 0 $ allí.
+El movimiento posible para este potencial es entonces acotado y se halla dentro del intervalo definido por dichos 
+puntos.
+
+La línea vertical punteada indica el mínimo del potencial (que sale desde $ dV(x)/dx = 0 $ y es equivalente por ello a 
+la condición $ F(x)= 0 $). Ese punto es, debido a la forma particular de $F$, donde son iguales los aportes del 
+oscilador (término cuadrático) y de su perturbación (ley de potencias).
+
+A medida que $ a $ es más importante ($k/a$ disminuye) la parte $ 1 / x^2 $ del potencial actúa hasta valores de $ x $ 
+mayores.
 
 \end{ejemplo}
 
