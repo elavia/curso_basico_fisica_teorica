@@ -512,20 +512,33 @@ En estos casos
 	\Delta E = \sum_{i=1}^N ( \Delta T_i - \Delta V_i ) + \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \Delta V_{ij}
 \]
 
+
+
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{ejemplo}{\bfseries Análisis energético de un potencial }
+
 \label{ejemplo_analisis_potencial}
 Dada una fuerza 1D 
 \[
-	F(x) = -k x + \frac{a}{x^3}
+	F(x) = -k x + \frac{a}{x^3} ,	\qquad \qquad a > 0
 \]
 se realiza un análisis del potencial resultante y de la energía.
 
+\cajacostado{12cm}{12.4cm}{
+La fuerza $-kx$ es una fuerza restitutiva mientras que $a/x^3$ es una fuerza
+repulsiva pués $a > 0$. 
+% También podríamos decir que se tiene:
+% \[
+% 	\partial \Psi = 0
+% \]
+}
+
+\vspace*{1mm}
 A partir de esta fuerza, que es la del oscilador armónico 1D sumada a una perturbación controlada por el parámetro 
 $a$, procedemos a calcular el potencial, a través de la relación \eqref{potencial_1d} de modo que (a menos de una 
 constante aditiva que no interesa aquí) se obtiene
 \[
-	V(x) = \frac{1}{2} k x^2 + \frac{1}{2} \frac{a}{x^2}
+	V(x) = \frac{k}{2} x^2 + \frac{a}{2 x^2}
 \]
 siendo la energía total 
 \[
@@ -560,18 +573,38 @@ También está indicada una línea de $ e $ constante que define la energía tot
 v$, la energía cinética $t$ está representada por la distancia vertical entre $e$ y $v$ para todo $x$ comprendido entre 
 los puntos indicados por cuadrados azules. Estos son aquellos puntos para los cuales $t=0$ (la velocidad es nula) y 
 definen por ende un punto de cambio de movimiento; son los llamados {\it turning points} (puntos de retroceso). 
-En la Figura se indica con una doble flecha vertical la magnitud de $t$ para $x =$ 0.4.
+En la figura se indica con una doble flecha vertical la magnitud de $t$ para $x =$ 0.4.
 
 Las regiones por fuera de los puntos de retroceso están prohibidas puesto que $ t < 0 $ allí.
 El movimiento posible para este potencial es entonces acotado y se halla dentro del intervalo definido por dichos 
 puntos.
 
-La línea vertical punteada indica el mínimo del potencial (que sale desde $ dV(x)/dx = 0 $ y es equivalente por ello a 
-la condición $ F(x)= 0 $). Ese punto es, debido a la forma particular de $F$, donde son iguales los aportes del 
-oscilador (término cuadrático) y de su perturbación (ley de potencias).
+La línea vertical punteada $x=0.31622$ indica el mínimo del potencial (que sale desde $ dV(x)/dx = 0 $ y es 
+equivalente por ello a la condición $ F(x)= 0 $). Ese punto es, debido a la forma particular de $F$, donde son iguales 
+los aportes del oscilador (término cuadrático) y de su perturbación (ley de potencias).
 
 A medida que $ a $ es más importante ($k/a$ disminuye) la parte $ 1 / x^2 $ del potencial actúa hasta valores de $ x $ 
-mayores.
+mayores, como puede verse en la Figura XXX donde aparecen graficado $v$ para los casos $ k/a = 100, 20, 5 $.
+
+Para una partícula que se mueva bajo este potencial la energía cinética
+\[
+	T = \frac{1}{2} m \dot{x}^2 = E - \frac{k}{2} x^2 + \frac{a}{2 x^2},
+\]
+permite llegar a la integral de la trayectoria
+\[
+	\int \left[ \frac{2E}{m}  - \frac{kx^2}{m} - \frac{a}{mx^2} \right]^{1/2} dx = \int \; dt.
+\]
+
+La existencia de solución cerrada para esta integral dependerá, por supuesto, de la forma del potencial $V(x)$.
+En este caso particular un reemplazo $ u = x^2 $ permite, luego de completar cuadrados arribar a una integral del
+tipo 
+\[
+	\int \frac{1}{\sqrt{c^2 - y^2}} \; dy
+\]
+\notamargen{Completar esta solución. Ver en práctica?}
+
+
+\notamargen{\\ Lo de $E=E(a)$ no lo entendí.}
 
 \end{ejemplo}
 
