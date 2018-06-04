@@ -594,7 +594,8 @@ Para una partícula que se mueva bajo este potencial la energía cinética
 \]
 permite llegar a la integral de la trayectoria
 \[
-	\int \left[ \frac{2E}{m}  - \frac{kx^2}{m} - \frac{a}{mx^2} \right]^{1/2} dx = \int \; dt.
+% 	\sqrt{m} \: \int \left[ 2E  - kx^2 - \frac{a}{x^2} \right]^{-1/2} dx = \int \; dt.
+	\sqrt{m} \: \int \frac{1}{ \left[ 2E - kx^2 - a/x^2 \right]^{-1/2} } \: dx = \int \; dt.
 \]
 
 La existencia de solución cerrada para esta integral dependerá, por supuesto, de la forma del potencial $V(x)$.
