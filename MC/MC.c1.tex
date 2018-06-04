@@ -590,20 +590,22 @@ mayores, como puede verse en la Figura XXX donde aparecen graficado $v$ para los
 
 Para una partícula que se mueva bajo este potencial la energía cinética
 \[
-	T = \frac{1}{2} m \dot{x}^2 = E - \frac{k}{2} x^2 + \frac{a}{2 x^2},
+	T = \frac{1}{2} m \dot{x}^2 = E - \frac{k}{2} x^2 - \frac{a}{2 x^2},
 \]
 permite llegar a la integral de la trayectoria
 \[
 % 	\sqrt{m} \: \int \left[ 2E  - kx^2 - \frac{a}{x^2} \right]^{-1/2} dx = \int \; dt.
-	\sqrt{m} \: \int \frac{1}{ \left[ 2E - kx^2 - a/x^2 \right]^{-1/2} } \: dx = \int \; dt.
+	\sqrt{m} \: \int \frac{1}{ \left[ 2E - kx^2 - a/x^2 \right]^{1/2} } \: dx = \int \; dt.
 \]
 
 La existencia de solución cerrada para esta integral dependerá, por supuesto, de la forma del potencial $V(x)$.
-En este caso particular un reemplazo $ u = x^2 $ permite, luego de completar cuadrados arribar a una integral del
-tipo 
+En este caso particular un reemplazo $ u = x^2 $ conduce, resolviendo la cuadrática resultante, a una integral del tipo 
 \[
-	\int \frac{1}{\sqrt{c^2 - y^2}} \; dy
+	\int \frac{1}{\sqrt{C^2 - y^2}} \; dy
 \]
+donde $C = \sqrt{E^2 - ka}/k $ es una constante y la variable de integración es $ y =  U - E/k $.
+
+
 \notamargen{Completar esta solución. Ver en práctica?}
 
 
