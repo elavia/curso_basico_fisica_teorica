@@ -599,12 +599,36 @@ permite llegar a la integral de la trayectoria
 \]
 
 La existencia de solución cerrada para esta integral dependerá, por supuesto, de la forma del potencial $V(x)$.
-En este caso particular un reemplazo $ u = x^2 $ conduce, resolviendo la cuadrática resultante, a una integral del tipo 
+En este caso particular el reemplazo $ u = x^2 $ permite escribir el argumento de la raíz como una diferencia de
+cuadrados merced a un nuevo reemplazo $ y = u - E/k $. 
+Si se integra entre $ x_0 = x(t=0) $ y $ x = x(t) $ se obtiene 
 \[
-	\int \frac{1}{\sqrt{C^2 - y^2}} \; dy
+	\frac{1}{2}\sqrt{\frac{m}{k}} \int_{x_0^2 - E/k}^{{x^2 - E/k}} \frac{1}{\sqrt{C^2 - y^2}} \; dy = t - t_0
 \]
-donde $C = \sqrt{E^2 - ka}/k $ es una constante y la variable de integración es $ y =  u - E/k $.
+donde la constante es $ C = \sqrt{E^2 - ka}/k $.
 
+La solución de esta integral es del tipo $ \arcsin(y/|C|) $ de manera que obtenemos
+\[
+	x^2 = \frac{\sqrt{E^2 - ak}}{k} \: \sin 
+	\left[ \sqrt{4k/m}(t-t_0) + \arcsin ( (kx_0^2- E)/\sqrt{E^2 -ak }) \right] + \frac{E}{k}.
+\]
+
+Si se supone ahora que $ \dot{x}_0 = 0 $ (la cinética es nula en el instante $t=0$) resulta $ \arcsin(1) = \pi/2 $ 
+y entonces 
+\[
+	x^2 = \frac{\sqrt{E^2 - ak}}{k} \: \cos \left[ \sqrt{4k/m}(t-t_0) \right] + \frac{E}{k},
+\]
+o bien 
+\[
+	x = \sqrt{ \frac{E}{k} } \left( 1 + \sqrt{1 - ak/E^2}  \: \cos \left[ 2\sqrt{k/m}(t-t_0) \right] \right)^{1/2}
+\]
+donde hemos tomado el valor positivo de la raíz porque en este problema es $ x > 0 $ .
+
+El caso límite $ a = 0 $ recupera el oscilador armónico usual, como era de esperarse, pues en este caso se tiene
+\[
+	\underset{(a = 0)}{x} = \sqrt{ \frac{2E}{k} } \left( \cos \left[ \sqrt{\frac{k}{m}}(t-t_0) \right] \right),
+\]
+donde se ha utilizado la fórmula trigonométrica para el semiángulo.
 
 \notamargen{Completar esta solución. Ver en práctica?}
 
