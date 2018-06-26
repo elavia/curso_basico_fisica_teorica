@@ -586,7 +586,7 @@ los aportes del oscilador (término cuadrático) y de su perturbación (ley de p
 A medida que $ a $ es más importante ($k/a$ disminuye) la parte $ 1 / x^2 $ del potencial actúa hasta valores de $ x $ 
 mayores, como puede verse en la Figura XXX donde aparecen graficado $v$ para los casos $ k/a = 100, 20, 5 $.
 
-\notamargen{Poner la cuenta genérica en las notas. Why not?}
+\notamargen{Poner la cuenta genérica en las notas. Why not?. FALTA un gráfico.}
 
 Para una partícula que se mueva bajo este potencial la energía cinética
 \[
@@ -630,10 +630,9 @@ El caso límite $ a = 0 $ recupera el oscilador armónico usual, como era de esp
 \]
 donde se ha utilizado la fórmula trigonométrica para el semiángulo.
 
-\notamargen{Completar esta solución. Ver en práctica?}
+\notamargen{Completar esta solución. Ver en práctica?.
+Lo de $E=E(a)$ no lo entendí.}
 
-
-\notamargen{\\ Lo de $E=E(a)$ no lo entendí.}
 
 \end{ejemplo}
 
@@ -697,109 +696,198 @@ o bien
 \]
 
 % =================================================================================================
-\section{Sistemas de coordenadas}
+\section{Velocidad y aceleración en coordenadas cilíndricas y esféricas}
 % =================================================================================================
 
-\subsection{Coordenadas polares}
+En la resolución de los problemas dinámicos que surgen de las ecuaciones de Newton la igualdad vectorial involucrada debe,
+en general, escribirse en algún sistema de coordenadas apropiado. 
+Esto implica para la aceleración la doble derivada con respecto al tiempo del vector de posición $ \vb{x}(t) $ en las
+coordenadas en las cuales se halle escrito. 
 
-La gran ventaja de las coordenadas cartesianas es que los versores $ \hat{i}, \hat{j}, \hat{k}$ no varían con el tiempo,
-entonces
+Obviando el sistema cartesiano rectangular usual $(x,y,z)$, los dos sistemas de coordenadas más sencillos son el de
+coordenadas cilíndricas $(r,\varphi,z)$ y el de coordenadas esféricas $(r,\theta,\varphi)$. Los problemas más sencillos
+de la dinámica implican geometrías donde estos sistemas son apropiados. Asimismo, muchas geometrías más complejas pueden
+quizás en primera aproximación modelarse con estas coordenadas.
+
+Así, por ejemplo, un vector genérico en términos de la base de versores cilíndricos $(\hat{r},\hat{\varphi},\hat{z})$ será
 \[
-	\vb{r}(t) = x \hat{i} + y \hat{j}
+	\vb{V}(t) = r \hat{r} + \varphi \hat{\varphi} + z \hat{z},
 \]
-lleva a que 
+de manera que su derivada con respecto al tiempo implica la derivación de cada coordenada y cada versor.
+
+La gran ventaja de las coordenadas cartesianas es que los versores $ \hat{ x }, \hat{ y }, \hat{ z }$ tienen su orientación
+constante para cualquier punto del espacio, razón por la cual no varían con el tiempo. Entonces, en general, resulta 
+conveniente evaluar las derivadas de los versores que sí varían con el tiempo (como por ejemplo $\hat{r}$) en términos de
+su descomposición en cartesianas, puesto que sólo hay que derivar el coeficiente que lo acompaña.
+
+Para coordenadas cartesianas, las fórmulas de velocidad y aceleración son triviales. A partir del vector de posición
 \[
-	\vb{v} = \dtot{\vb{r}}{t} = \dot{x}\hat{i} + \dot{y}\hat{j}
+	\vb{x}(t) = x \hat{x} + y \hat{y}  + z\hat{z},
+\]
+se tienen 
+\[
+	\vb{v}(t) \equiv \dtot{\vb{x}}{t}(t) = \dot{\vb{x}}(t) = \dot{x} \hat{x} + \dot{y} \hat{y}  + \dot{z}\hat{z},
 \]
 \[
-	\vb{r} = r \:\hat{r}
+	\vb{a}(t) \equiv \dtot[2]{\vb{x}}{t}(t) = \ddot{\vb{x}}(t) = \ddot{x} \hat{x} + \ddot{y} \hat{y}  + \ddot{z} \hat{z},
 \]
-y la derivada temporal se hace con la regla de Leibniz
+donde con el objeto de no sobrecargar la notación no se ha explicitado la dependencia temporal en las coordenadas.
+
+A continuación se deducen las fórmulas de velocidad y aceleración para las coordenadas cilíndricas y esféricas a partir de
+un vector de posición $ \vb{x}(t) $ del origen\footnote{Un vector del origen tiene su base anclada en el origen del sistema
+de coordenadas lo que causa que no tenga componentes angulares en los sistemas cilíndrico y esférico. Esta simplificación
+es importante y en realidad si no fuera aplicable la utilización de estos sistemas tal vez pierda su razón de ser.}.
+
+
+\subsection{Coordenadas cilíndricas}
+
+% La gran ventaja de las coordenadas cartesianas es que los versores $ \hat{i}, \hat{j}, \hat{k}$ no varían con el tiempo,
+% entonces
+% \[
+% 	\vb{r}(t) = x \hat{i} + y \hat{j}
+% \]
+% lleva a que 
+% \[
+% 	\vb{v} = \dtot{\vb{r}}{t} = \dot{x}\hat{i} + \dot{y}\hat{j}
+% \]
+Un vector de posición del origen es 
 \[
-	\dtot{\vb{r}}{t} = \dtot{r}{t} \:\hat{r} + r \:\dtot{\hat{r}}{t}
+	\vb{x}(t) = r \:\hat{r} + z \:\hat{z},
 \]
-y para evaluar la evolución temporal pasamos la expresión a cartesianas según
+y la derivada temporal se hace con la regla de Leibniz en el caso del primer término de la derecha, 
+\[
+	\dtot{\vb{x}}{t} = \dtot{r}{t} \:\hat{r} + r \:\dtot{\hat{r}}{t} + \dtot{z}{t} \hat{z}
+\]
+y para evaluar la derivada temporal del versor consideramos la descomposición 
 \[
 	\hat{r} = \cos \varphi \:\hat{x} + \sin \varphi \:\hat{y}
 \]
 \[
 	\hat{\varphi} = -\sin \varphi  \:\hat{x} + \cos  \varphi \:\hat{y}
 \]
+que lleva a 
+\[
+	\dtot{\hat{r}}{t} = - \sin \varphi \: \dot{ \varphi } \:\hat{x} + \cos \varphi \: \dot{ \varphi } \:\hat{y} =
+	\dot{\vp} \: \hat{\vp}
+\]
+y entonces 
+\[
+	\dtot{\vb{x}}{t} = \dot{r} \:\hat{r } + r \:\dot{\vp} \: \hat{\vp} + \dot{z} \:\hat{z}.
+\]
+% que se puede escribir como 
+% \[
+% 	\dtot{\vb{r}}{t} = \dot{r} \: \hat{r } + r \dot{\vp} \: \hat{\vp} = \dot{\vb{r}}
+% \]
+% y extraemos de conclusión que 
+% \[
+% 	\dtot{\hat{r}}{t} = \dot{\vp} \: \hat{\vp}
+% \]
 
+Para la aceleración hay que derivar la velocidad con respecto al tiempo
 \[
-	\dtot{\vb{r}}{t} = \dot{r} \hat{r } + r( - \sin \vp \dot{\vp} \:\hat{x} + \cos \vp \dot{\vp} \:\hat{y} )
+	\ddot{\vb{x}} = \dtot{}{t} ( \dot{r} \: \hat{r} + r\dot{\vp} \: \hat{\vp} + \dot{z} \:\hat{z} ) 
 \]
-que se puede escribir como 
 \[
-	\dtot{\vb{r}}{t} = \dot{r} \: \hat{r } + r \dot{\vp} \: \hat{\vp} = \dot{\vb{r}}
+	\ddot{\vb{x}} = \ddot{r} \:\hat{r} + \dot{r} \: \dtot{\hat{r}}{t} + \dot{r} \: \dot{\vp} \: \hat{\vp}
+	+ r \left( \ddot{\vp} \: \phiver + \dot{\vp} \: \dtot{\hat{\vp}}{t} \right) + \ddot{z} \:\hat{z}
 \]
-y extraemos de conclusión que 
+y utilizando 
 \[
-	\dtot{\hat{r}}{t} = \dot{\vp} \: \hat{\vp}
+	\dtot{\hat{\vp}}{t} = - \dot{ \vp } ( \cos \vp \:\hat{x} + \sin  \vp \:\hat{y} ) = - \dot{\vp} \: \hat{r}
+\]
+finalmente se arriba a
+\[
+	\ddot{\vb{x}} = ( \ddot{r} - r\dot{\vp}^2 ) \rver + ( r\ddot{\vp} + 2 \dot{r} \dot{\vp} ) \phiver + \ddot{z} \:\hat{z}.
 \]
 
-Luego, para la aceleración hay que derivar la velocidad con respecto al tiempo
-\[
-	\ddot{\vb{r}} = \dtot{}{t} ( \dot{r} \hat{r} + r\dot{\vp} \hat{\vp} ) 
-\]
-\[
-	\ddot{\vb{r}} = \dtot{\dot{r}}{t} \hat{r} + \dot{r}\dtot{\hat{r}}{t} + \dtot{r}{t} \dot{\vp} \hat{\vp}
-	+ r \left( \dtot{\dot{vp}}{t}\phiver + \dot{\vp}\dtot{\phiver}{t} \right)
-\]
-\[
-	\ddot{\vb{r}} = ( \ddot{r} - r\dot{\vp}^2 ) \rver + ( r\ddot{\vp} + 2 \dot{r} \dot{\vp} ) \phiver
-\]
+Para problemas de dos dimensiones suele utilizarse un sistema coordenado, conocido como coordenadas polares, que es el de 
+cilíndricas con $ z \equiv 0 $. Las expresiones de velocidad y aceleración polares correspondientes serán las obtenidas en esta sección
+luego de {\it borrar} la coordenada $z$.
+
 \subsection{Coordenadas esféricas}
 
+Para el sistema esférico la deducción de la equivalencia cartesiana de los versores es un poco más trabajosa que en el sistema cilíndrico (donde en 
+realidad estos versores viven en un plano $z$ cte.) y el álgebra implicado es algo engorroso. La expresión de los versores es
 \[
-	\rver = \cos\vp \sin\theta\xver + \sin\vp\sin\theta\yver + \cos\theta\zver
+	\rver = \cos\vp \sin\theta\xver + \sin\vp\sin\theta\yver + \cos\theta\zver,
 \]
 \[
-	\phiver = -\sin\vp \xver + \cos\vp \yver
+	\phiver = -\sin\vp \xver + \cos\vp \yver,
 \]
 \[
-	\thetaver = \cos\theta \cos\vp \xver + \cos\theta\sin\vp\yver - \sin\theta\zver
+	\thetaver = \cos\theta \cos\vp \xver + \cos\theta\sin\vp\yver - \sin\theta\zver.
 \]
 
+Un vector de posición es simplemente
 \[
-	\vb{r} = r \rver
+	\vb{x} = r \rver
 \]
+aunque en el $\rver$ está {\it escondida} la dependencia angular. Consignaremos a continuación solamente las expresiones finales para la
+velocidad y aceleración, que son respectivamente
 \[
-	\vb{v} = \dot{r} \rver + r\dot{\theta}\thetaver + r\dot{\vp}\sin\theta\phiver
+	\vb{v} = \dot{\vb{x}} = \dot{r} \rver + r\dot{\theta}\thetaver + r\dot{\vp}\sin\theta\phiver
 \]
-\begin{multline*} % No puedo usar \vb porque no se da cuenta que multline ES modo matemático
-	\symbf{a} = ( \ddot{r} - r\dot{\theta}^2 - r\dot{\vp}^2 \sin^2 \theta )\rver +
-	( r\ddot{\theta} + 2\dot{r}\dot{\theta} - r\dot{\vp}^2 \sin \theta \cos\theta )\thetaver + \\
-	( r\ddot{\vp}\sin\theta + 2\dot{r}\dot{\vp}\sin\theta + 2r\dot{\theta}\dot{\vp}\cos\theta )\phiver 
+\begin{multline*} % \vb no se da cuenta que multline ES modo matemático (por ello el .\ inicial)
+	\!\: \vb{a} = \ddot{\vb{x}} = ( \ddot{r} - r\dot{\theta}^2 - r\dot{\vp}^2 \sin^2 \theta )\rver +
+	( r\ddot{\theta} + 2\dot{r}\dot{\theta} - r\dot{\vp}^2 \sin \theta \cos\theta )\thetaver \: + \\
+	( r \ddot{\vp}\sin\theta + 2 \: \dot{r} \: \dot{\vp} \sin\theta + 2 \: r \:\dot{\theta} \:\dot{\vp} \cos\theta )\phiver 
 \end{multline*}
 	
-\subsection{Rotación del sistema de coordenadas}
 
-Un vector de acuerdo a dos sistemas de coordenadas en el plano,
+% =================================================================================================
+\section{Transformación entre sistemas en rotación}
+% =================================================================================================
+
+Otro tipo de transformación común entre sistemas de coordenadas (en el plano) que comparten origen es la rotación.
+
+Suponiendo un sistema de coordenadas $(x,y)$ fijo (que llamaremos ``inercial'') de origen $O$ y otro de coordenadas $(x',y')$, que está rotando 
+en torno a ese origen (sistema ``móvil''), interesa ver qué consecuencias tiene sobre la velocidad y aceleración de un vector de posición \vb{A},
+el hecho de determinarlas desde este último sistema en rotación. 
+
+Como se ve en la FIGURA XXX 
+\notamargen{Figura de la rotación}
+la posición instantánea entre sistemas está determinada por el ángulo $\theta(t)$ y, dado que ambos sistemas comparten el origen, los mismos son 
+coincidentes en $\theta = 0$. Como el sistema en rotación varía la posición de sus ejes con el tiempo, sus versores asociados $(\xver', \yver')$ 
+también variarán con el tiempo (pese a que son cartesianos).
+
+Dado que los sistemas no se hallan entre sí a velocidad constante es patente que las ecuaciones de Newton se verán modificadas.
+Para un vector \vb{A} fijo en el sistema inercial, cualitativamente esperaríamos observarlo desde el sistema móvil en alguna suerte de movimiento
+dado por el efecto dinámico de la rotación\footnote{Si estoy montado en el caballo de madera de una calesita veré a mi abuela, que me espera 
+inmóvil a un lado, como dotada de movimiento.}. Veamos qué surge de la cuenta algebraica.
+
+Un mismo vector de acuerdo a dos sistemas de coordenadas en el plano, es
 \[
-	\vb{A} = A_x\xver + A_y\yver \qquad \qquad \vb{A}' = A_x'\xver' + A_y'\yver'
+	\vb{A} = A_x\xver + A_y\yver         \qquad\qquad               \vb{A}' = A_x'\xver' + A_y'\yver'
 \]
+donde las coordenadas primadas refieren al sistema móvil.
+
+Luego, [¿?]
 \[
-	\left. \dtot{\vb{A}}{t} \right|_\text{inercial} = 
-	\dot{A_x'}\xver' + \dot{A_y'}\yver' + A_x'\dot{\xver'} + A_y\dot{'\yver'}
-\]
-pero como la situación geométrica es la misma que la cuenta de polares, se tiene 
-\[
-	\dtot{\xver'}{t} = \dot{\theta} \yver' \qquad \qquad 
-	\dtot{\yver'}{t} = -\dot{\theta} \xver'
+	\left. \dtot{\vb{A}}{t} \right|_\text{¿inercial?} = 
+	\dot{A_x'} \xver' + A_x'\dot{\xver'} + \dot{A_y'}\yver' + A_y' \dot{\yver'}.
 \]
 
+Como la situación geométrica es la misma que la encontrada en el caso de los versores cilíndricos $(\rver,\phiver)$, se tiene 
+\[
+	\dtot{\hat{x}'}{t} = \dot{\theta} \yver'         \qquad \qquad          \dtot{\hat{y}'}{t} = -\dot{\theta} \xver'
+\]
+Desde el sistema móvil los versores son por supuesto constantes (el sistema móvil no es consciente de su movimiento) de modo 
+que 
+\[
+	\left. \dtot{\vb{A}}{t} \right|_\text{móvil} = \dot{A_x'}\xver' + \dot{A_y'}\yver'
+\]
+y entonces
 \[
 	\left. \dtot{\vb{A}}{t} \right|_\text{fijo} = \left. \dtot{\vb{A}}{t} \right|_\text{móvil}
 	+ A_x' \dot{\theta}\yver' - A_y'\dot{\theta}\xver'
 \]
-donde 
-\[
-	\left. \dtot{\vb{A}'}{t} \right|_\text{móvil} \equiv \sum_i \dtot{A_i'}{t} \: \hat{e_i}'
-\]
-\[
-	\left. \dtot{\vb{A}}{t} \right|_\text{móvil} = \dot{A_x'}\xver' + \dot{A_y'}\yver'
-\]
+% donde 
+% \[
+% 	\left. \dtot{\vb{A}'}{t} \right|_\text{móvil} \equiv \sum_i \dtot{A_i'}{t} \: \hat{e_i}'
+% \]
+% \[
+% 	\left. \dtot{\vb{A}}{t} \right|_\text{móvil} = \dot{A_x'}\xver' + \dot{A_y'}\yver'
+% \]
 \[
 	\vb{\omega} = \dot{\theta} \zver
 \]
