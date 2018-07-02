@@ -842,35 +842,44 @@ Otro tipo de transformación común entre sistemas de coordenadas (en el plano) 
 
 Suponiendo un sistema de coordenadas $(x,y)$ fijo (que llamaremos ``inercial'') de origen $O$ y otro de coordenadas $(x',y')$, que está rotando 
 en torno a ese origen (sistema ``móvil''), interesa ver qué consecuencias tiene sobre la velocidad y aceleración de un vector de posición \vb{A},
-el hecho de determinarlas desde este último sistema en rotación. 
+el hecho de determinarlas desde uno u otro sistema. Si bien hablamos de un sistema {\it fijo}, en realidad ambos se hallan en rotación entre sí. 
 
 Como se ve en la FIGURA XXX 
 \notamargen{Figura de la rotación}
 la posición instantánea entre sistemas está determinada por el ángulo $\theta(t)$ y, dado que ambos sistemas comparten el origen, los mismos son 
-coincidentes en $\theta = 0$. Como el sistema en rotación varía la posición de sus ejes con el tiempo, sus versores asociados $(\xver', \yver')$ 
-también variarán con el tiempo (pese a que son cartesianos).
+coincidentes en $\theta = 0$. 
+% Como el sistema en rotación varía la posición de sus ejes con el tiempo, sus versores asociados $(\xver', \yver')$ 
+% también variarán con el tiempo (pese a que son cartesianos).
 
-Dado que los sistemas no se hallan entre sí a velocidad constante es patente que las ecuaciones de Newton se verán modificadas.
-Para un vector \vb{A} fijo en el sistema inercial, cualitativamente esperaríamos observarlo desde el sistema móvil en alguna suerte de movimiento
-dado por el efecto dinámico de la rotación\footnote{Si estoy montado en el caballo de madera de una calesita veré a mi abuela, que me espera 
-inmóvil a un lado, como dotada de movimiento.}. Veamos qué surge de la cuenta algebraica.
+Dado que los sistemas no se hallan entre sí a velocidad constante\footnote{Aún en el caso de $ \theta(t) = cte.$ la velocidad no es constante como 
+vector puesto que cambia de dirección todo el tiempo.} es patente que las ecuaciones de Newton se verán modificadas.
+Para un vector \vb{A} constante con respecto al sistema inercial, cualitativamente esperaríamos observarlo desde el sistema móvil en alguna 
+suerte de movimiento dado por el efecto dinámico de la rotación\footnote{Si estoy montado en el caballo de madera de una calesita veré a mi abuela, 
+que me espera inmóvil a un lado, como dotada de movimiento.}. Veamos qué surge de la cuenta algebraica.
 
-Un mismo vector de acuerdo a dos sistemas de coordenadas en el plano, es
+El mismo vector de acuerdo a los dos sistemas de coordenadas en el plano, es
 \[
-	\vb{A} = A_x\xver + A_y\yver         \qquad\qquad               \vb{A}' = A_x'\xver' + A_y'\yver'
+	\vb{A}(t) = A_x\xver + A_y\yver         \qquad\qquad               \vb{A}'(t) = A_x'\xver' + A_y'\yver'
 \]
-donde las coordenadas primadas refieren al sistema móvil.
+donde las coordenadas primadas refieren al sistema móvil. Nótese que los versores asociados en ambos casos $(\xver, \yver)$ y $(\xver', \yver')$ 
+son constantes, esto es, no dependen del tiempo. Que ambos sistemas se hallen en rotación entre sí no es intrínseco de alguno de ellos.
+Un observador del sistema primado ve a sus ejes fijos mientras que en las medidas que realiza sobre \vb{A} verá una dinámica particular. 
 
-Luego, [¿?]
+Si consideramos la variación temporal de \vb{A}' pero como es vista desde el sistema inercial resulta 
 \[
-	\left. \dtot{\vb{A}}{t} \right|_\text{¿inercial?} = 
-	\dot{A_x'} \xver' + A_x'\dot{\xver'} + \dot{A_y'}\yver' + A_y' \dot{\yver'}.
+	\left. \dtot{\vb{A}}{t} \right|_\text{inercial} = 
+	\dot{A_x'} \xver' + A_x'\dot{\xver'} + \dot{A_y'}\yver' + A_y' \dot{\yver'},
+\]
+porque para un observador en el sistema inercial se mueven las componentes del vector y los versores.
+
+\notamargen{Esta notación es oscura, habría que ver una mejor manera de explicar esto.}
+
+La variación temporal de los versores la conocemos porque es la misma situación geométrica que la encontrada para el caso de los 
+versores cilíndricos $(\rver,\phiver)$. Podemos hallar la equivalencia
+\[
+	\dtot{\hat{x}'}{t} = \dot{\theta} \yver'         \qquad \qquad          \dtot{\hat{y}'}{t} = -\dot{\theta} \xver'.
 \]
 
-Como la situación geométrica es la misma que la encontrada en el caso de los versores cilíndricos $(\rver,\phiver)$, se tiene 
-\[
-	\dtot{\hat{x}'}{t} = \dot{\theta} \yver'         \qquad \qquad          \dtot{\hat{y}'}{t} = -\dot{\theta} \xver'
-\]
 Desde el sistema móvil los versores son por supuesto constantes (el sistema móvil no es consciente de su movimiento) de modo 
 que 
 \[
@@ -879,7 +888,7 @@ que
 y entonces
 \[
 	\left. \dtot{\vb{A}}{t} \right|_\text{fijo} = \left. \dtot{\vb{A}}{t} \right|_\text{móvil}
-	+ A_x' \dot{\theta}\yver' - A_y'\dot{\theta}\xver'
+	+ A_x' \dot{\theta}\yver' - A_y'\dot{\theta}\xver'.
 \]
 % donde 
 % \[
@@ -888,69 +897,91 @@ y entonces
 % \[
 % 	\left. \dtot{\vb{A}}{t} \right|_\text{móvil} = \dot{A_x'}\xver' + \dot{A_y'}\yver'
 % \]
+
+Si definimos
 \[
-	\vb{\omega} = \dot{\theta} \zver
+	\vb{\omega} = \dot{\theta} \zver,
 \]
+entonces resulta que
 \[
-	\vb{\omega}\times\vb{A}' = \dot{\theta} \times ({A_x'}\xver' + {A_y'}\yver') =
-	A_x' \dot{\theta}\yver' - A_y'\dot{\theta}\xver'
+	\vb{\omega}\times\vb{A}' = \dot{\theta} \zver \times ({A_x'}\xver' + {A_y'}\yver') =
+	A_x' \dot{\theta}\yver' - A_y'\dot{\theta}\xver'.
 \]
+
+Volviendo a la derivada de \vb{A} tenemos
 \[
 	\left. \dtot{\vb{A}}{t} \right|_\text{fijo} = \left. \dtot{\vb{A}}{t} \right|_\text{móvil}
 	+ \vb{\omega} \times \vb{A}'
 \]
+que nos da la variación temporal de un vector \vb{A} visto desde un sistema fijo en términos de lo que se mediría
+en un sistema (móvil) que está en rotación respecto al primero.
+
+Si ahora la especializamos para un vector de posición \vb{x}, obtenemos la velocidad  
 \[
-	\left. \vb{v} \right|_\text{fijo} = \left. \vb{v} \right|_\text{móvil} + \vb{\omega} \times \vb{r}'
+	\left. \vb{v} \right|_\text{fijo} = \left. \vb{v} \right|_\text{móvil} + \vb{\omega} \times \vb{x}',
 \]
+donde 
 \[
-	\left. \vb{v} \right|_\text{móvil} = \dot{x'}\xver' + \dot{y}\yver' 
-\]
-\[
-	\vb{a} = \left. \dtot{\vb{v}}{t} \right|_\text{fijo} = \left. \dtot{\vb{v}}{t} \right|_\text{móvil} +
-	\vb{\omega} \times \dtot{\vb{r}}{t}
+	\left. \vb{v} \right|_\text{móvil} = \dot{x}' \xver' + \dot{y}' \yver' 
 \]
 
+Asimismo, la aceleración se obtiene aplicando la relación al vector $\vb{v} \equiv d\vb{x}/dt$, de manera que 
+tendremos
 \[
-	\vb{a} = \dtot{}{t}\left[ \left. \dtot{\vb{r}}{t} \right|_\text{móvil} + \vb{\omega}\times\vb{r} \right] +
-	\vb{\omega} \times \left[ \left. \vb{v} \right|_\text{móvil} +	\vb{\omega}\times\vb{r} \right]
+	\left. \vb{a} \right|_\text{fijo} = \left. \dtot{\vb{v}}{t} \right|_\text{fijo} = \left. \dtot{\vb{v}}{t} \right|_\text{móvil} +
+	\vb{\omega} \times \vb{v}'
+\]
+\[
+	\left. \vb{a} \right|_\text{fijo} = 
+	\dtot{}{t}\left[ \left. \dtot{\vb{x}}{t} \right|_\text{móvil} + \vb{\omega}\times\vb{x}' \right] +
+	\vb{\omega} \times \left[ \left. \vb{v} \right|_\text{móvil} +	\vb{\omega}\times\vb{x}' \right]
 \]
 
+Ahora procedemos a trabajar las expresiones dentro del primer corchete, empezando por la derivada temporal de la velocidad
+en el sistema móvil,
 \[
-	\dtot{}{t}\left.( \dot{x'}\xver' + \dot{y'}\yver' )\right|_\text{móvil} = 
-	\ddot{x'}\xver' + \ddot{y'}\yver' \equiv \left. \vb{a} \right|_\text{móvil}
+	\left. \vb{a} \right|_\text{móvil} \equiv  
+	\dtot{}{t}\left.( \dot{x}' \xver' + \dot{y}' \yver' )\right|_\text{móvil} = \ddot{x}' \xver' + \ddot{y}' \yver'
 \]
+y continuando con el término 
 \[
-	\left.\vb{\omega}\times\vb{r}\right|_\text{móvil} = \omega y' \xver' - \omega x' \yver'
+	\left.\vb{\omega}\times\vb{x}'\right|_\text{móvil} = \omega x' \yver' - \omega y' \xver' ,
+\]
+cuya derivada es
+\[
+	\dtot{}{t}\left.\vb{\omega}\times\vb{x}\right|_\text{móvil} = 
+	-( \dot{\omega} y' + \omega \dot{y}' )\xver' + ( \dot{\omega} x' + \omega \dot{x}' )\yver' =
+	\left. \vb{\omega} \times\vb{v}'\right|_\text{móvil} + \left.\dot{\vb{\omega}} \times\vb{x}'\right|_\text{móvil}
 \]
 
+Juntando todo resulta
 \[
-	\dtot{}{t}\left.\vb{\omega}\times\vb{r}\right|_\text{móvil} = 
-	( \dot{\omega} y' + \omega \dot{y}' )\xver' + ( \dot{\omega} x' + \omega \dot{y'} )\yver'
+	\left. \vb{a}\right|_\text{fijo} = \left. \vb{a}\right|_\text{móvil} 
+	+ \left.\dot{\vb{\omega}} \times\vb{x}'\right|_\text{móvil} + 2 \:\vb{\omega}\times\vb{v'} + \vb{\omega}
+	\times (\vb{\omega} \times \vb{x}')
 \]
+donde el tercero es la aceleración de Coriolis y el cuarto la aceleración centrípeta.
+
+Las leyes de Newton observadas desde el sistema fijo serán 
+% Llamando $ \alpha = \dot{\omega} = \dtot{\omega}{t}$ resulta 
 \[
-	\left. \vb{a}\right|_\text{fijo} = \left. \vb{a}\right|_\text{móvil} +
-	\dot{\omega}y'\xver'- \dot{\omega}x'\yver' + 2\vb{\omega}\times\vb{v'} + \vb{\omega}
-	\times (\vb{\omega} \times \vb{r})
+	\vb{F} = m\vb{a} = m \left. \vb{a}\right|_\text{móvil} + m \: \dot{ \vb{\omega} } \times \vb{r} + 4 \: m \: 
+	\vb{\omega}\times\vb{v'} + m \: [  \vb{\omega} \times (\vb{\omega}\times\vb{r} )]
 \]
-donde el segundo término del RHS es $ \dot{\vb{\omega}} \times \vb{r}$, el tercero la aceleración de Coriolis y el 
-cuarto la aceleración centrípeta.
-Llamando $ \alpha = \dot{\omega} = \dtot{\omega}{t}$ resulta 
+que se pueden reacomodar como  
 \[
-	\vb{F} = m\vb{a} = m \left. \vb{a}\right|_\text{móvil} + m \alpha \times \vb{r} + 4m 
-	\vb{\omega}\times\vb{v'}+m[  \vb{\omega} \times (\vb{\omega}\times\vb{r} )]
+	m \left. \vb{a}\right|_\text{fijo} = 
+	\vb{F} - m \left. \vb{a}\right|_\text{móvil} - m \: \dot{\vb{\omega}} \times \vb{r} - 4 \: m \: \vb{\omega}\times\vb{v'} -
+	m \: [\vb{\omega} \times(\vb{\omega}\times\vb{r})]
 \]
-que reacomodado de otra manera es 
-\[
-	\vb{F} - m \alpha \times \vb{r} - 4m \vb{\omega}\times\vb{v'} - m[\vb{\omega} \times(\vb{\omega}\times\vb{r})]
-	= m \left. \vb{a}\right|_\text{fijo}
-\]
-y ahora en el LHS tenemos la fuerza $\vb{F}$ que es la única que produce par de acción y reacción, y los términos de 
+donde ahora en el RHS tenemos la fuerza $\vb{F}$ que es la única que produce par de acción y reacción, y los términos de 
 fuerza lineal, de Coriolis y centrífuga.
-Si $\omega = cte.$ entonces la fuerza lineal es nula.
 
-% Como ejemplo citamos \cite{einstein}.
-% O bien \cite{example}.
-% Tal vez \citep{Aspnes:1973}
+Si $\vb{\omega} = cte.$ entonces la fuerza lineal es nula.
+
+\notamargen{Está un poco inconsistente la notación utilizada, con lo de móvil y la prima. La carpeta tiene muchos
+typos.
+El 'Problema' de la hoja 5R no lo entiendo}
 
 \begin{notasfinales}
 
