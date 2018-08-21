@@ -921,10 +921,41 @@ De esta manera, \eqref{f_lorentz} resulta
 
 
 Se puede demostrar directamente la fórmula anterior desde la expresión vectorial de \vb{F} utilizando su equivalente 
-indicial,
+indicial, es decir a partir de
 \[
 	F_i = -q \partial_i \vp - \frac{q}{c} \:\partial_t A_i + \frac{q}{c} \: \epsilon_{ilm} v_l \epsilon_{mjk} 
 	\partial_j A_k
+\]
+que es la coordenada $i$-ésima de la fuerza \vb{F}. Utilizando las propiedades del símbolo de Levi-Civita se tiene 
+\[
+	F_i = -q \partial_i \vp + \frac{q}{c} \left[  -\partial_t A_i  + (\delta_{ij}\delta_{lk} - \delta_{ik}\delta_{lj}) v_l \partial_j A_k \right]
+\]
+y, tras colapsar las deltas, y reordenar términos
+\[
+	F_i = -q \partial_i \vp + \frac{q}{c} \left[  -\partial_t A_i - v_j \partial_j A_i +  v_k \partial_i A_k  \right].
+\]
+
+Como el campo de velocidad \vb{v} no depende explícitamente de \vb{x} se puede introducir $v_k$ a través de la derivada $\partial_i$. Además los
+dos primeros términos del corchete representan la derivada total de $A_i$ de manera que tenemos
+\[
+	F_i = -q \partial_i \vp + \frac{q}{c} \left[  - \dtot{}{t} \left(A_i\right)  + \partial_i (v_k A_k)  \right],
+\]
+o bien 
+\[
+	F_i = - \partial_i \left[ q\vp - \frac{q}{c}  (v_k A_k) \right] -  \dtot{}{t} \left( \frac{q}{c} A_i \right).
+\]
+
+Se puede hacer aparecer explícitamente lo faltante dentro de la derivada total notando que se puede escribir de manera absolutamente general
+\[
+	\frac{q}{c} A_i =  \dpar{}{v_i} ( - q\vp + \frac{q}{c} v_k A_k )
+\]
+dado que $\vp$ y $\vb{A}$ son funciones de la posición y el tiempo solamente. Luego,
+\[
+	F_i = - \partial_i \left[ q\vp - \frac{q}{c}  (v_k A_k) \right] + \dtot{}{t} \left[ \dpar{}{v_i} ( q\vp - \frac{q}{c} v_k A_k ) \right]
+\]
+y esto significa que el potencial completo es
+\[
+	U(\vb{x},\vb{v},t) = q \: \vp(\vb{x},t) - \frac{q}{c} \: \pe{v}{A}(\vb{x},t).
 \]
 
 % Como ejemplo citamos \cite{einstein}.
