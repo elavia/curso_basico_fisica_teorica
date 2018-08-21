@@ -843,6 +843,90 @@ Podemos escribir
 \label{moneda}
 \end{ejemplo}
 
+% =================================================================================================
+\section{Potenciales dependientes de la velocidad}
+% =================================================================================================
+
+Hasta el momento se consideró que el potencial $V$ dependía únicamente de la posición y resultaba eso en
+una fuerza generalizada [la llamé así?]
+\[
+	Q_j = -\dpar{V}{q_j}
+\]
+para la cual el $\Lag\equiv T-V$ cumplía las ecuaciones de Euler Lagrange
+\be
+	\dtot{}{t} \left( \dpar{\Lag}{\dot{q}_j} \right) - \dpar{\Lag}{q_j} = 0.
+	\label{el-pot-x}
+\ee
+
+Si en cambio se tiene un potencial dependiente, además, de la velocidad,
+\[
+	U = U(q_1, ..., q_2,\dot{q}_1,...,\dot{q}_n,t ) 
+\]
+y se requiere que sigan valiendo las ecuaciones \eqref{el-pot-x}, necesitaremos evidentemente
+\[
+	Q_j = \dtot{}{t} \left( \dpar{U}{\dot{q}_j} \right)  -\dpar{U}{q_j},
+\]
+una fuerza generalizada que depende de posición y velocidad.
+
+El ejemplo canónico de una tal fuerza es la fuerza de Lorentz que sufre una partícula de carga $q$ en
+presencia de un campo electromagnético dado por campos $\vb{E}, \vb{B}$ y cuya forma es
+\be
+	\vb{F} = q \vb{E} + \frac{q}{c} ( \vb{v} \times \vb{B} )
+	\label{f_lorentz}
+\ee
+
+Esta fuerza \eqref{f_lorentz} puede expresarse en términos de dos potenciales. Para ello es necesario recurrir a
+las relaciones que verifican los campos $\vb{E}, \vb{B}$ y que están dadas por las ecuaciones de Maxwell, cuyo esquema 
+se presenta en la siguiente tabla.
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+& \\
+$ \nabla\cdot\vb{E} = 4 \pi \rho $ & $ \nabla \cdot \vb{B} = 0 $ \\
+& \\
+$ \displaystyle \rotorm{E} = -\frac{1}{c} \dpar{\vb{B}}{t} $ &  
+$ \displaystyle \rotorm{B} = \frac{4\pi}{c}\vb{J} + \frac{1}{c} \dpar{\vb{E}}{t} $ \\
+ & \\
+\hline
+\end{tabular}
+\end{center}
+
+Dado que la divergencia de \vb{B} es nula, entonces existe un potencial vector \vb{A} tal que 
+\[
+	\rotorm{A} = \vb{B}.
+\]
+Entonces, la ley de Faraday resulta 
+\[
+	\rotorm{E} = -\frac{1}{c} \dpar{}{t} \left(\rotorm{A} \right) 
+\]
+o bien 
+\[
+	\nabla\times\left( \vb{E} + \frac{1}{c}\dpar{\vb{A}}{t} \right) = 0
+\]
+
+La cantidad entre paréntesis es de rotor nulo y entonces se puede escribir
+\[
+	\vb{E} + \frac{1}{c}\dpar{\vb{A}}{t} = -\nabla \vp( \vb{x}, t )
+\]
+de manera que los campos \vb{B},\vb{E} pueden expresarse en términos de una función escalar $\vp$ y un campo vectorial
+\vb{A} como
+\[
+	\vb{B} = \rotorm{A} \qquad \qquad \vb{E} = - \nabla \vp - \frac{1}{c} \dpar{ \vb{A} }{t} .
+\]
+
+De esta manera, \eqref{f_lorentz} resulta 
+\[
+	\vb{F} = -q\nabla \vp - \frac{q}{c} \dpar{ \vb{A} }{t} + \frac{q}{c} \vb{v} \times \rotorm{A}
+\]
+
+
+Se puede demostrar directamente la fórmula anterior desde la expresión vectorial de \vb{F} utilizando su equivalente 
+indicial,
+\[
+	F_i = -q \partial_i \vp - \frac{q}{c} \:\partial_t A_i + \frac{q}{c} \: \epsilon_{ilm} v_l \epsilon_{mjk} 
+	\partial_j A_k
+\]
+
 % Como ejemplo citamos \cite{einstein}.
 % O bien \cite{example}.
 % Tal vez \citep{Aspnes:1973}

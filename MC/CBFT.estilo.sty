@@ -12,6 +12,7 @@
 	% que surja la necesidad de nuevas estructuras y macros.
 	
 	% Se fixeó el asunto de tener mejores versiones bold de las cantidades vectoriales
+	% utilizando el comando 'symbf'	
 	
 	
 	\usepackage{fixmath} % Para caracteres en negrita
@@ -96,13 +97,13 @@
 	\newcommand{\vS}[1]{\ifmmode\boldsymbol{#1}\else$\boldsymbol{#1}$\fi} % Vector usando boldsymbol
 	
 	
-	\newcommand{\divem}[1]{\mathbf{\nabla}\mathbf{\cdot}\mathbf{#1}} % Divergencia
-	\newcommand{\rotorm}[1]{\mathbf{\nabla}\times \vb{#1}} % Rotor
+	\newcommand{\divem}[1]{ {\nabla}\mathbf{\cdot}\mathbf{#1}} % Divergencia
+	\newcommand{\rotorm}[1]{ {\nabla}\times \vb{#1}} % Rotor
 	\newcommand{\lapm}[1]{\nabla^2{#1}} % Laplaciano
 	\newcommand{\dparbis}[2]{\frac{\partial}{\partial #2}\left[ #1 \right]}
 	\newcommand{\dparcru}[3]{\frac{\partial^2 #1}{\partial #3\partial #2}} % Derivada parcial 2da cruzada
 	\newcommand{\ddpar}[2]{\frac{\partial^2 #1}{\partial #2^2}}
-	\newcommand{\Nabla}{\boldsymbol{\nabla}} % Nabla vectorial
+	\newcommand{\Nabla}{\symbf{\nabla}} % Nabla vectorial
 	\newcommand{\pe}[2]{\vb{#1} \cdot \vb{#2}}
 	\newcommand{\pv}[2]{\vb{#1} \times \vb{#2}}
 	\newcommand{\re}{\mathfrak{ R }}
