@@ -862,13 +862,13 @@ Si en cambio se tiene un potencial dependiente, además, de la velocidad,
 \[
 	U = U(q_1, ..., q_2,\dot{q}_1,...,\dot{q}_n,t ) 
 \]
-y se requiere que sigan valiendo las ecuaciones \eqref{el-pot-x}, necesitaremos evidentemente
+y se requiere que sigan valiendo las ecuaciones \eqref{el-pot-x} para $\Lag \equiv T-U$, necesitaremos evidentemente
 \[
 	Q_j = \dtot{}{t} \left( \dpar{U}{\dot{q}_j} \right)  -\dpar{U}{q_j},
 \]
-una fuerza generalizada que depende de posición y velocidad.
+una fuerza generalizada que depende de posiciones y velocidades.
 
-El ejemplo canónico de una tal fuerza es la fuerza de Lorentz que sufre una partícula de carga $q$ en
+El ejemplo canónico de una tal fuerza es la fuerza de Lorentz, que es la que sufre una partícula de carga $q$ en
 presencia de un campo electromagnético dado por campos $\vb{E}, \vb{B}$ y cuya forma es
 \be
 	\vb{F} = q \vb{E} + \frac{q}{c} ( \vb{v} \times \vb{B} )
@@ -908,17 +908,78 @@ La cantidad entre paréntesis es de rotor nulo y entonces se puede escribir
 \[
 	\vb{E} + \frac{1}{c}\dpar{\vb{A}}{t} = -\nabla \vp( \vb{x}, t )
 \]
-de manera que los campos \vb{B},\vb{E} pueden expresarse en términos de una función escalar $\vp$ y un campo vectorial
+de manera que los campos \vb{B}, \vb{E} pueden expresarse en términos de una función escalar $\vp$ y un campo vectorial
 \vb{A} como
 \[
 	\vb{B} = \rotorm{A} \qquad \qquad \vb{E} = - \nabla \vp - \frac{1}{c} \dpar{ \vb{A} }{t} .
 \]
 
-De esta manera, \eqref{f_lorentz} resulta 
+Entonces, en términos de estos potenciales \eqref{f_lorentz} resulta 
 \[
-	\vb{F} = -q\nabla \vp - \frac{q}{c} \dpar{ \vb{A} }{t} + \frac{q}{c} \vb{v} \times \rotorm{A}
+	\vb{F} = -q\nabla \vp - \frac{q}{c} \dpar{ \vb{A} }{t} + \frac{q}{c} \vb{v} \times \rotorm{A}.
 \]
 
+Supongamos, para simplificar el razonamiento, que es $ \vb{F} = F_x \hat{x} $ y veamos que 
+\[
+	F_x = -q \dpar{ \vp }{ x } - \frac{q}{c} \dpar{ A_x }{t} + \frac{q}{c} \left( v_y [\rotorm{A}]_z - v_z [\rotorm{A}]_y \right)
+\]
+se puede escribir
+\[
+	F_x = \dtot{}{t} \left( \dpar{U}{v_x} \right)  -\dpar{U}{x}.
+\]
+
+Desarrollando explícitamente el rotor se tiene 
+\[
+	\left( v_y [\rotorm{A}]_z - v_z [\rotorm{A}]_y \right) = 
+	v_y \dpar{A_y}{x} - v_y \dpar{A_x}{y} - v_z \dpar{A_x}{z} + v_z \dpar{A_z}{x} + v_x \dpar{A_x}{x} - v_x \dpar{A_x}{x}
+\]
+donde se ha sumado y restado la conveniente combinación $ v_x \partial_x A_x $. Dado que las velocidades y las posiciones son variables
+independientes (se verifica $ \partial_a v_b = 0 $ para cualquier combinación $ a,b=x,y,z $) se puede {\it filtrar} la velocidad dentro
+de las derivadas para reescribir 
+\[
+	v_x \dpar{A_x}{x} + v_y \dpar{A_y}{x} + v_z \dpar{A_z}{x} = \dpar{}{x}( v_xA_x + v_yA_y + v_zA_z ) = \dpar{}{x}( \pe{v}{A} )
+\]
+% \[
+% 	\left( v_y [\rotorm{A}]_z - v_z [\rotorm{A}]_y \right) = 
+% 	\dpar{}{x}( v_xA_x + v_yA_y + v_zA_z ) - v_x\dpar{ A_x}{x} - v_y\dpar{A_x}{y} - v_z\dpar{A_x}{z}.
+% \]
+Los tres términos restantes en derivadas respecto de $A_x$ no son otra cosa que una derivada total,
+\[
+	- \frac{q}{c} \left(  \dpar{ A_x }{t}- v_x\dpar{ A_x}{x} - v_y\dpar{A_x}{y} - v_z\dpar{A_x}{z} \right) =
+	- \frac{q}{c} \left( \dpar{ A_x }{t} - \vb{v}\cdot\nabla( A_x ) \right) = - \frac{q}{c} \dtot{A_x}{t}
+\]
+
+Luego, se fuerza la aparición de una derivada con respecto a la velocidad (para obtener una expresión en consonancia con la buscada)
+del siguiente modo
+\[
+	A_x = \dpar{}{v_x}(v_xA_x + v_yA_y + v_zA_z) = \dpar{}{v_x}(\pe{v}{A}),
+\]
+y juntando todo resulta
+% \[
+% 	F_x = -q \dpar{ \vp }{ x } - \frac{q}{c} \dpar{ A_x }{t} + \frac{q}{c} \left( \dpar{}{x}( \pe{v}{A} )
+% 	- v_i \partial_i\left( \dpar{}{v_x}(\pe{v}{A}) \right) \right)
+% % 	- v_x \dpar{}{x}( \dpar{}{v_x}(\pe{v}{A}) ) - v_y \dpar{}{y}( \dpar{}{v_x}(\pe{v}{A}) ) 
+% % 	- v_z \dpar{}{z}( \dpar{}{v_x}(\pe{v}{A}) ) \right).
+% % 	
+% \]
+% donde el último término en el RHS representa la suma de tres. Reordenando esta expresión
+\[
+	F_x = -\dpar{ }{ x }\left( q\vp - \frac{q}{c} \pe{v}{A} \right) 
+	+ \dtot{ }{t} \left( \dpar{}{v_x}\left( -\frac{q}{c}\pe{v}{A} \right) \right) .
+\]
+
+Como $\vp=\vp(\vb{x},t)$, se la puede incluir dentro de la derivada con respecto a la velocidad obteniendo finalmente el 
+resultado buscado
+\[
+	F_x = -\dpar{ U }{ x } + \dtot{ }{t}\left( \dpar{U}{v_x} \right),
+\]
+donde 
+\[
+	U = q \vp - \frac{q}{c} \pe{v}{A}.
+\]
+ 
+\notamargen{Mucho para tener en cuenta: resumen previo de notación indicial, resumen de classical field theory. Aclarar
+que posición y velocidad son independientes.}
 
 Se puede demostrar directamente la fórmula anterior desde la expresión vectorial de \vb{F} utilizando su equivalente 
 indicial, es decir a partir de
@@ -957,6 +1018,9 @@ y esto significa que el potencial completo es
 \[
 	U(\vb{x},\vb{v},t) = q \: \vp(\vb{x},t) - \frac{q}{c} \: \pe{v}{A}(\vb{x},t).
 \]
+
+En el ejemplo de la fuerza de Lorentz se desprecia el campo generado por la misma partícula que se mueve. Una formulación lagrangiana que 
+lo tuviera en cuenta debería considerar un $\Lag_p$ para la partícula.
 
 % Como ejemplo citamos \cite{einstein}.
 % O bien \cite{example}.
