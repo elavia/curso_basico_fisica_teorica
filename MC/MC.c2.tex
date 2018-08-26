@@ -318,27 +318,63 @@ función de $q_j,t$.
 \section{Momentos conjugados y coordenadas cíclicas}
 % =================================================================================================
 
-El momento canónicamente conjugado a $q_j$ se define como 
-\[
-	\dpar{\Lag}{\dot{q}_j} \equiv p_j
-\]
+Dado un lagrangiano $\Lag = \Lag( q_i,\dot{q}_i, t )$ se define el momento canónicamente conjugado a $q_j$
+como 
+\be
+	p_j \equiv \dpar{\Lag}{\dot{q}_j},
+	\label{mom_canon_conj}
+\ee
 y entonces 
 \[
-	\dot{p}_j = \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) \equiv Q_j
+	\dot{p}_j = \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) \equiv Q_j,
 \]
 que es la fuerza generalizada en el grado de libertad $j$.
-Sea un lagrangiano $\Lag = \Lag( q_i,\dot{q}_i, t )$ entonces si no depende explícitamente
-de la coordenada $k$ será
-\[
-	\dpar{\Lag}{q_k}= 0 \qquad \rightarrow \quad \Lag = \Lag( q_1,...,q_{k-1},q_{k+1},...,q_n,\dot{q}_i, t )
-\]
-Las ecuaciones de Euler-Lagrange resultan 
-\[
-	Q_k - \dpar{\Lag}{q_k} = Q_k = 0 \quad \rightarrow \;\dot{p}_k = 0 \quad \rightarrow \; p_k = cte.
-\]
-no existe fuerza generalizada en el grado de libertad $k$, de forma que se conserva el momento
-$p_k$ canónicamente conjugado a $q_k$.
 
+Sea ahora un lagrangiano que no depende explícitamente de la coordenada $k$, es decir 
+\[
+	\Lag = \Lag( q_1,...,q_{k-1},q_{k+1},...,q_n,\dot{q}_1,...\dot{q}_n, t ),
+\]
+entonces será
+\[
+	\dpar{\Lag}{q_k}= 0 
+\]
+y como consecuencia las ecuaciones de Euler-Lagrange en la coordenada $k$-ésima resultan 
+\[
+	\dtot{}{t}\left( \dpar{\Lag}{\dot{q}_k} \right) = \dot{ p }_k = Q_k = 0 
+% 	\quad \rightarrow \;\dot{p}_k = 0 \quad \rightarrow \; p_k = cte.
+\]
+de manera que no existe fuerza generalizada en el grado de libertad $k$ y como es $\dot{p}_k = 0$, se conserva 
+el momento $p_k$ canónicamente conjugado a $q_k$.
+En estos casos se dice que la coordenada $q_k$ que no aparece en el lagrangiano, es una coordenada
+cíclica.
+
+\begin{ejemplo}{\bf Potencial central en un plano}
+
+Sea un potencial central $ V(r) $ en el plano. El lagrangiano de una partícula de masa $m$ sometida al mismo,
+y en las convenientes coordenadas polares $(r,\vp)$ es
+\[
+	\Lag = \frac{1}{2} m ( \:\dot{r}^2 + r^2 \dot{\vp}^2 ) - V(r).
+\]
+Luego, las ecuaciones de Euler-Lagrange serán, en $r$,
+\[
+	\dtot{}{t}\left( \dpar{\Lag}{\dot{r}}\right) - \dpar{\Lag}{r} =
+	m\ddot{r} - m\dot{\vp}^2r + \dtot{V}{r} = 0
+\]
+y en $\vp$
+\[
+	\dtot{}{t}\left( \dpar{\Lag}{\dot{\vp}}\right) = mr^2\ddot{\vp} = 0.
+\]
+En esta última debemos notar que $\partial \Lag / \partial \vp = 0 $ y esto significa que $\vp$ es cíclica.
+Entonces se conserva el momento canónicamente conjugado a $\vp$ puesto que verifica 
+\[
+	\dot{p}_\vp = mr^2\ddot{\vp} = 0
+\]
+lo cual lleva a que $ m r^2\dot{\vp} $ es una constante para este sistema. La moraleja es que la existencia de una 
+coordenada cíclica permite ahorrarnos una integración.
+Esto, por supuesto, para este problema no es otra cosa que la conservación del momento angular [?].
+
+
+\end{ejemplo}
 % =================================================================================================
 \section{Energía cinética de un sistema}
 % =================================================================================================
@@ -1019,8 +1055,9 @@ y esto significa que el potencial completo es
 	U(\vb{x},\vb{v},t) = q \: \vp(\vb{x},t) - \frac{q}{c} \: \pe{v}{A}(\vb{x},t).
 \]
 
-En el ejemplo de la fuerza de Lorentz se desprecia el campo generado por la misma partícula que se mueve. Una formulación lagrangiana que 
-lo tuviera en cuenta debería considerar un $\Lag_p$ para la partícula.
+En el ejemplo de la fuerza de Lorentz se desprecia el campo generado por la misma partícula que se mueve. Es decir, 
+que el campo externo no es afectado por el movimiento de la partícula.
+Una formulación lagrangiana que lo tuviera en cuenta debería considerar un $\Lag_p$ para la partícula.
 
 % Como ejemplo citamos \cite{einstein}.
 % O bien \cite{example}.
