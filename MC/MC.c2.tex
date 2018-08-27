@@ -379,13 +379,24 @@ Esto, por supuesto, para este problema no es otra cosa que la conservación del 
 \section{Energía cinética de un sistema}
 % =================================================================================================
 
-A continuación expresaremos la energía cinética de un sistema en función de coordenadas generalizadas,
-\notamargen{Este chapter es básicamente un desarrollo formal, habría que bajar con alguna aplicación
-práctica.}
+Resulta útil disponer de la energía cinética de un sistema en función de coordenadas generalizadas.
+Para un sistema de $N$ partículas, es 
+\[
+	T = \frac{1}{2} \sum_i^N m_i |\vb{v}_i|^2 
+\]
+donde las posiciones de cada una de ellas se pueden expresar en términos de $k$ coordenadas generalizadas
+\[
+	\vb{x}_i = \vb{x}_i(q_1, q_2, ..., q_k, t )
+\]
+y sus respectivas velocidades serán
+\[
+	\vb{v}_i = \sum_j^{k}  \dpar{\vb{x}_i}{q_j} \: \dot{q}_j + \dpar{\vb{x}_i}{t}.
+\]
+\notamargen{Este chapter es básicamente un desarrollo formal, habría que bajar con alguna aplicación práctica.}
+Luego, utilizando el hecho de que $ |\vb{v}_i|^2 = \vb{v}_i \cdot \vb{v}_i $, se tiene 
 \be
-	T = \frac{1}{2} \sum_i^N m_i \vb{v}_i^2 =
-	\frac{1}{2} \sum_i^N m_i \left( \sum_j^{3n-k}  \dpar{\vb{r}_i}{q_j}\dot{q}_j + \dpar{\vb{r}_i}{t} \right)
-	\left( \sum_s^{3n-k} \dpar{\vb{r}_i}{q_s}\dot{q}_s + \dpar{\vb{r}_i}{t} \right) 
+	T = \frac{1}{2} \sum_i^N m_i \left( \sum_j^{k}  \dpar{\vb{x}_i}{q_j}\dot{q}_j + \dpar{\vb{x}_i}{t} \right)
+	\cdot \left( \sum_s^{k} \dpar{\vb{x}_i}{q_s}\dot{q}_s + \dpar{\vb{x}_i}{t} \right) 
 \label{mc_T}
 \ee
 Usando $\vb{r}_i = \vb{r}_i(q_1, ...,q_n,t)$ desarrollamos un desplazamiento real como
@@ -1058,6 +1069,44 @@ y esto significa que el potencial completo es
 En el ejemplo de la fuerza de Lorentz se desprecia el campo generado por la misma partícula que se mueve. Es decir, 
 que el campo externo no es afectado por el movimiento de la partícula.
 Una formulación lagrangiana que lo tuviera en cuenta debería considerar un $\Lag_p$ para la partícula.
+
+% =================================================================================================
+\section{Cambio de {\it gauge} en potenciales}
+% =================================================================================================
+
+Según se vio en la sección anterior, en el caso del electromagnetismo tenemos un potencial $ U $ que depende de la posición y la velocidad
+de una manera muy especial. Además el potencial escalar $ \vp $ usual en la electrostática fue necesario definir un potencial vector \vb{A}
+que estaba vinculado con el campo magnético \vb{B} a través de : $\rotorm{A}=\vb{B}$.
+
+Solamente se le pide al campo \vb{A} que su rotor sea \vb{B} y esto no lo determina por completo. En particular si se define 
+\[
+	\vb{A}' = \vb{A} + \nabla f,
+\]
+un nuevo potencial $\vb{A}'$ que difiere del original por el añadido del gradiente de una función escalar, las ecuaciones de movimiento
+no se ven alteradas. En efecto, la divergencia del campo magnético \vb{B} es
+\[
+	\divem{B} = \nabla \symbf{\cdot} (\rotorm{A}') = 
+	\nabla \symbf{\cdot} (\rotorm{A}) + \nabla \symbf{\cdot} (\nabla \times {\nabla f}) = 0
+\]
+donde el cero se logra porque cada uno de los dos miembros es cero por separado.
+Asimismo, como el rotor de un gradiente es nulo, el rotor de \vb{B} no se ve alterado;
+\[
+	\rotorm{B} = \nabla \times( \rotorm{A}' ) =
+	\nabla \times( \rotorm{A} ) + \nabla \times ( \nabla \times \nabla f ) =
+	\nabla \times( \rotorm{A} ).
+\]
+
+Luego, hay un grado de libertad extra en la determinación del \vb{A} que es esta función escalar $f$, y que se suele expresar
+dando la divergencia de \vb{A}. En efecto, 
+\[
+	\divem{A}' = \divem{A} + \nabla^2 f.
+\]
+
+La divergencia de \vb{A} se puede elegir entonces arbitrariamente y esto es lo que se conoce como la {\it libertad de gauge}[?]
+o el cambio de {\it gauge} del potencial. Descansa en el hecho de que las ecuaciones de movimiento son, por supuesto, independientes
+del gauge elegido.
+\notamargen{Chequear esta mini subsección.}
+
 
 % Como ejemplo citamos \cite{einstein}.
 % O bien \cite{example}.
