@@ -389,59 +389,90 @@ donde las posiciones de cada una de ellas se pueden expresar en términos de $k$
 	\vb{x}_i = \vb{x}_i(q_1, q_2, ..., q_k, t )
 \]
 y sus respectivas velocidades serán
+\notamargen{La derivada con respecto al tiempo de la posición es la $ d/dt $ no la parcial.}
 \[
 	\vb{v}_i = \sum_j^{k}  \dpar{\vb{x}_i}{q_j} \: \dot{q}_j + \dpar{\vb{x}_i}{t}.
 \]
 \notamargen{Este chapter es básicamente un desarrollo formal, habría que bajar con alguna aplicación práctica.}
 Luego, utilizando el hecho de que $ |\vb{v}_i|^2 = \vb{v}_i \cdot \vb{v}_i $, se tiene 
 \be
-	T = \frac{1}{2} \sum_i^N m_i \left( \sum_j^{k}  \dpar{\vb{x}_i}{q_j}\dot{q}_j + \dpar{\vb{x}_i}{t} \right)
-	\cdot \left( \sum_s^{k} \dpar{\vb{x}_i}{q_s}\dot{q}_s + \dpar{\vb{x}_i}{t} \right) 
+	T = \frac{1}{2} \sum_i^N m_i \left( \sum_{j=1}^{k}  \dpar{\vb{x}_i}{q_j}\dot{q}_j + \dpar{\vb{x}_i}{t} \right)
+	\cdot \left( \sum_{s=1}^{k} \dpar{\vb{x}_i}{q_s}\dot{q}_s + \dpar{\vb{x}_i}{t} \right) 
 \label{mc_T}
 \ee
-Usando $\vb{r}_i = \vb{r}_i(q_1, ...,q_n,t)$ desarrollamos un desplazamiento real como
+y expandiendo el producto resulta
 \[
-	d\vb{r}_i = \sum_{j=1}^{3N-k} \left( \dpar{\vb{r}_i}{q_j} \right) dq_j + \dpar{\vb{r}_i}{t} dt
+	T = \frac{1}{2} \sum_i^N m_i \left[ \sum_j^{k}\sum_s^{k} \dpar{\vb{x}_i}{q_j} \cdot \dpar{\vb{x}_i}{q_s}\dot{q}_s\dot{q}_j + 
+	2 \dpar{\vb{x}_i}{t} \cdot \sum_j^{k} \dpar{\vb{x}_i}{q_j}\dot{q}_j + \left| \dpar{\vb{x}_i}{t} \right|^2 \right],
 \]
-y podemos incorporar esta información en \eqref{mc_T} para obtener
+la cual se puede separar en tres contribuciones
 \[
-	T = 
-	\frac{1}{2} \sum_i^N m_i \left( \sum_j^{3n-k}\sum_s^{3n-k}  
-	\dpar{\vb{r}_i}{q_j}\dpar{\vb{r}_i}{q_s}\dot{q}_s\dot{q}_j + 
-	\left( \dpar{\vb{r}_i}{t} \right) \right)^2 +
-	2 \left( \sum_j^{3n-k} \dpar{\vb{r}_i}{q_j}\dot{q}_j\dpar{\vb{r}_i}{t} \right) 
+	T = T_2 + T_1 + T_0
+\]
+\notamargen{Sacarle espacio al \texttt{cdot}}
+con las siguientes formas:
+\[
+	T_2 = \frac{1}{2} \sum_j^{k} \sum_s^{k} \left( \sum_i^N m_i \dpar{\vb{x}_i}{q_j} \cdot \dpar{\vb{x}_i}{q_s} \right) \dot{q}_j\dot{q}_s
 \]
 \[
-	T = 
-	\frac{1}{2} \sum_i^N m_i \left( \sum_j^{3n-k}\sum_s^{3n-k}  
-	\dpar{\vb{r}_i}{q_j}\dpar{\vb{r}_i}{q_s}\dot{q}_s\dot{q}_j  \right) + 
-	\frac{1}{2} \sum_i^N m_i \left( \dpar{\vb{r}_i}{t} \right)^2 +
-	\sum_i^N m_i \left( \sum_j^{3n-k} \dpar{\vb{r}_i}{q_j}\dot{q}_j\dpar{\vb{r}_i}{t} \right) 
+	T_1 =  \sum_j^{k} \left( \sum_i^N m_i \dpar{\vb{x}_i}{t} \cdot \dpar{\vb{x}_i}{q_j} \right) \dot{q}_j
+\]
+\[
+	T_0 = \frac{1}{2} \sum_i^N m_i \left| \dpar{\vb{x}_i}{t} \right|^2,
+\]
+donde se ha alterado el orden de los signos $\sum$ para enfatizar el hecho de que las cantidades entre paréntesis pueden asociarse
+a una matriz y un vector de acuerdo con 
+\[
+	a_{js}(q_1,...,q_k,t) \equiv \sum_i^N  m_i \dpar{\vb{x}_i}{q_j} \cdot \dpar{\vb{x}_i}{q_s}
+\]
+\[
+	b_j(q_1,...,q_k,t) \equiv \sum_i^N  m_i \dpar{\vb{x}_i}{q_j} \cdot \dpar{\vb{x}_i}{t}
 \]
 
-Esto se puede reescribir más cómodamente definiendo
+Entonces
 \[
-	T_0 \equiv \frac{1}{2} \sum_i^N m_i \left( \dpar{\vb{r}_i}{t} \right)^2
+	T_2 = \frac{1}{2} \sum_j^{k} \sum_s^{k} \: a_{js} \: \dot{q}_s\dot{q}_j, \qquad 
+	T_1 = \sum_j^{k} \: b_j \: \dot{q}_j , \qquad 
+	T_0 = \frac{1}{2} \sum_i^N m_i \left| \dpar{\vb{x}_i}{t} \right|^2
 \]
-\[
-	a_{js}(q_1,...,q_{3N-k},t) \equiv \sum_i^N  m_i \dpar{\vb{r}_i}{q_j}\dpar{\vb{r}_i}{q_s}
-\]
-\[
-	b_j(q_1,...,q_{3N-k},t) \equiv \sum_i^N  m_i \dpar{\vb{r}_i}{q_j}\dpar{\vb{r}_i}{t}
-\]
-y entonces, juntando todo,
-\notamargen{Hay un factor de $1/2$ de diferencia. Revisar la carpeta.}
-\[
-	T = T_0 +
-	\frac{1}{2} \sum_j^{3n-k}\sum_s^{3n-k}  a_{js}(q_1,...,q_{3N-k},t)\dot{q}_s\dot{q}_j  + 
-	\sum_j^{3n-k} b_j(q_1,...,q_{3N-k},t)\dot{q}_j  
-\]
+son, respectivamente, contribuciones cuadráticas, lineales o de orden cero con respecto a las velocidades generalizadas $\dot{q}$.
+% 
+% Usando $\vb{r}_i = \vb{r}_i(q_1, ...,q_n,t)$ desarrollamos un desplazamiento real como
+% \[
+% 	d\vb{r}_i = \sum_{j=1}^{3N-k} \left( \dpar{\vb{r}_i}{q_j} \right) dq_j + \dpar{\vb{r}_i}{t} dt
+% \]
+% y podemos incorporar esta información en \eqref{mc_T} para obtener
+% \[
+% 	T = 
+% 	\frac{1}{2} \sum_i^N m_i \left( \sum_j^{3n-k}\sum_s^{3n-k}  
+% 	\dpar{\vb{r}_i}{q_j}\dpar{\vb{r}_i}{q_s}\dot{q}_s\dot{q}_j + 
+% 	\left( \dpar{\vb{r}_i}{t} \right) \right)^2 +
+% 	2 \left( \sum_j^{3n-k} \dpar{\vb{r}_i}{q_j}\dot{q}_j\dpar{\vb{r}_i}{t} \right) 
+% \]
+% \[
+% 	T = 
+% 	\frac{1}{2} \sum_i^N m_i \left( \sum_j^{3n-k}\sum_s^{3n-k}  
+% 	\dpar{\vb{r}_i}{q_j}\dpar{\vb{r}_i}{q_s}\dot{q}_s\dot{q}_j  \right) + 
+% 	\frac{1}{2} \sum_i^N m_i \left( \dpar{\vb{r}_i}{t} \right)^2 +
+% 	\sum_i^N m_i \left( \sum_j^{3n-k} \dpar{\vb{r}_i}{q_j}\dot{q}_j\dpar{\vb{r}_i}{t} \right) 
+% \]
 
 Para una particula libre será
 \[
 	T = T_2
 \]
-y para una partícula con vínculos en general tendrá las tres clases de cinética.
+es decir que solamente es cuadrática en las velocidades. Para una partícula sometida a vínculos en general, en términos
+de las coordenadas generalizadas, se tendrán las tres clases de cinética.
+
+En coordenadas esféricas la energía de una partícula libre es 
+\[
+	T_2 =  \frac{1}{2} m \left( \dot{r}^2 + r^2 \dot{\theta}^2 + r^2 \sin \theta \dot{\vp}^2 \right).
+\]
+Si las coordenadas generalizadas son las coordenadas $ r, \theta, \vp $ se identifica 
+\[
+	T_2 =  \frac{1}{2} m \left( a_r(r, \theta, \vp ) \dot{r}^2 + a_\theta(r, \theta, \vp ) \dot{\theta}^2 + 
+	a_\phi(r, \theta, \vp ) \dot{\vp}^2 \right).
+\]
 
 % =================================================================================================
 \section{Energía cinética de un sistema de partículas}
