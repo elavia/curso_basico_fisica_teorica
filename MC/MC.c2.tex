@@ -380,8 +380,14 @@ Esto, por supuesto, para este problema no es otra cosa que la conservación del 
 % =================================================================================================
 
 Consideremos un sistema de partículas que sufre una traslación rígida infinitesimal.
-Esta traslación se lleva a cabo a través de un desplazamiento $\delta q$ en la coordenada $ q $,
-que justamente tiene esa propiedad: una variación de ella representa una traslación rígida.
+Esta traslación se lleva a cabo a través de un desplazamiento en la coordenada $ q $ y de magnitud 
+$\delta q$ en la dirección dada por el versor $ \hat{n} $.
+% Esta coordenada justamente tiene esa propiedad: una variación de ella representa una 
+% traslación rígida.
+% ESTE COMENTARIO, que estaba en la carpeta, ahora queda un poco desplazado por la sentencia más
+% correcta con respecto a la dirección \hat{n}. Supongo que lo importante es la dirección que en
+% el caso de cartesianas la da la misma q pero que en el caso de versores que varían su dirección
+% curvilíneos, debe especificarse.
 
 En efecto, para el sistema de $ N $ partículas, la traslación rígida implica
 \[
@@ -414,7 +420,7 @@ de modo que
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_mc_tras_rig.pdf}	 
+	\includegraphics[width=0.6\textwidth]{images/fig_mc_tras_rig.pdf}	 
 	\end{center}
 	\caption{}
 	\label{traslacion_rigida}
@@ -465,52 +471,91 @@ Es una construcción nuestra, como un cambio de sistema de referencia.}
 % \]
 % y esto significa que el $p_j$ se conserva si no hay fuerza en $\hat{j}$.
 
-% ~~~~~~~~~~~~
+% =================================================================================================
+\section{Momentos canónicamente conjugados y rotaciones rígidas}
+% =================================================================================================
 
-Ahora es el turno de la rotación rígida. Sea coordenada que representa rotación rígida,
+Ahora consideraremos un sistema de partículas que sufre una rotación rígida infinitesimal.
+Esta se materializa a través de un desplazamiento angular en la coordenada $ q $ de magnitud $\delta q$.
+La dirección y sentido, para cada posición $ \vb{x}_i $ vienen dadas por el producto vectorial 
+$ \hat{n} \times \vb{x}_i$.
+
+\notamargen{Esta coordenada $q$ es especial en el sentido en que representa una rotación.}
+Para un sistema de $ N $ partículas, la rotación rígida implica
 \[
-	\vb{r}_i \longrightarrow \vb{r}_i + \delta q (\hat{n} \times \vb{r}_i)
+	q \longrightarrow q + \delta q |\vb{x}| \sin \alpha_i \qquad
+	\vb{x}_i \longrightarrow \vb{x}_i + \delta q \; \hat{n} \times \vb{x}_i
 \]
-\[
-	p = \dpar{T}{\dot{q}} = \sum_i^N \frac{m_i}{2}\dpar{V^2}{\dot{q}} = \sum_i^N m_i \vb{v}_i \dpar{\vb{r}_i}{q}
-	= \sum_i^N m_i \vb{v}_i \cdot ( \hat{n} \times \vb{r}_i ) = \sum_i^N \hat{n} \cdot ( \vb{r}_i \times m_i 
-	\vb{v}_i) = \hat{n} \cdot \vb{L}
-\]
-\[
-	|\delta q(\hat{n} \times \vb{r}_i)| = \delta q r_i \sin (\alpha)
-\]
+La Figura \ref{rotacion_rigida} representa la situación, donde por razones de claridad se muestran
+solamente dos partículas.
+
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_mc_rot_rig.pdf}	 
+	\includegraphics[width=0.6\textwidth]{images/fig_mc_rot_rig.pdf}	 
 	\end{center}
 	\caption{}
+	\label{rotacion_rigida}
 \end{figure} 
+% Ahora es el turno de la rotación rígida. Sea coordenada que representa rotación rígida,
+% \[
+% 	\vb{r}_i \longrightarrow \vb{r}_i + \delta q (\hat{n} \times \vb{r}_i)
+% \]
+El momento canónicamente conjugado en la coordenada angular $q$ será
 \[
-	\dpar{\vb{V}}{\dot{q}} = \dpar{\vb{r}}{q} = \frac{ \vb{r}_i +\delta q (\hat{n} \times \vb{r}_i)- 
-	\vb{r}_i}{\delta q} = \hat{n} \times \vb{r}_i 
+	p = \dpar{T}{\dot{q}} = 
+	\sum_i^N m_i \vb{v}_i \cdot \dpar{\vb{v}_i}{\dot{q}} =
+	\sum_i^N m_i \vb{v}_i \cdot \hat{n} \times \vb{x}_i = 
+	\sum_i^N m_i \vb{v}_i \cdot ( \hat{n} \times \vb{x}_i )
 \]
-El momento canónicamente conjugado en la dirección $\hat{n}$ es el $\vb{L}$ proyectado en esa dirección.
+donde hemos utilizado el hecho de que 
 \[
-	\frac{d}{dt}(\hat{n}\cdot\vb{L}) = \hat{n}\cdot\vb{\tau}
-\]
-y el $p_j$ se conserva si no hay torque.
-Las fuerzas generalizadas serán
-\[
-	Q_j = \sum_i^N \vb{F}^a_i \dpar{\vb{r}_i}{q} = \sum_i^N \vb{F}^a_i \cdot ( \hat{n} \times \vb{r}_i ) = 
-	\sum_i^N \hat{n}  \cdot ( \vb{r}_i \times  \vb{F}^a_i) = \hat{n}\cdot\vb{\tau}
-\]
-\[
-	\frac{d}{dt}\left( \dpar{T}{\dot{q}} \right) - \dpar{T}{q} = Q_j
-\]
-donde el segundo término otra vez es nulo por idénticas razones y entonces
-\[
-	\frac{d}{dt}\left( \hat{n}\cdot \vb{L} \right) = \hat{n}\cdot \vb{\tau}
+	\dpar{\vb{v}_i}{\dot{q}} = \dpar{\vb{x}_i}{q} = 
+	\lim_{\delta q \to 0} \frac{ \vb{x}_i +\delta q (\hat{n} \times \vb{x}_i)- 
+	\vb{r}_i}{\delta q} = \hat{n} \times \vb{x}_i. 
 \]
 
-Observemos que la $T$ es un escalar y entonces no le importan las rotaciones puesto
-que en una rotación los módulos no varían, sólo cambia la dirección.
+El sumando se puede reescribir (usando $\vb{A}\cdot(\vb{B}\times\vb{C}) = 
+\vb{B}\cdot(\vb{C}\times\vb{A})$) para que aparezca explícitamente la forma buscada,
+\[
+	p = \sum_i^N m_i \vb{v}_i \cdot ( \hat{n} \times \vb{x}_i ) =
+	\sum_i^N \hat{n} \cdot ( \vb{x}_i \times m_i \vb{v}_i  ) =
+	\sum_i^N \hat{n} \cdot \vb{l}_i = \hat{n} \cdot \sum_i^N \vb{l}_i =
+	\hat{n} \cdot \vb{L}
+\]
+que significa
+\[
+	p = \hat{n} \cdot \vb{L} = L_{\hat{n}},
+\]
+el momento canónicamente conjugado en la dirección $\hat{n}$ es el momento angular total
+del sistema proyectado en esa dirección.
+% \[
+% 	|\delta q(\hat{n} \times \vb{r}_i)| = \delta q r_i \sin (\alpha)
+% \]
+% El momento canónicamente conjugado en la dirección $\hat{n}$ es el $\vb{L}$ proyectado en esa dirección.
+% \[
+% 	\frac{d}{dt}(\hat{n}\cdot\vb{L}) = \hat{n}\cdot\vb{\tau}
+% \]
+% y el $p_j$ se conserva si no hay torque.
+La fuerza generalizada será
+\[
+	Q = \sum_i^N \vb{F}^a_i \cdot \dpar{\vb{x}_i}{q} = 
+	\sum_i^N \vb{F}^a_i \cdot ( \hat{n} \times \vb{x}_i ) = 
+	\hat{n} \cdot \left( \sum_i^N \vb{x}_i \times  \vb{F}^a_i \right) = 
+	\hat{n} \cdot \sum_i^N \vb{\tau}_i = \hat{n} \cdot \vb{\Tau},
+\]
+i.e. la componente del torque en la dirección $ \hat{n} $.
 
-% ~~~~~~~~
+Asimismo, si la coordenada implica una rotación rígida entonces $ \partial{T}/\partial{q} = 0 $ 
+debido a que la energía cinética $ T $ es un escalar y es por ende invariante ante rotaciones
+(un vector rotado cambia su dirección pero no su módulo).
+Luego
+\[
+	Q = \frac{d}{dt}\left( \dpar{T}{\dot{q}} \right) = \dtot{L_{\hat{n}}}{t} = \vb{\Tau}_{\hat{n}}.
+\]
+% \[
+% 	\frac{d}{dt}\left( \hat{n}\cdot \vb{L} \right) = \hat{n}\cdot \vb{\tau}
+% \]
+\notamargen{Tal vez un ejemplo 2D ayude a aclarar un poco este tema.}
 
 Todo este análisis (traslaciones y rotaciones rígidas) vale si el potencial $V$ no depende de la
 velocidad; en caso contrario cambia la forma de los momentos canónicos. En efecto, en este caso
