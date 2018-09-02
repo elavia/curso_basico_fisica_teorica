@@ -4,7 +4,7 @@
 	\usepackage{amsmath}
 	\usepackage{graphicx}
 	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -303,83 +303,6 @@ y el cambio de gauge es
 \]
 que no altera las ecuaciones de movimiento.
 
-Veamos una traslación rígida ahora. Sea coordenada que representa traslación rígida
-\[
-	q \longrightarrow q + \delta q \qquad \vb{r}_i \longrightarrow \vb{r}_i + \delta q \hat{n}
-\]
-\[
-	p = \dpar{T}{\dot{q}} = \sum_i^N \frac{m_i}{2}\left( \dpar{V_i}{q}\right)^2 =
-	\sum_i^N m_i \vb{v}_i \dpar{\vb{v}_i}{\dot{q}} = \sum_i^N m_i \vb{v}_i \hat{n} = \vb{p}\hat{n}
-\]
-usándose que $dv^2_i = 2 v_i dv_i$ y
-\[
-	\dpar{\vb{v}_i}{\dot{q}} = \dpar{\vb{r}_i}{q} = \frac{\vb{r}_i+\delta q \hat{n} -\vb{r}_i}{\delta q} = \hat{n}.
-\]
-\begin{figure}
-	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_mc_tras_rig.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-
-Si la coordenada $q$ es la asociada a la traslación rígida entonces el momento canónicamente conjugado
-es el momento proyectado en esa dirección. Para fuerzas
-\[
-	Q_j = \sum_i^N \vb{F}^a_i \dpar{\vb{r}_i}{q_j} \qquad \Longrightarrow \qquad 
-	Q = \left( \sum_i^N \vb{F}^a_i \right)\cdot \hat{n} = \vb{F}\cdot \hat{n}
-\]
-\[
-	\frac{d}{dt}\left( \dpar{T}{\dot{q}_j} \right) - \dpar{T}{q_j} = Q_j
-\]
-pero el segundo término del lado izquierdo $\partial T/\partial q_j = 0$ puesto que la $T$ no se ve
-afectada por cambiar trasladando rígidamente el sistema.
-\[
-	\frac{d}{dt}(\vb{p}\cdot \hat{n}) = \vb{F}\cdot \hat{n},
-\]
-y esto significa que el $p_j$ se conserva si no hay fuerza en $\hat{j}$.
-
-Ahora es el turno de la rotación rígida. Sea coordenada que representa rotación rígida,
-\[
-	\vb{r}_i \longrightarrow \vb{r}_i + \delta q (\hat{n} \times \vb{r}_i)
-\]
-\[
-	p = \dpar{T}{\dot{q}} = \sum_i^N \frac{m_i}{2}\dpar{V^2}{\dot{q}} = \sum_i^N m_i \vb{v}_i \dpar{\vb{r}_i}{q}
-	= \sum_i^N m_i \vb{v}_i \cdot ( \hat{n} \times \vb{r}_i ) = \sum_i^N \hat{n} \cdot ( \vb{r}_i \times m_i 
-	\vb{v}_i) = \hat{n} \cdot \vb{L}
-\]
-\[
-	|\delta q(\hat{n} \times \vb{r}_i)| = \delta q r_i \sin (\alpha)
-\]
-\begin{figure}
-	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_mc_rot_rig.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-\[
-	\dpar{\vb{V}}{\dot{q}} = \dpar{\vb{r}}{q} = \frac{ \vb{r}_i +\delta q (\hat{n} \times \vb{r}_i)- 
-	\vb{r}_i}{\delta q} = \hat{n} \times \vb{r}_i 
-\]
-El momento canónicamente conjugado en la dirección $\hat{n}$ es el $\vb{L}$ proyectado en esa dirección.
-\[
-	\frac{d}{dt}(\hat{n}\cdot\vb{L}) = \hat{n}\cdot\vb{\tau}
-\]
-y el $p_j$ se conserva si no hay torque.
-Las fuerzas generalizadas serán
-\[
-	Q_j = \sum_i^N \vb{F}^a_i \dpar{\vb{r}_i}{q} = \sum_i^N \vb{F}^a_i \cdot ( \hat{n} \times \vb{r}_i ) = 
-	\sum_i^N \hat{n}  \cdot ( \vb{r}_i \times  \vb{F}^a_i) = \hat{n}\cdot\vb{\tau}
-\]
-\[
-	\frac{d}{dt}\left( \dpar{T}{\dot{q}} \right) - \dpar{T}{q} = Q_j
-\]
-donde el segundo término otra vez es nulo por idénticas razones y entonces
-\[
-	\frac{d}{dt}\left( \hat{n}\cdot \vb{L} \right) = \hat{n}\cdot \vb{\tau}
-\]
-
-Observemos que la $T$ es un escalar y entonces no le importan las rotaciones puesto
-que en una rotación los módulos no varían, sólo cambia la dirección.
 
 
 
