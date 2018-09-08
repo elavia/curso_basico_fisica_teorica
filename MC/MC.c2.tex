@@ -829,76 +829,141 @@ y un solución de este sistema es, por supuesto, $T_0 = T_1 = 0$
 \section{Principio de acción mínima}
 % =================================================================================================
 
-También Principio variacional de Hamilton. Partimos de una acción,
-\[
-	S = \int_{t_i}^{t_f} \Lag( q_i, \dot{q}_i, t ) dt \qquad \Lag = T-V
-\]
+El estado de un sistema mecánico de $ N $ grados de libertad en un dado instante de tiempo $ t $ puede asociarse a 
+un vector de componentes $ \{ q_i \} $ viviendo en un espacio $N$-dimensional de coordenadas generalizadas. 
+La evolución entre dos puntos en ese espacio, de $ \{ q_i(t_a) \} $  a $ \{ q_i(t_b) \} $ por ejemplo, se realiza por
+un trayecto continuo entre esos dos puntos, que es la trayectoria del sistema.
 
-La trayectoria real de un sistema con lagrangiano $\Lag$ es tal que $S$ es mínimo para cualquier 
-trayectoria posible entre $q(t=t_i)$ y $q(t=t_f)$. Consideramos una variación con extremos fijos,
-es decir 
+\begin{figure}[bth]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_hamilton.pdf}	 
+	\end{center}
+	\caption{Trayectoria de un sistema mecánico $\{ q_i \}$ entre dos puntos del espacio $N$-dimensional de
+	coordenadas generalizadas.}
+	\label{principio_hamilton}
+\end{figure}
+
+En principio cualquier trayecto entre dos puntos es posible porque eso depende de la física a la cual está sometido
+el sistema, no obstante existe un principio que permite saber cuál es la trayectoria que seguirá.
+
+Considerando el lagrangiano $ \Lag = T - V $ y la siguiente integral (la acción $S$) entre los puntos $ \{ q_i(t_a) \} $
+y $ \{ q_i(t_b) \} $,
 \[
-	\delta q(t=t_i) = 0 \qquad \delta q(t=t_f) = 0
+	S = \int_{t_a}^{t_b} \Lag( q_1(t, q_2(t), ..., \dot{q}_1(t),\dot{q}_2(t), ...,t )) \: dt
 \]
-y a tiempo fijo $\delta t = 0$. Esto último signfica que todas las trayectorias emplearán el 
-mismo tiempo (no se variará).
-\notamargen{Cuán sketchi es todo esto!! Mucho para aclarar. Tal vez se justifique un minicurso
-de variacional como apéndice.}
+se tiene que la trayectoria real entre estos dos puntos es tal que la integral $S$ toma su valor mínimo.
+
+Dicho de otra manera, esto significa que $ S $ como funcional dependiendo de $ \{ q_i \}, \{ \dot{q}_i \} $
+deberá tener un valor mínimo (o ser estacionaria) al especializarse en la trayectoria real.
+Esto es análogo a lo que sucede en cálculo; en el mínimo de una función (de una o varias variables) la derivada 
+se anula. El concepto equivalente en funcionales como $ S $ es el de variación nula.
+
+La idea es construir una {\it variación} arbitraria respecto de la trayectoria real $ \{ q_i \} $ y forzar a que esa 
+variación se anule para obtener un condición sobre las $ \{ q_i \} $ (para funciones esa condición era que el gradiente
+se anule).
+
+Si me sitúo en la trayectoria verdadera, es decir el conjunto $ \{ q_i(t) \}$, una variación arbitraria de la misma
+tendrá la forma
+\be
+	q_i(t) \rightarrow q_i(t) + \delta q_i(t) \qquad i=1,2, ...
+	\label{variacion}
+\ee
+donde cada coordenada $ q $ variará de acuerdo con su correspondiente desplazamiento $\delta q $.
+La variación se hace en un intervalo de tiempo arbitrario $ [t_a,t_b] $ y con extremos fijos, 
+\be
+	\delta q(t_a) = 0 \qquad \qquad \delta q(t_b) = 0,
+	\label{extremos_fijos}
+\ee
+lo que significa que los puntos de partida y llegada en el espacio de fases son los mismos.
+\notamargen{Habría que justificar cuál es el significado de esto y porqué es así.}
+
+Asimismo se pedirá que todas las trayectorias empleen el mismo tiempo de manera que la variación se hará en algún
+tiempo fijo intermedio $ t_a < t < t_b $. O sea que $\delta t = 0$.
+
+\notamargen{Cuán sketchi es todo esto!! Mucho para aclarar. Tal vez se justifique un minicurso de variacional como 
+apéndice.}
+
+Una representación unidimensional (una única $q$) puede verse en la Figura \ref{principio_accion_minima}.
+La trayectoria real sería la curva $ q(t) $ en color rojo, mientras que la curva verde sería una trayectoria variada
+a través de $ \delta q $. Los extremos fijos \eqref{extremos_fijos} implican que la variación es nula allí, y entonces
+las curvas comienzan y terminan en el mismo punto.
 
 \begin{figure}
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_accion.pdf}	 
+	\includegraphics[width=0.7\textwidth]{images/fig_accion.pdf}	 
 	\end{center}
 	\caption{El principio de acción mínima}
+	\label{principio_accion_minima}
 \end{figure}
 
-Consideramos una variación de la integral,
+El hecho de considerar una variación a tiempo fijo $t_j$ implica que nos situaremos arbitrariamente en ese instante
+y variaremos las trayectorias $ \{ q_i \} $ congeladas en ese instante arbitrario. Por supuesto, el resultado debería
+valer para cualquier instante intermedio considerado.
+
+La idea es determinar las condiciones que se necesitan para 
 \[
-	\delta I =  \int_{t_i}^{t_f} \sum_i^N \left( \dpar{\Lag}{\dot{q}_i} \delta \dot{q}_i +
+	\frac{\delta S}{\delta q_i} = 0.
+\]
+
+Para ello comenzamos tomando una variación de $S$ que pasa dentro de la integral como 
+\[
+	\delta S = \int \left[ \Lag(q_i + \delta q_i, \dot{q}_i + \delta \dot{q}_i , t )
+	- \Lag(q_i , \dot{q}_i , t ) \right] dt
+\]
+y donde vemos explícitamente que es a tiempo fijo.
+
+La variación de la integral puede escribirse 
+\[
+	\delta S =  \int_{t_a}^{t_b} \sum_i^N \left( \dpar{\Lag}{\dot{q}_i} \delta \dot{q}_i +
 	\dpar{\Lag}{q_i} \delta q_i  \right) dt,
 \]
-y notamos que será beneficioso utilizar integración por partes para expresar todo en función de
-las variaciones de las coordenadas (las $\delta q_i$), de manera que como
+y como será útil tener todo en función de las variaciones $\delta q_i$, es conveniente expresar las variaciones $ 
+\delta \dot{q}_i $ en términos de una derivada total a través de  
 \[
 	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \delta q_i \right) =
 	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \right) \delta q_i + \dpar{\Lag}{\dot{q}_i}\delta \dot{q}_i,
 \]
-resulta
+resultando en 
 \[
-	\delta I =  \int_{t_i}^{t_f} \sum_i^N \left[ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \delta q_i \right) -
+	\delta S =  \int_{t_a}^{t_b} \sum_i^N \left[ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \delta q_i \right) -
 	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \right) \delta q_i + \dpar{\Lag}{q_i} \delta q_i  \right] dt,
 \]
-separamos los dos términos,
+que se puede separar en dos términos
 \[
-	\delta I =  \int_{t_i}^{t_f} \sum_i^N \left[ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \delta q_i \right) 
-	\right] dt - \int_{t_i}^{t_f} \sum_i^N \left[ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \right) - 
-	\dpar{\Lag}{q_i} \right]  \delta q_i  dt,
+	\delta S =  \int_{t_a}^{t_b} \sum_i^N \left[ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \delta q_i \right) 
+	\right] dt + \int_{t_a}^{t_b} \sum_i^N \left[ \dpar{\Lag}{q_i} - \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} 
+	\right) \right]  \delta q_i \; dt,
 \]
-y resulta que el primero por el teorema fundamental del cálculo es
+
+Pero el primer término es una derivada total y por el teorema fundamental del cálculo,
 \be
-	\int_{t_i}^{t_f} \sum_i^N \left[ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \delta q_i \right) \right] dt =
-	\left. \dpar{\Lag}{\dot{q}_i} \delta q_i\right|_{t_i}^{t_f}
+	\int_{t_a}^{t_b} \sum_i^N \left[ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \delta q_i \right) \right] dt =
+	\sum_i^N \left. \dpar{\Lag}{\dot{q}_i} \delta q_i \: \right|_{t_a}^{t_b}
 \label{mc_borde_term}
 \ee
-y es nulo porque $\delta q_i=0$ en los extremos (recordemos que las variaciones son nulas en los extremos de
-integración). Decimos que este es un término de superficie.
-Entonces
+y es nulo porque $\delta q_i=0$ en los extremos para toda coordenada $i$ (las variaciones son nulas en los extremos). 
+Decimos que este es un término de superficie. Entonces la condición 
 \[
-	\delta I =  -\int_{t_i}^{t_f} \sum_i^N \left[ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \right)
-	- \dpar{\Lag}{q_i} \right]  \delta q_i  dt = 0
+	\delta S =  \sum_i^N  \int_{t_a}^{t_b}
+	\left[ \dpar{\Lag}{q_i} - \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \right)  \right]  \delta q_i  dt = 0
 \]
-se verificará por el cumplimiento de las ecuaciones de Euler-Lagrange
+se verificará por el cumplimiento de las ecuaciones de Euler-Lagrange\footnote{Como las variaciones $\delta q_i$ son 
+arbitrarias e independientes la anulación de la ecuación $ \delta S $ requiere la anulación de cada uno de los 
+$i=1,2,...N $ corchetes en los integrandos.}
 \[
 	\sum_i^N  \left[ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \right) - \dpar{\Lag}{q_i} \right] = 0.
 \]
 
-Luego, si se hace $\Lag' = \Lag + df/dt$ (ambos lagrangianos difieren en una derivada total con 
-respecto al tiempo) la trayectoria que minimiza $\Lag'$ es la que misma que minimiza
-$\Lag$ por la condición dada por \eqref{mc_borde_term}. Entonces 
+Se puede ver que 
 \[
-	\delta S = 0 \iff \sum_i^N  \left[ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \right) -
+	\delta S = 0 \quad \iff \quad \sum_i^N  \left[ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \right) -
 	\dpar{\Lag}{q_i} \right] = 0.
 \]
+
+
+Luego, si se hace $\Lag' = \Lag + df/dt$ (ambos lagrangianos difieren en una derivada total con 
+respecto al tiempo) la trayectoria que minimiza $\Lag'$ es la que misma que minimiza
+$\Lag$ por la condición dada por \eqref{mc_borde_term}. 
 
 La moraleja es que si los lagrangianos difieren en una derivada total del tiempo obtenemos la misma
 física.
