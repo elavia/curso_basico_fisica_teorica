@@ -38,36 +38,34 @@
 % =================================================================================================
 \section{Principio de los trabajos virtuales}
 % =================================================================================================
-Escribimos las ecuaciones de Newton para un sistema de partículas,
+Las ecuaciones de Newton para un sistema de $N$ partículas,
 \notamargen{Esto es sumamente sketchi, debemos leer la carpeta de la cursada y luego la
 teoría.}
 \[
-	m_i \vb{a}_i = \vb{F}_i = \vb{F}_i^a + \vb{F}_i^v
+	m_i \vb{a}_i = \vb{F}_i^a + \vb{F}_i^v
 \]
-pero sabiendo que el momento viene de las fuerzas aplicadas,
+dan cuenta de que sobre cada partícula actúan, en principio, fuerzas externas aplicadas $ \vb{F}_i^a $
+y fuerzas de vínculo $ \vb{F}_i^v $. Expresando la aceleración en función de la derivada temporal del momento  
+$ \dot{\vb{p}}_i = m_i \vb{a}_i$ resulta 
 \[
-	m_i \vb{a}_i = \dot{\vb{P}}_i
+	\dot{\vb{p}}_i - \vb{F}_i^a - \vb{F}_i^v = 0,
 \]
-de manera que 
+y entonces, multiplicando cada término por un desplazamiento virtual $ \delta\vb{x}_i $ se tiene
 \[
-	\dot{\vb{F}}_i - \vb{F}_i^a - \vb{F}_i^v = 0,
+	\sum_i^N \left( \dot{\vb{p}}_i - \vb{F}_i^a - \vb{F}_i^v \right) \cdot \delta\vb{x}_i  = 0.
 \]
-y entonces, sumando en las $N$ partículas del sistema
+
+\notamargen{Explicar qué es este principio y qué es un desplazamiento virtual.}
+Si hacemos estos desplazamientos son {\it compatibles} con los vínculos nos quedamos con
 \[
-	\sum_i^N \left( \dot{\vb{P}}_i - \vb{F}_i^a - \vb{F}_i^v \right) \cdot \delta\vb{r}_i  = 0
+	\sum_i^N \left( \dot{\vb{p}}_i - \vb{F}_i^a \right) \cdot \delta\vb{x}_i = 0
+% 	- \sum_i^N  \vb{F}_i^v  \cdot \delta\vb{x}_i  = 0
 \]
-donde $\delta\vb{r}_i$ son desplazamientos virtuales. Si hacemos estos desplazamientos
-compatibles con los vínculos
+puesto que las fuerzas de vínculo son siempre perpendiculares a los desplazamientos virtuales, es decir 
 \[
-	\sum_i^N \left( \dot{\vb{P}}_i - \vb{F}_i^a \right) \cdot \delta\vb{r}_i - 
-	\sum_i^N  \vb{F}_i^v  \cdot \delta\vb{r}_i  = 0
+	\vb{F}_i^v \perp \delta\vb{x}_i.
 \]
-donde el último término es nulo debido a que la fuerza de vínculos son perpendiculares
-a los desplazamientos virtuales, es decir 
-\[
-	\vb{F}_i^v \perp \delta\vb{r}_i
-\]
-si es que, por supuesto, los $\delta\vb{r}_i$ son compatibles con los vínculos.
+
 
 Esto nos deja entonces, el Principio de los Trabajos Virtuales,
 \[
