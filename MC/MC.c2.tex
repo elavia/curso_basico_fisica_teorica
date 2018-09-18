@@ -57,23 +57,20 @@ y entonces, multiplicando cada término por un desplazamiento virtual $ \delta\v
 
 \notamargen{Explicar qué es este principio y qué es un desplazamiento virtual.}
 Si hacemos estos desplazamientos son {\it compatibles} con los vínculos nos quedamos con
-\[
-	\sum_i^N \left( \dot{\vb{p}}_i - \vb{F}_i^a \right) \cdot \delta\vb{x}_i = 0
+\be
+	\sum_i^N \left( \dot{\vb{p}}_i - \vb{F}_i^a \right) \cdot \delta\vb{x}_i = 0,
 % 	- \sum_i^N  \vb{F}_i^v  \cdot \delta\vb{x}_i  = 0
-\]
+	\label{principio_virtual_work}
+\ee
 puesto que las fuerzas de vínculo son siempre perpendiculares a los desplazamientos virtuales, es decir 
 \[
 	\vb{F}_i^v \perp \delta\vb{x}_i.
 \]
 
-
-Esto nos deja entonces, el Principio de los Trabajos Virtuales,
+La expresión \eqref{principio_virtual_work} es el llamado {\it Principio de los Trabajos Virtuales},
+y dada la independencia admitida en los desplazamientos virtuales $ \delta \vb{x}_i $, se sigue que 
 \[
-	\sum_i^N \left( \dot{\vb{P}}_i - \vb{F}_i^a \right) \cdot \delta\vb{r}_i = 0 
-\]
-donde como son independientes entonces se sigue que
-\[
-	\dot{\vb{P}}_i - \vb{F}_i^a = 0 \quad \forall i
+	\dot{\vb{p}}_i - \vb{F}_i^a = 0 \quad \forall i
 \]
 
 \begin{notas}{Relación vínculos y desplazamientos:}
