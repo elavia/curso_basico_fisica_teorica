@@ -103,7 +103,7 @@ Consideremos un sistema de $N$ partículas, $k$ ecuaciones de vínculo
 	& ... ... ... \\
 	& f_k(\vb{x}_1, \vb{x}_2,...,\vb{x}_n,t) = K_k 
 \end{eqnarray*}
-y por ende $3N - k$ grados de libertad (suponiendo que nos hallamos en 3 dimensiones).
+y por ende $3N-k$ grados de libertad (suponiendo que nos hallamos en 3 dimensiones).
 
 Tenemos $N$ relaciones del tipo 
 \be
@@ -132,10 +132,11 @@ y se puede reescribir el primer término como
 	\left( \dpar{\vb{x}_i}{q_j} \right) \delta q_j,
 \]
 resultando
-\[
+\be
 	\sum_i^N m_i \dtot{\vb{v}_i}{t} \cdot \sum_{j=1}^{3N-k} \left( \dpar{\vb{x}_i}{q_j} \right)
 	\delta q_j - \sum_i^N  \vb{F}_i^a \cdot \delta \vb{x}_i = 0
-\]
+	\label{virtual_work_2}
+\ee
 
 La idea ahora es reescribir todo en términos más convenientes, para que aparezca un término multiplicado
 a una variación arbitraria. De esta manera quedará una sumatoria de un sumando multiplicado por una
@@ -163,119 +164,158 @@ y en segundo lugar la velocidad de cada partícula, que proviene de la derivada 
 A partir de esta última es claro ver que la derivada de la velocidad de la partícula $i$-ésima respecto a la coordenada 
 $l$-ésima es
 \[
-	\dpar{\vb{v}_i}{\dot{q}_l} = \dpar{\vb{x}_i}{q_l}
+	\dpar{\vb{v}_i}{\dot{q}_l} = \dpar{\vb{x}_i}{q_l}.
 \]
 \notamargen{Una manera menmotécnica de recordar esto es con el siguiente esquema:
 \[
 	\dpar{\vb{v}_i}{\dot{q}_l} = \frac{\partial \vb{x}_i/\partial t}{\partial q_l/\partial t} =
-	\dpar{\vb{x}_i}{q_l} .
+	\dpar{\vb{x}_i}{q_l}.
 \]
 }
-Si derivamos nuevamente
+La ecuación de la velocidad se puede derivar otra vez, con respecto a $q_l$, obteniéndose
 \[
-	\frac{\partial}{\partial q_l} \left( \dtot{\vb{x}_i}{t} \right) =
-	\dpar{\vb{v}_i}{q_l} = \sum_{j=1}^{3N-k} \dparcru{\vb{x}_i}{q_j}{q_l} \dot{q}_j + 
-	\dparcru{\vb{x}_i}{t}{q_l}.
+	\dpar{\vb{v}_i}{q_l} = \frac{\partial}{\partial q_l} \left( \dtot{\vb{x}_i}{t} \right) =
+	\sum_{j=1}^{3N-k} \dparcru{\vb{x}_i}{q_j}{q_l} \dot{q}_j + 
+	\dparcru{\vb{x}_i}{t}{q_l},
 \]
+y se puede ver que invirtiendo el orden de derivación, esto significa que 
 \[
-	\frac{d}{dt} \left( \dpar{\vb{x}_i}{q_l} \right) = 
-	\frac{d}{dt} \left( \sum_{j=1}^{3N-k} \dparcru{\vb{x}_i}{q_j}{q_l} dq_j +
-	\dparcru{\vb{x}_i}{t}{q_l} dt \right) 
-\]
-de tal manera que 
-\[
-	\frac{d}{dt} \left( \dpar{\vb{x}_i}{q_l} \right) = \dpar{\vb{v}_i}{q_l}
+	\dpar{\vb{v}_i}{q_l} = \frac{d}{dt} \left( \dpar{\vb{x}_i}{q_l} \right).
 \]
 
-Volvemos ahora a la eq III y 
-\[
-	\sum_i^N \sum_{j=1}^{3N-k} \left[ 
-	\frac{d}{dt} \left( m_i \vb{v}_i \dpar{\vb{x}_i}{q_j} \right) - 
-	m_i \vb{v}_i \frac{d}{dt}\left( \dpar{\vb{v}_i}{q_j} \right) \right] \delta q_j
-\]
-y este corchete lo reescribimos como 
-\[
-	\sum_i^N \sum_{j=1}^{3N-k} \left[ 
-	\frac{d}{dt} \left( m_i \vb{v}_i \dpar{\vb{v}_i}{\dot{q}_j} \right) -
-	m_i \vb{v}_i \dpar{\vb{v}_i}{q_j} \right] \delta q_j
-\]
+\notamargen{El hecho de que se pueda sacar fuera la derivada temporal y pasar adentro la derivada
+con respecto a la coordenada generalizada $q$ puede verse haciendo la cuenta de manera explícita.}
+% 
+% \[
+% 	\frac{d}{dt} \left( \dpar{\vb{x}_i}{q_l} \right) = 
+% 	\frac{d}{dt} \left( \sum_{j=1}^{3N-k} \dparcru{\vb{x}_i}{q_j}{q_l} dq_j +
+% 	\dparcru{\vb{x}_i}{t}{q_l} dt \right) 
+% \]
+% de tal manera que 
+% \[
+% 	\frac{d}{dt} \left( \dpar{\vb{x}_i}{q_l} \right) = \dpar{\vb{v}_i}{q_l}
+% \]
 
+Volviendo ahora a \eqref{virtual_work_2} y usando los resultados recientes tenemos
 \[
-	\sum_i^N \sum_{j=1}^{3N-k} \left\{ 
+	\sum_i^N \sum_{j=1}^{3N-k} 
+	\left[ \frac{d}{dt} \left( m_i \vb{v}_i \dpar{\vb{x}_i}{q_j} \right) - 
+	m_i \vb{v}_i \frac{d}{dt}\left( \dpar{\vb{x}_i}{q_j} \right) \right] \delta q_j
+	- \sum_i^N  \vb{F}_i^a \cdot \delta \vb{x}_i = 0
+\]
+donde modificaremos el corchete expresando derivadas con respecto a la posición $\vb{x}$ en términos
+de derivadas con respecto a la velocidad $\vb{v}$, de manera que 
+\[
+	\left[ \frac{d}{dt} \left( m_i \vb{v}_i \dpar{\vb{v}_i}{\dot{q}_j} \right) -
+	m_i \vb{v}_i \dpar{\vb{v}_i}{q_j} \right]
+\]
+y usando el {\it trick} usual
+\[
+	\vb{v} \dpar{\vb{v}}{q} = \frac{1}{2} \dpar{ \vb{v}^2 }{q} 
+\]
+resulta
+\[
+	\left\{ 
 	\frac{d}{dt} \left[ \frac{\partial}{\partial \dot{q}_j} \left( \frac{m_i}{2} \vb{v}_i^2 \right) \right] - 
-	\frac{\partial}{\partial q_j} \left( \frac{m_i}{2} \vb{v}_i^2 \right) \right\} \delta q_j
+	\frac{\partial}{\partial q_j} \left( \frac{m_i}{2} \vb{v}_i^2 \right) \right\}
 \]
 
-Ahora introducimos la sumatoria en $i$ hacia adentro de ambos términos,
+Es hora ya de introducir la sumatoria en $i$ hacia el interior del corchete, y la ecuación original es ahora 
 \[
 	\sum_{j=1}^{3N-k} \left\{ 
 	\frac{d}{dt} \left[ \frac{\partial}{\partial \dot{q}_j}
 	\left( \sum_i^N \frac{m_i}{2} \vb{v}_i^2 \right) \right] 
-	-  \frac{\partial}{\partial q_j} \left( \sum_i^N \frac{m_i}{2} \vb{v}_i^2 \right) \right\} \delta q_j
+	- \frac{\partial}{\partial q_j} \left( \sum_i^N \frac{m_i}{2} \vb{v}_i^2 \right) \right\} \delta q_j
+	- \sum_i^N  \vb{F}_i^a \cdot \delta \vb{x}_i = 0
 \]
-de modo que dentro de los paréntesis resulta $T$, luego 
+y dentro de los paréntesis ha aparecido la energía cinética $T$. La sumatoria en $j$ no era otra cosa que la suma 
+de las derivadas de los momentos, y entonces
 \[
-	\sum_i^N \dot{\vb{P}}_i \cdot \delta \vb{x}_i = 
-	\sum_{j=1}^{3N-k} \left\{ \frac{d}{dt} \left[ \frac{\partial}{\partial \dot{q}_j} \left( T \right) \right] - 
-	\frac{\partial}{\partial q_j} \left( T \right) \right\} \delta q_j
+	\sum_i^N \dot{\vb{p}}_i \cdot \delta \vb{x}_i =
+	\sum_{j=1}^{3N-k} \left\{ \frac{d}{dt} \left[ \frac{\partial T}{\partial \dot{q}_j} \right] -
+	\frac{\partial T}{\partial q_j} \right\} \delta q_j = \sum_i^N  \vb{F}_i^a \cdot \delta \vb{x}_i.
 \]
+
+Escribiendo la variación $\delta\vb{x}$ en términos de $\delta q$ a través de 
 \[
-	\sum_i^N \dot{\vb{P}}_i \cdot \delta \vb{x}_i = 
-	\sum_{j=1}^{3N-k} \sum_i^N \vb{F}_i^a \cdot \dpar{\vb{x}_i}{q_j} \delta q_j =  
-	\sum_{j=1}^{3N-k} \sum_i^N Q_j \delta q_j
+	\delta\vb{x}_i = \sum_{j=1}^{3N-k} \dpar{\vb{x}_i}{q_j}\delta q_j
+\]
+se llega a 
+\[
+	\sum_{j=1}^{3N-k} \sum_i^N \left( \vb{F}_i^a \cdot \dpar{\vb{x}_i}{q_j} \right) \: \delta q_j =  
+	\sum_{j=1}^{3N-k} \sum_i^N Q_j \: \delta q_j
 \]
 siendo $Q_j$ la fuerza generalizada. Entonces
+\be
+	\sum_{j=1}^{3N-k} \left\{ \frac{d}{dt}
+	\left[ \frac{\partial T}{\partial \dot{q}_j} \right] - \frac{\partial T}{\partial q_j} - Q_j \right\} \delta q_j =  0
+	\label{eq_el_0}
+\ee
+% y dado que las variaciones $\delta q_j$ son independientes se sigue que 
+
+Si suponemos que las fuerzas son conservativas, provienen de un potencial, entonces 
+\[
+	\vb{F}_i^a = -\dpar{V(\{ \vb{x}_j \})}{\vb{x}_i}
+\]
+y expresando la fuerza $Q_j$ en términos del potencial $V$
+\[
+	Q_j = \vb{F}_i^a \cdot \dpar{\vb{x}_i}{q_j} = -\dpar{V}{\vb{x}_i} \cdot \dpar{\vb{x}_i}{q_j} = -\dpar{V}{q_j},
+\]
+que reemplazado en la ecuación 
 \[
 	\sum_{j=1}^{3N-k} \left\{ \frac{d}{dt}
-	\left[ \frac{\partial}{\partial \dot{q}_j} \left( T \right) \right] - \frac{\partial}{\partial q_j}
-	\left( T \right) - Q_j \right\} \delta q_j =  0.
+	\left[ \frac{\partial T}{\partial \dot{q}_j} \right] - \frac{\partial}{\partial q_j} \left( T - V \right) \right\} \delta q_j =  0.
 \]
-
-Si suponemos que las fuerzas son conservativas entonces 
+% \[
+% 	Q_j \: \delta q_j = -\dpar{V}{q_j} \: \delta q_j
+% \]
+% y como $V=V(\vb{x}_1,...,\vb{x}_n)$ se tiene 
+% \[
+% 	V = \sum_i^N  \dpar{V}{r_i} \delta \vb{x}_i = \dpar{V}{\vb{x}_i} \cdot \dpar{\vb{x}_i}{q_j} \delta q_j =
+% \]
+% pero 
+% \[
+% 	Q_j = - \dpar{V}{q_j}
+% \]
+% y entonces 
+% \[
+% 	\sum_{j=1}^{3N-k} \left\{ 
+% 	\frac{d}{dt} \left( \dpar{T}{\dot{q}_j} \right) - \frac{\partial}{\partial q_j}
+% 	\left( T - V \right) \right\} \delta q_j =  0.
+% \]
+Dado que $ V = V(\vb{x}_1,...,\vb{x}_N) = V( \{ q_j \} )$ (no depende de las velocidades generalizadas $ \dot{q}_j $) se puede escribir 
 \[
-	Q_j \delta q_j = -\dpar{V}{q_j}\delta q_j
+	\sum_{j=1}^{3N-k} \left\{ \frac{d}{dt}
+	\left[ \frac{\partial}{\partial \dot{q}_j} \left( T - V \right) \right] - 
+	\frac{\partial}{\partial q_j} \left( T - V \right) \right\} \delta q_j =  0.
 \]
-y como $V=V(\vb{x}_1,...,\vb{x}_n)$ se tiene 
-\[
-	V = \sum_i^N  \dpar{V}{r_i} \delta \vb{x}_i = \dpar{V}{\vb{x}_i} \cdot \dpar{\vb{x}_i}{q_j} \delta q_j =
-\]
-pero 
-\[
-	Q_j = - \dpar{V}{q_j}
-\]
-y entonces 
-\[
-	\sum_{j=1}^{3N-k} \left\{ 
-	\frac{d}{dt} \left( \dpar{T}{\dot{q}_j} \right) - \frac{\partial}{\partial q_j}
-	\left( T - V \right) \right\} \delta q_j =  0.
-\]
-
-Definimos como 
+y definiendo al lagrangiano $\Lag$ como 
 \[
 	\Lag \equiv T - V
 \]
-y entonces podemos escribir
+\notamargen{El $\Lag$ es función del conjunto $(\{ q_j \}, \{ \dot{q}_j \}, t)$.}
+se arriba a
 \[
 	\sum_{j=1}^{3N-k} \left[
 	\frac{d}{dt} \left( \dpar{\Lag}{\dot{q}_j} \right) -  \dpar{\Lag}{q_j} \right] \delta q_j =  0.
 \]
 
-Si existieran fuerzas que no provienen de un potencial entonces
+Si existieran fuerzas que no provienen de un potencial (no conservativas) entonces
 \[
-	Q_j + Q_j^{NC} = -\dpar{V}{q_j} + Q_j^{NC}
+	Q_j + Q_j^{NC} = -\dpar{V}{q_j} + Q_j^{NC},
 \]
-y finalmente 
+y las ecuaciones adquieren un término extra 
 \[
 	\sum_{j=1}^{3N-k} \left[
-	\frac{d}{dt} \left( \dpar{\Lag}{\dot{q}_j} \right) -  \dpar{\Lag}{q_j} \right] \delta q_j = 
-	\sum_{j=1}^{3N-k} Q_j^{NC} \delta q_j
+	\frac{d}{dt} \left( \dpar{\Lag}{\dot{q}_j} \right) - \dpar{\Lag}{q_j} - Q_j^{NC} \right] \delta q_j = 0.
 \]
 
-Como esto vale para todo grado de libertad $l$ llegamos a
+Como esto vale para todo grado de libertad $j$, puesto que las variaciones son independientes, llegamos a
 \[
 	\frac{d}{dt} \left( \dpar{\Lag}{\dot{q}_j} \right) -  \dpar{\Lag}{q_j} = Q_j^{NC}
 \]
-que son las ecuaciones de Euler-Lagrange. Este es el resultado más importante del capítulo.
+que son las ecuaciones de Euler-Lagrange con presencia de fuerzas no conservativas. 
+Este es el resultado más importante del capítulo.
 
 % =================================================================================================
 \section{Invariancia del lagrangiano ante adición de una derivada total}
