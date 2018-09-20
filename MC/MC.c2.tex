@@ -56,7 +56,7 @@ y entonces, multiplicando cada término por un desplazamiento virtual $ \delta\v
 \]
 
 \notamargen{Explicar qué es este principio y qué es un desplazamiento virtual.}
-Si hacemos estos desplazamientos son {\it compatibles} con los vínculos nos quedamos con
+Si hacemos estos desplazamientos {\it compatibles} con los vínculos nos quedamos con
 \be
 	\sum_i^N \left( \dot{\vb{p}}_i - \vb{F}_i^a \right) \cdot \delta\vb{x}_i = 0,
 % 	- \sum_i^N  \vb{F}_i^v  \cdot \delta\vb{x}_i  = 0
@@ -68,7 +68,8 @@ puesto que las fuerzas de vínculo son siempre perpendiculares a los desplazamie
 \]
 
 La expresión \eqref{principio_virtual_work} es el llamado {\it Principio de los Trabajos Virtuales},
-y dada la independencia admitida en los desplazamientos virtuales $ \delta \vb{x}_i $, se sigue que 
+y dada la independencia admitida en los desplazamientos virtuales $ \delta \vb{x}_i $, se sigue que la
+sumatoria en \eqref{principio_virtual_work} es nula porque cada término es nulo, es decir
 \[
 	\dot{\vb{p}}_i - \vb{F}_i^a = 0 \quad \forall i
 \]
@@ -78,54 +79,62 @@ El hecho de que la fuerza de vínculo sea perpendicular a los desplazamientos pu
 verse a partir de que la ecuación de vínculo en un sistema toma la forma
 \notamargen{¿Y esta magia? Hay que aclarar realmente que sea así como se dice que es.}
 \[
-	f(\vb{r}_i) - K = 0 
+	f(\vb{x}_i) - K = 0 
 \]
 luego, derivando implícitamante cada ecuación y sumando (si se nos permite un pequeño
 abuso de notación)
 \[
-	\sum_i^N \dpar{f}{\vb{r}_i} d\vb{r}_i = 0 
+	\sum_i^N \dpar{f}{\vb{x}_i} d\vb{x}_i = 0 
 \]
 pero esto no es otra cosa que
 \[
-	\nabla f \cdot \vb{\delta r} = 0
+	\nabla f \cdot \vb{\delta x} = 0
 \]
-donde debemos entender al gradiente y al vector $\vb{\delta r}$ como $N$ dimensionales.
+donde debemos entender al gradiente y al vector $\vb{\delta x}$ como $N$ dimensionales.
 \end{notas}
 
 % =================================================================================================
 \section{Construcción del lagrangiano}
 % =================================================================================================
 
-Consideremos un sistema de $N$ partículas, $k$ ecuaciones de vínculo y por ende $3N - k$ grados de libertad
-(estamos en 3 dimensiones).
+Consideremos un sistema de $N$ partículas, $k$ ecuaciones de vínculo 
+\begin{eqnarray*}
+	& f_1(\vb{x}_1, \vb{x}_2,...,\vb{x}_n,t) = K_1  \\ 
+	& ... ... ... \\
+	& f_k(\vb{x}_1, \vb{x}_2,...,\vb{x}_n,t) = K_k 
+\end{eqnarray*}
+y por ende $3N - k$ grados de libertad (suponiendo que nos hallamos en 3 dimensiones).
 
-Tenemos $N$ relaciones
+Tenemos $N$ relaciones del tipo 
+\be
+	\vb{x}_i = \vb{x}_i(q_1,q_2,...,q_{3N-k},t)
+	\label{x_part}
+\ee
+que significa que la posición de la partícula $i$-ésima depende en principio de las $3N-k$ coordenadas
+generalizadas y del tiempo. Una variación tendrá la forma
 \[
-	\vb{r}_i = \vb{r}_i(q_1,q_2,...,q_{3N-k},t)
+	\delta \vb{x}_i =  \sum_{j=1}^{3N-k} \left( \dpar{\vb{x}_i}{q_j} \right) \delta q_j + 
+	\dpar{\vb{x}_i}{t}\delta t
 \]
-entonces una variación serán
+y suponiéndola un desplazamiento virtual el último término se anula puesto que $\delta t=0$ en ese
+caso y entonces
 \[
-	\delta \vb{r}_i =  \sum_{j=1}^{3N-k} \left( \dpar{\vb{r}_i}{q_j} \right) \delta q_j + 
-	\dpar{\vb{r}_i}{t}\delta t
-\]
-donde el último $\delta t$ es nulo por ser un desplazamiento virtual de manera que
-\[
-	\delta \vb{r}_i =  \sum_{j=1}^{3N-k} \left( \dpar{\vb{r}_i}{q_j} \right) \delta q_j.
+	\delta \vb{x}_i =  \sum_{j=1}^{3N-k} \left( \dpar{\vb{x}_i}{q_j} \right) \delta q_j.
 \]
 
-Por otro lado
+Por otro lado, del principio de los trabajos virtuales \eqref{principio_virtual_work} es
 \[
-	\sum_i^N \dot{\vb{P}}_i \cdot \delta \vb{r}_i - \sum_i^N  \vb{F}_i^a \cdot \delta \vb{r}_i = 0
+	\sum_i^N \dot{\vb{p}}_i \cdot \delta \vb{x}_i - \sum_i^N  \vb{F}_i^a \cdot \delta \vb{x}_i = 0
 \]
 y se puede reescribir el primer término como
 \[
-	\dot{\vb{P}}_i \cdot \delta \vb{r}_i = m_i \dtot{\vb{v}_i}{t}\sum_{j=1}^{3N-k} 
-	\left( \dpar{\vb{r}_i}{q_j} \right) \delta q_j
+	\dot{\vb{p}}_i \cdot \delta \vb{x}_i = m_i \dtot{\vb{v}_i}{t} \cdot \sum_{j=1}^{3N-k} 
+	\left( \dpar{\vb{x}_i}{q_j} \right) \delta q_j,
 \]
 resultando
 \[
-	\sum_i^N m_i \dtot{\vb{v}_i}{t} \cdot \sum_{j=1}^{3N-k} \left( \dpar{\vb{r}_i}{q_j} \right)
-	\delta q_j - \sum_i^N  \vb{F}_i^a \cdot \delta \vb{r}_i = 0
+	\sum_i^N m_i \dtot{\vb{v}_i}{t} \cdot \sum_{j=1}^{3N-k} \left( \dpar{\vb{x}_i}{q_j} \right)
+	\delta q_j - \sum_i^N  \vb{F}_i^a \cdot \delta \vb{x}_i = 0
 \]
 
 La idea ahora es reescribir todo en términos más convenientes, para que aparezca un término multiplicado
@@ -133,45 +142,55 @@ a una variación arbitraria. De esta manera quedará una sumatoria de un sumando
 variación igualada a cero. No cabe otra posibilidad que el sumando sea nulo para cada índice de la suma.
 \notamargen{Escrito muy mal este texto. La idea es clara, no obstante: hay que purificarla}
 
-Consideremos la derivada total de 
+Consideremos en primer lugar la derivada total del producto siguiente
 \[
-	\frac{d}{dt}\left( m_i\vb{v}_i\dpar{\vb{r}_i}{q_j} \right) =
-	m_i \dtot{\vb{v}_i}{t}\dpar{\vb{r}_i}{q_j} + m_i \vb{v}_i \frac{d}{dt}\left(\dpar{\vb{r}_i}{q_j}\right).
+	\frac{d}{dt}\left( m_i\vb{v}_i \cdot \dpar{\vb{x}_i}{q_j} \right) =
+	m_i \dtot{\vb{v}_i}{t} \cdot \dpar{\vb{x}_i}{q_j} + m_i \vb{v}_i 
+	\cdot \frac{d}{dt}\left(\dpar{\vb{x}_i}{q_j}\right),
 \]
-Pero la diferencial del vector $\vb{r}_i$ es (notemos que no es una variación)
+y en segundo lugar la velocidad de cada partícula, que proviene de la derivada total de cada ecuación 
+\eqref{x_part} y resulta
+% )Pero la diferencial del vector $\vb{x}_i$ es (notemos que no es una variación)
+% \[
+% 	d\vb{x}_i = \sum_{j=1}^{3N-k} \left( \dpar{\vb{x}_i}{q_j} \right) dq_j + \dpar{\vb{x}_i}{t} dt
+% \]
+% y entonces
 \[
-	d\vb{r}_i = \sum_{j=1}^{3N-k} \left( \dpar{\vb{r}_i}{q_j} \right) dq_j + \dpar{\vb{r}_i}{t} dt
+	\vb{v}_i = \dtot{\vb{x}_i}{t} = \sum_{j=1}^{3N-k} \left( \dpar{\vb{x}_i}{q_j} \right)
+	\dot{q}_j + \dpar{\vb{x}_i}{t}.
 \]
-y entonces
+
+A partir de esta última es claro ver que la derivada de la velocidad de la partícula $i$-ésima respecto a la coordenada 
+$l$-ésima es
 \[
-	\dot{\vb{r}}_i = \vb{v}_i = \sum_{j=1}^{3N-k} \left( \dpar{\vb{r}_i}{q_j} \right)
-	\dot{q}_j + \dpar{\vb{r}_i}{t}.
+	\dpar{\vb{v}_i}{\dot{q}_l} = \dpar{\vb{x}_i}{q_l}
 \]
-La derivada de la velocidad de la partícula $i$-ésima respecto a la coordenada $l$-ésima es
+\notamargen{Una manera menmotécnica de recordar esto es con el siguiente esquema:
 \[
-	\dpar{\vb{v}_i}{\dot{q}_l} = \dpar{\vb{r}_i}{q_l} =
-	\frac{\partial \vb{r}_i/\partial t}{\partial q_l/\partial t}.
+	\dpar{\vb{v}_i}{\dot{q}_l} = \frac{\partial \vb{x}_i/\partial t}{\partial q_l/\partial t} =
+	\dpar{\vb{x}_i}{q_l} .
 \]
+}
 Si derivamos nuevamente
 \[
-	\frac{\partial}{\partial q_l} \left( \dtot{\vb{r}_i}{t} \right) =
-	\dpar{\vb{v}_i}{q_l} = \sum_{j=1}^{3N-k} \dparcru{\vb{r}_i}{q_j}{q_l} \dot{q}_j + 
-	\dparcru{\vb{r}_i}{t}{q_l}.
+	\frac{\partial}{\partial q_l} \left( \dtot{\vb{x}_i}{t} \right) =
+	\dpar{\vb{v}_i}{q_l} = \sum_{j=1}^{3N-k} \dparcru{\vb{x}_i}{q_j}{q_l} \dot{q}_j + 
+	\dparcru{\vb{x}_i}{t}{q_l}.
 \]
 \[
-	\frac{d}{dt} \left( \dpar{\vb{r}_i}{q_l} \right) = 
-	\frac{d}{dt} \left( \sum_{j=1}^{3N-k} \dparcru{\vb{r}_i}{q_j}{q_l} dq_j +
-	\dparcru{\vb{r}_i}{t}{q_l} dt \right) 
+	\frac{d}{dt} \left( \dpar{\vb{x}_i}{q_l} \right) = 
+	\frac{d}{dt} \left( \sum_{j=1}^{3N-k} \dparcru{\vb{x}_i}{q_j}{q_l} dq_j +
+	\dparcru{\vb{x}_i}{t}{q_l} dt \right) 
 \]
 de tal manera que 
 \[
-	\frac{d}{dt} \left( \dpar{\vb{r}_i}{q_l} \right) = \dpar{\vb{v}_i}{q_l}
+	\frac{d}{dt} \left( \dpar{\vb{x}_i}{q_l} \right) = \dpar{\vb{v}_i}{q_l}
 \]
 
 Volvemos ahora a la eq III y 
 \[
 	\sum_i^N \sum_{j=1}^{3N-k} \left[ 
-	\frac{d}{dt} \left( m_i \vb{v}_i \dpar{\vb{r}_i}{q_j} \right) - 
+	\frac{d}{dt} \left( m_i \vb{v}_i \dpar{\vb{x}_i}{q_j} \right) - 
 	m_i \vb{v}_i \frac{d}{dt}\left( \dpar{\vb{v}_i}{q_j} \right) \right] \delta q_j
 \]
 y este corchete lo reescribimos como 
@@ -196,13 +215,13 @@ Ahora introducimos la sumatoria en $i$ hacia adentro de ambos términos,
 \]
 de modo que dentro de los paréntesis resulta $T$, luego 
 \[
-	\sum_i^N \dot{\vb{P}}_i \cdot \delta \vb{r}_i = 
+	\sum_i^N \dot{\vb{P}}_i \cdot \delta \vb{x}_i = 
 	\sum_{j=1}^{3N-k} \left\{ \frac{d}{dt} \left[ \frac{\partial}{\partial \dot{q}_j} \left( T \right) \right] - 
 	\frac{\partial}{\partial q_j} \left( T \right) \right\} \delta q_j
 \]
 \[
-	\sum_i^N \dot{\vb{P}}_i \cdot \delta \vb{r}_i = 
-	\sum_{j=1}^{3N-k} \sum_i^N \vb{F}_i^a \cdot \dpar{\vb{r}_i}{q_j} \delta q_j =  
+	\sum_i^N \dot{\vb{P}}_i \cdot \delta \vb{x}_i = 
+	\sum_{j=1}^{3N-k} \sum_i^N \vb{F}_i^a \cdot \dpar{\vb{x}_i}{q_j} \delta q_j =  
 	\sum_{j=1}^{3N-k} \sum_i^N Q_j \delta q_j
 \]
 siendo $Q_j$ la fuerza generalizada. Entonces
@@ -216,9 +235,9 @@ Si suponemos que las fuerzas son conservativas entonces
 \[
 	Q_j \delta q_j = -\dpar{V}{q_j}\delta q_j
 \]
-y como $V=V(\vb{r}_1,...,\vb{r}_n)$ se tiene 
+y como $V=V(\vb{x}_1,...,\vb{x}_n)$ se tiene 
 \[
-	V = \sum_i^N  \dpar{V}{r_i} \delta \vb{r}_i = \dpar{V}{\vb{r}_i} \cdot \dpar{\vb{r}_i}{q_j} \delta q_j =
+	V = \sum_i^N  \dpar{V}{r_i} \delta \vb{x}_i = \dpar{V}{\vb{x}_i} \cdot \dpar{\vb{x}_i}{q_j} \delta q_j =
 \]
 pero 
 \[
