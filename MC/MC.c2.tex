@@ -317,6 +317,64 @@ Como esto vale para todo grado de libertad $j$, puesto que las variaciones son i
 \]
 que son las ecuaciones de Euler-Lagrange con presencia de fuerzas no conservativas. 
 Este es el resultado más importante del capítulo.
+\notamargen{No sé si es la primera vez que aparecen. De serlo habría que remarcarlo como es debido, tal vez
+recuadrar}
+
+\subsection{Algunos ejemplos del lagrangiano}
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{ejemplo}{\bfseries Aro acelerado }
+
+\notamargen{Falta ilustración del aro y sistema coordenado.}
+
+Supongamos un aro horizontal en una mesa sin rozamiento. Tiene un único grado de libertad.
+
+El vínculo es
+\[
+	(x - \nicefrac{1}{2} \: at^2)^2 + (y-y_0 )^2 = \ell^2
+\]
+y las posiciones instantáneas de la masa $ m $
+\[
+	x = \frac{1}{2}at^2 - \ell \cos(\vp) \qquad  y = y_0 + \ell \sin(\vp)
+\]
+
+Es conveniente utilizar el ángulo $\vp$ como coordenada generalizada. Pero $\vp$ está solidaria al aro.
+Eso no es un problema siempre que el $\Lag$ esté medido en un sistema inercial.
+
+En este caso no hay potencial pero como $\vp$ es una coordenada vista en un sistema no inercial, aparecerán
+las fuerzas ficticias asociadas al movimiento.
+Serán
+\[
+	\dot{x} = at + \ell \sin(\vp) \dot{\vp} \qquad \dot{y} = \ell \cos(\vp) \dot{vp}
+\]
+y luego 
+\[
+	\Lag = T = \frac{1}{2} m (\dot{x}^2 + \dot{y}^2 ) = \frac{1}{2} m
+	(a^2 t^2 + 2at\ell\sin(\vp)\dot{\vp}+\ell^2\dot{\vp}^2)
+\]
+\notamargen{La $T$ del $\Lag$ es la vistda desde un sistema INERCIAL siempre; en todo caso leugo aparecen
+las fuerzas ficticias necesarias. ESTO HAY QUE ESTUDIARLO Y ENTENDERLO.
+\\
+}
+Las ecuaciones de Euler-Lagrange serán 
+\[
+	\dtot{}{t}\left( \dpar{\Lag}{\dot{\vp}}\right) - \dpar{\Lag}{\vp} = 
+	m \ell^2 \ddot{\vp} + mat\ell \sin(\vp) = 0
+\]
+lo cual resulta en la ecuación de movimiento
+\[
+	\ddot{\vp} = - \frac{at}{\ell} \sin(\vp) 
+\]
+que es una ecuación que da oscilaciones, como la de un péndulo. Estas oscilaciones están causadas, claramente,
+por la aceleración $a$.
+
+
+\notamargen{El lagrangiano se dedujo de las ecuaciones de Newton, entonces debemos calcular $T,V$ de un sistema
+inercial. Acá no se entiende si lo que se hace en la carpeta está bien o no, en el sentido de que parece que al
+usar una coordenada que no es inercial estamos calculando T no inercial.? }
+
+\end{ejemplo}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 % =================================================================================================
 \section{Invariancia del lagrangiano ante adición de una derivada total}
