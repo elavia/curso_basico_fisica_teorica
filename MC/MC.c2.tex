@@ -1144,44 +1144,90 @@ También podemos encontrar esta notación, dependiendo del tipo de problema,
 \section{Multiplicadores de Lagrange}
 % =================================================================================================
 
-Partimos de la acción
+El principio variacional de Hamilton nos dice que la trayectoria real que sigue un sistema es la que 
+extremiza la acción
 \[
-	S = \int_{t_i}^{t_f} \Lag \left( q_i[t], \dot{q}_i[t], t \right) dt
+	S = \int_{t_i}^{t_f} \Lag \left( q_i[t], \dot{q}_i[t], t \right) dt.
 \]
-entonces 
+\notamargen{Habría que tomarse medio minuto para chequear: consistencia de la notación con respecto a los límites
+en estas integrales de acción, definir extremización, ver si la implicancia es un sí y sólo sí o no, etc.}
+Esa condición de extremo, conducía directamente a las ecuaciones de Euler-Lagrange, es decir
+\be
+	\delta S = 0 \quad \Leftrightarrow \quad \int \sum_{j=1}^{N} 
+	\left[ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) - \dpar{\Lag}{q_j} \right]\delta q_j \: dt = 0
+	\label{accion_nula_ecsel}
+\ee
+donde $\delta q_j$ eran desplazamientos independientes y esta condición significaba que el corchete debía
+ser nulo para todo grado de libertad $j$.
+
+Pero puede suceder (en el caso de vínculos no-holónomos, por ejemplo) que no se pueda despejar alguna $ q_j $ y 
+entonces no todos los  $\delta q_j$ son independientes.
+
+Si se tienen $s$ ecuaciones de vínculo no holónomos [¿cómo es un vínculo no-holónomo? o es que se deriva una
+ecuación de vínculo usual??]
+% y se las deriva con respecto al tiempo obtenemos
 \[
-	\delta S = 0 \quad \Leftrightarrow \quad \int
-	\sum_{j=1}^{N} \left[ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) -
-	\dpar{\Lag}{q_j} \right]\delta q_j dt
+	\sum_{\ell}^N a_\ell^k(q_i,t) \dot{q}_\ell + b^k(q_i,t) = 0 \qquad \qquad k=1,2,...,s
 \]
-donde $\delta q_j$ son desplazamientos independientes. Si no se pued despejar alguna $\delta q_j$ (con 
-vínculos no-holónomos, por ejemplo) entonces algún $\delta q_j$ es independiente de modo que para que 
-valga $\delta S =0 $ necesitaré 
+donde $\ell$ suma en los grados de libertad.
+% que son los vínculos ($k=1,...,s$); son $s$ ecuaciones de vínculo.
+Multiplicando por $\delta t$ puede verse que no son independientes,
 \[
-	\sum_{\ell}^N a_\ell^k(q_i,t) \dot{q}_\ell + b^k(q_i,t) = 0
-\]
-que son los vínculos ($k=1,...,s$); son $s$ ecuaciones de vínculo.
-Multiplicamos por $\delta t$ y vemos que no son independientes
-\[
-	\sum_{\ell}^N a_\ell^k(q_i,t) \delta {q}_\ell + b^k(q_i,t) \delta t= 0
+	\sum_{\ell}^N a_\ell^k(q_i,t) \delta {q}_\ell + b^k(q_i,t) \delta t= 0 .
 \]
 
-Sean $\delta q_\ell$ variación a $t$ fijo, entonces 
+Si ahora las $\delta q_\ell$ son variaciones a $t$ fijo, entonces se cumple 
 \[
-	\sum_{\ell}^N a_\ell^k(q_i,t) \delta {q}_\ell
+	\sum_{\ell}^N a_\ell^k(q_i,t) \delta {q}_\ell = 0,
 \]
+expresión que puede intregrarse con respecto al tiempo y sumar sobre todas las ecuaciones de vínculo,
 \[
-	\int_{t_i}^{t_f} \lambda^k \sum_{\ell}^N a_\ell^k(q_i,t) \delta {q}_\ell dt = 0
+	\sum_{k}^s \int_{t_i}^{t_f} \lambda^k \sum_{\ell}^N a_\ell^k(q_i,t) \delta {q}_\ell \: dt = 0.
 \]
-recordando que $\ell$ suma en los grados de libertad. Podemos sacar la suma fuera,
+
+El cero de esta última ecuación puede restarse del otro cero dado por la integral \eqref{accion_nula_ecsel},
+suma de $N-s$ ecuaciones con $\delta q_\ell$ independientes [¿checar esto?] con para construirnos de esa manera la ecuación
+% Podemos sacar la suma fuera,
+% \[
+% 	\sum_{k}^s \int_{t_i}^{t_f} \lambda^k \sum_{\ell}^N a_\ell^k(q_i,t) \delta {q}_\ell dt = 0
+% \]
+% Absorbo la otra sumatoria en el segundo término y paso de $\ell \to j$.
 \[
-	\sum_{k}^s \int_{t_i}^{t_f} \lambda^k \sum_{\ell}^N a_\ell^k(q_i,t) \delta {q}_\ell dt = 0
+	\int \sum_{j=1}^{N-s} \left\{ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) -\dpar{\Lag}{q_j}
+	- \sum_{k}^s \lambda^k a_j^k(q_i,t) \right\} \delta {q}_j \: dt = 0
 \]
-Absorbo la otra sumatoria en el segundo término y paso de $\ell \to j$.
+y se tienen $N-s$ ecuaciones
 \[
-	\int  \sum_{j=1}^N \left\{ \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) -\dpar{\Lag}{q_j}
-	- \sum_{k}^s \lambda^k a_\ell^k(q_i,t) \right\} \delta {q}_\ell dt = 0
+	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) -\dpar{\Lag}{q_j} =  \sum_{k}^s \lambda^k a_j^k(q_i,t),
 \]
+y $s$ ecuaciones 
+\be
+	\sum_{\ell}^N a_\ell^k(q_i,t) \dot{q}_\ell + b^k(q_i,t) = 0 .
+	\label{ecs_vinculo}
+\ee
+
+El parámetro $ \lambda^k $ es la fuerza de vínculo asociada al vínculo que no se pudo despejar. Es un multiplicador de
+Lagrange.
+
+Los vínculos holónomos se pueden escribir también en la forma \eqref{ecs_vinculo}. Un vínculo holónomo está representado
+por una ecuación del tipo 
+\[
+	f( \vb{x}_1, \vb{x}_2, ...,\vb{x}_N, t ) = cte.
+\]
+de manera que para desplazamientos virtuales (donde $\delta t=0$) la derivada temporal de esta ecuación implica\footnote{Recordemos
+que para desplazamientos virtuales el término $\partial f /\partial t$ no aparece por estar multiplicado a $\delta t=0$.} 
+\[
+	\sum_i \nabla_i f \cdot \delta\vb{x}_i = 0
+\]
+y esta ecuación es precisamente de la forma $ \sum_\ell a_\ell^k \delta q_\ell $.
+\notamargen{Falta entender bien principio trabajos virtuales y despl virtual ($\delta t=0$)}
+
+
+\begin{ejemplo}{\bf Resolución de sistema holónomo}
+ 
+\end{ejemplo}
+
+
 entonces 
 \[
 	\sum_{j=1}^N \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) -\dpar{\Lag}{q_j} =
