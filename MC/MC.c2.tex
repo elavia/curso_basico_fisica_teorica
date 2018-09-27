@@ -1222,25 +1222,103 @@ que para desplazamientos virtuales el término $\partial f /\partial t$ no apare
 y esta ecuación es precisamente de la forma $ \sum_\ell a_\ell^k \delta q_\ell $.
 \notamargen{Falta entender bien principio trabajos virtuales y despl virtual ($\delta t=0$)}
 
-
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{ejemplo}{\bf Resolución de sistema holónomo}
- 
+
+Consideramos un cilindro rodando sin deslizar.
+\notamargen{Aclarar mil cosas: rueda un poco (máximo $\alpha = pi/2 $). ¿Es una aproximación sólo válida para
+ángulos pequeños? El caso exacto es mucho quilombo? Sirve para algo?}
+
+Los vínculos son relaciones entre velocidades que se pueden intergrar.
+De la soga:
+\[
+	\dot{x}_1 + \dot{\alpha} a = \dot{x}_2
+\]
+por el rozamiento sobre el piso:
+\[
+	\dot{\alpha} a = \dot{x}_1
+\]
+\notamargen{Lo de los $\delta$ pide para ser explicado y entendido.}
+\[
+	\Delta x_1 + a \Delta \alpha = \Delta x_2
+	\qquad \qquad 
+	\Delta \alpha a = \Delta x_1
+\]
+\[
+	\delta x_1 + a \delta \alpha - \delta x_2 = 0
+	\qquad \qquad \delta x_1 - a \delta \alpha = 0 
+\]
+El lagrangiano es
+\[
+	\Lag = \frac{1}{2} m \dot{x}_2^2 + \frac{1}{2}M\dot{x}_1^2 + \frac{1}{2}I\dot{\alpha}^2 + mgx_2
+\]
+donde los dos términos centrales en el rhs son la cinética del cuerpo rígido.
+
+Ahora hacemos 
+\[
+	\lambda^1 ( \delta x_1 + a \delta \alpha - \delta x_2 ) = 0 \qquad \qquad 
+	\lambda^2 ( \delta x_1 - a \delta \alpha ) = 0
+\]
+donde deberíamos obtener $ \lambda^1 $ tensión y $ \lambda^2 $ fuerza de rozamiento.
+Luego,
+\begin{eqnarray*}
+	m\ddot{x}_1 & = (\lambda^1 1 + \lambda^2 1) \\
+	m\ddot{x}_2 & = mg + \lambda^1(-1) \\
+	I\ddot{\alpha} & = (\lambda^1 a - \lambda^2 a)
+\end{eqnarray*}
+
+Escribiendo las ecuaciones de Newton para este problema resulta en
+\begin{eqnarray*}
+	m\ddot{x}_1 & = T - F_{\text{roz}} \\
+	m\ddot{x}_2 & = mg - T \\
+	I\ddot{\alpha} & = T a + F_{\text{roz}} a 
+\end{eqnarray*}
+de manera que identificamos naturalmente a 
+\[
+	\lambda^1 = T \qquad \qquad \lambda^2 = - F_{\text{roz}}
+\]
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \end{ejemplo}
 
+Entonces, para el caso de vínculo holónomos tendremos $ a^k_\ell(q_i,t) = \nabla_i f^k \cdot \delta \vb{x}_i $ de modo que
+\[
+	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) -\dpar{\Lag}{q_j} =
+	\sum_{k}^s \lambda^k \: \dpar{f^k}{q_j}
+	\label{ecs_el_vinculos}
+% 	\nabla_j f^k \cdot \frac{\delta \vb{x}_j}{\delta q_j}
+\]
+\notamargen{Hay que escribir bien la conversión de $\nabla f^k$ hacia $\partial f^k / \partial q_j $. Parece una boludez,
+pero tal vez no sea así.}
 
-entonces 
+Pero sabemos [sí?] que cuando existe fuerza generalizada (no proveniente de un potencial) se tenía 
 \[
-	\sum_{j=1}^N \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) -\dpar{\Lag}{q_j} =
-	\sum_{j=1}^N \sum_{k}^s \lambda^k a_\ell^k(q_i,t) =  
-	\sum_{j=1}^N \sum_{k}^s \lambda^k \nabla_j f^k \cdot \frac{\delta \vb{r}_j}{\delta q_j} 
+	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) -\dpar{\Lag}{q_j} = Q_j, \qquad \qquad 
+	Q_j = \sum_i^N \vb{F}_i^a \cdot \dpar{\vb{x}_i}{q_j}
+	\label{ecs_el_fuerza_generalizada}
 \]
-siendo $\nabla_j f^k $ el gradiente de la ecuación de víngulo respeco de $j$ y donde $\lambda^k$
-es la fuerza de vínculo asociada al vínculo no despejado pues como la fuerza generalizada
-(que no proviene de potencial)
+% siendo $\nabla_j f^k $ el gradiente de la ecuación de víngulo respeco de $j$ y 
+e igualando los miembros derechos de \eqref{ecs_el_vinculos} y \eqref{ecs_el_fuerza_generalizada} 
 \[
-	Q_j = \sum_i^N \vb{F}_i^a \cdot \dpar{\vb{r}_i}{q_j}
+	\sum_i^N \vb{F}_i^a \cdot \dpar{\vb{x}_i}{q_j} = \sum_{k}^s \lambda^k \: \dpar{f^k}{q_j}
 \]
-y comparando vemos que 
+se arriba a que 
+\notamargen{Acá hay temas con los índices y con lo que se suma. Parece no ser la misma cosa.}
+\[
+	\lambda^k = \vb{F}_i^a 
+\]
+de manera que $\lambda^k$ son las fuerzas de vínculo asociadas a los vínculos que no se pudieron retirar
+(no despejados en las ecuaciones [?]).
+Si los vínculos son holónomos (pero no quise despejar) entonces son las fuerzas de vínculo.
+
+La moraleja es que si no puedo despejar en función de coordenadas independientes sí o sí necesito introducir
+multiplicadores de Lagrange.
+
+\subsubsection{Más sobre el asunto de vínculos}
+\notamargen{Hay que revisar bien esta sección y meter algún ejemplo esclarecedor.}
+
+comparando vemos que 
 \[
 	Q_j = \sum \lambda^k a^k_j(q_j,t) \quad \textrm{vínculos no holónomos}
 \]
@@ -1298,6 +1376,7 @@ donde $\delta q_j$ son ahora independientes.
 \]
 
 \begin{ejemplo}{\bf Moneda rodando por un plano}
+
 Consideramos una moneda que rueda libremente por un plano (no sujeta a potencial).
 Situraemos un sistema de ejes sobre la moneda, que etiquetaremos 123 y otro fijo fuera
 de la misma xyz.
