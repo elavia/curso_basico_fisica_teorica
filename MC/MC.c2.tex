@@ -887,53 +887,119 @@ Por otro lado,
 \section{Lagrangiano cíclico en el tiempo}
 % =================================================================================================
 
-Empecemos desde la derivada total con respecto al tiempo del lagrangiano,
-\[
+Empezando desde la derivada total con respecto al tiempo del lagrangiano,
+\be
 	\frac{d}{dt}\left( \Lag( q, \dot{q}, t)\right) =
 	\dpar{\Lag}{q} \dot{q} + \dpar{\Lag}{\dot{q}} \ddot{q} + \dpar{\Lag}{t}
-\]
+	\label{derivada_lag_ciclico}
+\ee
 y usando la derivada total del término 
 \[
 	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}}\dot{q}\right) =
-	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}} \right) \dot{q} + \dpar{\Lag}{\dot{q}} \ddot{q} .
+	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}} \right) \dot{q} + \dpar{\Lag}{\dot{q}} \ddot{q},
 \]
-
-Reemplazando una en otra resulta que 
+se puede expresar \eqref{derivada_lag_ciclico} sin derivadas segundas explícitas $\ddot{q}$ de suerte que 
 \[
 	\frac{d}{dt}\left( \Lag( q, \dot{q}, t)\right) = \dpar{\Lag}{q} \dot{q} + \frac{d}{dt}\left( 
 	\dpar{\Lag}{\dot{q}}\dot{q}\right) - \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}} \right) \dot{q} + \dpar{\Lag}{t}
 \]
-y acomodando un poco
+la cual, acomodando un poco los términos, resulta en
 \[
 	\frac{d}{dt}\left( \Lag( q, \dot{q}, t)\right) = 
 	\left[ \dpar{\Lag}{q}  - \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}} \right) \right] \dot{q} + 
-	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}}\dot{q}\right)  + \dpar{\Lag}{t}
+	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}}\dot{q}\right)  + \dpar{\Lag}{t}.
 \]
+
+Como el corchete son las ecuaciones de Euler-Lagrange y además $\partial\Lag/\partial \dot{q} \equiv p$ se tiene
 \[
-	\frac{d}{dt}\left( \Lag( q, \dot{q}, t)\right) = \frac{d}{dt}\left( p \dot{q} \right) + \dpar{\Lag}{t}
+	\frac{d}{dt}\left( \Lag( q, \dot{q}, t)\right) = \frac{d}{dt}\left( p \: \dot{q} \right) + \dpar{\Lag}{t},
 \]
-y entonces previo pase mágico de términos,
+o bien,
 \[
-	\frac{d}{dt}\left( p\dot{q} - \Lag \right) = -\dpar{\Lag}{t}
+	\frac{d}{dt}\left( p \: \dot{q} - \Lag \right) = -\dpar{\Lag}{t}.
 \]
-y si definimos
-\[
-	\Ham \equiv p\dot{q} - \Lag 
-\]
+Definiendo al operador hamiltoniano $\Ham$ como 
+\be
+	\Ham \equiv p\:\dot{q} - \Lag 
+	\label{hamiltoniano}
+\ee
 resulta que 
+\be
+	\dtot{\Ham}{t} = - \dpar{\Lag}{t}
+	\label{derivada_temporal_ham}
+\ee
+
+El hamiltoniano es un operador tal que su variación temporal total depende de la variación temporal explícita del 
+lagrangiano.
+Entonces, si el lagrangiano no depende explícitamente del tiempo se tiene que $ \Ham = \Ham_0 $, el hamiltoniano
+se conserva.\footnote{Notemos en la ecuación \eqref{derivada_temporal_ham} que la derivada $ \partial \Lag / \partial t$ 
+refiere a la aparición explícita de $ t $; de este modo el hecho de que sea $ \partial \Lag / \partial t = 0 $ significa
+que el $\Ham$ se conserva pero no que $\Lag$ se conserva. Esto último requeriría $ d \Lag / dt = 0 $.}
+
+\notamargen{No sé en qué momento se ha definido el hamiltoniano, $H=T+V$, deberíamos referirlo y tenerlo en cuenta.}
+
+Por otra parte, si se cumple que :
+\begin{itemize}
+ \item Los vínculos no dependen del tiempo
+ \item El potencial no depende de las velocidades generalizadas,
+\end{itemize}
+entonces el hamiltoniano es la energía, es decir 
+\be
+	\Ham = E.
+	\label{hamiltoniano_energia}
+\ee
+
+La condición de que los vínculos no dependan del tiempo tiene como consecuencia que la energía cinética sea una 
+función cuadrática en las velocidades generalizadas. Entonces la condición \eqref{hamiltoniano_energia} se puede
+expresar en términos de las energías cinéticas y potenciales como 
 \[
-	\dtot{\Ham}{t} = - \dpar{\Lag}{t}.
+	T = T_2   \qquad   \qquad   V \neq V(\dot{q})
 \]
 
-Entonces si el lagrangiano no depende explícitamente del tiempo se tiene que $\Ham = cte.$. Además,
-si se cumplen 
-\[
-	T=T_2 \qquad V \neq V(\dot{q})
-\]
-y además los vínculos no dependen del tiempo se tiene que $\Ham=E$, es decir, el Hamiltoniano es la
-energía. La condicion de que los vínculos no dependan del tiempo genera en realidad que $T=T_2$.
+Asimismo, la condición de energía constante $ E = E_0 $ se cumplirá si el trabajo de las fuerzas no conservativas
+es nulo, $ W^{\text{nc}} = 0 $.
+\notamargen{Esto se debiera haber visto antes en algún momento, y convendría recordarlo aquí.}
 
-Por otro lado $E = cte.$ si $W^{nc} = 0$.
+\begin{ejemplo}{\bf Bola rotante engarzada en alambre}
+
+Una barra gira sobre un mesa sin rozamiento en torno a un punto fijo $O$ con velocidad angular constante $ \omega $.
+Esta barra tiene enhebrada una bola de masa $m$ que puede deslizarse libremente a lo largo de la misma, como se ilustra 
+esquemáticamente en la figura \ref{fig_barra_giratoria}.
+
+\begin{figure}[bth]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_barra_giratoria.pdf}
+	\end{center}
+	\caption{Sistema de partículas}
+	\label{fig_barra_giratoria}
+\end{figure} 
+
+Claramente la bola seguirá, con respecto a un sistema de coordenadas polar $(\rho,\vp)$ con origen en el punto $O$,
+una trayectoria como la esquematizada por la curva verde. 
+% Las coordenadas generalizadas son $\rho,\vp$
+
+En este problema no hay potencial y el lagrangiano, que es $T$, será 
+\[
+	\Lag = \frac{1}{2} ( \dot{\rho}^2 + \rho^2 \omega^2 )
+\]
+
+El hamiltoniano es 
+\be
+	\Ham = \frac{1}{2} ( \dot{\rho}^2 - \rho^2 \omega^2 ).
+	\label{ham_ejemplo_bola}
+\ee
+Luego, como el lagrangiano no depende explícitamente del tiempo entonces el hamiltoniano dado por la \eqref{ham_ejemplo_bola}
+se conserva. No obstante, el hamiltoniano no es la energía puesto que la energía cinética $ T $ tiene la forma  $ T = T_2 + T_0 $,
+que proviene del hecho de que la fuerza de vínculo (que tendrá dirección angular en este caso) dependerá del tiempo.
+La energía no se conserva, claramente hay trabajo de la fuerza de vínculo, que es una fuerza no conservativa. 
+
+La conservación del hamiltoniano dependerá de las coordenadas generalizadas elegidas. Podría pensarse que el $\Ham$ es la energía
+vista en un sistema no inercial [?].
+La energía siempre es la medida en un sistema inercial. Además, cuando se conserve lo será desde cualquier sistema de coordenadas
+inercial elegido.
+ 
+\end{ejemplo}
+
 
 % =================================================================================================
 \section{Energía cinética y el hamiltoniano}
@@ -1400,9 +1466,9 @@ Calculo que se relaciona con la proyección de los ejes 123 en xyz. Confirmarlo.
 
 \begin{figure}
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_moneda.pdf}	 
+	\includegraphics[width=1.0\textwidth]{images/fig_moneda.pdf}	 
 	\end{center}
-	\caption{Moneda que rueda libremente por un plano.}
+	\caption{Moneda que rueda libremente por un plano. Intercambié ejes 2 y 3 respecto del dibujo anterior.}
 \end{figure} 
 
 Como los vínculos dependen de la velocidad, resulta 
