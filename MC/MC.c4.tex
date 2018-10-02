@@ -4,7 +4,7 @@
 	\usepackage{amsmath}
 	\usepackage{graphicx}
 	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -15,7 +15,7 @@
 
 
 	\usepackage{CBFT.estilo} % Cargo la hoja de estilo
-
+	
 	% Tipografías
 	% \setromanfont[Mapping=tex-text]{Linux Libertine O}
 	% \setsansfont[Mapping=tex-text]{DejaVu Sans}
@@ -36,20 +36,22 @@
 \chapter{Fuerzas centrales}
 
 % =================================================================================================
-\section{Fuerzas centrales}
+\section{Fuerzas centrales}\index{Fuerzas centrales}
 % =================================================================================================
 
-Una fuerza central es aquella que cumple
+Una fuerza central es aquella que depende únicamente de la distancia entre dos puntos, lo cual 
+matemáticamente se expresa como
 \[
-	\vb{F}(r) = f(r)\hat{r} = - \dpar{V}{r}
+	\vb{F}(r) = F(r) \:\hat{r}, \quad \qquad F(r) = - \dpar{V}{r}
 \]
-de tal suerte que la parte cinética del lagrangiano es 
+
+Entonces la parte cinética del lagrangiano se puede escribir en coordenadas esféricas $(r,\theta,\phi)$ como
 \[
 	\Lag = \frac{1}{2}m \left( \dot{r}^2 + r^2 \dot{\theta}^2 + r^2 \sin(\theta)^2\dot{\phi}^2 \right)
 \]
 
-El momento angular $\vb{L}$ se conserva puesto que $\vb{\tau} = \vb{r} \times \vb{F}=0$. Como es 
-$\vb{L} = \vb{r} \times \vb{p} = \vb{r} \times m\dot{\vb{r}} = cte$ entonces se sigue que $\vb{r},\vb{p}$
+El momento angular $\vb{L}$ se conserva puesto que $\vb{\tau} = \vb{x} \times \vb{F}=0$. Como es 
+$\vb{L} = \vb{x} \times \vb{p} = \vb{x} \times m \: \dot{\vb{x}} = cte$ entonces se sigue que $\vb{r},\vb{p}$
 se hallan contenidos en el mismo plano.
 
 Puedo pedir, sin pérdida de generalidad, que $\theta=\pi/2$ y entonces 
@@ -153,7 +155,7 @@ En el caso del potencial de Kepler será
 es decir que el miembro derecho es una constante. Sale fácil entonces.
 
 % =================================================================================================
-\section{Velocidad areolar}
+\section{Velocidad areolar}\index{Velocidad areolar}
 % =================================================================================================
 
 \[
