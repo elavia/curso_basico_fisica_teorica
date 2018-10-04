@@ -39,10 +39,31 @@
 \section{Fuerzas centrales}\index{Fuerzas centrales}
 % =================================================================================================
 
-Una fuerza central es aquella que depende únicamente de la distancia entre dos puntos, lo cual 
-matemáticamente se expresa como
+\notamargen{Comentario de que fijo un punto, y es una función vectorial tomar vector y da vector, que resulta finalmente
+más simple porque se sabe de antemano la dirección de la salida --en la dirección de la recta que une los puntos--.}
+
+Una fuerza central es aquella que depende únicamente de la distancia entre dos puntos. Es decir que si se tienen dos
+puntos $\vb{x}, \vb{y}$, separados una distancia $ r = |\vb{r}| = |\vb{x} - \vb{y}| $, una fuerza central $\vb{F}$ verifica
 \[
-	\vb{F}(r) = F(r) \:\hat{r}, \quad \qquad F(r) = - \dpar{V}{r}
+	\vb{F}( \vb{x}, \vb{y} ) = F(r) \: \hat{r}, \qquad \qquad \hat{r} = \frac{\vb{r}}{r}
+\]
+% es decir que la fuerza $\vb{F}$ entre dos puntos $\vb{x}, \vb{y}$ depende de la distancia $r = |\vb{x}-\vb{y}|$
+% entre los mismos.
+de manera que la información sobre la dirección de la misma ($\hat{r}$) está establecida en la recta que une $\vb{x}$ con 
+$\vb{y}$ mientras que su módulo es una función escalar $F(r)$.
+
+
+\begin{figure}[!hbt]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_fuerza_central.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
+Esto implica, al ser una fuerza dependiente de una sola coordenada, que siempre es posible obtener un potencial
+a partir de ella, es decir que existe $V(r)$ tal que
+\[
+	F(r) = - \dpar{V}{r}.
 \]
 
 Entonces la parte cinética del lagrangiano se puede escribir en coordenadas esféricas $(r,\theta,\phi)$ como
