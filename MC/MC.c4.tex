@@ -322,17 +322,47 @@ Entonces en resumen, las leyes de Kepler son
 \section{Vector de Runge-Lenz}
 % =================================================================================================
 
-Para el problema de Kepler también se conserva una cantidad llamada {\it vector de Runge-Lenz}
+Para el problema de Kepler también se conserva una cantidad llamada {\it vector de Runge-Lenz} definido como
 \[
-	\vb{R} = \vb{V} \times \vb{L} - k\frac{\vb{r}}{r}
+	\vb{R} = \vb{v} \times \vb{l} - \alpha \frac{\vb{x}}{x}.
 \]
+
+Luego, si le tomamos la derivada temporal, resulta
 \[
-	\dtot{\vb{R}}{t} = \dtot{\vb{V}}{t} \times \vb{L} + \vb{V} \times \dtot{\vb{L}}{t} -
-	k\frac{\dtot{\vb{r}}{t} r - \dtot{r}{t} \vb{r}  }{r^2}
+	\dtot{\vb{R}}{t} = \left( \dtot{\vb{v}}{t} \times \vb{l} \right) + \left( \vb{v} \times \dtot{\vb{l}}{t} \right)
+	- \alpha\frac{ \vb{v} }{x} + \frac{ \alpha }{x^2} \dtot{x}{t} \vb{x}
 \]
+donde el último se puede poner en términos de la velocidad si utilizamos la regla de la cadena así
 \[
-	\dtot{\vb{V}}{t} \times ( \vb{r} \times m\vb{v} ) +
-	\vb{v} \times \left( \dtot{\vb{r}}{t} \times m\vb{v} + \vb{r} \times m\dtot{\vb{v}}{t} \right)
+	\dtot{|\vb{x}|}{t} = \dtot{|\vb{x}|}{x_i} \dtot{x_i}{t} = \nabla( |\vb{x}| )\cdot \vb{v} \qquad  \qquad i=1,2,3
+\]
+
+Luego, cada componente $i$-ésimo del gradiente de la norma del vector de posición tiene (en coordenadas cartesianas) la misma
+forma; tomando como ejemplo el $i=1$
+\[
+	\dtot{|\vb{x}|}{x_1} = \dtot{\sqrt{x_1^2 + x_2^2 + x_3^2}}{x_1} = \frac{x_1}{|\vb{x}|},
+\]
+de manera que 
+\[
+	\nabla( |\vb{x}| ) = \frac{\vb{x}}{x} = \hat{x},
+\]
+el gradiente de la norma del vector es su dirección. Entonces, volviendo a la ecuación original resulta 
+\[
+	\dtot{\vb{R}}{t} = \left( \dtot{\vb{v}}{t} \times \vb{l} \right) + \left( \vb{v} \times \dtot{\vb{l}}{t} \right)
+	- \alpha\frac{ \vb{v} }{x} + \alpha \:\vb{x} \left( \frac{ \pe{x}{v} }{x^3}\right) 
+\]
+
+Dado que $\vb{l} = \vb{x} \times m \vb{v}$ el segundo término en la anterior expresión desaparece y nos queda
+\[
+	\dtot{\vb{R}}{t} = \left( \dtot{\vb{v}}{t} \times [ \vb{x} \times m\vb{v} ] \right) 
+	- \alpha\frac{ \vb{v} }{x} + \alpha \:\vb{x} \left( \frac{ \pe{x}{v} }{x^3}\right) 
+\]
+
+\notamargen{Aparentemente esto tiene que dar nulo pero no lo estaría viendo.}
+
+\[
+	\dtot{\vb{V}}{t} \times ( \vb{x} \times m\vb{v} ) +
+	\vb{V} \times \left( \dtot{\vb{r}}{t} \times m\vb{v} + \vb{r} \times m\dtot{\vb{v}}{t} \right)
 \]
 pero como $\dtot{\vb{r}}{t} \times m\vb{v} = 0$ resulta lo que resulta.
 \begin{figure}[hbt]
@@ -341,6 +371,25 @@ pero como $\dtot{\vb{r}}{t} \times m\vb{v} = 0$ resulta lo que resulta.
 	\end{center}
 	\caption{}
 \end{figure} 
+
+El vector de Runge-Lenz siempre apunta en la misma dirección dada su constancia (ver figura).
+\notamargen{Mejorar la figura!}
+
+Escribo $ T= E-V$
+\[
+	r_{max} m v^2 = 2Er_{max} + 2\alpha
+\]
+pero 
+\[
+	r_{max} = \frac{2 E l^2 \alpha}{\alpha^2 m (1-\varepsilon)} = \frac{-1}{\alpha}\frac{b^2 \alpha}{\alpha^2(1-\varepsilon)}
+\]
+\[
+	r_{max} = - (1+\varepsilon) \alpha
+\]
+
+\[
+	b^2 = a^2( 1 - \varepsilon^2 )
+\]
 
 % =================================================================================================
 \section{Reducción del problema de dos cuerpos a uno equivalente}
