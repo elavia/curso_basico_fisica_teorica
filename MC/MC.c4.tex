@@ -229,52 +229,86 @@ y esto significaría que la órbita se cierra.
 
 La ecuación a resolver es 
 \[
-	\dtot[2]{U}{\phi} + \left( U  - \frac{k m}{L^2} \right) = 0
+	\dtot[2]{U}{\phi} + \left( U  - \frac{k m}{L^2} \right) = 0.
 \]
-o bien 
+Si consideramos una nueva variable 
+\[
+	\beta = U  - \frac{k m}{L^2}
+\]
+la anterior pasa a 
 \[
 	\dtot[2]{\beta}{\phi} + \beta = 0
 \]
-entonces
+y es fácil ver que la solución es
 \[
-	\beta = A \cos( \phi -\phi_0 )
+	\beta = A \cos( \phi -\phi_0 ),
 \]
-\[
-	U = \frac{km}{L^2} +  A \cos( \phi -\phi_0 )
-\]
-\[
-	\frac{1}{r} = \frac{km}{L^2} +  A \cos( \phi -\phi_0 )
-\]
-y habría que usar $r_m, r_M$ para evaluar $A$.
+o bien 
+\be
+	U(\phi) = \frac{km}{L^2} +  A \cos( \phi -\phi_0 ),
+	\label{sol_general}
+\ee
+donde $A,\phi_0$ son constantes. Ahora bien, la expresión \eqref{sol_general} es la solución general,
+necesitamos proveer las condiciones iniciales para fijar $ A, \phi_0 $. Propongamos $ \phi_0 = 0 $
+punto apsidal.
 
+Luego podemos utilizar $r_m, r_M$ lo cual determina $U_m, U_M$ respectivamente, cuyos valores son 
+\[
+	U^M_m = \frac{km}{L^2} \left( 1 \pm \sqrt{1 + \frac{2EL^2}{k^2 m} }\right)
+\]
+\notamargen{Dónde sale esto?}
+y esto nos permite fijar $A$. Incorporando esto en \eqref{sol_general} y recordando que $U(\phi) =1/r$ 
+se tiene 
+\[
+	\frac{1}{r} = \frac{km}{L^2}\left( 1 +  \sqrt{1 + \frac{2EL^2}{k^2 m} } \cos( \phi ) \right),
+\]
+que no es otra cosa que la ecuación de una elipse en coordenadas polares con origen en un foco.
+Veámoslo.
 
-Con respecto a las elipses
+% \[
+% 	\frac{1}{r} = \frac{km}{L^2} +  A \cos( \phi -\phi_0 )
+% \]
+% y habría que usar $r_m, r_M$ para evaluar $A$.
+
+Las elipses verifican 
 \[
 	\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1	\qquad \sigma^2 = a^2 - b^2
 \]
+donde $\sigma$ es la semi-distancia focal. Definiendo $ \sigma/a \equiv \varepsilon$ (la excentricidad) 
+se puede expresar
 \[
-	b = a \sqrt{ 1 - (\sigma/a)^2 }
+	b = a \sqrt{ 1 - \varepsilon^2 }
 \]
 
-Por otro lado,
+\begin{figure}[hbt]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_elipse.pdf}	 
+	\end{center}
+	\caption{}
+	\label{fig_mc_elipse}
+\end{figure} 
+
+Por otro lado, usando el teorema del coseno para el triángulo definido en la Figura \ref{fig_mc_elipse} es 
 \[
 	s^2 = (2\sigma)^2 + r^2 - 4\sigma r \cos( \pi - \phi )
 \]
+y como $s+r$ es la distancia que se mantiene constante e igual, entre otras, a $2a$ se sigue que 
 \[
 	( 2a -r )^2 = 4\sigma^2 + r^2 + 4\sigma r \cos(\phi)
 \]
-y definiendo $ \sigma/a \equiv \varepsilon$ resulta
+cuya simplificación conduce a
 \[
-	a - r = \varepsilon ( \sigma + r\cos(\phi) )
+	\frac{1}{r} = \frac{1 + \varepsilon \cos (\phi)}{a(1-\varepsilon)} = \frac{a}{\phantom{^a}b^2} \left( 1 + \varepsilon \cos (\phi) \right)
 \]
-y esto es una elipse.
+la cual es la ecuación de una elipse.
+
 \notamargen{Acá hay que hacer un laburo muy importante.}
-\begin{figure}[hbt]
-	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_mc_elipse.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
+% \begin{figure}[hbt]
+% 	\begin{center}
+% 	\includegraphics[width=0.4\textwidth]{images/fig_mc_elipse.pdf}	 
+% 	\end{center}
+% 	\caption{}
+% \end{figure} 
 
 Entonces en resumen, las leyes de Kepler son
 \begin{enumerate}
