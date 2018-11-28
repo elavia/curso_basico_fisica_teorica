@@ -251,12 +251,14 @@ o bien
 donde $A,\phi_0$ son constantes. Ahora bien, la expresión \eqref{sol_general} es la solución general,
 necesitamos proveer las condiciones iniciales para fijar $ A, \phi_0 $. Propongamos $ \phi_0 = 0 $
 punto apsidal.
-
+\notamargen{\includegraphics[width=0.3\textwidth]{images/fig_mc_detalle_elipses.pdf}
+Eligiendo el punto $\phi_0 =0$ obtenemos una elipse como la de arriba.
+}
 Luego podemos utilizar $r_m, r_M$ lo cual determina $U_m, U_M$ respectivamente, cuyos valores son 
 \[
 	U^M_m = \frac{km}{L^2} \left( 1 \pm \sqrt{1 + \frac{2EL^2}{k^2 m} }\right)
 \]
-\notamargen{Dónde sale esto?}
+
 y esto nos permite fijar $A$. Incorporando esto en \eqref{sol_general} y recordando que $U(\phi) =1/r$ 
 se tiene 
 \[
@@ -279,10 +281,11 @@ se puede expresar
 \[
 	b = a \sqrt{ 1 - \varepsilon^2 }
 \]
-
+\notamargen{Falta el sistema de coordenadas en el foco $f'$. Revisar quién es $EL$.}
 \begin{figure}[hbt]
 	\begin{center}
-	\includegraphics[width=0.5\textwidth]{images/fig_mc_elipse.pdf}	 
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_elipse_1.pdf} \hspace*{2em}	 
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_elipse.pdf}	 
 	\end{center}
 	\caption{}
 	\label{fig_mc_elipse}
@@ -318,23 +321,35 @@ Entonces en resumen, las leyes de Kepler son
 	\]
  \item El radio vector recorre áreas iguales en tiempos iguales
 	\[
-		A = \frac{1}{2} r^2 d\phi \quad \longrightarrow \dtot{A}{t} = \frac{r^2}{2} \dot{\phi} = \frac{L}{2m} (cte.)
+		\delta A = \frac{1}{2} r^2 \delta \phi \quad \longrightarrow \quad \dtot{A}{t} = \frac{r^2}{2} \dot{\phi} = \frac{L}{2m} (cte.)
 	\]
- \item 
- \[
-	\dtot{A}{t} = \frac{L}{2m}
- \]
- \[
-	\pi a b = \int dA = \frac{L}{2m} \int dt = \frac{L}{2m} \tau \qquad a = \frac{L\tau}{2\pi m b} 
- \]
- pero como $km/L^2 = a/b^2$ es
- \[
-	B = L \sqrt{\frac{a}{k m}}
- \]
- \[
-	a^3 = \frac{GM}{4\pi^2} \tau^2
- \]
+	Esto es una característica de todo potencial central.
+ \item El cubo del semieje mayor de la órbita de un planeta es proporcional al cuadrado del período empleado en recorrerla.
+	La ecuación anterior, que da la velocidad areolar, se puede integrar como 
+	\[
+		\int dA  = \frac{L}{2m} \int dt
+	\]
+	que conduce a 
+	\[
+		\pi a b = \frac{L}{2m} \tau \qquad \longrightarrow \qquad a = \frac{L\tau}{2\pi b m}, 
+	\]
+	y luego, como $k m /L ^2 = a/b^2$ llegamos a 
+	\[
+		a^3 = \frac{k}{m} \frac{1}{4\pi^2} \: \tau^2 = \frac{GM}{4\pi^2} \tau^2
+	\]
  y esto es independiente de la masa del planeta.
+ 
+Como $a$ depende de $L$ se tiene que dependiendo de la energía $E$ tendré órbitas como las ilustradas debajo
+todas las cuales tienen la misma energía 
+\[
+	a = \frac{1}{2}(r_M + r_m) = -\frac{k}{2E}
+\] 
+\notamargen{Esto estaba en la carpeta pero no lo entiendo bien del todo. Tal vez ilustración de la elipse con 
+el sistema coordenado en el origen.}
+ Para una elipse con el sistema coordenado en el centro se tiene 
+ \[
+	\frac{1}{r^2} = \frac{1}{b^2}( 1-\varepsilon^2 \cos^2 (\phi) )
+ \]
  
  Trabajamos más con la elipse,
  \[
