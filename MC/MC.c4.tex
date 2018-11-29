@@ -424,7 +424,7 @@ pero como $\dtot{\vb{r}}{t} \times m\vb{v} = 0$ resulta lo que resulta.
 El vector de Runge-Lenz siempre apunta en la misma dirección dada su constancia (ver figura).
 \notamargen{Mejorar la figura!}
 
-Escribo $ T= E-V$
+Escribo $ T = E - V $
 \[
 	r_{max} m v^2 = 2Er_{max} + 2\alpha
 \]
@@ -439,6 +439,35 @@ pero
 \[
 	b^2 = a^2( 1 - \varepsilon^2 )
 \]
+
+\begin{ejemplo}{\bfseries Vector de Runge-Lenz en órbitas elípticas}
+\notamargen{Este título es provisorio}
+
+Sabemos que el vector de Runge-Lenz tiene la forma 
+\[
+	\vb{A} = \pv{V}{L} - \alpha \frac{\vb{x}}{x}
+\]
+y cumple 
+\[
+	\dtot{A}{t} = 0
+\]
+
+Veamos qué expresión tiene el módulo $ A \equiv |\vb{A}| $. Tomando el producto escalar 
+\[
+	\pe{A}{x} = A r \cos \theta = ( \pv{V}{L} )\cdot \vb{x} - \alpha \frac{\pe{x}{x}}{x}
+\]
+y reescribiendo (ciclicidad del producto vectorial)
+\[
+	( \pv{V}{L} )\cdot \vb{x} = \vb{L} \cdot ( \pv{r}{v} ) = \vb{L} \cdot \frac{ \vb{L} }{m} = \frac{L^2}{m}
+\]
+y entonces
+\[
+	\alpha r \left( 1 + \frac{A}{\alpha} \cos \theta \right) = \frac{L^2}{m}
+\]
+pero como $ (1 + \varepsilon \cos \theta ) = p / r $ es la excentricidad se tiene $ A = \varepsilon \alpha $.
+
+\end{ejemplo}
+
 
 % =================================================================================================
 \section{Reducción del problema de dos cuerpos a uno equivalente}
