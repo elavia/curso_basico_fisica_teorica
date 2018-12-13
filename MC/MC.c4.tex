@@ -164,7 +164,7 @@ y acá probamos el conveniente cambio de variables
 \[
 	- \frac{U^2 L^2}{m} \left[ \dtot[2]{U}{\phi} + U \right] = F(1/U)
 \]
-o bien 
+o bien
 \[
 	\left[ \dtot[2]{U}{\phi} + U \right] = - \frac{F(1/U) m}{U^2 L^2}. 
 \]
@@ -176,7 +176,7 @@ En el caso del potencial de Kepler será
 es decir que el miembro derecho es una constante. Sale fácil entonces.
 
 % =================================================================================================
-\section{Velocidad areolar}\index{Velocidad areolar}
+\section{Velocidad areolar}\index{Velocidad areolar--}
 % =================================================================================================
 
 \[
@@ -468,6 +468,43 @@ pero como $ (1 + \varepsilon \cos \theta ) = p / r $ es la excentricidad se tien
 
 \end{ejemplo}
 
+% =================================================================================================
+\section{Orbitas de potenciales centrales}
+% =================================================================================================
+
+\[
+	V(r) = -\frac{\alpha}{r}
+\]
+\[
+	V(r) = \frac{ k r^2 }{2}
+\]
+Estos dos casos dan órbitas cerradas. Pero hay otros potenciales interesantes.
+El potencial de Yukawa
+\[
+	V(r) = - \frac{\euler^{-\lambda r}}{r^\alpha}
+\]
+que es aproximadamente como un potencial coulombiano apantallado ($\alpha=1,\lambda=0$).
+Otro es el oscilador no armónico\index{Oscilador no armónico}
+\[
+	V(r) = r^\alpha
+\]
+Algunos casos se muestran bajo estas líneas
+
+\begin{figure}[hbt]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{images/fig_mc_potenciales_otro.pdf}
+	\end{center}
+	\caption{Algunas curvas de potenciales anarmónicos $ r^\alpha $.}
+\end{figure}
+
+Da órbita que no se cierra en un billar elíptico.
+
+\begin{figure}[hbt]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_billar.pdf}
+	\end{center}
+	\caption{.}
+\end{figure}
 
 % =================================================================================================
 \section{Reducción del problema de dos cuerpos a uno equivalente}
@@ -494,7 +531,7 @@ dando unas $r$ relativas
 	\vb{r} = \vb{r}_1' - \vb{r}_2' = -\frac{ m_1 + m_2 }{ m_1 } \vb{r}_2' = -\frac{ m_1 + m_2 }{ m_2 } \vb{r}_1'.
 \]
 
-\begin{figure}
+\begin{figure}[hbt]
 	\begin{center}
 	\includegraphics[width=0.4\textwidth]{images/fig_reduccion.pdf}	 
 	\end{center}
@@ -863,7 +900,6 @@ partículas incidentes.
 \]
 con $\theta$ variable paramétrica. Donde $\rho = \rho(z)$ es la función que da la curva roja (el perfil
 del cuerpo dispersor).
-
 
 
 
