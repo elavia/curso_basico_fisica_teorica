@@ -510,9 +510,30 @@ Da órbita que no se cierra en un billar elíptico.
 \section{Reducción del problema de dos cuerpos a uno equivalente}
 % =================================================================================================
 
+Para dos partículas de masas $ m_1 $ y $ m_2 $ sometidas a una fuerza central 
+\[
+	\vb{F}_{21} = F(r) \hat{r}_{21} \qquad \qquad F(r) = -\dtot{V(r)}{r}
+\]
+siendo $x \equiv |\vb{x}_2-\vb{x}_1|$ la distancia relativa.
+
+\begin{figure}[hbt]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_prob_equiv_scheme.pdf}	 
+	\end{center}
+	\caption{.}
+	\label{fig_mc_prob_equiv_scheme}
+\end{figure} 
+
+La energía del sistema será de la forma  $ E = T_1 + T_2 + V(r) $ pero se puede expresar según 
+$ E = T_{cm} + T_{rel} + V(r) $; es decir separando la energía cinética en el aporte del centro de
+masa más un aporte que depende de la distancia relativa entre los cuerpos.
+De modo idéntido para el momento angular podemos pasar de $ L_{total} = L_{cm} + L_{spin} $ donde el
+momento angular de spin es el referido al movimiento en torno al centro de masas.
+
+\notamargen{Revisar y consolidar toda la notación aquí, que está mezclada.}
 Consideramos el siguiente sistema de coordenadas,
 \[
-	r \equiv | \vb{r}_2 - \vb{r}_1 |	\qquad		 \dot{r} \equiv | \dot{\vb{r}}_2 - \dot{\vb{r}}_1 |
+	r \equiv | \vb{r}_2 - \vb{r}_1 | \qquad	\qquad  \dot{r} \equiv | \dot{\vb{r}}_2 - \dot{\vb{r}}_1 |
 \]
 donde el sistema centro de masas es
 \[
@@ -527,9 +548,10 @@ que provocan
 	\vb{r}_1' = -\frac{m_2}{m_1}\vb{r}_2' \qquad   \vb{r}_2' = -\frac{m_1}{m_2}\vb{r}_1' 
 \]
 dando unas $r$ relativas
-\[
+\be
 	\vb{r} = \vb{r}_1' - \vb{r}_2' = -\frac{ m_1 + m_2 }{ m_1 } \vb{r}_2' = -\frac{ m_1 + m_2 }{ m_2 } \vb{r}_1'.
-\]
+	\label{r_relativas}
+\ee
 
 \begin{figure}[hbt]
 	\begin{center}
@@ -553,17 +575,52 @@ Luego, como la energía se conserva (el $V_{cm}=cte.$) podemos escribir
 	E = \frac{1}{2} M {\vb{V}}^2 + \frac{1}{2} \frac{m_2^2}{m_1} \dot{\vb{r}}_2'^2 + \frac{1}{2} m_2 \dot{\vb{r}}_2'^2 + V(r)
 \]
 \[
-	E = \frac{1}{2} M {\vb{V}}^2 + \frac{1}{2} \frac{m_2 m_1}{M} \dot{\vb{r}}^2 + V(r)
+	E = \frac{1}{2} M {\vb{V}}^2 + \frac{1}{2} \frac{m_2 m_1}{M} \dot{\vb{r}}^2 + V(r).
 \]
-y el 
+
+Pero como $E$ y la $\vb{V}$ se conservan, se tiene 
 \[
-	e = \frac{1}{2} \mu \dot{\vb{r}}^2 + V(r)
+	e \equiv E - \frac{1}{2} M {\vb{V}}^2 =  \frac{1}{2} \mu \dot{\vb{x}}^2 + V(r)
 \]
-donde este último $\vb{r}$ es un vector distancia relativa. Es un problema equivalente para la partícula
+donde $e$ es una cantidad conservada que podemos llamar la energía reducida[?].
+
+Este último $\vb{x}$ es un vector distancia relativa. Es un problema equivalente para la partícula
 centro de masas.
+
+\begin{figure}[hbt]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_prob_equiv.pdf}	 
+	\end{center}
+	\caption{.}
+	\label{fig_mc_prob_equiv}
+\end{figure} 
+
+Podemos considerar ahora los momentos angulares de las partículas respecto de este sistema centro
+de masas. Así
 \[
-	e = \frac{1}{2} \mu ( \dot{\vb{r}}^2 + r^2\dot{\phi}^2 ) + V(r)
+	\vb{l}_1' = \vb{x}_1' \times \vb{p}_1 \qquad \qquad  \vb{l}_2' = \vb{x}_2' \times \vb{p}_2'
 \]
+y sus módulos verifican 
+\[
+	|\vb{l}_1'| = {x}^{2'}_1 m_1 \dot{\theta} \qquad \qquad  |\vb{l}_2'| = {x}^{2'}_2 m_2 \dot{\theta}
+\]
+de manera que 
+\be
+	\ell = ( {x}^{2'}_1 m_1 + {x}^{2'}_2 m_2 ) \dot{\theta} = \mu r^2 \dot{\theta}
+	\label{mom_ang_conserv}
+\ee
+es el momento angular de spín para este sistema. Nótese que a partir de \eqref{r_relativas} se puede
+expresar las $x'_i$ ($i=1,2$) en términos de $r$.
+
+Luego, en coordenadas polares en el centro de masa resulta
+\[
+	e = \frac{1}{2} \mu ( \dot{ r}^2 + r^2\dot{\phi}^2 ) + V(r),
+\]
+o bien, usando \eqref{mom_ang_conserv},
+\[
+	e = \frac{1}{2} \mu \dot{ r}^2 + \frac{\ell^2}{2 \mu r^2 } + V(r)
+\]
+que no es otra cosa que el problema de fuerza central para un cuerpo de masa $\mu$.
 
 Diremos que la {\it distancia relativa} describe una elipse. Las trayectoria reales en el espacio físico
 son dos elipses confocales. Por supuesto dejan de cumplirse las leyes de Kepler en este caso.
@@ -574,6 +631,7 @@ son dos elipses confocales. Por supuesto dejan de cumplirse las leyes de Kepler 
 
 Consideramos la dispersión de un haz de partículas de cierta energía cinética por un centro dispersor,
 ver ilustración.
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.5\textwidth]{images/fig_mc_dispersion1.pdf}	 
