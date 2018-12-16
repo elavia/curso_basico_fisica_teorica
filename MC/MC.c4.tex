@@ -625,6 +625,45 @@ que no es otra cosa que el problema de fuerza central para un cuerpo de masa $\m
 Diremos que la {\it distancia relativa} describe una elipse. Las trayectoria reales en el espacio físico
 son dos elipses confocales. Por supuesto dejan de cumplirse las leyes de Kepler en este caso.
 
+Si como solución proponemos
+\[
+	V(r) = -\frac{\alpha}{r}
+\]
+tendré $ r = r(\phi) $ una elipse, que es lo que describe el $ r $ relativo.
+Se descompondrá el movimiento según las ecuaciones de transformación
+\[
+	\vb{r}_1'= -\frac{m_2}{m_1+m_2} \vb{r} \qquad \text{ Elipse de dirección contraria a $\vb{r}$}
+\]
+\[
+	\vb{r}_2'= \frac{m_1}{m_1+m_2} \vb{r} \qquad \text{ Elipse de dirección igual a $\vb{r}$}	
+\]
+Tendremos dos elipses confocales como muestra la figura bajo estas líneas 
+
+\begin{figure}[hbt]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_elipses_confocales.pdf}	 
+	\end{center}
+	\caption{.}
+	\label{fig_mc_elipses_confocales}
+\end{figure} 
+
+En este caso ya dejan de cumplirse las leyes de Kepler
+\[
+	\dtot{\mathcal{A}}{t} = \frac{\ell}{2\mu} \qquad a^3 \sim \tau^2 
+\]
+para la órbita relativa.
+\[
+	\frac{\pi a b }{\tau}= \frac{\ell}{2\mu} 
+\]
+\[
+	b = \frac{\ell}{\sqrt{\alpha \mu}} a^{1/2} \qquad \frac{a}{b} = \frac{\mu \alpha}{\ell^2}
+\]
+\[
+	\frac{\pi a^{3/2}}{\sqrt{\alpha \mu} \tau} = \frac{1}{2\mu}
+\]
+y entonces ahora se ve que no es independiente de las masas y no se puede simplificar $\sqrt{\mu\alpha}$ con
+$\mu$ como ocurría en un movimiento elíptico tradicional (bajo potencial gravitatorio).
+Entonces no es válida la ley de Kepler.
 % =================================================================================================
 \section{Dispersión}
 % =================================================================================================
