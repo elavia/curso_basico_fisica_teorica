@@ -1205,6 +1205,110 @@ También podemos encontrar esta notación, dependiendo del tipo de problema,
 \]
 
 
+\subsection{Minimización del camino entre dos puntos}
+
+\notamargen{Esto lo clavo por acá, después reacomodarlo}
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_snell1.pdf}	 
+	\end{center}
+	\caption{}
+	\label{fig_mc_snell1}
+\end{figure}
+
+El $ \tau $ es fijo.
+Este problema no es como el del billar porque la velocidad no es constante [?].
+\[
+	I = \int_1^2 \Lag \: dt 
+\]
+pero se puede descomponer en $ I = I_1 + I_2 $; es decir un lagrangiano para cada medio, luego
+\[
+	I = \frac{1}{2} m v_1^2 \int_0^{t_i} dt + (\frac{1}{2} m v_2^2 + V_0) \int_{t_i}^{t_f} dt ,
+\]
+que al integrar da
+\[
+	I = \frac{1}{2} m v_1^2 t_i + \frac{1}{2} m v_2^2( t_f - t_i ) + V_0( t_f - t_i ).
+\]
+
+Las condiciones geométricas del problema (ver Figura) implican que 
+\[
+	v_1 t_i = \ell_1(x) \qquad \qquad v_2 ( t_f - t_i ) = \ell_2(x)
+\]
+siendo $ \ell_i $ longitudes que dependen de $ x $. Esto permite expresar los tiempos $t$ en términos
+de la distancia $ x $ sobre la frontera. Entonces se obtiene la acción $I$ en términos de posiciones
+y velocidades, i.e.
+\[
+	I = I(v_1,v_2 ,x) = \frac{1}{2} m v_1 \ell_1(x) + \frac{1}{2} m v_2 \ell_2(x) + \frac{V_0}{V_2} \ell_2(x).
+\]
+
+Luego, como todo sucede a $\tau$ fijo ($t_f=\tau$) se debe tener el siguiente vínculo
+\[
+	\tau = \frac{\ell_1(x)}{v_1} + \frac{\ell_2(x)}{v_2}.
+\]
+Entonces, diferenciando implícitamente el vínculo y la integral $I$ obtenemos, respectivamente,
+\[
+	d\tau = 0 = \left( \frac{1}{v_1} \dtot{\ell_1}{x} + \frac{1}{v_2} \dtot{\ell_2}{x} \right) dx
+	-\frac{\ell_1}{v_1^2} dv_1 - \frac{\ell_2}{v_2^2}dv_2
+\]
+\[
+	dI = \left(  \frac{v_1}{2} \dtot{\ell_1}{x} +  \frac{v_2}{2} \dtot{\ell_2}{x} + 
+	 \frac{V_0}{v_2} \dtot{\ell_2}{x} \right) dx + 
+	\frac{\ell_1}{2} dv_1 + \left( \frac{\ell_2}{2} - \frac{V_0 \ell_2}{v_2^2} \right)dv_2 = 0
+\]
+En esta última ecuación, si fuesen independientes los diferenciales $dx,dv_1,dv_2$ entonces sería nulo cada
+paréntesis. Como no es el caso empleamos multiplicadores de Lagrange,
+\[
+	d\tau = \lambda \left( \frac{1}{v_1} \dtot{\ell_1}{x} + \frac{1}{v_2} \dtot{\ell_2}{x} \right) dx
+	- \lambda \frac{\ell_1}{v_1^2} dv_1 - \lambda \frac{\ell_2}{v_2^2}dv_2
+\]
+y combinando
+\begin{multline*}
+ 	\left(  \frac{v_1}{2} \dtot{\ell_1}{x} +  \frac{v_2}{2} \dtot{\ell_2}{x} + 
+	 \frac{V_0}{v_2} \dtot{\ell_2}{x} - \lambda \left[ \frac{1}{v_1} \dtot{\ell_1}{x} + \frac{1}{v_2} 
+	\dtot{\ell_2}{x}  \right] \right) dx + \\
+	\left( \frac{\ell_1}{2} + \lambda \frac{\ell_1}{v_1^2} \right) dv_1 + 
+	\left( \frac{\ell_2}{2} - \frac{V_0 \ell_2}{v_2^2} + \lambda \frac{\ell_2}{v_2^2} \right)dv_2.
+\end{multline*}
+
+Ahora se puede igualar a cero cada paréntesis porque consideramos independientes $v_1$ y $v_2$.
+Entonces, se tienen
+\[
+	\lambda = -\frac{1}{2}v_1^2 \qquad \qquad \lambda = -\frac{1}{2}v_2^2 + V_0
+\]
+de manera que ha resultado la conservación de la energía
+\[
+	\frac{1}{2}v_1^2 = \frac{1}{2}v_2^2 - V_0
+\]
+
+Reemplazando en la anterior expresión, se llega a
+\[
+	v_1 \dtot{\ell_1}{x} + v_2 \dtot{\ell_2}{x} = 0.
+\]
+
+\[
+	\ell_1 = \sqrt{ Y_0^2 + x^2 } \qquad \ell_2 = \sqrt{ Y_f^2 + (L-x)^2 }
+\]
+\[
+	\dtot{\ell_1}{x} = \sin(\alpha_1) \qquad \dtot{\ell_2}{x} = -\sin(\alpha_2)
+\]
+de modo que 
+\[
+	v_1 \sin( \alpha_1 ) = v_2 \sin( \alpha_2 ),
+\]
+que es la conclusión de la ley de Snell. Entonces podemos establecer un parangón entre mecánica clásica
+y óptica geométrica.
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_snell2.pdf}	 
+	\end{center}
+	\caption{}
+	\label{fig_mc_snell2}
+\end{figure}
+
+
+
 % =================================================================================================
 \section{Multiplicadores de Lagrange}
 % =================================================================================================
