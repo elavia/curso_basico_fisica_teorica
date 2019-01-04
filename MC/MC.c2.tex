@@ -1614,6 +1614,78 @@ Podemos escribir
 \label{moneda}
 \end{ejemplo}
 
+
+\subsection{Soluciones aproximadas}
+
+Puedo tomar un subconjunto pequeño de funciones y restringirme a buscar cua es la mejor función de ese conjunto
+en el sentido de extremar $I$:
+\[
+	I = \int_{t_i}^{t_f} \Lag(q_1,...,q_n,\dot{q}_1,...,\dot{q}_n,t) \: dt,
+\]
+donde el subconjunto de las funciones $q_1,q_2, ... ,q_n$ las tomo de algún subconjunto en particular.
+Por ejemplo,
+\[
+	q_1^f = a_0 + a_1 t_f + ... \qquad q_1^i = a_0 + a_1 t_i + ...
+\]
+
+\subsection{Oscilador armónico}
+
+Considero un oscilador armónico en una dimensión.
+\[
+	\Lag = \frac{1}{2} m \dot{x}^2 - \frac{1}{2} k \dot{x}^2
+\]
+
+Quiero resolver de manera aproximada el oscilador armónico y ver que está bien.
+Si considero $ n \to \infty $ tengo infinitos parámetros y puedo parametrizar cualquier curva que una los puntos
+inicial y final.
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[scale=0.5]{images/fig_mc_oscarm_approx.pdf}	 
+	\end{center}
+	\caption{}
+	\label{fig_mc_oscarm_approx}
+\end{figure} 
+
+\notamargen{
+comments del gráfico: toda curva que comunica los dos puntos la descompongo en poligonales. Columnas de partición
+}
+
+\[
+	I = \int_{t_i}^{t_f} \Lag(x,\dot{x}) \: dt
+\]
+Parto el intervalo y considero una partición de $N$ {\it cachos}.
+\[
+	\Delta t N = t_i - t_f
+\]
+donde $\Delta t \to 0$ y $N \to \infty $. Luego la versión discreta de la integral es 
+\[
+	I \approx \sum_{i=1}^{N-1} \left( \frac{1}{2}m \frac{(x_{i+1} - x_i)^2}{\Delta t^2} 
+	- \frac{1}{2} k x_i^2 \right) \Delta t
+\]
+
+Tomamos la derivada
+\[
+	\dpar{I}{x_j} = \left( m \frac{(x_j - x_{j-1})}{\Delta t^2} - m \frac{(x_{j+1} - x_j)}{\Delta t^2} \right) 
+	\Delta t - kx_j \Delta t
+\]
+e igualándola a cero,
+\[
+	\frac{m}{\Delta t^2} ( -2x_j + x_{j-1} + x_{j+1}) + k x_j = 0
+\]
+que se puede escribir como 
+\[
+	\frac{m}{\Delta t}\left( \frac{x_{j+1} - x_j}{\Delta t} - \frac{x_j - x_{j-1}}{\Delta t} \right) + k x_j = 0
+\]
+y que en el límite continuo va a 
+\[
+	m\ddot{x} - kx = 0.
+\]
+
+\notamargen{Creo que se puede usar que uno conoce diferencias finitas algo.
+El final parece no estar muy claro en la carpeta. Hacer la cuenta a mano bien.}
+
+
 % =================================================================================================
 \section{Potenciales dependientes de la velocidad}
 % =================================================================================================
