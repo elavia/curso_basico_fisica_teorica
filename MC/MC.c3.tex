@@ -1,13 +1,14 @@
 	\documentclass[10pt,oneside]{CBFT_book}
+	
 	% Algunos paquetes
+	
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
 	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
-
-	\usepackage{natbib}
+	\usepackage[numbers]{natbib}
+% 	\usepackage{natbib}
 	\setcitestyle{square}
 
 	\usepackage{polyglossia}
@@ -38,38 +39,49 @@
 \section{Constantes de movimiento y simetrías}
 % =================================================================================================
 
-Sean 
+Si en las ecuaciones de Euler-Lagrange
 \[
-	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) - \dpar{\Lag}{q_j}  = 0 
+	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) - \dpar{\Lag}{q_j}  = 0, 
 \]
-si
-\[
-	\dpar{\Lag}{q_j}  = 0 
-\]
-entonces 
+se daba el caso de que $ \Lag $ no dependía de $ q_j $ entonces
+$ \partial {\Lag} /\partial {q_j}  = 0  $ y
 \[
 	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) = 0
 \]
-y se ve que 
+significa que 
 \[
-	\dpar{\Lag}{\dot{q}_j} \equiv p_i = cte.
+	\dpar{\Lag}{\dot{q}_j} \equiv p_j
+\]
+es una constante ($\dot{p}_j=0$).
+
+Por otra parte, si $\delta q_i$ es traslación rígida en una dirección $\hat{n}$ entonces 
+\[
+	p_i = \vb{P}\cdot\hat{n} \qquad \text{ y } \qquad Q_j= \vb{F}\cdot\hat{n}. 
+\]	
+En cambio, si $\delta q_i$ es una rotación rígida en torno a un eje $\hat{n}$ se tiene 
+\[
+p_i = \vb{L}\cdot\hat{n} \qquad  \text{ y } \qquad Q_j= \vb{\Tau}\cdot\hat{n}.
 \]
 
-Si $\delta q_i$ es traslación rígida entonces $p_i = \vb{P}\cdot\hat{n}$ y $Q_j= \vb{F}\cdot\hat{n}$ en
-cambio si es rotación rígida se tiene $p_i = \vb{L}\cdot\hat{n}$ y $Q_j= \vb{\Tau}\cdot\hat{n}$.
-De tal forma vale que 
+En estos dos casos
 \[
 	\dpar{T}{q_i} = 0
 \]
-pués $T$ es escalar y no cambia ante una rotación y $T=T(\dot{q})$ no depende explícitamente de las
-coordenadas (no depende del origen decía ¿?). Luego $T=T_2$ y
-\[
-	\dpar{\Lag}{q_i} = 0 = \dpar{T}{q_i} - \dpar{V}{q_i} = 0
-\]
-Como $V \neq V(\dot{q})$ entonces las ecuaciones de Euler-Lagrange adoptan la forma
-\[
-	\frac{d}{dt}\left( \dpar{T}{\dot{q}_j} \right) + \dpar{V}{q_j}  = 0 
-\]
+puesto que:
+\begin{itemize}
+ \item Como $T$ depende de las velocidades (y no de las coordenadas) no depende del origen y por lo tanto no 
+varía ante una traslación rígida (que es un cambio de origen).
+ \item Como $T$ es un escalar no cambia ante una rotación.
+\end{itemize}
+
+% \[
+% 	\dpar{\Lag}{q_i} = 0 = \dpar{T}{q_i} - \dpar{V}{q_i} = 0
+% \]
+Luego, si $V \neq V(\dot{q})$ (el potencial $V$ no depende explícitamente de las velocidades) entonces las ecuaciones 
+de Euler-Lagrange adoptan la forma
+% \[
+% 	\frac{d}{dt}\left( \dpar{T}{\dot{q}_j} \right) + \dpar{V}{q_j}  = 0 
+% \]
 \[
 	\frac{d}{dt}\left( \dpar{T}{\dot{q}_j} \right) = - \dpar{V}{q_j}   
 \]
@@ -80,10 +92,18 @@ y entonces
 \[
 	\dot{p}_j = -\dpar{V}{q_j}   
 \]
-es la fuerza total proyectada en $\hat{n}$.
+es la fuerza total proyectada en la dirección $\hat{n}$.
+
+\notamargen{Acá parecen estar separadas los movimientos rígidos del hecho de que V sea de las coordenadas solamente. 
+En un caso tenemos $\dot{p}=0$ y en otro $\dot{p} = -\partial V / \partial q$.
+Creo que lo del potencial sería para las otras coordenadas no afectadas por la simetría?.}
+
+Para examinar constantes de movimiento podemos ver primreo las variables cíclicas. Sin embargo, si elegimos otras 
+coordenadas tal vez no aparezca la constante de movimiento como coordenada cíclica (aunque por supuesto sigue 
+existiendo dicha constante).
 
 % =================================================================================================
-\section{El teorema de Noether}
+\section{El teorema de Noether}\index{Noether, teorema de}
 % =================================================================================================
 
 Si existe una transformación continua $q_i \longrightarrow q_i + \delta q_i$ que deje invariante el
