@@ -109,7 +109,7 @@ existiendo dicha constante).
 Si existe una transformación continua $q_i \longrightarrow q_i + \delta q_i$ que deje invariante el
 $\Lag$ entonces hay una constante de movimiento asociada a dicha transformación.
 
-La transformación es 
+La transformación se puede escribir 
 \[
 	q_i \longrightarrow q_i' = q_i + \delta q_i
 \]
@@ -118,7 +118,7 @@ y cumple
 	\Lag(q_i, \dot{q}_i , t) = \Lag(q_i', \dot{q}_i' , t) =
 	\Lag(q_i[q_i',t], \dot{q}_i[\dot{q}_i',t] , t)
 \]
-y así si consideramos una variación a $t$ fijo,
+y así si consideramos una variación a $t$ fijo, también vale que 
 \[
 	\delta \Lag = \sum_i \dpar{\Lag}{q_i}\delta q_i + \dpar{\Lag}{\dot{q}_i}\delta \dot{q}_i =
 	\sum_i \dpar{\Lag}{q_i}\delta q_i + \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i}\delta q_i \right)
@@ -133,6 +133,58 @@ pero como el primer término del RHS es nulo por las ecuaciones de Euler-Lagrang
 	\delta \Lag = \frac{d}{dt}\left( \sum_i \dpar{\Lag}{\dot{q}_i}\delta q_i \right)  = 0,
 \]
 lo que está dentro del paréntesis es la cantidad conservada. 
+
+Existe una simetría (que deja invariante al lagrangiano) y resulta en una constante de movimiento.
+No obstante, no toda constante de movimiento proviene de una simetría.
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{ejemplo}{\bfseries Rotación en el plano }
+
+Una rotación en el plano $xy$ bajo un ángulo pequeño $\epsilon$ se puede escribir como 
+\[
+ \begin{cases}
+  x' = x + \epsilon y \\
+  y' = y - \epsilon x
+ \end{cases}
+\]
+\begin{figure}[!htb]
+	\begin{center}
+	\includegraphics[width=0.35\textwidth]{images/fig_mc_noether1.pdf}	 
+	\end{center}
+	\caption{}
+	\label{fig_mc_noether1}
+\end{figure} 
+
+Si consideramos el lagrangiano de una partícula libre en dicho plano $ \Lag = 1/2 m (\dot{x}^2 + \dot{y}^2)$, la 
+cantidad conservada será 
+\[
+	m \dot{x} \delta x + m \dot{y} \delta y = 2\epsilon ( -p_x y + p_y x ) = cte.
+\]
+que no es otra cosa que el momento angular $L_z$ (que se conserva).
+
+Por supuesto, para una rotación general (no restringida a un plano) son necesarios tres parámetros.
+La rotación plana requiere solamente un parámetro.
+\end{ejemplo}
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En el caso de una partícula rebotando en un billar hay simetría de rotación en torno a $z$, luego hay
+constante de movimiento. En el caso del movimiento elíptico donde 1 y 2 son los focos no hay simetría
+de rotación pero aún así hay constante de movimiento $ \ell_1 \ell_2 $.
+
+\begin{figure}[!htb]
+	\begin{center}
+	\includegraphics[width=1.0\textwidth]{images/fig_mc_noether2.pdf}	 
+	\end{center}
+	\caption{}
+	\label{fig_mc_noether2}
+\end{figure} 
+
+\subsection{Rotación infinitesimal}
+
+\notamargen{En la carpeta estaba este tema. Aparentemente para una rotación general aparecía el momento angular 
+conservado, si se manipulaban adecuadamente los índices.}
+
 Recordemos que 
 \[
 	\delta q_i = q'_i - q_i 
