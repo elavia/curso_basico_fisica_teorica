@@ -1673,6 +1673,8 @@ e igualándola a cero,
 \[
 	\frac{m}{\Delta t^2} ( -2x_j + x_{j-1} + x_{j+1}) + k x_j = 0
 \]
+\notamargen{Creo que se puede usar que uno conoce diferencias finitas algo.
+El final parece no estar muy claro en la carpeta. Hacer la cuenta a mano bien.}
 que se puede escribir como 
 \[
 	\frac{m}{\Delta t}\left( \frac{x_{j+1} - x_j}{\Delta t} - \frac{x_j - x_{j-1}}{\Delta t} \right) + k x_j = 0
@@ -1682,8 +1684,229 @@ y que en el límite continuo va a
 	m\ddot{x} - kx = 0.
 \]
 
-\notamargen{Creo que se puede usar que uno conoce diferencias finitas algo.
-El final parece no estar muy claro en la carpeta. Hacer la cuenta a mano bien.}
+
+
+\begin{ejemplo}{\bf Geodésicas}
+\notamargen{Este material es parte de una clase práctica. Habría que ver de hacerlo encajar mejor.}
+% \section{Geodésicas}
+La idea es extremizar la distancia entre dos puntos de una dada geometría.
+En el caso del plano se tiene 
+\[
+	I = \int ds = \int \sqrt{ dx^2 + dy^2 } = \int \sqrt{ 1 + \dot{y}^2 } \; dx
+\]
+donde se ha definido $\dot{y} \equiv dy/dx$. Evidentemente si la geometría es plana,
+la curva que extremiza el intervalo tiene que ser una recta. Veámoslo.
+Las ecuaciones de Euler Lagrange se reducen a:
+\[
+	\dtot{}{dx}\left( \frac{\dot{y}}{\sqrt{1 + \dot{y}^2 }}\right) = 0,
+\]
+las cuales nos dicen que 
+\[
+	\frac{\dot{y}}{\sqrt{1 + \dot{y}^2 }} = C
+\]
+donde $C$ es una constante. No es difícil ver que esta ecuación lleva a 
+\[
+	y(x) = C_1 x + C_2
+\]
+para $C_1, C_2$ constantes. Esta es la ecuación de una recta en el plano.
+
+
+{\bf Un ejemplo más sofisticado}
+
+Si a una curva $z=z(x)$ como la que se ilustra en la figura se la hace girar en torno al
+eje $z$ se tiene una superficie de revolución. Un punto tridimensional en esa superficie
+se puede parametrizar en términos de coordenadas cilíndricas $\rho,\theta, z$ según
+\[
+	\begin{cases}
+	x = \rho(z) \: \cos( \theta ) \\ 
+	y = \rho(z) \: \sin( \theta ) \\
+	z = z
+	\end{cases}
+\]
+donde el hecho de que la superificie es 2D se trasluce en que cada coordenada cartesiana
+3D $x,y,z$ depende a lo sumo de dos variables $\theta,z$.
+
+La trayectoria mínima entre dos puntos provendrá otra vez de extremar
+\[
+	I = \int ds = \int \sqrt{ dx^2 + dy^2 + dz^2 }
+\]
+pero utilizando la restricción de la superficie dada por las ecuaciones XXX. Utilizando
+la prima para denotar la derivada con respecto a $z$ se tiene 
+\[
+	dx = \rho' \cos \theta dz - \rho \sin \theta d\theta
+\]
+\[
+	dy = \rho' \sin \theta dz + \rho \cos \theta d\theta
+\]
+
+\[
+	I = \int \sqrt{ {\rho'}^2 dz^2 + \rho^2 d\theta^2 + dz^2 }
+\]
+que se puede poner en términos de la derivada con respecto a $z$ sacando como factor común
+su diferencial. Entonces
+\[
+	I = \int \sqrt{ ( {\rho'}^2 + 1 ) dz^2 + \rho^2 {\theta'}^2 } dz
+\]
+donde tanto $\rho$ como $\theta$ son funciones de $z$.
+El lagrangiano es función de $\theta', \rho, \rho'$
+
+Si calculamos las ecuaciones de Euler Lagrange para $\theta$ (que son las más fáciles puesto que
+la dependencia es solo de la derivada) se llega a
+\[
+	\frac{\rho \rho' \theta' }{\sqrt{ ( {\rho'}^2 + 1) + \rho^2 {\theta'}^2 }} = C
+\]
+que se puede, haciendo el álgebra correspondiente, lleva a la forma explícita
+\be
+	\theta(z) = C_1 \int \frac{\sqrt{ {\rho'}^2 + 1 }}{ 2 \sqrt{ \rho^2 - C_1^2 } } dz + C_2,
+	\label{ec_sup_rev}
+\ee
+que es una ecuación genérica para una superficie en rotación. Es decir, que recorrer la curva
+de longitud mínima por esa superficie debe hacerse avanzando en $\theta$ según la prescripción
+dada por \eqref{ec_sup_rev}.
+
+Si la superficie fuera un cilindro, de radio $a$, por ejemplo, se tendría $\rho=a$ de modo que la
+\eqref{ec_sup_rev} se integra inmediatamente para dar 
+\[
+	\theta(z) = C_1 \frac{z}{ a \sqrt{ a^2 - C_1^2 } } .
+\]
+Luego, para dos puntos separados verticalmente una distancia $h$ (ver figura) sobre la superficie
+del cilindro se tiene que la curva que representa la distancia mínima es una hélice en el cilindro,
+de paso $h$. Si la superficie lateral de este cilindro se desplegase sobre un plano, esa curva es
+una recta.
+
+{\bf Superficie general en 3D}
+
+Si la partícula debe {\it caminar} en la superficie $\Omega$ entonces tal vez se pueda expresar
+como $z=z(x,y)$ de tal forma se tendrá
+\[
+	I = \int f(\dot{x},\dot{y},\dot{z}) dt
+\]
+Luego, la derivada total de $z$ será
+\[
+	\dtot{z}{t} = \dot{z} = \dpar{z}{x} \dot{x} + \dpar{z}{y} \dot{y}
+\]
+y entonces 
+\[
+	I = \int f(\dot{x},\dot{y},\dpar{z}{x} \dot{x} + \dpar{z}{y} \dot{y}) dt.
+\]
+
+Planteando las ecuaciones de Euler-Lagrange 
+\[
+	\dtot{}{t}\left( \dtot{f}{\dot{x}} + \dtot{f}{\dot{z}}\dtot{z}{x} \right) -
+	\dtot{f}{\dot{z}}\dtot{}{x}
+	\left( \dpar{z}{x} \dot{x} + \dpar{z}{y} \dot{y} \right) = 0
+\]
+\[
+	\dtot{}{t}\left( \dtot{f}{\dot{y}} + \dtot{f}{\dot{z}}\dtot{z}{y} \right) -
+	\dtot{f}{\dot{z}}\dtot{\dot{z}}{y} = 0
+\]
+las cuales se pueden simplificar usando la derivada total,
+\[
+	\dtot{}{t}\left( \dtot{f}{\dot{x}} \right) + \dtot{}{t}\left( \dtot{f}{\dot{z}} \right)
+	\dtot{z}{x} + \dtot{f}{\dot{z}}\dtot{}{t}\left( \dtot{z}{x} \right) + 
+	\dtot{f}{\dot{z}}\dtot{}{t}\left( \dtot{z}{x} \right) = 0
+\]
+\notamargen{Los dos últimos términos tienen que aparecer tachados.}
+
+Luego,
+\[
+	\dtot{}{t}\left( \dtot{f}{\dot{x}} \right) + 
+	\dtot{z}{x}\dtot{}{t}\left( \dtot{f}{\dot{z}} \right) = 0
+\]
+\[
+	\dtot{}{t}\left( \dtot{f}{\dot{y}} \right) + 
+	\dtot{z}{y}\dtot{}{t}\left( \dtot{f}{\dot{z}} \right) = 0
+\]
+y como
+\[
+	\dtot{G}{x}\dot{x} + \dtot{G}{y}\dot{y} + \dtot{G}{z}\dot{z} = 0,
+\]
+se sigue que 
+\[
+	\dot{z} = -\left( \dtot{G}{x}\dot{x} + \dtot{G}{y}\dot{y} \right) \frac{1}{dG/dz}
+\]
+o bien
+\[
+	\dot{z} = -\left( \frac{G_x}{G_z}\dot{x} + \frac{G_y}{G_z}\dot{y} \right)
+\]
+de tal manera que 
+\[
+	\dtot{}{t}\left( \dtot{f}{\dot{x}} \right) + 
+	\frac{G_x}{G_z}\dtot{}{t}\left( \dtot{f}{\dot{z}} \right) = 0
+\]
+\[
+	\dtot{}{t}\left( \dtot{f}{\dot{y}} \right) + 
+	\frac{G_y}{G_z}\dtot{}{t}\left( \dtot{f}{\dot{z}} \right) = 0
+\]
+\[
+	\dtot{}{t}\left( \dtot{f}{\dot{z}} \right) = \lambda(t) G_z
+\]
+
+Entonces
+\[
+	\frac{1}{G_x} \dtot{}{t}\left( \dtot{f}{\dot{x}} \right) = 
+	\frac{1}{G_y} \dtot{}{t}\left( \dtot{f}{\dot{y}} \right) = 
+	\frac{1}{G_z} \dtot{}{t}\left( \dtot{f}{\dot{z}} \right) 
+\]
+
+Esta expresión puede simplificarse como 
+\[
+	f = \sqrt{ \dot{x}^2 + \dot{y}^2 + \dot{z}^2 } = 1
+\]
+si el parámetro $t$ es $s$
+\[
+	s = \int ds = \int \sqrt{dx^2 + dy^2 + dz^2 } =
+	\int \sqrt{ \dot{x}^2 + \dot{y}^2 + \dot{z}^2 } ds
+\]
+y entonces
+\[
+	\dtot{}{t}\left( \dtot{f}{\dot{x}} \right) = \ddot{x}
+\]
+de manera que la ecuación de la geodésica es
+\[
+	\frac{1}{G_x}\dtot[2]{x}{s} = \frac{1}{G_y}\dtot[2]{y}{s} = 
+	\frac{1}{G_z}\dtot[2]{z}{s}
+\]
+
+Ahora, si consideramos
+\[
+	I = \int [f(\dot{x}, \dot{y}, \dot{z}) + \lambda G(x,y,z)] dt
+\]
+se tiene que 
+\[
+	\dtot{}{t}\left( \dtot{f}{\dot{x}}\right) - \lambda G_x = 0
+\]
+y es un vínculo que hay que integrar, y es mucho más difícil.
+
+Volviendo a la superficie general
+\[
+	I = \int \left[\frac{1}{2} m (\dot{x}^2 + \dot{y}^2 +
+	   \dot{z}^2 ) - \lambda G \right] dt
+\]
+\[
+	T = \sqrt{(\dot{x}^2 + \dot{y}^2 + \dot{z}^2)} = cte. \equiv k
+\]
+y entonces $s=kt$
+
+\[
+	k^2 m \ddot{x} - \lambda G_x = 0
+\]
+\[
+	k^2 m \ddot{y} - \lambda G_y = 0
+\]
+\[
+	k^2 m \ddot{z} - \lambda G_z = 0
+\]
+
+\[	
+	G(x,y,z) = 0
+\]
+
+La partícula se mueve en una geodésica 
+\[
+	\frac{\ddot{x}}{G_x} = \frac{\ddot{y}}{G_y} = \frac{\ddot{z}}{G_z}
+\]
+\end{ejemplo}
 
 
 % =================================================================================================
