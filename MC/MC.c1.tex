@@ -58,7 +58,7 @@ La segunda ley de Newton se podía escribir en función del momento lineal de un
 \[
 	\dtot{\vb{p}}{t} = \vb{F}
 \]
-siendo $ \vb{p} = m\vb{v} $ el momento de la partícula y $ F $ la fuerza total que actuaba sobre la misma.
+siendo $ \vb{p} = m\vb{v} $ el momento de la partícula y $ \vb{F} $ la fuerza total que actuaba sobre la misma.
 Si el resultado de las fuerzas sobre la partícula era nulo entonces se tiene que $ \vb{p} = cte. $ (el momento lineal 
 es una constante de movimiento).
 
@@ -124,9 +124,12 @@ que se mueve con velocidad constante sin importar qué tan complejo sea el movim
 
 El momento angular de una partícula con momento lineal \vb{p} es 
 \[
-	\vb{l} = \vb{x} \times \vb{p} = m \: \vb{x} \times \vb{v}
+	\vb{l} = \vb{x} \times \vb{p} = m \: \vb{x} \times \vb{v}.
 \]
-como puede verse en la Figura \ref{fig_mc_mom_ang_particula}. 
+% El hecho de entre el vector de posición de la partícula en su definición implica que el momento angular
+% dependerá del origen del sistema de coordenadas elegido y por ende también su conservación. 
+En la Figura 
+\ref{fig_mc_mom_ang_particula} se ilustra sobre la trayectoria de una partícula el vector momento angular. 
 La variación temporal del momento angular,
 \[
 	\dtot{\vb{l}}{t} = \dtot{\vb{x}}{t} \times \vb{p} + \vb{x} \times \dtot{\vb{p}}{t} 
@@ -134,21 +137,23 @@ La variación temporal del momento angular,
 se reduce al segundo término, puesto que $ d\vb{x}/dt = \vb{v} $ es paralela a $ \vb{p} $, y
 se tiene finalmente el resultado conocido
 \be
-	\dtot{\vb{l}}{t} = \vb{x} \times \dtot{\vb{p}}{t} = \vb{x} \times \vb{f} = \vb{\tau}
+	\dtot{\vb{l}}{t} = \vb{x} \times \dtot{\vb{p}}{t} = \vb{x} \times \vb{F} = \vb{\tau}
 	\label{conserv_mom_ang}
 \ee
-de que la variación del momento angular es el torque $\vb{\tau}$ causado por la fuerza $ \vb{f} $ 
+de que la variación del momento angular es el torque $\vb{\tau}$ causado por la fuerza $ \vb{F} $ 
 que actúa sobre la partícula.
 
+\notamargen{Cambiar en el dibujo f por F. Igualmente habría que ser consistente con qué quiero decir
+para las mayúsculas y qué para las minúsculas.}
 \begin{figure}[hbt]
 	\begin{center}
 	\includegraphics[width=0.6\textwidth]{images/fig_mc_mom_ang_particula.pdf}	
 	\end{center}
 	\caption{Una partícula de masa $m$ se desplaza en una trayectoria. En un punto \vb{x} de la misma se
-	indican su velocidad \vb{v}, su momento angular \vb{l} y la fuerza \vb{f} a la que está sometida y el
+	indican su velocidad \vb{v}, su momento angular \vb{l} y la fuerza \vb{F} a la que está sometida y el
 	torque resultante \vb{\tau} por esa fuerza.
 	El momento angular es perpendicular al plano (en marrón) definido por los vectores \vb{x} y \vb{v} mientras que 
-	el torque los es al plano (en gris) definido por \vb{x} y \vb{f}.}
+	el torque lo es al plano (en gris) definido por \vb{x} y \vb{F}.}
 	\label{fig_mc_mom_ang_particula}
 \end{figure} 
 
@@ -158,7 +163,7 @@ Es decir que una determinación de $ \vb{l} $ y $ \vb{\tau} $ tiene sentido úni
 de coordenadas.
 
 De la ecuación \eqref{conserv_mom_ang} se deduce que si la fuerza es siempre paralela al vector de posición de una 
-partícula ($\vb{f} \parallel \vb{x}$) entonces el momento angular \vb{l} se conserva puesto que el torque es 
+partícula ($\vb{F} \parallel \vb{x}$) entonces el momento angular \vb{l} se conserva puesto que el torque es 
 $\vb{\tau}=0$ en ese caso. Es lo que se llama una fuerza central.
 \notamargen{Habría que destacar lo de fuerza central con un dibujo. Es importante.}
 
@@ -172,9 +177,9 @@ coordenadas) será
 
 De manera equivalente, la variación temporal es 
 \[
-	\dtot{\vb{L}}{t} = \Sum{i=1}{N} \vb{x}_i \times \vb{f}_i
+	\dtot{\vb{L}}{t} = \Sum{i=1}{N} \vb{x}_i \times \vb{F}_i
 \]
-y si utilizamos la descomposición \eqref{descomp_fuerzas} para la fuerza $\vb{f}_i$ resulta
+y si utilizamos la descomposición \eqref{descomp_fuerzas} para la fuerza $\vb{F}_i$ resulta
 \[
 	\dtot{\vb{L}}{t} = \Sum{i=1}{N} \vb{x}_i \times \vb{F}_i^\text{ext}  +
 	\Sum{i=1}{N} \Sum{j\neq i}{N}  \vb{x}_i \times \vb{F}_{ij}
@@ -203,8 +208,8 @@ La conservación de \vb{L},
 \[
 	\dtot{\vb{L}}{t} = 0	
 \]
-requiere entonces que las fuerzas externas sean centrales (lo cual anula el primer término en \eqref{dL_sistema}) y que 
-se verifique 
+requiere entonces que las fuerzas externas sean centrales, lo cual anula el primer término en \eqref{dL_sistema},
+y que se verifique 
 \[
 	\vb{F}_{ij}  \parallel ( \vb{x}_i - \vb{x}_j ),
 \]
@@ -230,18 +235,19 @@ gruesas. Para la fuerza $\vb{F}_{ji}$ el razonamiento es, por supuesto, idéntic
 las flechas, puesto que si son iguales y opuestas las fuerzas están hermanadas las externas por un lado y las internas
 por el otro.}
 
-La existencia de un principio de acción y reacción fuerte sobreviene por la naturaleza puntual de los cuerpos. De no 
-ser puntuales se tendrá principio de acción y reacción a secas.
+La existencia de un principio de acción y reacción fuerte sobreviene [es una consecuencia?] de la naturaleza puntual de 
+los cuerpos. De no ser puntuales se tendrá principio de acción y reacción a secas.
 
-Existe otras descomposición interesante para el momento angular \vb{L} de un sistema de $N$ partículas en términos de 
+Existe otra descomposición interesante para el momento angular \vb{L} de un sistema de $N$ partículas en términos de 
 sus distancias al centro de masas.
 
 Para cada partícula $i$-ésima con posición $ \vb{x}_i $ y velocidad $ \vb{v}_i $ definimos una coordenada $ \vb{x}_i' $ 
-y una velocidad $\vb{v}_i' $ en términos de la posición \vb{R} y velocidad \vb{V} del centro de masa, ver Figura 
+y una velocidad $\vb{v}_i' $ en términos de la posición \vb{X} y velocidad \vb{V} del centro de masa, ver Figura 
 \ref{fig_mc_angularmom}, de acuerdo a
 \[
-	\vb{x}_i = \vb{R} + \vb{x}_i' \qquad \vb{v}_i = \vb{V} + \vb{v}_i'
+	\vb{x}_i = \vb{X} + \vb{x}_i' \qquad \vb{v}_i = \vb{V} + \vb{v}_i',
 \]
+es decir que consideramos coordenadas respecto al centro de masa.
 
 \begin{figure}[hbt]
 	\begin{center}
@@ -251,27 +257,29 @@ y una velocidad $\vb{v}_i' $ en términos de la posición \vb{R} y velocidad \vb
 	\label{fig_mc_angularmom}
 \end{figure} 
 
+\notamargen{Actualizar el $X_{cm}$ en el gráfico y poner el origen O.}
+
 En términos de estas nuevas variables primadas el momento angular es
 \[
 	\vb{L}_O = \Sum{i=1}{N} \vb{x}_i \times \vb{p}_i = 
-	\Sum{i=1}{N} (\vb{R} + \vb{x}_i') \times m_i (\vb{V} + \vb{v}_i')
+	\Sum{i=1}{N} (\vb{X} + \vb{x}_i') \times m_i (\vb{V} + \vb{v}_i')
 \]
 \[
-	\vb{L}_O = \Sum{i=1}{N} ( \vb{R} \times m_i \vb{V}  + \vb{R} \times m_i \vb{v}_i'
+	\vb{L}_O = \Sum{i=1}{N} ( \vb{X} \times m_i \vb{V}  + \vb{X} \times m_i \vb{v}_i'
 	+ \vb{x}_i' \times m_i \vb{V} 	+ \vb{x}_i' \times m_i \vb{v}_i' )
 \]
 
 Como la posición del centro de masa es
 \be
-	\vb{R} = \frac{1}{M} \Sum{i=1}{N} m_i \vb{x}_i  
+	\vb{X} = \frac{1}{M} \Sum{i=1}{N} m_i \vb{x}_i  
 	\label{R_cm}
 \ee
 se tendrá 
 \[
-	M \vb{R} = \Sum{i=1}{N} m_i \vb{x}_i = \Sum{i=1}{N} m_i ( \vb{R} + \vb{x}_i' ) =
-	\vb{R} \Sum{i=1}{N} m_i + \Sum{i=1}{N} m_i \vb{x}_i'
+	M \vb{X} = \Sum{i=1}{N} m_i \vb{x}_i = \Sum{i=1}{N} m_i ( \vb{X} + \vb{x}_i' ) =
+	\vb{X} \Sum{i=1}{N} m_i + \Sum{i=1}{N} m_i \vb{x}_i'
 \]
-pero el primer término del RHS es $M\vb{R}$ de manera que 
+pero el primer término del RHS es $M\vb{X}$ de manera que 
 \be
 	\Sum{i=1}{N} m_i \vb{x}_i' = 0 .
 	\label{Condicion_cm}
@@ -285,13 +293,13 @@ La velocidad del centro de masa es la derivada temporal de \eqref{R_cm}, i.e.
 
 Con estos resultados volvemos a la expresión del momento que resulta 
 \[
-	\vb{L}_O = \vb{R} \times M \vb{V}  + \vb{R} \times \left( \Sum{i=1}{N} m_i \vb{v}_i' \right) +
+	\vb{L}_O = \vb{X} \times M \vb{V}  + \vb{X} \times \left( \Sum{i=1}{N} m_i \vb{v}_i' \right) +
 	\left( \Sum{i=1}{N} m_i \vb{x}_i' \right) \times \vb{V} + \Sum{i=1}{N} \vb{x}_i' \times m_i \vb{v}_i',
 \]
 pero debido a \eqref{Condicion_cm} y a su derivada temporal (que resulta nula) el segundo y tercer sumando de la 
 expresión anterior son nulos y entonces 
 \[
-	\vb{L}_O = \left( \vb{R} \times M \vb{V} \right) + \Sum{i=1}{N} ( \vb{x}_i' \times m_i \vb{v}_i' )
+	\vb{L}_O = \left( \vb{X} \times M \vb{V} \right) + \Sum{i=1}{N} ( \vb{x}_i' \times m_i \vb{v}_i' )
 \]
 % \[
 % 	\vb{L}^T_O = \vb{L}^{cm} + \vb{L}^{sist}_{cm}
@@ -376,7 +384,7 @@ de un producto escalar (una proyección); las componentes normales no hacen trab
 \notamargen{ Falta meter lo de \[ 	 m \frac{v^2}{\rho} = F_n \] }
 
 Si la fuerza proviene de un potencial\footnote{El menos delante del gradiente es una convención, como se verá a
-continuación}, se tiene 
+continuación.}, se tiene 
 \be
 	\vb{F} = - \nabla V
 	\label{fuerza_prov_potencial}
@@ -430,7 +438,7 @@ el sistema está caracterizado por las $ N $ posiciones $ \{\vb{x}_i\} $ de todo
 experimenta un desplazamiento $ \Delta \vb{x}_i $ asociado con la fuerza que actúa sobre ella.
 
 En principio la fuerza sobre cada partícula puede dividirse en interna (debida a las otras partículas del sistema) y 
-externas (debida a agentes exteriores al sistema), lo cual permite escribir
+externa (debida a agentes exteriores al sistema), lo cual permite escribir
 \[
 	\vb{F} = \vb{F}^{\text{int}} + \vb{F}^{\text{ext}}
 \]
@@ -461,7 +469,7 @@ necesario que
  donde el operador $\nabla$ se toma con respecto a las coordenadas de la partícula $i$ en cuestión.
 \end{itemize}
 
-\begin{figure}[!ht]
+\begin{figure}[!hb]
 	\begin{center}
 	\includegraphics[width=0.75\textwidth]{images/fig_mc_work_system.pdf}	
 	\end{center}
@@ -469,6 +477,8 @@ necesario que
 	de partículas.}
 	\label{fig_mc_work_system}
 \end{figure} 
+
+\notamargen{Arreglar flechas en este gráfico.}
 
 Estas condiciones permiten escribir la fuerza como el gradiente de un potencial y entonces el trabajo externo es la 
 suma de las diferencias entre las energías potenciales de las partículas entre las configuraciones 0 y 1, o bien
