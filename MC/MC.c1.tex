@@ -772,6 +772,14 @@ y para evaluar la derivada temporal del versor consideramos la descomposición
 \[
 	\hat{r} = \cos \varphi \:\hat{x} + \sin \varphi \:\hat{y}
 \]
+\notamargen{ 
+% \begin{figure}[h]
+% 	\begin{center}
+	\includegraphics[scale=0.35]{images/fig_mc_polares_decomp.jpg}	
+% 	\end{center}
+% 	\caption{}
+% \end{figure}
+}
 \[
 	\hat{\varphi} = -\sin \varphi  \:\hat{x} + \cos  \varphi \:\hat{y}
 \]
@@ -784,6 +792,10 @@ y entonces
 \[
 	\dtot{\vb{x}}{t} = \dot{r} \:\hat{r } + r \:\dot{\vp} \: \hat{\vp} + \dot{z} \:\hat{z}.
 \]
+
+\notamargen{
+\includegraphics[scale=0.4]{images/fig_mc_polares_arbitrario.jpg}
+}
 % que se puede escribir como 
 % \[
 % 	\dtot{\vb{r}}{t} = \dot{r} \: \hat{r } + r \dot{\vp} \: \hat{\vp} = \dot{\vb{r}}
@@ -810,14 +822,15 @@ finalmente se arriba a
 	\ddot{\vb{x}} = ( \ddot{r} - r\dot{\vp}^2 ) \rver + ( r\ddot{\vp} + 2 \dot{r} \dot{\vp} ) \phiver + \ddot{z} \:\hat{z}.
 \]
 
-Para problemas de dos dimensiones suele utilizarse un sistema coordenado, conocido como coordenadas polares, que es el de 
-cilíndricas con $ z \equiv 0 $. Las expresiones de velocidad y aceleración polares correspondientes serán las obtenidas en esta sección
-luego de {\it borrar} la coordenada $z$.
+Para problemas de dos dimensiones suele utilizarse un sistema coordenado, conocido como coordenadas polares, que es el 
+de cilíndricas con $ z \equiv 0 $. Las expresiones de velocidad y aceleración polares correspondientes serán las 
+obtenidas en esta sección luego de {\it borrar} la coordenada $z$.
 
 \subsection{Coordenadas esféricas}
 
-Para el sistema esférico la deducción de la equivalencia cartesiana de los versores es un poco más trabajosa que en el sistema cilíndrico (donde en 
-realidad estos versores viven en un plano $z$ cte.) y el álgebra implicado es algo engorroso. La expresión de los versores es
+Para el sistema esférico la deducción de la equivalencia cartesiana de los versores es un poco más trabajosa que en el 
+sistema cilíndrico (donde en realidad estos versores viven en un plano $z$ cte.) y el álgebra implicado es algo 
+engorroso. La expresión de los versores es
 \[
 	\rver = \cos\vp \sin\theta\xver + \sin\vp\sin\theta\yver + \cos\theta\zver,
 \]
@@ -827,13 +840,16 @@ realidad estos versores viven en un plano $z$ cte.) y el álgebra implicado es a
 \[
 	\thetaver = \cos\theta \cos\vp \xver + \cos\theta\sin\vp\yver - \sin\theta\zver.
 \]
+\notamargen{Dado que este es un curso básico pero que se jacata de visual, tendriamos que poner ilustraciones del 
+carajo de los vectores en esféricas y cilíndricas para que quede intuitivo sus dificultades cuando el problema en
+cuestión no tiene las simetrías explícitas de estos sistemas.}
 
 Un vector de posición es simplemente
 \[
 	\vb{x} = r \rver
 \]
-aunque en el $\rver$ está {\it escondida} la dependencia angular. Consignaremos a continuación solamente las expresiones finales para la
-velocidad y aceleración, que son respectivamente
+aunque en el $\rver$ está {\it escondida} la dependencia angular. Consignaremos a continuación solamente las 
+expresiones finales para la velocidad y aceleración, que son respectivamente
 \[
 	\vb{v} = \dot{\vb{x}} = \dot{r} \rver + r\dot{\theta}\thetaver + r\dot{\vp}\sin\theta\phiver
 \]
@@ -850,30 +866,37 @@ velocidad y aceleración, que son respectivamente
 
 Otro tipo de transformación común entre sistemas de coordenadas (en el plano) que comparten origen es la rotación.
 
-Suponiendo un sistema de coordenadas $(x,y)$ fijo (que llamaremos ``inercial'') de origen $O$ y otro de coordenadas $(x',y')$, que está rotando 
-en torno a ese origen (sistema ``móvil''), interesa ver qué consecuencias tiene sobre la velocidad y aceleración de un vector de posición \vb{A},
-el hecho de determinarlas desde uno u otro sistema. Si bien hablamos de un sistema {\it fijo}, en realidad ambos se hallan en rotación entre sí. 
+Suponiendo un sistema de coordenadas $(x,y)$ fijo (que llamaremos ``inercial'') de origen $O$ y otro de coordenadas 
+$(x',y')$, que está rotando en torno a ese origen (sistema ``móvil''), interesa ver qué consecuencias tiene sobre la 
+velocidad y aceleración de un vector de posición \vb{A}, el hecho de determinarlas desde uno u otro sistema. Si bien 
+hablamos de un sistema {\it fijo}, en realidad ambos se hallan en rotación entre sí. 
 
 Como se ve en la FIGURA XXX 
-\notamargen{Figura de la rotación}
-la posición instantánea entre sistemas está determinada por el ángulo $\theta(t)$ y, dado que ambos sistemas comparten el origen, los mismos son 
-coincidentes en $\theta = 0$. 
+\notamargen{
+\includegraphics[scale=0.4]{images/fig_mc_sist_rotantes.jpg}
+}
+la posición instantánea entre sistemas está determinada por el ángulo $\theta(t)$ y, dado que ambos sistemas comparten 
+el origen, los mismos son coincidentes en $\theta = 0$. 
 % Como el sistema en rotación varía la posición de sus ejes con el tiempo, sus versores asociados $(\xver', \yver')$ 
 % también variarán con el tiempo (pese a que son cartesianos).
 
-Dado que los sistemas no se hallan entre sí a velocidad constante\footnote{Aún en el caso de $ \theta(t) = cte.$ la velocidad no es constante como 
-vector puesto que cambia de dirección todo el tiempo.} es patente que las ecuaciones de Newton se verán modificadas.
-Para un vector \vb{A} constante con respecto al sistema inercial, cualitativamente esperaríamos observarlo desde el sistema móvil en alguna 
-suerte de movimiento dado por el efecto dinámico de la rotación\footnote{Si estoy montado en el caballo de madera de una calesita veré a mi abuela, 
-que me espera inmóvil a un lado, como dotada de movimiento.}. Veamos qué surge de la cuenta algebraica.
+Dado que los sistemas no se hallan entre sí a velocidad constante\footnote{Aún en el caso de $ \theta(t) = cte.$ la 
+velocidad no es constante como vector puesto que cambia de dirección todo el tiempo.} es patente que las ecuaciones de 
+Newton se verán modificadas.
+Para un vector \vb{A} constante con respecto al sistema inercial, cualitativamente esperaríamos observarlo desde el 
+sistema móvil en alguna suerte de movimiento dado por el efecto dinámico de la rotación\footnote{Si estoy montado en el 
+caballo de madera de una calesita veré a mi abuela, que me espera inmóvil a un lado, como dotada de movimiento.}. Veamos 
+qué surge de la cuenta algebraica.
 
 El mismo vector de acuerdo a los dos sistemas de coordenadas en el plano, es
 \[
 	\vb{A}(t) = A_x\xver + A_y\yver         \qquad\qquad               \vb{A}'(t) = A_x'\xver' + A_y'\yver'
 \]
-donde las coordenadas primadas refieren al sistema móvil. Nótese que los versores asociados en ambos casos $(\xver, \yver)$ y $(\xver', \yver')$ 
-son constantes, esto es, no dependen del tiempo. Que ambos sistemas se hallen en rotación entre sí no es intrínseco de alguno de ellos.
-Un observador del sistema primado ve a sus ejes fijos mientras que en las medidas que realiza sobre \vb{A} verá una dinámica particular. 
+donde las coordenadas primadas refieren al sistema móvil. Nótese que los versores asociados en ambos casos $(\xver, 
+\yver)$ y $(\xver', \yver')$ son constantes, esto es, no dependen del tiempo. Que ambos sistemas se hallen en rotación 
+entre sí no es intrínseco de alguno de ellos.
+Un observador del sistema primado ve a sus ejes fijos mientras que en las medidas que realiza sobre \vb{A} verá una 
+dinámica particular. 
 
 Si consideramos la variación temporal de \vb{A}' pero como es vista desde el sistema inercial resulta 
 \[
@@ -884,14 +907,14 @@ porque para un observador en el sistema inercial se mueven las componentes del v
 
 \notamargen{Esta notación es oscura, habría que ver una mejor manera de explicar esto.}
 
-La variación temporal de los versores la conocemos porque es la misma situación geométrica que la encontrada para el caso de los 
-versores cilíndricos $(\rver,\phiver)$. Podemos hallar la equivalencia
+La variación temporal de los versores la conocemos porque es la misma situación geométrica que la encontrada para el 
+caso de los versores cilíndricos $(\rver,\phiver)$. Podemos hallar la equivalencia
 \[
 	\dtot{\hat{x}'}{t} = \dot{\theta} \yver'         \qquad \qquad          \dtot{\hat{y}'}{t} = -\dot{\theta} \xver'.
 \]
 
-Desde el sistema móvil los versores son por supuesto constantes (el sistema móvil no es consciente de su movimiento) de modo 
-que 
+Desde el sistema móvil los versores son por supuesto constantes (el sistema móvil no es consciente de su movimiento) de 
+modo que 
 \[
 	\left. \dtot{\vb{A}}{t} \right|_\text{móvil} = \dot{A_x'}\xver' + \dot{A_y'}\yver'
 \]
@@ -990,8 +1013,8 @@ fuerza lineal, de Coriolis y centrífuga.
 Si $\vb{\omega} = cte.$ entonces la fuerza lineal es nula.
 
 \notamargen{Está un poco inconsistente la notación utilizada, con lo de móvil y la prima. La carpeta tiene muchos
-typos.
-El 'Problema' de la hoja 5R no lo entiendo}
+typos. El 'Problema' de la hoja 5R no lo entiendo; en realidad parece estar vinculado a sólidos. Habría que decidir si 
+ponerlo o no. En caso negativo, ¿qué otro se puede ubicar?}
 
 \begin{notasfinales}
 
