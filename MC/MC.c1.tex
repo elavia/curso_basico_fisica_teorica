@@ -433,6 +433,19 @@ partícula,
 	T = \sum_{i=1}^N \: \frac{1}{2} \: m_i v_i^2.
 \]
 
+Utilizando la expresión en función del centro de masa, $\vb{v}_i = \vb{V} + \vb{v}_i'$ en la energía se llega a
+\[
+	T = \frac 1 2 M V^2 + \frac{1}{2} \: \sum_{i=1}^N \: m_i {v_i'}^2,
+\]
+donde el primer término es la energía cinética de traslación del centro de masa y el segundo término (la sumatoria) es 
+la energía cinética interna.
+En el caso de dos cuerpos la anterior expresión se reduce a
+\[
+	T = \frac 1 2 M V^2 + \frac 1 2 \mu v_r^2
+\]
+donde $\mu$ es la masa reducida y $v_r$ es la velocidad relativa.
+\notamargen{Las conservaciones de las cosas permiten reducir la cantidad de integraciones necesarias.}
+
 La definición del trabajo, en cambio, es un poco más complicada. Entre dos instantes de tiempo $ t $ y $ t + \Delta t $ 
 el sistema está caracterizado por las $ N $ posiciones $ \{\vb{x}_i\} $ de todos sus integrantes y cada partícula 
 experimenta un desplazamiento $ \Delta \vb{x}_i $ asociado con la fuerza que actúa sobre ella.
@@ -450,6 +463,7 @@ y consecuentemente
 El $ W $ entre dos instantes de tiempo $t_0$ y $t_1$ corresponde ahora a la integral entre la configuración del sistema 
 a $t_0$ dada por $ \{\vb{x}_i(t_0)\} $ hasta la configuración $ \{\vb{x}_i(t_1)\} $, las cuales etiquetaremos como 0 y 
 1 respectivamente. 
+\notamargen{El rozamiento depende de la velocidad, entonces no es conservativo.}
 
 Entonces el trabajo externo es
 \[
@@ -517,6 +531,32 @@ de la forma
 \]
 y sabemos, por analogía con lo anterior, que si $\vb{F}_{ij}$ depende del vector de separación $ \vb{r}_{ij} $ y es de 
 rotor nulo entonces las fuerzas internas son conservativas.
+Entonces,
+\[
+	\vb{F}_{ij} = -\Nabla_i V(\vb{r}_{ij}) \qquad \vb{F}_{ji} = -\Nabla_j V(\vb{r}_{ij})
+\]
+y como vale acción y reacción $\vb{F}_{ij} = - \vb{F}_{ji}$ esto lleva a que $\nabla_i = \nabla_j$.
+\notamargen{Un potencial que depende solo de la distancia entre dos partículas $|r_{ij}|$ cumple PAR fuerte.}
+
+Un ejemplo numérico aclarará esta relación. Sea un potencial que depende de la distancia entre dos partículas,
+$r = |\vb{r}_{ij}|$, es decir que si $i=2$ y $j=1$ se tendrá
+\[
+	r = \sqrt{ (x_2-x_1)^2 + (z_2-z_1)^2 + (z_2-z_1)^2 },
+\]
+luego,
+\begin{multline*}
+	\: \vb{F}_{21} = -\Nabla_2 V = -\dpar{V}{r} \left( \dpar{r}{x_2}\hat{x} + \dpar{r}{y_2}\hat{y} + 
+	\dpar{r}{z_2}\hat{z} \right) = \\ 
+	-\dpar{V}{r} \frac 1 r \left( (x_2-x_1)\hat{x} + (y_2-y_1)\hat{y} + (z_2-z_1)\hat{z} \right)
+\end{multline*}
+y, en cambio,
+\begin{multline*}
+	\: \vb{F}_{12} = -\Nabla_1 V = -\dpar{V}{r} \left( \dpar{r}{x_1}\hat{x} + \dpar{r}{y_1}\hat{y} + 
+	\dpar{r}{z_1}\hat{z} \right) = \\ 
+	-\dpar{V}{r} \frac 1 r \left( -(x_2-x_1)\hat{x} - (y_2-y_1)\hat{y} - (z_2-z_1)\hat{z} \right)
+\end{multline*}
+de manera que $ \vb{F}_{21} = -\vb{F}_{12} $.
+
 En estos casos
 \[
 	\Delta E = \sum_{i=1}^N ( \Delta T_i - \Delta V_i ) + \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \Delta V_{ij}
