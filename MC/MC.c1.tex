@@ -557,11 +557,15 @@ y, en cambio,
 \end{multline*}
 de manera que $ \vb{F}_{21} = -\vb{F}_{12} $.
 
-En estos casos
+En estos casos, en presencia de fuerzas conservativas
 \[
-	\Delta E = \sum_{i=1}^N ( \Delta T_i - \Delta V_i ) + \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \Delta V_{ij}
+	E = T + V^e(\vb{x}_1,...,\vb{x}_N) + \frac 1 2 \sum_{i=1}^N \sum_{j=1}^N V_{ij}
 \]
-
+donde $V^e$ es el trabajo externo. Luego, la variación de energía $\Delta E$ será
+\[
+	\Delta E = \sum_{i=1}^N ( \Delta T_i - \Delta V_i ) + \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \Delta V_{ij}.
+\]
+\notamargen{Revisar la escritura de la energía y de la variación, qué pienso con respecto a T, V?}
 
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -682,12 +686,67 @@ donde se ha utilizado la fórmula trigonométrica para el semiángulo.
 
 \notamargen{Completar esta solución. Ver en práctica?.
 Lo de $E=E(a)$ no lo entendí.}
-
-
 \end{ejemplo}
 
+% =================================================================================================
+\section{Introducción a la formulación de Lagrange}
+% =================================================================================================
 
+Permite automatizar la resolución de problemas. Surge de la observación de una característica de las fuerzas de vínculo.
+El vínculo representa una restricción.
 
+La fuerza de vínculo se {\it acomoda} en todo momento, cambiando sus características, para satisfacer el vínculo en 
+todo instante. Son de una naturaleza diferente a las fuerzas tradicionales, que no se acomodan.
+
+\begin{figure}[!ht]
+	\includegraphics[width=0.85\textwidth]{images/fig_mc_vinculos_varios.jpg}	
+	\caption{.}
+	\label{fig_mc_vinculos_varios}
+\end{figure} 
+
+Las fuerzas de vínculo están asociadas a ecuaciones de vínculo y dependen de ellas. Las ecuaciones, además, {\it 
+dependizan} las coordenadas de un problema. Examinemos un problema sencillo con vínculos.
+
+\begin{ejemplo}{\bfseries Problema con fuerza de vínculo }
+
+\label{problema_fuerza_vinculo}
+Considerese el problema esquematizado en la figura donde dos bloques se mueven en un campo gravitatorio.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_problema_bloques.jpg}	
+	\caption{.}
+	\label{fig_mc_problema_bloques}
+\end{figure} 
+La segunda ley de Newton para cada bloque resultan en
+\begin{align*}
+	m_1 \ddot{x}_1 &= 2T \\
+	m_2 \ddot{x}_2 &= m_2 g - T
+\end{align*}
+Pero la cuerda que une los dos cuerpos, suponiendo que se mantiene tensa en todo momento, vincula sus posiciones de 
+manera que se debe cumplir 
+\[
+	2(d-x_1) + d_2 + x_2 = L
+\]
+Derivando dos veces esta relación se llega a
+\[
+	- 2\ddot{x}_1 + \ddot{x}_2 = 0,
+\]
+que al reemplazar en las ecuaciones de Newton permite, eliminando la tensión T, obtener
+\[
+	\ddot{x}_1 = \frac{2 m_2}{4m_2 + 1} \: g = \frac{1}{2 + 1/(2m_2)} \: g ,
+\]
+y
+\[
+	\ddot{x}_2 = \frac{4 m_2}{4m_2 + 1} \: g = \frac{1}{1 + 1/(4m_2)} \: g.
+\]
+
+Esto último nos dice que el bloque $m_2$ se moverá con aceleración $g$ en el límite de $m_2 \to \infty$ y el bloque
+$m_1$ con aceleración $g/2$ bajo el mismo límite. 
+\end{ejemplo}
+
+El enfoque de Lagrange debiera permitir llegar a este mismo resultado por supuesto.
+
+\notamargen{Si el vínculo es $f(\vb{x})=0$ entonces el trabajo virtual de las fuerzas es necesariamente nulo.}
 
 % =================================================================================================
 \section{Definiciones}
