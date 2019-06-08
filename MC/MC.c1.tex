@@ -753,12 +753,29 @@ El enfoque de Lagrange debiera permitir llegar a este mismo resultado por supues
 % =================================================================================================
 
 El número de grados de libertad es el número de coordenadas independientes para resolver el problema.
-Las fuerzas de vínculo $F^v$ se {\it acomodan} en todo momento para satisfacer las ligaduras.
+
+La interpretación lagrangiana encuentra las ecuaciones para las coordenadas independientes.
+Dado un sistema con $N$ coordenadas y $k$ vínculos,
+\[
+	\# \text{ g. l. } = N - k \equiv \{ q_i \} \text{ coordenadas generalizadas}
+\]
+
+Consideremos el caso de una bola {\it ensartada} en un aro plano,
+
+\includegraphics[scale=0.35]{images/fig_mc_bola_ensartada.jpg}
+
+la cual puede moverse únicamente por el aro. Claramente la coordenada generalizada es $\varphi$, la cual
+describe completamente el movimiento de la misma; el vínculo es $ r = a $ y el trabajo realizado por las
+fuerzas de vínculo $W_{F_v} = 0 $ porque $F_v \perp \delta \varphi$. La fuerza de vínculo (en dirección radial)
+es perpendicular al desplazamiento compatible con el vínculo.
+
+Las fuerzas de vínculo $\vb{F}^v$ se {\it acomodan} en todo momento para satisfacer las ligaduras.
 Entonces las $\vb{F}^v$ son perpendiculares a los desplazamientos compatibles con los vínculos de
 manera que 
 \[
 	W_{F^v} = 0
 \]
+
 \begin{figure}[hbt]
 	\begin{center}
 	\includegraphics[width=0.3\textwidth]{images/fig_mc_vinculos1.pdf}	 
@@ -766,6 +783,12 @@ manera que
 	\end{center}
 	\caption{}
 \end{figure} 
+
+Para el caso de los bloques, al tener dos coordenadas, el sistema se mueve en una recta del espacio de coordenadas.
+La fuerza de vínculo es perpendicular al desplazamiento posible
+
+\includegraphics[scale=0.35]{images/fig_mc_problema_bloques_fases.jpg}
+\notamargen{Entender este gráfico mejor!}
 
 Los vínculos se clasifican en
 \[
@@ -795,7 +818,6 @@ mientras que un desplazamiento real es un desplazamiento en $\delta t$ durante e
 fuerzas y ligaduras.
 
 A tiempo fijo el desplazamiento es en $\hat{r} \perp \vb{F}^v$.
-
 \[
 	f(x_i,t) = cte. \Longrightarrow \sum_i^N \dpar{f}{x_i} \delta x_i + \dpar{f}{t} \delta t = 0 
 \]
@@ -803,6 +825,49 @@ o bien
 \[
 	\nabla f \cdot \vb{\delta r} = 0
 \]
+
+Si las fuerzas de vínculo se pueden escribir como 
+\[
+	f_v(\vb{x}_1, \vb{x}_2, ..., \vb{x}_N ) = K,
+\]
+donde $K$ es una constante, luego (derivando implícitamente la ecuación) cumplirán
+\[
+	\sum_{i=1}^N \: \dpar{f_v}{\vb{x}_i}\:\delta{\vb{x}_i} = 0
+\]
+Entonces la fuerza de vínculo es proporcional al gradiente de la ecuación de vínculo,
+\[
+	\vb{F}_v = \lambda \nabla f
+\]
+
+En un caso 3D tendríamos
+\[
+	\dpar{f}{x}\delta x + \dpar{f}{y}\delta y + \dpar{f}{z}\delta z = 0
+\]
+
+Los vínculos que dependen de la velocidad o aquellos dados en términos de desigualdades (no de ecuaciones) no cumplen,
+en general, que el trabajo de las fuerzas de vínculo sea perpendicular al desplazamiento.
+
+La dependencia de las fuerzas de vínculo puede depender del tiempo. Supongamos ahora un problema parecido al anterior; 
+una bola engarzada en una varilla que rota con velocidad angular constante $\omega$.
+
+\includegraphics[scale=0.4]{images/fig_mc_bola_varilla_rotante.jpg}
+
+La bola se mueve sobre la varilla; la coordenada angular $\varphi$ forma parte de la ecuación de vínculo
+\[
+	\varphi - \omega t = 0
+\]
+En un dado instante de tiempo fijo el único desplazamiento posible, que es en $\hat{r}$, es perpendicular a la fuerza 
+de vínculo. No hay trabajo a tiempo fijo.
+En estos casos la ecuación de vínculo será
+\[
+	f_v(\vb{x}_1, \vb{x}_2, ..., \vb{x}_N, t ) = K,
+\]
+pero como a tiempo fijo es $\Delta t=0$, se tiene 
+\[
+	\sum_{i=1}^N \: \dpar{f_v}{\vb{x}_i}\:\delta{\vb{x}_i} = 0
+\]
+donde no aparece al tiempo $t$.
+Esto es un {\it desplazamiento virtual}; un desplazamiento a tiempo fijo compatible con los vínculos.
 
 % =================================================================================================
 \section{Velocidad y aceleración en coordenadas cilíndricas y esféricas}
