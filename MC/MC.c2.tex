@@ -37,41 +37,115 @@
 % =================================================================================================
 \section{Principio de los trabajos virtuales}\index{Trabajos virtuales, principio de}
 % =================================================================================================
-Las ecuaciones de Newton para un sistema de $N$ partículas,
 \notamargen{Esto es sumamente sketchi, debemos leer la carpeta de la cursada y luego la
 teoría.}
+
+En las ecuaciones de Newton para un sistema de $N$ partículas, con $3N$ coordenadas,
 \[
-	m_i \vb{a}_i = \vb{F}_i^a + \vb{F}_i^v
+	m_i \vb{a}_i = \vb{F}_i,
 \]
-dan cuenta de que sobre cada partícula actúan, en principio, fuerzas externas aplicadas $ \vb{F}_i^a $
-y fuerzas de vínculo $ \vb{F}_i^v $. Expresando la aceleración en función de la derivada temporal del momento  
-$ \dot{\vb{p}}_i = m_i \vb{a}_i$ resulta 
+se pueden separar las fuerzas que actúan sobre cada partícula en fuerzas externas aplicadas $ \vb{F}_i^a $
+y fuerzas de vínculo $ \vb{F}_i^v $. Es decir,
+\[
+	m_i \vb{a}_i = \vb{F}_i^a + \vb{F}_i^v,
+\]
+% dan cuenta de que sobre cada partícula actúan, en principio, fuerzas externas aplicadas $ \vb{F}_i^a $
+% y fuerzas de vínculo $ \vb{F}_i^v $. 
+o bien, expresando la aceleración en función de la derivada temporal del momento, 
+%$ \dot{\vb{p}}_i = m_i \vb{a}_i$ 
+resulta 
 \[
 	\dot{\vb{p}}_i - \vb{F}_i^a - \vb{F}_i^v = 0,
 \]
-y entonces, multiplicando cada término por un desplazamiento virtual $ \delta\vb{x}_i $ se tiene
+y entonces, multiplicando cada término por un desplazamiento, en principio independiente, $ \delta\vb{x}_i $ y sumando se tiene
 \[
 	\sum_i^N \left( \dot{\vb{p}}_i - \vb{F}_i^a - \vb{F}_i^v \right) \cdot \delta\vb{x}_i  = 0.
 \]
+Nótese que esta ecuación es válida por serlo para cada partícula $i$.
 
 \notamargen{Explicar qué es este principio y qué es un desplazamiento virtual.}
-Si hacemos estos desplazamientos {\it compatibles} con los vínculos nos quedamos con
+Supongamos ahora que estos desplazamientos son {\it compatibles} con los vínculos. Entonces
+\[
+	\sum_i^N \left( \dot{\vb{p}}_i - \vb{F}_i^a \right) \cdot \delta\vb{x}_i 
+	- \sum_i^N  \vb{F}_i^v  \cdot \delta\vb{x}_i  = 0
+\]
+pero el segundo término es nulo porque los $ \delta\vb{x}_i $ son compatibles con los vínculos y como sabemos 
+\notamargen{Hay que dejar bien el claro el asunto de que las fuerzas de vínculos son siempre perp a los desplazamientos
+virtuales y que estos, ¿no son independientes?}
+$ \vb{F}_i^v \perp \delta\vb{x}_i $.
+
+Entonces
 \be
 	\sum_i^N \left( \dot{\vb{p}}_i - \vb{F}_i^a \right) \cdot \delta\vb{x}_i = 0,
 % 	- \sum_i^N  \vb{F}_i^v  \cdot \delta\vb{x}_i  = 0
 	\label{principio_virtual_work}
 \ee
-puesto que las fuerzas de vínculo son siempre perpendiculares a los desplazamientos virtuales, es decir 
-\[
-	\vb{F}_i^v \perp \delta\vb{x}_i.
-\]
+donde no se verifica, en general, que el primer vector en cada producto escalar sea nulo.
 
+\textcolor{red}{
 La expresión \eqref{principio_virtual_work} es el llamado {\it Principio de los Trabajos Virtuales},
 y dada la independencia admitida en los desplazamientos virtuales $ \delta \vb{x}_i $, se sigue que la
 sumatoria en \eqref{principio_virtual_work} es nula porque cada término es nulo, es decir
 \[
 	\dot{\vb{p}}_i - \vb{F}_i^a = 0 \quad \forall i
 \]
+}
+
+\begin{ejemplo}{\bf Ejemplo de los bloques}
+
+Para el ejemplo de los bloques
+\[
+	( m_1 \ddot{x}_1 - 2T )\delta x_1 + ( m_2 \ddot{x}_2 - m_2 g + T) \delta x_2 = 0
+\]
+pero en realidad $\delta x_1, \delta x_2$ no son independientes, están relacionados según $2\delta x_1 = \delta x_2$.
+Entonces
+\[
+	( m_1 \ddot{x}_1 + 2 m_2 \ddot{x}_2 - 2 m_2 g )\delta x_1 = 0
+\]
+donde ahora $\delta x_1$ es compatible con los vínculos pero es independiente y arbitrario para el problema.
+Entonces la ecuación anterior debe ser nula porque el paréntesis es nulo,
+\[
+	m_1 \ddot{x}_1 + 2 m_2 \ddot{x}_2 - 2 m_2 g = m_1 \ddot{x}_1 + 4 m_2 \ddot{x}_1 - 2 m_2 g = 0
+\]
+y de la última 
+\[
+	\ddot{x}_1 = \frac{2 m_2 g}{ (m_1 + 4m_2 ) }.
+\]
+
+Hemos llegado a la resolución en forma independiente de los vínculos.
+\end{ejemplo}
+
+\begin{ejemplo}{Más de un grado de libertad}
+
+Si tenemos más de un grado de libertad, como en el caso de dos poleas sin masa.
+
+\includegraphics[scale=0.4]{images/fig_mc_dos_poleas.jpg}
+
+Se tienen dos ecuaciones de vínculo
+\[
+	x_1 + x_p = \ell_1 \qquad \qquad (x_2 -x_p)+(x_3 -x_p) = \ell_2.
+\]
+
+El problema tiene cuatro coordenadas y dos ecuaciones de vínculo, lo cual nos deja dos grados de libertad.
+La primer ecuación de vínculo permite liberarnos de $x_p$ y quedarnos en principio con los movimientos de
+las tres masas. Entonces, ¿el principio de los trabajos virtuales? sería en este caso 
+\[
+	( m_1 \ddot{x}_1 - m_1 g )\delta x_1 + ( m_2 \ddot{x}_2 - m_2 g )\delta x_2 + ( m_3 \ddot{x}_3 - m_3 g )\delta x_3 = 0
+\]
+y luego podemos utilizar la segunda ecuación de vínculo, combinándola con la primera para llegar a 
+\[
+	x_2 + x_3 + 2x_1 = \text{ cte. }
+\]
+lo cual conduce a la relación 
+\[
+	\delta x_1 = -\frac{ \delta x_2 + \delta x_3 }{2}.
+\]
+Finalmente
+\[
+	( m_2 \ddot{x}_2 - m_2 g -\frac{m_1}{2} \ddot{x}_1 + \frac{m_1}{2} g ) \delta x_2 + 
+	( m_3 \ddot{x}_3 - m_3 g -\frac{m_1}{2} \ddot{x}_1 + \frac{m_1}{2} g ) \delta x_3 = 0.
+\]
+\end{ejemplo}
 
 \begin{notas}{Relación vínculos y desplazamientos:}
 El hecho de que la fuerza de vínculo sea perpendicular a los desplazamientos puede
@@ -96,7 +170,12 @@ donde debemos entender al gradiente y al vector $\vb{\delta x}$ como $N$ dimensi
 \section{Construcción del lagrangiano}
 % =================================================================================================
 
-Consideremos un sistema de $N$ partículas, $k$ ecuaciones de vínculo 
+Vamos a utilizar el principio de los trabajos virtuales para escribir las ecuaciones de la mecánica
+de otra manera [¿?] sin preocuparnos por las fuerzas de vínculo, que en general pueden no ser 
+conocidas o tener una naturaleza compleja.
+\notamargen{Esta es la papa: las fuerzas de vínculo son difíciles de escribir si es esto posible 
+del todo.}
+Consideremos un sistema de $N$ partículas y $k$ ecuaciones de vínculo 
 \begin{eqnarray*}
 	& f_1(\vb{x}_1, \vb{x}_2,...,\vb{x}_n,t) = K_1  \\ 
 	& ... ... ... \\
@@ -110,22 +189,24 @@ Tenemos $N$ relaciones del tipo
 	\label{x_part}
 \ee
 que significa que la posición de la partícula $i$-ésima depende en principio de las $3N-k$ coordenadas
-generalizadas y del tiempo. Una variación tendrá la forma
+generalizadas y del tiempo. Una variación de la misma tendrá la forma
 \[
 	\delta \vb{x}_i =  \sum_{j=1}^{3N-k} \left( \dpar{\vb{x}_i}{q_j} \right) \delta q_j + 
 	\dpar{\vb{x}_i}{t}\delta t
 \]
 y suponiéndola un desplazamiento virtual el último término se anula puesto que $\delta t=0$ en ese
 caso y entonces
-\[
+\be
 	\delta \vb{x}_i =  \sum_{j=1}^{3N-k} \left( \dpar{\vb{x}_i}{q_j} \right) \delta q_j.
-\]
+	\label{delta_x_to_delta_q}
+\ee
 
 Por otro lado, del principio de los trabajos virtuales \eqref{principio_virtual_work} es
 \[
-	\sum_i^N \dot{\vb{p}}_i \cdot \delta \vb{x}_i - \sum_i^N  \vb{F}_i^a \cdot \delta \vb{x}_i = 0
+	\sum_i^N \dot{\vb{p}}_i \cdot \delta \vb{x}_i - \sum_i^N  \vb{F}_i^a \cdot \delta \vb{x}_i = 0,
 \]
-y se puede reescribir el primer término como
+donde $\vb{F}_i^a$ es la fuerza aplicada externa que no incluye las fuerzas de vínculo. El primer término 
+se puede reescribir como
 \[
 	\dot{\vb{p}}_i \cdot \delta \vb{x}_i = m_i \dtot{\vb{v}_i}{t} \cdot \sum_{j=1}^{3N-k} 
 	\left( \dpar{\vb{x}_i}{q_j} \right) \delta q_j,
@@ -136,6 +217,8 @@ resultando
 	\delta q_j - \sum_i^N  \vb{F}_i^a \cdot \delta \vb{x}_i = 0
 	\label{virtual_work_2}
 \ee
+Se ha pasado de una descripción en términos de $\delta \vb{x}_i$ ($3N$ variables) a otra en términos de $\delta q_j$
+($3N-k$ coordenadas generalizadas).
 
 La idea ahora es reescribir todo en términos más convenientes, para que aparezca un término multiplicado
 a una variación arbitraria. De esta manera quedará una sumatoria de un sumando multiplicado por una
@@ -236,16 +319,20 @@ de las derivadas de los momentos, y entonces
 	\frac{\partial T}{\partial q_j} \right\} \delta q_j = \sum_i^N  \vb{F}_i^a \cdot \delta \vb{x}_i.
 \]
 
-Escribiendo la variación $\delta\vb{x}$ en términos de $\delta q$ a través de 
-\[
-	\delta\vb{x}_i = \sum_{j=1}^{3N-k} \dpar{\vb{x}_i}{q_j}\delta q_j
-\]
+Escribiendo la variación $\delta\vb{x}$ en términos de $\delta q$ a través de \eqref{delta_x_to_delta_q}
+% \[
+% 	\delta\vb{x}_i = \sum_{j=1}^{3N-k} \dpar{\vb{x}_i}{q_j}\delta q_j
+% \]
 se llega a 
 \[
 	\sum_{j=1}^{3N-k} \sum_i^N \left( \vb{F}_i^a \cdot \dpar{\vb{x}_i}{q_j} \right) \: \delta q_j =  
-	\sum_{j=1}^{3N-k} \sum_i^N Q_j \: \delta q_j
+	\sum_{j=1}^{3N-k} Q_j \: \delta q_j
 \]
-siendo $Q_j$ la fuerza generalizada. Entonces
+siendo 
+\[
+	Q_j = \sum_i^N \left( \vb{F}_i^a \cdot \dpar{\vb{x}_i}{q_j} \right)
+\]
+la fuerza generalizada en el grado de libertad $j$. Entonces
 \be
 	\sum_{j=1}^{3N-k} \left\{ \frac{d}{dt}
 	\left[ \frac{\partial T}{\partial \dot{q}_j} \right] - \frac{\partial T}{\partial q_j} - Q_j \right\} \delta q_j =  0
@@ -259,9 +346,10 @@ Si suponemos que las fuerzas son conservativas, provienen de un potencial, enton
 \]
 y expresando la fuerza $Q_j$ en términos del potencial $V$
 \[
-	Q_j = \vb{F}_i^a \cdot \dpar{\vb{x}_i}{q_j} = -\dpar{V}{\vb{x}_i} \cdot \dpar{\vb{x}_i}{q_j} = -\dpar{V}{q_j},
+	Q_j = \sum_i^N \vb{F}_i^a \cdot \dpar{\vb{x}_i}{q_j} = 
+	- \sum_i^N \dpar{V}{\vb{x}_i} \cdot \dpar{\vb{x}_i}{q_j} = -\dpar{V}{q_j},
 \]
-que reemplazado en la ecuación 
+el cual, insertado en la ecuación \eqref{eq_el_0}, conduce a
 \[
 	\sum_{j=1}^{3N-k} \left\{ \frac{d}{dt}
 	\left[ \frac{\partial T}{\partial \dot{q}_j} \right] - \frac{\partial}{\partial q_j} \left( T - V \right) \right\} \delta q_j =  0.
@@ -293,14 +381,16 @@ y definiendo al lagrangiano\index{Lagrangiano} $\Lag$ como
 \[
 	\Lag \equiv T - V
 \]
-\notamargen{El $\Lag$ es función del conjunto $(\{ q_j \}, \{ \dot{q}_j \}, t)$.}
 se arriba a
 \[
 	\sum_{j=1}^{3N-k} \left[
 	\frac{d}{dt} \left( \dpar{\Lag}{\dot{q}_j} \right) -  \dpar{\Lag}{q_j} \right] \delta q_j =  0.
 \]
+Nótese que $\Lag = \Lag( q_1,...,q_{3N-k}, \dot{q}_1, ..., \dot{q}_{3N-k}, t ) $, es decir que es función 
+del conjunto $(\{ q_j \}, \{ \dot{q}_j \}, t)$. De esta manera las ecuaciones resultantes serán, a lo sumo,
+ecuaciones diferenciales para $q_j(t)$ de orden dos.
 
-Si existieran fuerzas que no provienen de un potencial (no conservativas) entonces
+Si existieran fuerzas aplicadas que no provienen de un potencial (no conservativas) entonces
 \[
 	Q_j + Q_j^{NC} = -\dpar{V}{q_j} + Q_j^{NC},
 \]
@@ -318,6 +408,9 @@ que son las ecuaciones de Euler-Lagrange con presencia de fuerzas no conservativ
 Este es el resultado más importante del capítulo.
 \notamargen{No sé si es la primera vez que aparecen. De serlo habría que remarcarlo como es debido, tal vez
 recuadrar}
+
+Se tienen así una formulación para los problemas mecánicos en términos de ecuaciones diferenciales para los
+grados de libertad $q_j$ que prescinden del conocimiento de las fuerzas de vínculo.
 
 \subsection{Algunos ejemplos del lagrangiano}
 

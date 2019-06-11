@@ -768,13 +768,16 @@ la cual puede moverse únicamente por el aro. Claramente la coordenada generaliz
 describe completamente el movimiento de la misma; el vínculo es $ r = a $ y el trabajo realizado por las
 fuerzas de vínculo $W_{F_v} = 0 $ porque $F_v \perp \delta \varphi$. La fuerza de vínculo (en dirección radial)
 es perpendicular al desplazamiento compatible con el vínculo.
+En este caso el vínculo expresa las coordenadas del espacio real.
 
 Las fuerzas de vínculo $\vb{F}^v$ se {\it acomodan} en todo momento para satisfacer las ligaduras.
 Entonces las $\vb{F}^v$ son perpendiculares a los desplazamientos compatibles con los vínculos de
 manera que 
 \[
-	W_{F^v} = 0
+	W_{F^v} = 0,
 \]
+es decir que el trabajo virtual de las fuerzas de vínculo es nulo. Este trabajo puede no ser nulo si el tiempo 
+varía (si no se considera un desplazamiento virtual).
 
 \begin{figure}[hbt]
 	\begin{center}
@@ -784,11 +787,42 @@ manera que
 	\caption{}
 \end{figure} 
 
-Para el caso de los bloques, al tener dos coordenadas, el sistema se mueve en una recta del espacio de coordenadas.
-La fuerza de vínculo es perpendicular al desplazamiento posible
+\notamargen{Un sistema 3D con dos vínculos resulta en un movimiento 1D; el sistema puede pensarse que se mueve sobre
+un {\it alambre}.}
+
+Para el caso de los bloques (o masas deslizantes), al tener dos coordenadas, el sistema se mueve en una recta del espacio 
+de coordenadas.
+La fuerza de vínculo es perpendicular al desplazamiento posible.
+El vínculo expresa aquí las coordenadas donde se mueven las masas y el perpendicular al desplazamiento virtual pero no al
+desplazamiento real.
+\[
+	\vb{F}_v = (2\vb{T}-\vb{T})
+\]
+\[
+	V_{vy} = - \frac 1 2 F_{vx} (F_{vx},-\frac 1 2 F_{vx})
+\]
+El trabajo virtual de las fuerzas de vínculo es nulo.
 
 \includegraphics[scale=0.35]{images/fig_mc_problema_bloques_fases.jpg}
 \notamargen{Entender este gráfico mejor!}
+
+\begin{ejemplo}{\bf Aro acelerado en un plano}
+
+Un aro que se mueve hacia la derecha con aceleración constante $\vb{a}$. 
+
+\includegraphics[scale=0.25]{images/fig_mc_aro_acelerado.jpg}
+
+Tiene una ecuación de vínculo dada por 
+\[
+	(x-x_c)^2 + (y-y_c)^2 = R_0^2
+\]
+y donde 
+\[
+	x_c = x_0 + \frac 1 2 a t^2, \; y_c = y_0
+\]
+\end{ejemplo}
+
+\subsection{Clasificación de los vínculos}
 
 Los vínculos se clasifican en
 \[
