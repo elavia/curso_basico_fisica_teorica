@@ -415,9 +415,58 @@ grados de libertad $q_j$ que prescinden del conocimiento de las fuerzas de vínc
 \subsection{Algunos ejemplos del lagrangiano}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\begin{ejemplo}{\bfseries Bloques deslizantes}
+
+Teníamos el vínculo 
+\[
+	-2x_1 + x_2 = \text{ cte. }
+\]
+Luego,
+\[
+	T = \frac 1 2 m_1 \dot{x}_1^2 + \frac 1 2 m_2 \dot{x}_2^2 \qquad \qquad V = -m_2 g x_2
+\]
+y tomando $x_2$ como independiente llego a
+\[
+	T-V = \frac{1}{2}\left( \frac{m_1}{4} + m_2 \right) \dot{x}_2^2 + m_2gx_2.
+\]
+Luego, las ecuaciones de E-L serán
+\[
+	\dtot{}{t}\left( \dpar{\Lag}{\dot{x}_2} \right) - \dpar{\Lag}{x_2} =
+	\left( \frac{m_1}{4} + m_2 \right) \ddot{x}_2 - m_2 g = 0
+\]
+que conduce a 
+\[
+	\ddot{x}_2 = \frac{m_2 g}{\frac{m_1}{4} + m_2 },
+\]
+que es a lo que se tenía que llegar.
+\end{ejemplo}
+
+\begin{ejemplo}{\bfseries Péndulo}
+
+\includegraphics[scale=0.35]{images/fig_mc_pendulo_lag.jpg}
+
+Las ecuaciones son 
+\[
+	m\ell \dot{\alpha}^2 = - T + m g \cos \alpha \qquad 
+	m\ell \ddot{\alpha} = - m g \sin \alpha
+\]
+y se podría resolver desde aquí nomás. Pero escribamos el lagrangiano
+\[
+	\Lag = T-V = \frac 1 2 m \ell^2 \dot{\alpha}^2 - mg\ell(1-\cos \alpha)
+\]
+Sus ecuaciones de E-L son
+\[
+	m \ell \ddot{\alpha} + mg\ell \sin \alpha = 0
+\]
+que es la ecuación del péndulo $\ddot{\alpha} = -g/\ell \sin \alpha$.
+
+\end{ejemplo}
+
 \begin{ejemplo}{\bfseries Aro acelerado }
 
 \notamargen{Falta ilustración del aro y sistema coordenado.}
+\includegraphics[scale=0.35]{images/fig_mc_aro_acelerado_lag.jpg}
 
 Supongamos un aro horizontal en una mesa sin rozamiento. Tiene un único grado de libertad.
 
@@ -439,31 +488,35 @@ Serán
 \[
 	\dot{x} = at + \ell \sin(\vp) \dot{\vp} \qquad \dot{y} = \ell \cos(\vp) \dot{vp}
 \]
+\notamargen{La $T$ del $\Lag$ es la vistda desde un sistema INERCIAL siempre; en todo caso luego aparecen
+las fuerzas ficticias necesarias. ESTO HAY QUE ESTUDIARLO Y ENTENDERLO.
+}
 y luego 
 \[
 	\Lag = T = \frac{1}{2} m (\dot{x}^2 + \dot{y}^2 ) = \frac{1}{2} m
 	(a^2 t^2 + 2at\ell\sin(\vp)\dot{\vp}+\ell^2\dot{\vp}^2)
 \]
-\notamargen{La $T$ del $\Lag$ es la vistda desde un sistema INERCIAL siempre; en todo caso leugo aparecen
-las fuerzas ficticias necesarias. ESTO HAY QUE ESTUDIARLO Y ENTENDERLO.
-\\
-}
+
 Las ecuaciones de Euler-Lagrange serán 
 \[
 	\dtot{}{t}\left( \dpar{\Lag}{\dot{\vp}}\right) - \dpar{\Lag}{\vp} = 
-	m \ell^2 \ddot{\vp} + mat\ell \sin(\vp) = 0
+	m \ell^2 \ddot{\vp} + ma\ell \sin(\vp) = 0
 \]
 lo cual resulta en la ecuación de movimiento
+\notamargen{El lagrangiano se dedujo de las ecuaciones de Newton, entonces debemos calcular $T,V$ de un sistema
+inercial. Acá no se entiende si lo que se hace en la carpeta está bien o no, en el sentido de que parece que al
+usar una coordenada que no es inercial estamos calculando T no inercial.? }
 \[
-	\ddot{\vp} = - \frac{at}{\ell} \sin(\vp) 
+	\ddot{\vp} = - \frac{a}{\ell} \sin(\vp) 
 \]
 que es una ecuación que da oscilaciones, como la de un péndulo. Estas oscilaciones están causadas, claramente,
 por la aceleración $a$.
 
+En este ejemplo se ve que se calcula la energía cinética $T$ en un sistema inercial; no obstante, este valor está
+expresado en términos de una coordenada que no es inercial (es solidaria al aro). Aparecen entonces las fuerzas 
+inerciales que tienen que aparecer y punto.
 
-\notamargen{El lagrangiano se dedujo de las ecuaciones de Newton, entonces debemos calcular $T,V$ de un sistema
-inercial. Acá no se entiende si lo que se hace en la carpeta está bien o no, en el sentido de que parece que al
-usar una coordenada que no es inercial estamos calculando T no inercial.? }
+
 
 \end{ejemplo}
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
