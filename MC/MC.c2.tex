@@ -486,7 +486,7 @@ En este caso no hay potencial pero como $\vp$ es una coordenada vista en un sist
 las fuerzas ficticias asociadas al movimiento.
 Serán
 \[
-	\dot{x} = at + \ell \sin(\vp) \dot{\vp} \qquad \dot{y} = \ell \cos(\vp) \dot{vp}
+	\dot{x} = at + \ell \sin(\vp) \dot{\vp} \qquad \dot{y} = \ell \cos(\vp) \dot{\vp}
 \]
 \notamargen{La $T$ del $\Lag$ es la vistda desde un sistema INERCIAL siempre; en todo caso luego aparecen
 las fuerzas ficticias necesarias. ESTO HAY QUE ESTUDIARLO Y ENTENDERLO.
@@ -525,6 +525,38 @@ inerciales que tienen que aparecer y punto.
 \section{Invariancia del lagrangiano ante adición de una derivada total}
 % =================================================================================================
 
+En los ejemplos del péndulo y del aro acelerado [CITAR], la resolución del sistema a través de las ecuaciones de 
+Euler-Lagrange condujo a las mismas ecuaciones de movimiento (lo que signfica que, para iguales condiciones iniciales, 
+la física del sistema es la misma) pero se partió de dos lagrangianos diferentes
+\[
+	\Lag = \frac 1 2 m \ell^2 \dot{\alpha}^2 + m g \ell \cos \alpha \qquad
+	\Lag'= \frac 1 2 m \left( \ell^2 \ddot{\alpha} + 2 \ell g t \sin \alpha \: \dot{\alpha} + g^2 t^2 \right)
+\]
+\notamargen{La aceleración del aro era $a$ pero escribimos $g$ para enfatizar que tienen la misma forma.}
+que llevaban a
+\[
+	\ell \ddot{\alpha} + g \sin \alpha = 0. 
+\]
+Es decir, que desde el punto de vista del movimiento del sistema, los dos lagrangianos son equivalentes.
+Pero notemos que el término central en $\Lag'$ aparece vinculado a 
+\[
+	\dtot{}{t}\left( m l g t \cos \alpha \right) = -m \ell g t \dot{\alpha} \sin \alpha + m l g \cos \alpha,
+\]
+de manera que 
+\[
+	\Lag'= \frac 1 2 m \ell^2 \dot{\alpha}^2 + m l g \cos \alpha - \dtot{}{t}\left( m l g t \cos \alpha \right) 
+	+ \frac 1 2 g^2 t^2
+\]
+\[
+	\Lag'= \frac 1 2 m \ell^2 \dot{\alpha}^2 + m l g \cos \alpha - \dtot{}{t}\left( m l g t \cos \alpha 
+	- \frac 1 6 g^2 t^3 \right)
+\]
+o bien 
+\[
+	\Lag'= \Lag + \dtot{}{t}(F(\alpha,t)).
+\]
+
+Entonces, parece que existe alguna relación entre dos lagrangianos que conducen a iguales ecuaciones de movimiento.
 
 En el ejemplo visto del sistema mecánico del aro acelerado parece que existía alguna relación entre dos 
 lagrangianos que conducían a iguales ecuaciones de movimiento. Veamos ahora el origen de esa relación.
@@ -597,6 +629,55 @@ Finalmente hemos comprobado que las ecuaciones de Euler Lagrange no se modifican
 derivada total respecto del tiempo de una función de $(q_i,t)$.
 O sea que podríamos construir infinitos lagrangianos diferentes por el añadido de una derivada total y todos
 ellos llevan a las mismas ecuaciones de movimiento.
+
+\begin{ejemplo}{\bf Lagrangiano en funcionamiento}
+
+Dos masas $m_1, m_2$ conectadas mediantes barras rígidas de masa despreciable según indica la figura que se mueven en 
+un plano.
+
+\includegraphics[scale=0.35]{images/fig_mc_clasica_pendulo_doble.jpg}
+
+En principio este problema tiene cuatro coordenadas $x_1,x_2,y_1,y_2$ pero las barras determinan dos ecuaciones de 
+vínculo
+\[
+	x_1^2 + y_1^2 = \ell  \qquad \qquad (x_2-x_1)^2 + (y_2-y_1)^2 = \ell^2
+\]
+de modo que es un sistema con dos grados de libertad.
+
+\notamargen{Este ejemplo es interesante porque considera unos versores movibles. Habría que continuarlo y ver qué se 
+hizo en la carpeta.} 
+
+Para escribir el lagrangiano notemos que 
+\[
+	T = T_1 + T_2 = \frac 1 2 m_1 ( \dot{x}_1^2 + \dot{y}_1^2 ) + \frac 1 2 m_2 ( \dot{x}_2^2 + \dot{y}_2^2 ) 
+\]
+\[
+	V = -m_1 g x_1 - m_2 g x_2
+\]
+
+Y en términos de los ángulos $\alpha_1$, $\alpha_2$ se tiene 
+\[
+	x_1 = \ell \cos \alpha_1 \qquad y_1 = \ell \sin \alpha_1 
+\]
+\[
+	x_2 = \ell \cos \alpha_2 + \ell \cos \alpha_1 \qquad y_2 = \ell \sin \alpha_1 + \ell \sin \alpha_2
+\]
+pero antes de hacer toda el álgebra, notemos que $( \dot{x}_1^2 + \dot{y}_1^2 ) = |\vb{v}_1| $ está siempre en la 
+dirección del vector $\hat{\alpha}_1$ y no puede tener componente perpendicular. Considerando solamente esa componente, 
+sería
+\[
+	\vb{v}_1 = \ell \: \dot{\alpha}_1 \hat{\alpha}_1 \qquad \text{ con } \qquad v_1^2 = \ell^2 \: \dot{\alpha}_1^2
+\]
+y correspondientemente
+\[
+	\vb{v}_2 = \ell \: \dot{\alpha}_1 \hat{\alpha}_1 + \ell \: \dot{\alpha}_2 \hat{\alpha}_2
+\]
+\[
+	v_2^2 = \ell^2 \: \dot{\alpha}_1^2 + \ell^2 \: \dot{\alpha}_2^2 + 2 \dot{\alpha}_1 \dot{\alpha}_2 \ell^2
+	\cos ( \alpha_2 - \alpha_1 ).
+\]
+\end{ejemplo}
+
 
 % =================================================================================================
 \section{Momentos conjugados y coordenadas cíclicas}\index{Momentos conjugados} \index{Coordenadas cíclicas}
@@ -1608,11 +1689,11 @@ Entonces, para el caso de vínculo holónomos tendremos $ a^k_\ell(q_i,t) = \nab
 pero tal vez no sea así.}
 
 Pero sabemos [sí?] que cuando existe fuerza generalizada (no proveniente de un potencial) se tenía 
-\[
+\be
 	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) -\dpar{\Lag}{q_j} = Q_j, \qquad \qquad 
 	Q_j = \sum_i^N \vb{F}_i^a \cdot \dpar{\vb{x}_i}{q_j}
 	\label{ecs_el_fuerza_generalizada}
-\]
+\ee
 % siendo $\nabla_j f^k $ el gradiente de la ecuación de víngulo respeco de $j$ y 
 e igualando los miembros derechos de \eqref{ecs_el_vinculos} y \eqref{ecs_el_fuerza_generalizada} 
 \[
@@ -1629,6 +1710,10 @@ Si los vínculos son holónomos (pero no quise despejar) entonces son las fuerza
 
 La moraleja es que si no puedo despejar en función de coordenadas independientes sí o sí necesito introducir
 multiplicadores de Lagrange.
+
+Tenía anotado que \eqref{ecs_el_fuerza_generalizada} es el lagrangiano con fuerzas no conservativas, cuando por 
+supuesto $\vb{F}$ son fuerzas no conservativas.
+
 
 \subsubsection{Más sobre el asunto de vínculos}
 \notamargen{Hay que revisar bien esta sección y meter algún ejemplo esclarecedor.}
