@@ -166,6 +166,19 @@ pero esto no es otra cosa que
 donde debemos entender al gradiente y al vector $\vb{\delta x}$ como $N$ dimensionales.
 \end{notas}
 
+
+\subsection{Comentario vínculos}
+\notamargen{Esto hay que consolidarlo todo. Volará.}
+El trabajo de la fuerza de vínculos es nulo si el desplazamiento es virtual.
+\[
+	f(x_1,x_2,...,x_N,t) = 0
+\]
+\[
+	\dpar{f}{x_1}\delta x_1 + ... +  \dpar{f}{x_N}\delta x_N = 0
+\]
+Como es un desplazamiento virtual, el tiempo $t$ está fijo (imagen fija = tiempo congelado)
+
+
 % =================================================================================================
 \section{Construcción del lagrangiano}
 % =================================================================================================
@@ -515,11 +528,106 @@ por la aceleración $a$.
 En este ejemplo se ve que se calcula la energía cinética $T$ en un sistema inercial; no obstante, este valor está
 expresado en términos de una coordenada que no es inercial (es solidaria al aro). Aparecen entonces las fuerzas 
 inerciales que tienen que aparecer y punto.
-
-
-
 \end{ejemplo}
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\begin{ejemplo}{\bf Problema 5 --para vínculos--}
+
+Este problema es de vínculos y trabajos virtuales. Habría que reubicarlo.
+
+\includegraphics[scale=0.35]{images/fig_mc_oscilador_barra.jpg}
+
+Se tienen dos masas $m_1$ y $m_2$ de manera que en principio se tendrían seis coordenadas; no obstante como el movimiento
+es en un plano (se puede tomar el $z=0$ como tal) y las masas están restringidas a moverse a lo largo del eje que las
+engarza se tiene, adoptando el esquema de la figura,
+\[
+	z_1 = z_2 = 0 \qquad \qquad x_2 = y_1 = 0
+\]
+es decir cuatro ecuaciones de vínculo a la cual le sumamos una quinta
+\be
+	x_1^2 + y_2^2 = \ell^2
+	\label{vinculo_problema_5}
+\ee
+de manera que resulta un problema para un único grado de libertad. Obviando los subíndices que no son necesarios, y diferenciando
+implícitamente la ecuación \eqref{vinculo_problema_5} se obtiene 
+\[
+	x dx + y dy = 0 
+\]
+Utilizando el ángulo $\theta$ y parametrizando las variables implicadas en \eqref{vinculo_problema_5} de acuerdo con 
+\[
+	x = \ell \sin \theta \qquad y = \ell \cos \theta
+\]
+vemos que es una buena coordenada porque verifica el vínculo de manera natural.
+
+Planteando las ecuaciones 
+\[
+	( T \sin \theta - m_1 \ddot{x} ) \delta x + ( m_2 g - T \cos \theta - m_2 \ddot{y} ) \delta y = 0
+\]
+\be
+	x \delta x = -y \delta y
+	\label{relacion_deltas}
+\ee
+pero usando la última, se tiene
+\[
+	-\frac{x}{\ell}T\delta x - \frac{y}{\ell}T\delta y = 0 
+\]
+de manera que desaparece la tensión. Entonces
+\[
+	m_2 \ddot{x} \delta x = m_2 (g - \ddot{y}) \delta y
+\]
+que es una ecuación de Lagrange de primera especie. Usando otra vez \eqref{relacion_deltas}
+\[
+	- m_1 \ddot{x} \frac y x = m_2 (g - \ddot{y})
+\]
+y entonces ahora habría que convertir a expresar todo en términos de $\theta$. Derivando las expresiones de $x,y$ en términos
+del ángulo $\theta$ resulta que 
+\[
+	-m_1 \ell ( \ddot{\theta} \cos \theta - \dot{\theta}^2 \sin \theta ) \frac{\cos \theta}{\sin \theta}  = 
+	m_2 ( g + \ell \ddot{\theta} \sin \theta + \ell \dot{\theta} \cos \theta )
+\]
+\[
+	\ddot{ \theta } \ell ( m_2 \sin \theta + m_1 \frac{\cos^2 \theta}{\sin \theta} ) + 
+	\dot{\theta}^2 \ell (m_2 \sin \theta - m_1 \cos \theta ) + m_2 g = 0
+\]
+Si $ m_1 = m_2 $ entonces
+\[
+	\ddot{ \theta } \ell \frac{m}{\sin \theta} + m  g = 0 
+\]
+\[
+	\ddot{ \theta } = -\frac{ g }{ \ell } \sin \theta,
+\]
+y vemos que es un péndulo.
+
+Ahora se quisiera calcular la tensión $T$. Se utilizarán multiplicadores de Lagrange. Sea que los vínculos se rompen (se rompen, por supuesto, en la 
+dirección de las fuerzas de vínculos). Supongamos que existe $y_1$ (hay desplazamiento en la coordenada $y_1$) entonces existirá $\lambda$ tal que 
+$\lambda  \delta y_1 \neq 0$
+\[
+	\delta y_1 ( m_1 \ddot{y}_1 - \lambda - m_1 g ) \qquad \lambda = m_1 g
+\]
+pero la ecuación en (1) (página anterior) debe seguir valiendo.
+\[
+	\lambda_T + x \delta x + \lambda_T y \delta y 
+\]
+\[
+	( m_1 \ddot{x} + \lambda_T x ) \dx + ( m_2 (g - \ddot{y} ) + \lambda_T + y ) \dy = 0
+\]
+lo cual vale si $\lambda_T = - \frac T \ell $.
+Y se ve que el multiplicador de Lagrange es la tensión (vínculo) -- la fuerza asociada a que se cumpla el vínculo --.
+Tengo un multiplicador por cada vínculo. Si hay $n$ vínculos y quiero un vínculo uso un solo multiplicador.
+Pero ahora $\dx$ y $\dy$ son independientes, entonces deben anularse por separado los dos miembros de la ecuación de Newton.
+\[
+	m_1 \ddot{x} + \lambda_T x  \qquad \qquad m_ 2(g -\ddot{y}) + \lambda_T y
+\]
+\[
+	\lambda_T = - \frac{m_1 \ddot{x}}{x} 
+\]
+\[
+	\lambda_T = -\frac{ m_1 ( \ddot{ \theta } \cos \theta - \dot{\theta}^2 \sin \theta ) }{\sin \theta} =
+	m_1 (\frac g \ell \cos \theta - \dot{\theta}^2 )
+\]
+\end{ejemplo}
+
+
 
 % =================================================================================================
 \section{Invariancia del lagrangiano ante adición de una derivada total}
@@ -544,16 +652,16 @@ Pero notemos que el término central en $\Lag'$ aparece vinculado a
 \]
 de manera que 
 \[
-	\Lag'= \frac 1 2 m \ell^2 \dot{\alpha}^2 + m l g \cos \alpha - \dtot{}{t}\left( m l g t \cos \alpha \right) 
-	+ \frac 1 2 g^2 t^2
+	\Lag'= \frac 1 2 m \ell^2 \dot{\alpha}^2 + m l g \cos \alpha -
+	\dtot{}{t}\left( m l g t \cos \alpha \right) + \frac 1 2 g^2 t^2
 \]
 \[
-	\Lag'= \frac 1 2 m \ell^2 \dot{\alpha}^2 + m l g \cos \alpha - \dtot{}{t}\left( m l g t \cos \alpha 
-	- \frac 1 6 g^2 t^3 \right)
+	\Lag'= \frac 1 2 m \ell^2 \dot{\alpha}^2 + m l g \cos \alpha - 
+	\dtot{}{t}\left( m l g t \cos \alpha - \frac 1 6 g^2 t^3 \right)
 \]
 o bien 
 \[
-	\Lag'= \Lag + \dtot{}{t}(F(\alpha,t)).
+	\Lag' = \Lag + \dtot{}{t}(F(\alpha,t)).
 \]
 
 Entonces, parece que existe alguna relación entre dos lagrangianos que conducen a iguales ecuaciones de movimiento.
@@ -1398,6 +1506,138 @@ $\Lag$ por la condición dada por \eqref{mc_borde_term}.
 
 La moraleja es que si los lagrangianos difieren en una derivada total del tiempo obtenemos la misma
 física.
+
+\begin{ejemplo}{\bf Problema círculos}
+
+\includegraphics[scale=0.3]{images/fig_mc_dos_circulos_rotantes.jpg} 
+\includegraphics[scale=0.3]{images/fig_mc_dos_circulos_subsistema.jpg} 
+ 
+El disco pequeño está solidario al disco [?]. La línea AB está pintada sobre los discos para poder medir los ángulos.
+El eje $x_1$ está solidario al piso (inercial).
+
+La segunda figura ilustra el movimiento de la masa en el sistema fijo.,
+\[
+	x_1 = R_1 \cos \theta_1 + \rho \cos ( \theta_1 + \theta_2 + \vp )
+\]
+\[
+	y_1 = R_1 \sin \theta_1 + \rho \sin ( \theta_1 + \theta_2 + \vp )
+\]
+Luego, hay que calcular 
+\[
+	\frac 1 2 m |\vb{v}|^2
+\]
+con 
+\[
+	\dot{x}_1 = -R_1 \sin \theta_1 \dot{\theta}_1 + \dot{\rho} \cos ( \theta_1 + \theta_2 + \vp ) -
+	\rho ( \dot{\theta}_1 + \dot{\theta}_2 + \dot{\vp} ) \sin( \theta_1 + \theta_2 + \vp )
+\]
+\[
+	\dot{y}_1 = R_1 \cos \theta_1 \dot{\theta}_1 + \dot{\rho} \sin ( \theta_1 + \theta_2 + \vp ) +
+	\rho ( \dot{\theta}_1 + \dot{\theta}_2 + \dot{\vp} ) \cos( \theta_1 + \theta_2 + \vp )	
+\]
+
+Habría que elevar esto al cuadrado, lo cual a mano es un trabajo un poco cumbersome.
+\[
+	T = \frac 1 2 m ( R_1^2 \dot{\theta}_1^2 + \rho^2( \dot{\theta}_1 + \dot{\theta}_2  + \dot{\vp} ) + \dot{\rho}^2 + 
+	2R_1\dot{\theta}_1\left[ \dot{\rho}\sin(\theta_2+\vp) + \rho( \dot{\theta}_1 + \dot{\theta}_2 + \dot{\vp} )\cos(\theta_2+\vp) \right])
+\]
+y como no hay potencial, entonces $\Lag = T $. Trabajando con las ecuaciones de Lagrange se llega a
+\[
+	\ddot{\rho} - \rho ( \omega_1 + \omega_2 + \dot{\vp} )^2 - R_1 \omega_1^2 \cos (\omega_2 t + \vp ) = 0
+\]
+\[
+	\ddot{\vp} + \frac{\dot{\rho}}{\rho}\left[ 2(\omega_1 + \omega_2 )\right] + 
+	\frac{R_1\omega_1( \omega_1 + \omega_2 )}{\rho} \sin (\omega_2 t + \vp ) = 0
+\]
+
+Este sistema tiene dos grados de libertad $(\rho,\vp)$ y el lagrangiano es $\Lag(\vp,\rho,\dot{\vp},\dot{\rho},t)$. En realidad
+$\dot{\theta}_j = \dot{\theta}_j(\rho\vp)$ para $j=1,2$ y entonces $\theta_j$ no son coordenadas generalizadas.
+
+Este problema se puede simplificar si se asume que $ \dot{\theta}_1, \dot{\theta}_2 $ son constantes [Esto viene antes o viene después].
+\end{ejemplo}
+
+
+\begin{ejemplo}{\bf Problema 17}
+ 
+\includegraphics[scale=0.3]{images/fig_mc_pendulo_deslizante.jpg} 
+
+Un problema de dos masas con, en principio, seis grados de libertad. Dado que el movimiento se asume que ocurre en un plano, el $z$
+por ejemplo, eso implica dos vínculos $z_1 = z_2 = 0$ a los cuales debemos sumarle la fijación de $m_1$ en la altura $y_1 = 0$ y el vínculo 
+de la barra
+\[
+	y_2^2 + (x_2 -x_1)^2 = \ell^2
+\]
+luego es un problema de dos grados de libertad, que pueden ser elegidos como $(x,\vp)$. Esto último puesto que 
+\[
+	x_2 = x + \ell \sin\vp \qquad y_2 = \ell \cos \vp.
+\]
+Considerando $x_1 equiv x$ para simplificar la notación se tiene 
+\[
+	\dot{x}_2 = \dot{x} + \ell \dot{\vp}\cos\vp \qquad \qquad \dot{y}_2 = -\ell \dot{\vp} \sin\vp
+\]
+
+Todo esto permite escribir 
+\[
+	T = \frac 1 2 ( m_1 + m_2 ) \dot{x}^2 + \frac 1 2 m_2 ( 2\dot{x}\dot{\vp} \ell\cos\v + \ell^2\dot{\vp}^2 )
+\]
+\[
+	V = - m_2 g \ell \cos\vp
+\]
+La condición de que $\Lag \neq \Lag(\vp)$ implica la cantidad conservada
+\[
+	\dpar{\Lag}{\dot{x}} = \dot{x}(m_1+m_2) + m_2 \dot{\vp} \ell \cos\vp \equiv p_x,
+\]
+que es el momento lineal en $x$. Para la coordenada $\vp$ resulta la ecuación
+\[
+	\ddot{x}\cos\vp + \ell\ddot{\vp} + g\sin\vp = 0,
+\]
+mientras que para $x$ se tiene 
+\[
+	\ddot{x}(m_1+m_2) + m_2 \ell (\cos \vp \ddot{\vp}-\sin\vp \dot{\vp}^2)	= 0.
+\]
+
+Se pueden combinar para tener una ecuación para $ \vp $ solamente. Luego esa dinámica la puedo obtener? [ver carpeta].
+\end{ejemplo}
+
+
+\begin{ejemplo}{\bf Problema 7}
+ 
+\includegraphics[scale=0.35]{images/fig_mc_problema_cono.jpg}
+
+En este problema convienen esféricas $\theta$ constante. Tendremos dos grados de libertad $(\varphi,r)$.
+Usando las expresiones de las coordenadas esféricas (ver XXXX chap 1) se tiene 
+\[
+	| \dot{\vb{x}} |^2 = | \dot{r}\hat{r} + r\sin\theta \dot{\vp} \hat{\vp} |^2
+\]
+\[
+	v^2 = \dot{r}^2 + r^2 \dot{ \vp }^2 \sin^2 \alpha
+\]
+Con esto escribimos $T$ usando que $V = mgr\cos\alpha$,
+\[
+	\Lag = \frac 1 2 m (\dot{r}^2 + r^2 \dot{ \vp }^2 \sin^2 \alpha) - mgr \cos\alpha 
+\]
+
+El grado de libertad $\vp$ tendrá asociado un momento conjugado que se conserva, pues $\partial\Lag/\partial \vp = 0$,
+luego
+\[
+	\dpar{\Lag}{\dot{\vp}} = mr^2 \dot{\vp} \sin^2 \alpha = cte. \equiv L
+\]
+mientras la ecuación de E-L para $r$ arrojará
+\[
+	m\ddot{r} - m r \dot{\vp}^2 \sin^2\alpha + mg\cos\alpha = 0
+\]
+y utilizando la conservación 
+\[
+	\ddot{r} - \frac{L^2}{mr^3\sin^2\alpha} + mg\cos\alpha = 0.
+\]
+
+Si ahora calculamos la energía $E=T+V$ se obtiene 
+\[
+	E = \frac 1 2 m \dot{r}^2 + \frac{L^2 \vp}{ m r^2 \sin^2 \alpha } + mgr\cos\alpha
+\]
+donde los dos últimos términos constituyen un potencial efectivo.
+ 
+\end{ejemplo}
 
 % =================================================================================================
 \section{Aplicaciones del principio de acción mínima}
