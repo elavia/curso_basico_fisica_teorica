@@ -1822,6 +1822,53 @@ También podemos encontrar esta notación, dependiendo del tipo de problema,
 	I = \int f\left(y, \dtot{y}{x}, x\right) dx 
 \]
 
+\subsection{Billares [otro título?]}
+
+Consideramos una partícula libre en una región del espacio (una partícula rebotando en cierta región). Podemos pensar en un
+potencial 
+\[
+	V(\vb{x}) = \begin{cases}
+	0\phantom{\infty} \quad \vb{x} \in D \\
+	\infty\phantom{0} \quad \vb{x} \notin D
+	\end{cases}
+\]
+\includegraphics[scale=0.3]{images/fig_mc_billar_1.jpg}
+
+Es un pozo de potencial con una partícula libre en su interior; se los suele llamar {\it billares}. En este caso
+\[
+	I = \int_{q_i}^{qa_f} \: \Lag( q_1(t), q_2(t), ..., q_k(t),\dot{q}_1(t), ..., \dot{q}_k(t), t ) dt.
+\]
+La integral da la longitud de la órbita (espacio recorrido)
+\[
+	\frac 1 2 m v_0^2 \int_{t_i}^{t_f} dt = \frac 1 2 m v_0^2 (t_f - t_i)
+\]
+
+En un billar circular 
+
+\includegraphics[scale=0.3]{images/fig_mc_billar_2.jpg}
+\includegraphics[scale=0.3]{images/fig_mc_billar_2b.jpg}
+
+Si parto del punto rojo y quiero minimizar (extremar) la trayectoria que me da el ir hacia $(x,y)$ y volver al punto rojo, obtendré
+una órbita periódica en $(x_0,y_0)$. Esa órbita periódica es extrema entre ir y volver al punto rojo.
+
+En un billar eliptico
+
+\includegraphics[scale=0.3]{images/fig_mc_billar_3.jpg} 
+
+hay muchas trayectorias posibles entre los focos.
+El lagrangiano integrado me da todos las extremas $(1,2,...)$, que por otro lado son las reales, y con las condiciones iniciales determinaré qué 
+trayectoria extrema estaré considerando.
+
+Hay muchas trayectorias $(1,2,...)$ que son posibles 
+
+\includegraphics[scale=0.3]{images/fig_mc_billar_4.jpg} 
+
+\[
+	I = \int \Lag
+\]
+da la longitud total de todo el camino.
+\notamargen{¿Esta sección aporta algo?}
+
 
 \subsection{Minimización del camino entre dos puntos}
 
