@@ -1639,9 +1639,160 @@ donde los dos últimos términos constituyen un potencial efectivo.
  
 \end{ejemplo}
 
+\begin{ejemplo}{\bf Cicloides y esas cosas}
+Tautocrona, Huygens (1773)
+
+\subsubsection*{Curva cicloide}
+
+\includegraphics[scale=0.3]{images/fig_mc_cicloides.jpg}
+
+Con las consideraciones de las figuras, tenemos en rápida sucesión
+\[
+	\vb{R} = (vt,b)
+\]
+\[
+	\vb{X}' = ( -b \sin \vp, -b \cos \vp ) ; \quad \vp = \omega t
+\]
+\[
+	\vb{X} = ( vt -b \sin \vp, b -b \cos \vp )
+\]
+y por condición de rodadura
+\[
+	\vb{v}_q = 0 = \vb{v}_{cm} + \vb{\omega} \times \vb{x}_{cm} = v\hat{x} + (-\omega)b\hat{k} \times (-\hat{y})
+\]
+\[
+	0 = (v-\omega b)\hat{x},
+\]
+o bien $v=\omega b$ e integrando
+\[
+	vt = \omega t b = \vp b.
+\]
+
+Con esto llego a mi ecuación paramétrica para el cicloide
+\[
+	\begin{cases}  x = b \: (\vp - \sin \vp )\\
+		       y = b \: (1 - \cos \vp )
+	\end{cases}
+\]
+Este cicloide tiene gráfico 
+
+\includegraphics[scale=0.2]{images/fig_mc_cicloide_tiny.jpg}
+\includegraphics[scale=0.2]{images/fig_mc_cicloide_tiny_inverted.jpg}
+
+Pero neceisto uno que mire hacia abajo, lo cual se logra con un cambio $y' = -y + bz $ de modo que 
+\[
+	\begin{cases}  x = b \: (\vp - \sin \vp )\\
+		       y = b \: (1 + \cos \vp )
+	\end{cases}
+\]
+
+Ahora se hace un cambio de variables nuevo 
+\[
+	\frac y b = 1 + \cos\vp \qquad \qquad \frac{y-b}{b} = \cos \vp
+\]
+y entonces
+\[
+	x(y) = b \left( \acos\left( \frac{y-b}{b} \right) - \sqrt{1 - ( (y-b)/b )^2} \right)
+\]
+
+\includegraphics[scale=0.2]{images/fig_mc_cicloide_tobogan.jpg}
+
+Usando todo esto
+\[
+	T = \frac 1 2 m ( \dot{x}^2 + \dot{y}^2 ) \qquad \qquad V = m g y
+\]
+\[
+	\Lag = \frac 1 2 m ( \dot{x}^2 + \dot{y}^2) - mgy
+\]
+Derivando $x$ y haciendo el álgebra,
+\[
+	\dot{x} = -\dot{y} \sqrt{ \frac{ 2b - y }{y} }.
+\]
+
+Utilizando toda esta información, el lagrangiano es
+\[
+	\Lag = \frac{mb\dot{y}}{y} - mgy
+\]
+y las ecuaciones de E-L
+\[
+	mb\left( 2\frac{\ddot{y}}{y} - \frac{\dot{y}^2}{y^2} \right) + mg = 0.
+\]
+
+Podemos ver, con alguna experiencia, que 
+\[
+	\dtot{}{t}\left( \frac{ \dot{y}^2 }{y} \right) = \dot{y} \left( 2 \frac{ \ddot{y} }{y} - \frac{\dot{y}^2}{y^2} \right)
+\]
+
+Luego,
+\[
+	m b \frac{1}{\dot{y}} \dtot{}{t}\left( \frac{ \dot{y}^2 }{y} \right) + m g = 0
+\]
+\[
+	\dtot{}{t}\left( \frac{ \dot{y}^2 }{y} \right) = - \frac{ g }{ b } \dtot{y}{t},
+\]
+y ahora se puede integrar
+\[
+	\int_0^t \dtot{}{t}\left( \frac{ \dot{y}^2 }{y} \right) dt = 
+	- \frac{ g }{ b } \int_0^t \dtot{y}{t} dt,
+\]
+\[
+	\left. \frac{ \dot{y}^2 }{y} \right|_0^t = - \left. \frac{ g }{ b } y \right|_0^t
+\]
+
+Usando condiciones iniciales
+\[
+	\begin{cases}
+	 \dot{y}(t=0) = 0 \\
+	 y(t=0) = y_0
+	\end{cases}
+\]
+\[
+	\frac{ \dot{y}^2 }{ y } = -\frac{ g }{ b } y +  \frac{ g }{ b } y_0
+\]
+\[
+	\dot{y} = \frac{g}{b} \sqrt{ (y_0 - g) y }
+\]
+de manera que 
+\[
+	\int_{y_0}^{y} \frac{ dy }{ \sqrt{ y_0y - y^2 } } = \sqrt{ \frac g b } \int_0^t dt = \sqrt{ \frac g b } t
+\]
+\[
+	\asen\left( \frac{ y - y_0/2 }{y_0/2} \right)|_{y_0}^y = \asen\left( \frac{y - y_0/2}{y_0/2} \right)  - \frac \pi 2
+\]
+\[
+	\frac{y - y_0/2}{y_0/2} = \sin ( \sqrt{ \frac g b } t + \pi/2 ) = \cos ( \sqrt{ \frac g b } t )
+\]
+Finalmente,
+\[
+	y(t) = \frac {y_0} 2 ( 1 + \cos ( \sqrt{ \frac g b } t ) ).
+\]
+
+Si quiero calcular el tiempo de caída será:
+\[
+	0 = \frac{y_0}{2}\left( 1 + \cos ( \sqrt{ \frac g b } \tau ) \right),
+\]
+de lo cual se deduce 
+\[
+	\tau = \sqrt{ \frac b g } \pi.
+\]
+
+La cicloide es la curva de caída por la cual se tarda el tiempo mínimo. La masa $m$ tarda lo mínimo en caer por esta curva.
+Si las dos ruedas están pegadas girando ambas, recorrerán en un giro una distancia verde:
+
+\includegraphics[scale=0.2]{images/fig_mc_ruedas_pegadas.jpg}
+
+Esto no sucede: alguna de ambas deslizará.
+\end{ejemplo}
+
+
+
+
 % =================================================================================================
 \section{Aplicaciones del principio de acción mínima}
 % =================================================================================================
+
+\notamargen{Me falta algo de esta clase inicial, pero esperamos que no sea fundamental!}
+El principio variacional de Hamilton tiene más uso como herramiento formal de lo que tiene en el campo de la aplicación.
 
 \[
 	S = \int (T-V_0) dt
