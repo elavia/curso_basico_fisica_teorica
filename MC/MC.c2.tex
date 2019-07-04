@@ -1972,7 +1972,69 @@ y óptica geométrica.
 	\label{fig_mc_snell2}
 \end{figure}
 
+\subsection{Acción mínima ejemplos}
 
+En general, dada una integral
+\[
+	I = \int_{t_1}^{t_2} \: f\left(y,\dtot{y}{t},t\right) \: dt,
+\]
+si se tiene que 
+\[
+	\dtot{}{t}\left( \dpar{f}{dy/dt} \right) - \dpar{f}{y} = 0,
+\]
+entonces se da que $I$ es un extremo. Por ello esta idea es generalizable a casos no mecánicos, como veremos a 
+continuación.
+
+\begin{ejemplo}{\bf Espejimo -problema 5-}
+ 
+\includegraphics[scale=0.3]{images/fig_mc_espejismo.jpg}
+
+En estos problemas debemos saber primeramente de qué punto a qué punto vamos.
+\[
+	I = \int_{x_1}^{x_2} n(y) d\ell = \int_1^2 n_0 \left( 1 + \frac y h \right) \sqrt{ dx^2 + dy^2} =
+	\int_1^2 n_0 \left( 1 + \frac y h \right) \sqrt{ 1 + \left( \frac{dy}{dx} \right)^2 } \: dx
+\]
+Si defino $ y' = dy/dx$ y $f = n_0 (1 + y/h) \sqrt{ 1 + {y'}^2}$ se tiene 
+\[
+	\dtot{}{x}\left( \dpar{f}{y'}\right) = \dtot{}{x} \left( n_0 \left( 1 + \frac y h \right) 
+	\frac{y'}{\sqrt{ 1 + {y'}^2}} \right)
+\]
+y haciendo la derivada explícitamente
+\[
+	\dtot{}{x}\left( \dpar{f}{y'}\right) = n_0 \left( 
+	\frac{ {y'}^2}{h\sqrt{1 + {y'}^2} } + \left( 1 + \frac y h \right) 
+	\left[ y''\frac{1}{\sqrt{1 + {y'}^2}} + \frac{y'}{2 (\sqrt{1 + {y'}^2})^3 } 2 y' y'' \right]
+	\right)
+\]
+\[
+	\dpar{f}{y} = \frac {n_0}{h}  \sqrt{ 1 + { y'}^2 } 
+\]
+Luego, juntando todo
+\[
+	y'' = \frac{1 + y'^2}{h+y}.
+\]
+
+Si tomamos 
+\[
+	y + h = \frac{\alpha h}{n_0} \cosh \left( \frac{\alpha n_0}{\alpha h}+ \beta \right)
+\]
+\[
+	y'' = \frac{n_0}{\alpha h} \cosh ()
+\]
+\notamargen{Acá, claramente, faltan cosas.}
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 8}
+
+Por la periodicidad se propone una serie de Fourier
+\[
+	y = \frac{a_0 }{2} + \sum_{n=1} a_n \cos (n\omega t) + b_n \sin (n\omega t)
+\]
+donde $\omega$ corresponde a la frecuencia del movimiento de subida y bajada.
+% fig_mc_fourier_1
+% fig_mc_fourier_2
+% fig_mc_fourier_3
+\end{ejemplo}
 
 % =================================================================================================
 \section{Multiplicadores de Lagrange}
