@@ -2115,6 +2115,7 @@ donde
 y la altura máxima real es $Y_\text{maxima} = v_0^2/(2g)$ que difiere de la que se obtiene con la serie de Fourier.
 Entonces, la mejor solución de entre las series de Fourier es \eqref{sol_series_fourier} que difiere de la solución real.
 Esta solución es derivable en los nodos, mientras que la solución real no lo es.
+\notamargen{Este ejemplo hay que trabajarlo bastante!}
 \end{ejemplo}
 
 % =================================================================================================
@@ -2204,8 +2205,10 @@ y esta ecuación es precisamente de la forma $ \sum_\ell a_\ell^k \delta q_\ell 
 \begin{ejemplo}{\bf Resolución de sistema holónomo}
 
 Consideramos un cilindro rodando sin deslizar.
-\notamargen{Aclarar mil cosas: rueda un poco (máximo $\alpha = pi/2 $). ¿Es una aproximación sólo válida para
+\notamargen{Aclarar mil cosas: rueda un poco (máximo $\alpha = \pi/2 $). ¿Es una aproximación sólo válida para
 ángulos pequeños? El caso exacto es mucho quilombo? Sirve para algo?}
+
+\includegraphics[scale=0.3]{images/fig_mc_cilindro_and_peso.jpg}
 
 Los vínculos son relaciones entre velocidades que se pueden intergrar.
 De la soga:
@@ -2255,17 +2258,17 @@ de manera que identificamos naturalmente a
 \[
 	\lambda^1 = T \qquad \qquad \lambda^2 = - F_{\text{roz}}
 \]
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \end{ejemplo}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Entonces, para el caso de vínculo holónomos tendremos $ a^k_\ell(q_i,t) = \nabla_i f^k \cdot \delta \vb{x}_i $ de modo que
-\[
+\be
 	\frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_j} \right) -\dpar{\Lag}{q_j} =
 	\sum_{k}^s \lambda^k \: \dpar{f^k}{q_j}
 	\label{ecs_el_vinculos}
 % 	\nabla_j f^k \cdot \frac{\delta \vb{x}_j}{\delta q_j}
-\]
+\ee
 \notamargen{Hay que escribir bien la conversión de $\nabla f^k$ hacia $\partial f^k / \partial q_j $. Parece una boludez,
 pero tal vez no sea así.}
 
@@ -2281,7 +2284,8 @@ e igualando los miembros derechos de \eqref{ecs_el_vinculos} y \eqref{ecs_el_fue
 	\sum_i^N \vb{F}_i^a \cdot \dpar{\vb{x}_i}{q_j} = \sum_{k}^s \lambda^k \: \dpar{f^k}{q_j}
 \]
 se arriba a que 
-\notamargen{Acá hay temas con los índices y con lo que se suma. Parece no ser la misma cosa.}
+\notamargen{Acá hay temas con los índices y con lo que se suma. Parece no ser la misma cosa.
+Tenía observado en la carpeta que $\vb{x}=\vb{x}(q_i,t)$ y $f(q_i,t)=0$.}
 \[
 	\lambda^k = \vb{F}_i^a 
 \]
