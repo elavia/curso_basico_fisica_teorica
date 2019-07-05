@@ -2031,9 +2031,90 @@ Por la periodicidad se propone una serie de Fourier
 	y = \frac{a_0 }{2} + \sum_{n=1} a_n \cos (n\omega t) + b_n \sin (n\omega t)
 \]
 donde $\omega$ corresponde a la frecuencia del movimiento de subida y bajada.
-% fig_mc_fourier_1
-% fig_mc_fourier_2
-% fig_mc_fourier_3
+\[
+	y(0) = 0 \qquad \qquad \Lag = T - V
+\]
+\[
+	y(t_{\text{caida}}) = 0 \qquad \qquad \Lag = \frac m 2 \dot{y}^2 - m g y
+\]
+Entonces queremos lograr $\delta I = 0$ para 
+\[
+	I = \int_0^{t_c}  \: \Lag \: dt
+\]
+para hallar la mejor serie de Fourier que verifique
+\[
+	\dot{y} = \sum_{n} - a_n \sin (n\omega t) n \omega + b_n \cos (n\omega t) n\omega
+\]
+y esto habría que elevarlo al cuadrado.
+
+\includegraphics[scale=0.3]{images/fig_mc_fourier_1.jpg}
+\includegraphics[scale=0.3]{images/fig_mc_fourier_2.jpg}
+
+Quisiera ver la diferencia entre las dos trayectorias que muestra la figura.
+\[
+	y(0) = \frac{ \omega }{2} + \sum a_n = y( t_c )
+\]
+Y calculo acá las variaciones
+\[
+	0 = \delta y(0) = \delta \frac{a_0}{2} + \sum_n \delta a_n
+\]
+\[
+	\delta a_0 = - \sum_n 2 \delta a_n \qquad   \text{vinculo}
+\]
+\[
+	I = m \int_0^{t_c} \left[ \sum_n a_n n \omega \sin( n\omega t) + b_n n\omega \cos (n\omega t) \right]^2 dt 
+	- mg \int_0^{t_c} \left[ \frac {a_0} 2 \sum_n a_n \cos( n\omega t) + b_n \sin (n\omega t) \right] dt
+\]
+\notamargen{Anoté: porque $t_c$ es el tiempo de un período.}
+\[
+	\int_0^{t_c} \cos (n\omega t) dt = 0 \qquad \qquad \int_0^{t_c} \sin (n\omega t) dt = 0
+\]
+\[
+	\int_0^{t_c} \cos^2 (n\omega t) dt = T/2 \qquad \qquad \int_0^{t_c} \sin^2 (n\omega t) dt = T/2
+\]
+\[
+	I = \frac m 2 \left( \sum_n a_n^2 n^2 \omega^2 \frac {T_c}2 + \sum_n b_n^2 n^2 \omega^2 \frac {T_c}2 \right) - m g T_c \frac {a_0} 2
+\]
+
+La integral ya está dada en función de los coeficientes de la serie, de manera que lo que faltaría es hacer variar los coeficientes y ya.
+\[
+	\delta I = - \frac m 2 \sum_n a_n \delta a_n n^2 \omega^2 t_c + \frac m 2 \sum_n b_n \delta b_n n^2 \omega^2 t_c -
+	m g \delta \frac {a_0} 2 t_c + \frac{mg }{2} \sum_n 2 \delta a_n t_c = 0
+\]
+y como los $\delta a_n, \delta b_n$ son independientes todos los términos serán cero por separado.
+Entonces
+\[
+	\frac m 2 b_n \delta b_n n^2 \omega^2 t_c = 0 \qquad \qquad \Rightarrow \quad b_n= 0,
+\]
+es decir que no hay senos. Por otro lado,
+\[
+	a_n  = \frac {2g}{n^2\omega^2}
+\]
+y
+\[
+	y(t) = \sum_n \frac{1-\cos(n\omega t)}{n^2\omega^2/2g}
+\]
+
+Se ve que la mejor serie de Fourier tendrá algo que se aproxima a la parábola.
+
+\includegraphics[scale=0.3]{images/fig_mc_fourier_3.jpg}
+
+Podemos ver si se llega a la altura máxima $y_\text{maxima} \equiv y(t_c/2)$
+\[
+	y(t_c/2) = \frac{2g}{\omega^2}\sum_n \frac{2}{n^2} = \frac{4g}{\omega^2}\frac{\pi^2}{6} = \frac{gt_c^2}{6} = \frac{2v_0^2}{3g}
+\]
+o bien 
+\be
+	y(t_c/2) = \frac{2v_0^2}{3g}
+	\label{sol_series_fourier}
+\ee
+donde 
+\[
+	E = mgy_\text{maxima}, E_0 = \frac{mv_0^2}{2}
+\]
+y la altura máxima real es $Y_\text{maxima} = v_0^2/(2g)$ que difiere de la que se obtiene con la serie de Fourier.
+Entonces, la mejor solución de entre las series de Fourier es \eqref{sol_series_fourier} que difiere de la solución real.
+Esta solución es derivable en los nodos, mientras que la solución real no lo es.
 \end{ejemplo}
 
 % =================================================================================================
