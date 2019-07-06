@@ -98,9 +98,148 @@ es la fuerza total proyectada en la dirección $\hat{n}$.
 En un caso tenemos $\dot{p}=0$ y en otro $\dot{p} = -\partial V / \partial q$.
 Creo que lo del potencial sería para las otras coordenadas no afectadas por la simetría?.}
 
-Para examinar constantes de movimiento podemos ver primreo las variables cíclicas. Sin embargo, si elegimos otras 
+Para examinar constantes de movimiento podemos ver primero las variables cíclicas. Sin embargo, si elegimos otras 
 coordenadas tal vez no aparezca la constante de movimiento como coordenada cíclica (aunque por supuesto sigue 
 existiendo dicha constante).
+
+\subsection{Simetrías en el lagrangiano}
+
+Sea un cambio de coordenadas $q_i \to q_i'$, si como resultado de éste se tenía
+\[
+	\Lag(q_i, \dot{q}_i, t ) = \Lag(q_i(q_i',t), \dot{q}_i(\dot{q}_i',t), t ),
+\]
+es decir, que al escribir el lagrangiano en función de las nuevas coordenadas obtengo el mismo, se está ante la 
+presencia de una simetría asociada.
+
+Las variables cíclicas son un caso particular de teorema de Noether. Una transformación infinitesimal genérica de $k$ 
+grados de libertad es
+\begin{eqnarray*}
+	q'_1 &= q_1 + \varepsilon g_1(q_1,...,q_k,t) \\
+	q'_2 &= q_2 + \varepsilon g_2(q_1,...,q_k,t) \\
+	... \\
+	q'_k &= q_k + \varepsilon g_k(q_1,...,q_k,t)
+\end{eqnarray*}
+
+Para una traslación infinitesimal rígida se tiene 
+\begin{eqnarray*}
+	x'_i = x_i + \delta x \\
+	y'_i = y_i + \delta y \\
+	z'_i = z_i + \delta z
+\end{eqnarray*}
+o bien $\vb{x}' = \vb{x} + \delta \vb{x}$ y la energía cinética 
+\[
+	T = \sum_i \frac{1}{2} m_i v_i^2
+\]
+es invariable puesto que depende de las velocidades (que no dependen del origen) y se da $\dot{x} = \dot{x}'$ y lo 
+mismo para las otras coordenadas.
+
+Para una rotación en el plano $xy$
+\begin{eqnarray*}
+	x'_i = x_i + \varepsilon y_i \\
+	y'_i = y_i - \varepsilon x_i \\
+	z'_i = z_i 
+\end{eqnarray*}
+que matricialmente se pueden ver como 
+\[
+	\begin{pmatrix}
+	x_i'\\
+	y_i'
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+	 1 & \varepsilon \\
+	 -\varepsilon & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+	 x_i \\
+	 y_i
+	\end{pmatrix}
+	\qquad 
+	\begin{pmatrix}
+	 1 & -\varepsilon \\
+	 \varepsilon & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+	\dot{x}_i'\\
+	\dot{y}_i'
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+	\dot{x}_i \\
+	\dot{y}_i
+	\end{pmatrix}
+\]
+resulta
+\[
+	T = \sum_i \frac{1}{2} m_i v_i^2 = \frac{1}{2} \sum_i m_i ( \dot{x}_i^2 + \dot{y}_i^2 )
+\]
+y ahora para $T'$ expresamos las coordendas primitivas en función de las nuevas (primadas).
+\[
+	T' = \frac{1}{2} \sum_i m_i ( [\dot{x}_i' - \varepsilon \dot{y}_i' ]^2 + [\dot{y}_i' + \varepsilon 
+\dot{x}_i']^2 )
+\]
+y a primer orden
+\[
+	T' = \frac{1}{2} \sum_i m_i ( \dot{x}^{'2}_i - 2 \varepsilon \dot{y}_i'\dot{x}_i' + 
+ 	2 \varepsilon \dot{y}_i'\dot{x}_i' + \dot{y}^{'2}_i ) = 
+ 	\frac{1}{2} \sum_i m_i( \dot{x}^{'2}_i + \dot{y}^{'2}_i ) = T.
+\]
+\notamargen{Resolver un problema de double superscript aquí. T es invariante porque es básicamente un escalar.}
+
+Entonces $T$ es invariante ante traslación rígida y rotación rígida.
+Faltaría completar este análisis con las simetrías del potencial $V$ para ver las simetrías del lagrangiano.
+En los casos en que 
+\[
+	V = V(|\vb{x}_i - \vb{x}_j|) \quad \text{ Invariancia de traslación en cualquier dirección} 
+\]
+lo cual significa depender de la distancia relativa. Otro caso es:
+\[
+	V = V( x_i, y_i ) \quad \text{ Invariancia de traslación en $z$}
+\]
+
+Noether dice que si el lagrangiano $\Lag$ es invariante entonces hay una simetría de la transformación que no 
+necesariamente es rotación rígida o traslación rígida.
+\[
+	T \text{ se conserva en } \begin{cases}
+	                           \text{ rotación rígida } \\
+	                           \text{ traslaciones }
+	                          \end{cases}
+\]
+\[
+	V \text{ tendrá } \begin{cases}
+			   \text{ 1. rotación rígida } \\
+			    \text{ 2. traslación } \\
+			     \text{ 3. rotación y traslación } \\
+	                  \end{cases}
+\]
+
+Luego, digamos que:
+\begin{itemize}
+ \item $\Lag$ tiene un momento lineal si $V$ tiene 1
+ \item $\Lag$ tiene un momento angular si $V$ tiene 2 
+ \item $\Lag$ tiene una combinación de momento lineal y angular si $V$ tiene 3
+\end{itemize}
+
+Si se tiene constante de movimiento, no necesariamente el lagrangiano $\Lag$ tiene esa simetría.
+
+Una trasnformación general para $k$ grados de libertad se escribe como 
+\begin{eqnarray*}
+	q'_1 &= q_1 + \sum_{\ell=1}^S \varepsilon_\ell g_1^\ell(q_1,...,q_k,t) \\
+	q'_2 &= q_2 + \sum_{\ell=1}^S \varepsilon_\ell g_2^\ell(q_1,...,q_k,t) \\
+	... \\
+	q'_k &= q_k + \sum_{\ell=1}^S \varepsilon_\ell g_k^\ell(q_1,...,q_k,t)
+\end{eqnarray*}
+donde el término en cada sumatoria corresponde al $\delta q_k$.
+
+\notamargen{La simetría de paridad $\vb{x}\to -\vb{x}$, que es una reflexión tiene la particularidad de que es 
+discreta, no se puede ir continuamente.}
+
+\subsection{Rotación en 3D infinitesimal}
+
+
+
+
+
 
 % =================================================================================================
 \section{El teorema de Noether}\index{Noether, teorema de}
