@@ -420,28 +420,135 @@ Extraemos también que
 	\dpar{\Lag}{\dot{q'}_i} \sum_\ell^s \epsilon_\ell g_i^\ell = C
 \]
 
-Se puede pensar también como que $\Lag$ es invariante ante la transformación infinitesimal
-$\delta q$
+Por hipótesis de Noether, se tiene $\delta \Lag = 0$ y si $\delta$ de la variación es pequeño (o sea que la variación 
+es infinitesimal) vale que $d\Lag = 0$. Asimismo, se puede pensar también como que $\Lag$ es invariante ante la 
+transformación infinitesimal $\delta q$
 \[
-	\delta\Lag = 0 = \sum_i^N \dpar{\Lag}{q_i}\delta q_i + \dpar{\Lag}{\dot{q}_i}\delta \dot{q}_i
+	\delta\Lag = \sum_i^N \dpar{\Lag}{q_i}\delta q_i + \dpar{\Lag}{\dot{q}_i}\delta \dot{q}_i = 0
 \]
+y aplicando la regla de la derivada del producto en el segundo término, se tiene
 \[
-	\delta\Lag = 0 = \sum_i^N \left[ \dpar{\Lag}{q_i} - \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \right)
-	\right]\delta q_i  + \sum_i^N \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \delta q_i \right)  = 0
+	\delta\Lag = \sum_i^N \left[ \dpar{\Lag}{q_i} - \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \right)
+	\right]\delta q_i  + \sum_i^N \frac{d}{dt}\left( \dpar{\Lag}{\dot{q}_i} \delta q_i \right)  = 0 
 \]
-siendo el primer término nulo, y siendo lo que se conserva lo que aparece en el segundo término,
-donde 
+donde el primer término es nulo (por ecuaciones de Euler-Lagrange), y el segundo término 
+\[
+	\frac{d}{dt} \left( \sum_i^N \dpar{\Lag}{\dot{q}_i} \delta q_i \right)  = 0
+\]
+involucra la cantidad conservada
+\be
+	\sum_i^N \dpar{\Lag}{\dot{q}_i} \delta q_i = cte.
+	\label{noether_cant_conserv}
+\ee
+
+Si se usa la prescripción [de dónde salió?]
 \[
 	\delta q_i =  \sum_\ell^s \epsilon_\ell g_i^\ell(q_1,q_2,...,q_n)
 \]
-Finalmente 
+en \eqref{noether_cant_conserv} se tiene 
 \[
-	\delta \Lag = 0 = \frac{d}{dt}\left( \sum_i^N \dpar{\Lag}{\dot{q}_i} \delta q_i \right) 
+	\frac{d}{dt} \left( \dpar{\Lag}{\dot{q}_1} \sum_{\ell=1}^s \epsilon_\ell g_1^\ell  + 
+	\dpar{\Lag}{\dot{q}_2} \sum_{\ell=1}^s \epsilon_\ell g_2^\ell + ...	
+	\right)  = 0
 \]
+y si tomo $epsilon_1 =\epsilon$ y todos los $\epsilon_2,\epsilon_3,...=0$ lo cual se puede hacer puesto que son 
+independientes,
+\[
+	\frac{d}{dt} \left( \dpar{\Lag}{\dot{q}_1} \epsilon g_1^1  + 
+	\dpar{\Lag}{\dot{q}_2} \epsilon g_2^1 + ...	\right)  = 0
+\]
+y como los primeros términos dentro de cada sumando en el paréntesis son los momentos canónicamente conjugados,
+\[
+	\frac{d}{dt} \left( \sum_i p_i g_i^1 \right)  = 0
+\]
+\[
+	\frac{d}{dt} \left( \sum_i p_i g_i^2 \right)  = 0
+\]
+\[
+	\frac{d}{dt} \left( \sum_i p_i g_i^\ell \right)  = 0 \qquad \ell =1,2,...,s
+\]
+y tendré una constante de movimiento por cada parámetro independiente.
+\notamargen{Acá no entiendo bien de qué la va esta construcción.}
+
+\subsection{Rotación en 3D infinitesimal}
+
+En este caso se escribe 
+\[
+	\vb{x}_i' = \vb{x}_i + \delta \: \hat{n}\times\vb{x}_i
+\]
+que es una rotación en torno a un versor genérico $\hat{n}$ y el carácter de infinitesimal viene dado por $\delta \ll 
+1$.
+En términos de coordenads esféricas
+\[
+	(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta)\times (x_i,y_i,z_i)
+\]
+de modo que 
+\begin{eqnarray*}
+	x_i' = x_i + \delta( \sin\theta \sin\phi z_i - \cos\theta y_i ) &\\
+	x_i' = x_i + \delta( \cos\theta x_i - \sin\theta\cos\phi z_i ) &\\
+	x_i' = x_i + \delta( \sin\theta \cos\phi y_i - \sin\theta\sin\phi x_i ) &
+\end{eqnarray*}
+que es una rotación controlada por tres parámetros ($\theta,\phi,\delta$).
+Como por hipótesis la rotación es una trasnsformación de simetría se tendrá
+\[
+	\dtot{}{t}\left( \sum_i \dpar{\Lag}{\dot{x}_i} \delta x_i +  
+	\dpar{\Lag}{\dot{y}_i} \delta y_i +
+	\dpar{\Lag}{\dot{z}_i} \delta z_i \right) = 0
+\]
+y si usamos las expresiones dadas por las ecuaciones anteriores donde $\delta$ es una constante, se tendrá
+\[
+	\delta \cdot \dtot{}{t}\left( \sum_i ( p_{x_i} z_i - p_{z_i}x_i )\sin\theta\sin\phi + 
+	( -p_{x_i} y_i + p_{y_i} x_i )\cos\theta + ( -p_{y_i} z_i + p_{z_i} y_i )\sin\theta\cos\phi \right) = 0
+\]
+y como $\theta,\phi,\delta$ son independientes tomo $\theta=0$ y $\phi$ genérico para llegar a
+\[
+	\delta \cdot \dtot{}{t}\left( \sum_i ( p_{y_i} x_i - p_{x_i} y_i ) \right) = 0
+\]
+que implica $L_z$ constante. De forma similar, considerando $\theta=\pi/2$ y $\phi=0$
+\[
+	\delta \cdot \dtot{}{t}\left( \sum_i ( p_{z_i} y_i - p_{y_i} z_i ) \right) = 0,
+\]
+que conduce a $L_x$ constante. Finalmente, $\theta=\pi/2$ y $\phi=\pi/2$ desemboca en $L_y$ constante,
+\[
+	\delta \cdot \dtot{}{t}\left( \sum_i ( p_{x_i} z_i - p_{z_i} x_i ) \right) = 0.
+\]
+
+\notamargen{Tener en cuenta que conservamos el $L$ total, i.e. la $\sum_i$. }
+
+\begin{ejemplo}{\bf Helicidad}
+
+Supongamos una transformación
+\begin{eqnarray*}
+	&\rho' = \rho \\
+	&z' = z + a \delta \vp \\
+	&\vp' = \vp + \delta\vp 
+\end{eqnarray*}
+que es una rotación y traslación. Automáticamente $T$ es invariante ante tal transformación y según Noether se conserva
+\[
+	\sum_i \dpar{\Lag}{\dot{\vp}_i} \delta \vp + \sum_i \dpar{\Lag}{\dot{z}_i} a \delta \vp +
+	\sum_i \dpar{\Lag}{\dot{\rho}_i} 0 = cte.
+\]
+\[
+	\sum_i l_{z_i} + a \sum_i p_{z_i}  = \sum_i \left( l_{z_i} + a p_{z_i} \right) = \frac{cte. }{\delta \vp}
+\]
+y la cantidad entre paréntesis es la helicidad.
+\end{ejemplo}
+
+El caso más general es cuando
+\[
+	\Lag(q) = \Lag{\dot{q}} + \varepsilon \dtot{f}{t}
+\]
+y entonces
+\[
+	\sum p_i \delta q_i + f
+\]
+esta forma toman las constantes de movimiento.
+\notamargen{Corregir esto!}
+
 
 
 % =================================================================================================
-
+% 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
