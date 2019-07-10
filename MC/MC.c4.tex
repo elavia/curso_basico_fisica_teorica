@@ -436,8 +436,65 @@ de manera que
 
 \begin{ejemplo}{\bf Problema 4 de central forces}
 
+Consideramos un potencial de la forma 
+\[
+	V(r) = \frac{K}{r^2}
+\]
+que es un potencial repulsivo puesto que 
+\[
+	F(r) = -\dpar{V}{r} = \frac{2K}{r^3}
+\]
+implica que {\it aleja a la partícula}.
+Como es central, conserva $ L = m r^2 \dot{\theta} $ se puede escribir la energía como
+\[
+	E = \frac 1 2 m ( \dot{r}^2 + r^2 \dot{\theta}^2 ) + \frac K {r^2} = \frac{ m \dot{r}^2 }{2} +
+	\left( \frac{ \ell }{ 2 m r^2 } + \frac{ K }{ r^2 } \right)
+\]
 
- 
+\includegraphics[scale=0.3]{images/fig_mc_potencial_central_4.jpg}
+
+Luego,
+\[
+	\dot{r} = \sqrt{ \frac{2E}{m} - \frac{2L}{2m^2r^2} - \frac{2K}{mr^2} }
+\]
+y entonces
+\[
+	m r^2 \sqrt{ \frac{2E}{m} - \frac{2L}{2m^2r^2} - \frac{2K}{mr^2} } \dtot{\theta}{r} = L
+\]
+de manera que 
+\[
+	\int_0^{\theta} d\theta = \frac{L}{\sqrt{2m}} \int_{r_0}^{r} \frac{dr}{r^2( E - L/(2mr^2) - K/r^2 )^{1/2}}
+\]
+
+Con el cambio de variables $ U = 1 / r $
+\[
+	\theta = -\frac{L}{\sqrt{2m}} \int_{1/r_0}^{1/r} \frac{ dU }{ [ E - U^2( L/(2m) + K )]^{1/2} }
+\]
+
+Integrada da
+\[
+	\theta = \frac{L}{m\sqrt{2Km + \frac{L^2}{m^2}}}
+	\left( \acos\left[ \frac{ \sqrt{2Km + L^2/(m^2)} }{r_0\sqrt{2E/m}} \right] - 
+	\acos\left[ \frac{\sqrt{2Km + L^2/(m^2)}}{r\sqrt{2E/m}}\right] \right).
+\]
+
+Tomo $r_0$ punto de retorno
+\[
+	E = \left( \frac{L^2}{2mr_0^2} + \frac{K}{r_0^2} \right)
+\]
+y entonces
+\[
+	r_0 = \sqrt{ \frac L {2mE} + \frac K E }
+\]
+\[
+	\theta = \frac{L}{m\sqrt{2Km + \frac{L^2}{m^2}}} \acos\left(\frac{r_0}{r}\right)
+\]
+y se puede despejar
+\[
+	r = \frac{r_0}{\cos( \theta m/L \sqrt{ 2Km + L^2/m^2 } )}
+\]
+\includegraphics[scale=0.3]{images/fig_mc_potencial_central_4_orbitas.jpg}
+
 \end{ejemplo}
 
 % =================================================================================================
