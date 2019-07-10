@@ -369,8 +369,69 @@ el sistema coordenado en el origen.}
 
 \begin{ejemplo}{\bf Problema 1 de central forces}
 
+Conviene pasarlo a un problema equivalente para una partícula {\it masa reducida} en términos del centro de masa.
+\[
+	E = \frac M 2 V_{cm}^2 + \frac \mu 2 ( \dot{r}^2 + r^2\dot{\theta}^2 ) + V( r )
+\]
+\[
+	\tau = \frac{2\pi R}{R\dot{\theta}}
+\]
 
- 
+\includegraphics[scale=0.4]{images/fig_mc_central_forces1.jpg}
+
+\[
+	E = \frac 1 2 \mu(\dot{r}^2 + r^2\dot{\theta}^2 ) + \frac K r
+\]
+Al detenerlas,
+\[
+	E = - \frac K r
+\]
+y al rearrancar
+\[
+	E = \frac 1 2 \mu \dot{r}^2 - \frac K r
+\]
+\includegraphics[scale=0.4]{images/fig_mc_central_forces2.jpg}
+
+Para la integración le pongo el signo negativo puesto que corresponde a la situación física correcta
+\[
+	\dtot{r}{\tau} = -\sqrt{ \frac 2 \mu \left(E + \frac K r \right) }
+\]
+Integración a ambos miembros lleva a
+\[
+	\int_0^\tau dt = - \int_R^0 \frac{dr}{ \sqrt{ \frac 2 \mu \left(E + \frac K r \right) } }
+\]
+o bien a 
+\[
+	\tau' = \sqrt{\frac{\mu}{2}} \sqrt{\frac{R}{K}} \int_R^0 \sqrt{\frac{r}{R-r}} dr
+\]
+
+Con el cambio de variables $U=\sqrt{R-r}$ que lleva al diferencial 
+\[
+	dU = \frac{-dr}{2\sqrt{R-r}}
+\]
+la integral resulta en 
+\[
+  	2 \left( \frac{ \mu R }{ 2K } \right) \int_0^{\sqrt{R}} \sqrt{ R - U^2 } dU =
+ 	2 \left( \frac{\mu R}{2K}\right) \left( \frac{ U\sqrt{R-U^2} }{2} + \frac{R}{2} 
+ 	\asen\left( \frac{U}{\sqrt{R}}\right) \right)
+\]
+que se ha buscado en tablas.
+Luego,
+\[
+	\tau' = \sqrt{ \frac{\mu R}{2K} }\frac{R\pi}{2}
+\]
+y las ecuaciones de Newton,
+\[
+	\frac{K}{R^2} = \mu R\dot{\theta}^2 
+\]
+de la cual se puede despejar $\dot{\theta}$ para obtener
+\[
+	\tau = 2 \pi R \sqrt{\frac{\mu R}{K}}
+\]
+de manera que 
+\[
+	\frac{ \tau }{ \tau' } = 4 \sqrt{ 2 }.
+\]
 \end{ejemplo}
 
 \begin{ejemplo}{\bf Problema 4 de central forces}
