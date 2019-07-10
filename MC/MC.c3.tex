@@ -545,6 +545,104 @@ y entonces
 esta forma toman las constantes de movimiento.
 \notamargen{Corregir esto!}
 
+\begin{ejemplo}{\bf Resortes enganchados}
+
+Este es el problema 1.
+ 
+\includegraphics[scale=0.3]{images/fig_mc_resortes.jpg} 
+
+\[
+	T = \frac 1 2 m_1 a^2 \dot{\theta}_1^2 + \frac 1 2 m_2 a^2 \dot{\theta}_2^2 + \frac 1 2 m_3 a^2 \dot{\theta}_3^2
+\]
+\[
+	V = \frac k 2 (\theta_1 -\theta_2 )^2 + \frac k 2 (\theta_2 -\theta_3 )^2 + \frac k 2 (\theta_3 -\theta_1 )^2
+\]
+Sería de esperar que en este caso se conserven algunas cosas y que sean visibles esas conservaciones observando 
+simetrías.
+
+Una manera de explicitar esto sería expresar $V$ en función de nuevas coordenadas, así el lagrangiano no dependerá de 
+alguna [?]
+\[
+	q_1 =\theta_1 -\theta_2 \qquad q_2 = \theta_2 -\theta_3 \qquad q_3 = \theta_3
+\]
+y con estas definiciones
+\[
+	q_1+q_2 = \theta_1-\theta_3 
+\]
+y será $V=V(q_1,q_2)$. Entonces 
+\[
+	p_3 = \dpar{\Lag}{\theta_3} = cte
+\]
+\notamargen{Esta es la manera formal de generar estas conservaciones [?].}
+Esto era de esperar nomás mirar el sistema; tenía una simetría de rotación.
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Rotación en cilindros [¿?]}
+
+\includegraphics[scale=0.4]{images/fig_mc_simetria_rot2.jpg}
+
+Si roto en $\vp$ el potencial no ve cambios. Entonces una variación en el lagrangiano toma la forma
+\[
+	\delta \Lag = \dpar{\Lag}{\vp}\delta\vp = L\vp \delta\vp = 0
+\]
+
+\includegraphics[scale=0.4]{images/fig_mc_simetria_rot1.jpg}
+
+Si varío en $z$ y en $\vp$ la transformación
+\[
+	\delta \Lag = \dpar{\Lag}{z}\delta z + \dpar{\Lag}{\vp}\delta\vp = 0
+\]
+será nula. Si elegimos las coordenadas usuales para este problema,
+\[
+	x = a \cos \theta \qquad y = a \sin \theta \qquad z = \frac{h\theta}{2\pi}
+\]
+A partir de
+\[
+	\dtot{}{t}\left( \dpar{\Lag}{\dot{z}} \right)\delta z + \dtot{}{t}\left( \dpar{\Lag}{\dot{z}} \right)\delta\vp,
+\]
+se puede {\it amasar} la expresión para llegar a
+\[
+	\left( \dot{p}_z  \frac{h}{2\pi} + L_\vp \right) \delta \vp
+\]
+
+\notamargen{Estoy buscando una simetría del potencial girando en $2\pi$.}
+
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Secciones cónicas}
+ 
+\includegraphics[scale=0.3]{images/fig_mc_secciones_conicas.jpg} 
+ 
+La sección cónica es el lugar geométrico que cumple 
+\[
+	\bar{PF} = e \bar{PK}
+\]
+donde $0 \leq e \leq +\infty$ y se tiene
+\[
+	\begin{cases}
+	e < 1 \quad \text{ elipse } \\
+	e = 1 \quad \text{ parábola } \\
+	e > 1 \quad \text{ hipérbola }
+	\end{cases}
+\]
+\[
+	PF = e (GH - PF \cos\theta ) \qquad PF(1-e\cos\theta) = e GH
+\]
+\[
+	r(1-e\cos\theta)=\ell
+\]
+
+Si $e<1$ se da
+\[
+	\frac{ x - e\ell/(e^2-1)}{a^2} + \frac{y^2}{b^2}= 1 \qquad a^2 = \left( \frac{\ell}{e^2-1} \right)^2 
+\]
+Si por el contrario es $e>1$
+\[
+	\frac{ x - e\ell/(e^2-1)}{a^2} - \frac{y^2}{b^2}= 1 \qquad b^2 = \left( \frac{\ell}{\sqrt{e^2-1}} \right)^2 
+\]
+Si el origen de coordenadas está en el foco.
+\end{ejemplo}
 
 
 % =================================================================================================
