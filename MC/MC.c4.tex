@@ -65,8 +65,13 @@ a partir de ella, es decir que existe $V(r)$ tal que
 \[
 	F(r) = - \dpar{V}{r}.
 \]
+\notamargen{Hay que elaborar bastante aquí: la fuerza central implica la simetría esférica porque tomado como origen
+de coordenadas uno de los dos puntos $\vb{x}$ o $\vb{y}$, la fuerza por otro punto que se halle a la misma distancia
+$r$ tendrá la misma magnitud. Además, el torque de la fuerza respecto a ese origen será nulo puesto que son paralelos
+$\vb{r}$ y $\vb{F}$. Anoté en la carpeta: el lagrangiano es un potencial de superficies equipotenciales esféricas, entonces
+se conserva el momento angular.}
 
-Entonces la parte cinética del lagrangiano se puede escribir en coordenadas esféricas $(r,\theta,\phi)$ como
+Entonces, para una partícula libre el lagrangiano se puede escribir en coordenadas esféricas $(r,\theta,\phi)$ como
 \[
 	\Lag = \frac{1}{2}m \left( \dot{r}^2 + r^2 \dot{\theta}^2 + r^2 \sin(\theta)^2\dot{\phi}^2 \right)
 \]
@@ -75,7 +80,8 @@ El momento angular $\vb{L}$ se conserva puesto que $\vb{\tau} = \vb{x} \times \v
 $\vb{L} = \vb{x} \times \vb{p} = \vb{x} \times m \: \dot{\vb{x}} = cte$ entonces se sigue que $\vb{r},\vb{p}$
 se hallan contenidos en el mismo plano.
 
-Puedo pedir, sin pérdida de generalidad, que $\theta=\pi/2$ y entonces 
+Puedo pedir, sin pérdida de generalidad, que $\theta=\pi/2$ (se sitúa la partícula en el plano $xy$) y entonces
+se tienen dos grados de libertad,
 \[
 	\Lag = \frac{1}{2}m \left( \dot{r}^2 + r^2 \dot{\theta}^2 \right) - V(r).
 \]
@@ -84,7 +90,7 @@ Como $\phi$ es cíclica se tiene
 \[
 	\dpar{\Lag}{\dot{\phi}} = L = mr^2\dot{\phi}
 \]
-que no es otra cosa que la conservación del momento angular, información que puede ser llevada al
+que no es otra cosa que la conservación del momento angular (la primera ecuación de movimiento), información que puede ser llevada al
 lagrangiano,
 \[
 	\Lag = \frac{1}{2}m \dot{r}^2 + \left[ \frac{L^2}{2 m r^2} - V(r) \right]
@@ -93,6 +99,10 @@ donde el último corchete será lo que llamaremos un potencial efectivo $V_{eff}
 \[
 	\Lag = \frac{1}{2}m \dot{r}^2 + V_{eff}(r)
 \]
+
+Dado el sistema elegido (movimiento plano en $xy$) ahora el $p_\phi$ es el $L$ total; en cambio, de haber elegido otro plano el
+$p_\phi$ sería el $L_z$.
+
 
 La ecuación de Euler-Lagrange resulta en
 \[

@@ -1044,7 +1044,7 @@ es decir que aparece un término extra con el potencial vector respecto del caso
 está libre.
 
 % =================================================================================================
-\section{Energía cinética de un sistema}\index{Energía cinética}
+\section{Energía cinética generalizada}\index{Energía cinética}
 % =================================================================================================
 
 Resulta útil disponer de la energía cinética de un sistema en función de coordenadas generalizadas.
@@ -1132,6 +1132,8 @@ Para una particula libre será
 es decir que solamente es cuadrática en las velocidades. Para una partícula sometida a vínculos en general, en términos
 de las coordenadas generalizadas, se tendrán las tres clases de cinética.
 
+\begin{ejemplo}{\bf Cinética de la partícula libre en esféricas}
+
 En coordenadas esféricas la energía de una partícula libre es 
 \[
 	T_2 =  \frac{1}{2} m \left( \dot{r}^2 + r^2 \dot{\theta}^2 + r^2 \sin \theta \dot{\vp}^2 \right).
@@ -1141,6 +1143,7 @@ Si las coordenadas generalizadas son las coordenadas $ r, \theta, \vp $ se ident
 	T_2 =  \frac{1}{2} m \left( a_r(r, \theta, \vp ) \dot{r}^2 + a_\theta(r, \theta, \vp ) \dot{\theta}^2 + 
 	a_\phi(r, \theta, \vp ) \dot{\vp}^2 \right).
 \]
+\end{ejemplo}
 
 % =================================================================================================
 \section{Energía cinética de un sistema de partículas}
@@ -1345,24 +1348,31 @@ Dado que la energía cinética tiene la forma general
 	\underbrace{\sum_j^{3n-k} b_j(q_1,...,q_{3N-k},t)\dot{q}_j  }_{T_1} +
 	\underbrace{\frac{1}{2} \sum_j^{3n-k}\sum_s^{3n-k}  a_{js}(q_1,...,q_{3N-k},t)\dot{q}_s\dot{q}_j }_{T_2}
 \]
-entonces se sigue que 
+entonces, la energía total será 
 \be
-	E = T_0 + T_1 + T_2 + V
-\label{mc_E}
+	E = T + V = T_0 + T_1 + T_2 + V.
+	\label{mc_E}
 \ee
-y como 
+
+La forma particular de la energía cinética \eqref{mc_E} implica que 
 \[
-	p_i = \dpar{\Lag}{\dot{q}_i} = T_1 + 2T_2 
+	p_i \dot{q}_i = \dpar{\Lag}{\dot{q}_i} \dot{q}_i = T_1 + 2 T_2, 
 \]
-es 
+entonces el hamiltoniano $\Ham = \sum_i^N p_i\dot{q}_i - \Lag $ adopta la expresión
 \[
-	\Ham = \sum_i^N p_i\dot{q}_i - (T_0 + T_1 + T_2 - V) = 2T_2 + T_1 - T_0 - T_1 - T_2 + V = T_2 - T_0 + V
+	\Ham = T_2 - T_0 + V.
 \]
-pero como E es \eqref{mc_E} se tendrá 
+
+Luego, para que se verifique que el hamiltoniano es la energía del sistema, i.e. $\Ham=E$ se necesita
 \[
-	E = H \iff 2T_0 + T1 = 0
+	2T_0 + T_1 = 0.
 \]
-y un solución de este sistema es, por supuesto, $T_0 = T_1 = 0$
+
+Una solución de este sistema es, por supuesto, $T_0 = T_1 = 0$; el hamiltoniano es la energía cuando la velocidad del sistema
+es exclusivamente cuadrática en las velocidades generalizadas. Este será el caso cuando los vínculos no dependan del tiempo,
+y siemre suponiendo que el potencial no depende de la velocidad.
+\notamargen{Hay que enganchar esto con la sección anterior. Hacer un cuadro sketchi de cuando se conserva la energía y cuando
+el hamiltoniano es la energía del sistema.}
 
 % =================================================================================================
 \section{Principio de acción mínima}
