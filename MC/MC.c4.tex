@@ -87,49 +87,70 @@ se tienen dos grados de libertad,
 \]
 
 Como $\phi$ es cíclica se tiene
-\[
+\be
 	\dpar{\Lag}{\dot{\phi}} = L = mr^2\dot{\phi}
-\]
-que no es otra cosa que la conservación del momento angular (la primera ecuación de movimiento), información que puede ser llevada al
-lagrangiano,
-\[
+	\label{ec_mov_uno}
+\ee
+que no es otra cosa que la conservación del momento angular (la primera ecuación de movimiento). Esa información puede 
+ser llevada al lagrangiano,
+\be
 	\Lag = \frac{1}{2}m \dot{r}^2 + \left[ \frac{L^2}{2 m r^2} - V(r) \right]
-\]
-donde el último corchete será lo que llamaremos un potencial efectivo $V_{eff}$,
+	\label{lag_pot_central}
+\ee
+donde el último corchete será lo que llamaremos un potencial efectivo\footnote{Debido a la conservación del momento 
+angular la parte de la energía dependiente de $\phi$, o mejor dicho debida a la rotación en $\phi$ se ha podido 
+expresar en términos de $r$; entonces pasa a formar parte del potencial.}\index{potencial efectivo} $V_{\text{eff}}$, y 
+el lagrangiano adopta la forma
 \[
-	\Lag = \frac{1}{2}m \dot{r}^2 + V_{eff}(r)
+	\Lag = \frac{1}{2}m \dot{r}^2 + V_{\text{eff}}(r).
 \]
+Digamos que el potencial efectivo sería todos aquellos términos que no tienen la forma de la energía cinética 
+(cuadrática en velocidades).
+Notemos que ahora el lagrangiano depende solamente de $r$; el problema ha resulado para un único grado de libertad.
 
-Dado el sistema elegido (movimiento plano en $xy$) ahora el $p_\phi$ es el $L$ total; en cambio, de haber elegido otro plano el
-$p_\phi$ sería el $L_z$.
+Dado el sistema elegido (movimiento plano en $xy$) ahora el $p_\phi$ es el $L$ total; en cambio, de haber elegido otro 
+plano el $p_\phi$ sería el $L_z$.
 
-
-La ecuación de Euler-Lagrange resulta en
+La ecuación de Euler-Lagrange para el lagrangiano \eqref{lag_pot_central} resulta en
 \[
-	m\ddot{r} - \frac{L^2}{mr^3} + \dpar{V}{r} = 0
+	m\ddot{r} - \frac{L^2}{mr^3} + \dpar{V}{r} = 0.
 \]
-pero es más sencillo utilizar la conservación de la energía que explícitamente tiene la expresión
-\[
-	E = \frac{1}{2}m \dot{r}^2 + \frac{L^2}{2 m r^2} + V(r)
-\]
-desde la cual se puede integrar directamente la trayectoria $r=r(t)$ según
+Integrando esta ecuación se llega a la conservación de la energía pero podemos utilizar el hecho de saber que la 
+misma se conserva y escribir su expresión explícita
+\be
+	E = T - V = \frac{1}{2}m \dot{r}^2 + \frac{L^2}{2 m r^2} + V(r).
+	\label{ec_mov_dos}
+\ee
+
+A partir de estas constantes $L,E$ tengo dos ecuaciones de primer orden \eqref{ec_mov_uno} y \eqref{ec_mov_dos}. Se han 
+podido {\it ahorrar} dos integraciones: la integral de $\ddot{r}$ para obtener $\dot{r}$ y la integral de $\ddot{\phi}$ 
+para hallar $\dot{\phi}$.
+
+Desde la ecuación \eqref{ec_mov_dos} se puede integrar directamente la trayectoria $r=r(t)$ según
 \[
 	\dtot{r}{t} = \sqrt{ \frac{2}{m}\left( E - \frac{L^2}{2 m r^2} - V(r) \right)},
 \]
-aunque suele ser más útil la trayectoria en el espacio físico $r=r(\phi)$ o bien $\phi=\phi(r)$.
+o bien 
 \[
-	m r^2 \dtot{\phi}{t} = L \quad \longrightarrow m r^2 \dtot{\phi}{r} \dot{r} = L
+	\int_{t_i}^{t_f} dt = \int_{r(t_i)}^{r(t_f)} \frac{dr}{\sqrt{\frac 2 m ( E - \frac{L^2}{2 m r^2} - V(r) )}},
 \]
-luego
+integral que en principio siempre tiene solución.
+A partir de la ecuación \eqref{ec_mov_uno} se puede obtener la trayectoria en el espacio físico $r=r(\phi)$, o 
+equivalentemente $\phi=\phi(r)$.
 \[
-	\dot{r} d\phi = \frac{L}{m r^2} dr
+	\dtot{\phi}{t} = \dtot{\phi}{r} \dot{r} =  \frac{L}{mr^2} 
 \]
+e incorporando de la \eqref{ec_mov_dos} la expresión de $\dot{r}$ se puede llegar a 
 \[
-	\int d\phi = \int \frac{L/mr^2}{\sqrt{ \frac{2}{m}\left( E - \frac{L^2}{2 m r^2} - V(r) \right)}}dr
+	\int_{\phi_i}^{\phi_f} d\phi = \int_{r(\phi_i)}^{r(\phi_f)} 
+	\frac{L}{\sqrt{ 2 m r^4 \left( E - \frac{L^2}{2 m r^2} - V(r) \right)}}dr
 \]
+y la resolución total del problema dependerá de la forma $V(r)$.
 
 En el gráfico bajo estas líneas ilustramos muchas de las características de la física del problema
 de fuerzas centrales.
+
+\notamargen{Embellecer un poco las expresiones por el aspecto odd de las raíces y todo eso.}
 
 \begin{figure}[hbt]
 	\begin{center}
@@ -213,7 +234,7 @@ y  entonces
 
 Tenemos 
 \[
-	\int d\phi = \int \frac{(L/Mr^2)}{\sqrt{ \frac{2}{m}(E - V_{eff})}} dr	\qquad
+	\int d\phi = \int \frac{(L/Mr^2)}{\sqrt{ \frac{2}{m}(E - V_{\text{eff}})}} dr	\qquad
 	\dtot[2]{U}{\phi} + U  = - \frac{F(1/U) m}{U^2 L^2} \quad U = 1/r
 \]
 que es simétrica respecto a $\phi$ y $-\phi$. Esto determina una simetría orbital si
@@ -225,7 +246,7 @@ lo cual significa que $U_0$ es un extremo (punto apsidal).
 
 Calculemos ahora el ángulo que recorre una oscilación completa,
 \[
-	\Delta \phi = 2\int_{r_m}^{r_M} \frac{(L/Mr^2)}{\sqrt{ \frac{2}{m}(E - V_{eff})}} dr
+	\Delta \phi = 2\int_{r_m}^{r_M} \frac{(L/Mr^2)}{\sqrt{ \frac{2}{m}(E - V_{\text{eff}})}} dr
 \]
 
 Si $\Delta \phi = 2 q $ siendo $q= (m/n)\pi $ son $m,n \in \mathbb{Z}$ entonces
@@ -311,7 +332,8 @@ y como $s+r$ es la distancia que se mantiene constante e igual, entre otras, a $
 \]
 cuya simplificación conduce a
 \[
-	\frac{1}{r} = \frac{1 + \varepsilon \cos (\phi)}{a(1-\varepsilon)} = \frac{a}{\phantom{^a}b^2} \left( 1 + \varepsilon \cos (\phi) \right)
+	\frac{1}{r} = \frac{1 + \varepsilon \cos (\phi)}{a(1-\varepsilon)} = \frac{a}{\phantom{^a}b^2} \left( 1 + 
+\varepsilon \cos (\phi) \right)
 \]
 la cual es la ecuación de una elipse.
 
@@ -325,16 +347,19 @@ la cual es la ecuación de una elipse.
 
 Entonces en resumen, las leyes de Kepler son
 \begin{enumerate}
- \item Los planetas giran en órbitas elípticas con el Sol en uno de sus focos. Esto es común de los potenciales del tipo 
+ \item Los planetas giran en órbitas elípticas con el Sol en uno de sus focos. Esto es común de los potenciales del 
+tipo 
 	\[
 		V \propto 1/r
 	\]
  \item El radio vector recorre áreas iguales en tiempos iguales
 	\[
-		\delta A = \frac{1}{2} r^2 \delta \phi \quad \longrightarrow \quad \dtot{A}{t} = \frac{r^2}{2} \dot{\phi} = \frac{L}{2m} (cte.)
+		\delta A = \frac{1}{2} r^2 \delta \phi \quad \longrightarrow \quad \dtot{A}{t} = \frac{r^2}{2} 
+\dot{\phi} = \frac{L}{2m} (cte.)
 	\]
 	Esto es una característica de todo potencial central.
- \item El cubo del semieje mayor de la órbita de un planeta es proporcional al cuadrado del período empleado en recorrerla.
+ \item El cubo del semieje mayor de la órbita de un planeta es proporcional al cuadrado del período empleado en 
+recorrerla.
 	La ecuación anterior, que da la velocidad areolar, se puede integrar como 
 	\[
 		\int dA  = \frac{L}{2m} \int dt
@@ -526,7 +551,8 @@ donde el último se puede poner en términos de la velocidad si utilizamos la re
 	\dtot{|\vb{x}|}{t} = \dtot{|\vb{x}|}{x_i} \dtot{x_i}{t} = \nabla( |\vb{x}| )\cdot \vb{v} \qquad  \qquad i=1,2,3
 \]
 
-Luego, cada componente $i$-ésimo del gradiente de la norma del vector de posición tiene (en coordenadas cartesianas) la misma
+Luego, cada componente $i$-ésimo del gradiente de la norma del vector de posición tiene (en coordenadas cartesianas) la 
+misma
 forma; tomando como ejemplo el $i=1$
 \[
 	\dtot{|\vb{x}|}{x_1} = \dtot{\sqrt{x_1^2 + x_2^2 + x_3^2}}{x_1} = \frac{x_1}{|\vb{x}|},
@@ -570,7 +596,8 @@ Escribo $ T = E - V $
 \]
 pero 
 \[
-	r_{max} = \frac{2 E l^2 \alpha}{\alpha^2 m (1-\varepsilon)} = \frac{-1}{\alpha}\frac{b^2 \alpha}{\alpha^2(1-\varepsilon)}
+	r_{max} = \frac{2 E l^2 \alpha}{\alpha^2 m (1-\varepsilon)} = \frac{-1}{\alpha}\frac{b^2 
+\alpha}{\alpha^2(1-\varepsilon)}
 \]
 \[
 	r_{max} = - (1+\varepsilon) \alpha
@@ -705,14 +732,16 @@ Luego, como la energía se conserva (el $V_{cm}=cte.$) podemos escribir
 	E = \frac{1}{2} m_1 \dot{\vb{r}}_1^2 + \frac{1}{2} m_2 \dot{\vb{r}}_2^2 + V(r)
 \]
 \[
-	E = \frac{1}{2} m_1 ( \dot{\vb{R}} + \dot{\vb{r}}_1' )^2 + \frac{1}{2} m_2 ( \dot{\vb{R}} + \dot{\vb{r}}_2' )^2 + V(r)
+	E = \frac{1}{2} m_1 ( \dot{\vb{R}} + \dot{\vb{r}}_1' )^2 + \frac{1}{2} m_2 ( \dot{\vb{R}} + \dot{\vb{r}}_2' )^2 
++ V(r)
 \]
 \[
 	E = \frac{1}{2} m_1 ( {\vb{V}} )^2 +  \frac{1}{2} m_1 ( \dot{\vb{r}}_1' )^2 + 
 		\frac{1}{2} m_2 ( {\vb{V}})^2 + \frac{1}{2} m_2 (\dot{\vb{r}}_2' )^2 + V(r)
 \]
 \[
-	E = \frac{1}{2} M {\vb{V}}^2 + \frac{1}{2} \frac{m_2^2}{m_1} \dot{\vb{r}}_2'^2 + \frac{1}{2} m_2 \dot{\vb{r}}_2'^2 + V(r)
+	E = \frac{1}{2} M {\vb{V}}^2 + \frac{1}{2} \frac{m_2^2}{m_1} \dot{\vb{r}}_2'^2 + \frac{1}{2} m_2 
+\dot{\vb{r}}_2'^2 + V(r)
 \]
 \[
 	E = \frac{1}{2} M {\vb{V}}^2 + \frac{1}{2} \frac{m_2 m_1}{M} \dot{\vb{r}}^2 + V(r).
@@ -867,7 +896,7 @@ Se puede calcular el ángulo $\varphi_0$ de acuerdo a
 \]
 donde
 \[
-	\varphi_0 = \int_{r_m}^{\infty} \frac{L/mr^2}{\sqrt{\frac{2}{m}(E - V_{eff})}} dr
+	\varphi_0 = \int_{r_m}^{\infty} \frac{L/mr^2}{\sqrt{\frac{2}{m}(E - V_{\text{eff}})}} dr
 \]
 \[
 	\chi = \pi - 2 \varphi_0 (\rho)
