@@ -232,6 +232,59 @@ y entonces
 Cuando $E>0$ se ve en \eqref{ec_puntos_retorno_U} que se obtienen las órbitas no ligadas; $U_-$ empieza a ser negativa 
 y hay que descartarla porque significa un $r_M$ negativo.
 
+Una vez en posesión de $r(t), \phi(t)$ se pueden calcular $r(\phi)$ o $\phi(r)$ que son las funciones que me darán las
+trayectorias físicas reales ({\it el dibujo en el cielo}).
+Utilizando $d\phi/dt = L/(m r^2 )$ en $dr/dt$ se llega a 
+\[
+	dt = \frac{dr}{\sqrt{2/m(E-V_{\text{eff}}(r))}}  = \frac{ m r^2 }{ L } d\phi
+\]
+y ahora se tiene $\phi = \phi(r)$ que es la ecuación de la trayectoria, cuya integral es
+\[
+	\int_{\phi_0}^{\phi} d\phi = \int_{r_0}^r \frac{L}{mr^2} \frac{dr}{\sqrt{2/m(E-V_{\text{eff}}(r))}}
+\]
+
+La ecuación de movimiento para $r$ [¿?]
+\[
+	m \dtot[2]{r}{t} - \frac{L^2}{mr^3} = -\dtot{V}{r}
+\]
+y la relación 
+\[
+	\frac{mr^2}{L} d\phi = dt
+\]
+permite transformar una derivada temporal en una derivada con respecto al ángulo,
+\[
+	\dtot{}{t}\left( \right) = \frac{L}{mr^2} \dtot{}{\phi}\left( \right)
+\]
+de modo que la ecuación de arriba se convierte en
+\[
+	\frac{L}{r^2}\dtot{}{\phi}\left( \frac{L}{mr^2} \dtot{r}{\phi} \right) - \frac{L^2}{mr^3} = -\dtot{V}{r},
+\]
+es decir en
+\[
+	-\frac{L^2}{mr^4}\dtot[2]{r}{\phi} - \frac{L^2}{mr^3} = -\dtot{V}{r}.
+\]
+
+Proponiendo el cambio de variables $U = 1/r$ se tiene 
+\[
+	dU = -\frac{1}{r^2} dr,
+\]
+y entonces
+\[
+	\dtot{U}{\phi} = -\frac{1}{r^2} \dtot{r}{\phi}.
+\]
+La ecuación en términos de $U$ luce como
+\[
+	\dtot[2]{U}{\phi} + U = -\frac{m}{L^2U^2} \: F(1/U),
+\]
+donde $F(1/U) = dV / dr(U)$.
+\notamargen{Esto ilustra un procedimiento elemental y usual en resolución de ecuaciones diferenciales que es el de
+cambio de variables. Decir algo al respecto.}
+
+Para el caso de un potencial newtoniano (problema de Kepler) tendremos 
+\[
+	-\frac{m}{L^2U^2} \: F(1/U) = \frac{\alpha m}{L^2}
+\]
+
 % =================================================================================================
 \section{Solución a partir de las ecuaciones de Euler-Lagrange}
 % =================================================================================================
