@@ -146,18 +146,91 @@ e incorporando de la \eqref{ec_mov_dos} la expresión de $\dot{r}$ se puede lleg
 	\frac{L}{\sqrt{ 2 m r^4 \left( E - \frac{L^2}{2 m r^2} - V(r) \right)}}dr
 \]
 y la resolución total del problema dependerá de la forma $V(r)$.
+\notamargen{Embellecer un poco las expresiones por el aspecto odd de las raíces y todo eso.}
+
+Consideremos, para fijar ideas, un potencial general del tipo 
+\[
+	V(r)  = \alpha r^{-n} 
+\]
+que es un potencial cuyo comportamiento dependerá del signo de la constante que acompaña. Los casos posibles serán 
+\[
+	\alpha = \begin{cases}
+	\alpha > 0 \qquad \text{ potencial repulsivo} \\
+	\alpha = 0 \qquad \text{ partícula libre} \\
+	\alpha > 0 \qquad \text{ potencial repulsivo} 
+	\end{cases}
+\]
+En un gŕafico de potencial y energía en función del radio se pueden analizar muchos aspectos de la física bajo ese 
+potencial (como se hizo en el ejemplo XX del capítulo XX)
+
+Para el caso de $\alpha > 0$ se tiene una situación como la que se ilustra en la figura bajo estas líneas
+\includegraphics[width=0.4\textwidth]{images/fig_mc_potencialcentral1.jpg}
+
+En el caso de partícula libre, $\alpha=0$, a cierta velocidad se tendrá el siguiente gráfico de potencial. El otro 
+gráfico ilustra la posible situación real (en el espacio físico)
+\includegraphics[width=0.4\textwidth]{images/fig_mc_potencialcentral2.jpg}
+\includegraphics[width=0.4\textwidth]{images/fig_mc_potencialcentral3.jpg}
+
+Finalmente el caso de un potencial atractivo, $\alpha < 0 $ se tienen energias para las cuales el movimiento es ligado.
+Cuando existen radios mínimo y máximo se tendrá una órbita como la que se ilustra en el segundo gráfico
+
+\includegraphics[width=0.4\textwidth]{images/fig_mc_potencialcentral4.jpg}
+\includegraphics[width=0.4\textwidth]{images/fig_mc_potencialcentral5.jpg}
+
+En los puntos de retorno se anula la energía cinética radial $T$.
+El momento angular $L$ es el responsable de que haya satélites orbitando a los planetas; si $L=0$ la partícula pasaría 
+por el origen.
 
 En el gráfico bajo estas líneas ilustramos muchas de las características de la física del problema
 de fuerzas centrales.
 
-\notamargen{Embellecer un poco las expresiones por el aspecto odd de las raíces y todo eso.}
-
-\begin{figure}[hbt]
+\begin{figure}[!hbt]
 	\begin{center}
 	\includegraphics[width=0.9\textwidth]{images/fig_mc_potencialcentral.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
+
+\notamargen{Este gráfico hay que tirarlo de inmediato.}
+
+Calculemos ahora los puntos de retorno.
+Tomando el cambio de variables $U=1/r$ en la ecuación de la energía es
+\[
+	\frac{L^2}{2m} U^2 - \alpha U - E = 0,
+\]
+una cuadrática para $U$ con soluciones
+\be
+	U = \frac{m\alpha}{L^2}\left( 1 \pm \sqrt{1 + 2L^2E/(m\alpha^2) }\right)
+	\label{ec_puntos_retorno_U}
+\ee
+y entonces
+\[
+	U_+ = \frac{1}{r_m} \qquad U_- = \frac{1}{r_M}
+\]
+
+Si requiereo que $U>0$ en cada caso, necesito $ \sqrt{1 + 2L^2E/(m\alpha^2) } < 1 $ de manera que $ E < 0 $.
+
+Asimismo tendré órbitas circulares si
+\[
+	\frac{ 2 L^2 E }{ m \alpha^2 } = - 1
+\]
+lo que significa que 
+\[
+	E = -\frac{m\alpha^2}{2L^2}.
+\]
+
+Puedo calcular el radio de órbita circular haciendco que la fuerza radial se compense exactamente con la fuerza 
+centrífuga
+\[
+	m r v = L
+\]
+y entonces
+\[
+	E = \frac{L^2}{2mr^2} - \frac{\alpha}{r}.
+\]
+
+Cuando $E>0$ se ve en \eqref{ec_puntos_retorno_U} que se obtienen las órbitas no ligadas; $U_-$ empieza a ser negativa 
+y hay que descartarla porque significa un $r_M$ negativo.
 
 % =================================================================================================
 \section{Solución a partir de las ecuaciones de Euler-Lagrange}
