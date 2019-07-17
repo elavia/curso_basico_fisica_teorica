@@ -253,7 +253,7 @@ y la relación
 \]
 permite transformar una derivada temporal en una derivada con respecto al ángulo,
 \[
-	\dtot{}{t}\left( \right) = \frac{L}{mr^2} \dtot{}{\phi}\left( \right)
+	\dtot{}{t}\left( \phantom{\frac{}{}} \right) = \frac{L}{mr^2} \dtot{}{\phi}\left( \phantom{\frac{}{}} \right)
 \]
 de modo que la ecuación de arriba se convierte en
 \[
@@ -652,11 +652,108 @@ y entonces
 \]
 y se puede despejar
 \[
-	r = \frac{r_0}{\cos( \theta m/L \sqrt{ 2Km + L^2/m^2 } )}
+	r = \frac{ r_0 }{\cos( \theta m / L \sqrt{ 2 m K + L^2 / m^2 } )}
 \]
 \includegraphics[scale=0.3]{images/fig_mc_potencial_central_4_orbitas.jpg}
 
+Continuamos con el problema [esto sacarlo, je!]
+
+\includegraphics[scale=0.3]{images/fig_mc_potencial_central_5_orbitas.jpg}
+\[
+	r = \frac{ r_0 }{ \cos( \vp \sqrt{ 2 m^3 K / L^2 + 1 } ) }
+\]
+\notamargen{Ojo, chequear esta expresión porque en la carpeta está distinta!}
+
+Vemos el comportamiento asintótico, si $ K = 0 $ entonces
+\[
+	r = \frac{ r_0 }{ \cos \vp }.
+\]
+Si el potencial es atractivo, por ejemplo $ V(r) = -\frac{K}{r^2}$ entonces se puede escribir 
+\[
+	E = \frac{1}{2} m \dot{r}^2 + \frac{K'}{r^2},
+\]
+donde 
+\[
+	K' = \left( \frac{L^2}{2m} - \frac{K}{} \right).
+\]
+Entonces la velocidad será 
+\[
+	\dot{r} = \sqrt{ \frac{2}{m}\left( E - \frac{K'}{r^2} \right) }
+\]
+
+A partir de la ecuación para el momento angular, $ m r^2 \dot{\vp} = L $ podemos llegar a la integral para $\vp(r)$ [esto creo que ya se hizo en la 
+teoría, en dicho caso citar, sino hacer en detalle]
+\[
+	\int d\vp = \int \frac{L}{m} \frac{ dr }{ r^2 \sqrt{ \frac{2}{m}\left( E - \frac{K'}{r^2} \right) }}
+\]
+Con el reemplazo usual $r = 1/U$ se llega a 
+\[
+	\vp = -L \int \frac{ dU }{ ( 2mE - K'mU^2 )^{1/2}}.
+\]
+
+Si $L^2 > 2mK$ es 
+\[
+	\frac{L^2 - 2mK}{2m} > 0 \qquad K'>0
+\]
+y tengo un caso similar al anterior (en la página precedente[sic carpeta?]). En cambio si $ L^2 < 2mK $ se tiene $ K' < 0 $.
+Usano la ayuda para la integral [refiere al enunciado en la guia?] que se hace entre $r_0$ y algún $r$ final resulta 
+\[
+	\vp =  \frac{L}{\sqrt{-2mK'}} \log \left( \frac{-2mE}{ \sqrt{ -2mK'/r } + \sqrt{2mE - K'/r^3} }\right)
+\]
+y esto dice que la partícula cae al origen describiendo una espiral. En el origen es $\dot{\vp} \to \infty$
+
+\includegraphics[scale=0.3]{images/fig_mc_potencial_central_6_orbitas.jpg}
+
+Dicho esto, se puede calcular el tiempo que tarda en caer al origen a partir de la ecuación para $\dot{r}$
+\[
+	-\int_{r_0}^0 \frac{1}{\sqrt{ 2/m ( E - K'/r^2 ) }} = \int_0^{t_f} dt
+\]
+Como la energía se conserva puede utilizarse su valor inicial, $E=K'/r_0^2$ de modo que el LHS de la ecuación anterior es
+\[
+	t_f = -\sqrt{ \frac{m}{-2K'} } \int_{r_0}^0 \frac{ r_0 r }{\sqrt{ r_0^2 - r^2 }} = r_0^2 \sqrt{\frac{m}{-2K'}}.
+\]
 \end{ejemplo}
+
+% =================================================================================================
+\section{Teorema del virial}
+% =================================================================================================
+
+Se aplica a sistemas de muchas partículas. Defino 
+\[
+	G \equiv \vb{p}_i \cdot \vb{x}_i
+\]
+de modo que como $ \dot{\vb{p}}_i = \vb{F}_i $ se tiene 
+\[
+	\dtot{G}{t} = \dtot{\vb{p}_i}{t} \cdot \vb{x}_i + \vb{p}_i \dtot{\vb{x}_i}{t}
+\]
+y se puede ver que el último miembro del RHS es $ \vb{p}_i \dot{\vb{x}}_i = m_i v_i^2 = 2T$ donde $T$ es la energía cinética del sistema.
+Luego 
+\[
+	\dtot{G}{t} = \sum_i^N \dtot{\vb{p}_i}{t} \cdot \vb{x}_i + 2 T
+\]
+
+Defino el valor medio temporal de una cantidad $A$ según 
+\[
+	\bar{A} = \lim_{\tau \to \infty} \frac{1}{\tau} \int_0^\tau A(t) dt
+\]
+[Pasar esto a Apéndice!!].
+\[
+	\overline{G} = \frac{1}{\tau} \int_0^\tau \dtot{G}{\tau} dt = \overline{ 2 T } + \overline{ \sum_i^N \vb{F}_i \cdot \vb{x}_i }
+\]
+Pero el integrando en el LHS es un diferencial total, entonces 
+\[
+	\frac{1}{\tau} \left( G(\tau) - G(0) \right) = \overline{ 2 T } + \overline{ \sum_i^N \vb{F}_i \cdot \vb{x}_i }
+\]
+
+Si ahora estoy trabajando con un sistema que realiza un movimiento períódico, entonces en $\tau$ definido como ese período tiene 
+\[
+	\overline{ 2 T } + \overline{ \sum_i^N \vb{F}_i \cdot \vb{x}_i } = 0
+\]
+lo cual lleva a el teorema del virial\index{Virial, teorema del}
+\[
+	\overline{ T }  = - \frac{1}{2} \overline{ \sum_i^N \vb{F}_i \cdot \vb{x}_i }.
+\]
+
 
 % =================================================================================================
 \section{Vector de Runge-Lenz}
