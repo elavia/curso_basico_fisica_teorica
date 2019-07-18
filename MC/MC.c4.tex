@@ -332,6 +332,40 @@ En el caso del potencial de Kepler será
 \]
 es decir que el miembro derecho es una constante. Sale fácil entonces.
 
+\subsection{elipses y velocidad areolar}
+\notamargen{Reubicar este material}
+
+\[
+	r = \frac{a(1-e^2)}{1 + e\cos\vp}
+\]
+y la excentricidad es 
+\[
+	\begin{cases}
+	e = 0 \qquad \text{ círculo } \\
+	0 < e < 1 \qquad \text{ elipse } \\
+	e = 1 \qquad \text{ parábola } \\
+	e > 0 \qquad \text{ hipérbola }
+	\end{cases}
+\]
+
+En términos de la energía y para un potencial $ V = - Cr^{-1}$ la excentricidad se puede reescribir como 
+\[
+	e = \sqrt{ 1 + \frac{2EL^2}{\mu C^2} }
+\]
+
+El lagrangiano para el radio equivalente [?] era
+\[
+	\Lag = \frac{1}{2} M \vb{R}_{\text{cm}} + \frac{1}{2} \mu (\dot{r}^2 + r^2 \dot{\vp}^2) + \frac{C}{r}
+\]
+pero si me sitúo en el centro de masas se reduce a 
+\[
+	\Lag = \frac{1}{2} \mu (\dot{r}^2 + r^2 \dot{\vp}^2) + \frac{C}{r}
+\]
+y la ecuación de movimiento para $ \vp $ al ser variable cíclica resulta una conservación,
+\[
+	\dpar{\Lag}{\dot{\vp}} = \ell = \mu r^2 \dot{\vp}
+\]
+
 % =================================================================================================
 \section{Velocidad areolar}\index{Velocidad areolar--}
 % =================================================================================================
@@ -345,14 +379,38 @@ es decir que el miembro derecho es una constante. Sale fácil entonces.
 	\end{center}
 	\caption{}
 \end{figure} 
+Aproximo por un triángulo.
 De la figura puede verse que 
 \[
-	A = \frac{1}{2} r^2 d\phi 
+	dA = \frac{1}{2} r^2 d\phi 
 \]
 y  entonces
 \[
-	\dtot{A}{t} = \frac{1}{2} r^2 \dtot{\phi}{t} = \frac{1}{2} r^2 \dot{\phi} = \frac{1}{2}\frac{L}{m} = cte.
+	\dtot{A}{t} = \frac{1}{2} r^2 \dtot{\phi}{t} = \frac{1}{2} r^2 \dot{\phi} = \frac{1}{2}\frac{\ell}{\mu} = cte.
 \]
+
+La velocidad areolar es constante. Luego, integrando en un período $\tau$ se tiene que el área $A$ de la elipse es
+\[
+	A = \frac{\ell \tau}{2\mu}
+\]
+y como geométricamente ésta es 
+\[
+	A = \pi a b = \frac{ \pi C \ell }{\sqrt{ 8 \mu |E|^3 }}
+\]
+y además 
+\[
+	\tau = \frac{ \pi C \sqrt{\mu } }{ \sqrt{ 8 |E|^3 } }
+\]
+entonces el período verifica 
+\[
+	\tau^2 \sim \frac 1 {|E|^{3}}.
+\]
+
+\begin{ejemplo}{\bf Problema 1 (con órbita circular)}
+ 
+\end{ejemplo}
+
+
 
 % =================================================================================================
 \section{Las fuerzas centrales y las leyes de Kepler}
@@ -753,6 +811,45 @@ lo cual lleva a el teorema del virial\index{Virial, teorema del}
 \[
 	\overline{ T }  = - \frac{1}{2} \overline{ \sum_i^N \vb{F}_i \cdot \vb{x}_i }.
 \]
+
+También es cero si el mov. [?]
+
+La temperatura media es 
+\[
+	\overline{T} = \frac 3 2 N k T'
+\]
+para partículas en un recipiente. La fuerza es por los golpeteos (la temperatura en realidad es microscópicamente una manifestación de golpeteo 
+molecular). Si $ d\vb{F}_i = - p \hat{n}dA $ de modo que 
+\[
+	\frac{1}{2} \sum_i \vb{F}_i \cdot \vb{x}_i = -\frac{p}{2}\int_S \hat{n}\cdot\vb{x}dA =
+	-\frac{p}{2} \int_V \nabla\cdot \vb{x} dV = - \frac{3}{2} p V
+\]
+y entonces, igualando con la expresión anterior de la $\overline{T}$ se tiene 
+\[
+	N k T = p V,
+\]
+que es la ecuación de estado del gas ideal.
+
+Si ahora supongo $\vb{F} = -\nabla V$ homogénea de grado $k$
+\[
+	\overline{T} = -\frac{1}{2} \overline{ \sum_i^N \vb{F}_i \cdot \vb{x}_i } = 
+	-\frac{1}{2} \overline{ \sum_i^N \dpar{V(\vb{x})}{\vb{x}_i} \cdot \vb{x}_i } = 
+	\frac{1}{2} \overline{ k V(\vb{x} ) } = \frac{1}{2} k \overline{V}
+\]
+\notamargen{Acá hay que aclarar que hace la homogeneidad para transformar el gradiente en $kV$.}
+
+Con un potencial central vale 
+\[
+	V = -\frac{C}{r} = -Cr^{-1},
+\]
+o sea que es un potencial homogéneo de grado $k=-1$. Entonces, para un movimiento periódico bajo una fuerza central,
+será 
+\[
+	\overline{T} = -\frac{1}{2}\overline{V}
+\]
+de manera que $\overline{E} = \overline{T} + \overline{V} = 1/2 \overline{V}$. Para un oscilador armónico, como $k=-2$
+se tiene $\overline{E} = 2\overline{T} = 2\overline{V} $
+
 
 
 % =================================================================================================
