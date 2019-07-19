@@ -239,9 +239,10 @@ Utilizando $d\phi/dt = L/(m r^2 )$ en $dr/dt$ se llega a
 	dt = \frac{dr}{\sqrt{2/m(E-V_{\text{eff}}(r))}}  = \frac{ m r^2 }{ L } d\phi
 \]
 y ahora se tiene $\phi = \phi(r)$ que es la ecuación de la trayectoria, cuya integral es
-\[
+\be
 	\int_{\phi_0}^{\phi} d\phi = \int_{r_0}^r \frac{L}{mr^2} \frac{dr}{\sqrt{2/m(E-V_{\text{eff}}(r))}}
-\]
+	\label{integral_trayectoria}
+\ee
 
 La ecuación de movimiento para $r$ [¿?]
 \[
@@ -273,17 +274,76 @@ y entonces
 	\dtot{U}{\phi} = -\frac{1}{r^2} \dtot{r}{\phi}.
 \]
 La ecuación en términos de $U$ luce como
-\[
+\be
 	\dtot[2]{U}{\phi} + U = -\frac{m}{L^2U^2} \: F(1/U),
-\]
+	\label{ec_fuerza_central_U}
+\ee
 donde $F(1/U) = dV / dr(U)$.
 \notamargen{Esto ilustra un procedimiento elemental y usual en resolución de ecuaciones diferenciales que es el de
 cambio de variables. Decir algo al respecto.}
 
 Para el caso de un potencial newtoniano (problema de Kepler) tendremos 
 \[
-	-\frac{m}{L^2U^2} \: F(1/U) = \frac{\alpha m}{L^2}
+	-\frac{m}{L^2U^2} \: F(1/U) = \frac{\alpha m}{L^2}.
 \]
+
+La integral de la trayectoria \eqref{integral_trayectoria} será {\it fea o no} dependiendo de la forma del potencial $V$.
+En la ecuación \eqref{ec_fuerza_central_U} tiene una propiedad de simetría puesto que es invariante ante el cambio 
+$\vp \to -\vp$. Entonces si utilizamos condiciones de contorno que tengan esta simetría sabremos que la órbita por
+encima de $x$ (ver figuretta) es igual a la órbita por debajo.
+
+\includegraphics[scale=0.3]{images/fig_mc_orbitas_simetria.jpg}
+
+Las condiciones iniciales 
+\[
+	\left.\dtot{U}{\vp}\right|_{\vp=0} = U_0' = 0 \qquad \left. U \right|_{\vp=0} = U_0
+\]
+donde en la condición de la derivada vemos que con la nulidad vale para $\vp$ y para $-\vp$.
+Luego, $U_0$ corresponderá a un máximo o mínimo necesariamente porque hacia un lado y hacia otro tengo el mismo
+comportamiento.
+
+\includegraphics[scale=0.3]{images/fig_mc_orbitas_simetria_2.jpg}
+
+Entonces máximo y mínimo son puntos apsidales, si elijo el eje $x$ ahí tengo simetría de reflexión de la órbita.
+
+\includegraphics[scale=0.3]{images/fig_mc_orbitas_simetria_3.jpg}
+\includegraphics[scale=0.3]{images/fig_mc_orbitas_simetria_4.jpg}
+
+Entonces la integral \eqref{integral_trayectoria} se puede escribir 
+\be
+	\Delta \vp = 2 \int_{r_{\text{min}}}^{r_{\text{max}}} \frac{L}{2mr^2} \frac{dr}{\sqrt{ 2/m (E - V_{\text{eff}}(r) ) }}
+	\label{integral_trayectoria_vp}
+\ee
+donde $\Delta\vp$[?] es el ángulo que avanza en una oscilación (esto es el ángulo de una oscilación completa).
+
+Si esto es un múltiplo racional de $\pi$ entonces se cierra la órbita; es decir que se tiene la siguiente 
+condición de órbita cerrada
+\[
+	\frac{2\pi}{\Delta \vp} = \frac{m}{n}
+\]
+donde $m,n$ son enteros.
+
+\includegraphics[scale=0.3]{images/fig_mc_orbitas_simetria_5.jpg}
+
+\notamargen{Recordar que problema ligado no implica órbita cerrada.}
+
+Como la integral \eqref{integral_trayectoria_vp} depende de $L, E$ en general tendremos para el problema genérico órbitas
+abiertas.
+
+Hay dos problemas que dan órbitas cerradas siempre: son los potenciales 
+\[
+	V = -\frac{k}{r} \; \text{ \scriptsize{(Problema de Kepler)} } \qquad \qquad 
+	V = \frac{ 1 }{2} k r^2 \; \text{ \scriptsize{(Oscilador armónico 3D isótropo) }}
+\]
+
+\includegraphics[scale=0.3]{images/fig_mc_orbitas_simetria_6.jpg}
+
+El problema de Kepler da órbita cerrada elíptica siempre si $ E < 0 $ con origen en un foco (centro de fuerzas en un foco).
+Tiene dos puntos apsidales y da una oscilación completa para cerrar una vuelta.
+
+El oscilador armónico 3D da órbita cerrada con elipse con origen en el centro (centro de fuerzas en el centro). Tiene 
+cuatro puntos apsidales y necesita dos oscilaciones para cerrar una vuelta.
+
 
 % =================================================================================================
 \section{Solución a partir de las ecuaciones de Euler-Lagrange}
@@ -407,7 +467,42 @@ entonces el período verifica
 \]
 
 \begin{ejemplo}{\bf Problema 1 (con órbita circular)}
- 
+
+Si $r=cte.$ entonces $\overline{T}=T$ y $\overline{V}=V$ en cuyo caso es $E = T + V = V/2$. En el caso de frenado [?] la partícula
+tiene $E=V/2$ antes de frenar y luego del frenado $E=V$ (solamente potencial).
+
+\includegraphics[scale=0.3]{images/fig_mc_potencial_energy.jpg}
+
+Ahora supongo un problema equivalente (problema elíptico de cierto semieje). El nuevo sistema son dos masas en una
+órbita elíptica que se va achatando.
+\[
+	\tau = \frac{ 2 \pi \mu C }{\sqrt{ 8 \mu |E|^3 }} \qquad \qquad 
+	\tau' = \frac{ 2 \pi \mu C }{\sqrt{ 16 \mu |E|^3 }}
+\]
+y entonces
+\[
+	\frac{\tau}{\tau'} = \left( \frac{1}{2\sqrt{2}} \right)^{-1}
+\]
+
+Conozco esta relación 
+\[
+	E^{'3/2} = 2^{2/3} E
+\]
+\[
+	\tau' = \frac{\tau}{2\sqrt{2}}.
+\]
+
+El período depende solo del semieje $a = C/(2|E|)$
+
+\includegraphics[scale=0.3]{images/fig_mc_potencial_energy_elipses.jpg}
+
+Ahí tendré medio tiempo calculado porque {\it voy y vengo}
+\[
+	\frac{\tau'}{2} = \frac{\tau}{4\sqrt{2}} \equiv t_\text{ colisión }
+\]
+
+\includegraphics[scale=0.3]{images/fig_mc_potencial_energy_elipses2.jpg}
+
 \end{ejemplo}
 
 
