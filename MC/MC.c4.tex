@@ -568,7 +568,6 @@ Luego podemos utilizar $r_m, r_M$ lo cual determina $U_m, U_M$ respectivamente, 
 \[
 	U^M_m = \frac{km}{L^2} \left( 1 \pm \sqrt{1 + \frac{2EL^2}{k^2 m} }\right)
 \]
-
 y esto nos permite fijar $A$. Incorporando esto en \eqref{sol_general} y recordando que $U(\phi) =1/r$ 
 se tiene 
 \[
@@ -658,12 +657,17 @@ todas las cuales tienen la misma energía
 \[
 	a = \frac{1}{2}(r_M + r_m) = -\frac{k}{2E}
 \] 
+
+\includegraphics[scale=0.3]{images/fig_mc_orbitas_elipticas.jpg}
+
 \notamargen{Esto estaba en la carpeta pero no lo entiendo bien del todo. Tal vez ilustración de la elipse con 
 el sistema coordenado en el origen.}
  Para una elipse con el sistema coordenado en el centro se tiene 
  \[
 	\frac{1}{r^2} = \frac{1}{b^2}( 1-\varepsilon^2 \cos^2 (\phi) )
  \]
+ 
+\includegraphics[scale=0.3]{images/fig_mc_orbitas_elipticas_2.jpg} 
  
  Trabajamos más con la elipse,
  \[
@@ -1023,7 +1027,7 @@ pero
 \]
 
 \begin{ejemplo}{\bfseries Vector de Runge-Lenz en órbitas elípticas}
-\notamargen{Este título es provisorio}
+\notamargen{Este título es provisorio. Está en la carpeta en 42R.}
 
 Sabemos que el vector de Runge-Lenz tiene la forma 
 \[
@@ -1049,6 +1053,36 @@ y entonces
 pero como $ (1 + \varepsilon \cos \theta ) = p / r $ es la excentricidad se tiene $ A = \varepsilon \alpha $.
 
 \end{ejemplo}
+
+\begin{ejemplo}{\bf Problema . Nuevo potencial}
+
+Para el potencial 
+\[
+	U(r) = -\frac{\alpha}{r} + \delta U(r), \qquad |\delta U| \ll \frac{\alpha}{r}
+\]
+la integral resultante es
+\[
+	\vp = \int \frac{L dr }{r^2\sqrt{2m(E-U)-\frac{L^2}{r^2}}}
+\]
+pero si derivamos con respecto a un parámetro (por ejemplo $L$) se pueda cambiar la misma a 
+\[
+	\vp = - \dtot{}{L} \int \frac{ \sqrt{2m(E-U)- L^2} }{r^2}dr
+\]
+y esta segunda se comporta mejor que la primera.
+
+\includegraphics[scale=0.35]{images/fig_mc_potencial_central_problema.jpg}
+
+Una órbita no cerrada, a la larga, pasas por todos los putnos dentro del área barrida.
+
+Ahora se trabajará el integrando anterior
+\[
+\sqrt{ 2m \left(E+ \frac{\alpha}{r}\right) - 2m\delta U - \frac{L^2}{r^2} } =
+\sqrt{ 2m \left(E+ \frac{\alpha}{r}\right) - \frac{L^2}{r^2} } 
+\sqrt{ 1 - \frac{ 2m\delta U }{ 2m \left(E+ \frac{\alpha}{r}\right) - \frac{L^2}{r^2} }  }
+\]
+
+\end{ejemplo}
+
 
 % =================================================================================================
 \section{Orbitas de potenciales centrales}
