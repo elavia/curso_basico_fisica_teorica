@@ -1081,8 +1081,75 @@ Ahora se trabajará el integrando anterior
 \sqrt{ 1 - \frac{ 2m\delta U }{ 2m \left(E+ \frac{\alpha}{r}\right) - \frac{L^2}{r^2} }  }
 \]
 
+Se puede considerar una expansión de Taylor en la segunda raíz de manera que 
+\[
+	\vp = - \dtot{}{L}\left[ \int 
+	\sqrt{ 2m \left(E+ \frac{\alpha}{r}\right) - \frac{L^2}{r^2} } dr -
+	m \int \frac{ \delta U dr }{ \sqrt{ 2m \left(E+ \frac{\alpha}{r}\right) - \frac{L^2}{r^2} }  }
+	\right]
+\]
+\[
+	\vp = 2 \pi + m \dtot{}{L} 
+	\int \int \frac{ \delta U dr }{ \sqrt{ 2m \left(E+ \frac{\alpha}{r}\right) - \frac{L^2}{r^2} }  }
+\]
+donde el primer resultado, $2\pi$, proviene de la solución del problema de Kepler y el segundo es 
+un término $\Delta \vp$ que dependrá de la forma de la perturbación.
+Considerando perturaciones del tipo
+\[
+	\delta U = \frac{\beta}{r^2} \qquad \qquad \delta U = \frac{\gamma}{r^3}
+\]
+
+Antes de proceder es conveniente hacer un pasaje de la integral. Recordando que se tenía
+\[
+	dt = \frac{dr}{ \sqrt{ 2m \left(E+ \frac{\alpha}{r}\right) - \frac{L^2}{r^2} } }
+\]
+y que la conservación del momento angular $L$ implicaba
+\[
+	L = mr^2\dot{\theta}{t},
+\]
+si pasamos $\theta$ a $\vp$ entonces $dt = ( mr^2/L ) d\vp $ y consecuentemente
+\[
+	m r^2 d\vp = \frac{ L dr }{ \sqrt{ 2m \left(E+ \frac{\alpha}{r}\right) - \frac{L^2}{r^2} } }
+\]
+de forma que 
+\[
+	\Delta \vp = \dtot{}{L} \left( \frac{m^2}{L} \int_0^{2\pi} \delta U r^2 d\vp \right).
+\]
+
+Regresando ahora a las formas específicas planteadas, vemos que en el primer caso es
+\[
+	\Delta \vp = \beta m^2 2 \pi \dtot{}{L}\frac{1}{L} = - \frac{2\pi m^2 \beta}{L^2},
+\]
+mientras que para el segundo la integral resulta en
+\[
+	\gamma \int_0^{2\pi} \frac{d\vp}{r(\vp)}, 
+\]
+que se puede hacer explícitamente recordando que $p = L^2/(m\alpha)$ y
+\[
+	\frac p r = 1 + \varepsilon \cos \vp
+\]
+y entonces 
+\[
+	\frac 1 r = \frac{m\alpha}{L^2} + \frac{\varepsilon \cos \vp}{L^2},
+\]
+todo lo cual lleva a que 
+\[
+	\Delta \vp = \dtot{}{L}\left( \frac{m^3}{L^3} \gamma \alpha \right) =
+	-\frac{3m^2\gamma \alpha}{L^4}.
+\]
 \end{ejemplo}
 
+% =================================================================================================
+\section{Precesión [acomodar]}
+% =================================================================================================
+
+Este movimiento, ver figura, corresponde a una oscilación completa de $r_m$ a $r_M$ y vuelta.
+La precesión de un punto de la órbita se aplica a órbitas en las cuales puede pensarse que la órbita se mueve 
+como un todo en su figura. La magnitud $\delta \vp / \tau_r$ es la velocidad angular de precesión.
+
+\[
+	\mbox{ Ilustración 45R inferior }
+\]
 
 % =================================================================================================
 \section{Orbitas de potenciales centrales}
@@ -1282,12 +1349,24 @@ para la órbita relativa.
 y entonces ahora se ve que no es independiente de las masas y no se puede simplificar $\sqrt{\mu\alpha}$ con
 $\mu$ como ocurría en un movimiento elíptico tradicional (bajo potencial gravitatorio).
 Entonces no es válida la ley de Kepler.
+
 % =================================================================================================
 \section{Dispersión}
 % =================================================================================================
 
+Es un tema muy importante porque permite investigar qué hay en el interior de la materia por medio
+de {\it pegarle} con algo que se conoce perfectamente.
+En estas situaciones el blanco es desconocido y el proyectil conocido.
+
+Pero proyectil y blanco pueden actuar de acuerdo a un potencial. Esta interacción queda especificada
+por la {\it sección eficaz de dispersión elástica}.
+
+Veamos primeramente a lo que se llama un {\it centro dispersor} (blanco de masa tendiendo a infinito).
+Al lanzar un haz de partículas (proyectiles) en primera instancia están libres y al acercarse recién se
+notan los efectos.
+
 Consideramos la dispersión de un haz de partículas de cierta energía cinética por un centro dispersor,
-ver ilustración.
+ver ilustración. Todas las partículas tienen la misma energía $1/2 m V_\text{ cm }$
 
 \begin{figure}[htb]
 	\begin{center}
@@ -1295,13 +1374,35 @@ ver ilustración.
 	\end{center}
 	\caption{}
 \end{figure} 
+
+
+La sección eficaz diferencial es $d\sigma$ que es el número de partículas dispersadas entre 
+$\chi$ y $\chi + d\chi$ por unidad de tiempo.
+Pero esto depende del ancho del haz y de la cantidad de partículas del haz. Para independizarlo se
+divide por la intensidad del haz (\# de partículas por área) y se construye así $d\sigma'$
+\[
+	d\sigma' \equiv \dtot{\sigma}{n} dA dt 
+\]
+y así $d\sigma'$ tiene unidades de área. Obviaremos en lo que sigue la ``''' en la notación.
+Entonces, ahora, la sección eficaz diferencial, bien definida, es 
 \[
 	d\sigma = \frac{dN}{n}
 \]
-donde $dN$ es el número de partículas dispersadas entre $\chi$ y $\chi + d\chi$ y $n$ es el número de
-partículas emitidas por tiempo y por área. De esta forma $d\sigma$ tiene unidades de área.
+siendo $dN$ el número de partículas dispersadas entre $\chi$ y $\chi + d\chi$ por unidad de tiempo
+y $n$ el número de partículas emitidas por tiempo y por área.
+
+Si el centro dispersor tiene simetría esférica el cálculo es sencillo, puesto que se conserva el 
+momento angular $L$. En realidad, ya con la simetría radial cilíndrica en torno a la dirección del 
+haz basta para resolver analíticamente.
+Estas suposiciones son muy fuertes y restrictivas pero a fin de cuentas este es un caso de gabinete
+para formar algunas ideas.
 
 Consideramos $d$ centro dispersor con simetría esférica (cilíndrica basta).
+
+\[
+	mbox{ \text{ Figura 46 abajo. } }
+\]
+
 Usamos como suposiciones que todo lo que emerge entre $\rho + d\rho$ - $\rho$  es dispersado entre
 $\chi + d\chi$ - $\chi$, y que se conservan tanto $E$ como \vb{L}.
 
@@ -1312,24 +1413,40 @@ $\chi + d\chi$ - $\chi$, y que se conservan tanto $E$ como \vb{L}.
 	\caption{}
 \end{figure}
 
-El anillo se dispersa en un sector esférico. Entonces podemos establecer las siguientes conclusiones
-para el anillo entre $\rho + d\rho$ - $\rho$, a saber
+El anillo se dispersa en un sector esférico. Entonces para el anillo entre $\rho + d\rho$ - $\rho$ el
+área de la corona será
 \[
-	A =  \pi ( (\rho + d\rho)^2 - \rho^2 ) \qquad \longrightarrow A \approx 2 \pi \rho \: d\rho,
+	A =  \pi ( (\rho + d\rho)^2 - \rho^2 ),
 \]
-entonces
+que a primer orden (suponiendo $d\rho$ diferencial) será 
 \[
-	d\sigma = \frac{  2 \pi \rho \: d\rho I}{I}
+	A \approx 2 \pi \rho \: d\rho.
 \]
-donde $\rho$ es el parámetro de impacto y $I$ el número de partículas por unidad de tiempo y área.
-Finalmente
+
+La variable $\rho$ es el llamado {\it parámetro de impacto}. Entonces
+\[
+	d\sigma = \frac{  2 \pi \rho \: d\rho I}{I} = 2 \pi \rho d\rho
+\]
+donde $I$ el número de partículas por unidad de tiempo y área
+en el haz. Si obtuviese $ \rho = \rho(\chi) $ entonces inalmente
 \[
 	d\sigma =  2 \pi \rho(\chi) \left| \dtot{\rho}{\chi} \right| d\chi
 \]
+donde el módulo es porque la cantidad correspondiente será negativa. La función $\rho(\chi)$ nos dará
+información sobre el potencial entre las partículas y el centro.
+La función $\chi(\rho)$ se llama función deflexión.
 
 Como se conservan la energía y el momento angular
 \[
 	E = \frac{1}{2} m V_\infty^2 \qquad L = m \rho V_\infty^2 
+\]
+aunque por supuesto al variar $\rho$ varío el momento angular $L$ de las partículas. Entonces tanto una
+como otra magnitud determinan cómo se dispersan las partículas.
+
+La conservación de $L$ implica la constancia de $\rho$ como valor asintótico para la trayectoria. El punto
+apsidal es un punto tal que existe simetría de la órbita respecto al mismo.
+\[
+	mbox{ \text{ figura 46R izquierda} }
 \]
 \begin{figure}[htb]
 	\begin{center}
@@ -1337,7 +1454,6 @@ Como se conservan la energía y el momento angular
 	\end{center}
 	\caption{}
 \end{figure}
-En general se desconoce $V(r)$.
 
 Se puede calcular el ángulo $\varphi_0$ de acuerdo a 
 \[
@@ -1345,20 +1461,39 @@ Se puede calcular el ángulo $\varphi_0$ de acuerdo a
 \]
 donde
 \[
-	\varphi_0 = \int_{r_m}^{\infty} \frac{L/mr^2}{\sqrt{\frac{2}{m}(E - V_{\text{eff}})}} dr
+	\varphi_0 = \int_{r_m}^{\infty} \frac{L/mr^2}{\sqrt{\frac{2}{m}(E - V_{\text{eff}} )}} dr
 \]
 \[
 	\chi = \pi - 2 \varphi_0 (\rho)
 \]
-e invertimos desde la última ecuación.
-
-Veamos el caso de una esfera maciza. En general los cuerpos duros equivalen a un potencial del tipo
+e invertimos desde la última ecuación. Considerando $E = 1/2 m v_\infty$ y $ L = m \rho v_\infty $
+se tiene 
 \[
+	V_{\text{eff}} = \frac{L}{2 m r^2} + V(r)
+\]
+aunque en general se desconoce $V(r)$ o el tamaño efectivo de su interacción. En esos casos se puede 
+ajustar el cálculo con lo que se mide experimentalmente para tener un potencial parecido a la interacción
+real.
+
+\subsection{Esfera maciza}
+
+Veamos el caso de una esfera maciza. Lo primero es encarar el cálculo de $\rho=\rho(\chi)$ o su inversa.
+En general los cuerpos duros equivalen a un potencial del tipo
+\be
 	V = \begin{cases}
 	     \infty \qquad \textrm{cuerpo}\\
-	     \;0 \qquad \; \textrm{fuera} \\
+	     \;0 \qquad \; \textrm{fuera}
 	    \end{cases}
+	    \label{potencial_hard}
+\ee
+Si el potencial $V$ en la esfera no fuese infinito eso significa que hay partículas que podrían ingresar.
+
+\[
+	\mbox{ \text{ Figura 47 potenciales } }
 \]
+
+
+La geometría del problema es tal que 
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.5\textwidth]{images/fig_mc_dispersion4.pdf}	 
@@ -1385,7 +1520,32 @@ y como hay que integrar $\chi$ de 0 a $\pi$
 \[
 	\sigma = \pi a^2
 \]
-En el caso de los cuerpos duros la sección eficaz es la sombra de los mismos.
+En el caso de los cuerpos duros (potencial constante del tipo del dado en \eqref{potencial_hard}) la sección
+eficaz total $\sigma$ es la sombra de los mismos.
+
+\subsection{Ángulo sólido}
+
+El ángulo sólido total para una esfera es $\Omega = 4 \pi $ y es igual a $A/r^2$ siendo $A$ el área de la
+misma. El diferencial de ángulo sólido se construye a partir de la ilustración 
+\[
+	\mbox{ Figura 47 inferior dentro de inserto }
+\]
+y se ve que es 
+\[
+	d\Omega = 2 \pi \sin \chi d\chi.
+\]
+Luego, para la dispersión por una esfera,
+\[
+	d\sigma = \frac{a^2}{4} d\Omega,
+\]
+la sección eficaz diferencial es constante y la sección eficaz total (integrada) $\sigma = \pi a^2$ da
+información sobre el número de partículas que se desvían. Podemos pensar que las partículas se desvían
+si caen dentro del área de la {\it sombra} del blanco.
+
+\[
+	\mbox{ Figura 47 ultima, esfera con rayitos }
+\]
+
 \notamargen{Sobre el ángulo sólido
 \[
 \Omega = \textrm{Area}/r^2
@@ -1398,6 +1558,55 @@ d\Omega = 2 \pi \sin( \chi ) d\chi
 \]
 para la esfera.
 }
+
+\begin{ejemplo}{\bf Pozo esférico de profundidad $V_0$}
+ 
+\[
+	\mbox{ Figura 47R segunda, para el ejemplo. }
+\] 
+ 
+La geometría del problema implica que 
+\[
+	\chi = 2(\alpha - \beta)
+\]
+y la conservación de la energía,
+\[
+	E = \frac 1 2 m v_1^2 = \frac 1 2 m v_2^2 - V_0,
+\]
+implica que 
+\[
+	\frac {v_2} {v_1} = \sqrt{ 1 + \frac{V_0}{E}} \equiv n
+\]
+y entonces $ v_1 \sin \alpha = v_2 \sin \beta$ lo cual conduce a  
+\[
+	\frac{\sin \beta}{\sin \alpha} = \frac{\sin (\alpha - \chi/2 )}{\sin \alpha} = \frac 1 n
+\]
+y $\sin \alpha = \rho / a$.
+La conservación del momento angular $\vb{L}$ determina que el trayecto rojo en la figura sea 
+el que ocurre.
+
+Supongamos que no hay conservación del momento angular, como en la situación ilustrada aquí abajo,
+\[
+	\mbox{ Figura 47R final final}
+\]
+
+Se tendrá entonces
+\[
+	\frac{\sin \gamma}{\sin \vp} = \frac{1}{\sqrt{ 1 + V_0/E }}
+\]
+aunque hay un ángulo (el de reflexión interna total) que hará que no salgan partículas puesto que 
+son atrapadas por el cuerpo.
+
+Existe un $\rho$ de rebote (de reflexión interna) y entonces $\chi=\chi(\rho)$ será discontinua a 
+saltoss porque para un cierto $\rho$ sale y para un $\rho + d\rho$ ya no.
+
+\[
+	\mbox{ Figura 48 con toda la explicación }
+\]
+\notamargen{Hay unos comentarios jugosos respecto de esta figura que habría que explotar.}
+
+Si el momento angular no se conserva no es posible calcular $\chi = \chi(\rho) $.
+\end{ejemplo}
 
 
 % =================================================================================================
