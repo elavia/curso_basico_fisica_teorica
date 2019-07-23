@@ -1354,6 +1354,18 @@ Entonces no es válida la ley de Kepler.
 \section{Dispersión}
 % =================================================================================================
 
+\subsection{preliminares--usar y destruir--}
+
+Se supone una partícula chocando a la vez (el haz incidente no interactúa entre sí).
+Se conoce las partículas incidentes por área y por tiempo $I$ y las dispersadas serán
+$ D = I \int \dtot{\sigma}{\Omega} d\Omega = I \sigma$.
+Se consideran coordenadas en el centro de masa.
+Se trabaja en ángulos sólidos.
+\notamarge{El problema 1 en página 45 parece estar hecho en la teoría, de manera que no transcribe
+ahora.}
+
+\includegraphics[scale=0.3]{images/fig_mc_dispersion_varios.jpg}
+
 Es un tema muy importante porque permite investigar qué hay en el interior de la materia por medio
 de {\it pegarle} con algo que se conoce perfectamente.
 En estas situaciones el blanco es desconocido y el proyectil conocido.
@@ -1613,14 +1625,32 @@ Si el momento angular no se conserva no es posible calcular $\chi = \chi(\rho) $
 \section{Dispersión por dos cuerpos}
 % =================================================================================================
 
-Consideramos el caso de un cuerpo que se fracciona en dos (creo?)
+El problema de la dispersión de dos cuerpos se puede tratar en modo similar al de un cuerpo si se
+convierte el mismo en un problema equivalente para un cuerpo de masa $\mu$.
+
+Así la situación de dos cuerpos interactuando se convierte en la de un cuerpo por un potencial.
+El asunto es que aquí varían los ángulos de dispersión porque estamos considerando un sistema
+en el centro de masas.
+\notamargen{Esto requerirá alguna ilustración visual.}
+
+Sea una masa M que se fisiona en un punto por alguna interacción desconocida. Pensamos un haz de
+estas partículas M que se fisionan del mismo modo.
+
+\includegraphics[scale=0.3]{images/fig_mc_dispersion_2cuerpos1.jpg}
+
+Desde el centro de masas se vería una situación como la mostrada en la ilustración
+
+\includegraphics[scale=0.3]{images/fig_mc_dispersion_2cuerpos2.jpg}
+
+La ilustración con coordenadas sería algo como:
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.5\textwidth]{images/fig_mc_disp2body1.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
-Desde el centro de masa
+
+Desde el centro de masa se conserva el momento, y entonces
 \[
 	\vb{P}_1 + \vb{P}_2 = 0
 \]
@@ -1637,6 +1667,7 @@ definimos una velocidad relativa
 	\end{center}
 	\caption{}
 \end{figure} 
+
 Con respecto a la energía,
 \[
 	\frac{1}{2} M \vb{V}_{cm}^2 + e_{int} = \frac{1}{2} m_1 \vb{v}_1^2 + \frac{1}{2} m_2 \vb{v}_2^2
@@ -1647,12 +1678,18 @@ Con respecto a la energía,
 \]
 y pasando todo en términos de la velocidad relativa
 \[
-	 \frac{1}{2} \frac{m1 m2}{ m_1 + m_2 } v = \Delta e
+	 \frac{1}{2} \frac{m_1 m_2}{ m_1 + m_2 } v = \Delta e
 \]
 entonces 
 \[
 	v = \sqrt{\frac{ 2 \Delta e}{ \mu } }.
 \]
+
+Como la velocidad relativa $v$ es una constante se sigue que la separación de los cuerpos es a
+velocidad constante.
+Por otra parte, la energía interna $e$ es la que provoca la fisión. Se puede pensar que existe un
+resorte que {\it revienta} espontáneamente y separa ambas partículas.
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.5\textwidth]{images/fig_mc_disp2body3.pdf}	 
@@ -1660,7 +1697,10 @@ entonces
 	\caption{}
 \end{figure} 
 
-El problema es evidentemente plano.
+Conocemos el módulo de la velocidad pero no su dirección.
+El problema es evidentemente plano. Consideramos que todo se mide desde el centro de masas y el
+problema es no relativista.
+Desde un sistema laboratorio 
 \[
 	\vb{V}_1^L =  \vb{V}_{cm} + \vb{V}_1' \qquad \longrightarrow \quad ( \vb{V}_1^L - \vb{V}_{cm} ) = \vb{V}_1'
 \]
@@ -1673,7 +1713,8 @@ El problema es evidentemente plano.
 \[
 	( V_{1x}^L  - V_{cm} )^2 + {V_{1y}^L}^2 = V_1^2
 \]
-que es una circunferencia.
+que es una circunferencia en el plano.
+De la ilustración puede verse que 
 \[
 	\tan(\theta) = \frac{V_1 \sin(\chi) }{ V_{cm} + V_1 \cos(\chi) }
 \]
@@ -1685,16 +1726,56 @@ que es una circunferencia.
 	\caption{}
 \end{figure} 
 
-Esto tiene dos raíces $\chi_{1,2}$ si $ V_{cm} > V_1$. 
+Luego, se puede despejar de la anterior ecuación el valor de $\chi$. Para ello se elevan
+ambos miembros al cuadrado, se expande como 
+\[
+	\tan^2 \theta \left( \frac{V_{cm}}{v_1} \right)^2 +
+	\tan^2 \theta \cos^2 \chi + 2 \tan \theta \frac{V_{cm}}{v_1} \cos \chi = 1 - \cos^2 \chi
+\]
+y luego del álgebra resulta 
+\[
+	\cos \chi = - \sin^2 \theta \pm \frac{2}{1+\tan^2\theta} 
+	\sqrt{ 1 + \tan^2 \theta - \tan^2 \theta \left( \frac{V_{cm}}{v_1} \right)^2 }.
+\]
+
+Esto tiene dos raíces $\chi_{1,2}$ si $ V_{cm} > V_1$. A un mismo $\theta$ tengo dos $\chi$, uno
+correspondiente a partículas rápidas y otro para lentas.
+
+\includegraphics[scale=0.3]{images/fig_mc_dispersion_doschi.jpg}
+
+Hay una $v_1$ para la cual se anula el término dentro de la raíz, que es 
+\[
+	1 + \tan^2\theta( 1 - \left( \frac{V_{cm}}{V_1} \right)^2 )
+\]
+y cuando eso sucede se tiene $ V_1 = V_{cm} \sin \theta $.
+si $ V_{cm} > V_1$ no hay partículas emitidas hacia atrás,
+
+\includegraphics[scale=0.3]{images/fig_mc_dispersion_caso1.jpg}
+
+a medida que aumenta $\theta$ las partículas lentas y rápidas tendrán velocidades parecidas. Cuando
+vale $\theta_t$ no tengo más que una sola velocidad. Para $\theta > \theta_t $ no hay emisión de
+partículas.
 
 Si $ V_{cm} > V_1$ hay una sola $V$ de las partículas.
 
 Si $ V_{cm} < V_1$ hay partículas emitidas hacia atrás vistas desde L.
 
-Si pensamos en una distribución isótropa de partículas, desde el centro de masa
+Si pensamos en una distribución isótropa de partículas, desde el centro de masa será proporcional
+al ángulo sólido
+\[
+	\text{ Distribución } \sim d\Omega = 2\pi\sin \chi d\chi,
+\]
+y entonces el cociente entre la fracción de ángulo de la distribución y el ángulo sólido total,
+\[
+	\frac{d\Omega}{4\pi} = \frac{1}{2} \sin \chi d\chi.
+\]
+
+Podemos evaluar la distribución de energía de las partículas. Desde el centro de masa,
 \[
 	e = \frac{1}{2} m_1 V_{1}^2
 \]
+\notamargen{Tenía el comentario: todas las partículas de la fisión tienen igual energía.}
+y entonces
 \[
 	V_L^2 = V_1^2 + V_{cm}^2 - 2 V_1 V_{cm} \cos( \pi -\chi )
 \]
@@ -1717,6 +1798,16 @@ a iguales $V_1,V_{cm}$ se tienen variables $V_L, \chi$, entonces
 \[
 	\frac{d\Omega}{4\pi} =  \frac{d (V_L^2) }{4 V_1 V_{cm}} = \frac{1}{2} \frac{d ( 1/2 m_1 V_L^2) }{m_1 V_1 V_{cm}} 
 \]
+
+Como la anterior se puede escribir,
+\[
+	\frac{dT}{2 m_1 V_{cm} v_1}
+\]
+se ve que representa la fraccióon de partículas entre $T$ y $T+dT$ vistas desde el laboratorio.
+
+Las diferencias entre las distribuciones son patentes en este gráfico:
+
+\includegraphics[scale=0.4]{images/fig_mc_dispersion_distribuciones.jpg}
 
 % =================================================================================================
 \section{Scattering}
