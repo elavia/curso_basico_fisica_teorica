@@ -1813,30 +1813,43 @@ Las diferencias entre las distribuciones son patentes en este gráfico:
 \section{Scattering}
 % =================================================================================================
 
-Tenemos dos suposiciones básicas:
+Dos partículas están alejadas inicialmente de modo tal que puede considerarse que no interactúan.
+Entonces el esquema pictórico siguiente ilustra lo que sucede:
+
+\includegraphics[scale=0.4]{images/fig_mc_dispersion_picture.jpg}
+
+Para la interacción tenemos dos suposiciones básicas:
 	\begin{itemize}
 		\item Interacción elástica.
 		\item Conservación de energía y de momento.
 	\end{itemize}
 
+Luego de la interacción las partículas ya son libres otra vez.
+	
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.5\textwidth]{images/fig_mc_scatt1.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 	
-	
-Desde el centro de masa se tienen:
+\notamargen{Hay que definir con cuál dibujo me quedaré.}
+\includegraphics[scale=0.4]{images/fig_mc_dispersion_scatt_picture.jpg}
+
+Desde el centro de masas la cosa es sencilla; se tiene momento total nulo y los momentos de cada partícula
+son opuestos. Entonces se tienen:
 \[
-	\vb{P} = \vb{P}_1 + \vb{P}_2 = 0	\qquad		\vb{r} \equiv \vb{r}_2 + \vb{r}_1
-	\qquad		\vb{V} \equiv \vb{V}_2 - \vb{V}_1
+	\vb{P} = \vb{p}_1 + \vb{p}_2 = 0	\qquad		\vb{x} \equiv \vb{x}_2 - \vb{x}_1
+	\qquad		\vb{v} \equiv \vb{v}_2 - \vb{v}_1
 \]
-donde los últimos son las posiciones y velocidades relativas.
+donde los últimos son las posiciones y velocidades relativas. El problema se puede pasar a uno equivalente
+en términos de las variables relativas.
+La conservación de la energía es
 \[
-	E = \frac{1}{2} M \vb{V}_{cm}^2 + \frac{1}{2} \mu \vb{V}^2 + V(r)
+	E = \frac{1}{2} M \vb{V}_{cm}^2 + \frac{1}{2} \mu \vb{v}^2 + V(r)
 \]
+y las velocidades verifican
 \[
-	m_1 \vb{V}_1 + m_2 \vb{V}_2 = 0 \qquad m_1 \vb{V}_1 = -\frac{m_2}{m_1} \vb{V}_2.
+	m_1 \vb{v}_1 + m_2 \vb{v}_2 = 0 \qquad m_1 \vb{v}_1 = -\frac{m_2}{m_1} \vb{v}_2.
 \]
 \begin{figure}[htb]
 	\begin{center}
@@ -1844,10 +1857,274 @@ donde los últimos son las posiciones y velocidades relativas.
 	\end{center}
 	\caption{}
 \end{figure} 
+
+\notamargen{En el material para final no tenía puesto la v del cm, como si la misma fuera
+nula. En la carpeta sí está.}
+
+\includegraphics[scale=0.4]{images/fig_mc_dispersion_velrelativa.jpg}
+
+\notamargen{Los ángulos se relacionan con la conservación de P y de E.}
+
 En términos de las velocidades relativas
 \[
-	\vb{V}_2 = \frac{m_1}{m_1 + m_2} \vb{V} \qquad \vb{V}_1 = -\frac{m_2}{m_1 + m_2} \vb{V}
+	\vb{v}_2 = \vb{V}_{cm} + \frac{m_1}{m_1 + m_2} \vb{v} \qquad 
+	\vb{v}_1 = \vb{V}_{cm} -\frac{m_2}{m_1 + m_2} \vb{v}
 \]
+Con estas expresiones se puede escribir las relaciones entre los momentos, las cuales resultan en 
+\[
+	\vb{p}_2^\ell = \frac{m_2}{M} \vb{p} + \mu \vb{v} \qquad 
+	\vb{p}_1^\ell = \frac{m_1}{M} \vb{p} - \mu \vb{v}
+\]
+y esto se puede pasar a relaciones geométricas, ver figura debajo,
+
+\includegraphics[scale=0.4]{images/fig_mc_dispersion_triangulo1.jpg}
+
+En el laboratorio se utiliza pegarle al blanco con partículas aceleradas con el mismo
+inicialmente en reposo. Así se simplifican las ecuaciones pero desde el centro de masa
+se ve así (dibujete usual --de la picture--).
+
+Supongamos que $m_1$ está en reposo (originalmente)
+\[
+	\vb{p} = m_2 v
+\]
+de modo que $v_2$ inicial es $v$, entonces $\mu v$ es el radio de nuestro círculo,
+
+\includegraphics[scale=0.4]{images/fig_mc_dispersion_scatt_circulo.jpg}
+
+\[
+	2 \theta_1 + \chi = \pi
+\]
+de lo cual $\theta_1 = ( \pi - \chi ) / 2$ y entonces 
+\[
+	\tan \theta_2 = \frac{ \ mu \sin \chi }{ m_2^2 + \mu \cos \chi} =
+	\frac{ \sin \chi }{ m_2 / m_1 + \cos \chi }.
+\]
+
+Si ambas masas son iguales, $m_1 = m_2$ se tendrá que el ángulo es de 90$^\circ$, siempre y cuando
+$\chi \neq 0$.
+
+\includegraphics[scale=0.5]{images/fig_mc_dispersion_scatt_circulo_iguales.jpg}
+
+\begin{ejemplo}{\bf Dispersión por potenciales infinitos}
+ 
+Los potenciales duros son infinito sobre la superficie y nulos en cualquier otra parte.
+ 
+\includegraphics[scale=0.5]{images/fig_mc_dispersion_potencial_infinito.jpg} 
+
+Del cuidadoso análisis de la figura surge que como $ \alpha = \beta $
+\[
+	\alpha + \vp_0 = \frac{\pi}{2} \qquad 
+	\beta + \vp_0 = \frac{\pi}{2}
+\]
+y entonces $\chi = 2 \beta$, luego 
+\[
+	\dtot{\rho}{z} = \tan \beta = \tan \frac{\chi}{2}.
+\]
+
+La sección eficaz diferencial será
+\[
+	d\sigma = 2 \pi \vp \left| \dtot{\vp}{\chi} \right| d\chi = 2 \pi d\rho^2 d\chi 
+	= \frac{ \rho }{ \sin \chi }\left| \dtot{\rho}{\chi} \right| d\Omega
+\]
+(Revisar las últimas igualdades, de dónde salen?)
+
+También,
+\[
+	\tan \frac{\chi}{2} = \frac{ d\rho / d\theta }{ dz / d\theta }.
+\]
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Esfera}
+
+\includegraphics[scale=0.5]{images/fig_mc_dispersion_esfera.jpg}  
+
+En el caso de la esfera, como  la relación es
+\[
+	\rho^2 + z^2 = a^2,
+\]
+de manera que 
+\[
+	\dtot{\rho}{z} = \frac{-z}{\sqrt{a^2 - z^2}}
+\]
+pero como $z=a\cos\theta$ esto conduce a 
+\[
+	\tan \frac{\chi}{2} = - cotg \theta.
+\]
+
+Intercambiando ángulos con 
+\[
+	\delta= \frac{\pi}{2} - \theta
+\]
+se logra 
+\[
+	\tan \frac{\chi}{2} = \tan \delta, 
+\]
+y simplemente es 
+\[
+	\chi = \pi - 2\theta.
+\]
+
+Como $\rho = a \sin \theta$, resulta 
+\[
+	d\sigma = 2 \pi \rho \dtot{}{\chi} [ a \sin \left( \frac{\pi - \chi}{2}\right) ] d\chi,
+\]
+o bien 
+\[
+	d\sigma = 2 \pi a \rho \cos \left( \frac{\pi - \chi}{2}\right)  d\chi 
+\]
+que por fórmula del ángulo doble (APP!)
+\[
+	d\sigma = \frac{\pi}{2} a^2 \sin ( \chi ) d\chi 
+\]
+que se puede poner en términos del ángulo sólido como 
+\[
+	d\sigma = \frac{a^2}{4} d\Omega,
+\]
+que se puede integrar para dar 
+\[
+	\sigma = \int_{esfera} d\sigma = a^2 \pi.
+\]
+
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Elipsoide de revolución}
+
+\includegraphics[scale=0.5]{images/fig_mc_dispersion_elipsoide.jpg}  
+
+En la expresión diferencial $d\rho/\dz$ tomamos una variable paramétrica,
+\[
+	\tan \frac{\chi}{2} = \frac{d\rho/d\theta}{dz/d\theta}
+\]
+y entonces usando la parametrización de la elipse 
+\[
+	x = a \cos \theta \qquad y = b \sin \theta,
+\]
+\[
+	\tan \frac{\chi}{2} = - \frac{a}{b} cotg \theta
+\]
+o bien (necesito que aparezca un seno)
+\[
+	\tan \frac{\chi}{2} = - \frac{a}{b} \frac{\sqrt{a^2 - a^2 \sin^2 \theta}}{\rho}.
+\]
+
+Elevando ambos miembros al cuadrado en la anterior y haciendo el álgebra, se puede despejar
+$rho$
+\[
+	\rho = \frac{ a^2 }{\sqrt{ a^2 + b^2 \tan^2 (\chi/2) }}
+\]
+y
+\[
+	\dtot{\rho}{\chi} = \frac{ - a^2 b^2 }{2 ( a^2 + b^2 \tan^2 (\chi/2) )^{3/2} }
+	\frac{\tan(\chi/2)}{\cos^2(\chi/2)}
+\]
+y como 
+\[
+	d\sigma = 2\pi \rho \left|\dtot{\rho}{\chi}\right| d\chi = \pi d \rho^2 d\chi, 
+\]
+donde en la última igualdad se ha derivada implícitamente el cuadrado de $\rho$ (el trick usual).
+Finalmente,
+\[
+	d\sigma = \frac{ \pi a^4 b^2 }{( a^2 + b^2 \tan^2 (\chi/2) )^{2} }
+	\frac{\tan(\chi/2)}{\cos^2(\chi/2)} d\chi,
+\]
+la cual haciendo el álgebra y usando $2 \pi \sin \chi d\chi = d\Omega$ (chequear el ángulo sólido!) 
+permite arribar a 
+\[
+	d\sigma = \frac{ a^4 b^2 d\Omega }{ 4 ( a^2 \cos^2 (\chi/2) + b^2 \sin^2 (\chi/2) )^2 }
+\]
+resultado que recupera el valor para la esfera en el caso particular $a=b$.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Parábola}
+
+La fórmula de la parábola en coordenadas $\rho,z$ es
+\[
+	\rho^2 = \frac{\alpha}{E} z,
+\]
+donde $\alpha, E$ son constantes. La derivada de $\rho$ con respecto a $z$ es
+\[
+	\dtot{\rho}{z} = \frac{1}{2} \frac{\alpha}{E} \frac{1}{\rho},
+\]
+y como también es
+\[
+	\dtot{\rho}{z} = \tan \left( \frac{\chi}{2} \right),
+\]
+se sigue que 
+\[
+	\rho = \frac{ \alpha }{2E} cotg \left( \frac{\chi}{2} \right).
+\]
+
+\includegraphics[scale=0.5]{images/fig_mc_dispersion_parabola.jpg} 
+
+Entonces, resulta 
+\[
+	d\sigma = \frac{\pi}{2} \left( \frac{\alpha}{2E} \right)^2
+	\frac{ \sin (\chi/2) }{ \sin^4 (\chi/2) } d\chi
+\]
+Pasando a coordenadas esféricas esta expresión, se tiene 
+\[
+	d\sigma = \frac{1}{4} \left( \frac{\alpha}{2E} \right)^2
+	\frac{ d\Omega }{ \sin^4 (\chi/2) },
+\]
+que es la fórmula de Rutherford.
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Dispersión por potencial atractivo}
+ 
+Consideremos el potencial atractivo
+\[
+	V(r) = - \frac{\alpha}{r^2}, \qquad \alpha > 0
+\]
+que conlleva, como se ha visto oportunamente,
+\[
+	E = \frac{1}{2} m \dot{r}^2 +  \frac{1}{2} m r^2 \dot{ \vp }^2 - \frac{\alpha}{r^2}
+	\qquad L = m r^2 \dot{ \vp }
+\]
+\[
+	\vp_0 = \int d\vp =
+	\int_{r_m}^\infty \frac{ L dr }{ r^2 \sqrt{ 2 m ( E + \alpha / r^2 ) - L^2 / r^2 } }
+\] 
+Para resolver esta integral son más convenientes las constantes $\rho,v_\infty$ que se vinculan merced
+a
+\[
+	E = \frac{1}{2} m v_\infty^2 \qquad L = m \rho v_\infty = \sqrt{2mE} \rho
+\]
+en términos de los cuales la integral previa es 
+\[
+	\vp_0 =
+	\int_{r_m}^\infty \frac{ \rho dr }{ r^2 \sqrt{ 1 + \alpha /(E r^2 ) - \rho^2 / r^2 } }
+\] 
+
+Luego, el cambio de variables usual $U=1/r$ permite hallar la solución 
+\[
+	\int_{r_m}^\infty \frac{ \rho dU }{ \sqrt{ 1 - ( \rho^2 - \alpha / E ) U^2 } =
+	\left. \frac{\rho}{\sqrt{ \rho^2 - \alpha/E }}
+	\asin \left( \sqrt{ \rho^2 - \alpha / E } \frac{1}{r}\right) \right|_{r_m}^\infty
+\]
+y como $r_m = \sqrt{\rho^2 - \alpha/E}$ resulta 
+\[
+	\vp_0 = \frac{ \rho \pi }{ 2 \sqrt{\rho^2 - \alpha/E} } =
+	\frac{ \pi }{ 2 \sqrt{ 1 - a^2 / \rho^2 } }
+\]
+donde $ a^2 = E / \alpha $. Finalmente
+\[
+	\theta = \pi - \frac{ \pi }{ 2 \sqrt{ 1 - a^2 / \rho^2 } }.
+\]
+
+\includegraphics[scale=0.5]{images/fig_mc_dispersion_esquema_pot_atractivo.jpg} 
+ 
+Y la solución [¿?] 
+\[
+	-\theta = 2 \pi \ell \pm \chi,
+\]
+para $ \ell = 0, 1, 2 $ (signo +) y $ \ell = 0, 1, 2 $ (signo -).
+
+\includegraphics[scale=0.5]{images/fig_mc_dispersion_esquema_pot_atractivo2.jpg} 
+ 
+\end{ejemplo}
+
 Se puede escribir la energía cinética del siguiente modo
 \[
 	T = \frac{1}{2} m_1 \vb{V}_{1-in}^2 + \frac{1}{2} m_2 \vb{V}_{2-in}^2 =
