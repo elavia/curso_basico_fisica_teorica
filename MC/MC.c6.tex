@@ -4,7 +4,7 @@
 	\usepackage{amsmath}
 	\usepackage{graphicx}
 	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -711,23 +711,6 @@ función de coordenadas que se hallan sobre un sistema no inercial.
 	 \;  + \;  \vb{\Omega} \times \left( \vb{\Omega} \times \vb{r} \right)
 \]
 
-\subsection{Lagrangiano en un sistema rotante}
-
-\[
-	\Lag = \frac{1}{2} m v^2 - U(\vb{r})
-\]
-\[
-	\Lag = \frac{1}{2} m ( \vb{v}' + \vb{\Omega} \times \vb{r} )^2 - U(\vb{r})
-\]
-\[
-	\Lag = \frac{1}{2} m \vb{v}'^2 + m \vb{v}' \cdot ( \vb{\Omega} \times \vb{r} ) + 
-		\frac{1}{2} m ( \vb{\Omega} \times \vb{r} )^2 - U(\vb{r})
-\]
-donde esto último es un potencial efectivo $U=U(\vb{r}, \vb{v})$ y para $U$ dependiente de la velocidad
-teníamos 
-\[
-	\vb{F} = -\dpar{U}{q_i} + \frac{d}{dt} \left( \dpar{U}{\dot{q}_i} \right) 
-\]
 % =================================================================================================
 \section{Sistemas rotantes}
 % =================================================================================================
@@ -852,26 +835,39 @@ La rotación infinitesimal puede verse como un vector
 \[
 	\frac{\delta\vb{\alpha}}{\delta t} = \Omega_x \hat{x} + \Omega_y \hat{y} +  \Omega_z \hat{z} 
 \]
-donde hemos hecho $\Omega_i = \delta\alpha_i/\delta t$. En términos de las nuevas variables
+donde hemos hecho $\Omega_i = \delta\alpha_i/\delta t$, es decir que identificamos las componentes del vector velocidad angular. 
+En términos de las nuevas variables
 \[
-	\dtot{\hat{x}'}{t} = \Omega_z \hat{y}' - \Omega_y \hat{z}'
+	\frac{ \delta \hat{x}' }{ \delta t } = \Omega_z \hat{y}' - \Omega_y \hat{z}'
 \]
 \[
-	\dtot{\hat{y}'}{t} = - \Omega_z \hat{x}' + \Omega_x \hat{z}'
+	\frac{ \delta \hat{y}' }{ \delta t }  = - \Omega_z \hat{x}' + \Omega_x \hat{z}'
 \]
 \[
-	\dtot{\hat{z}'}{t} = \Omega_y \hat{x}' - \Omega_x \hat{y}'
+	\frac{ \delta \hat{z}' }{ \delta t } = \Omega_y \hat{x}' - \Omega_x \hat{y}'
 \]
-entonces podemos hacer la construcción
+
+Entonces, juntando todo 
 \[
-	\frac{d}{dt} = \left.\frac{d}{dt} \right|_{X'Y'Z'} + U_x' ( \Omega_z \hat{y}' - \Omega_y \hat{z}' )
-		+ U_y'( - \Omega_z \hat{x}' + \Omega_x \hat{z}' ) + U_z'( \Omega_y \hat{x}' - \Omega_x \hat{y}' )
+	\dtot{\vb{U} }{t} = \dtot{U_x'}{t} \hat{x}' + \dtot{U_y}{t}\hat{y} + \dtot{U_z}{t}\hat{z} + 
+	U_x' ( \Omega_z \hat{y}' - \Omega_y \hat{z}' ) + U_y'( - \Omega_z \hat{x}' + \Omega_x \hat{z}' ) 
+	+ U_z'( \Omega_y \hat{x}' - \Omega_x \hat{y}' ),
 \]
-y usando la regla del producto vectorial podemos colapsar en 
+y acomodando según los versores tenemos 
 \[
-	\left.\frac{d}{dt}\right|_{in} \vb{U} = \left.\frac{d}{dt} \right|_{rot} \vb{U} + \vb{\Omega} \times \vb{U}
+	\dtot{\vb{U} }{t} = \left[ \dtot{U_x'}{t} - U_y' \Omega_z + U_z' \Omega_y  \right] \hat{x}' + 
+	\left[ \dtot{U_y}{t} + U_x' ( \Omega_z - U_z' \Omega_x \right] \hat{y}  + 
+	\left[ \dtot{U_z}{t} + U_y' \Omega_x - U_x' \Omega_y \right] \hat{z} 
 \]
-Notemos que 
+\notamargen{Me gustaba la identificación $\left.\frac{d}{dt} \right|_{X'Y'Z'}$ el primer gran término en la derivada
+total del vector $\vb{U}$.}
+Los términos asociados a la velocidad angular {\it entran} como un producto vectorial de manera que podemos 
+colapsar la notación en 
+\[
+	\left.\frac{d}{dt}\right|_{in} \vb{U} = \left.\frac{d}{dt} \right|_{rot} \vb{U} + \vb{\Omega} \times \vb{U}.
+\]
+
+Recordemos que 
 \[
 	\vb{\Omega} \times \vb{U}' = \begin{vmatrix}
 	                              \hat{x}' & \hat{y}' & \hat{z}' \\
@@ -880,13 +876,31 @@ Notemos que
 	                             \end{vmatrix}.
 \]
 
-\begin{ejemplo}{Rotación en $\hat{z}$}
-Consideremos una rotación en torno a $\hat{z}'$ de modo que $\delta\hat{z}'=0$ de modo que $\delta\alpha_x=\delta\alpha_y=0$
-de manera que 
+Pero $\vb{\Omega}$ es un vector que puede variar en el tiempo. El eje de rotación puede variar en el tiempo,
+
+\includegraphics[scale=0.4]{images/fig_mc_rotaciones_porqueria.jpg}
+
+Suponiendo que \vb{U} solo rota 
+
+\includegraphics[scale=0.4]{images/fig_mc_rotaciones_u_solorota.jpg}
+
+\[
+	\frac{\delta \alpha}{\delta t} U \sin \beta = \Omega U \sin \beta = \vb{\Omega} \times \vb{U}
+\]
+
+Un observador rotante vería $dU/dt|_{rot} = 0$ porque no cambian las componentes. Él sería partícipe del movimiento de \vb{U} y 
+como la velocidad de rotación de \vb{U} es \vb{\Omega} entonces \vb{U} se ve quieta.
+
+\begin{ejemplo}{\bf Rotación en $\hat{z}$}
+
+Consideremos una rotación en torno a $\hat{z}'$ de manera que como $\delta\hat{z}'=0$ entonces  
+$\delta\alpha_x=\delta\alpha_y=0$
+
+Luego, se tienen 
 \[
 	\delta\hat{x}' = \delta\alpha_z \hat{y}' \qquad \delta\hat{y}' = - \delta\alpha_z \hat{x}'
 \]
-y tener que 
+y entonces debe ser
 \[
 	\delta \alpha_z \equiv \omega_z . 
 \]
@@ -896,7 +910,30 @@ y tener que
 	\end{center}
 	\caption{}
 \end{figure} 
+
+\includegraphics[scale=0.4]{images/fig_mc_rotaciones_ej_rotz.jpg}	 
+
+\notamargen{¿Este gráfico y el anterior son lo mismo?}
 \end{ejemplo}
+
+
+\subsection{Lagrangiano en un sistema rotante}
+
+\[
+	\Lag = \frac{1}{2} m v^2 - U(\vb{r})
+\]
+\[
+	\Lag = \frac{1}{2} m ( \vb{v}' + \vb{\Omega} \times \vb{r} )^2 - U(\vb{r})
+\]
+\[
+	\Lag = \frac{1}{2} m \vb{v}'^2 + m \vb{v}' \cdot ( \vb{\Omega} \times \vb{r} ) + 
+		\frac{1}{2} m ( \vb{\Omega} \times \vb{r} )^2 - U(\vb{r})
+\]
+donde esto último es un potencial efectivo $U=U(\vb{r}, \vb{v})$ y para $U$ dependiente de la velocidad
+teníamos 
+\[
+	\vb{F} = -\dpar{U}{q_i} + \frac{d}{dt} \left( \dpar{U}{\dot{q}_i} \right) 
+\]
 
 % =================================================================================================
 \section{El tensor de inercia}

@@ -481,7 +481,7 @@ Ahora supongo un problema equivalente (problema elíptico de cierto semieje). El
 \]
 y entonces
 \[
-	\frac{\tau}{\tau'} = \left( \frac{1}{2\sqrt{2}} \right)^{-1}
+	\frac{\tau}{\tau'} = \Frac{1}{2\sqrt{2}}^{-1}
 \]
 
 Conozco esta relación 
@@ -1992,7 +1992,7 @@ que se puede integrar para dar
 
 \includegraphics[scale=0.5]{images/fig_mc_dispersion_elipsoide.jpg}  
 
-En la expresión diferencial $d\rho/\dz$ tomamos una variable paramétrica,
+En la expresión diferencial $d\rho/dz$ tomamos una variable paramétrica,
 \[
 	\tan \frac{\chi}{2} = \frac{d\rho/d\theta}{dz/d\theta}
 \]
@@ -2214,7 +2214,70 @@ partículas incidentes.
 con $\theta$ variable paramétrica. Donde $\rho = \rho(z)$ es la función que da la curva roja (el perfil
 del cuerpo dispersor).
 
+\subsection{Problemas descolgados --reacomodar--}
 
+Los siguientes dos ejemplos hay que acomodarlos en donde corresponda. El problema de parcial seguro es muy {\it sketchi}
+\begin{ejemplo}{\bf Problema de parcial}
+ 
+Estimar un tiempo $\tau$  para una partícula $m$ sujeta al potencial
+\[
+	V(x) = - \lambda^2 ( x^2 - a^2)^2
+\]
+si la trayectoria real es de acuerdo a la figura (panel superior) y la trayectoria de entre las que me voy a fijar es como se 
+muestra en el panel inferior.
+
+\includegraphics[scale = 0.4]{images/fig_mc_problema_parcial_tray1.jpg}	 
+
+Hay solución a las ecuaciones de movimiento, en $t \to -\infty$ es $x=-a$ y en $t \to +\infty$ es $x=a$.
+Condiciones se verifican para cualquier función de la familia
+\[
+	x( t) = \begin{cases}
+		x = -a \qquad t \leq -\tau/2 \\
+		2a/\tau t \\
+		x = a \qquad t \geq \tau/2
+	\end{cases}
+\]
+
+\includegraphics[scale = 0.4]{images/fig_mc_problema_parcial_tray2.jpg}	 
+
+\[
+	S = \int_{-\infty}^{-\tau/2} \Lag dt + \int_{\tau/2}^{\tau/2} \Lag dt + \int_{\tau/2}^{\infty} \Lag dt,
+\]
+donde la primera y tercera integral son nulas, sobreviviendo la central solamente.
+
+La trayectoria $x(t)$ ya la tengo; como necesito el $\tau$ verdadero obtendré $S=S(\tau)$ y evaluaré $\delta S(\tau)/\delta \tau 
+= 0 $.
+De allí se obtiene el $\tau$ real (de entre las $x(t)$ consideradas).
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Aro que gira con dos bochas engarzadas}
+
+De la contemplación de la figura surge que la energía no se conserva en esta situación porque la fuerza de vínculo $F_v$ hace
+trabajo.
+
+\includegraphics[scale = 0.4]{images/fig_mc_problema_parcial_aro1.jpg}	 
+
+Es un problema de un único grado de libertad. Acá se conserva el $\Ham$. Esto significa que un observador solidario al aro 
+mediría $E=\Ham$ y para él podríamos tener un punto de equilibrio.
+
+La fuerza de vínculo se las ingenia para dejar a la partícula sobre el aro; cambia de sentido todo el tiempo y tiene componente 
+sobre el aro (la trayectoria real).
+
+Recordamos de la órbita de Kepler $ \omega_{radial} = \omega_{angular}$.
+Doy una vuelta ($2\pi$) y también voy $r_M \to r_m \to r_M$ entonces tengo frecuencias iguales.
+
+\includegraphics[scale = 0.4]{images/fig_mc_problema_parcial_aro2.jpg}	 
+
+Lo que uno chequea para ver si la órbita es cerrada es 
+\[
+	\Delta \vp = 2 \Delta r,
+\]
+o bien que ir de 0 a cerrar la órbita sea igual a dos veces ir de $r_M$ a $r_m$.
+En el lagrangiano $\Lag$ mido siempre $T$ desde un sistema inercial; pero $T$ la puedo expresar en función de coordenadas que se 
+hallan en el sistema no inercial; en ese caso surgirán las fuerzas ficticias correspondientes.
+
+
+\end{ejemplo}
 
 % =================================================================================================
 
