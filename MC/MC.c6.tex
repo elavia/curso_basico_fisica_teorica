@@ -911,7 +911,7 @@ y entonces debe ser
 	\caption{}
 \end{figure} 
 
-\includegraphics[scale=0.4]{images/fig_mc_rotaciones_ej_rotz.jpg}	 
+\includegraphics[scale=0.4]{images/fig_mc_rotaciones_ej_rotz.jpg}
 
 \notamargen{¿Este gráfico y el anterior son lo mismo?}
 \end{ejemplo}
@@ -919,21 +919,85 @@ y entonces debe ser
 
 \subsection{Lagrangiano en un sistema rotante}
 
+Dado el lagrangiano usual de partícula sometida a potencial $V$,
 \[
-	\Lag = \frac{1}{2} m v^2 - U(\vb{r})
+	\Lag = \frac{1}{2} m v^2 - V(\vb{x}),
+\]
+queremos ver qué forma adopta en un sistema rotante como el de ejes primados 
+
+\includegraphics[scale=0.4]{images/fig_mc_rotaciones_ejes_primados.jpg}
+
+La velocidad verifica 
+\[
+	\vb{v} = \vb{v}' + \Omega \times \vb{x}
+\]
+donde $ \vb{x} = \vb{x}'$ puesto que los orígenes de ambos sistemas coinciden.
+Entonces,
+\[
+	\Lag = \frac{1}{2} m ( \vb{x}' + \vb{\Omega} \times \vb{x} )^2 - V(\vb{r})
+\]
+donde luego de hacer el álgebra del cuadrado resulta 
+\[
+	\Lag = \frac{1}{2} m \vb{v}'^2 + m \vb{v}' \cdot ( \vb{\Omega} \times \vb{x} ) + 
+		\frac{1}{2} m ( \vb{\Omega} \times \vb{x} )^2 - V(\vb{x})
+\]
+donde los últimos tres términos puede agruparse en un potencial efectivo $ U = U(\vb{x}, \vb{v})$
+tal que 
+\[
+	U = - m \vb{v}' \cdot ( \vb{\Omega} \times \vb{x} ) - 
+		\frac{1}{2} m ( \vb{\Omega} \times \vb{x} )^2 + V(\vb{x}).
+\]
+Entonces 
+\[
+	\Lag = \frac{1}{2} m \vb{v}'^2 - U(\vb{x},\vb{v}).
+\]
+
+Esto es el lagrangiano que escribiría un observador del sistema rotante.
+Allí se puede pensar que aparece un potencial $U$ dependiente de la velocidad que es fuente de todas
+las fuerzas, ficticias y reales.
+\[
+	V_{coriolis} = - m \vb{v}' \cdot ( \vb{\Omega} \times \vb{x} )  
 \]
 \[
-	\Lag = \frac{1}{2} m ( \vb{v}' + \vb{\Omega} \times \vb{r} )^2 - U(\vb{r})
+	V_{centrifugo} = \frac{1}{2} m ( \vb{\Omega} \times \vb{x} )^2 + V(\vb{x})
+\]
+
+La fuerza, puesto que es un potencial que depende de la velocidad, se obtiene a partir de  
+\[
+	\vb{F} = -\dpar{U}{q_i} + \frac{d}{dt} \left( \dpar{U}{\dot{q}_i} \right).
+\]
+
+Si la velocidad de rotación es baja, $\Omega \sim 0 $ a primer orden el lagrangiano de una partícula
+libre en un sistema rotante es 
+\[
+	\Lag \approx \frac{1}{2} m \vb{v}'^2 - m \vb{v}' \cdot ( \vb{\Omega} \times \vb{x} ) ,
+\]
+puesto que el potencial centrífugo es cuadrático en la velocidad angular.
+Para una partícula libre sometida a un campo electromagnético es
+\[
+	\Lag = \frac{1}{2} m \vb{v}'^2 - \frac{q}{2c} \vb{v} \cdot ( \vb{B} \times \vb{x} )
+\]
+
+Esto es el teorema de Larmor y 
+\[
+	\vb{\omega} = \frac{q}{2 m c} \vb{B}
+\]
+es la llamada frecuencia de Larmor.
+
+Podemos definir un operador 
+\[
+	\left.\dtot{}{t}\right|_{inercial} \vb{\box} =  \left.\dtot{}{t}\right|_{rotante} \vb{\box}
+	+ \vb{\omega } \times \vb{ \box },
+\]
+y entonces
+\[
+	\vb{F} = m \dtot[2]{x}{t} = m \left( \dtot{}{t} + \vb{\Omega} \times 
+	\left[ \left.\dtot{x}{t}\right|_{rot} + \vb{\Omega} \times \vb{x} \right] \right)
 \]
 \[
-	\Lag = \frac{1}{2} m \vb{v}'^2 + m \vb{v}' \cdot ( \vb{\Omega} \times \vb{r} ) + 
-		\frac{1}{2} m ( \vb{\Omega} \times \vb{r} )^2 - U(\vb{r})
+	m \vb{a}_{cm} = - 2 m ( \vb{v}\times\vb{\Omega}) - m \vb{\Omega} \times (\vb{\Omega}\times\vb{x}) + \vb{F}
 \]
-donde esto último es un potencial efectivo $U=U(\vb{r}, \vb{v})$ y para $U$ dependiente de la velocidad
-teníamos 
-\[
-	\vb{F} = -\dpar{U}{q_i} + \frac{d}{dt} \left( \dpar{U}{\dot{q}_i} \right) 
-\]
+con $d\vb{\Omega}/dt = 0$
 
 % =================================================================================================
 \section{El tensor de inercia}
