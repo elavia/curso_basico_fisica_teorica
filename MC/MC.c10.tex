@@ -4,7 +4,7 @@
 	\usepackage{amsmath}
 	\usepackage{graphicx}
 	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -171,6 +171,99 @@ se tiene
 \]
 
 Supongamos rotar en torno a $\hat{z}$
+
+
+% =================================================================================================
+\section{Problemas de parcial}
+% =================================================================================================
+
+\notamargen{Dónde están los enunciados de esto?}
+
+\subsection{Problema 2}
+
+La idea es ver que los parámetros no son independientes
+En cada $\partial S / \partial x_1$ la variable $x_1$ tiene que ser parámetro independiente.
+
+\[
+	x_1 T + x_2 T^2 = b - a
+\]
+entonces las $x_1, x_2$ no pueden ser cualquier cosa a la vez.
+
+\[
+	S = \int_t^{t_2} \Lag dt,
+\]
+de manera que 
+\[
+	\delta S = \dpar{S}{x_1} \delta x_1 + \dpar{S}{x_2} \delta x_2
+\]
+y después hay que utilizar el vínculo
+\[
+	T \delta x_1 + T^2 \delta x_2 = 0
+\]
+y
+\[
+	\delta x_1 = -T \delta x_2.
+\]
+
+\subsection{Problema 1}
+
+\[
+	r = \sqrt{ a^2 - \Frac{z_1-z_2}{2}^2 } \qquad z_3 = \frac{ z_1+ z_2}{2}
+\]
+y se tienen $V \neq V(\vp)$ y $T \neq T(\vp)$ de tal manera que $\Lag \neq \Lag(\vp)$. Por ello se conserva $L_\vp$.
+Como $\Lag \neq \Lag(t)$ la energía $E$ se conserva.
+
+En mecánica clásica la conservación de la energía la vemos como la no dependencia del lagrangiano del tiempo (repasar este dicho 
+y ponerlo bien).
+
+Si se usa $z_1,z_2,\vp$ se tiene 
+\[
+	T = \frac 1 2 m_1 \dot{z}_1 + \frac 1 2 m_2 \dot{z}_2 + \frac 1 2 m_3 ( \dot{r}^2 + r^2 \dot{\vp}^2 + \dot{z}_3^2 )
+\]
+y
+\[
+	\begin{cases}
+	 x_3 = \cos \vp \sqrt{ a^2 - \Frac{z_1-z_2}{2}^2 } \\
+	 \\
+	 y_3 = \sin \vp \sqrt{ a^2 - \Frac{z_1-z_2}{2}^2 } \\
+	 \\
+	 z_3 = \displaystyle \frac{ z_1+ z_2}{2}
+	\end{cases}
+\]
+
+El lagrangiano daba horrible y había que hacer las cuentas nomás.
+
+\subsection{Problema 3}
+
+Se puede poner en forma genérica sin usar un sistema coordenado
+\[
+	-\vb{r} + \vb{r}'= \delta \vb{r} = \varepsilon_1 \hat{n} \times \vb{r} + \varepsilon_2 \hat{n}
+\]
+\[
+	\delta \dot{\vb{r}} = \varepsilon_1 \hat{n} \times \dot{\vb{r}}
+\]
+\notamargen{Suponemos que es producto punto.}
+\[
+	0 = \dot{\vb{p}} \cdot (\varepsilon_1 \hat{n} \times \vb{r} + \varepsilon_2 \hat{n}) + 
+	\vb{p} \cdot (\varepsilon_1 \hat{n} \times \dot{\vb{r}})
+\]
+\[
+	0 = \varepsilon_1 \hat{n} \left[ ( \vb{r} \times \dot{\vb{p}} ) + ( \dot{\vb{r}} \times \vb{p} ) \right]
+	+ \varepsilon_2 \dot{\vb{p}} \cdot \hat{n}
+\]
+\[
+	0 = \varepsilon_1 \hat{n} \dtot{\vb{L}}{t} + \varepsilon_2 \dtot{\vb{P}}{t}.
+\]
+
+\subsection{Problema 4}
+
+La idea es poner $\vp = \beta$ y $\dot{r}=0$ es $\vp_0 = \beta$ entonces
+\[
+	\Lag = m r^2 \dot{\vp} = m r v_t 
+\]
+\[
+	|v| = \frac{ L }{ m r_{Max} }.
+\]
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
