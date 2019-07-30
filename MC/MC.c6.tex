@@ -35,36 +35,113 @@
 \chapter{Cuerpos rígidos}
 
 % =================================================================================================
-\section{Cuerpos rígidos}
+\section{Cuerpos rígidos}\index{Cuerpo rígido}
 % =================================================================================================
 
-Los vínculos constituyen la condición de rigidez,
+Se pueden pensar como un sistema que interactúa a través de fuerzas de vínculo que están asociadas
+a la {\it condición de rigidez}. Los vínculos constituyen la condición de rigidez,
 \be
-	|\vb{r}_i - \vb{r}_j | = d_{ij}	\qquad i \neq j
+	|\vb{x}_i - \vb{x}_j | = d_{ij}	\qquad i \neq j
 \label{vinculos}
 \ee
 
-Del discreto al continuo
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_1.jpg}
+
+Se asocia entonces al conjunto discreto de partículas. Entonces 
 \[
-	\vb{R} = \frac{\sum_i m_i\vb{r}_i}{\sum_i m_i} \longrightarrow 
-	\vb{R} = \frac{\int \rho \vb{r}_i dv }{\int \rho dv} 
+	T = \frac 1 2 \sum_i^N m_i v_i^2, 
+\]
+con la condición de rigidez de las $N$ partículas.
+
+Luego se hace el pasaje del discreto al continuo, a través de la idea 
+\[
+	\delta m = \rho(\vb{x}) \delta V.
+\]
+Las partículas están tan próximas que se puede pensar en una distribución continua de masa 
+donde la masa de cada partícula se transforma en la masa de $N$ {\it cubitos} pequeños, entonces 
+\[
+	\vb{R} = \frac{\sum_i m_i\vb{x}_i}{\sum_i m_i} \longrightarrow 
+	\vb{R} = \frac{\int \rho \vb{x}_i dV }{\int \: \rho dV} 
 \]
 
-\subsection{Grados de libertad de un cuerpo rígido}
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_2.jpg}
+
+\notamargen{En relatividad restringida no existen cuerpos rígidos; a este nivel no nos preocupamos de ello.
+Buscaremos escribir el lagrangiano de cada tipo de cuerpo.}
+
+Se corta al cuerpo rígido en cubos (se particiona) y cada cubito se trata como las $m_i$ del caso discreto.
+
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_3.jpg}
+
+Como el volumen $V$ del cuerpo es constante, se tiene 
+\[
+	\lim_{N\to\infty,\delta V\to 0} \delta V N = V
+\]
+y el centro de masa cumple 
+\[
+	\vb{R} = \frac{\sum_i \vb{x}_i \rho(\vb{x}_i) \delta V }{\sum_i \rho(\vb{x}_i) \delta V}  \to 
+	\frac{\int \rho(\vb{x}) \vb{x} dV }{\int \: \rho dV}, 
+\]
+donde debemos notar que el numerador tiene el carácter vectorial porque son tres integrales triples.
+
+Otros cuerpos rígidos son los que tienen una o dos dimensiones despreciables (una lámina o un alambre, respectivamente)
+que se pueden modelar considerando distribuciones de masa superficiales o longitudinales,
+\[
+	\sigma(\vb{x}) = \frac{\delta m}{\delta S}, \quad \lambda(\vb{x}) = \frac{\delta m}{\delta \ell}
+\]
+
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_4.jpg}
+
+Para el caso 2D, será
+\[
+	\vb{R} = \frac{ \int_S \vb{x} \sigma{\vb{x}} dS }{ \int_S \sigma{\vb{x}} dS },
+\]
+y correspondientemente en el caso 1D
+\[
+	\vb{R} = \frac{ \int \vb{x} \lambda{\vb{x}} d\ell }{ \int \lambda{\vb{x}} d\ell }.
+\]
+
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_5.jpg}
+
+Obviamente las abreviaturas $\rho, \sigma, \lambda$ son una convención nuestra. Prestar atención a las unidades.
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\subsection{Grados de libertad de un cuerpo rígido}\index{Cuerpo rígido, grados de libertad}
+
+Consideremos un cuerpo rígido de 5 grados de libertad como el de la figura,
+
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_6.jpg}
+
+Vemos que de entrada son $(N 2)$ ecuaciones de vínculo (nro combinatorio) de manera que en este caso se tendrían
+$ 3\times5 - 10 = 5 $ grados de libertad. Pero esto está mal; estas ecuaciones sucede que no son independientes.
+\notamargen{Chequear lo del combinatorio y el resultado 10. No lo veo así fácil de una.}
 
 Cada punto tiene como vínculos las ecuaciones \eqref{vinculos}
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.45\textwidth]{images/fig_mc_rigidgl.pdf}	 
+	\includegraphics[width=0.6\textwidth]{images/fig_mc_rigidgl.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
 
-El cuerpo rígido tiene seis grados de libertad.
+\includegraphics[scale=0.4]{images/fig_mc_rigidgl.jpg}
+
+Examinando el dibujo de la figura sobre estas líneas vemos [¿?] que el segundo punto estará a distancia $d_1$ de
+cualquier punto sobre la esfera (necesito dos coordenadas más). Para el punto 3 necesito un ángulo (una coordenada).
+Al agregar los siguientes puntos no se requieren nuevas coordenadas; cada punto que agrego viene con la distancia a
+todos los otros. Entonces, en tres dimensiones un cuerpo rígido tiene seis grados de libertad.
+
 Si las condiciones de rigidez son lineales resultan cinco grados de libertad.
 
-\subsection{Velocidad de un cuerpo rígido}
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_7.jpg}
+
+En un cuerpo lineal no tiene sentido la rotación del tercer punto $\vb{x}_3$, entonces ahi se {\it pierde} una
+coordenada.
+
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\subsection{Velocidad de un cuerpo rígido}\index{Cuerpo rígido, velocidad}
 
 Lo único que pueden hacer los puntos de un cuerpo rígido es rotar.
 \begin{figure}[htb]
