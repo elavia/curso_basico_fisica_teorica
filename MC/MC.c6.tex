@@ -143,35 +143,67 @@ coordenada.
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \subsection{Velocidad de un cuerpo rígido}\index{Cuerpo rígido, velocidad}
 
-Lo único que pueden hacer los puntos de un cuerpo rígido es rotar.
+Lo único que pueden hacer los puntos de un cuerpo rígido, respecto de otro punto del mismo, es rotar puesto que
+el módulo de la distancia debe permanecer constante.
+
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_vel1.jpg}
+
+Con respecto a este gráfico superior, la construcción mostrada significa que 
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.35\textwidth]{images/fig_mc_rigidvel.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
+
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_vel2.jpg}
+
 \[
-	\delta r_{p_0} = r_{p_0} \sin(\beta) \delta \alpha
+	\delta r_{p_0} = r_{p_0} \sin(\beta) \delta \alpha = | \delta \vb{r}_{p_0} |
 \]
+
+Luego, el módulo de la velocidad es 
 \[
-	\frac{\delta r_{p_0}}{\delta t} = r_{p_0} \sin(\beta) \frac{\delta\alpha}{\delta t}
+	\lim_{\delta t \to 0} \frac{\delta r_{p_0}}{\delta t} = 
+	r_{p_0} \sin(\beta) \frac{\delta\alpha}{\delta t},
 \]
+o bien 
 \[
-	v_{p_0} = \dot{\alpha} r_{p_0} \sin(\beta)
+	v_{p_0} = \dot{\alpha} \: r_{p_0} \sin(\beta)
 \]
+
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_vel3.jpg}
+
+Dadas las direcciones mostradas en la figura de arriba se ve que la fórmula es el
+módulo de un producto vectorial entre $\dot{\alpha} \equiv \omega$ y $\vb{r}_p$ y como el resultado
+es perpendicular a $\vb{r}_p$ y al vector $\hat{n}$ se tiene $\vb{\omega} = \omega \hat{n}$.
+
 pero $v_{p_0} \perp \hat{n}$ y $v_{p_0} \perp r_{p_0}$ de manera que 
 \[
-	\vb{V}_{p_0} = \vb{\Omega} \times \vb{r}_{p_0}.
+	\vb{v}_{p_0} = \vb{\Omega} \times \vb{r}_{p_0},
 \]
+es la velocidad de rotación.
+Pero necesito ir a un sistema inercial para poder definir una velocidad que sirva para el
+cálculo del lagrangiano.
 
 Luego, para ir a un sistema inercial le sumo la V de algún punto del rígido (el origen O)
 medido desde un sistema inercial. Entonces, el campo de velocidad del cuerpo rígido es
 \[
-	\vb{V}_{p} = \vb{V}_0 + \vb{\Omega} \times \vb{r}_{p_0}.
+	\vb{v}_{p} = \vb{v}_O + \vb{\Omega} \times \vb{r}_{p_0}.
 \]
+de manera que la velocidad en un punto $p$ es la suma entre el producto vectorial visto y 
+la velocidad del orignen no inercial $O$.
+\notamargen{La velocidad en el RHS es la medida desde un sistema inercial; tiene que quedar
+claro eso!}
+
 
 \subsection{Unicidad de la velocidad de rotación}
 
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_vel4.jpg}
+
+Desde dos puntos arbitrarios del rígido $0$ y $0'$, tomados como origen de un sistema no inercial
+de coordenadas, se puede escribir la velocidad de otro punto $P$ como
 \[
 	\vb{V}_{p} = \vb{V}_0' + \vb{\Omega}' \times \vb{r}_{p_0'}
 \]
@@ -197,13 +229,16 @@ y descomponiendo de acuerdo con el dibujo resulta
 	\vb{\Omega} \times ( \vb{r}_{00'} - \vb{r}_{0p} ) + \vb{\Omega}' \times \vb{r}_{0'p}  = 0
 \]
 \[
-	( \vb{\Omega}' - \vb{\Omega}  ) \times \vb{r}_{0'p} = 0 ,
+	( \vb{\Omega}' - \vb{\Omega}  ) \times \vb{r}_{0'p} = 0.
 \]
-de la cual se deduce que $\vb{\Omega}'=\vb{\Omega}$. Entonces, \vb{\Omega} es la misma para cualquier
+Pero como $\vb{r}_{0'p}$ es cualquier punto del cuerpo rígido, debe darse que el paréntesis es nulo, de
+lo cual se deduce que $\vb{\Omega}'=\vb{\Omega}$. Entonces, \vb{\Omega} es la misma para cualquier
 punto del cuerpo rígido.
 
+Notemos la siguiente propiedad que emerge del producto escalar;
 \[
-	\vb{\Omega} \cdot \vb{V}_p = \vb{\Omega} \cdot \vb{V}_0  + \vb{\Omega}\cdot(\vb{\Omega}\times \vb{r}_{0p} )
+	\vb{\Omega} \cdot \vb{V}_p = \vb{\Omega} \cdot \vb{V}_0 +
+	\vb{\Omega}\cdot(\vb{\Omega}\times \vb{r}_{0p} )
 \]
 \[
 	\vb{\Omega} \cdot \vb{V}_p = \vb{\Omega} \cdot \vb{V}_0
@@ -211,28 +246,59 @@ punto del cuerpo rígido.
 lo cual se cumple para todo punto $p$ perteneciente al cuerpo rigido. Si es $\vb{\Omega} \cdot \vb{V}_0 = 0$
 entonces serán $\vb{\Omega} \perp \vb{V}_0$ y $\vb{\Omega} \perp \vb{V}_p$.
 
+Si desde un sistema inercial vemos que $\vb{\Omega} \perp \vb{v}_p$ entonces para todos los puntos del 
+cuerpo \vb{\Omega}  es perpendicular a cualquier punto.
+
 Si en un instante dado \vb{\Omega} es perpendicular a $\vb{V}_p$ entonces \vb{\Omega} es perpendicular a 
 $\vb{V}_{p'}$ para todo punto del cuerpo rígido.
 
+Si en un instante dado un punto es perpendicular a $\vb{\omega}$ entonces todos los puntos lo son.
+El cuerpo está sufriendo una rotación pura. Los puntos se mueven en una dirección o se mueven en la contraria.
+
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_vel5.jpg}
+
+La propiedad que acabamos de analizar garantiza que hay una rotación en torno algún eje; otra
+historia diferente es encontrarlo.
+
 \subsection{Eje instantáneo de rotación}
 
+
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_ejerot1.jpg}
+ 
 Si $p$ es tal que $\vb{V}_p = 0$ entonces
-\[
+\be
 	\vb{V}_0 = - \vb{\Omega} \times \vb{r}_{p0}
-\]
+	\label{condicion_eje}
+\ee
 donde $\vb{V}_0$ es una velocidad desde un sistema inercial.
 Desde el sistema inercial el cuerpo rígido realiza una rotación pura, puesto que veo al
 punto O rotar en torno a algún eje.
+Es decir que el punto P determina un eje.
 \[
 	\vb{V}_0 = - \vb{\Omega} \times ( r_{\perp} + r_{\parallel} ) = -\vb{\Omega} \times  r_{\perp} 
 \]
 y esto define un eje instantáneo de rotación.
+
+Como vale \eqref{condicion_eje} se da que cualquiera de los \vb{r} de la figurilla debajo
+
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_ejerot1.jpg}
+
+verifica la condición predicha. Solo interesa la parte perpendicular.
+En este caso el cuerpo tiene un eje instantáneo de rotación.
+
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.5\textwidth]{images/fig_mc_ejeinst.pdf}	 
+	\includegraphics[width=0.3\textwidth]{images/fig_mc_ejeinst.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
+
+Se puede hallar un origen $O$ tal que verifique 
+\[
+	\vb{v}_p = \vb{v}_0^\perp + \vb{v}^\parallel + \vb{\omega} \times \vb{r}_{p_0}  
+\]
+
+El movimiento más general de un cuerpo rígido es de traslación y de rotación combinados.
 
 % =================================================================================================
 \section{Ángulos de Euler}
@@ -417,6 +483,7 @@ manera que no me importan las traslaciones del centro de masa.
 \section{Energía cinética del cuerpo rígido}
 % =================================================================================================
 
+\notamargen{Los vínculos del cuerpo rígido son holónomos, entonces podemos usar el lagrangiano $Lag$ [?]}
 Queremos escribir la energía cinética de un cuerpo rígido explícitamente en términos del momento
 de inercia $I$.
 \[
@@ -438,6 +505,12 @@ puesto que $M \vb{R}_{cm}$ es nulo para un sistema no inercial. Luego
 \[
 	T = \frac{1}{2} \sum_i^N m_i \vb{v}_{cm}^2 + \frac{1}{2} \sum_i^N m_i (\vb{\Omega} \times \vb{r}_i)^2
 \]
+que utilizando la identidad vectorial
+\[
+	( \vb{A} \times \vb{B} )\cdot( \vb{A} \times \vb{B} ) =
+	A^2 B^2 - (\vb{A} \cdot \vb{B})^2
+\]
+pasa a 
 \[
 	T = \frac{1}{2} \sum_i^N m_i \vb{v}_{cm}^2 +
 	\frac{1}{2} \sum_i^N m_i ( \Omega^2 r_i^2 - (\vb{\Omega}\cdot\vb{r}_i)^2 )
@@ -447,6 +520,8 @@ pero veamos el último paréntesis en detalle,
 	\left(\sum_j \sum_k \Omega_j \Omega_j x_k^i x_k^i - 
 	\sum_\ell \sum_p \Omega_\ell x_\ell^i \Omega_p x_p^i \right)
 \]
+insertando una delta de Kronecker
+\notamargen{Curso de indicial y Einstein convention.}
 \[
 	\left(\sum_j \sum_k \Omega_j \delta_{jk}\Omega_k x_k^i x_k^i - 
 	\sum_\ell \sum_p \Omega_\ell x_\ell^i \Omega_p x_p^i \right)
@@ -454,14 +529,22 @@ pero veamos el último paréntesis en detalle,
 y reetiquetando
 \[
 	\left(\sum_j \sum_k \Omega_j \delta_{jk}\Omega_k x_k^i x_k^i - 
-	\sum_j \sum_k \Omega_j x_j^i \Omega_p x_k^i \right)
+	\sum_j \sum_k \Omega_j x_j^i \Omega_k x_k^i \right)
 \]
 \[
-	\frac{1}{2} \sum_i^N m_i \sum_{j,k} \Omega_j\Omega_k \left[ \delta_{jk}(r^i)^2 - x^i_j x^i_k \right]
+	\frac{1}{2} \sum_i^N m_i \sum_{j,k} \Omega_j\Omega_k 
+	\left[ \delta_{jk}(r^i)^2 - x^i_j x^i_k \right]
 \]
-y entonces
+\notamargen{Cambiar los $r$ por $x$.}
+Reacomodando un poco,
 \[
-	T = \frac{1}{2} M V^2_{cm} + \frac{1}{2} \sum_{j,k} \Omega_j\Omega_k I_{jk}
+	\frac{1}{2} \sum_{j,k}  \Omega_j \left(  \sum_i^N m_i 
+	\left[ \delta_{jk}(r^i)^2 - x^i_j x^i_k \right] \right) \Omega_k 
+\]
+y surge explícito que aparece un ente matricial. Podemos escribir
+entonces
+\[
+	T = \frac{1}{2} M V^2_{cm} + \frac{1}{2} \sum_{j,k} \Omega_j I_{jk} \Omega_k 
 \]
 y como lo último es una forma cuadrática podemos escribir de manera más elegante
 \[
@@ -478,6 +561,8 @@ y el paso al continuo nos deja los momentos de inercia,
 	I_{ik} = \int_V \rho(\vb{r}) \left[ \delta_{ik}r^2 - x_i x_k \right] dV
 \]
 donde por supuesto es $r^2 = x_1^2 + x_2^2 + x_3^2$.
+
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_inercia1.jpg}
 
 El cambio de sistema se hace de acuerdo a
 \[
