@@ -547,14 +547,17 @@ entonces
 	T = \frac{1}{2} M V^2_{cm} + \frac{1}{2} \sum_{j,k} \Omega_j I_{jk} \Omega_k 
 \]
 y como lo último es una forma cuadrática podemos escribir de manera más elegante
+en términos de la matriz $\Omega$,
 \[
-	T = \frac{1}{2} M V^2_{cm} + \frac{1}{2} \vb{\Omega}^t I \vb{\Omega}. 
+	T = \frac{1}{2} M V^2_{cm} + \frac{1}{2} \vb{\Omega}^t I \vb{\Omega},
 \]
+donde la $t$ supraíndice es por traspuesto.
 
 Recordemos que el tensor de inercia tiene en su diagonal los momentos de inercia
 mientras que los términos fuera de la misma son los productos de inercia.
+La expresión siguiente, con la delta de Kronecker, engloba los dos casos.
 \[
-	I_{ik} = \sum_q m_q \left( \delta_{ik} (r_q)^2 - x_i^q x_k^q \right)
+	I_{ik} = \sum_q m_q \left( \delta_{ik} (x_q)^2 - x_i^q x_k^q \right)
 \]
 y el paso al continuo nos deja los momentos de inercia,
 \[
@@ -614,6 +617,38 @@ Es conveniente elegir 123 con origen en el centro de masa y partícipes del movi
 cuerpo rígido (clavados al mismo). Asimismo conviene elegir XYZ referidos al sistema inercial
 coincidentes pero trasladados al centro de masa. Así los $I_{ik}$ resultan características
 geométricas del cuerpo.
+
+\subsection{tensores -reubicar-}
+
+Ante un cambio de coordenadas un vector transforma 
+\[
+	\vb{V}' = A \vb{V},
+\]
+donde $A$ es una matriz ortogonal. La idea es que no cualquier terna es un vector.
+Un tensor tiene la propiedad de transformarse
+\[
+	t_{\ell s}' = \sum_i \sum_j a_{\ell i} a_{sj} t_{ij}
+\]
+o bien (haciendo énfasis en el producto matricial)
+\[
+	t_{\ell s}' = \sum_i \sum_j a_{\ell i} t_{ij} a_{sj}.
+\]
+Si recuperamos desde esta notación de sumatoria la estructura matricial notamos que 
+\[
+	t_{\ell s}' = \sum_i \sum_j [AT]_{\ell j} a_{sj}
+\]
+donde el factor $a_{sj}$ no se puede sumar así como está. Trasponiéndolo sí se puede,
+y en efecto
+\[
+	t_{\ell s}' = \sum_i \sum_j [AT]_{\ell j} [A]_{js},
+\]
+de tal manera que la ley de transformación de un tensor de rango 2 es
+\[
+	T'= ATA^t.
+\]
+
+
+
 
 % =================================================================================================
 \section{La peonza simétrica}
