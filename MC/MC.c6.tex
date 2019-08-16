@@ -595,8 +595,10 @@ definición. De los nueve componentes son independientes seis. Matemáticamente
 	I_{ik} = I_{ki}.
 \]
 
-Todo tensor simétrico se puede llevar a una forma diagonal eligiendo bien los ejes del 
-sistema 123 fijo al cuerpo. Podemos conseguir una transformación $I \to I'$ tal que 
+Eligiendo convenientemente los ejes se puede llevar todo tensor simétrico a una forma
+diagonal. En ese caso
+% Todo tensor simétrico se puede llevar a una forma diagonal eligiendo bien los ejes del 
+% sistema 123 fijo al cuerpo. Podemos conseguir una transformación $I \to I'$ tal que 
 \[
 	I' =
 	\begin{pmatrix} \;
@@ -609,14 +611,39 @@ Los $I'_{ik}$ son los momentos principales de inercia (aquellos que están calcu
 {\it ejes principales de inercia}).
 
 Cuando el cuerpo rígido tiene simetría pueden hallarse a ojo los ejes principales de inercia.
+Como por ejemplo un cilindro:
 
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_ejesinercia0.jpg}
+
+Sin embargo, los componentes del tensor dependen del tiempo debido a su movimiento,
+\notamargen{Hay un tema acá con el tiempo $t$ y con la diagonalización.}
+
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_ejesinercia1.jpg}
+
+Entonces defino un sistema fijo al cuerpo. 
 Para el cálculo de $I$ se usa un sistema fijo al cuerpo rígido. Si usamos un sistema inercial,
 será $I_{ik}=I_{ik}(t)$ lo cual no es conveniente.
+
+\includegraphics[scale=0.4]{images/fig_mc_rigid_body_ejesinercia2.jpg}
+
+y ahora tengo $x\neq x(t)$ pero tengo cambiantes los ejes respecto al sistema inercial.
+Tomaremos $123$ referido al sistema que rota y $XYZ$ referido al sistema que se traslada.
+Necesitaré luego proyectar la rotación en el sistema inercial en los ejes que se trasladan
+sobre el cuerpo.
 
 Es conveniente elegir 123 con origen en el centro de masa y partícipes del movimiento del 
 cuerpo rígido (clavados al mismo). Asimismo conviene elegir XYZ referidos al sistema inercial
 coincidentes pero trasladados al centro de masa. Así los $I_{ik}$ resultan características
 geométricas del cuerpo.
+
+Finalmente, resulta 
+\[
+	T = \frac 1 2 M V_{cm}^2 + \frac 1 2 \left( I_{11} \Omega_1^2 + I_{22} \Omega_2^2 + I_{33} \Omega_3^2 \right)
+\]
+donde $I$ son los momentos principales de inercia \index{Inercia, momentos principales de}. Para obtener
+esta expresión necesito elegir bien el sistema coordenado en el cuerpo rígido.
+
+Los momentos principales de inercia están tabulados para diversos cuerpos geométricos.
 
 \subsection{tensores -reubicar-}
 
@@ -783,6 +810,8 @@ La moraleja es que trasladar en un solo eje conserva la diagonalidad del tensor 
 \section{Sistemas no inerciales}
 % =================================================================================================
 
+\notamargen{Habría que pasar los \vb{r} a \vb{x}.} 
+
 \begin{figure}
 	\begin{center}
 	\includegraphics[width=0.7\textwidth]{images/fig_sist_rotantes.pdf}	 
@@ -854,6 +883,98 @@ pero si es $\vb{R}=0$ se tiene $\vb{r}=\vb{r}'$ y entonces
 	\left. \dtot{\vb{r}}{t} \right|_{in} =  \left. \dtot{\vb{r}'}{t} \right|_{no in} + \vb{\Omega} \times \vb{r}' 
 \]
 donde el sistema no inercial es el rotante.
+
+\begin{ejemplo}{\bf Sistema rotante con resorte divertido}
+
+El sistema físico está mostrado en la ilustración bajo estas líneas.
+
+\includegraphics[width=0.4\textwidth]{images/fig_mc_rotantes_ejemplo_bloque1.jpg}
+
+El siguiente esquema permite ver la descomposición de fuerzas
+
+\includegraphics[width=0.4\textwidth]{images/fig_mc_rotantes_ejemplo_bloque2.jpg}
+
+\[
+	Y_A(t) = Y_B(t) = Y_0 \sin (\Omega t) \hat{y} \qquad \vb{\omega} = \omega \hat{z}
+\]
+siendo $\omega$ una constante.
+\[
+	F_y' = - k y' \hat{y}' \qquad F_z' = k(z_0' - z) \hat{z}'
+\]
+y la aceleración es 
+\[
+	m \vb{a}' = - ky' \hat{y}' + k (z_0' - z) \hat{z}' + y_0 \Omega^2 \sin (\Omega t) \hat{y}
+	- 2 m \omega \hat{z}' \times ( \omega \hat{z}' \times [ y' \hat{y}' + z' \hat{z}' ] ) 
+	- 2 m \omega \hat{z}' \times ( \dot{y}' \hat{y}' + \dot{z}' \hat{z}' )
+\]
+ 
+\includegraphics[width=0.4\textwidth]{images/fig_mc_rotantes_ejemplo_bloque3.jpg}
+
+\[
+	\hat{y} = (\hat{y}\cdot\hat{x}')\hat{x}' +  (\hat{y}\cdot\hat{x}')\hat{y}' + 
+	\underbrace{(\hat{y}\cdot\hat{z}') }_{=0}\hat{z}'
+	= \sin(\omega t) \hat{x}' + \cos(\omega t) \hat{y}'
+\]
+y como $\delta = \pi/2 - \omega t$ se tiene 
+\[
+	\cos \delta = \cos ( \pi/2 - \omega t ) = \sin ( \omega t )
+\]
+
+Luego,
+\[
+	\hat{y}' ) \quad m \ddot{y}' = -k y' + 2 m \omega^2 y' + m y_0 \Omega^2 \sin(\Omega t)\cos(\omega t)
+\]
+\[
+	\hat{z}' ) \quad m \ddot{z}' = k ( z_0' - z' )
+\]
+\[
+	\hat{x}' ) \quad 0 = F_v + 2m\omega \dot{y}' + m y_0 \Omega^2 \sin(\Omega t)\sin(\omega t)
+\]
+donde la última componente no me interesa.
+De las componentes $\hat{y}',\hat{z}'$ surge la solución (que es del tipo oscilador armónico)
+\[
+	\ddot{z}' + \frac k m z' = \frac k m z_0'
+\]
+de manera que 
+\[
+	z(t) = A_z \cos\left( \sqrt{\frac{k}{m}} t + \varphi_z \right) + z_0'.
+\]
+
+\[
+	\ddot{y}' + \left( \frac k m - 2\omega^2 \right) y' =  m y_0 \Omega^2 \sin( \Omega t) \cos (\omega t)
+\]
+donde se ve que es un oscilador forzado.
+Si el sistema está forzado, entonces no se conserva la energía.
+
+Pero además puede verse por el hecho de que el lagrangiano depende del tiempo a través de los vínculos. Es decir que
+tenemos vínculos dependientes del tiempo.
+\[
+	\sin( \Omega t) \cos (\omega t) = \frac{1}{2} \sin( [\Omega + \omega] t ) +  \frac{1}{2} \sin( [\Omega - \omega] t )
+\]
+Propongo una solución particular 
+\[
+	y_{part} = A_+ \cos( [\Omega + \omega] t ) + B_+ \sin( [\Omega + \omega] t ) 
+		+ A_- \cos([\Omega - \omega] t) + B_- \sin([\Omega - \omega] t)
+\]
+
+Luego de hacer el álgebra correspondiente se llega a los valores de las amplitudes que son 
+\[
+	A_+ = \frac{ y_0 \Omega^2 }{ 2[ ( k/m - 2 \omega^2 ) - (\Omega + \omega)^2 ] } \;
+	A_- = \frac{ y_0 \Omega^2 }{ 2[ ( k/m - 2 \omega^2 ) - (\Omega - \omega)^2 ] } \; B_+=0 \; B_-=0
+\]
+
+Puede haber resonancia si el denominador se hace muy chico. Juntando todo,
+\[
+	y'(t) = y_h'(t) + y'_{part}(t)
+\]
+\begin{multline*}
+	y'(t) = A_{\parallel} \cos\left( \sqrt{ \frac k m - 2 \omega^2 } + \varphi_H \right) + \\
+	\frac{ y_0 \Omega^2 }{ 2[ ( k/m - 2 \omega^2 ) - (\Omega + \omega)^2 ] } \cos([\Omega +\omega] t ) + 
+	\frac{ y_0 \Omega^2 }{ 2[ ( k/m - 2 \omega^2 ) - (\Omega - \omega)^2 ] } \cos([ \Omega - \omega ] t )
+\end{multline*}
+\end{ejemplo}
+
+
 
 % =================================================================================================
 \section{Lagrangiano de un sistema no inercial que se traslada}
