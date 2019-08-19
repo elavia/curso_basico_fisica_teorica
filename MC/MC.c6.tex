@@ -645,6 +645,233 @@ esta expresión necesito elegir bien el sistema coordenado en el cuerpo rígido.
 
 Los momentos principales de inercia están tabulados para diversos cuerpos geométricos.
 
+\notamargen{Está un poco disconexo esto porque falta algo de esa clase. pág. 64}
+
+Cumplen la siguiente propiedad,
+\[
+	I_i + I_j \geq I_k \quad \forall i,j,k
+\]
+
+% =================================================================================================
+\section{El tensor de inercia}\index{Tensor de inercia}
+% =================================================================================================
+
+Siendo $I$ el tensor de inercia buscamos autovectores y autovalores del mismo. 
+Es decir, soluciones a
+\be
+	I \vb{v} = \lambda \vb{v},
+	\label{autovalores_inercia}
+\ee
+o bien en componentes
+\be
+	 \sum_{j=1}^3 I_{ij} v_j = \lambda v_i
+\label{eigen_inercia}	 
+\ee
+que se trabaja así
+\[
+	 \sum_{j=1}^3 I_{ij} v_j - \lambda v_i =  \sum_{j=1}^3 ( I_{ij} - \delta_{ij}\lambda ) v_j = 0
+\]
+lo cual en extenso corresponde al siguiente sistema de tres ecuaciones
+\[
+	(I_{11} - \lambda)v_1 + I_{12} v_2 + I_{13} v_3 = 0
+\]
+\[
+	I_{21} v_1 + (I_{22} - \lambda) v_2 + I_{23} v_3 = 0
+\]
+\[
+	I_{31} v_1 + I_{32} v_2 + (I_{33} - \lambda) v_3 = 0
+\]
+
+Evidentemente, el determinante de la matriz $ I - \lambda \mathbb{1}$ tiene que ser nulo.
+No obstante si $I$ fuese un tensor cualquiera no se puede garantizar tres raíces reales del polinomio
+característico. Eso sucederá si la matriz del tensor resultara ser simétrica.
+
+Ahora multiplicamos la ecuación \eqref{eigen_inercia} y su conjugada compleja (denotada por $^*$) por
+$\sum_i v_i$ y $\sum_i v_i^*$, respectivamente, para obtener
+\[
+	\sum_i v_i \sum_{j=1}^3 I_{ij} v_j^* = \lambda^* \sum_i v_i^*  v_i
+\]
+\[
+	\sum_i v_i^* \sum_{j=1}^3 I_{ij} v_j = \lambda \sum_i v_i v_i^*
+\]
+
+Ahora, restando ecuación a ecuación se tiene
+\[
+	\sum_i \sum_{j=1}^3 ( v_i I_{ij} v_j^* - v_i^* I_{ij} v_j ) =
+	(\lambda^* - \lambda )\sum_i v_i^* v_i ,
+\]
+y como se puede cambiar de índices en el segundo sumando del miembro izquierdo, puesto que los índices están sumados y son
+por ello mudos ({\it dummies}),
+\[
+	\sum_i \sum_{j=1}^3 ( v_i I_{ij} v_j^* - v_j^* I_{ji} v_i ) =
+	(\lambda^* - \lambda )\sum_i v_i^* v_i 
+\]
+pero si usamos la propiedad de simetría del tensor de inercia $I_{ij}=I_{ji}$ entonces
+\[
+	0 = (\lambda^* - \lambda )\sum_i v_i^* v_i 
+\]
+de modo que como $\vb{v}$ es arbitrario se tiene la importante conclusión de que $\lambda^* = \lambda$.
+Los autovalores del tensor de inercia son reales.
+
+Se tienen $\lambda^s \in \mathbb{R}$ con $s=1,2,3$. Hay que asociar los autovectores, que pueden ser
+complejos. Regresando al sistema de ecuaciones con un $\lambda^s$ puedo escribir todo en función
+de cantidades $v_i/v_1$, esto es
+% Si es por ejemplo $\lambda^s$ uno de los autovalores se pueden despejar
+\be
+	( v_1^s, v_2^s(v_1), v_3^s(v_1) )\: e^{i\phi}
+	\label{autovector}
+\ee
+dado que una ecuación del sistema es linealmente dependiente [why?].
+
+Como las cantidades $v_2/v_1, v_3/v_1 $ son reales es posible quedarse sin la fase del complejo (que es
+la misma para todos) y hacer los componentes reales. 
+Los autovectores darán información sobre {\it direcciones}, que necesitan ser reales [?].
+La ec. \eqref{autovector} determina una dirección y es todo cuanto necesitaré. A partir de allí calcularé
+el versor que me dará la dirección.
+Se requerirá que la norma del vector sea unitaria, i.e. 
+\[
+	{v_1^s}^2 +  {v_2^s(v_1)}^2 + {v_3^s(v_1)}^2 = 1.
+\]
+
+Si en el sistema hay tres raíces idénticas, entonces la solución es $\mathbb{R}^3$, si hubiera dos es,
+en cambio, un plano, $\mathbb{R}^2$.
+
+Sean $\lambda^p \neq \lambda^s$ entonces 
+\[
+	\sum_i v_i^p \sum_{j=1}^3 I_{ij} v_j^s = \lambda^s \sum_i v_i^p  v_i^s
+\]
+\[
+	\sum_i v_i^s \sum_{j=1}^3 I_{ij} v_j^p = \lambda^p \sum_i v_i^s v_i^p
+\]
+y restando ecuación a ecuación y cambiando subíndices como hiciéramos oportunamente,
+\[
+	\sum_i \sum_{j=1}^3 ( v_i^p I_{ij} v_j^s - v_i^s I_{ij} v_j^p ) =
+	(\lambda^s - \lambda^p )\sum_i v_i^p v_i^s 
+\]
+luego como es nulo el miembro izquierdo resulta que 
+\[
+	\sum_i v_i^p v_i^s = 0
+\]
+de modo que $v^p$ y $v^s$ son ortogonales. Los autovectores correspondientes a autovalores 
+diferentes son ortogonales.
+
+Si hay autovalores iguales se puede completar a tres autovectores ortogonales con el método de
+Gram-Schmidt [chequear si está bien escrito?].
+
+En suma, con el tensor de inercia obtenemos tres direcciones ortogonales.
+A partir de \eqref{autovalores_inercia}, multiplicando por delante por otro autovector $\vb{v}^{(p)}$,
+\[
+	\vb{v}^{(p) t} I \vb{v}^{(s)} = \lambda \vb{v}^{(p) t}  \vb{v}^{(s)},
+\]
+que define un producto matricial. En efecto, si se construye una matriz $V = ( v^s v^p v^q)$ la 
+relación anterior será en todo su esplendor
+\[
+	V^t I V = \begin{pmatrix}
+	           v_1^s & v_2^s & v_3^s \\
+	           v_1^p & v_2^p & v_3^p \\
+	           v_1^q & v_2^q & v_3^q
+	          \end{pmatrix}
+	          I
+		\begin{pmatrix}
+	           v_1^s & v_1^p & v_1^q  \\
+	           v_2^s & v_2^p & v_2^q \\
+	           v_3^s & v_3^p & v_3^q
+	          \end{pmatrix}
+\]
+
+Como la norma de $\vb{v}$ es unitaria, se tiene además 
+\[
+	\vb{v}^t I \vb{v} = \lambda \vb{v}^t  \vb{v} = \lambda.
+\]
+
+Entonces
+\[
+	V^t I V = \lambda \mathbf{1}
+\]
+donde el $\mathbf{1}$ es la matriz identidad. 
+De esta manera, $\lambda^s, \lambda^p, \lambda^q$ son los momentos principales de inercia
+\[
+	I = \begin{pmatrix}
+	     \lambda^s & 0 & 0 \\
+	     0 & \lambda^p & 0 \\
+	     0 & 0  &  \lambda^q
+	    \end{pmatrix}.
+\]
+
+Vale, además, que
+\[
+	\lambda^s = \sum_{ij}  v^s_i I_{ij} v^s_j > 0
+\]
+puesto que es una forma cuadrática y está definida positiva. 
+\notamargen{En la carpeta dice que habría que demostrarlo}
+
+Los autovectores en fila dan la matriz $A$ que se usará para pasar a un sistema {\it anclado} en el cuerpo rígido,
+que será lo cual permitirá escribir la energía cinética $T$ como se ha visto.
+
+\subsection{Simetrías y distribución de masa}
+
+Un distribución de masa esférica $\rho(r)$ tiene todas las direcciones equivalentes,
+
+\includegraphics[width=0.2\textwidth]{images/fig_mc_inercia_simetrias_1.jpg}
+
+Para la esfera maciza, en cualquier dirección tendremos eje principal de inercia: todos los momentos de
+inercia serán iguales.
+\[
+	I = \lambda \begin{pmatrix}
+	 1 & 0 & 0 \\
+	 0 & 1 & 0 \\
+	 0 & 0 & 1 
+	\end{pmatrix}
+\]
+
+Para el paralelepípedo de la figura, rotando en $2\pi/3$ tengo la misma situación física (eje de simetría de orden tres), 
+entonces tengo eje principal de inercia allí. Es un eje de simetría de orden tres.
+
+\includegraphics[width=0.2\textwidth]{images/fig_mc_inercia_simetrias_2.jpg}
+
+En este caso $I = 1/2 U \vb{\Omega}^2 = 1/2 I ( \Omega_1^2 + \Omega_2^2 + \Omega_3^2 )$.
+
+La caja se rota en $\pi/2$ en cada uno de los tres ejes y las direcciones no cambian. Eje de simetría de orden cuatro.
+El cubo tiene los tres ejes de inercia iguales
+
+\includegraphics[width=0.2\textwidth]{images/fig_mc_inercia_simetrias_3.jpg}
+
+Tetraedro no regular. Base equilátera. Un eje de rotación de algún orden es dirección de eje principal y en el
+plano perpendicular a dicho eje están [?]
+
+\includegraphics[width=0.2\textwidth]{images/fig_mc_inercia_simetrias_4.jpg}
+
+La guitarra tiene simetría de imagen especular, como se visualiza en el lado derecho. En este caso tendremos
+una dirección principal de inercia perpendicular al plano rojo y que pasa por el centro de masa del cuerpo.
+Los otros dos ejes están contenidos en el plano.
+
+\includegraphics[width=0.2\textwidth]{images/fig_mc_inercia_simetrias_5.jpg}
+
+[recorte o comentario de algún caso?]
+Si $x_3$  es eje entonces $I_{13}, I_{23}$ se cancelan de a pares y anulan los productos de inercia.
+\[
+	\sum m^q x_2^q x_3^q 
+\]
+\[
+	\begin{pmatrix}
+	I_{11} & I_{12} & 0 \\
+	I_{21} & I_{22} & 0 \\
+	 0 & 0 & I_{33} 
+	\end{pmatrix}
+\]
+
+\includegraphics[width=0.2\textwidth]{images/fig_mc_inercia_simetrias_6.jpg}
+
+La idea es que si pienso en planos siempre se hacen nulos los productos de inercia rotacionales [?].
+
+Para la siguiente figura el plano de simetría es eje principal, luego es eje principal de inercia.
+\begin{figure}[!htb]
+	\begin{center}
+	\includegraphics[width=0.15\textwidth]{images/fig_mc_ejesim.pdf}
+	\end{center}
+	\caption{}
+\end{figure} 
+
 \subsection{tensores -reubicar-}
 
 Ante un cambio de coordenadas un vector transforma 
@@ -1407,140 +1634,7 @@ y entonces
 \]
 con $d\vb{\Omega}/dt = 0$
 
-% =================================================================================================
-\section{El tensor de inercia}
-% =================================================================================================
 
-Siendo $I$ el tensor de inercia buscamos soluciones a
-\[
-	I \vb{v} = \lambda \vb{v},
-\]
-o bien en componentes
-\be
-	 \sum_{j=1}^3 I_{ij} v_j = \lambda v_i
-\label{eigen_inercia}	 
-\ee
-que se trabaja así
-\[
-	 \sum_{j=1}^3 I_{ij} v_j - \lambda v_i =  \sum_{j=1}^3 ( I_{ij} - \delta_{ij}\lambda ) v_j = 0
-\]
-lo cual en extenso corresponde al siguiente sistema de tres ecuaciones
-\[
-	(I_{11} - \lambda)v_1 + I_{12} v_2 + I_{13} v_3 = 0
-\]
-\[
-	I_{21} v_1 + (I_{22} - \lambda) v_2 + I_{23} v_3 = 0
-\]
-\[
-	I_{31} v_1 + I_{32} v_2 + (I_{33} - \lambda) v_3 = 0
-\]
-
-Ahora multiplicamos la ecuación \eqref{eigen_inercia} y su conjugada compleja (denotada por $^*$) por $\sum_i v_i$
-y $\sum_i v_i^*$, respectivamente, para obtener
-\[
-	\sum_i v_i \sum_{j=1}^3 I_{ij} v_j^* = \lambda^* \sum_i v_i^*  v_i
-\]
-\[
-	\sum_i v_i^* \sum_{j=1}^3 I_{ij} v_j = \lambda \sum_i v_i v_i^*
-\]
-Ahora si resto ecuación a ecuación tenemos
-\[
-	\sum_i \sum_{j=1}^3 ( v_i I_{ij} v_j^* - v_i^* I_{ij} v_j ) =
-	(\lambda^* - \lambda )\sum_i v_i^* v_i 
-\]
-podemos cambiar de índices en el segundo sumando del miembro izquierdo puesto que los índices están sumados y son
-por ello mudos ({\it dummies}),
-\[
-	\sum_i \sum_{j=1}^3 ( v_i I_{ij} v_j^* - v_j^* I_{ji} v_i ) =
-	(\lambda^* - \lambda )\sum_i v_i^* v_i 
-\]
-pero si usamos la propiedad de simetría del tensor de inercia $I_{ij}=I_{ji}$ entonces
-\[
-	0 = (\lambda^* - \lambda )\sum_i v_i^* v_i 
-\]
-de modo que como $\vb{v}$ es arbitrario se tiene la importante conclusión de que $\lambda^* = \lambda$.
-Los autovalores del tensor de inercia son reales.
-
-Si es por ejemplo $\lambda^s$ uno de los autovalores se pueden despejar
-\[
-	(v_1^s, v_2^s(v_1), v_3^s(v_1) )\: e^{i\phi}
-\]
-pero como la fase es la misma para todos me quedo con los módulos (los cuales definirán las direcciones).
-Pido 
-\[
-	{v_1^s}^2 +  {v_2^s(v_1)}^2 + {v_3^s(v_1)}^2 = 1
-\]
-o dicho de otro modo que la norma sea uno.
-
-Sean $\lambda^p \neq \lambda^s$ entonces 
-\[
-	\sum_i v_i^p \sum_{j=1}^3 I_{ij} v_j^s = \lambda^s \sum_i v_i^p  v_i^s
-\]
-\[
-	\sum_i v_i^s \sum_{j=1}^3 I_{ij} v_j^p = \lambda^p \sum_i v_i^s v_i^p
-\]
-y restando ecuación a ecuación y cambiando subíndices como hiciéramos oportunamente,
-\[
-	\sum_i \sum_{j=1}^3 ( v_i^p I_{ij} v_j^s - v_i^s I_{ij} v_j^p ) =
-	(\lambda^s - \lambda^p )\sum_i v_i^p v_i^s 
-\]
-luego como es nulo el miembro izquierdo resulta que 
-\[
-	\sum_i v_i^p v_i^s = 0
-\]
-de modo que son ortogonales $v^p$ y $v^s$. Los autovectores son ortogonales.
-\[
-	I \vb{v} = \lambda \vb{v} \qquad \longrightarrow \qquad \vb{v}^t I \vb{v} = \vb{v}^t \lambda \vb{v},
-\]
-pero como la norma de $\vb{v}$ es unitaria, es 
-\[
-	\vb{v}^t I \vb{v} = \lambda \vb{v}^t  \vb{v} = \lambda
-\]
-Si armo una matriz $V = ( v^s v^p v^q)$ será en todo su esplendor
-\[
-	V^t I V = \begin{pmatrix}
-	           v_1^s & v_2^s & v_3^s \\
-	           v_1^p & v_2^p & v_3^p \\
-	           v_1^q & v_2^q & v_3^q
-	          \end{pmatrix}
-	          I
-		\begin{pmatrix}
-	           v_1^s & v_1^p & v_1^q  \\
-	           v_2^s & v_2^p & v_2^q \\
-	           v_3^s & v_3^p & v_3^q
-	          \end{pmatrix}
-\]
-o bien
-\[
-	V^t I V = \lambda 1
-\]
-donde entendemos el $1$ como una matriz identidad. Entonces $\lambda^s, \lambda^p, \lambda^q$ son los momentos
-principales de inercia
-\[
-	I = \begin{pmatrix}
-	     \lambda^s & 0 & 0 \\
-	     0 & \lambda^p & 0 \\
-	     0 & 0  &  \lambda^q
-	    \end{pmatrix}
-\]
-Vale que, además,
-\[
-	\lambda^s = \sum_{ij}  v^s_i I_{ij} v^s_j > 0
-\]
-puesto que es una forma cuadrática.
-
-Para el objeto debajo de estas líneas rotando en $2\pi/3$ tengo la misma situación física (eje de simetría de
-orden tres), entonces tengo eje principal de inercia allí.
-
-La idea es que si pienso en planos siempre se hacen nulos los productos de inercia rotacionales.
-
-Para la siguiente figura el plano de simetría es eje principal, luego es eje principal de inercia.
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_mc_ejesim.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
 
 
 % =================================================================================================
