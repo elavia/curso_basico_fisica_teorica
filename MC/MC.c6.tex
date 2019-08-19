@@ -974,6 +974,97 @@ Puede haber resonancia si el denominador se hace muy chico. Juntando todo,
 \end{multline*}
 \end{ejemplo}
 
+\begin{ejemplo}{\bf Problema 7 --retitular luego--}
+
+\includegraphics[width=0.4\textwidth]{images/fig_mc_rotantes_prob7_1.jpg}
+
+Consideramos un cuerpo libre,
+\[
+	\dot{\vb{\omega}} = 0 \qquad \vb{A} = \vb{R} = \vb{\omega} \times ( \vb{\omega} \times \vb{R} )
+\]
+\[
+	\vb{F}  = -\frac{GMm}{\rho^3}\vb{\rho}
+\]
+
+Entonces la aceleración es
+\[
+	\vb{a}'= \underbrace{ -\frac{GMm}{\rho^3}\vb{\rho} - \vb{\omega} \times ( \vb{\omega} \times \vb{R}) }_{\text{Esto da } 
+	\vb{g} } - 2 \vb{\omega} \times \dot{\vb{x}}'- \vb{\omega} \times ( \vb{\omega} \times \vb{x}') 
+\]
+
+\includegraphics[width=0.4\textwidth]{images/fig_mc_rotantes_prob7_2.jpg}
+
+Y las fuerzas
+\[
+	\vb{F} = \vb{T} + m \vb{g}
+\]
+\[
+	\vb{T} = ( \vb{T}\cdot\vb{x}') \vb{x}' + ( \vb{T}\cdot\vb{y}') \vb{y}' + ( \vb{T}\cdot\vb{z}') \vb{z}' =
+	-\frac{Tx}{\ell} \hat{x}' +  -\frac{Ty}{\ell} \hat{y}' + \frac{T}{\ell}(\ell-z) \hat{z}'
+\]
+\[
+	m \vb{a}  = \vb{T} + m \vb{g} - 2 m ( \vb{\omega} \times  \dot{\vb{x}}') -
+	m ( \vb{\omega} \times [ \vb{\omega} \times \vb{x}'] )
+\]
+Si se tiene $|\vb{\omega}| \ll \Omega $, se puede despreciar $\omega$ y entonces se simplifica a
+\[
+	\hat{x}' ) \quad m \ddot{x}' = - \frac{T}{\ell} x' + 2 m \omega \dot{y}' \cos \lambda
+\]
+\[
+	\hat{y}' ) \quad m \ddot{y}' = - \frac{T}{\ell} y' - 
+	2 m \omega \left( \dot{x}' \cos \lambda + \dot{z} \sin \lambda \right)
+\]
+\[
+	\hat{z}' ) \quad m \ddot{z}' = \frac{T(\ell -z)}{\ell} - m g + 2 m \omega \dot{y}' \sin \lambda
+\]
+
+Ahora aproximo con pequeñas oscilaciones y tengo $z$ aproximadamente constante, luego $\dot{z} = \ddot{z} = 0$ de
+tal manera que se puede despejar del sistema anterior 
+\[
+	T = m g - 2 m \omega \dot{y} \sin \lambda
+\]
+e incorporándola en las otras dos, se tiene 
+\[
+	\ddot{x}' = - \frac{g}{\ell} x' + 2 \omega \dot{y}' \cos \lambda
+\]
+\[
+	\ddot{y}' = - \frac{g}{\ell} y' - 2 \omega \dot{x}' \cos \lambda 
+\]
+
+Definiendo $g/\ell \equiv K^2$ y $\alpha \equiv \omega \cos \lambda $ las dos anteriores lucen como 
+\[
+	\ddot{x}' = - K^2 \dot{x} + 2 \alpha \dot{y}' \qquad \ddot{y}' = - K^2 \dot{y} - 2 \alpha \dot{x}',
+\]
+es decir que se tiene un sistema acoplado. Para desacoplarlo se puede utilizar números complejos de la forma siguiente,
+definiendo una variable compleja
+\[
+	X = x' + i y'
+\]
+De esta forma 
+\[
+	\ddot{X} = \ddot{x}' + i \ddot{y}' = - K^2 (x' + i y') - 2 i \alpha (x' + i y'),
+\]
+\[
+	\ddot{X} = - K^2 X - 2 i \alpha \dot{X}
+\]
+donde entonces el vínculo con la solución del problema es 
+\[
+	x'(t) = \mathfrak{Re}(x) \qquad y'(t) = \mathfrak{Im}(x)
+\]
+
+Resolviendo para condiciones inicales
+\[
+	x_0' = 0, \quad \dot{x}_0' = 0 \qquad \qquad y_0' = A, \quad \dot{y}_0' = 0
+\]
+se tienen
+\[
+	x'(t) = A \cos ( \sqrt{g/\ell} t ) \sin( \omega \cos \lambda t )
+\]
+\[
+	y'(t) = A \cos ( \sqrt{g/\ell} t ) \cos( \omega \cos \lambda t )
+\]
+Se puede ver entonces que no se conserva el plano de oscilación del péndulo sino que va rotando.
+\end{ejemplo}
 
 
 % =================================================================================================
