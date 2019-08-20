@@ -301,185 +301,6 @@ Se puede hallar un origen $O$ tal que verifique
 El movimiento más general de un cuerpo rígido es de traslación y de rotación combinados.
 
 % =================================================================================================
-\section{Ángulos de Euler}
-% =================================================================================================
-
-Se toma un sistema 123 inicialmente coincidente con uno XYZ paralelo al inercial, 123 tiene origen
-en el centro de masa del cuerpo.
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.5\textwidth]{images/fig_mc_eulerangles.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-\[
-	A_1(\phi) = 
-	\begin{pmatrix}
-		\cos(\phi) & \sin(\phi) & 0 \\
-		-\sin(\phi) & \cos(\phi) & 0 \\ 
-		0 & 0 & 1  \\
-	\end{pmatrix}
-\]
-\[
-	A_2(\theta) = 
-	\begin{pmatrix}
-		1 & 0 & 0 \\
-		0 & \cos(\theta) & \sin(\theta) \\ 
-		0 & -\sin(\theta) & \cos(\theta)  \\
-	\end{pmatrix}
-\]
-\[
-	A_3(\psi) = 
-	\begin{pmatrix}
-		\cos(\psi) & \sin(\psi) & 0 \\
-		-\sin(\psi) & \cos(\psi) & 0 \\ 
-		0 & 0 & 1  \\
-	\end{pmatrix}
-\]
-\[
-	\vb{\Omega} = \dot{\phi}\hat{z} + \dot{\theta}\hat{n} + \dot{\psi}\hat{3}
-\]
-y expresando $\hat{z},\hat{n}$ en $\hat{1},\hat{2}, \hat{3}$ resulta
-\[
-	\vb{\Omega} = [\dot{\phi}\sin(\theta)\sin(\psi) + \dot{\theta}\cos(\psi) ]\hat{1} +
-			[\dot{\phi}\sin(\theta)\cos(\psi) - \dot{\theta}\sin(\psi) ] \hat{2} +
-			[\dot{\phi}\cos(\theta) + \dot{\psi} ]\hat{3}
-\]
-
-Ahora estamos interesados en el momento angular.
-\[
-	\vb{L}_0^{sist} = \vb{L}^{cm} + \vb{L}_{cm}^{sist} 
-\]
-\[
-	\vb{L}_{spin} = \sum_i^N m_i ( \vb{r}_i' \times \vb{v}_i' )
-\]
-que están en el sistema 123.
-\[
-	\vb{L}_{spin} = \sum_i^N m_i ( \vb{r}_i \times \vb{\Omega} \times \vb{r}_i )
-\]
-\[
-	\vb{L}_{spin} = \sum_i^N m_i \left[ \; 
-	\vb{\Omega} (\vb{r}_i\cdot\vb{r}_i) - \vb{r}_i(\vb{r}_i \cdot \vb{\Omega}) \; \right] 
-\]
-\[
-	\vb{L}_{spin} = \sum_i^N m_i \left[ \; 
-	\vb{\Omega} \sum_j^3 (x_j^{2i}) - \vb{r}_i \sum_\ell^3 x_\ell^i \Omega_\ell  \; \right] 
-\]
-y la componente $k$-ésima será 
-\[
-	L_k = \sum_i^N m_i \left[ \; 
-	\Omega_k \sum_j^3 (x_j^{2i}) - x_k^i \sum_\ell^3 x_\ell^i \Omega_\ell  \; \right] 
-\]
-\[
-	L_k = \sum_i^N m_i \left[ \; 
-	\sum_j^3 \delta_{kj} \Omega_j r_i^{2} - x_k^i \sum_\ell^3 x_\ell^i \Omega_\ell  \; \right] 
-\]
-\[
-	L_k = \sum_j^3 \sum_i^N m_i \left[ \; 
-	\delta_{kj} r_i^{2} - x_k^i x_j^i  \; \right] \Omega_j = \sum_j^3 I_{kj} \Omega_j 
-\]
-o vectorialmente
-\[
-	\vb{L}_{spin} = I \vb{\Omega}
-\]
-siendo $I$ el tensor de inercia. Explícitamente:
-\[
-	I_{kj} = \sum_i^N m_i \left[ \; \delta_{kj} r_i^{2} - x_k^i x_j^i  \; \right]
-\]
-\[
-	\begin{pmatrix}
-		L_1 \\
-		L_2 \\ 
-		L_3  \\
-	\end{pmatrix} 
-	=
-	\begin{pmatrix}
-		I_{11} & I_{12} & I_{13} \\
-		I_{21} & I_{22} & I_{23} \\ 
-		I_{31} & I_{32} & I_{33}  \\
-	\end{pmatrix}
-	\begin{pmatrix}
-		\Omega_1 \\
-		\Omega_2 \\ 
-		\Omega_3  \\
-	\end{pmatrix} 
-\]
-
-Sean 1,2,3 los ejes principales, entonces $I$ es diagonal y
-\[
-	\vb{L}_{spin}
-	=
-	\begin{pmatrix}
-		I_{11} & 0 & 0 \\
-		0 & I_{22} & 0 \\ 
-		0 & 0 & I_{33}  \\
-	\end{pmatrix}
-	\begin{pmatrix}
-		\Omega_1 \\
-		\Omega_2 \\ 
-		\Omega_3  \\
-	\end{pmatrix}
-	=
-	I \vb{\Omega}
-\]
-y se puede escribir
-\[
-	\left.\frac{d}{dt}\right|_{in} \Box = \left.\frac{d}{dt}\right|_{rot} \Box + \vb{\Omega} \times \Box
-\]
-que es válida pra sistemas rotantes (no aquellos que rotan y se trasladan).
-En este caso \vb{\Omega} es la del sistema rotante (en un cuerpo rígido es la \vb{\Omega} del cuerpo rígido).
-
-Se puede escribir también 
-\[
-	\left.\frac{d}{dt}\right|_{in} \vb{L}_{spin} = \vb{\Tau}_{cm}
-\]
-siendo la derivada de uns sitema XYZ, y \vb{\Tau} el torque del cuerpo rígido referido al centro de masa y
-medido dese el sistema XYZ (inercial).
-Entonces
-\[
-	\vb{\Tau}_{cm} = \left. \frac{d}{dt}\right|_{rot} \vb{L}_{spin} + \vb{\Omega} \times ( \vb{L}_{spin} )
-\]
-y
-\[
-	\vb{\Tau}_{cm} = \left. I \frac{d}{dt}\right|_{rot} \vb{\Omega} + \vb{\Omega} \times ( I \; \vb{\Omega} ).
-\]
-$I$ visto desde XYZ es $I=I(t)$ e $I$ desde 123 es constante.
-\[
-	\vb{\Tau}_{cm} =
-	\begin{pmatrix} \;
-		I_1 \dot{\vb{\Omega}}_1 \\
-		I_2 \dot{\vb{\Omega}}_2 \\ 
-		I_3 \dot{\vb{\Omega}}_3 \; \\
-	\end{pmatrix}
-	+
-	\begin{vmatrix} \;
-		\hat{1} & \hat{2} & \hat{3} \\
-		\; \Omega_1 & \Omega_2 & \Omega_3 \\ 
-		\; I_1\Omega_1 & I_2\Omega_2 & I_3\Omega_3 \; \\
-	\end{vmatrix}	
-\]
-
-De este sistema resultan,
-\begin{align*}
-\Tau_1 = I_1 \dot{\Omega}_1 + (I_3-I_2) \: \Omega_2 \: \Omega_3 \\
-\Tau_2 = I_2 \dot{\Omega}_2 + (I_1-I_3) \: \Omega_3 \: \Omega_1 \\
-\Tau_3 = I_3 \dot{\Omega}_3 + (I_2-I_1) \: \Omega_1 \: \Omega_2
-\end{align*}
-que son las ecuaciones de Euler. 
-Las mismas requieren $I$ en ejes principales, \vb{\Omega} en 1,2,3 (en función de $\phi,\theta,\psi$).
-Es \vb{\Omega} la velocidad de rotación del sistema cuerpo rígido (rotante) respecto a un sistema XYZ
-fijo en el centro de masa y coincidente con X'Y'Z' (inercial) a todo tiempo. Salvo la traslación del centro
-de masa, este sistema XYZ será inercial.
-
-Todo este tratamiento de ecuaciones de Euler es para el caso $\vb{L}_{spin} \equiv \vb{L}_{cm}^{sist}$, de
-manera que no me importan las traslaciones del centro de masa.
-
-\[
-	\left.\frac{d}{dt}\right|_{XYZ} \vb{L}_{spin} = \vb{\Tau}_{cm} =
-	\left.\frac{d}{dt}\right|_{123} \vb{L}_{spin} + \vb{\Omega} \times \vb{L}_{spin} 
-\]
-
-% =================================================================================================
 \section{Energía cinética del cuerpo rígido}
 % =================================================================================================
 
@@ -901,6 +722,227 @@ de tal manera que la ley de transformación de un tensor de rango 2 es
 	T'= ATA^t.
 \]
 
+% =================================================================================================
+\section{Ángulos de Euler}
+% =================================================================================================
+
+Ahora faltaría escribir todo en buenas coordenadas generalizadas. Lo habitual es escribir en función
+de tres ángulos independientes. Euler inventó esta nomenclatura para estudiar el trompo.
+
+\includegraphics[width=0.5\textwidth]{images/fig_mc_sistema_euler_angles.jpg}
+
+Los cosenos directores son nueve, pero son dependientes.
+Consideraremos tres rotaciones, siendo su orden clave.
+
+Se toma un sistema 123 inicialmente coincidente con uno XYZ paralelo al inercial, 123 tiene origen
+en el centro de masa del cuerpo.
+
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_eulerangles.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
+La primera rotación define $\varphi$ 
+
+\includegraphics[width=0.5\textwidth]{images/fig_mc_euler_angles_1.jpg}
+
+Se hace en torno a $z'$ a través de la matriz
+\[
+	A_1(\phi) = 
+	\begin{pmatrix}
+		\cos(\phi) & \sin(\phi) & 0 \\
+		-\sin(\phi) & \cos(\phi) & 0 \\ 
+		0 & 0 & 1  \\
+	\end{pmatrix}
+\]
+El versor $\hat{n}$ está sobre la línea de nodos.
+
+La segunda rotación define $\theta$ y es de acuerdo a la siguiente matriz
+
+\includegraphics[width=0.5\textwidth]{images/fig_mc_euler_angles_2.jpg}
+
+El eje inferior no se ha movido en esta rotación (obsérvese el 1 en la matriz)
+
+\[
+	A_2(\theta) = 
+	\begin{pmatrix}
+		1 & 0 & 0 \\
+		0 & \cos(\theta) & \sin(\theta) \\ 
+		0 & -\sin(\theta) & \cos(\theta)  \\
+	\end{pmatrix}
+\]
+
+La tercr rotación define $\Psi$ y es en torno al eje $z$
+
+\includegraphics[width=0.5\textwidth]{images/fig_mc_euler_angles_3.jpg}
+
+La matriz que la describe es
+\[
+	A_3(\psi) = 
+	\begin{pmatrix}
+		\cos(\psi) & \sin(\psi) & 0 \\
+		-\sin(\psi) & \cos(\psi) & 0 \\ 
+		0 & 0 & 1  \\
+	\end{pmatrix}
+\]
+
+Luego, las coordenadas verifican
+\[
+	0 \leq \varphi,\Psi \leq 2\pi \qquad \qquad 0 \leq \theta \leq \pi
+\]
+
+Los ángulos $\theta,\varphi$ son variedades de los $\varphi,\theta$ de coordenadas esféricas.
+Entonces, para un cuerpo rígido la velocidad de rotación se expresará en función de $\varphi,\theta,\psi$ y
+sus derivadas $ \dot{\varphi},\dot{\theta},\dot{\psi} $ para describir también su evolución temporal.
+En efecto,
+\[
+	\vb{\Omega} = \dot{\phi}\hat{z} + \dot{\theta}\hat{n} + \dot{\psi}\hat{3}
+\]
+y se debe expresar $\hat{z},\hat{n}$ en términos de $\hat{1},\hat{2}, \hat{3}$ 
+
+
+resulta
+\[
+	\vb{\Omega} = [\dot{\phi}\sin(\theta)\sin(\psi) + \dot{\theta}\cos(\psi) ]\hat{1} +
+			[\dot{\phi}\sin(\theta)\cos(\psi) - \dot{\theta}\sin(\psi) ] \hat{2} +
+			[\dot{\phi}\cos(\theta) + \dot{\psi} ]\hat{3}
+\]
+
+Ahora estamos interesados en el momento angular.
+\[
+	\vb{L}_0^{sist} = \vb{L}^{cm} + \vb{L}_{cm}^{sist} 
+\]
+\[
+	\vb{L}_{spin} = \sum_i^N m_i ( \vb{r}_i' \times \vb{v}_i' )
+\]
+que están en el sistema 123.
+\[
+	\vb{L}_{spin} = \sum_i^N m_i ( \vb{r}_i \times \vb{\Omega} \times \vb{r}_i )
+\]
+\[
+	\vb{L}_{spin} = \sum_i^N m_i \left[ \; 
+	\vb{\Omega} (\vb{r}_i\cdot\vb{r}_i) - \vb{r}_i(\vb{r}_i \cdot \vb{\Omega}) \; \right] 
+\]
+\[
+	\vb{L}_{spin} = \sum_i^N m_i \left[ \; 
+	\vb{\Omega} \sum_j^3 (x_j^{2i}) - \vb{r}_i \sum_\ell^3 x_\ell^i \Omega_\ell  \; \right] 
+\]
+y la componente $k$-ésima será 
+\[
+	L_k = \sum_i^N m_i \left[ \; 
+	\Omega_k \sum_j^3 (x_j^{2i}) - x_k^i \sum_\ell^3 x_\ell^i \Omega_\ell  \; \right] 
+\]
+\[
+	L_k = \sum_i^N m_i \left[ \; 
+	\sum_j^3 \delta_{kj} \Omega_j r_i^{2} - x_k^i \sum_\ell^3 x_\ell^i \Omega_\ell  \; \right] 
+\]
+\[
+	L_k = \sum_j^3 \sum_i^N m_i \left[ \; 
+	\delta_{kj} r_i^{2} - x_k^i x_j^i  \; \right] \Omega_j = \sum_j^3 I_{kj} \Omega_j 
+\]
+o vectorialmente
+\[
+	\vb{L}_{spin} = I \vb{\Omega}
+\]
+siendo $I$ el tensor de inercia. Explícitamente:
+\[
+	I_{kj} = \sum_i^N m_i \left[ \; \delta_{kj} r_i^{2} - x_k^i x_j^i  \; \right]
+\]
+\[
+	\begin{pmatrix}
+		L_1 \\
+		L_2 \\ 
+		L_3  \\
+	\end{pmatrix} 
+	=
+	\begin{pmatrix}
+		I_{11} & I_{12} & I_{13} \\
+		I_{21} & I_{22} & I_{23} \\ 
+		I_{31} & I_{32} & I_{33}  \\
+	\end{pmatrix}
+	\begin{pmatrix}
+		\Omega_1 \\
+		\Omega_2 \\ 
+		\Omega_3  \\
+	\end{pmatrix} 
+\]
+
+Sean 1,2,3 los ejes principales, entonces $I$ es diagonal y
+\[
+	\vb{L}_{spin}
+	=
+	\begin{pmatrix}
+		I_{11} & 0 & 0 \\
+		0 & I_{22} & 0 \\ 
+		0 & 0 & I_{33}  \\
+	\end{pmatrix}
+	\begin{pmatrix}
+		\Omega_1 \\
+		\Omega_2 \\ 
+		\Omega_3  \\
+	\end{pmatrix}
+	=
+	I \vb{\Omega}
+\]
+y se puede escribir
+\[
+	\left.\frac{d}{dt}\right|_{in} \Box = \left.\frac{d}{dt}\right|_{rot} \Box + \vb{\Omega} \times \Box
+\]
+que es válida pra sistemas rotantes (no aquellos que rotan y se trasladan).
+En este caso \vb{\Omega} es la del sistema rotante (en un cuerpo rígido es la \vb{\Omega} del cuerpo rígido).
+
+Se puede escribir también 
+\[
+	\left.\frac{d}{dt}\right|_{in} \vb{L}_{spin} = \vb{\Tau}_{cm}
+\]
+siendo la derivada de uns sitema XYZ, y \vb{\Tau} el torque del cuerpo rígido referido al centro de masa y
+medido dese el sistema XYZ (inercial).
+Entonces
+\[
+	\vb{\Tau}_{cm} = \left. \frac{d}{dt}\right|_{rot} \vb{L}_{spin} + \vb{\Omega} \times ( \vb{L}_{spin} )
+\]
+y
+\[
+	\vb{\Tau}_{cm} = \left. I \frac{d}{dt}\right|_{rot} \vb{\Omega} + \vb{\Omega} \times ( I \; \vb{\Omega} ).
+\]
+$I$ visto desde XYZ es $I=I(t)$ e $I$ desde 123 es constante.
+\[
+	\vb{\Tau}_{cm} =
+	\begin{pmatrix} \;
+		I_1 \dot{\vb{\Omega}}_1 \\
+		I_2 \dot{\vb{\Omega}}_2 \\ 
+		I_3 \dot{\vb{\Omega}}_3 \; \\
+	\end{pmatrix}
+	+
+	\begin{vmatrix} \;
+		\hat{1} & \hat{2} & \hat{3} \\
+		\; \Omega_1 & \Omega_2 & \Omega_3 \\ 
+		\; I_1\Omega_1 & I_2\Omega_2 & I_3\Omega_3 \; \\
+	\end{vmatrix}	
+\]
+
+De este sistema resultan,
+\begin{align*}
+\Tau_1 = I_1 \dot{\Omega}_1 + (I_3-I_2) \: \Omega_2 \: \Omega_3 \\
+\Tau_2 = I_2 \dot{\Omega}_2 + (I_1-I_3) \: \Omega_3 \: \Omega_1 \\
+\Tau_3 = I_3 \dot{\Omega}_3 + (I_2-I_1) \: \Omega_1 \: \Omega_2
+\end{align*}
+que son las ecuaciones de Euler. 
+Las mismas requieren $I$ en ejes principales, \vb{\Omega} en 1,2,3 (en función de $\phi,\theta,\psi$).
+Es \vb{\Omega} la velocidad de rotación del sistema cuerpo rígido (rotante) respecto a un sistema XYZ
+fijo en el centro de masa y coincidente con X'Y'Z' (inercial) a todo tiempo. Salvo la traslación del centro
+de masa, este sistema XYZ será inercial.
+
+Todo este tratamiento de ecuaciones de Euler es para el caso $\vb{L}_{spin} \equiv \vb{L}_{cm}^{sist}$, de
+manera que no me importan las traslaciones del centro de masa.
+
+\[
+	\left.\frac{d}{dt}\right|_{XYZ} \vb{L}_{spin} = \vb{\Tau}_{cm} =
+	\left.\frac{d}{dt}\right|_{123} \vb{L}_{spin} + \vb{\Omega} \times \vb{L}_{spin} 
+\]
 
 % =================================================================================================
 \section{La peonza simétrica}
