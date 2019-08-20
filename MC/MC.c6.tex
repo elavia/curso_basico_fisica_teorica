@@ -1275,7 +1275,7 @@ Y las fuerzas
 	m \vb{a}  = \vb{T} + m \vb{g} - 2 m ( \vb{\omega} \times  \dot{\vb{x}}') -
 	m ( \vb{\omega} \times [ \vb{\omega} \times \vb{x}'] )
 \]
-Si se tiene $|\vb{\omega}| \ll \Omega $, se puede despreciar $\omega$ y entonces se simplifica a
+Si se tiene $|\vb{\omega}| \ll \Omega $, se puede despreciar $\omega$ (se tiran los términos cruzados) y entonces se simplifica a
 \[
 	\hat{x}' ) \quad m \ddot{x}' = - \frac{T}{\ell} x' + 2 m \omega \dot{y}' \cos \lambda
 \]
@@ -1340,41 +1340,125 @@ Se puede ver entonces que no se conserva el plano de oscilación del péndulo si
 \section{Lagrangiano de un sistema no inercial que se traslada}
 % =================================================================================================
 
+\notamargen{En la carpeta están desarrollados separadamente}
+
+El lagrangiano de una partícula libre en un sistema inercial es
 \[
-	\Lag = \frac{1}{2} m v^2 - U(\vb{r})
+	\Lag_0 = \frac 1 2 m v_0^2 - U,
+\]
+que lleva por extremar la acción a las correspondientes ecuaciones de movimiento.
+Note que utilizamos $U$ para el potencial para evitar confusiones con $V$ que será la velocidad entre sistemas.
+Supongamos ahora otro sistema $K'$ como se ve en la figura,
+
+\includegraphics[width=0.4\textwidth]{images/fig_mc_no_inercial_ejemplo_1.jpg}
+
+que se traslada. Por eso sus orígenes están separados por un vector $X(t)$ que depende del tiempo.
+
+Se tiene, evidentemente,
+\[
+	\vb{x}_0 = \vb{x}(t) + \vb{X}(t) \qquad \vb{v}_0 = \vb{v}'(t) + \vb{V}(t)
+\]
+
+Entonces escribiendo $\Lag'$, donde hay que insistir en que esto no significa que se escribe el
+lagrangiano desde el sistema $K'$ sino que el lagrangiano se expresa en función de las coordenadas
+y momentos en $K'$, se tiene 
+\[
+	\Lag' = \frac{1}{2} m v^2 - U(\vb{x})
 \]
 \[
-	\Lag = \frac{1}{2} m ( v + v' )^2 - U(\vb{r})
+	\Lag' = \frac{1}{2} m ( v' + V )^2 - U(\vb{x})
 \]
 \[
-	\Lag = \frac{1}{2} m  v^2 + m \vb{v}\cdot\vb{v}' +\frac{1}{2} m {v'}^2 - U(\vb{r}) - U
+	\Lag' = \frac{1}{2} m {v'}^2 + m \: \vb{V}\cdot\vb{v}' + \frac{1}{2} m V^2 - U(\vb{x}) 
 \]
-pero el primer término se  tira puesto que equivale a un término $df/dt$ que cumple 
+
+El término en $V^2$ se puede despreciar puesto que equivale a un término $df/dt$ que cumpliría
 \[
-	\dtot{f}{t} = \frac{1}{2} m  v^2 \qquad \qquad f = \frac{1}{2} m  \frac{v^3}{3} + K
+	\dtot{f}{t} = \frac{1}{2} m V^2 \qquad \qquad f = \frac{1}{6} m V^3 + K
 \]
 y además 
 \[
-	 m \vb{v}\cdot\vb{v}' =  m \vb{v}\cdot \dtot{\vb{v}'}{t} = - m \dtot{\vb{v}}{t} \vb{r}' 
-				+ \frac{d}{dt}\left( m \vb{r}' \vb{v} \right)
+	 m \vb{V}\cdot\vb{v}' =  m \: \vb{V} \cdot\dtot{\vb{x}'}{t\phantom{'}} = 
+	 \frac{d}{dt}\left( m \: \vb{V} \cdot \vb{x}' \right) - m \dtot{ \vb{V} }{t} \vb{x}' 
 \]
-y el último término acá lo tiramos porque equivale a un $df_2/dt$.
+que corresponde al procedimiento conocido en la práctica como {\it hacer partes}.
+El primer término es una derivada total y por ello se tira porque equivale a una derivada total con 
+respecto al tiempo. Entonces,
 \[
-	\Lag = \frac{1}{2} m {v'}^2 - m \dtot{\vb{v}}{t}\cdot\vb{r}' - U(\vb{r})
+	\Lag' = \frac{1}{2} m {v'}^2 - m \dtot{\vb{V}}{t}\cdot\vb{x}' - U(\vb{x}).
 \]
+
+Las ecuaciones de Euler-Lagrange serán 
+\notamargen{Explicar esa notación con vectores dividiendo; es una notación, capo.}
 \[
-	\dtot{\dpar{\Lag}{\vb{v}'}}{t} -\dpar{\Lag}{\vb{r}'} =
-		m\cdot\dot{\vb{v}} + m \dtot{\vb{v}}{t} + \dtot{U}{\vb{r}'} = 0
+	\dtot{}{t} \left( \dpar{\Lag'}{\vb{v}'} \right) - \dpar{\Lag'}{\vb{x}'} =
+		m \dot{ \vb{V} } + m \dtot{\vb{v}'}{t} + \dtot{U}{\vb{x}'} = 0,
 \]
+o bien
 \[
-	m \vb{a} = -\dtot{U}{\vb{r}'} - m \vb{A}
+	m \vb{a}' = -\dtot{U}{\vb{x}'} - m \vb{A}
 \]
-donde el último término es la aceleración del sistema inercial y el primero el producto $m\vb{a}'$.
-Expresamos $v=v(V,v')$ con lo cual aparecen en el $\Lag$ las fuerzas ficticias y expreso $T$ en 
+donde en el lado derecho el primer término es $m\vb{a}$ (la aceleración del sistema inercial) y el segundo una fuerza
+ficticia $m\vb{A}$ que surge de medir en términos de un sistema que está acelerado con respecto a uno inercial.
+\notamargen{Acá hay que revisar bien la convención de inercial y no inercial!}
+Expresamos $v=v(V,v')$ con lo cual aparecen en el $\Lag'$ las fuerzas ficticias y expreso $T$ en 
 función de coordenadas que se hallan sobre un sistema no inercial.
+
+\includegraphics[width=0.4\textwidth]{images/fig_mc_no_inercial_ejemplo_2.jpg}
+
+En el caso de la parte de rotación, los vectores $\vb{x}=(x,y,z)$ y $\vb{x}'=(x',y',z')$ son los mismos como vector pero
+están descritos en diferentes sistemas de coordenadas.
+
+Se tiene 
 \[
-	\left. \dtot{\vb{r}}{t} \right|_{in} = \left. \dtot{\vb{r}}{t} \right|_{rot} + \vb{\Omega} \times \vb{r}
+	\left. \dtot{\vb{x}}{t} \right|_{in} = \left. \dtot{\vb{x}}{t} \right|_{rot} + \vb{\Omega} \times \vb{x}
 \]
+donde el subíndice $in$ refiere al sistema fijo mientras que $rot$ refiere, como se espera, al sistema que rota.
+Esta ecuación es
+\[
+	\vb{v} = \vb{v}' + \vb{\Omega} \times \vb{x}'
+\]
+y el lagrangiano 
+\[
+	\Lag = \frac 1 2 m ( \vb{v} + \vb{\Omega} \times \vb{x} )^2 - U - m \: \vb{x} \cdot \vb{A},
+\]
+que descompone a 
+\[
+	\Lag = \frac 1 2 m \: v^2 + m \: \vb{v} \cdot ( \vb{\Omega} \times \vb{x} ) - U 
+	- m \: \vb{x} \cdot \vb{A} + \frac 1 2 (\vb{\Omega} \times \vb{x} )^2,
+\]
+el lagrangiano válido en cualquier sistema.
+
+El cálculo de las ecuaciones de Euler-Lagrange da 
+\[
+	\dtot{}{t}\left( \dpar{\Lag}{\vb{v}} \right) = m \dtot{\vb{v}}{t} + m \dot{\vb{\Omega}} \times \vb{x} + m \vb{\Omega} \times \vb{v}
+\]
+\[
+	\dpar{\Lag}{\vb{x}} = \dtot{}{\vb{x}} \left( m \vb{v} \cdot ( \vb{\Omega} \times \vb{x} ) \right) - 
+	\Nabla U - m \vb{A} + \frac 1 2 \dtot{}{t} ( \vb{\Omega} \times \vb{x} )^2
+\]
+y utilizando la ec. del apéndice ([escalar de un vector y un producto vectorial])
+\[
+	\dtot{}{\vb{x}} \left( m \vb{v} \cdot ( \vb{\Omega} \times \vb{x} ) \right) = m \vb{v} \times \vb{\Omega},
+\]
+y usando el producto escalar de dos productos vectoriales (apéndice vectores) y el vectorial de un vector y un producto vectorial,
+\[
+	( \vb{\Omega} \times \vb{x} )^2 = \Omega^2 x^2 - ( \vb{\Omega} \cdot \vb{x} )^2
+\]
+\[
+	\frac 1  2 m \dtot{}{\vb{x}}( \Omega^2 x^2 - ( \vb{\Omega} \cdot \vb{x} )^2 ) = 
+	m ( (\vb{\Omega} \cdot \vb{\Omega} ) \vb{x} - ( \vb{\Omega} \cdot \vb{x} ) \vb{\Omega} ) =
+	m \vb{\Omega} \times ( \vb{x} \times \vb{\Omega} ).
+\]
+
+Entonces,
+\[
+	m \: \dtot{\vb{v}}{t} = m \vb{x} \times \dot{\vb{\Omega}} + 2 m \vb{V} \times \vb{\Omega} - m \vb{\Omega} \times ( \vb{\Omega} \times \vb{x} )
+	- \Nabla U - m \vb{A}
+\]
+y se ha recuperado la expresión de aceleración en el sistema no inercial.
+
+Esto de aquí abajo estaba en la versión pretérita. Habría que confraternizarlo con lo anterior.
 \[
 	\left. \dtot[2]{\vb{r}}{t} \right|_{in} = 
 	\left. \frac{d}{dt}\left( \left. \dtot{\vb{r}}{t} \right|_{rot} + \vb{\Omega} \times \vb{r} \right) \right|_{rot}
