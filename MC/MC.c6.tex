@@ -737,13 +737,14 @@ Consideraremos tres rotaciones, siendo su orden clave.
 Se toma un sistema 123 inicialmente coincidente con uno XYZ paralelo al inercial, 123 tiene origen
 en el centro de masa del cuerpo.
 
-
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.5\textwidth]{images/fig_mc_eulerangles.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
+
+\includegraphics[width=0.5\textwidth]{images/fig_mc_sistema_euler_angles_carpeta.jpg}
 
 La primera rotación define $\varphi$ 
 
@@ -801,35 +802,49 @@ En efecto,
 \[
 	\vb{\Omega} = \dot{\phi}\hat{z} + \dot{\theta}\hat{n} + \dot{\psi}\hat{3}
 \]
-y se debe expresar $\hat{z},\hat{n}$ en términos de $\hat{1},\hat{2}, \hat{3}$ 
-
-
-resulta
+y se debe expresar $\hat{z},\hat{n}$ en términos de $\hat{1},\hat{2}, \hat{3}$ (que son los ejes fijos en el cuerpo).
+Como se tiene 
+\[
+	\hat{z} = \sin \theta \sin \psi \hat{1} + \sin \theta \cos \psi \hat{2} + \cos \theta \hat{3} \qquad 
+	\hat{n} = \cos \psi \hat{1} - \sin \psi \hat{2}
+\]
+resulta la velocidad 
 \[
 	\vb{\Omega} = [\dot{\phi}\sin(\theta)\sin(\psi) + \dot{\theta}\cos(\psi) ]\hat{1} +
 			[\dot{\phi}\sin(\theta)\cos(\psi) - \dot{\theta}\sin(\psi) ] \hat{2} +
-			[\dot{\phi}\cos(\theta) + \dot{\psi} ]\hat{3}
+			[\dot{\phi}\cos(\theta) + \dot{\psi} ]\hat{3}.
+\]
+
+Son estas componentes las que entran en la escritura del lagrangiano de un cuerpo libre como 
+\[
+	\Lag = T = \frac 1 2 M V_{cm}^2 + \frac 1 2 I_1 \Omega_1^2  + \frac 1 2 I_2 \Omega_2^2
+	+ \frac 1 2 I_3 \Omega_3^2
 \]
 
 Ahora estamos interesados en el momento angular.
 \[
 	\vb{L}_0^{sist} = \vb{L}^{cm} + \vb{L}_{cm}^{sist} 
 \]
+\notamargen{Hay diferencia entre las expresiones del \vb{L} total. Resolver la convención!}
 \[
-	\vb{L}_{spin} = \sum_i^N m_i ( \vb{r}_i' \times \vb{v}_i' )
+	\vb{L} = \vb{L}_{orb} + \vb{L}_{spin} 
 \]
-que están en el sistema 123.
 \[
-	\vb{L}_{spin} = \sum_i^N m_i ( \vb{r}_i \times \vb{\Omega} \times \vb{r}_i )
+	\vb{L}_{spin} = \sum_i^N m_i ( \vb{x}_i' \times \vb{v}_i' )
+\]
+que están en el sistema $123$ (desde el centro de masa).
+\[
+	\vb{L}_{spin} = \sum_i^N m_i [ \vb{x}_i \times ( \vb{\Omega} \times \vb{x}_i ) ]
 \]
 \[
 	\vb{L}_{spin} = \sum_i^N m_i \left[ \; 
-	\vb{\Omega} (\vb{r}_i\cdot\vb{r}_i) - \vb{r}_i(\vb{r}_i \cdot \vb{\Omega}) \; \right] 
+	\vb{\Omega} (\vb{x}_i \cdot \vb{x}_i) - \vb{x}_i ( \vb{x}_i \cdot \vb{\Omega}) \; \right] 
 \]
 \[
 	\vb{L}_{spin} = \sum_i^N m_i \left[ \; 
 	\vb{\Omega} \sum_j^3 (x_j^{2i}) - \vb{r}_i \sum_\ell^3 x_\ell^i \Omega_\ell  \; \right] 
 \]
+\notamargen{Quilombo de notación!! ¡¡Fixear las diferentes $x$!!}
 y la componente $k$-ésima será 
 \[
 	L_k = \sum_i^N m_i \left[ \; 
@@ -847,9 +862,14 @@ o vectorialmente
 \[
 	\vb{L}_{spin} = I \vb{\Omega}
 \]
-siendo $I$ el tensor de inercia. Explícitamente:
+siendo $I$ el tensor de inercia. Es claro que $\vb{\Omega}$ y $\vb{L}$ no tienen porqué ser paralelos puesto que $I$ es
+una matriz\footnote{En los problemas sencillos de física 1 era un escalar}. 
+\notamargen{Se puede resolver en forma sencillla un cuerpo rígido a partir de $M d\vb{V}_{cm}/dt = \vb{F}$ y
+considerando $I\vb{\omega}=\vb{\uptau}$, donde esto último es el momento angular de spin. Esto solamente para casos
+sencillos, a lo F1.}
+Explícitamente:
 \[
-	I_{kj} = \sum_i^N m_i \left[ \; \delta_{kj} r_i^{2} - x_k^i x_j^i  \; \right]
+	I_{kj} = \sum_i^N m_i \left[ \; \delta_{kj} \vb{x}_i^{2} - x_k^i x_j^i  \; \right]
 \]
 \[
 	\begin{pmatrix}
@@ -869,6 +889,28 @@ siendo $I$ el tensor de inercia. Explícitamente:
 		\Omega_3  \\
 	\end{pmatrix} 
 \]
+\notamargen{$I=I(t)$ si lo describo desde un sistema inercial. $I \leq I(t)$ si lo describo desde un sistema no inercial.}
+
+Si le tomamos la derivada temporal,
+\[
+	\dtot{\vb{L}}{t} = \dtot{}{t}\left( I \vb{\Omega} \right) = \vb{\uptau}
+\]
+donde resulta el torque con respecto al centro de masa. Si $I$ no depende del tiempo,
+\[
+	I \dtot{}{t}\left( \vb{\Omega} \right) = \vb{\uptau}
+\]
+
+El tensor depende del tiempo pués está derivado desde un sistema inercial, entonces 
+\[
+	\dtot{\vb{L}}{t} = \vb{\uptau},
+\]
+que para un observador rotante no vale [?] y debe escribirse 
+\[
+	\dtot{\vb{L}}{t}_{me} = \dtot{\vb{L}}{t}_{rot} + \vb{\Omega} \times \vb{L} = \vb{\uptau}
+\]
+donde \vb{\Omega} es la del sistema rotante.
+Necesitaría un tensor escrito en el sistema cuerpo rígido (en los ejes principales). En este caso obtengo estas relaciones
+triviales. En efecto,
 
 Sean 1,2,3 los ejes principales, entonces $I$ es diagonal y
 \[
@@ -887,11 +929,14 @@ Sean 1,2,3 los ejes principales, entonces $I$ es diagonal y
 	=
 	I \vb{\Omega}
 \]
-y se puede escribir
+
+Luego se puede escribir el torque con el operador siguiente 
 \[
-	\left.\frac{d}{dt}\right|_{in} \Box = \left.\frac{d}{dt}\right|_{rot} \Box + \vb{\Omega} \times \Box
+	\left.\frac{d}{dt}\right|_{in} \Box = \left.\frac{d}{dt}\right|_{rot} \Box + \vb{\Omega} \times \Box 
+	= \vb{\uptau}
 \]
-que es válida pra sistemas rotantes (no aquellos que rotan y se trasladan).
+para cuando $\Box$ es el momento angular [?].
+que es válida para sistemas rotantes (no aquellos que rotan y se trasladan).
 En este caso \vb{\Omega} es la del sistema rotante (en un cuerpo rígido es la \vb{\Omega} del cuerpo rígido).
 
 Se puede escribir también 
@@ -938,16 +983,19 @@ de masa, este sistema XYZ será inercial.
 
 Todo este tratamiento de ecuaciones de Euler es para el caso $\vb{L}_{spin} \equiv \vb{L}_{cm}^{sist}$, de
 manera que no me importan las traslaciones del centro de masa.
-
 \[
 	\left.\frac{d}{dt}\right|_{XYZ} \vb{L}_{spin} = \vb{\Tau}_{cm} =
 	\left.\frac{d}{dt}\right|_{123} \vb{L}_{spin} + \vb{\Omega} \times \vb{L}_{spin} 
 \]
 
+\notamargen{Hay que depurar bastante esta sección, y elegir una buena notación para el torque (no tengo un buen tau bold!)}
+Para una peonza esférica son $I_1=I_2=I_3$.
+
 % =================================================================================================
-\section{La peonza simétrica}
+\subsection{La peonza simétrica}
 % =================================================================================================
 
+Es lo que vulgarmente se conoce como {\it trompo}
 \[
 	T_{rot} = \frac{1}{2} I_1 \Omega^2_ 1 + \frac{1}{2} I_2 \Omega^2_2 + \frac{1}{2} I_3 \Omega^2_3 
 \]
