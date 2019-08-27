@@ -995,15 +995,38 @@ Para una peonza esférica son $I_1=I_2=I_3$.
 \subsection{La peonza simétrica}
 % =================================================================================================
 
-Es lo que vulgarmente se conoce como {\it trompo}
+\notamargen{Junté comentarios de dos clases teóricas en esta sección.}
+Es lo que vulgarmente se conoce como {\it trompo}.
+La energía cinética se compone de una parte de traslación y una de rotación, es decir $T=T_{trasl} + T_{rot}$.
+La velocidad angular del cuerpo y del sistema solidario al mismo es
+\[
+	\vb{\Omega} = \dot{\varphi} \hat{z} + \dot{\theta} \hat{n} + \dot{\psi} \hat{x}_3
+\]
+
+\includegraphics[width=0.5\textwidth]{images/fig_mc_peonza_segunda_1.jpg}
+
+El sistema inercial se transporta al centro de masa, puesto que la idea es que se mide con respecto a un
+sistema que sólo se traslada.
+El sistema fijo al cuerpo garantiza un tensor independiente del tiempo, estacionaria \footnote{Es decir, una
+distribución de masa que no depende del tiempo}. 
+
+Cuando existe una simetría asociada no hace falta que las coordenadas sigan al cuerpo (aquellas que medirían
+esa simetría). En este caso, si no proyecto sobre todas las coordenadas, ya no es la proyección de la 
+velocidad.
+
+La terna derecha que usamos para proyectar los ángulos de Euler tiene que estar en las direcciones de los
+ejes principales de inercia, eso garantiza que podamos expresar la energía cinética de rotación según 
 \[
 	T_{rot} = \frac{1}{2} I_1 \Omega^2_ 1 + \frac{1}{2} I_2 \Omega^2_2 + \frac{1}{2} I_3 \Omega^2_3 
 \]
-donde son 
+donde para el trompo son 
 \[
 	\Omega_1 = \dot{\theta} \qquad \Omega_2 = \dot{\phi} \sin(\theta) \qquad \Omega_3 = \dot{\phi} \cos(\theta) + \dot{\psi}
 \]
 y debemos destacar que $\psi=0$ no es vínculo sino solo comodidad pues $\dot{\psi} \neq 0$ y es independiente.
+
+\includegraphics[width=0.35\textwidth]{images/fig_mc_peonza_segunda_2.jpg}
+
 Los vínculos pueden escribirse
 \[
 	\theta_e = \theta
@@ -1012,8 +1035,9 @@ Los vínculos pueden escribirse
 	\phi_e + \frac{3}{2}\pi = \phi \; \longrightarrow \; \dot{\phi_e} = \dot{\phi}
 \]
 \[
-	r^2 = a^2 = x_{cm}^2 + y_{cm}^2 + z_{cm}^2
+	R^2_{cm} = a^2 = x_{cm}^2 + y_{cm}^2 + z_{cm}^2
 \]
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.5\textwidth]{images/fig_mc_peonza1.pdf}	 
@@ -1026,25 +1050,33 @@ y las coordenadas
 	y &= a \sin(\theta) \sin\left( \frac{\pi}{2}-\phi_e \right) = -a \sin(\theta) \cos( \phi_e ) \\
 	z &= a \cos(\theta)
 \end{align*}
-y la velocidad
+
+Luego, la energía $T_{trasl}$ se puede poner en términos de los ángulos de Euler, a través de la velocidad del 
+centro de masas, que verifica 
 \[
-	\dot{x}^2 + \dot{y}^2 + \dot{z}^2 = a^2 \dot{\theta}^2 + a^2 \sin(\theta)^2 \dot{\phi}^2
+	V_{cm}^2 = \dot{x}^2 + \dot{y}^2 + \dot{z}^2 = a^2 \dot{\theta}^2 + a^2 \sin(\theta)^2 \dot{\phi}^2.
 \]
-y el lagrangiano finalmente
+
+Pero esta velocidad del centro de masas tiene parte de la cinética de rotación, y entonces se puede reescribir
+la energía cinética como 
 \[
-	\Lag = \frac{1}{2} M (a^2 \dot{\theta}^2 + a^2 \sin(\theta)^2 \dot{\phi}^2) + \frac{1}{2} I_1 \dot{\theta}^2
+	T = \frac{1}{2} M (a^2 \dot{\theta}^2 + a^2 \sin(\theta)^2 \dot{\phi}^2) + \frac{1}{2} I_1 \dot{\theta}^2
 	+ \frac{1}{2} I_2 \sin(\theta)^2 \dot{\phi}^2) + \frac{1}{2} I_3 (\dot{\phi} \cos(\theta) + \dot{\psi})^2 
 \]
 pero por la simetría $I_1=I_2\equiv I$ de modo que 
 \[
-	\Lag = \frac{1}{2} M a^2 (\dot{\theta}^2 + \sin(\theta)^2 \dot{\phi}^2) + \frac{1}{2} I ( \dot{\theta}^2 +
-	\sin(\theta)^2 \dot{\phi}^2 ) + \frac{1}{2} I_3 (\dot{\phi} \cos(\theta) + \dot{\psi})^2 
+	T = \frac{1}{2} M a^2 (\dot{\theta}^2 + \sin(\theta)^2 \dot{\phi}^2) + \frac{1}{2} I ( \dot{\theta}^2 +
+	\sin(\theta)^2 \dot{\phi}^2 ) + \frac{1}{2} I_3 (\dot{\phi} \cos(\theta) + \dot{\psi})^2, 
 \]
+
+\includegraphics[width=0.35\textwidth]{images/fig_mc_peonza_segunda_3.jpg}
+
+y el lagrangiano es, finalmente,
 \[
 	\Lag = \frac{1}{2} ( M a^2 + I ) (\dot{\theta}^2 + \sin(\theta)^2 \dot{\phi}^2) +  
 		\frac{1}{2} I_3 (\dot{\phi} \cos(\theta) + \dot{\psi})^2  - m g a \cos(\theta)
 \]
-y los primeros dos términos representan una rotación pura si tomo 
+donde los primeros dos términos representan una rotación pura si tomo 
 \[
 	( M a^2 + I ) \equiv I' 
 \]
@@ -1056,6 +1088,90 @@ donde $I'$ es otro momento de inercia.
 	\caption{}
 \end{figure} 
 
+Este sistema tiene como constantes de movimiento
+\be
+	p_\varphi = \dpar{\Lag}{\dot{\varphi}} = I' \sin^2 \theta \dot{ \varphi } +
+	I_3 (  \dot{\psi} + \dot{\varphi} \cos \theta ) \cos \theta
+	\label{lz}
+\ee
+\be
+	p_\psi = \dpar{\Lag}{\dot{\psi}} = I_3 (  \dot{\psi} + \dot{\varphi} \cos \theta )
+	\label{l3}
+\ee
+
+La variación de $\varphi,\psi$ son ambas rotaciones rígidas, entonces si se conservan sus momentos
+canónicos conjugados será $p_\varphi \equiv$ proyección de \vb{L} sobre el eje $z$ ($\ell_z$) y
+$p_\psi \equiv$ proyección de \vb{L} sobre el eje $3$ ($\ell_3$).
+
+\includegraphics[width=0.35\textwidth]{images/fig_mc_peonza_segunda_4.jpg}
+
+En la figura sobre estas líneas se ve que $\ell_z$ es lo que corresponde.
+\[
+	I_3 \Omega_3 \cos \theta = I_3 ( \dot{\psi} + \dot{\varphi} \cos \theta )\sin \theta
+\]
+\[
+	I \Omega_2 \sin \theta = I' \sin^2 \theta \dot{ \varphi }
+\]
+y $\ell_z$ es una constante que está presente siempre porque las proyecciones no dependen de $\varphi$.
+
+Además, se conserva la energía (y coincidirá con el hamiltoniano); es más engorroso resolver las
+ecuaciones de Euler-Lagrange.
+Usaremos las constantes $\ell_z,\ell_3$ (según los momentos conjugados en \eqref{lz} y \eqref{l3}).
+Entonces podemos despejar
+\[
+	\dot{\psi} = \frac{\ell_3}{I_3} + \frac{(\ell_3 \cos\theta - \ell_z)\cos\theta}{I'\sin^2\theta}
+\]
+y
+\[
+	\dot{\varphi} = \frac{\ell_z - \ell_3 \cos \theta}{I'\sin^2\theta}
+\]
+
+Amasando y haciendo álgebra se llega a un problema en una única variable $\theta$,
+\[
+	E = \frac 1 2 I' \dot{\theta}^2 + \frac{(\ell_z - \ell_3 \cos \theta)^2}{2I'\sin^2\theta} +
+	\frac{1}{2}\frac{\ell_3^2}{I_3} + M g a \cos\theta
+\]
+y redefino
+\[
+	E' \equiv E - \frac{1}{2} \frac{\ell_3^2}{I_3} = 
+	\frac 1 2 I' \dot{\theta}^2 + \frac{(\ell_z - \ell_3 \cos \theta)^2}{2I'\sin^2\theta} + M g a \cos\theta
+\]
+donde el {\it potencial} resultante tendrá alguna forma como se muestra en la figura debajo, para $0 \leq \theta \leq \pi$
+
+\includegraphics[width=0.35\textwidth]{images/fig_mc_peonza_segunda_5.jpg}
+
+Los puntos $E'=V$ son un polinomio cúbico en $\cos\theta$. 
+Haciendo un poco de álgebra en la energía $E'$,
+\[
+	2I'(E'- Mga\cos\theta)(1-\cos^2\theta) - (\ell_z - \ell_3 \cos \theta)^2 =
+	I'^2 \dot{\theta}^2 \sin^2\theta = I'^2 \left( \dtot{\cos\theta}{t} \right)^2. 
+\]
+Este polinomio debe satisfacer ser no nulo durante todo el movimiento. Luego, definiendo
+$q\equiv \cos\theta$, se tiene que como cambia de signo en el límite $q\to +\infty$ y en $q\to -\infty$
+debe tener una raíz. Además $q=1$ y $q=-1$ están debajo del cero.
+Entonces tendrá una raíz en $q>1$
+
+\includegraphics[width=0.5\textwidth]{images/fig_mc_peonza_segunda_6.jpg}
+
+Tiene una raíz doble en $q<1$ (ver figura sobre estas líneas) y entonces $\theta_0 (cte)$ equivale a una
+órbita circular de fuerzas centrales. $\dot{\theta}=0$
+
+El trompo se mueve entre $\theta_m$ y $\theta_M$ y además tiene tres movimientos dados por los ángulos
+\[
+	\begin{cases}
+	\varphi \quad \text{ ángulo de precesión }\\
+	\theta \quad \text{ ángulo de nutación } \\
+	\psi \quad \text{ ángulo de rotación propia } 
+	\end{cases}
+\]
+
+El eje del trompo se puede representar en una esfera (ver figura bajo estas líneas).
+La imagen superior de la derecha corresponde al caso en que $\dot{\varphi}$ cambia de signo.
+La imagen inferior se da si es largado desde condiciones iniciales $\dot{\varphi}=0$ y 
+$\dot{\theta}=0$ (desde la raíz?)
+
+\includegraphics[width=0.5\textwidth]{images/fig_mc_peonza_segunda_7.jpg}
+
 Luego hay unos interesantes comentarios sobre la ubicación de los ejes. El famoso ``bajo ejes''.
 \[
 	T = T_{trasl} + T_{rot} + T_{acopl}
@@ -1065,6 +1181,57 @@ y el último es nulo si elegimos el origen común O=O'= centro de masa.
 	\vb{V} = \vb{V}_{cm} + \Omega \times \vb{r}
 \]
 También es $T_{acopl}=0$ si $V_0=0$ (aquí también se anula $T_{trasl}$).
+
+\notamargen{Comentario respecto a Euler angles: las rotaciones que dan los ángulos de Euler son
+sobre ejes distintos; esto da el problema, no son una base ortogonal $z,\xi,\hat{3}$}
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{ejemplo}{\bf Problema 4c}
+
+Suponemos que en esta situación hay rodadura.
+
+\includegraphics[width=0.5\textwidth]{images/fig_mc_cono_rodando_1.jpg}
+
+La condición de rodadura proporciona bastante información.
+
+\includegraphics[width=0.5\textwidth]{images/fig_mc_cono_rodando_2.jpg}
+
+Queremos escribir el vector velocidad angular en función de los ejes definidos en la figura.
+Entonces
+\[
+	\vb{\Omega} = \Omega \cos \alpha \hat{3} + \Omega \sin \alpha ( \cos \psi \hat{1} + \sin \psi \hat{2} )
+\]
+Luego, como
+\[
+	\vb{v}_0 = 0 = \vb{v}_{cm} + \vb{\Omega} \times \vb{x}_0,
+\]
+será
+\[
+	v_{cm} = \Omega a \sin \alpha
+\]
+y el centro de masa describe una circunferencia en torno a $z$, de radio $a \cos \alpha$ con velocidad tangencial
+dada por 
+\[
+	v_{cm} = \dot{\varphi} a \cos \alpha.
+\]
+
+Ahora se puede calcular la energía cinética, que será 
+\[
+	T = \frac 1 2 v_{cm}^2 + \frac 1 2 \Omega^t I \Omega 
+\]
+\[
+	T = \frac 1 2 m a^2 \cos^2 \alpha \dot{\varphi}^2 + \frac{1}{2}( I_1\Omega_1^2 + I_2\Omega_2^2 + I_3\Omega_3^2)
+\]
+y usando que $I_1=I_2$ por simetría
+\[
+	T = \frac 1 2 \cos^2 \alpha ( ma^2 + I_1 + I_3 \mbox{cotg}^2 \alpha ) \dot{\varphi}^2
+\]
+\notamargen{Habría que hacer la cuenta prolija y llegar bien al resultado final.}
+
+\includegraphics[width=0.5\textwidth]{images/fig_mc_cono_rodando_3.jpg}
+ 
+\end{ejemplo}
+
 
 % =================================================================================================
 \section{Teorema de Steiner}
