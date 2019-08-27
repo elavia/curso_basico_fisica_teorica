@@ -889,7 +889,7 @@ Explícitamente:
 		\Omega_3  \\
 	\end{pmatrix} 
 \]
-\notamargen{$I=I(t)$ si lo describo desde un sistema inercial. $I \neq I(t)$ si lo describo desde un sistema no inercial.}
+\notamargen{$I=I(t)$ si lo describo desde un sistema inercial. $I \leq I(t)$ si lo describo desde un sistema no inercial.}
 
 Si le tomamos la derivada temporal,
 \[
@@ -995,26 +995,10 @@ Para una peonza esférica son $I_1=I_2=I_3$.
 \subsection{La peonza simétrica}
 % =================================================================================================
 
-<<<<<<< .mine
-Es lo que vulgarmente se conoce como {\it trompo}. Se eligen los ángulos de Euler.
-
-\begin{figure}[!htb]
-	\begin{center}
-	\includegraphics[width=0.5\textwidth]{images/fig_mc_peonza1.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-
-El cuerpo rígido se mueve con $\dot{\psi}$ pero no es necesario, en este ejemplo, que el sistema de coordenadas
-lo haga puesto que hay una simetría. No se ven cambios para la rotación sobre el eje longitudinal.
-||||||| .r505
-Es lo que vulgarmente se conoce como {\it trompo}
-=======
 \notamargen{Junté comentarios de dos clases teóricas en esta sección.}
 Es lo que vulgarmente se conoce como {\it trompo}.
 La energía cinética se compone de una parte de traslación y una de rotación, es decir $T=T_{trasl} + T_{rot}$.
 La velocidad angular del cuerpo y del sistema solidario al mismo es
->>>>>>> .r508
 \[
 	\vb{\Omega} = \dot{\varphi} \hat{z} + \dot{\theta} \hat{n} + \dot{\psi} \hat{x}_3
 \]
@@ -1035,44 +1019,14 @@ ejes principales de inercia, eso garantiza que podamos expresar la energía cin�
 \[
 	T_{rot} = \frac{1}{2} I_1 \Omega^2_ 1 + \frac{1}{2} I_2 \Omega^2_2 + \frac{1}{2} I_3 \Omega^2_3 
 \]
-<<<<<<< .mine
-[todo es muy confuso aquí]
-Velocidad angular del rígido $\dot{\psi} \neq 0$, coordenada $\psi=0$ pero $\psi=cte$ (no se entiende la trama).
-Si tomo $\psi=0$ es $\hat{1}=\hat{n}$, la línea de nodos coincide con el eje $\hat{1}$.
-En este caso la velocidad angular del cuerpo rígido proyctada en los ejes $123$ del mismo es
-||||||| .r505
-donde son 
-=======
 donde para el trompo son 
->>>>>>> .r508
 \[
 	\Omega_1 = \dot{\theta} \qquad \Omega_2 = \dot{\phi} \sin(\theta) \qquad \Omega_3 = \dot{\phi} \cos(\theta) + \dot{\psi}
 \]
 y debemos destacar que $\psi=0$ no es vínculo sino solo comodidad pues $\dot{\psi} \neq 0$ y es independiente.
-<<<<<<< .mine
-\notamargen{Si considero movimiento en $\psi$ trabajo mucho más la cuenta pero debería llegar a lo mismo.}
-
-Este problema tiene tres grados de libertad porque el movimiento del centro de masa está vinculado
-\[
-	T_{trasl} = \frac 1 2 M \dot{\vb{R}}_{cm}^2
-\]
-\[
-	\dot{\vb{R}}_{cm} = a \dot{\theta}_{cm} \hat{\theta}_{cm} + a \sin \theta \dot{\varphi_{cm}} \hat{\varphi}_{cm}
-\]
-
-Si no tiene simetría las velocidades angulares del sistema coordenado coinciden con las velocidades angulares del cuerpo rígido.
-Si hay simetría, $\theta,\psi,\varphi$ podrán ser nulas con lo cual puede ser que no haga falta rotar el sistema rotante en 
-todas las direcciones. En el ejemplo de la figura bajo estas líneas, $\theta$ y $\theta_{euler}$ concidenm y $\varphi$ y 
-$\varphi_{euler}$ forman ángulo de $\pi/2$
-
-\includegraphics[width=0.5\textwidth]{images/fig_mc_rigid_body_peonza.jpg}
-
-||||||| .r505
-=======
 
 \includegraphics[width=0.35\textwidth]{images/fig_mc_peonza_segunda_2.jpg}
 
->>>>>>> .r508
 Los vínculos pueden escribirse
 \[
 	\theta_e = \theta
@@ -1083,18 +1037,6 @@ Los vínculos pueden escribirse
 \[
 	R^2_{cm} = a^2 = x_{cm}^2 + y_{cm}^2 + z_{cm}^2
 \]
-<<<<<<< .mine
-donde $\theta, \phi$ y $r$ corresponden al centro de masas. 
-Las coordenadas
-||||||| .r505
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.5\textwidth]{images/fig_mc_peonza1.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-y las coordenadas
-=======
 
 \begin{figure}[htb]
 	\begin{center}
@@ -1103,59 +1045,33 @@ y las coordenadas
 	\caption{}
 \end{figure} 
 y las coordenadas
->>>>>>> .r508
 \begin{align*}
 	x &= a \sin(\theta) \cos\left( \frac{\pi}{2}-\phi_e \right) = a \sin(\theta) \sin( \phi_e ) \\
 	y &= a \sin(\theta) \sin\left( \frac{\pi}{2}-\phi_e \right) = -a \sin(\theta) \cos( \phi_e ) \\
 	z &= a \cos(\theta)
 \end{align*}
-<<<<<<< .mine
-y la velocidad de traslación
-||||||| .r505
-y la velocidad
-=======
 
 Luego, la energía $T_{trasl}$ se puede poner en términos de los ángulos de Euler, a través de la velocidad del 
 centro de masas, que verifica 
->>>>>>> .r508
 \[
 	V_{cm}^2 = \dot{x}^2 + \dot{y}^2 + \dot{z}^2 = a^2 \dot{\theta}^2 + a^2 \sin(\theta)^2 \dot{\phi}^2.
 \]
-<<<<<<< .mine
-La energía cinética es suma de la de traslación y la de rotación,
-||||||| .r505
-y el lagrangiano finalmente
-=======
 
 Pero esta velocidad del centro de masas tiene parte de la cinética de rotación, y entonces se puede reescribir
 la energía cinética como 
->>>>>>> .r508
 \[
 	T = \frac{1}{2} M (a^2 \dot{\theta}^2 + a^2 \sin(\theta)^2 \dot{\phi}^2) + \frac{1}{2} I_1 \dot{\theta}^2
 	+ \frac{1}{2} I_2 \sin(\theta)^2 \dot{\phi}^2) + \frac{1}{2} I_3 (\dot{\phi} \cos(\theta) + \dot{\psi})^2 
 \]
 pero por la simetría $I_1=I_2\equiv I$ de modo que 
 \[
-<<<<<<< .mine
-	G = \frac{1}{2} M a^2 (\dot{\theta}^2 + \sin(\theta)^2 \dot{\phi}^2) + \frac{1}{2} I ( \dot{\theta}^2 +
-	\sin(\theta)^2 \dot{\phi}^2 ) + \frac{1}{2} I_3 (\dot{\phi} \cos(\theta) + \dot{\psi})^2, 
-||||||| .r505
-	\Lag = \frac{1}{2} M a^2 (\dot{\theta}^2 + \sin(\theta)^2 \dot{\phi}^2) + \frac{1}{2} I ( \dot{\theta}^2 +
-	\sin(\theta)^2 \dot{\phi}^2 ) + \frac{1}{2} I_3 (\dot{\phi} \cos(\theta) + \dot{\psi})^2 
-=======
 	T = \frac{1}{2} M a^2 (\dot{\theta}^2 + \sin(\theta)^2 \dot{\phi}^2) + \frac{1}{2} I ( \dot{\theta}^2 +
 	\sin(\theta)^2 \dot{\phi}^2 ) + \frac{1}{2} I_3 (\dot{\phi} \cos(\theta) + \dot{\psi})^2, 
->>>>>>> .r508
 \]
-<<<<<<< .mine
-y el lagrangiano será
-||||||| .r505
-=======
 
 \includegraphics[width=0.35\textwidth]{images/fig_mc_peonza_segunda_3.jpg}
 
 y el lagrangiano es, finalmente,
->>>>>>> .r508
 \[
 	\Lag = \frac{1}{2} ( M a^2 + I ) (\dot{\theta}^2 + \sin(\theta)^2 \dot{\phi}^2) +  
 		\frac{1}{2} I_3 (\dot{\phi} \cos(\theta) + \dot{\psi})^2  - m g a \cos(\theta)
@@ -1172,22 +1088,6 @@ donde $I'$ es otro momento de inercia.
 	\caption{}
 \end{figure} 
 
-<<<<<<< .mine
-Debido a la ciclicidad en el lagrangiano se conservan 
-\[
-	p_\theta = I' \sin^2 \theta \dot{ \varphi } + I_3 ( \dot{\psi} + \dot{\varphi} \cos\theta ) \cos \theta 
-\]
-\[
-	p_\varphi = l_z 
-\]
-\[
-	p_\psi = I_3 ( \dot{\psi} + \dot{ \varphi }\cos \theta )
-\]
-pero esta última es en realidad $l_3$ porque el cuerpo rígido presenta una invariancia al moverse en torno a los ejes $\hat{3}$
-y $\hat{z}$.
-
-||||||| .r505
-=======
 Este sistema tiene como constantes de movimiento
 \be
 	p_\varphi = \dpar{\Lag}{\dot{\varphi}} = I' \sin^2 \theta \dot{ \varphi } +
@@ -1272,7 +1172,6 @@ $\dot{\theta}=0$ (desde la raíz?)
 
 \includegraphics[width=0.5\textwidth]{images/fig_mc_peonza_segunda_7.jpg}
 
->>>>>>> .r508
 Luego hay unos interesantes comentarios sobre la ubicación de los ejes. El famoso ``bajo ejes''.
 \[
 	T = T_{trasl} + T_{rot} + T_{acopl}
