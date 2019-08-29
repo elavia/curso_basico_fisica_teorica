@@ -1335,22 +1335,45 @@ En el caso (b) [?] con gravedad, se tiene
 	V = M g z_{cm2} = M g \frac{a}{2} \sin\varphi
 \]
 y desaparecen los equilibrios de $\pm 138^\circ$.
-
-
-
- 
 \end{ejemplo}
 
 
 % =================================================================================================
 \section{Teorema de Steiner}
 % =================================================================================================
+\notamargen{Tal vez haya que trasladar lo de Steiner hacia atrás o bien traer temas desde atrás
+hacia adelante}.
+Consideremos el siguiente cuerpo rígido, donde los ejes $123$ para que sean los ejes principales de inercia, así
 
+\includegraphics[width=0.35\textwidth]{images/fig_mc_steiner_1.jpg}
+
+la energía de rotación es, con respecto al origen $O'$, 
+\[
+	T_{rot} = \frac 1 2 ( \sum_{i=1}^3 I_i \Omega_i^2 )
+\]
+y la energía cinética total 
+\[
+	T = T_{tras} + T_{rot} + T_{acopl}
+\]
+siendo la última nula si expresamos todo con respecto a $O'$. La velocidad es 
+\[
+	\vb{v} = \vb{v}_{cm} + \vb{\omega} \times \vb{x}.
+\]
+También puede anularse $T_{acopl}$ si se eligen $V_0$ nula (también se anula $T_{trasl}$ en este caso).
+
+A veces es conveniente escribie respecto de un punto así que está fijo (no tiene velocidad). De esa manera, el tensor 
+de inercia debe reescribirse con respecto a ese nuevo punto.
+
+\includegraphics[width=0.35\textwidth]{images/fig_mc_steiner_2.jpg}
+
+Entonces quisiéramos ver como se escribe en un nuevo sistema de origen $O$ trasladado desde el centro de masas de
+forma paralela. La traslación es
 \[
 	\vb{x} = \vb{U} - \vb{a}  
 \]
+\notamargen{Si se rotan los ejes entre sí, entonces hay rotación presente y las expresiones siguientes no serán válidas.}
 \[
-	I_{ij}^0 = \sum_s^N m^s ( \delta_{ij} x_s^2 - x_i^s x_j^s )
+	I_{ij}^0 = \sum_s^N m^s ( \delta_{ij} \vb{x}_s^2 - x_i^s x_j^s )
 \]
 \[
 	I_{ij}^0 = \sum_s^N m^s ( \delta_{ij} ( \vb{U}_s - \vb{a} )^2 - (U^s_i - a_i) ( U^s_j - a_j ) )
@@ -1370,26 +1393,27 @@ Trasladamos el punto (con el sistema de ejes paralelo al del centro de masa) sin
 	I_{ij}^0 = \sum_s^N m^s ( \delta_{ij} U_s^2 - U^s_iU^s_j ) + \sum_s^N m^s ( \delta_{ij} a^2 - a_i a_j )
 			- \sum_s^N m^s \delta_{ij} 2 U^s a  + \sum_s^N m^s ( a_i U^s_j + a_j U^s_i )
 \]
-pero las dos últimas sumatorias son nulas, y
+pero las dos últimas sumatorias se anulan, y
 \[
 	I_{ij}^0 = \sum_s^N m^s ( \delta_{ij} U_s^2 - U^s_iU^s_j ) + \sum_s^N m^s ( \delta_{ij} a^2 - a_i a_j )
-		= I_{ij}^{cm}  + M ( \delta_{ij} a^2 - a_i a_j )
+		= I_{ij}^{cm}  + M ( \delta_{ij} a^2 - a_i a_j ).
 \]
 
 Esto sale de
 \[
-	\sum_s^N m^s \delta_{ij} U^s a = \delta_{ij} a \sum_s^N m^s  U^s  = 0
+	\sum_s^N m^s \delta_{ij} U^s a = \delta_{ij} a \sum_s^N m^s U^s = 0,
 \]
-puesto que es nula la suma en $s$. Porque 
+que se cumple porque es nula la suma en $s$. Dado que esto vale vectorialmente, 
 \[
 	0 = \sum_s^N m^s \vb{U}^s = \sum_s^N m^s ( U_1^s \hat{1} + U_2^s \hat{2} + U_3^s \hat{3} )
 \]
-pero como es vectorial vale para cada coordenada 
+vale en particular para cada coordenada, entonces 
 \[
 	0 = \sum_s^N m^s U_i^s \qquad \forall i=1,2,3
 \]
+y también
 \[
-	0 = \sum_s^N m^s U_i^s a
+	0 = \sum_s^N m^s U_i^s a.
 \]
 \begin{figure}
 	\begin{center}
@@ -1398,6 +1422,205 @@ pero como es vectorial vale para cada coordenada
 	\caption{}
 \end{figure} 
 La moraleja es que trasladar en un solo eje conserva la diagonalidad del tensor de inercia.
+La forma diagonal del tensor se conserva si se anulan los productos de inercia; pero esto sólo
+ocurre si traslado en un solo eje.
+
+\includegraphics[width=0.35\textwidth]{images/fig_mc_steiner_3.jpg}
+
+\includegraphics[width=0.35\textwidth]{images/fig_mc_steiner_4.jpg}
+
+% =================================================================================================
+\section{Movimiento de un cuerpo asimétrico}
+% =================================================================================================
+
+Como la energía se conserva es
+\[
+	E = T + V = T + M g z_{cm},
+\]
+o bien, 
+\[
+	E = T_{trasl} + T_{rot} + V(X_{cm})
+\]
+donde cada una se conservan separadamente $T_{trasl}+V$ y $T_{rot}$. Se tiene también 
+\[
+	\vb{L}_{spin} = I \vb{\Omega}
+\]
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_asimbod.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
+Usaremos una notación en la cual el subíndice refiere a referido a y el supraíndice a de qué puntos/puntos
+\[
+	\left.\vb{L}\right|_{0}^{sist} = \left.\vb{L}_{orb}\right|_{0}^{cm} + \left.\vb{L}_{spin}\right|_{cm}^{sist}  
+\]
+\[
+	\left.\frac{d\vb{L}^{orb}}{dt}\right|_{in} = 
+	\vb{\tau}_0^{cm} = \vb{x}_{cm} \times \vb{F} = \vb{x}_{cm} \times - M g \hat{z} \neq 0
+\]
+de tal manera que el $\vb{L}^{orb} \equiv \vb{L}_0^{cm}$ no se conserva.
+
+El que se conserva es $\vb{L}^{spin}$ pues pensamos la $\vb{F}=M\vb{g}$ aplicada en el centro de masa que es el origen
+y que tiene $\vb{x}_{cm}=0$.
+\[
+	\vb{L}^{spin} = L_1 \hat{1} + L_2 \hat{2} + L_3 \hat{3} = I_1\Omega_1 \hat{1} + I_2\Omega_2 \hat{2} + I_3\Omega_3 \hat{3}
+\]
+y podemos escribir
+\[
+	T_{rot} = \frac{1}{2} \left( I_1\Omega_1^2 + I_2\Omega_2^2 + I_3\Omega_3^2 \right)
+\]
+\[
+	T_{rot} = \frac{L_1^2}{2 I_1} + \frac{L_2^2}{2 I_2} + \frac{L_3^2}{2 I_3}
+\]
+\[
+	1  = \frac{L_1^2}{2 I_1 T_{rot}} + \frac{L_2^2}{2 I_2 T_{rot}} + \frac{L_3^2}{2 I_3 T_{rot}}
+\]
+
+Nótese que $L_0^2 = L_1^2 + L_2^2 + L_3^2 $ es un vínculo. Para un observador en el cuerpo, $L^{spin}$ rota en 
+una esfera pero $L^{spin}$ para $XYZ$ es fijo en el espacio.
+
+\includegraphics[width=0.35\textwidth]{images/fig_mc_steiner_5.jpg}
+
+Entonces, $L^{spin}$ se mueve en la intersección de un elipsoide y una esfera lo cual implica una relación entre
+radios [?], como se intenta hacer notar en las pobres ilustraciones sobre estas líneas.
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_asimbod2.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+Entonces, si se da que $I_3 > I_2 > I_1$ se tiene 
+\[
+	L_{spin}^2 = L_1^2 + L_2^2 + L_3^2 \qquad L^2 =  I_1^2\Omega_1^2 + I_2^2\Omega_2^2 + I_3^2\Omega_3^2
+\]
+donde como se conservan $T_{rot} \equiv T$ y $L_{spin} \equiv L$ 
+\[
+	2 T = \frac{L_1^2}{I_1} + \frac{L_2^2}{I_2} + \frac{L_3^2}{I_3} \qquad L^2 = L_1^2 + L_2^2 + L_3^2
+\]
+de la primera deducimos un elipsoide de semiejes en $L_i$ y de la segunda una esfera de radio $L$ en $L_i$.
+\notamargen{Esto está super oscuro. No sé qué se quiso decir, tal vez se halle explicado mejor en la carpeta.}
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_mc_asimbod3.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
+Si se verifica [?]
+\[
+	2 I_3 T > 2 I_2 T > 2 I_1 T
+\]
+\[
+	L^2 > 2 I_3 T	\qquad L_1^2 + L_2^2 + L_3^2 > \frac{I_3}{I_1} L_1^2 + \frac{I_3}{I_2} L_2^2  + L_3^2
+\]
+\[
+	L_1^2 \left( \frac{I_1 - I_3}{I_1} \right) + L_2^2 \left( \frac{I_2 - I_3}{I_1} \right)  > 0
+\]
+pero esto no vale. Asimismo tampoco vale que 
+\[
+	L^2 < 2 I_1 T
+\]
+y resulta la condición para que sea posible el movimiento, que es
+\[
+	2 I_3 T > L^2 > 2 I_1 T,
+\]
+entonces $L_{spin}$ (su punta) se mueve en la intersección de una esfera y un elipsoide.
+Estos movimientos son periódicos.
+
+Algunos casos particulares se ilustran debajo de estas líneas,
+
+\includegraphics[width=0.7\textwidth]{images/fig_mc_steiner_6.jpg}
+
+Si $L_0 \sim 2 I_2 I_3 $ el movimiento es muy complejo, como la flor 
+
+\includegraphics[width=0.35\textwidth]{images/fig_mc_steiner_7.jpg}
+
+donde la punta del $L_0$ describe una figura pesadillezca.
+
+Esto se puede resolver a partir de sus ecuaciones de Euler,
+\[	
+	\begin{cases}
+		\displaystyle \dtot{\Omega_1}{t} + \frac{I_3-I_2}{I_1}\Omega_2\Omega_3 = 0 \\
+		\\
+		\displaystyle \dtot{\Omega_2}{t} + \frac{I_1-I_3}{I_2}\Omega_1\Omega_3 = 0 \\
+		\\
+		\displaystyle \dtot{\Omega_3}{t} + \frac{I_2-I_1}{I_3}\Omega_2\Omega_1 = 0
+	\end{cases}
+\]
+cuya linealización con prescripción  
+\[
+	\Omega_3 = \Omega_0 + \varepsilon_3(t) \qquad \Omega_2 = \varepsilon_2(t) \qquad \Omega_1 = \varepsilon_1(t)
+\]
+siendo $\varepsilon_i \ll \Omega_0$ conduce a 
+\[
+	\dtot{\Omega_3}{t} \approx 0,
+\]
+de manera que $\Omega_3 \sim \Omega_0 $ y se tienen 
+\[	
+	\begin{cases}
+		\displaystyle \dtot{\varepsilon_1}{t} + \frac{I_3-I_2}{I_1}\varepsilon_2\Omega_0 = 0 \\
+		\\
+		\displaystyle \dtot[2]{\varepsilon_2}{t} + \frac{I_1-I_3}{I_2} \dtot{\varepsilon_1}{t}\Omega_0 = 0 
+	\end{cases}
+\]
+
+Combinando las dos últimas ecuaciones se llega a 
+\[
+	\dtot[2]{\varepsilon_2}{t} + \omega^2 \varepsilon_2 = 0 
+\]
+donde es 
+\[
+	\omega^2 = \Omega_0^2 \frac{I_1-I_3}{I_2}  \frac{I_3-I_2}{I_1} .
+\]
+
+Si se da $\omega^2 > 0$ entonces se tiene un oscilador armónico y $\varepsilon_2 \sim \varepsilon_2^0 \cos(  \omega t + \varphi )$.
+
+Pero para el comportamiento armónico son necesarios
+\[
+	I_3 > I_1 \text{ y } I_3 > I_2 \quad \mathrm{ o } \quad I_3 < I_1 \text{ y } I_3 < I_2
+\]
+
+Si $\Omega_3$ apunta inicialmente en dirección de un momento de inercia mayor, entonces $\Omega$ se conserva más o menos en la misma
+dirección
+\notamargen{Eje 3 momento de inercia mayor o el menor [?]}
+
+\includegraphics[width=0.6\textwidth]{images/fig_mc_steiner_8.jpg}
+
+Si $\omega^2 < 0 $ el movimiento es inestable. Sucede cuando $I_3$ es el momento de inercia intermedio. En las ecuaciones crece el
+$\Omega_3$ y se va de ser pequeño (y deja de valer la linealización).
+
+Consideremos ahora un caso $ L_3 = L_z = I \Omega_3 $. Si le doy un $ L_3 $ en el versor $ \hat{3} $ se conserva y el $\Omega$ debe 
+ser constante. $L$ es constante si $\Omega$ coincide en la dirección {\it ambos se mantienen}.
+
+\includegraphics[width=0.6\textwidth]{images/fig_mc_steiner_9.jpg}
+
+En la figurita cortesía del alumno Lavia, vemos que dar el $\vb{\Omega}$ en la dirección del eje principal significa que $\vb{L}$
+y $\vb{\Omega}$ serán paralelos y constantes ambos.
+
+$L$ es constante si $\Omega$ no coincide con $L$ entonces $\Omega$ hace un trompo en torno a $L$.
+
+\includegraphics[width=0.2\textwidth]{images/fig_mc_steiner_10.jpg}
+
+El asunto acá es que siempre que hablemos de $L$ es el $L$ de spin (medido respecto al centro de masas).
+
+El giróscopo por ejemplo funciona de manera que se le proporciona un $\vb{L}$ que permanece constante. No importa cómo lo movamos,
+apuntará en la dirección del momento angular original $\vb{L}$.
+
+La peonza tiene movimientos estables para la rotación en torno a $\hat{x}_1, \hat{x}_3$ pero inestables en
+torno a $\hat{x}_2$. El movimiento puede resolverse mediante ecuaciones de Euler.
+Es estable rotar en torno al mayor o menor momento de inercia lo que generará un movimiento oscilatorio
+para \vb{\Omega} ($\omega^2 > 0$), en cambio es inestable rotar en torno al momento de inercia intermedio, lo cual generará
+un movimiento armónico para \vb{\Omega} ($\omega^2 < 0$).
+
+Con \vb{L} constante si \vb{L }$\parallel$ \vb{\Omega} entonces ambos son constantes (corresponde a una rotación). Se consigue 
+con \vb{\Omega} en la dirección del eje principal. Si \vb{L }$\nparallel$ \vb{\Omega} entonces \vb{\Omega} oscila en torno a
+\vb{L}.
+
+
 
 % =================================================================================================
 \section{Sistemas no inerciales}
@@ -1405,7 +1628,7 @@ La moraleja es que trasladar en un solo eje conserva la diagonalidad del tensor 
 
 \notamargen{Habría que pasar los \vb{r} a \vb{x}.} 
 
-\begin{figure}
+\begin{figure}[!h]
 	\begin{center}
 	\includegraphics[width=0.7\textwidth]{images/fig_sist_rotantes.pdf}	 
 	\end{center}
@@ -2085,107 +2308,6 @@ y entonces
 con $d\vb{\Omega}/dt = 0$
 
 
-
-
-% =================================================================================================
-\section{Movimiento de un cuerpo asimétrico}
-% =================================================================================================
-
-\[
-	\vb{L}_{spin} = I \vb{\Omega}
-\]
-y como la energía se conserva es
-\[
-	E = T + V
-\]
-\[
-	E = T_{trasl} + T_{rot} + V(R_{cm})
-\]
-donde cada una se conserva separadamente.
-
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_mc_asimbod.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-
-Usaremos una notación en la cual el subíndice refiere a referido a y el supraíndice a de qué puntos/puntos
-\[
-	\left.\vb{L}\right|_{0}^{sist} = \left.\vb{L}_{orb}\right|_{0}^{cm} + \left.\vb{L}_{spin}\right|_{cm}^{sist}  
-\]
-\[
-	\left.\frac{d\vb{L}^{orb}}{dt}\right|_{in} = \vb{\tau}_0^{cm} = \vb{R}_{cm} \times \vb{F} =
-							\vb{R}_{cm} \times - M g \hat{z} \neq 0
-\]
-de tal manera que el $\vb{L}^{orb} \equiv \vb{L}_0^{cm}$ no se conserva.
-
-El que se conserva es $\vb{L}^{spin}$ pues pensamos la $\vb{F}=M\vb{g}$ aplicada en el centro de masa que es el origen
-y que tiene $\vb{R}_{cm}=0$.
-\[
-	\vb{L}^{spin} = L_1 \hat{1} + L_2 \hat{2} + L_3 \hat{3} = I_1\Omega_1 \hat{1} + I_2\Omega_2 \hat{2} + I_3\Omega_3 \hat{3}
-\]
-y podemos escribir
-\[
-	T_{rot} = \frac{1}{2} \left( I_1\Omega_1^2 + I_2\Omega_2^2 + I_3\Omega_3^2 \right)
-\]
-\[
-	T_{rot} = \frac{L_1^2}{2 I_1} + \frac{L_2^2}{2 I_2} + \frac{L_3^2}{2 I_3}
-\]
-\[
-	1  = \frac{L_1^2}{2 I_1 T_{rot}} + \frac{L_2^2}{2 I_2 T_{rot}} + \frac{L_3^2}{2 I_3 T_{rot}}
-\]
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_mc_asimbod2.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-Entonces, si se da que $I_3 > I_2 > I_1$ se tiene 
-\[
-	L_{spin}^2 = L_1^2 + L_2^2 + L_3^2 \qquad L^2 =  I_1^2\Omega_1^2 + I_2^2\Omega_2^2 + I_3^2\Omega_3^2
-\]
-donde como se conservan $T_{rot} \equiv T$ y $L_{spin} \equiv L$ 
-\[
-	2 T = \frac{L_1^2}{I_1} + \frac{L_2^2}{I_2} + \frac{L_3^2}{I_3} \qquad L^2 = L_1^2 + L_2^2 + L_3^2
-\]
-de la primera deducimos un elipsoide de semiejes en $L_i$ y de la segunda una esfera de radio $L$ en $L_i$.
-\notamargen{Esto está super oscuro. No sé qué se quiso decir, tal vez se halle explicado mejor en la carpeta.}
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_mc_asimbod3.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-\[
-	2 I_3 T > 2 I_2 T > 2 I_1 T
-\]
-\[
-	L^2 > 2 I_3 T	\qquad L_1^2 + L_2^2 + L_3^2 > \frac{I_3}{I_1} L_1^2 + \frac{I_3}{I_2} L_2^2  + L_3^2
-\]
-\[
-	L_1^2 \left( \frac{I_1 - I_3}{I_1} \right) + L_2^2 \left( \frac{I_2 - I_3}{I_1} \right)  > 0
-\]
-pero esto no vale. Asimismo tampoco vale que 
-\[
-	L^2 < 2 I_1 T
-\]
-y resulta 
-\[
-	2 I_3 T > L^2 > 2 I_1 T
-\]
-entonces $L_{spin}$ (su punta) se mueve en la intersección de una esfera y un elipsoide.
-Estos movimientos son periódicos.
-
-La peonza tiene movimientos estables para la rotación en torno a $\hat{x}_1, \hat{x}_3$ pero inestables en
-torno a $\hat{x}_2$. El movimiento puede resolverse mediante ecuaciones de Euler.
-Es estable rotar en torno al mayor o menor momento de inercia lo que generará un movimiento oscilatorio
-para \vb{\Omega} ($\omega^2 > 0$), en cambio es inestable rotar en torno al momento de inercia intermedio, lo cual generará
-un movimiento armónico para \vb{\Omega} ($\omega^2 < 0$).
-
-Con \vb{L} constante si \vb{L }$\parallel$ \vb{\Omega} entonces ambos son constantes (corresponde a una rotación). Se consigue 
-con \vb{\Omega} en la dirección del eje principal. Si \vb{L }$\nparallel$ \vb{\Omega} entonces \vb{\Omega} oscila en torno a
-\vb{L}.
 
 
 
