@@ -1233,6 +1233,115 @@ y usando que $I_1=I_2$ por simetría
 \end{ejemplo}
 
 
+\begin{ejemplo}{\bf Problema 8}
+
+\includegraphics[width=0.35\textwidth]{images/fig_mc_prob8_1.jpg}
+
+Acá surge un problema; y es que la fuerza centrífuga no es uniforme a través de todo el cuerpo, entonces
+no es válido que vale considerarla aplicada en el centro de masas.
+
+El lagrangiano será 
+\[
+	\Lag = T_{trasl1} + T_{trasl2} + T_{rot1} + T_{rot2}
+\]
+y la primer energía cinética será nula pués el centro de masas no se desplaza. Para la de rotación elegimos
+los ejes como los ejes principales de inercia y 
+\[
+	T_{rot1} = \frac 1 2 I_3 \Omega^2,
+\]
+pués $\vb{\Omega} = \Omega\hat{z}$ (de modo que $\Omega_1,\Omega_2=0$). 
+
+\includegraphics[width=0.35\textwidth]{images/fig_mc_prob8_2.jpg}
+
+Luego $\dot{\vb{\varphi}} = \dot{\varphi} \hat{1}$ y $\Omega_{tot} = \dot{\varphi} \hat{1} - \Omega \sin \varphi \hat{2} +
+\Omega \cos \varphi \hat{3} $ de modo que 
+\[
+	T_{rot2} = \frac 1 2 I_1 \dot{\varphi}^2 + \frac 1 2 I_2 \Omega^2 \sin^2 \varphi + \frac 1 2 I_3 \Omega^2 \cos^2 \varphi
+\]
+
+Para la energía de traslación del cuerpo 2
+
+\includegraphics[width=0.35\textwidth]{images/fig_mc_prob8_3.jpg}
+
+se tienen las relaciones
+\[
+	x_{cm} = \frac a 2 \cos\alpha (1+\sin\alpha) \qquad 
+	y_{cm} = \frac a 2 \sin\alpha (1+\cos\alpha) \qquad 
+	z_{cm} = \frac a 2 \sin \varphi
+\]
+Calculando las derivadas temporales de estas expresiones y construyendo $\dot{r}^2=\dot{x}^2+\dot{y}^2+\dot{z}^2$ [esto es
+un guess, hay que confirmarlo] se llega luego de un tiempo a
+\[
+	T_{tras} = \frac 1 2 M \dot{r}^2 = \frac{Ma^2}{8}\left[ \Omega^2( 1 + \cos\varphi )^2 + \dot{\varphi}^2 \right]
+\]
+
+Los momentos de inercía por su parte son 
+\[
+	I_1 = \frac{Ma^2}{12} \qquad I_2 = \frac{Mb^2}{12} \qquad I_3 = \frac{M(a^2+b^2)}{12}.
+\]
+\notamargen{Acá hay un hueco en el sentido de que tendría que chequear que las cuentas dan lo que se dice que dan.}
+
+Juntando todo, el lagrangiano será
+\[
+	\Lag = \frac{Ma^2}{6}\dot{\varphi}^2 + \frac{Ma^2}{6}\Omega^2\cos^2\varphi + \frac{Ma^2}{8}\Omega^2 2 \cos\varphi,
+\]
+en el cual los dos últimos términos pueden considerarse un potencial efectivo $V_eff(\varphi)$.
+Igualando a cero la derivada del potencial efectivo $\partial V_eff/\partial\varphi =0$ se llega a
+\[
+	\sin\varphi \left(\frac 3 4 + \cos\varphi \right) = 0,
+\]
+que tiene dos soluciones estables,
+\[
+	\varphi = 0 \qquad \varphi = \acos\left( -\frac 3 4 \right) = \pm 138^\circ
+\]
+y dos inestables
+\[
+	\varphi = \pi \qquad \varphi=-\pi
+\]
+
+Supongamos [?] que queremos ver si los equilibrios hallados son estables.
+\notamargen{Acá no está claro qué se sabe. Si sé que son los dos primeros estables, y los segundos inestables
+ya está. Pareciera que se procede luego como si no se supiera que el equilibrio estable es estable y se hace
+la perturbación para conseguir el comportamiento. ¡Pero resulta inestable luego! Habría que ver la práctica
+para dirimir.}
+
+\includegraphics[width=0.35\textwidth]{images/fig_mc_prob8_4.jpg}
+
+Calculamos las ecuaciones de Euler-Lagrange, que serán
+\[
+	\frac{Ma^2}{3}\ddot{\varphi} + \frac{Ma^2}{3} \Omega^2 \cos\varphi \sin\varphi
+	+ \frac{Ma^2}{4} \Omega^2 \sin\varphi = 0
+\]
+
+Considerando pequeñas oscilaciones con $\varphi \sim 0$ se tiene 
+\[
+	\ddot{\varphi} + \frac{7}{4}\Omega^2\varphi = 0,
+\]
+que no es otra cosa que un oscilador armónico. La solución es $\varphi_0$ tal que $ \cos\varphi_0= -3/4 $, y usando
+las fórmulas del seno y el coseno de la suma de dos ángulos (ver Apéndice X) se tiene que 
+\[
+	\Delta \ddot{\varphi} + \Omega^2 
+	\left[ \sin\varphi_0 \cos\varphi_0 + \cos^2\varphi_0\Delta \varphi - \sin^2 \varphi \Delta\varphi \right]
+	+ \frac{3}{4} \Omega^2 \sin\varphi_0 \cos\varphi_0,
+\]
+expresión que luego de un poco de álgebra,
+\[
+	\Delta \ddot{\varphi} -\frac 7 {16} \Omega^2 \Delta\varphi = 0,
+\]
+y entonces resulta que el equilibrio es inestable.
+
+En el caso (b) [?] con gravedad, se tiene 
+\[
+	V = M g z_{cm2} = M g \frac{a}{2} \sin\varphi
+\]
+y desaparecen los equilibrios de $\pm 138^\circ$.
+
+
+
+ 
+\end{ejemplo}
+
+
 % =================================================================================================
 \section{Teorema de Steiner}
 % =================================================================================================
