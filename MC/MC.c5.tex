@@ -4,7 +4,7 @@
 	\usepackage{amsmath}
 	\usepackage{graphicx}
 	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -31,8 +31,62 @@
 
 Es un formalismo para analizar el movimiento que realiza un sistema cuando está sometido a
 ligeras perturbaciones en la posición de equilibrio.
+Esto desarrollará un método sistemático para tratar todo tipo de problemas con muchos grados
+de libertad pero en forma aproximada.
 
-Escribimos
+\subsection{Idea para un grado de libertad}
+
+Para un grado de liberada la idea es que 
+
+\includegraphics[scale=0.5]{images/fig_mc_oscil_1.jpg}
+
+en un potencial $V(x)$ con un mínimo, es decir que cumple 
+\[
+	\dtot{V(x)}{x} = 0 ,\dtot[2]{V(x)}{x} > 0
+\]
+para algún $x_{eq}$, en la expresión de la energía
+\be
+	E = \frac 1 2 m \dot{x}^2 + V(x),
+	\label{energia_1d}
+\ee
+se aproxima el potencial según
+\be
+	V(x) \approx V_0 + \frac{1}{2} \left.\dtot[2]{V(x)}{x}\right|_{x_{eq}} (x-x_{eq})^2,
+	\label{potencial_aproximado}
+\ee
+y si definimos $ k \equiv d^2V/dx^2|_{x_{eq}} $ se llega a 
+\[
+	E = \frac 1 2 m \dot{x}^2 + V_0 + \frac{1}{2} k (x-x_{eq})^2, 
+\]
+que derivada con respecto al tiempo resulta en 
+\[
+	m\ddot{x} + k (x-x_{eq}) = 0,
+\]
+la cual no es otra cosa que una ecuación de oscilador armónico, cuya solución general es
+\[
+	x(t) = A \cos (\omega t + \varphi ),
+\]
+donde $ \omega =  \sqrt{ k / m } $ y $ \varphi $ está asociada a la energía $E$. Ver Apéndice X para la resolución
+de oscilador armónico.
+\notamargen{Un apéndice más: oscilador armónico con término no homogéneo (usar 76R carpeta). Acá habría que llegar a despejar quién es
+$\varphi$.}
+
+El problema físico tiene dos constantes aunque la resolución presenta cuatro (dos complejos, con parte real e imaginaria).
+
+\subsection{Varias variables}
+
+En el caso de un potencial $V(\vb{x}_1, ...,\vb{x}_n)$ hay que hallar las raíces del mismo y luego desarrollar en torno a los puntos
+de equilibrio. Se empieza desde 
+\[
+	\dpare{V}{\vb{x}}{x_{eq}} = 0,
+\]
+y habría que desarrollar 
+\[
+	V( \vb{x}_1, ...,\vb{x}_n ) = V( \vb{x}_1, ...,\vb{x}_n ) + 
+	\frac 1 2 \sum_{i,j} \dparcru{V}{\vb{x}_i}{\vb{x}_j}(\vb{x}-\vb{x}_i)(\vb{x}-\vb{x}_j)
+\]
+
+No obstante, el problema se puede enfocar mejor en términos de las coordenadas generalizadas. Entonces, escribimos
 \[
 	V(q_1,...,q_n) \approx V(q_1^0,...,q_n^0) + \sum_{i=1}^n \left. \dpar{V}{q_i} \right|_{q_i^0} (q_i - q_i^0)
 		+ \frac{1}{2} \sum_{i,j=1}^n \left. \dparcru{V}{q_j}{q_i}\right|_{q_i^0}(q_i -q_i^0)(q_j -q_i^0)
