@@ -86,23 +86,37 @@ y habría que desarrollar
 	\frac 1 2 \sum_{i,j} \dparcru{V}{\vb{x}_i}{\vb{x}_j}(\vb{x}-\vb{x}_i)(\vb{x}-\vb{x}_j)
 \]
 
-No obstante, el problema se puede enfocar mejor en términos de las coordenadas generalizadas. Entonces, escribimos
+No obstante, el problema se puede enfocar mejor en términos de las coordenadas generalizadas. Entonces, el potencial es
 \[
 	V(q_1,...,q_n) \approx V(q_1^0,...,q_n^0) + \sum_{i=1}^n \left. \dpar{V}{q_i} \right|_{q_i^0} (q_i - q_i^0)
 		+ \frac{1}{2} \sum_{i,j=1}^n \left. \dparcru{V}{q_j}{q_i}\right|_{q_i^0}(q_i -q_i^0)(q_j -q_i^0)
 \]
+y la energía cinética,
 \[
 	T(q_1,...,q_n,\dot{q}_1,...,\dot{q}_n) \approx \frac{1}{2} \left( m(q_1^0,...,q_n^0) + \sum_{i=1}^n 
 				\left. \dpar{m}{q_i} \right|_{q_i^0} (q_i - q_i^0) + ... \right) \sum_{i,j}^n \dot{q}_i\dot{q}_j
 \]
+[Esta expresión hay que revisarla y reubicarla!]
 
-Haciendo la aproximación consistente es
+La energía cinética es 
+\[
+	T = \frac 1 2 \sum_{i,j} m_{ij}(q_1,...,q_n) \dot{q}_i \dot{q}_j
+\]
+donde $m_{ij}$ son los coeficientes de las coordenadas generalizadas y se desarrollarán en serie en torno al equilibrio (caracterizado
+por un supraíndice $0$), es decir,
+\[
+	m_{ij} \approx m_{ij}( q_i^0, ..., q_n^0 ) + \sum_k \dpare{ m_{ij} }{ q_k }{q^0}( q_k - q_k^0 )
+\]
+
+
+Haciendo la aproximación consistente resulta 
 \[
 	\Lag = T - V = - \frac{1}{2} \sum_{i,j}^n \left. \dparcru{V}{q_j}{q_i}\right|_{q_i^0}(\eta_i)(\eta_j) +
 		\frac{1}{2} \sum_{i,j}^n \left. m_{ij}\right|_{q_i^0} \dot{\eta}_i \dot{\eta}_j
 \]
-con $V_{ij} \equiv \partial^2 V/ \partial q_i \partial q_j |_{q_i^0} , m_{ij} = m_{ij}|_{q_i^0}$ simétricos 
-y donde $\eta_i = q_i - q_i^0$. Con esta nomenclatura puede escribirse
+con $V_{ij} \equiv \partial^2 V / ( \partial q_i \partial q_j ) |_{q_i^0}, m_{ij} = m_{ij}|_{q_i^0}$ simétricos 
+y donde se ha definido $\eta_i = q_i - q_i^0$. Notemos que $\dot{q}_i = \dot{\eta}_i $.
+Con esta nomenclatura puede escribirse
 \[
 	\Lag = \frac{1}{2} \sum_{i,j=1}^n m_{ij} \dot{\eta}_i \dot{\eta}_j - \frac{1}{2} \sum_{i,j=1}^n V_{ij} \eta_i \eta_j
 \]

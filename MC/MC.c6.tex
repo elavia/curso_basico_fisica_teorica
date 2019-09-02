@@ -2308,6 +2308,134 @@ y entonces
 con $d\vb{\Omega}/dt = 0$
 
 
+\begin{ejemplo}{\bf Problema 18}
+
+\includegraphics[scale=0.4]{images/fig_mc_problema_18.jpg}
+
+Del dibujo de la situación física ya se percibe que no hay cambios apreciables en $\Psi$. Asimismo
+\[
+	I_1 = I_2, \qquad  I_3 \equiv I
+\]
+
+Dado que el torque $\vb{N} = \vb{x} \times \vb{F}$ está todo en $\hat{1}, \hat{2}$ las ecuaciones de Euler, son
+\[
+	\begin{cases}
+	I_1 \dot{\Omega}_1 + \Omega_2 \Omega_3 (I_3 - I_2 ) = N_1 \\
+	\\
+	I_2 \dot{\Omega}_2 + \Omega_3 \Omega_1 (I_1 - I_3 ) = N_1 \\
+	\\
+	I_3 \dot{\Omega}_3 + \Omega_1 \Omega_2 (I_2 - I_1 ) = N_3 = 0 
+	\end{cases}
+\]
+Entonces, ahora proyectamos $\vb{\Omega}$ relacionándolos con los ángulos de Euler.
+\[
+	\Omega_1 = \dot{\theta} \cos \Psi + \dot{\vp} \sin \theta \sin \Psi
+\]
+\[
+	\Omega_2 = \dot{\vp} \sin \theta \cos \Psi - \dot{\theta}\sin\Psi
+\]
+\[
+	\Omega_3 = \dot{\vp} \cos\theta + \dot{\Psi}
+\]
+y hay que hacer las derivadas temporales de estas cosas.
+
+Dada la simetría, $\Psi$ no cambia y se supone constante.
+[No es claro lo siguiente]
+
+\includegraphics[scale=0.4]{images/fig_mc_problema_18_duda.jpg}
+
+Si $\dot{\Psi}=cte\equiv \Omega$ entonces con $\theta \sim \pi/2$ y $\sin\theta \sim 1$ es $\cos\theta \sim(\pi/2-\theta)$
+y los términos cuadráticos van a la basura. Tenemos
+\[
+	\Omega_1 = \dot{\theta} \qquad \dot{\Omega}_1 = \ddot{\theta} + \dot{\vp} \Omega
+\]
+\[
+	\Omega_2 = \dot{\vp} \qquad \dot{\Omega}_2 = \ddot{\vp} - \dot{\theta} \Omega
+\]
+\[
+	\Omega_3 = \dot{\vp}\left( \frac{\pi}{2} - \theta \right) +  \Omega \qquad 
+	\dot{\Omega}_3 = \ddot{\vp}\left( \frac{\pi}{2} - \theta \right)
+\]
+
+Estas aproximaciones conducen al siguiente sistema
+\[
+	\begin{cases}
+		I_1 (\ddot{\theta} + \dot{\vp}\Omega ) + \dot{\vp} \left[ \dot{\vp}( \frac{\pi}{2} - \theta ) + \Omega \right] ( I_3 - I_1 ) = N_1 \\
+		\\
+		I_2 (\ddot{\vp} - \dot{\theta}\Omega ) + \dot{\theta} \left[ \dot{\vp}( \frac{\pi}{2} - \theta ) + \Omega \right] ( I_1 - I_3 ) = N_2 \\
+		\\
+		I \left[ \dot{\vp}( \frac{\pi}{2} - \theta ) \right] +  \underbrace{\dot{\theta} \dot{\vp} ( I_2 - I_1 )}_{= 0} = 0\\
+	\end{cases}
+\]
+
+Luego, se proyecta el torque donde debemos notar que no podemos usar $\Psi$  fijo
+\[
+	\vb{N} = \ell \hat{3} \times [ \sin\theta \sin\Psi \hat{1} + \sin\theta \cos\Psi \hat{2} + \cos \theta \hat{3} ] m g
+\]
+\[
+	\vb{N} = - m g \ell \sin\theta \sin (\Omega t) \hat{2} + m g \ell \sin\theta \cos (\Omega t)
+\]
+donde notando que los $\sin\theta \sim 1$ metemos esta información en el sistema, y resulta
+\[
+	\begin{cases}
+	I_1 (\ddot{\theta} + \dot{\vp}\Omega ) + \dot{\vp} \Omega ( I_3 - I_1 ) = m g \ell \cos (\Omega t) \\
+	\\
+	I_1 (\ddot{\vp} - \dot{\theta} \Omega ) + \dot{\theta} \Omega ( I_1 - I_3 ) = - m g \ell \sin (\Omega t)
+	\end{cases}
+\]
+o bien 
+\[
+	\begin{cases}
+	I_1 \ddot{\theta} + \dot{\vp} \Omega I_3 = m g \ell \cos (\Omega t) \\
+	\\
+	I_1 \ddot{\vp} - \dot{\theta} \Omega I_3 = - m g \ell \sin (\Omega t)
+	\end{cases}
+\]
+
+Definimos una variable compleja $\lambda = \theta + i \vp $ para la resolución, entonces el sistema
+pasa a 
+\[
+	I_1 (\ddot{\theta} + i \ddot{\vp} ) - i I \Omega ( \dot{\theta} + i \dot{\vp} ) = m g \ell \euler^{ -i \Omega t },
+\]
+que expresada en términos de $\lambda$ se transforma en 
+\[
+	\ddot{\lambda} - i\frac{I \Omega}{I_1} \dot{\lambda} = \frac{m \ell}{I_1} \euler^{-i \Omega t},
+\]
+luego la definición de $a \equiv I/I_1$ y $ b = m \ell / I_1 $ nos lleva a
+\[
+	\dot{\lambda} - i a \lambda = \frac{ib}{\Omega} \euler^{-i \Omega t} + K.
+\]
+Esto es una ecuación no homogénea. Se resuelve primero la parte homogénea $\dot{\lambda} - ia\lambda = 0$
+como 
+\[
+	\lambda(t) = A \euler^{iat} + C.
+\]
+
+Entonces la ecuación entera será (factor integrante mediante?)
+\[
+	\euler^{-i a t } ( \dot{\lambda} - i a \lambda ) = \frac{ib}{\Omega} \euler^{-i \Omega t + i \pi/2 - i a t } + K \euler^{ - i a t }
+\]
+o bien 
+\[
+	\dtot{}{t}\left( \right) = \frac{b}{\Omega}  \euler^{-i [ (\Omega + a ) t - \pi/2 ] } + K \euler^{ - i a t },
+\]
+cuya solución es
+\[
+	\lambda( t ) = \frac{ib}{\Omega(\Omega+a)} \euler^{-i(\Omega t - \pi/2)} + i K/a.
+\]
+
+Finalmente,
+\[
+	\lambda( t ) = A \euler^{iat} + D \euler^{-i(\Omega t - \pi/2)} + i K/a
+\]
+y las soluciones buscadas serán
+\[
+	\Re{\lambda(t)} = \theta(t) \qquad \qquad \Im{\lambda(t)} = \vp(t)
+\]
+
+No hay que perder de vista que esta solución es válida para $\theta \sim \pi/2$.
+
+\end{ejemplo}
 
 
 
