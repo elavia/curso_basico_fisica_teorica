@@ -74,6 +74,8 @@ $\varphi$.}
 
 El problema físico tiene dos constantes aunque la resolución presenta cuatro (dos complejos, con parte real e imaginaria).
 
+Nótese que el desarrollo del potencial a orden dos equivale a una fuerza linealizada, merced a que $ m \ddot{x} = - dV/dx$.
+
 \subsection{Varias variables}
 
 En el caso de un potencial $V(\vb{x}_1, ...,\vb{x}_n)$ hay que hallar las raíces del mismo y luego desarrollar en torno a los puntos
@@ -106,18 +108,42 @@ La energía cinética es
 donde $m_{ij}$ son los coeficientes de las coordenadas generalizadas y se desarrollarán en serie en torno al equilibrio (caracterizado
 por un supraíndice $0$), es decir,
 \[
-	m_{ij} \approx m_{ij}( q_i^0, ..., q_n^0 ) + \sum_k \dpare{ m_{ij} }{ q_k }{q^0}( q_k - q_k^0 )
+	m_{ij} \approx m_{ij}( q_i^0, ..., q_n^0 ) + \sum_k \dpare{ m_{ij} }{ q_k }{q^0}( q_k - q_k^0 ).
 \]
 
+Estamos considerando que la energía cinética es $ T = T_2 $, pero cabría pensar que existe un $ T_0( q_1,...,q_n)$ y se lo 
+sumaríamos en ese caso al potencial $V$. En el lagrangiano que consideraremos no está presente $T_1$; queremos un potencial
+que no depende de las velocidades.
+
+\begin{ejemplo}{Sobre el término $T_1$}
+
+Para el caso de una masa fija, enhebrada en varilla que gira con velocidad angular $\omega$, el lagrangiano es
+\[
+	\Lag = \frac 1 2 m (\dot{r}^2 + r^2 \dot{\vp}^2),
+\]
+con energía
+\[
+	T = T_0 + T_2 = \frac{2}{2}mr^2\dot{\vp}^2 + \frac{2}{2}m\dot{r}^2
+\]
+donde $\dot{\vp} = \omega$ el último término no depende de la velocidad pero sí de la posición.
+Es {\it como} un potencial que genera la fuerza ficticia.
+\end{ejemplo}
+
+\notamargen{Esta aproximación y formalismo sirve para un mínimo y un sistema que hace pequeños apartamientos
+respecto de ese mínimo.}
 
 Haciendo la aproximación consistente resulta 
 \[
 	\Lag = T - V = - \frac{1}{2} \sum_{i,j}^n \left. \dparcru{V}{q_j}{q_i}\right|_{q_i^0}(\eta_i)(\eta_j) +
 		\frac{1}{2} \sum_{i,j}^n \left. m_{ij}\right|_{q_i^0} \dot{\eta}_i \dot{\eta}_j
 \]
-con $V_{ij} \equiv \partial^2 V / ( \partial q_i \partial q_j ) |_{q_i^0}, m_{ij} = m_{ij}|_{q_i^0}$ simétricos 
-y donde se ha definido $\eta_i = q_i - q_i^0$. Notemos que $\dot{q}_i = \dot{\eta}_i $.
-Con esta nomenclatura puede escribirse
+con $V_{ij} \equiv \partial^2 V / ( \partial q_i \partial q_j ) |_{q_i^0}, m_{ij} = m_{ij}|_{q_i^0}$, ambos simétricos, 
+y donde se ha definido $\eta_i = q_i - q_i^0$, que es un apartamiento típico de la posición de equilibrio. 
+Notemos que $\dot{q}_i = \dot{\eta}_i $. Nótese también que el término lineal en
+la aproximación de $m_{ij}$ al verse multiplicado por el producto $\dot{q}_i\dot{q}_j$ es ya de orden cúbico por lo cual debe
+descartarse para ser consistentes con las aproximaciones hechas en el potencial.
+
+Con esta nomenclatura puede escribirse el {\it lagrangiano de pequeñas oscilaciones}
 \[
 	\Lag = \frac{1}{2} \sum_{i,j=1}^n m_{ij} \dot{\eta}_i \dot{\eta}_j - \frac{1}{2} \sum_{i,j=1}^n V_{ij} \eta_i \eta_j
 \]
@@ -136,11 +162,14 @@ son $n$ ecuaciones diferenciales de Euler,
 	\sum_{j=1}^n m_{kj} \ddot{\eta}_j + V_{kj} \eta_j = 0 \qquad k=(1,...,n).
 \]
 
+Esto es un oscilador armónico para cada partícula. Se puede pensar en todas las partículas unidas por resortes acoplados.
+
 Se propone como solución 
 \[
 	\eta_j(t)  = A_j e^{i\omega t}
 \]
-tomando al final del proceso $\Re\{A_j e^{i\omega t}\}$ como solución física. Esta elección lleva a
+de frecuencia $\omega$, idéntica para todas las partículas, tomando al final del proceso $\Re\{A_j e^{i\omega t}\}$ como 
+solución física. Esta elección lleva a
 \[
 	\sum_{j=1}^n ( - \omega^2 m_{kj} + V_{kj} ) A_j = 0
 \]
@@ -152,16 +181,24 @@ que no es otra cosa que un problema de autovalores y autovectores generalizado. 
 \[
 	\left| \mathbb{V} -\omega^2\mathbb{T} \right| = 0
 \]
-siendo $\omega^2_1, ...,\omega^2_n$ autofrecuencias con $\omega^2_s \in \mathbb{R}$ y $\omega^2_s \geq 0$.
+lo cual me hará buscar un polinomio característico $P^n[\omega^2]$ de orden $n$ en $\omega^2$.
+Así se trendrán $n$ valores para $\omega^2$ con $\omega^2_s \in \mathbb{R}$ y $\omega^2_s \geq 0$, que serán las
+autofrecuencias o frecuencias propias $\omega^2_1, ...,\omega^2_n$. 
 
-Entonces, dado un $V=V(q_i)$ puede ser más fácil obtener explícitamente la serie de Taylor con 
+Para cada $\omega$ se tiene una solución
+\[
+	\eta_j^s = A_j^s e^{i\omega_s t}	 \qquad s=1,...,N
+\]
+pero el movimiento general será una combinación de todas las frecuencias,
+\[
+	\eta_j(t) = \sum_{s=1}^N c_s A_j^s e^{i\omega_s t}.
+\]
+
+En general, dado un $V=V(q_i)$ puede ser más fácil obtener explícitamente la serie de Taylor con 
 $\partial^2 V/ \partial q_i \partial q_j |_{q_i^0}$ o bien cambiar variable $\eta = q_i - q_i^0$ y quedarse
 con los términos cuadráticos en $\eta_i \eta_j$. Para la energía cinética $T=T(q,\dot{q})$ puede ser más
 fácil evaluar $m_{ij}(q_i)|_{q_i^0}$ y quedarnos con los términos cuadráticos en $\dot{\eta}_i \dot{\eta}_j$.
 
-\[
-	\eta_j^s = A_j^s e^{i\omega_s t}	 \qquad s=1,...,N
-\]
 Vectorialmente es 
 \[
 	\vb{\eta}^s = \vb{A}_j^s e^{i\omega_s t} = \begin{pmatrix}
