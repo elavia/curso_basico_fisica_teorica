@@ -199,6 +199,84 @@ $\partial^2 V/ \partial q_i \partial q_j |_{q_i^0}$ o bien cambiar variable $\et
 con los términos cuadráticos en $\eta_i \eta_j$. Para la energía cinética $T=T(q,\dot{q})$ puede ser más
 fácil evaluar $m_{ij}(q_i)|_{q_i^0}$ y quedarnos con los términos cuadráticos en $\dot{\eta}_i \dot{\eta}_j$.
 
+Veamos la solución para una frecuencia dada,
+\[
+	\sum_j ( V_{kj} - \omega_s^2 m_{kj} ) A_j^s = 0
+\]
+y como usamos una raíz $\omega_s$ se tendrá una ecuación linealmente dependiente que tiraremos. Serán
+ahora $N-1$ ecuaciones,
+\[
+	\sum_j ( V_{kj} - \omega_s^2 m_{kj} ) \frac{A_j^s}{A_1^s} = 0
+\]
+y definimos el cociente $a_j^s \equiv {A_j^s}/{A_1^s}$ al pasar dividiendo la amplitud del modo cuya frecuencia estamos
+considerando. Entonces
+\[
+	\sum_j ( V_{kj} - \omega_s^2 m_{kj} ) a_j^s = - V_{k1} - \omega_s^2 m_{k1} \qquad k=1,...,N-1
+\]
+\notamargen{Acá sería bueno poner explícitamente hasta donde llega la sumatoria y explicitar qué $\omega$ se usa.}
+
+Entonces como $N-1$ ecuaciones no homogéneas tienen solución real, entonces $a_j$ es un cociente real y todo los
+$A_s^j$ tienen que tener la misma fase. [mmm?]
+
+Veamos ahora que las frecuencias son reales. Para ello se multiplica por el complejo conjugado y se suma
+\[
+	\sum_k A_k^{s*} \sum_j V_{kj} A_j^s = \omega_s^2 \sum_k A_k^{s*} \sum_j m_{kj} A_j^s
+\]
+\[
+	\sum_k A_k^{s} \sum_j V_{kj} A_j^{s*} = \omega_s^{2*} \sum_k A_k^{s} \sum_j m_{kj} A_j^{s*}
+\]
+y usando la simetría de $m_{kj}, V_{kj}$ se restan estas ecuaciones y se obtiene
+\[
+	0 = ( \omega^2_s - \omega^{2*}_s ) \sum_k \sum_j  A_k^{s*} m_{kj} A_j^{s}
+\]
+y como la doble sumatoria es no nula se sigue que las frecuencias son reales.
+Incluso se puede despejar
+\[
+	\omega_s^2 = \frac{ \sum_k \sum_j  A_k^{s*} V_{kj} A_j^{s} }{ \sum_k \sum_j  A_k^{s*} m_{kj} A_j^{s} }
+\]
+Ambos, numerador y denominador son definidos positivos.
+Si el numerador fuese negativo para alguna dirección, eso significa que en esa dirección será un máximo (sería una
+especie de punto silla); pequeñas oscilaciones no valdrá en esa dirección.
+
+Por otra parte, si se consideran dos frecuencias diferentes
+\[
+	0 = ( \omega^2_s - \omega^{2*}_p ) \sum_k \sum_j  A_k^{s*} m_{kj} A_j^{p}
+\]
+entonces lo que debe ser nulo es la doble sumatoria. Entonces, en la {\it métrica} dada por $m_{jk}$ $A_j$ y $A_k$
+son perpendiculares.
+Para determinar el $A_1$ impongo
+\[
+	{A^t}^{p*} M A^p = 1
+\]
+y los $A_j$ se {\it consideran} reales pués todos tienen la misma fase y son los modos normales.
+Si construyo
+\[
+	A = \begin{pmatrix}
+	A_1^1 & A_1^2 & ... \\
+	A_2^1 &       &      \\
+	...
+	\end{pmatrix},
+\]
+donde cada columna de esta matriz es un autovector. Entonces
+\[
+	A^t V A = \begin{pmatrix}
+	\omega_1^2 & 0 & ... \\
+	0 &  \omega_2^2  &      \\
+	...
+	\end{pmatrix}.
+\]
+
+\begin{ejemplo}{\bf Lo de las matrices}
+
+Si $ A^{p*} M A^s =0 $ con $ p \neq s $ entonces $M$ está definiendo una métrica pués si $ M = \mathbb{1} $ entonces
+\[
+	A^{p*} \mathbb{1} A^s = A^{p*} A^s = 0,
+\]
+lo cual significa que $A^{p*}$ y $ A^s$ son perpendiculares.
+ 
+\end{ejemplo}
+
+
 Vectorialmente es 
 \[
 	\vb{\eta}^s = \vb{A}_j^s e^{i\omega_s t} = \begin{pmatrix}
