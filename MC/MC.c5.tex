@@ -461,8 +461,214 @@ no se puede convertir en osciladores independientes.
 \]
 
 
+\begin{ejemplo}{\bf Problema 14 Método de Lagrange}
+
+\includegraphics[scale=0.5]{images/fig_mc_lagrangebola_1.jpg}
+
+El lagrangiano es
+\[
+	\Lag = \frac 1 2 m ( (b-a)^2 \dot{\beta}^2 + \dot{z}^2 ) + 
+	\frac 1 2 I ( \dot{\vp}^2 + \dot{\theta}^2 + \dot{\psi}^2 + 2 \dot{\psi} \dot{\vp} \cos\theta ) 
+	- m g z
+\]
+y como la velocidad $ \vb{v}_p $ es nula, se tiene 
+\[
+	\vb{v}_p = 0 = \vb{V}_{cm} + \vb{\Omega} \times a \hat{\vp}
+\]
+que lleva a
+\[
+	0 = (b-a)\dot{\beta}\hat{\beta} + \dot{z}\hat{z} +
+	[\omega_\rho\hat{\rho} + \omega_\beta\hat{\beta} + \omega_z\hat{z} ]\times a\hat{\rho}
+\]
+\[
+	0 = (b-a)\dot{\beta}\hat{\beta} + \dot{z}\hat{z} + a\omega_z\hat{\beta} - a\omega_\beta\hat{z} 
+\]
+
+La condición de rodadura es
+\[
+	\begin{cases}
+	 (b-a)\dot{\beta} + a \omega_z = 0 \\
+	 \dot{z} - a \omega_\beta = 0
+	\end{cases}
+\]
+y como la velocidad en cartesianas es $ \vb{\Omega} = \Omega_x \hat{x} + \Omega_y \hat{y} + \Omega_z \hat{z} $,
+la conversión a los ejes del problema es
+\[
+	\hat{\rho} = \cos \beta \hat{x} + \sin \beta \hat{y} \qquad 
+	\hat{\beta} = -\sin \beta \hat{x} + \cos \beta \hat{y}
+\]
+o bien
+\[
+	\hat{x} = \cos \beta \hat{\rho} - \sin \beta \hat{\beta} \qquad 
+	\hat{y} = \sin \beta \hat{\rho} + \cos \beta \hat{\beta}
+
+\]
+entonces
+\[
+	\vb{\Omega} = \omega_\rho \hat{\rho} + \omega_\beta \hat{\beta} + \omega_z \hat{z}
+\]
+donde 
+\[
+	\omega_\rho = \Omega_x \cos\beta + \Omega_y \sin\beta \qquad 
+	\omega_\beta = \Omega_y \cos\beta + \Omega_x \sin\beta 
+\]
+
+Luego de algún álgebra
+\[
+	\omega_\rho = \dot{\psi} \sin\theta \sin(\vp-\beta) + \dot{\theta} \cos(\vp-\beta)
+\]
+\[
+	\omega_\beta = -\dot{\psi} \sin\theta \cos(\vp-\beta) + \dot{\theta} \sin(\vp-\beta)
+\]
+\[
+	\omega_z = \dot{\psi} \cos\theta + \dot{\vp}
+\]
+
+Pero como
+\[
+	(b-a) \beta + a \dot{\vp} + a \dot{\psi} \cos\theta = 0 ,
+\]
+\[
+	\dot{z} -a \dot{\theta} \sin(\vp-\beta) + a\dot{\psi}\sin\theta\cos(\vp -\beta) = 0,
+\]
+conviene utilizar multiplicadores de Lagrange,
+\[
+	\dtot{}{t}\left( \dpar{\Lag}{\dot{q}_k} \right) - \dpar{\Lag}{q_k} = \sum_{\ell=1}^2 \lambda_\ell a_{\ell k}
+\]
+lo cual lleva a 
+\[
+	m(b-a)^2 \ddot{\beta} = \lambda_1 (b-a) \qquad \qquad 
+	m \ddot{z} + m g = \lambda_2
+\]
+\[
+	I \ddot{\vp} + I \dtot{}{t}( 2 \dot{\psi} \cos\theta ) = a \lambda_1
+\]
+
+Haciendo gradiente en los vínculos,
+\[
+	\lambda_1 ( [b-a] \delta\beta + a\delta\vp + a\cos\theta\delta\psi) = 0
+\]
+\[
+	\lambda_2 (\delta z - a\sin(\vp-\theta)\delta\theta + a\sin\theta \cos(\vp-\beta)\delta\psi) = 0
+\]
+y entonces
+\[
+	I \ddot{\theta} +  I \dot{\psi} \dot{\vp} \sin\theta ) =
+	- a \lambda_2 \vp \sin (\vp - \beta)
+\]
+\[
+	I \ddot{\psi} +  I \dtot{}{t}( \dot{\psi} \cos\theta ) =
+	\lambda_1 a \cos\theta + \lambda_2 \vp \sin \theta \cos(\vp - \theta)
+\]
+
+Tenemos siete ecuaciones con siete incógnitas. Una sugerencia para resolverlo alternativamente
+es a través de las ecuaciones de Newton,
+\[
+	m\dot{\vb{V}_{cm}} = \vb{f} + \vb{N} \qquad \qquad 
+	I \dot{\vb{\omega}} = \vb{t}
+\]
+
+\includegraphics[scale=0.5]{images/fig_mc_lagrangebola_2.jpg}
+
+\[
+	\dtot{\omega}{t} = \left.\dtot{\omega}{t}\right| + \dot{\beta}\hat{\beta} \times \vb{\omega}
+\]
+lo cual nos debería conducir a algo de la forma
+\[
+	(I + ma^2)\ddot{\omega}\vp + \dot{\vp} I \omega_\vp = 0
+\]
+y sale que $\omega_\rho = \dot{\vp} \omega_\vp$ siendo $\dot{\vp}$ y $\dot{z}$ constantes.
+
+\end{ejemplo}
 
 
+\begin{ejemplo}{\bf Problema de la molécula diatómica}
+
+\includegraphics[scale=0.5]{images/fig_mc_molecula_1.jpg}
+
+Acá hay que escribir el potencial con cuidado,
+\[
+	V = V_\alpha(\alpha) + V_{Cso}(r) + V_{OH}(r'),
+\]
+donde 
+\[
+	V_\alpha(\alpha) = \frac{k\ell^2}{2}(\pi - \alpha)^2
+\]
+y $\ell$ es un $r, r'$ de equilibrio.
+\[
+	V_{Cso}(r) = 4 \epsilon 
+	\left[ \Frac{\sigma}{r}^{12} - \Frac{\sigma}{r}^6\right]
+\]
+\[
+	V_{OH}(r') = \frac{V_{Cso}(r') }{15}
+\]
+y según se ve ya está separado el mismo.
+Calculamos las derivadas del potencial,
+\[
+	V_{\alpha\alpha} = \dpar[2]{V}{\alpha} = k\ell^2 
+\]
+y de 
+\[
+	\dpar{V_{Cso}}{r}(r) = 0
+\]
+sale un $r_{eq}$ que cumple $r_{eq} = \sigma 2^{1/12}\equiv \ell$ y luego
+\[
+	\left. V_{Cso}{''}\right|_{eq} = 24 \epsilon 
+	\left[ \frac{26}{r^2} \Frac{\sigma}{r}^{12} - \frac{7}{r^2} \Frac{\sigma}{r}^6\right] = k_r
+\]
+donde los términos con $\sigma$ equivalen a $4\ell^2$ y $2\ell^2$. Además,
+\[
+	V_{rr} = k_r \qquad V_{r'r'} = \frac{k_r}{15}
+\]
+
+Esto define
+\[
+	V = \begin{pmatrix}
+	 V_{\alpha\alpha} & 0 & 0 & 0 \\
+	 0 & V_{rr} & 0 & 0 \\
+	 0 & 0 & V_{r'r'} & 0  \\
+	 0 & 0 & 0 & ...
+	 \end{pmatrix}
+\]
+
+En general tenemos más grados de libertad que tres. Ubicamos el centro de masa en
+el Cesio por ser muy masivo. Entonces pierdo tres grados de libertad y me quedan
+seis. Ignoro rotación, y otra cosa más [¿?]
+
+\includegraphics[scale=0.5]{images/fig_mc_molecula_3.jpg}
+
+\includegraphics[scale=0.5]{images/fig_mc_molecula_2.jpg}
+
+Restan cuatro grados de libertad $r, \vp, r', \beta$.
+\[
+	\dot{X}_0^2 = \dot{r}^2 + r^2 \dot{\vp}^2
+\]
+\[
+	\vb{X}_0 = r \cos (\vp) \hat{x} + r \sin (\vp) \hat{y}
+\]
+\[
+	\vb{X}_H = \vb{X}_0 + r' \cos (\vp + \beta) \hat{x} + r' \sin (\vp + \beta) \hat{y}
+\]
+y el cuadrado es
+\[
+	\dot{X}_H^2 = \dot{X}_0^2 + \dot{r'}^2 + {r'}^2 ( \dot{\vp} + \dot{\beta} )^2
+\]
+\begin{multline}
+	2 \dot{r} \dot{r'} [ \cos \vp \cos (\beta + \vp) + \sin\vp \sin(\beta + \vp) ] + \\
+	2 {r} {r'} [ \sin(\beta + \vp) \sin\vp (\dot{\beta} + \dot{\vp}) \dot{\vp} + \cos(\beta + \vp) \cos\vp \dot{\vp} (\dot{\beta} + \dot{\vp}) ] + \\
+	2 \dot{r} {r'} [ \cos (\beta + \vp) \sin \vp - \cos \vp \sin (\beta + \vp)] (\dot{\beta} + \dot{\vp}) + \\
+	2 {r} \dot{r'} [ \dot{\vp} \cos\vp \sin(\beta + \vp) - \dot{\vp} \sin\vp \cos (\beta + \vp)] 
+\end{multline}
+donde los últimos dos se {\it mueren} al aproximar.
+Finalmente el lagrangiano de pequeñas oscilaciones resulta en
+\[
+	\Lag = \frac {17} 2 m ( \dot{r}^2 + r^2 \dot{\vp}^2 ) + 
+	\frac m 2 ( \dot{r'}^2 + {r'}^2( \dot{\vp} + \dot{\beta} ) ) +
+	\frac m 2 ( 2 \dot{r} \dot{r'} + 2 \ell^2 ( \dot{\beta} + \dot{\vp} ) \dot{\vp} ) - 
+	\frac{k_r r^2}{2} - \frac{k_{r'} {r'}^2}{2} - \frac{k_\beta \beta^2}{2}
+\]
+en donde los $r^2$ y ${r'}^2$ son ambos $\ell^2$.
+\end{ejemplo}
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
