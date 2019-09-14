@@ -217,6 +217,7 @@ considerando. Entonces
 
 Entonces como $N-1$ ecuaciones no homogéneas tienen solución real, entonces $a_j$ es un cociente real y todo los
 $A_s^j$ tienen que tener la misma fase. [mmm?]
+La fase viene determinada por las condiciones iniciales.
 
 Veamos ahora que las frecuencias son reales. Para ello se multiplica por el complejo conjugado y se suma
 \[
@@ -244,12 +245,17 @@ Por otra parte, si se consideran dos frecuencias diferentes
 \]
 entonces lo que debe ser nulo es la doble sumatoria. Entonces, en la {\it métrica} dada por $m_{jk}$ $A_j$ y $A_k$
 son perpendiculares.
-Para determinar el $A_1$ impongo
+Para determinar el $A_1$ (que era el parámetro que permanecía indeterminado) impongo
 \[
 	{A^t}^{p*} M A^p = 1
 \]
 y los $A_j$ se {\it consideran} reales pués todos tienen la misma fase y son los modos normales.
-Si construyo
+Se está pidiendo que de uno la norma en la métrica dada por $M$.
+
+Si la raíz del polinomio $P^n$ tiene multiplicidad $k$, se tienen $k$ ecuaciones linealmente dependientes y hay que
+arrojar al cesto de la basura $k$ ecuaciones.
+
+Si construyo la matriz
 \[
 	A = \begin{pmatrix}
 	A_1^1 & A_1^2 & ... \\
@@ -257,7 +263,20 @@ Si construyo
 	...
 	\end{pmatrix},
 \]
-donde cada columna de esta matriz es un autovector. Entonces
+donde cada columna de esta matriz es un autovector. Entonces se ve que esta matriz {\it diagonaliza} a $M$, i.e.
+\[
+	A^t M A = \begin{pmatrix}
+	1 & 0 & ... \\
+	0 &  1  &      \\
+	...
+	\end{pmatrix} = \mathbb{1}.
+\]
+
+Asimismo, como 
+\[
+	V A = \omega^2 M A,
+\]
+eso conduce a que 
 \[
 	A^t V A = \begin{pmatrix}
 	\omega_1^2 & 0 & ... \\
@@ -265,6 +284,7 @@ donde cada columna de esta matriz es un autovector. Entonces
 	...
 	\end{pmatrix}.
 \]
+\notamargen{Hay que repasar esto.}
 
 \begin{ejemplo}{\bf Lo de las matrices}
 
@@ -276,6 +296,7 @@ lo cual significa que $A^{p*}$ y $ A^s$ son perpendiculares.
  
 \end{ejemplo}
 
+\subsection{Expresión vectorial}
 
 Vectorialmente es 
 \[
@@ -354,7 +375,10 @@ interpolando a la matriz
 \[
 	A^t \mathbb{V} A = \omega^2 A^t \mathbb{T} A= \omega^2 \mathbb{1}
 \]
-y sea ahora el siguiente cambio de coordenadas
+
+\subsection{Un cambio de coordenadas}
+
+Se puede incluso realizar un cambio de coordenadas
 \[
 	\vb{\eta} = A \vb{\xi}
 \]
@@ -362,8 +386,8 @@ tal que
 \[
 	A^{n\times n} \xi^{n\times 1} \qquad \qquad  (A \vb{\xi} )^t = {\xi^t}^{1 \times n} {A^t}^{n \times n}
 \]
-y que se llaman coordenadas normales.
-
+y que se llaman coordenadas normales. Se resuelve el problema en estas coordenadas $\xi$ y luego se regresa a las
+originales $\eta$
 \[
 	\Lag = \frac{1}{2} \dot{\vb{\eta}}^t \mathbb{T} \dot{\vb{\eta}} - \frac{1}{2} \dot{\vb{\eta}}^t \mathbb{V} \dot{\vb{\eta}}
 \]
@@ -378,6 +402,10 @@ y que se llaman coordenadas normales.
 \[
 	\Lag = \frac{1}{2} \sum_i \dot{\vb{\xi}}_i^2 - \frac{1}{2} \sum_i \vb{\xi}_i^2 \omega^2_i 
 \]
+
+Los autovectores son los modos normales. Son $N$ osciladores armónicos independientes. Se pasa de un problema de muchas partículas
+interactuantes a uno de $N$ partículas que no interactúan.
+
 \[
 	\frac{d}{dt}\left( \dpar{\Lag}{\dot{\xi}_i} \right)- \dpar{\Lag}{\xi_i} = \sum_i \ddot{\xi}_i + \omega^2_i \xi_i = 0 
 \]
@@ -387,8 +415,22 @@ y son $N$ ecuaciones de Euler-Lagrange.
 \]
 de modo que si $\omega^2 = \omega^2_i$ entonces
 \[
-	\xi_i = C_i e^{i\omega_i t}
+	\xi_i = C_i e^{i\omega_i t}.
 \]
+
+\notamargen{Hay que consolidar este material disperso y confuso!}
+
+\[
+	\xi_\ell(t) = C_\ell \cos( \omega_\ell t + \vp_\ell )
+\]
+y entonces
+\begin{align*}
+	\eta_1(t) &= \sum_{\ell} A_1^\ell C_\ell \cos( \omega_\ell t + \vp_\ell ) \\
+	\eta_2(t) &= \sum_{\ell} A_2^\ell C_\ell \cos( \omega_\ell t + \vp_\ell ) \\
+	... & \\
+	\eta_N(t) &= \sum_{\ell} A_N^\ell C_\ell \cos( \omega_\ell t + \vp_\ell )
+\end{align*}
+que son soluciones con $\omega_i \neq 0$. Son $\eta$ coordenadas normales y $\xi$ coordenadas colectivas [no es al revés?].
 
 Digamos que en coordenadas normales
 \[
@@ -446,6 +488,219 @@ En conclusión podemos decir varias cosas,
  \]
  si por ejemplo generan dos autovectores de esta forma.
 \end{itemize}
+
+\subsection{Coordenadas colectivas y normales}
+
+\includegraphics[scale=0.5]{images/fig_mc_coord_normales_colectivas.jpg}
+
+Las ecuaciones de Newton del sistema son
+\[
+	m_1 \ddot{x}_1 = k(x_2-x_1-\ell_0) \qquad \qquad m_2 \ddot{x}_2 = -k(x_2-x_1-\ell_0)
+\]
+que verifican
+\[
+	m_1 \ddot{x}_1 + m_2 \ddot{x}_2 = 0,
+\]
+y entonces
+\[
+	\ddot{x}_2 - \ddot{x}_1 = -k \left( \frac{1}{m_1} + \frac{1}{m_2} \right) ( x_2-x_1-\ell_0 )
+\]
+
+Definiendo $x_2-x_1 = x_{rel}$ se pasa de un problema de dos partículas acopaladas $(x_1,x_2)$ a otro de dos partículas
+desacopladas; una oscila y la otra se traslada,
+\[
+	\mu \ddot{x}_{rel} + k (x_{rel} - \ell_0 ) = 0 \qquad \ddot{x}_{cm} = 0
+\]
+y $x_{rel}, x_{cm}$ son coordenas colectivas, pero no corresponden a un movimiento real de un sistema.
+Tendré dos problemas separados que pueden, dado el caso, excitarse por separado.
+
+En el caso de $N$ osciladores, si hay algún $\omega_i=0$ se tendrá
+\[
+	\Lag = \sum_{i=1}^N \frac{ 1 }{ 2} \dot{\xi}_i
+\]
+y como $\ddot{\xi}_i = 0 $ entonces $\xi(t) = At + B$ es solución y 
+\[
+	\eta_N(t) = \sum_\ell A_n C_\ell \cos (\omega_\ell t + \vp_\ell) + \sum_k A_n^k (Bt + D)
+\]
+donde el primer término es por $\omega_\ell\neq 0$ y el segundo por $\omega_k=0$.
+
+\begin{ejemplo}{\bf Aro fijo con bolas engarzadas}
+ 
+\includegraphics[scale=0.5]{images/fig_mc_problema_aro_modos_normales_1.jpg}  
+
+El lagrangiano correspondiente a este {\it setup} es 
+\[
+	\Lag = \frac 1 2 \left[ \dot{\theta}^2_1 + \dot{\theta}^2_2 + \dot{\theta}^2_3 + \dot{\theta}^2_4 \right] m \ell^2 
+	- \frac 1 2 k \ell^2 \left[ ( \theta_2 - \theta_1 )^2 + ( \theta_3 - \theta_2 )^2 + ( \theta_4 - \theta_3 )^2 +
+	( \theta_1 - \theta_4 )^2 \right]
+\]
+Este lagrangiano, como está, ya {\it es} de pequeñas oscilaciones. En efecto, $\theta_2^0 = \theta_1^0 $ de modo que 
+$\theta_2 - \theta_1 = \eta_2 - \eta_1 = \theta_2 - \theta_2^0 + \theta_1^0 - \theta_1$. 
+Luego,
+\[
+	V = \begin{pmatrix}
+		2k\ell^2 & - k\ell^2 & 0 & -k\ell^2 \\
+		\\
+		-k\ell^2 & 2 k\ell^2 & -k\ell^2 & 0 \\
+		\\
+		0 & - k\ell^2 & 2k\ell^2 & -k\ell^2 \\
+		\\
+		-k\ell^2 & 0 & -k\ell^2 & 2k\ell^2 
+	    \end{pmatrix}
+\]
+donde los ceros reflejan la inexistencia de resorte entre dichas partículas. Entonces
+\[
+	V - \omega^2 M = \begin{pmatrix}
+		2k\ell^2 - m \omega^2 \ell^2 & - k\ell^2 & 0 & -k\ell^2 \\
+		\\
+		-k\ell^2 & 2 k\ell^2 - m \omega^2 \ell^2 & -k\ell^2 & 0 \\
+		\\
+		0 & - k\ell^2 & 2k\ell^2 - m \omega^2 \ell^2& -k\ell^2 \\
+		\\
+		-k\ell^2 & 0 & -k\ell^2 & 2k\ell^2 - m \omega^2 \ell^2
+	    \end{pmatrix}
+\]
+ 
+Ahora hay que calcular el determinante de esta matriz $V - \omega^2 M$, que luego de desarrollar y usar el método que más le
+gusta al dilegencioso lector permite arribar a
+\[
+	P(\omega) = \mathrm{det}(V - \omega^2 M) = 
+	m\ell^2\omega(2k\ell^2 - m\ell \omega^2)^2( m\ell\omega^2-4k\ell^2),
+\]
+cuyas raíces son:
+\[
+	\omega_1^2 = 2\frac{k}{m} \qquad 
+	\omega_2^2 = 2\frac{k}{m} \qquad 
+	\omega_3^2 = 0 \qquad 
+	\omega_4^2 = 4\frac{k}{m}
+\]
+
+En este ejemplo se conserva el momento angular, de manera que hubiese sido razonable obtener una frecuencia nula 
+asociada como de hecho apareció en $\omega_3$. Resolvamos ahora ese modo. Será
+\[
+	2 k \ell^2 A_1^3 - k \ell^2 A_2^3 - k \ell^2 A_4^3 = 0,
+\]
+\[
+	- k \ell^2 A_1^3 + 2 k \ell^2 A_2^3 - k \ell^2 A_3^3 = 0,
+\]
+\[
+,	- k \ell^2 A_2^3 + 2 k \ell^2 A_3^3 - k \ell^2 A_4^3 = 0
+\]
+y resulta $A_1^3 = A_2^3 = A_3^3 = A_4^3 $.
+
+Entonces
+\[
+	\vb{A}^3 = a \begin{pmatrix}
+	              1 \\
+	              1 \\
+	              1 \\
+	              1 
+	             \end{pmatrix} 
+\]
+donde $ a = 1 / ( 2 \ell \sqrt{m} ) $ y se da 
+\[
+	\vb{A}^{3\dagger} M \vb{A}^3 = \mathbb{1}
+\]
+Este es el modo normal de $\omega^2_3=0$, que se ve dibujado bajo estas líneas
+ 
+\includegraphics[scale=0.5]{images/fig_mc_problema_aro_modos_normales_2.jpg} 
+
+Para la frecuencia $\omega_4$ es 
+\[
+	- 2 k \ell^2 A_1^4 - k \ell^2 A_2^4 - k \ell^2 A_4^4 = 0,
+\]
+\[
+	k \ell^2 A_1^4 - 2 k \ell^2 A_2^4 - k \ell^2 A_3^4 = 0,
+\]
+\[
+,	- k \ell^2 A_2^4 - 2 k \ell^2 A_3^4 - k \ell^2 A_4^4 = 0
+\]
+de manera que 
+\[
+	\vb{A}^4 = a \begin{pmatrix}
+	              1 \\
+	              -1 \\
+	              1 \\
+	              -1 
+	             \end{pmatrix} 
+\]
+donde $a = 1/( 2 \ell \sqrt{m})$. El dibujo asociado será
+
+\includegraphics[scale=0.5]{images/fig_mc_problema_aro_modos_normales_3.jpg} 
+
+Para las frecuencias {\it mellizas} $\omega_1,\omega_2 $ es 
+\[
+	- k \ell^2 A_1^1 - k \ell^2 A_3^1 = 0,
+\]
+\[
+	- k \ell^2 A_2^1 - k \ell^2 A_4^1 = 0,
+\]
+o bien 
+\[
+	A_1 = A_3 = 0 \qquad A_2 = A_4,
+\]
+y
+\[
+	A_2 = A_4 \qquad A_1 = -A_3
+\]
+y consecuentemente 
+\[
+	\vb{A}^1 = a \begin{pmatrix}
+	              0 \\
+	              1 \\
+	              0 \\
+	              -1 
+	             \end{pmatrix} 
+	             \qquad \qquad 
+	\vb{A}^2 = a \begin{pmatrix}
+	              1 \\
+	              0 \\
+	              -1 \\
+	              0 
+	             \end{pmatrix} 
+\]
+con $ a = 1 /(\ell\sqrt{2m})$. Los dibujos siguientes ilustran los movimientos esperados
+
+\includegraphics[scale=0.5]{images/fig_mc_problema_aro_modos_normales_4.jpg} 
+
+Con respecto a lo de aquí arriba son situaciones físicas iguales (si cambio masas no será la misma situación).
+La introducción de $M$ y $m$ (ver figurillas siguientes) rompe la degeneración y serán modos normales pero de diferente 
+frecuencia.
+Pero podría haberse elegido, ver bajo estas líneas,
+
+\includegraphics[scale=0.5]{images/fig_mc_problema_aro_modos_normales_5.jpg} 
+
+Para el caso siguiente 
+
+\includegraphics[scale=0.5]{images/fig_mc_problema_aro_modos_normales_6.jpg} 
+
+esta configuración no conserva el momento angular.
+
+Si tomamos $M=2m$ entonces podemos considerar momento angular nulo y obtengo un modo normal
+
+\includegraphics[scale=0.5]{images/fig_mc_problema_aro_modos_normales_7.jpg} 
+ 
+\[
+	\begin{pmatrix}
+	 1 & 1 & 1 & 1 
+	\end{pmatrix}
+	\begin{pmatrix}
+	 1 & 0 & 0 & 0 \\
+	 0 & 2 & 0 & 0 \\
+	 0 & 0 & 1 & 0 \\
+	 0 & 0 & 0 & 2
+	\end{pmatrix}
+	\begin{pmatrix}
+	 1 \\
+	 -1/2 \\
+	 1 \\
+	 -1/2
+	\end{pmatrix}
+\] 
+ 
+\end{ejemplo}
+
+
 
 
 % =================================================================================================
