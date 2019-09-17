@@ -835,7 +835,7 @@ y sale que $\omega_\rho = \dot{\vp} \omega_\vp$ siendo $\dot{\vp}$ y $\dot{z}$ c
 
 \end{ejemplo}
 
-
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{ejemplo}{\bf Problema de la molécula diatómica}
 
 \includegraphics[scale=0.5]{images/fig_mc_molecula_1.jpg}
@@ -922,6 +922,215 @@ Finalmente el lagrangiano de pequeñas oscilaciones resulta en
 	\frac{k_r r^2}{2} - \frac{k_{r'} {r'}^2}{2} - \frac{k_\beta \beta^2}{2}
 \]
 en donde los $r^2$ y ${r'}^2$ son ambos $\ell^2$.
+
+Definimos
+\[
+	\eta = \begin{pmatrix}
+	       r - \ell \\
+	       r' - \ell \\
+	       \beta - 0 \\
+	       \vp - 0
+	      \end{pmatrix} \qquad     
+	\qquad  \qquad 
+	\dot{\eta} = \begin{pmatrix}
+	       \dot{r} \\
+	       \dot{r'} \\
+	       \dot{\beta} \\
+	       \dot{\vp}
+	      \end{pmatrix} \qquad 
+\]
+siendo la posición de equilibrio 
+
+\includegraphics[scale=0.5]{images/fig_mc_molecula_4.jpg}
+
+La matriz del potencial $V$ es 
+\[
+	V =  \begin{pmatrix}
+		k_r	 &	0	&	0	&	0	\\
+		\\
+		0 	&	k_{r'} 	&	0	&	0	\\
+		\\
+		0	&	0	&	k_{\alpha}  &	0  \\
+		\\
+		0	&	0	&	0  	&   0
+	    \end{pmatrix}
+\]
+donde $k_r = 15 k_{r'}$ y $M_0 = 16 M_H$ (check!).
+
+Y ahora hay que armar la energía cinétic $T$ que resulta
+\[
+	T = \begin{pmatrix}
+		17 m	 &	m 	&	0	&	0	\\
+		\\
+		m 	&	m 	&	0	&	0	\\
+		\\
+		0	&	0	&	20 m \ell^2  &	2 m \ell^2  \\
+		\\
+		0	&	0	&	2 m \ell^2  	&   m \ell^2
+	    \end{pmatrix}
+\]
+
+Luego, el lagrangiano
+\[
+	\Lag = \frac{ 1 }{ 2 } \dot{\vb{\eta}}^t \mathbb{T} \dot{\vb{\eta}} -
+	\frac{1}{2} \dot{\vb{\eta}}^t \mathbb{V} \dot{\vb{\eta}}
+\]
+puede transformarse a 
+\[
+	\Lag = \frac{ 1 }{ 2 } \dot{\vb{\xi}}\dot{\vb{\xi}} - \frac{1}{2} \dot{\vb{\xi}} \omega^2 \dot{\vb{\xi}}
+\]
+y en estas nuevas coordenadas,
+\[
+	\ddot{\xi}_i + \omega^2 \xi_i = 0
+\]
+y la solución son osciladores armónicos.
+
+Para ello debería hallar $A$, donde 
+\[
+	\bar{\eta} = A \bar{\xi} 
+\]
+que verifica $A\mathbb{T}A^t = \mathbb{1}$ y $A\mathbb{V}A^t = \omega$ de modo que necesito $|\omega^2\bar{T} - 
+\bar{V}|=|M|=0$ donde es
+\[
+	M = \begin{pmatrix}
+		17 m \omega^2 - k_r	&	m \omega^2	&	0	&	0	\\
+		\\
+		m \omega^2	&	m \omega^2 - k_{r'}	&	0	&	0	\\
+		\\
+		0	&	0	&	20 m \ell^2 \omega^2 - k_\alpha	 &	2 m \ell^2 \omega^2 \\
+		\\
+		0	&	0	&	2 m \ell^2 \omega^2 	&   m \ell^2 \omega^2
+	    \end{pmatrix}
+\]
+
+Gracias a los bloques se hace menos trabajo, pués los autovalores de la matriz serán los de cada bloque.
+El primer bloque es
+\[
+	\begin{pmatrix}
+	 \displaystyle 17 \frac{m\omega^2}{k_{r'}} -\frac{k_r}{k_{r'}} &  \displaystyle \frac{m\omega^2}{k_{r'}}  \\
+	 \\
+	 \displaystyle \frac{m\omega^2}{k_{r'}} &  \displaystyle \frac{m\omega^2}{k_{r'}} - 1
+	 \end{pmatrix} =
+	\begin{pmatrix}
+	\\
+	 \displaystyle 17 \lambda - 15 & \lambda  \\
+	 \\
+	  \displaystyle \lambda & \lambda - 1 \\
+	  \\
+	 \end{pmatrix}
+\]
+y entonces
+\[
+	(17\lambda -15)(\lambda -1) - \lambda^2 =  \lambda^2 - 2\lambda + \frac{15}{16} = 0
+\]
+resulta en $\lambda_{1,2} = 5/4, 3/4$ de modo que 
+\[
+	\omega^2_1 = \frac 5 4 \frac {k_{r'}}{m} \qquad \qquad 
+	\omega^2_2 = \frac 3 4 \frac {k_{r'}}{m}
+\]
+
+El otro bloque es
+\[
+	\begin{pmatrix}
+	 20 \lambda - 1 & 2 \lambda  \\
+	 2 \lambda & \lambda
+	 \end{pmatrix} = 0 
+\]
+de manera que 
+\[
+	(20 \lambda - 1) \lambda  - 4\lambda^2 = 0 
+\]
+lo cual conduce a $\lambda_{3,4} = 1/16, 0 $. 
+
+Los coeficientes de normalización serán
+\[
+	a_4 = c_4 \begin{pmatrix}
+	       0 \\
+	       0 \\
+	       0 \\
+	       1
+	      \end{pmatrix} \qquad 
+	a_3 = c_3 \begin{pmatrix}
+	       0 \\
+	       0 \\
+	       1 \\
+	       -2
+	      \end{pmatrix} \qquad 
+	a_1 = c_1 \begin{pmatrix}
+	       1 \\
+	       -5 \\
+	       0 \\
+	       0
+	      \end{pmatrix} \qquad 
+	a_2 = c_2 \begin{pmatrix}
+	       1 \\
+	       3 \\
+	       0 \\
+	       0
+	      \end{pmatrix}
+\]
+
+Aquí la matriz se separó en bloques y entonces los autovalores serán independientes en cada
+bloque; no se mezclan entre sí.
+
+\includegraphics[scale=0.5]{images/fig_mc_molecula_5.jpg}
+
+Habría que calcular ahora la matriz modal
+\[
+	\bar{a}_1^t \mathbb{T} \bar{a}_1 = 1,
+\]
+que conduce a 
+\[
+	\begin{pmatrix}
+	17 & 1 \\
+	1  & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+	1 \\
+	-3
+	\end{pmatrix}
+	c_1^2 m = 1
+\]
+lo que arroja $c_1 = 1 /(4\sqrt{2m})$
+\[
+	\begin{pmatrix}
+	1 & 3 
+	\end{pmatrix}
+	\begin{pmatrix}
+	17 & 1 \\
+	1  & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+	1 \\
+	3
+	\end{pmatrix}
+	c_2^2 m = 1
+\]
+que da $ c_2 = c_1 $. Luego $c_3 = 1 / (4 \sqrt{m} \ell^2 )$ y $c_4$ quedó vacante.
+La matriz modal resulta
+\[
+	A = \begin{pmatrix}
+		\frac{1}{4\sqrt{2m}}	&	\frac{1}{4\sqrt{2m}}	&	0	&	0	\\
+		\\
+		\frac{-5}{4\sqrt{2m}}	&	\frac{3}{4\sqrt{2m}}	&	0	&	0	\\
+		\\
+		0	&	0	&	\frac{1}{4\sqrt{m}\ell}	&	0	\\
+		\\
+		0	&	0	&	\frac{-2}{4\sqrt{m}\ell}	&	\frac{1}{\sqrt{m}\ell}
+	    \end{pmatrix}
+\]
+
+Supongamos ahora el sistema moviéndose de acuerdo con
+\[
+	\bar{X} = 1 \bar{\xi}_2 + 3 \bar{\xi}_3
+\]
+y entonces podemos pasar a las coordenadas originales,
+\[
+	A \bar{\xi}_2 + 3 A \bar{\xi}_3
+\]
+
+\notamargen{Hay que revisar la notación aquí.}
+
 \end{ejemplo}
 
 
