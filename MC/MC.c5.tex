@@ -524,6 +524,7 @@ y como $\ddot{\xi}_i = 0 $ entonces $\xi(t) = At + B$ es solución y
 \]
 donde el primer término es por $\omega_\ell\neq 0$ y el segundo por $\omega_k=0$.
 
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{ejemplo}{\bf Aro fijo con bolas engarzadas}
  
 \includegraphics[scale=0.5]{images/fig_mc_problema_aro_modos_normales_1.jpg}  
@@ -697,6 +698,172 @@ Si tomamos $M=2m$ entonces podemos considerar momento angular nulo y obtengo un 
 	 -1/2
 	\end{pmatrix}
 \] 
+
+\notamargen{Este ejemplo se continuó en dos clases consecutivas de modo que puede haber algún pise.}
+
+\includegraphics[scale=0.35]{images/fig_mc_problema_aro_modos_normales_8.jpg} 
+
+En resumen 
+\[
+	\omega_3^2 = 0 \qquad \qquad A^3 = \frac{1}{2\sqrt{m}\ell}
+						\begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}
+\]
+\[
+	\omega_4^2 = \frac{4k}{m} \qquad \qquad A^4 = \frac{1}{2\sqrt{m}\ell}
+						\begin{pmatrix} 1 \\ -1 \\ 1 \\ -1 \end{pmatrix}
+\]
+\[
+	\omega_1^2 = \omega_2^2 = \frac{2k}{m}
+\]
+\[
+	A^1 = \frac{1}{\sqrt{2m}\ell}
+		\begin{pmatrix} 0 \\ 1 \\ 0 \\ -1 \end{pmatrix}
+	A^2 = \frac{1}{2\sqrt{2m}\ell}
+		\begin{pmatrix} 1 \\ 0 \\ -1 \\ 0 \end{pmatrix}
+\]
+\[
+	A^t M A = 1
+\]
+
+El problema dependerá de cómo excitemos al sistema. Si $\eta = A \xi $ entonces con $\omega_i \neq 0$ es
+\[
+	\xi_i = C_i \cos (\omega_i t + \vp_i),
+\]
+pero con $\omega_i = 0$ se tendrá
+\[
+	\xi_i = B_i t + D_i.
+\]
+
+Luego, como $\dot{\eta} = A \dot{\xi} $ de tal modo que 
+\[
+	A^t M \eta = A^t M A \xi \qquad \qquad  A^t M \dot{\eta} = A^t M A \dot{\xi} = \mathbb{1} \dot{xi}
+\]
+
+Las condiciones iniciales serán 
+\[
+	\eta_1(t=0) = \theta_0 \qquad \eta_i(t=0) = 0, i \neq 1 
+\]
+y los $\dot{\eta}_i(t=0)$ están en función de las $\eta$ y quiero pasarlas a $\xi$.
+
+\[
+	A^t M = \begin{pmatrix}
+	        0 & \frac{1}{\sqrt{2m}\ell} & 0 & -\frac{1}{\sqrt{2m}\ell} \\
+	        \frac{1}{\sqrt{2m}\ell} & 0 & -\frac{1}{\sqrt{2m}\ell} & 0 \\
+	        \frac{1}{2\sqrt{m}\ell} & \frac{1}{2\sqrt{m}\ell} & \frac{1}{2\sqrt{m}\ell} & \frac{1}{2\sqrt{m}\ell} \\
+	        \frac{1}{2\sqrt{m}\ell} & -\frac{1}{2\sqrt{m}\ell} & \frac{1}{2\sqrt{m}\ell} & -\frac{1}{2\sqrt{m}\ell} 
+	        \end{pmatrix}
+	        \begin{pmatrix}
+	         m & 0 & 0 & 0 \\
+	         0 & m & 0 & 0 \\
+	         0 & 0 & m & 0 \\
+	         0 & 0 & 0 & m 
+	        \end{pmatrix}
+\]
+mientras que las posiciones iniciales serán 
+\[
+	\begin{pmatrix}
+	0 \\
+	\\
+	\frac{\sqrt{m}}{\sqrt{2}\ell} \theta_0 \\
+	\\
+	\frac{\sqrt{m}}{\sqrt{2}\ell} \theta_0 \\
+	\\
+	\frac{\sqrt{m}}{\sqrt{2}\ell} \theta_0
+	\end{pmatrix} =
+	\begin{pmatrix}
+	\\
+	C_1 \cos\vp_1 \\
+	\\
+	C_2 \cos\vp_2 \\
+	\\
+	Bt + D \\
+	\\
+	C_4 \cos\psi_4 \\
+	\\
+	\end{pmatrix}
+\]
+y las velocidades iniciales por su parte,
+\begin{align*}
+	0 & = - C_1 \omega_1 \sin \vp_1 \\
+	0 & = - C_2 \omega_2 \sin \vp_2 \\
+	0 & = B \\
+	0 & = - C_3 \omega_4 \sin \vp_4 
+\end{align*}
+[tal vez un typo acá arriba]
+
+Al separar de las posiciones de equilibrio se excitan modos que no son el cero, y tendrán momento angular nulo; el
+único modo que dará momento angular no nula y por ende generará rotación es el asociado a $\omega_3^2$.
+
+Según se ve el modo uno tampoco se está excitando,
+\[
+	\vp_2 = 0 \qquad C_2 = \frac{\sqrt{m}}{2\ell} \theta_0
+\]
+\[
+	\eta = A \xi = \begin{pmatrix}
+	        0 & \frac{1}{\sqrt{2m}\ell} & \frac{1}{2\sqrt{m}\ell} & \frac{1}{2\sqrt{m}\ell} \\
+	        \\
+	        \frac{1}{\sqrt{2m}\ell} & 0 & \frac{1}{2\sqrt{m}\ell} & -\frac{1}{2\sqrt{m}\ell} \\
+	        \\
+	        0 & -\frac{1}{2\sqrt{m}\ell} & \frac{1}{2\sqrt{m}\ell} & \frac{1}{2\sqrt{m}\ell} \\
+	        \\
+	        -\frac{1}{\sqrt{2m}\ell} & 0 & \frac{1}{2\sqrt{m}\ell} & -\frac{1}{2\sqrt{m}\ell} 
+	        \end{pmatrix}
+	        \begin{pmatrix}
+		0 \\
+		\\
+		\frac{\sqrt{m}}{\sqrt{2}\ell} \theta_0 \cos(\omega_2 t)\\
+		\\
+		\frac{\sqrt{m}}{\sqrt{2}\ell} \theta_0 ( Bt + D ) \\
+		\\
+		\frac{\sqrt{m}}{\sqrt{2}\ell} \theta_2 \cos(\omega_4 t)
+	        \end{pmatrix}
+\]
+\notamargen{Chequear estas ecuaciones vectoriales!}
+
+Esto nos da los $\eta$ solución.
+Notemos que para el dibujo de los modos normales no hace falta hallar el valor de las constantes $1/(\sqrt{2m}\ell)$, etc. de
+normalización.
+
+\notamargen{La normalización está en $A^t M A$.}
+
+Si hay simetrías en el problema ($V,M$ son invariantes frente a cierta transformación)
+\[
+	VA^\ell = \omega^2 M A^\ell
+\]
+
+Una matriz,
+\[
+	B = \begin{pmatrix}
+	0 & 1 & 0 & 0 \\
+	0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 1 \\
+	1 & 0 & 0 & 0 \\
+	\end{pmatrix}
+\]
+y su inversa $B^{-1}$ transforman un versor en otro
+
+\includegraphics[scale=0.5]{images/fig_mc_problema_aro_modos_normales_9.jpg} 
+
+Pasa según las flechas rojas el sistema; pero ante este cambio el lagrangiano es invariante.
+Las matrices $B$ y $B^{-1}$ son rotaciones (la inversa es en el otro sentido) y que dejan invariante, como se dijo, al lagrangiano.
+Se ve que pasan $1000 \to 0001$ y $0100 \to 1000$,
+\[
+	BVB^t = V \qquad BVB^tB = VB \qquad BV - VB = 0
+\]
+Los autovectores de $V$ se pueden elegir dentro de los de $B$.
+
+Si $VA^\ell = \omega^2 M A^\ell$ entonces
+\[
+	BVB^t BA^\ell = \omega^2 BMB^t BA^\ell
+\]
+\[
+	VBA^\ell = \omega^2 MBA^\ell,
+\]
+aunque para esto necesito que no sean degenerados los autovectores.
+
+
+\includegraphics[scale=0.5]{images/fig_mc_problema_aro_modos_normales_10.jpg} 
+
  
 \end{ejemplo}
 
@@ -1138,3 +1305,4 @@ y entonces podemos pasar a las coordenadas originales,
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
 \end{document}
+
