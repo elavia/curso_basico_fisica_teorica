@@ -860,11 +860,154 @@ Si $VA^\ell = \omega^2 M A^\ell$ entonces
 	VBA^\ell = \omega^2 MBA^\ell,
 \]
 aunque para esto necesito que no sean degenerados los autovectores.
+Entonces, podemos escribir así:
+\[
+	- \omega^2 M + V = (2 k \ell^2 - \omega^2 m \ell^2 ) \mathbb{1} - B k \ell^2 - B^t K \ell^2
+\]
 
+Sea la misma $B$, que cumple la propiedad
+\[
+	B\hat{n} = \hat{n}+1 \qquad \qquad B^\dagger\hat{n} = \hat{n}-1
+\]
+con 
+\[
+	\hat{n} = \begin{pmatrix}
+	           0 \\
+	           ...\\
+	           1\\
+	           ...\\
+	           0
+	          \end{pmatrix}
+\]
+y $\hat{n}=\hat{N}$ y $\hat{N}+1=\hat{1}$ y $\hat{0}=\hat{N}$.
+Ahora estoy considerando el problema con $N$ bolas
 
 \includegraphics[scale=0.5]{images/fig_mc_problema_aro_modos_normales_10.jpg} 
 
- 
+\notamargen{La idea acá es tomar el lagrangiano de pequeñas oscilaciones y ver qué transformaciones dejan invariantes a las matrices del mismo.}
+
+Si tomo un vector $u$ y le aplico $B$,
+\[
+	\vb{u} = \sum \euler^{i\theta n} \hat{n},
+\]
+entonces
+\[
+	B \vb{u} = \sum \euler^{i\theta n} (\hat{n} + 1) = \euler^{-i \theta } \sum \euler^{i\theta (n+1)} (\hat{n} + 1)
+\]
+y $\theta$ es un parámetro que puede valer cualquier cosa; para ajustar [los bordes?] si veo que 
+\[
+	\euler^{i\theta (N+1)} (\hat{N} + 1) \qquad \text{en} n=N
+\]
+y
+\[
+	\euler^{i\theta 1} (\hat{1}) 
+\]
+que es lo mismo que 
+\[
+	\sum \euler^{i\theta n} \hat{n} \qquad \text{en} n=1
+\]
+entonces puedo vincular
+\[
+	\euler^{i\theta (N+1)} = \euler^{i\theta },
+\]
+de lo cual deducimos que
+\[
+	\theta = \frac{2k\pi}{N}.
+\]
+
+Ahora operamos
+\[
+	( 2 k \ell^2 \mathbb{1} - B k \ell^2 - B^\dagger k \ell^2 ) u = \omega^2 m \ell^2 \mathbb{1} u,
+\]
+\[
+	2 k \ell^2 u - k \ell \euler^{-i\theta} u - k \ell^2 \euler^{i\theta} u
+\]
+lo que lleva a
+\[
+	\left[ 2 k \ell^2 - k \ell 2 ( \euler^{i\theta} + \euler^{-i\theta} ) \right] u = \omega^2 m \ell^2 u
+\]
+o bien 
+\[
+	\omega^2 = \frac{2k}{m}\left( 1 - \cos \frac{2k'\pi}{N} \right)
+\]
+con $k'= 0, \pm 1, \pm 2, ..., \pm \frac{N-1}{2}$.
+
+Con $N=4$ es 
+\[
+	k'=0 \qquad \to \quad \omega^2=0
+\]
+que corresponde a la no degenerada y representa la rotación de todo el {\it bodoque}.
+Acá están las cuatro autofrecuencias
+\[
+	k' = \pm 1 \qquad \omega^2_1 = \omega_{-1}^2 = \frac{2k}{m}
+\]
+\[
+	k' = \pm 2 \qquad \omega^2_2 = \omega_{-2}^2 = \frac{4k}{m}
+\]
+donde que sea el $+$ o el $-$ en la frecuencia depende de si $N$ es impar la mitad son positivos y la mitad negativos.
+Para $N$ par el que sobra lo tomo positivo o negativo (cualquiera).
+
+Con los autovectores no degenerados tengo los autovalores del modo real. Para los siguientes (como son degenerados) tendré 
+que tomar una combinación lineal de ellos.
+
+Los autovectores acompañantes serán:
+\[
+	k' = 0 \qquad \begin{pmatrix}
+	               1 \\
+	               1 \\
+	               1 \\
+	               1
+	              \end{pmatrix}
+\]
+\[
+	k' = 1 \qquad \begin{pmatrix}
+	               \euler^{i \pi/2 } \\
+	               \euler^{i \pi } \\
+	               \euler^{i 3\pi/2 } \\
+	               \euler^{i 2\pi }
+	               \end{pmatrix} =
+		       \begin{pmatrix}
+	               i \\
+	               -1 \\
+	               -i \\
+	               0
+	               \end{pmatrix}
+\] 
+\[
+	k' = 1 \qquad \begin{pmatrix}
+	               \euler^{-i \pi/2 } \\
+	               \euler^{-i \pi } \\
+	               \euler^{-i 3\pi/2 } \\
+	               \euler^{-i 2\pi }
+	               \end{pmatrix} =
+		       \begin{pmatrix}
+	               -i \\
+	               -1 \\
+	               i \\
+	               0
+	               \end{pmatrix}
+\]
+
+Con estos dos debo generar independientes en combinación lineal
+\[
+	\oplus \to  \begin{pmatrix}
+	 0 \\
+	 -2 \\
+	 0 \\
+	 0
+	\end{pmatrix}
+\]
+\[
+	\ominus \to \begin{pmatrix}
+	 2 \\
+	 0 \\
+	 -2 \\
+	 0
+	\end{pmatrix}
+\]
+donde el último se multiplica por $i$.
+
+\notamargen{Esto es muy sketchi, habría que completarlo.}
 \end{ejemplo}
 
 
