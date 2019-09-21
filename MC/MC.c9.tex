@@ -29,6 +29,64 @@
 
 \chapter{Ecuaciones de Hamilton-Jacobi}
 
+
+\section{Introducción a la formulación de Hamilton}
+
+Un sistema mecánico está caracterizado por $\{ q_i, \dot{q}_i \}$ las cuales dan un estado posible del sistema, y además
+dan toda la información dinámica del mismo.
+
+Ahora se describirá al sistema en términos de $ q_i, p_i \equiv \partial\Lag/\partial\dot{q}_i$  que tiene la característica
+de producir una simetría en la mecánica así definida (la mecánica hamiltoniana).
+La simetría es tal que son intercambiables $q_i$ y $p_i$.
+
+Para las ecuaciones de movimiento se parte del hamiltoniano
+\[
+	\Ham = \sum_i p_i \dot{q}_i - \Lag( q_i, \dot{q}_i, t ),
+\]
+donde $\Ham =\Ham(q_i,p_i,t)$ tiene la misma información que $\Lag=\Lag(q_i,\dot{q}_i,t)$.
+
+Se puede hacer una analogía con la termodinámica, pues la primer ley se escribe
+\[
+	dE = dQ - dW = \left. \dpar{E}{S} \right|_V dS - \left. \dpar{E}{V} \right|_S dV,
+\]
+lo cual implica que usando $S,V$ tengo como ``potencial'' a la energía.
+Un estado termodinámico se define por dos variables; $(S,V), (T,P), (S,P), (T,V)$ que son cada par variables conjugadas.
+
+Para definir estos potenciales se usan transformadas de Legendre. Así,
+\[
+	d(E-TS) = TdS -PdV - TdS -SdT = -PdV - SdT \equiv dA
+\]
+siendo $A$ la energía libre de Helmholtz.
+\[
+	d(E+PV) = TdS -PdV + PdV + VdP = TdS + VdP \equiv dH
+\]
+siendo $H$ la entalpía.
+
+En el caso del Hamiltoniano se tiene 
+\[
+	d\Ham = \sum_i \dot{q}_i dp_i  + \sum_i p_i d\dot{q}_i - \sum_i \dpar{\Lag}{q_i} dq_i -
+	\sum_i d \dpar{\Lag}{\dot{q}_i}\dot{q}_i - \dpar{\Lag}{t}dt 
+\]
+la cual usando las ecuaciones de Euler-Lagrange y el hecho de que $\partial{\Lag}/\partial{\dot{q}_i} $ es el momento conjugado
+$p_i$ se tiene 
+\[
+	d\Ham = \sum_i \dot{q}_i dp_i  - \sum_i \dot{p}_i dq_i - \dpar{\Lag}{t}dt 
+\]
+y como esta ecuación es el diferencial total del hamiltoniano se tiene que
+\[
+	\dpar{\Ham}{t} = -\dpar{\Lag}{t} = \dtot{\Ham}{t}
+\]
+siendo la última igualdad una derivación vista oportunamente. Asimismo,
+\[
+	\dpar{\Ham}{p_i} = \sum_i \dot{q}_i \qquad \qquad 
+	\dpar{\Ham}{q_i} = -\sum_i \dot{p}_i
+\]
+que son una mayor cantidad de ecuaciones pero de orden uno (comparando con las ecuaciones del sistema en el formalismo 
+lagrangiano).
+
+Con esto definimos un espacio de fases $(p_i,q_i)$ de $2N$ dimensiones para estudiar el movimiento de un sistema de partículas.
+En el caso particular de una única partícula tendremos dos variables, $(p,q)$.
+
 \[
 	q_i \longrightarrow Q_i \equiv \beta_i \qquad p_i \longrightarrow P_i \equiv \alpha_i
 \]
