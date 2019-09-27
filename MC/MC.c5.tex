@@ -1017,13 +1017,31 @@ donde el último se multiplica por $i$.
 \section{Oscilaciones viscosas}
 % =================================================================================================
 
+El lagrangiano usual de pequeñas oscilaciones,
 \[
+	\Lag = \frac 1 2 \sum_{i,j} \dot{\eta}_i\dot{\eta}_j m_{ij} -  \frac 1 2 \sum_{i,j} {\eta}_i {\eta}_j V_{ij},
+\]
+lleva naturalmente a 
+\[
+	\sum_j m_{ij} \ddot{\eta}_j + V_{ij} \eta_j = 0
+\]
+cuya resolución es la diagonalización simultánea de $M$ y $V$.
+Si hay fuerzas viscosas presentes se obtiene
+\be
 	\sum_j m_{ij} \ddot{\eta}_j + V_{ij}\eta_j + B_{ij}\dot{\eta}_j = 0
-\]
-no se puede convertir en osciladores independientes.
+	\label{ec_viscosas}
+\ee
+
+Se necesitaría diagonalizar tres formas cuadráticas simultáneas, las tres matrices, lo cual
+en general no es posible.
+Este problema \eqref{ec_viscosas} no tiene en general modos normales. Entonces \eqref{ec_viscosas}
+no se podrá convertir en osciladores independientes.
+La resolución utiliza la misma idea; proponer $A\euler{\lambda t}$ donde $\lambda \in \mathbb{C}$
+entonces
 \[
-	det\left\{ \mathbb{V} + \omega^2 \mathbb{T} + \omega \mathbb{B}\right\} = 0
+	\mbox{det}\left\{ \mathbb{V} + \lambda^2 \mathbb{M} + \lambda \mathbb{B}\right\} = 0
 \]
+debe solicitarse para hallar la resolución.
 
 
 \begin{ejemplo}{\bf Problema 14 Método de Lagrange}

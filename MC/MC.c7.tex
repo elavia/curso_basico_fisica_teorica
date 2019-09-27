@@ -4,7 +4,7 @@
 	\usepackage{amsmath}
 	\usepackage{graphicx}
 	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -34,9 +34,10 @@ Se pasa de las variables $(q, \dot{q})$ hacia el par $(q,p)$ con
 	p = \dpar{\Lag}{\dot{q}}
 \]
 Se parte del 
-\[
+\be
 	H(q_i, p_i, t) = \sum_{i}^{3N-k} p_i \dot{q}_i - \Lag(q_i, \dot{q}_i, t)
-\]
+	\label{hamiltoniano_def}
+\ee
 y consideramos el diferencial
 \[
 	dH = \sum_i p_i d\dot{q}_i + \dot{q}_i dp_i - \dpar{\Lag}{q_i} dq_i - \dpar{\Lag}{\dot{q}_i}d\dot{q}_i - \dpar{\Lag}{t}dt
@@ -48,12 +49,85 @@ y consideramos el diferencial
 	dH = \sum_i \dot{q}_i dp_i - \dot{p}_i dq_i - \dpar{\Lag}{t}dt
 \]
 se deducen entonces,
+\be
+	\dpar{H}{p_i} = \dot{q}_i \qquad \qquad \dpar{H}{q_i} = -\dot{p}_i 
+	\label{variables_canonicas}
+\ee
+y
 \[
-	\dpar{H}{p_i} = \dot{q}_i \qquad \dpar{H}{q_i} = -\dot{p}_i \qquad \dpar{H}{t} = -\dpar{\Lag}{t}
+	\dpar{H}{t} = -\dpar{\Lag}{t}
 \]
 que son las ecuaciones de Hamilton. Donde $(p,q)$ son $2N$ grados de libertad del sistema llamados las variables canónicas.
 Si $V\neq V(\dot{q})$ y los vínculos no dependen del tiempo entonces $T=T_2$ (la energía cinética es cuadrática en las 
-velocidades) y $H=E$.
+velocidades) y $H = T + V = E$.
+
+\notamargen{En el caso $H=E$ se puede escribir fácil el hamiltoniano.}
+
+No presenta gran economía respecto a la formulación lagrangiana.
+Aquí las coordenadas y los momentos adquieren un carácter simétrico.
+Se define el espacio de fases del sistema, donde cada punto describe un estado dinámico en el tiempo.
+
+Una transformación canónica es aquella transformación en variables canónicas.
+Las variables canónicas son un conjunto de $2N$ ($N$ llamadas $p$ y $N$ llamadas $q$) variables que cumplen con las
+ecuaciones \eqref{variables_canonicas}.
+
+\[
+	T = \frac 1 2 \sum_i \sum_j m_{ij} \dot{q}_i \dot{q}_j
+\]
+Aquí despejo según $ \dot{q}_i =  \dot{q}_i( q_i, p_i ) $ y se introduce en $T$ entonces se puede obtener un
+$H = H(q_i,p_i) $.
+
+\[
+	T = \frac 1 2 \sum_i \sum_j m_i ( \dot{x}_i^2 + \dot{y}_i^2 + \dot{z}_i^2 )
+\]
+de donde se deduce 
+\[
+	p_{x_i} = m_i \dot{x}_i \qquad \to \qquad  \dot{x}_i = \frac{p_{x_i}}{m_i}, 
+\]
+y $p_{y_i}, p_{z_i}$ se obtienen análogamente.
+Si $H \neq E$ para obtener $H=H(q_i,p_i)$ no hay más remedio que utilizar la definición \eqref{hamiltoniano_def}.
+
+\begin{ejemplo}{\bf Sencillo}
+
+Sea un hamiltoniano
+\[
+	H = \sum_i \frac{ p_{x_i}^2 + p_{y_i}^2 + p_{z_i}^2 }{2m} + V( \vb{x}_1,...,\vb{x}_n )
+\]
+\[
+	T = \frac 1 2 m ( \dot{r}^2 + r^2 \dot{\theta}^2 + r^2 \sin^2 \theta \dot{\vp}^2 )
+\]
+y los momentos son
+\[
+	p_r = m \dot{r} \to \dot{r} = \frac{p_r}{m}
+\]
+\[
+	p_\vp = m r^2 \sin^2 \theta \dot{\vp} \to \dot{\vp} = \frac{p_\vp}{m r^2 \sin^2 \theta}
+\]
+\[
+	p_\theta = m r^2 \dot{\theta} \to \dot{\theta} = \frac{p_\theta}{m r^2}
+\]
+
+En este caso es fácil porque no hay términos cruzados. En general pasa a ser como invertir una matriz
+\[
+	\begin{pmatrix}
+	p_r \\
+	p_\vp \\
+	p_\theta
+	\end{pmatrix} =
+	\begin{pmatrix}
+	 a & b & c \\
+	 d & e & f \\
+	 g & h & i 
+	\end{pmatrix}
+	\begin{pmatrix}
+	\dot{q}_r \\
+	\dot{q}_\vp \\
+	\dot{q}_\theta
+	\end{pmatrix}
+\]
+Cuando no hay términos cruzados es equivalente a una matriz diagonal.
+\end{ejemplo}
+
 
 % =================================================================================================
 \section{Transformación canónica del hamiltoniano}
