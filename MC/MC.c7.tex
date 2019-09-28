@@ -128,6 +128,35 @@ En este caso es fácil porque no hay términos cruzados. En general pasa a ser c
 Cuando no hay términos cruzados es equivalente a una matriz diagonal.
 \end{ejemplo}
 
+\subsection{Otra nomenclatura, elegante y compacta}
+
+Si definimos
+\[
+	\xi = \begin{cases}
+		q_i \qquad 1 \leq i \leq n \\
+		p_i \qquad n + 1 \leq i \leq 2n
+	      \end{cases}
+\]
+entonces
+\[
+	\dot{\xi} = J \nabla_\xi H
+\]
+donde el símbolo de la nabla es el gradiente de $H$ según el $\xi$ previamente definido.
+Se ve que $\dot{\xi}$ y $\nabla H$ resultan ortogonales.
+Donde la matriz $J$ es
+\[
+	J = \begin{pmatrix}
+	0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\	
+	0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\	
+	0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+	-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\	
+	0 & -1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+	0 & 0 & -1 & 0 & 0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & -1 & 0 & 0 & 0 & 0 
+	\end{pmatrix}
+\]
+que es la matriz simpléctica.
 
 % =================================================================================================
 \section{Transformación canónica del hamiltoniano}
@@ -144,16 +173,21 @@ donde $K=K(Q_i,P_i,t)$ es un nuevo hamiltoniano proveniente de
 \[
 	-\dpar{H}{q_i} = \dot{p}_i \longrightarrow \dot{P}_i = -\dpar{K}{Q_i}
 \]
-y ahora usamos el Principio Variacional de Hamilton,
+
+Es decir, que proponemos un nuevo hamiltoniano $K$ que es el $H$ pero en otras coordenadas.
+La idea es que en esas nuevas coordenadas, el nuevo hamiltoniano sea trivial.
+Las transformaciones canónicas preservan el carácter simpléctico del espacio.
+
+Ahora usamos el Principio Variacional de Hamilton,
 \[
 	S = \int_{t_i}^{t_f} \Lag dt = \int_{t_i}^{t_f}  \left\{ \sum_i p_i \dot{q}_i - H(p_i,q_i,t) \right\} dt
 \]
 \[
-	\delta S = \sum p_i \delta \dot{q}_i +  \dot{q}_i \delta p_i  - \dpar{H}{p_i}\delta p_i 
+	\delta S = \sum_i p_i \delta \dot{q}_i +  \dot{q}_i \delta p_i  - \dpar{H}{p_i}\delta p_i 
 	-\dpar{H}{q_i}\delta q_i  - \dpar{H}{t}\delta t
 \]
 pero el último término es nulo porque la variación es a tiempo fijo.
-Usando las ecuaciones de Euler-Lagrange en el primer término resulta que 
+Usando integración por partes en el primer término resulta que 
 \[
 	\delta S = \int_{t_i}^{t_f}  \left\{ \sum_i \left(-\dot{p}_i -\dpar{H}{q_i} \right) \delta q_i +
 	\left( \dot{q}_i - \dpar{H}{p_i} \right) \delta p_i + \frac{d}{dt}\left( p_i \delta q_i \right) \right\} dt
@@ -162,17 +196,94 @@ y llego pidiendo que sea extremo $S$ a las ecuaciones de Hamilton (dos primeros 
 último término resulta 
 \[
 	\int_{t_i}^{t_f}  \left\{ \frac{d}{dt}\left( p_i \delta q_i \right) \right\} dt =
-	\left. p_i \delta q_i \right|_{t_i}^{t_f}.
+	\left. p_i \delta q_i \right|_{t_i}^{t_f},
 \]
+que es nulo porque la variación se hace a extremos fijos.
 
 Entonces, usando la misma idea que el $\Lag$ se tiene 
 \[
 	\Lag' = \Lag + \frac{dF}{dt}
 \]
 siendo $F$ una función generatriz. Luego,
+\be
+	\sum_i p_i \dot{q}_i - H(p_i,q_i,t) = \sum_i P_i\dot{Q}_i - K(P_i,Q_i,t) + \dtot{F}{t}
+	\label{equivalencia_hamiltonianos}
+\ee
+
+Si la anterior ecuación vale me aseguro de que los hamiltonianos, en función de $(p,q)$ o de $(P,Q)$ sean equivalentes.
+Obviamente esta es la condición sobre los lagrangianos.
+
+Un mismo lagrangiano puede llevar a diferentes formas de $H$, de acuerdo a las coordenadas generalizadas.
+La transformación la expresamos como
 \[
-	\sum p_i \dot{q}_i - H(p_i,q_i,t) = \sum P_i\dot{Q}_i - K(P_i,Q_i,t) + \dtot{F}{t}
+	q_i = q_i(Q_i,P_i) \qquad \qquad Q_i = Q_i(p_i,q_i)
 \]
+\[
+	p_i = p_i(Q_i,P_i) \qquad \qquad P_i = P_i(p_i,q_i)
+\]
+y se tienen $4n$ variables pero siendo $2n$ independientes en [¿?]
+\[
+	\dtot{F}{t}(2n,t)
+\]
+
+Se elegirán como variables combinaciones de variables mayúsculas y minúsculas (o imprentas y cursivas). $F$ se denomina función 
+generatriz.
+\[
+	F_1 = F_1(q_i,Q_i,t) \qquad F_2 = F_2(q_i,P_i,t)
+\]
+\[
+	F_3 = F_3(Q_i,p_i,t) \qquad F_4 = F_4(p_i,P_i,t)
+\]
+
+Con este sistema se introduce en \eqref{equivalencia_hamiltonianos} y se resuelve aquello que se necesita para que valga:
+\begin{multline*}
+	\sum_i p_i \dot{q}_i - H(p_i,q_i,t) = \sum_i P_i\dot{Q}_i - K(P_i,Q_i,t) + \dpar{F_i}{q_i} \dot{q}_i + 
+\dpar{F_i}{Q_i} \dot{Q}_i + \dpar{F_i}{t} 
+\end{multline*}
+que conduce a 
+\[
+	\sum_i \underbrace{\left( p_i - \dpar{F_i}{q_i} \right)}_{=0} \dot{q}_i  - 
+	\sum_i \underbrace{\left( \dpar{F_i}{Q_i} + P_i \right)}_{=0} \dot{Q}_i + 
+	\underbrace{K( Q_i, P_i, t ) - H( q_i, p_i, t ) - \dpar{F_i}{t}}_{=0}  = 0
+\]
+que debe valer para todo tiempo $t$ y deben ser cero dentro de cada llave.
+Entonces
+\[
+	\sum_i \left( p_i - \dpar{F_i}{q_i} \right) dq_i  - \sum_i \left( \dpar{F_i}{Q_i} + P_i \right) dQ_i + \left( K - H - 
+	\dpar{F}{t} \right) dt = 0
+\]
+de lo cual se deducen
+\begin{align*}
+	\dpar{F_1}{q_i} & = p_i(q_1,...,q_n,Q_1,...,Q_n,t) \\
+	\dpar{F_1}{Q_i} & = -P_i(q_1,...,q_n,Q_1,...,Q_n,t) \\
+	K( Q_i, P_i, t ) & = H( q_i, p_i, t ) + \dpar{F_i}{t},
+\end{align*}
+que son las ecuaciones que definen la transformación canónica.
+
+Para 
+\[
+	F_2(q_i,P_i) = F_1 + \sum_i P_i Q_i
+\]
+se tiene un diferencial
+\[
+	dF_2 = \dpar{F_1}{q_i} dq_i + \sum Q_i dP_i + \dpar{F_1}{t}
+\]
+del cual se identifican
+\[
+	\dpar{F_2}{q_i} = p_i \quad \dpar{F_2}{P_i} = Q_i \quad  \dpar{F_1}{t} = \dpar{F_2}{t}
+\]
+y así se obtiene la transformación canónica a partir de una generatriz $F_2$.
+Asimismo, usando transformadas de Legendre,
+\[
+	F_3 = F_1 - \sum_i q_i p_i
+\]
+\[
+	F_4 = F_1 - \sum_i q_i p_i + \sum_i Q_i P_i
+\]
+
+Entonces, basta que exista una $F$ para definir la transformación canónica.
+
+
 
 
 
