@@ -4,7 +4,7 @@
 	\usepackage{amsmath}
 	\usepackage{graphicx}
 	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -67,6 +67,32 @@ la cual es una identidad (transformación). Y
 \]
 
 % =================================================================================================
+\section{Algunos ejemplos de generatrices y transformaciones}
+% =================================================================================================
+
+La generatriz identidad
+\[
+	F_2(q_i,P_i) = \sum_i q_i P_i,
+\]
+es tal que las coordenadas y los momentos son los mismos (no cambian).
+\[
+	\dpar{F_2}{q_\ell} = P_\ell = p_\ell \qquad \qquad \dpar{F_2}{P_\ell} = q_\ell = Q_\ell
+\]
+
+La generatriz
+\[
+	F_1(q_i,P_i) = \sum_i q_i Q_i,
+\]
+tranforma coordenada en momento y viceversa, de manera que 
+\[
+	\dpar{F_1}{q_\ell} = Q_\ell = p_\ell \qquad \qquad \dpar{F_1}{Q_\ell} = -P_\ell = q_\ell
+\]
+
+Una rotación es una transformación canónica.
+Otro nombre de las transformaciones canónicas es el de transformaciones de contacto.
+Los pasajes de coordenadas usuales son casos de transformaciones canónicas.
+
+% =================================================================================================
 \section{Corchetes de Poisson}
 % =================================================================================================
 
@@ -74,26 +100,55 @@ Sea $A=A(q_i,p_i,t)$ entonces
 \[
 	\frac{d}{dt}A = \sum_i \dpar{A}{q_i} \dpar{q_i}{t} + \dpar{A}{p_i} \dpar{p_i}{t} + \dpar{A}{t}
 \]
+y utilizando las ecuaciones canónicas
 \[
-	\frac{d}{dt}A = \underbrace{\sum_i \dpar{A}{q_i} \dpar{q_i}{t} + \dpar{A}{p_i} \dpar{p_i}{t}}_{\equiv [A,H]} + 
+	\frac{d}{dt}A = \underbrace{\sum_i \dpar{A}{q_i} \dpar{H}{p_i} - \dpar{A}{p_i} \dpar{H}{q_i}}_{\equiv [A,H]} + 
 \dpar{A}{t}
 \]
-entonces
+donde la sumatoria particular resultante se define como el corchete de Poisson.
+Entonces
 \[
 	\frac{d}{dt}A = [A,H] + \dpar{A}{t}.
 \]
 
-Las constantes de movimiento en un sistema cumplen que su corchete de Poisson con el hamiltoniano es nulo.
+Las constantes de movimiento en un sistema mecánico cumplen que su corchete de Poisson con el hamiltoniano es nulo.
 \[
 	\dpar{H}{p_i} = \dot{q}_i = [q_i,H] \qquad  -\dpar{H}{q_i} = \dot{p}_i = [p_i,H]
 \]
-Una transformación canónica cumple 
+Todas las {\it cosas} constantes en el tiempo en un sistema mecánico (no depende explícitamente del tiempo) deben
+ser tales que su variación temporal sea el corchete de Poisson con el hamiltoniano.
+
+Tendremos entonces, siguiendo la mecánica, que:
+\[
+	\dot{q}_i = [q_i,H] = \dpar{H}{p_\ell} \qquad \dot{p}_i = [p_i,H] = -\dpar{H}{q_\ell}
+\]
+que es otra manera de escribir las ecuaciones canónicas.
+Si transformamos coordenadas llegaremos a 
+\[
+	\dot{Q}_i = [ Q_i, K ] \qquad \dot{P}_i = [ P_i, K ]
+\]
+junto con los corchetes fundamentales:
 \[
 	[p_i,q_j] = \delta_{ij} \qquad [p_i,p_j] = 0 \qquad [q_i,q_j] = 0
 \]
 de modo que el corchete entre los momentos es nulo así también como el corchete entre las coordenadas.
 
+Si las variables son canónicas, satisfacen estos corchetes fundamentales para las nuevas $\{p,q\}$
+\[
+	[B,A] = \nabla_\xi B^t J \nabla_\xi A
+\]
 
+Si consigo un sistema mecánico y lo arreglo de modo que las coordenadas y momentos satisfagan 
+\[
+	[B_k, H ] = 0 \qquad \qquad  [B_k, B_\ell ] = 0 \forall k,\ell
+\]
+que significa que los momentos son constantes de movimiento y que entre sí tienen corchete nulo, entonces
+existe una transformación canónica con todas las coordendas cíclicas.
+
+Así, por ejemplo, $H,\ell^2, \ell_z$ tienen corchete nulo entre sí. Pero $\ell_x, \ell_y, \ell_z$ no tienen corchete nulo
+entre sí; no puedo armarme una transformación canónica que me lleva a un espacio donde $\ell_x, \ell_y, \ell_z$ son
+momentos generalizados.
+Esto es similar a lo que ocurría con el CCOC de mecánica cuántica.
 
 
 
