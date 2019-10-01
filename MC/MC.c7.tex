@@ -283,15 +283,41 @@ Asimismo, usando transformadas de Legendre,
 
 Entonces, basta que exista una $F$ para definir la transformación canónica.
 
+% =================================================================================================
+\section{Transformaciones canónicas. Una picture}
+% =================================================================================================
 
+\[
+	(q_i,...,q_n,p_1,...,p_n) \qquad \qquad (Q_i,...,Q_n,P_1,...,P_n)
+\]
+\[
+	\dot{p} = -\dpar{H}{q_i} \qquad \longrightarrow \qquad \dot{P} = \dpar{K}{Q_i}
+\]
+\[
+	\dot{q} = \dpar{H}{p_i} \qquad \longrightarrow \qquad \dot{Q} = \dpar{K}{P_i}
+\]
 
+La existencia de una función generatriz $F_1,F_2,F_3,F_4$ garantiza la existencia de la parte derecha.
+\[
+	K(P_i,Q_i) = H(p,q,t) + \dpar{F_2}{t}
+\]
+con el corchete de Poisson de A con B siendo 
+\[
+	[A,B] = \sum_i \dpar{A}{q_i} \dpar{B}{p_i} - \dpar{A}{} \dpar{B}{q_i}
+\]
+\[
+	\dtot{A}{t}(q_i,p_i,t) = [A,H] + \dpar{A}{t}
+\]
+\[
+	\dot{p}_i = [p_i, H] \qquad \qquad \dot{q}_i = [q_i, H]
+\]
+donde requiero las condiciones
+\[
+	[p_i, p_k] = [q_i, q_k] = 0 \qquad [q_i, p_k]= \delta_{ik}
+\]
+para utilizar $p_i,q_i$ como momentos.
 
-
-
-
-
-
-
+Recoredemos que $\partial p_i / \partial q_k = 0$ puesto que $p$ no depende de $q$, son variables independientes.
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
