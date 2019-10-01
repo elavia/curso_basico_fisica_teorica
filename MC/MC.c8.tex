@@ -169,6 +169,51 @@ y los $x_{cm}, y_{cm}$ no se pueden despejar en función de los ángulos de Eule
 
 \includegraphics[scale=0.4]{images/fig_mc_moneda_dos_2.jpg}
 
+Con respecto a los dos dibujitos de acá arriba vemos que $\dot{\theta} = 0$ no veo cambio en $\psi$ de modo que 
+puedo poner $\psi = 0, \dot{\psi} \neq 0$ y además
+\[
+	a \dot{\psi} \cos \vp = V_x^{cm}
+\]
+\[
+	a \dot{\psi} \sin \vp = V_y^{cm}
+\]
+y si no necesito despejar las coordenadas puedo utilizar el vínculo dependiendo de las velocidades. Si tuviese
+un $V=V(coord)$ entonces necesitaría despejar las coordenadas en función de los ángulos de Euler y no me alcanza
+con este vínculo de las velocidades (el problema es que no es integrable).
+
+\[
+	\Lag = \frac 1 2 ( I_3 + Ma^2 ) \dot{\psi} + \frac 1 2 I \dot{\vp}^2
+\]
+Utilizo Euler y
+\[
+	\dtot{}{t}\left( \dpar{\Lag}{\dot{\psi}} \right) - \dpar{\Lag}{\psi} = 0
+\]
+\[
+	\dtot{}{t}\left( \dpar{\Lag}{\dot{\vp}} \right) - \dpar{\Lag}{\vp} = 0
+\]
+
+Otra forma es reescribir el vínculo y usar multiplicadores de Lagrange
+\[
+	\Lag = \frac 1 2 M ( \dot{X}^2_\text{cm} + \dot{Y}^2_\text{cm} ) + \frac 1 2 I_3 \dot{\psi}^2 + \frac 1 2 I \dot{\vp}^2
+\]
+que es un lagrangiano en cuatro variables para que el que tenemos dos vínculos,
+\[
+	\lambda_1( a\cos\vp d\psi - dx) = 0 \qquad \qquad  
+	\lambda_2( a\sin\vp d\psi - dy) = 0
+\]
+\[
+	I_3 \ddot{\psi}  
+\]
+\[
+	M \ddot{X}_\text{cm} = - \lambda_1 \qquad m \ddot{x} = m a \cos \vp \dot{\psi}
+\]
+\[
+	M \ddot{Y}_\text{cm} = - \lambda_2 \qquad m \ddot{y} = m a \sin \vp \dot{\psi}
+\]
+
+Al reemplazar $\lambda_1, \lambda_2$ por sus valores deberé llegar a $M a^2 \ddot{\psi}$.
+
+
 \end{ejemplo}
 
 
