@@ -286,27 +286,28 @@ y obtengo las $J_1, ..., J_n$ constantes.
 \section{Transformación canónica infinitesimal}
 % =================================================================================================
 
+Difieren de la identidad en un infinitésimo
 \[
 	F_2 = 	F_2(q_i,P_i) = \sum_i^N q_iP_i
 \]
-es la indentidad
+es la identidad
 \[
 	\dpar{F_2}{q_i} =  p_i \equiv P_i \qquad \dpar{F_2}{P_i} =  Q_i \equiv q_i
 \]
 y donde considero
 \[
-	F_2(q_i,P_i) = \sum q_i P_i + \epsilon G(q_1,...,q_n,P_1,...,P_n) \qquad \textrm{con} \; \epsilon \sim 0
+	F_2(q_i,P_i) = \sum q_i P_i + \epsilon G(q_1,...,q_n,P_1,...,P_n) \qquad \textrm{con} \; \epsilon \ll 1
 \]
 \[
-	p_i = P_i + \epsilon\dpar{G}{q_i} \longrightarrow P_i = p_i - \epsilon\dpar{G}{q_i} 
+	\dpar{F_2}{q_i} = p_i = P_i + \epsilon\dpar{G}{q_i} \longrightarrow P_i = p_i - \epsilon\dpar{G}{q_i} 
 \]
 \[
-	Q_i = q_i + \epsilon\dpar{G}{p_i} \longrightarrow Q_i = q_i - \epsilon\dpar{G}{P_i} 	
+	\dpar{F_2}{P_i} = Q_i = q_i + \epsilon\dpar{G}{P_i} \longrightarrow q_i = Q_i - \epsilon\dpar{G}{P_i} 	
 \]
 donde $\partial G/\partial P_i \approx \partial G/\partial p_i$ diferirán en un orden $\epsilon^2$ el cual
 descarto. Entonces
 \[
-	\delta p_\ell = -\epsilon \dpar{G}{q_\ell} \qquad \delta q_\ell = \epsilon \dpar{G}{p_\ell}.
+	\delta p_\ell = -\epsilon \dpar{G}{q_\ell} \qquad \delta q_\ell = \epsilon \dpar{G}{P_\ell}.
 \]
 
 Si considero $H$ en lugar de $G$ y $\epsilon = \delta t$ entonces
@@ -318,6 +319,7 @@ de tal manera que
 	\dot{p}_\ell = -\dpar{H}{q_\ell} \qquad \dot{q}_\ell = -\dpar{H}{p_\ell}
 \]
 y donde se ve que el $H$ genera la transformación evolución temporal.
+Por otra parte, se puede ver cómo varía una cierta cantidad $A$ ante la transformación canónica.
 \[
 	\delta A = A(q_i + \delta q_i, p_i + \delta p_i) - A(q_i,p_i)
 \]
@@ -332,9 +334,71 @@ y
 entonces las constantes de movimiento generan transformaciones canónicas infinitesimales que dejan invariante
 al hamiltoniano $H$. Si
 \[
-	\dtot{A}{t} = 0 \Longrightarrow [A.H] = 0
+	\dtot{A}{t} = 0 \Longrightarrow [A,H] = 0
 \]
 
+Consideremos una rotación infinitesimal. Una rotación en torno al eje $z$
+\[
+	\begin{cases}
+		x_i' = x_i - \delta \alpha y_i \\
+		y_i' = y_i + \delta \alpha x_i \\
+		z_i' = z_i
+	\end{cases}
+\]
+que implica 
+\[
+	\delta x_i = -  \delta \alpha y_i \qquad \qquad \delta y_i = \delta \alpha x_i \qquad \qquad 
+	\delta z_i = 0
+\]
+\notamargen{Las constantes de movimiento están generadas por simetrías (Noether).}
+
+Luego,
+\[
+	G = \sum_i ( x_i p_{y_i} - y_i p_{x_i} ) = \ell_z
+\]
+y una rotación en torno a $\hat{n}$ es
+\[
+	\delta\alpha [ A, \vb{L}\cdot\vb{n} ] = \delta A,
+\]
+si $A$ es un vector $\vb{V}$ entonces
+\[
+	\delta\alpha [ \vb{V}, \vb{L}\cdot\vb{n} ] = \delta \vb{V} = \delta\alpha \vb{n} \times \vb{V},
+\]
+de modo que 
+\[
+	[ \vb{V}, \vb{L}\cdot\vb{n} ] = \vb{n} \times \vb{V}
+\]
+es una relación vectorial; es decir que valen
+\[
+	[ V_x, \vb{L}\cdot\vb{n} ] = (\vb{n} \times \vb{V})_x
+\]
+y lo mismo para los componentes $y,z$. Además
+\[
+	[L_x, L_z] = ( \hat{z} \times \vb{L} )_z = - L_y
+\]
+\[
+	[L_y, L_z] = ( \hat{z} \times \vb{L} )_y = L_x
+\]
+\[
+	[L_x, L_y] = ( \hat{y} \times \vb{L} )_x = L_z
+\]
+o bien 
+\[
+	[L_i, L_j] = \varepsilon_{ijk} L_k
+\]
+donde 
+\[
+	\varepsilon_{ijk} = \begin{cases}
+	 0 \quad \text{ si se repite índice } \\
+	 1 \quad \text{ si es permutación cíclica } \\
+	 -1 \quad \text{ si es permutación anticíclica }
+	\end{cases}
+\]
+
+Esto nos dice que no podemos elegir como momentos estas constantes de movimiento puesto que el
+corchete de Poisson entre ellas es nulo.
+No va a existir transformación canónica donde $p_1 = L_x, p_2 = L_y, p_3 = Lz$ pues su corchete de
+Poisson entre ellas no se anula.
 % =================================================================================================
 \section{Potencial electromagnético}
 % =================================================================================================
