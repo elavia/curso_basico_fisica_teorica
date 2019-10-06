@@ -87,28 +87,49 @@ lagrangiano).
 Con esto definimos un espacio de fases $(p_i,q_i)$ de $2N$ dimensiones para estudiar el movimiento de un sistema de partículas.
 En el caso particular de una única partícula tendremos dos variables, $(p,q)$.
 
+\subsection{La idea de Hamilton-Jacobi}
+
+La idea es que se busca una transformación canónica que me transporte a un hamiltoniano nuevo donde toda la solución son 
+constantes. Es decir 
 \[
-	q_i \longrightarrow Q_i \equiv \beta_i \qquad p_i \longrightarrow P_i \equiv \alpha_i
+	H(q_i,p_i) \longrightarrow K(Q_i,P_i),
 \]
-Pasamos a unas nuevas coordenadas y momentos $(\beta_i,\alpha_i)$ que son constantes. Entonces
-la acción es del tipo $F_2$, i.e.
+donde
+\be
+	q_i \longrightarrow Q_i \equiv \beta_i \qquad p_i \longrightarrow P_i \equiv \alpha_i
+	\label{coord_hamjac}
+\ee
+% para $\alpha,\beta$ constantes.
+Pasamos a unas nuevas coordenadas y momentos $(\beta_i,\alpha_i)$ que son constantes. 
+Aunque esto requiere conocer el problema (su solución). Esta transformación existe porque es ir atrás en el tiempo;
+la antievolución.
+
+Supongamos una generatriz del tipo $F_2 = S$, llamada {\it función principal de Hamilton}
 \[
 	S = S(q_i, \alpha_i, t).
 \]
 Entonces
 \be
 	\dpar{S}{q_i} = p_i \qquad \dpar{S}{\alpha_i} = \beta_i \qquad \dpar{S}{t} = H - K  
-\label{ecshamjac}	
+	\label{ecshamjac}
 \ee
 donde 
 \[
 	H(q_i,p_i,t) - \dpar{S}{t} = K = 0
 \]
-y esto lleva a la ecuación de Hamilton-Jacobi,
-\[
+que es la condición necesaria para garantizar las condiciones \eqref{coord_hamjac}.
+Esto lleva a la ecuación de Hamilton-Jacobi,
+\be
 	H(q_i,p_i,t) - \dpar{S}{t} = 0
+	\label{ecshamjac2}
+\ee
+que no es otra cosa que una ecuación en derivadas parciales (PDE) al especializar $H$ en las derivadas parciales
+\[
+	H( q_i, \dpar{S}{q_i}, t) - \dpar{S}{t} = 0,
 \]
-que no es otra cosa que una ecuación en derivadas parciales (PDE). Notemos que 
+que son $n+1$ variables y $n+1$ constantes (una es trivial porque la ecuación \eqref{ecshamjac2} no depende de $S$ sino de sus 
+derivadas).
+Notemos que 
 \[
 	\dpar{S}{q_i} = p_i(q_i,\alpha_i,t) \qquad \dpar{S}{\alpha_i} = \beta_i(q_i,\alpha_i,t)
 \]
@@ -660,10 +681,18 @@ En este ejemplo hay que suponer que el lagrangiano es ya de entrada de pequeñas
 
 \end{ejemplo}
 
+\begin{ejemplo}{\bf Problema 1 P96}
+ 
+\includegraphics[scale=0.5]{images/fig_mc_problema_1_p96.jpg} 
+
+\includegraphics[scale=0.5]{images/fig_mc_problema_1_p96_2.jpg} 
+ 
+\end{ejemplo}
 
 
-
-
+\begin{ejemplo}{\bf Problema 8 P97}
+ 
+\end{ejemplo}
 
 
 
