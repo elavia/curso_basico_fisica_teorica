@@ -125,17 +125,106 @@ Esto lleva a la ecuación de Hamilton-Jacobi,
 \ee
 que no es otra cosa que una ecuación en derivadas parciales (PDE) al especializar $H$ en las derivadas parciales
 \[
-	H( q_i, \dpar{S}{q_i}, t) - \dpar{S}{t} = 0,
+	H \left( q_i, \dpar{S}{q_i}, t \right) - \dpar{S}{t} = 0,
 \]
 que son $n+1$ variables y $n+1$ constantes (una es trivial porque la ecuación \eqref{ecshamjac2} no depende de $S$ sino de sus 
 derivadas).
+
+\begin{ejemplo}{\bf ejemplito}
+\[
+	H = \frac{p^2}{2m} + V(q)
+\]
+\[
+	\frac{1}{2m} \Dpar{S}{q}^2 + V(q) + \dpar{S}{t} = 0
+\]
+hay que resolverlo utilizando condiciones iniciales
+\[
+	H(q_i,p_i,t) \qquad p_i(t=0) \qquad q_i(t=0).
+\]
+\end{ejemplo}
+
 Notemos que 
 \[
 	\dpar{S}{q_i} = p_i(q_i,\alpha_i,t) \qquad \dpar{S}{\alpha_i} = \beta_i(q_i,\alpha_i,t)
 \]
-y además que Hamilton-Jacobi tiene solución si el problema es totalmente separable.
-Si $H=H(q_i,\alpha_i)$ entonces $dH/dt = \partial H/\partial t=0$ y en ese caso es $H=cte.$ y
-podemos poner $H=\alpha_1$.
+
+Cuando la ecuación es separable se puede garantizar la solución de Hamilton-Jacobi.
+Si $H=H(q_i,\alpha_i)$, el hamiltoniano no depende del tiempo, entonces $dH/dt = \partial H/\partial t=0$ y en ese caso es 
+$H=cte.$ (la energía). Se tiene
+\[
+	H \left( \dpar{S}{q_1},...,\dpar{S}{q_N},q_1,...,q_N \right) + \dpar{S}{t} = 0, 
+\]
+o bien
+\[
+	\dpar{S}{t} = -E,
+\]
+por lo tanto es separable en el tiempo. Entonces
+\[
+	S = W(q_1,...,q_N,\alpha_1,...,\alpha_N) - E t,
+\]
+donde $W$ no depende del tiempo, que sólo aparece explícito en el segundo término. Luego
+\[
+	\dpar{S}{q_i} = \dpar{W}{q_i}
+\]
+con lo cual 
+\[
+	H \left( \dpar{W}{q_1},...,\dpar{W}{q_N},q_1,...,q_N \right) = E
+\]
+y tengo un nuevo hamiltoniano que no vale cero sino que vale $E$.
+Pase a {\it un lugar} donde los momentos son constantes y las coordenadas son cíclicas.
+\[
+	E = E(\alpha_1, ..., \alpha_N )
+\]
+de manera que $\partial E/\partial \alpha_N = a$ y luego,
+\[
+	Q = at + Q_0 \qquad \text{ las $Q$ son lineales}
+\]
+Entonces,
+\[
+	\dpar{E}{\alpha} = \dot{Q} = a \qquad \text{ una constante}
+\]
+y
+\[
+	\dpar{E}{p} = \dpar{E}{\alpha} = \dot{Q}.
+\]
+
+Remarquemos que si fuera $E=E(q)$ entonces $\partial E \ \partial q = \dot{\alpha}$ y no sería constante $\alpha$, pero $E$ no 
+depende de $Q_i$.
+
+\begin{ejemplo}{\bf Ejemplito de un grado de liberad}
+
+\[
+	H = \frac{p^2}{2m} + V(q) \qquad \qquad S = W - Et
+\]
+\[
+	E = \frac{1}{2m} \Dtot{W}{q}^2 + V(q), 
+\]
+de modo que 
+\[
+	\dtot{W}{q} = \pm \sqrt{2m[E-V(q)]},
+\]
+\[
+	W(q,E) = \pm \int \sqrt{2m[E-V(q)]} dq - Et
+\]
+
+Para un grado de libertad siempre tendrá esta forma.
+\end{ejemplo}
+
+Para más grados de libertad deberíamos poder separar alguna coordenada en igual forma. Si $q_1$ no aparece, entonces la derivada 
+del hamiltoniano $H$ respecto a $q_1$ dice que será constante el $\dot{q}_1$, es decir
+\[
+	\dpar{W}{q_1} = \alpha_2 \quad \to \quad 
+	H\left( \alpha_2, \dpar{W}{q_2},...,\dpar{W}{q_N},q_2,...,q_N \right) = E.
+\]
+
+Es más, si la $S$ es totalmente separable de la forma 
+\[
+	S(q_i,\alpha_0) = \sum_{i=1}^N \; W_i(q_i,\alpha_1,...,\alpha_N) - Et
+\]
+lo cual, dicho sea de paso, requerirá $N$ constantes de movimiento, entonces se puede resolver completamente.
+
+[Lo que sigue es un refrito de lo anterior o viceversa; habría que consolidarlo]
+[...] y podemos poner $H=\alpha_1$.
 Entonces
 \[
 	\dpar{S}{t} = -\alpha_1 \quad \longrightarrow \quad S=W(q_i,\dpar{S}{q_i}) -\alpha_1 t .
