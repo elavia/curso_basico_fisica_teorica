@@ -535,6 +535,131 @@ Esto nos dice que no podemos elegir como momentos estas constantes de movimiento
 corchete de Poisson entre ellas es nulo.
 No va a existir transformación canónica donde $p_1 = L_x, p_2 = L_y, p_3 = Lz$ pues su corchete de
 Poisson entre ellas no se anula.
+
+% =================================================================================================
+\section{Volviendo a Hamilton-Jacobi}
+% =================================================================================================
+
+\be
+	H\left( \dpar{S}{q_1}, ..., \dpar{S}{q_n}, q_1, ..., q_n, t \right) - \dpar{S}{t} = 0
+	\label{ham-jac}
+\ee
+y se pasaba de coordenadas $q,p$ a constantes $\alpha,\beta$.
+
+Lo único que se puede asegurar son condiciones para hallar solución a \eqref{ham-jac} pero no resolverla.
+La condición es que \eqref{ham-jac} sea separable, que existan tantas constantes de movmiento como grados
+de libertad. Si el hamiltoniano tiene alguna coordenada cíclica o no depende del tiempo entonces se podría
+separar, pero en general no es el caso.
+
+Podría suceder que
+\[
+	W = \sum_{i=1}^N W_i(q_i,\alpha_1,...,\alpha_N)
+\]
+y entonces no podré llegar a una solución que se compone de problemas independientes en una variable.
+
+En fuerzas centrales tenemos un ejemplo. Escribamos
+\[
+	H = \frac{p_r^2}{2m} + \frac{p_\vp^2}{2mr^2\sin^2\theta} + \frac{p_\theta^2}{2mr^2} + V(r) = E
+\]
+y
+\[
+	W = W_r(r,\alpha_1,\alpha_2,\alpha_3) + W_\vp(\vp,\alpha_1,\alpha_2,\alpha_3) + 
+		W_\theta(\theta,\alpha_1,\alpha_2,\alpha_3)
+\]
+donde
+\[
+	\frac{1}{2m} \Dtot{W_r}{r}^2 + \frac{1}{2mr^2} \Dtot{W_\theta}{\theta}^2 + \frac{1}{2mr^2\sin^2\theta} \Dtot{W_\vp}{\vp}^2
+	+ V(r)  = E \equiv \alpha_1
+\]
+y siendo que $E$ es una constante, la denominamos $\alpha_1$.
+
+Luego, como en 
+\[
+	\left[\frac{1}{2m} \Dtot{W_r}{r}^2 + \frac{1}{2mr^2} \Dtot{W_\theta}{\theta}^2 + V(r) - \alpha_1 \right] 
+	2 m r^2 \sin^2\theta = - \Dtot{W_\vp}{\vp}^2
+\]
+el miembro izquierdo sólo depende de $r,\theta$ y el derecho de $\vp$ tienen que ser una constante ambos
+miembros.
+
+Asimismo,
+\[
+	\dtot{W_\vp}{\vp} = \alpha_2,
+\]
+y $W_\vp = \alpha_2 \vp$ porque $\vp$ es cíclica en fuerzas centrales. Es más, $\alpha_s$ es el momento angular
+en $z$ ($L_z$, que es constante).
+Entonces
+\[
+	\frac{1}{2m} \Dtot{W_r}{r}^2 + \frac{1}{2mr^2} \:
+	\left[ \frac{\alpha_2^2}{\sin^2\theta} + \Dtot{W_\theta}{\theta}^2 \right]  + V(r) = \alpha_1,
+\]
+donde el corchete será $\alpha_3^2$. Ahora puedo separar otra vez y surge $\alpha_3^2$ que será el $|\vb{L}|^2$ total.
+Las $\alpha_i$ son constantes de separación.
+Si hubiese escrito con $\theta = \pi / 2$ entonces resultaba más detectable.
+\[
+	W(\theta) = \int \sqrt{ \left( \alpha_3^2 - \frac{\alpha_2^2}{\sin^2\theta} \right) } \; d\theta
+\]
+y luego
+\[
+	\frac{1}{2m} \Dtot{W_r}{r}^2 + \frac{1}{2mr^2} \: \alpha_3^2 + V(r) = \alpha_1
+\]
+al solucionar lo anterior
+\[
+	W_r = \int \sqrt{ 2 m ( \alpha_1 - V(r) - \alpha_2^2 / (2mr^2) ) } \; dr
+\]
+y el nuevo hamiltoniano es $ K = \alpha_1 $. Entonces
+\[
+	\dpar{K}{\alpha_2} = 0 \qquad \text{ que lleva a } \qquad \beta_2 = cte.
+\]
+\[
+	\dpar{K}{\alpha_3} = 0 \qquad \text{ que lleva a } \qquad \beta_3 = cte.
+\]
+\[
+	\dpar{K}{\alpha_1} = 1 \qquad \text{ que lleva a } \qquad \beta_2 = t + \beta_{10}
+\]
+Como
+\[
+	\dpar{W}{\alpha_1} = \dpar{W_r}{\alpha_1}
+\]
+se tiene 
+\[
+	\beta_1 = \int \frac{m}{\sqrt{ 2 m ( \alpha_1 - V(r) - \alpha_2^2 / (2mr^2) ) }} dr,
+\]
+que es igual a la ecuación ya calculada en el caso de fuerzas centrales.
+
+La forma de separar también funciona si
+\[
+	V = V(r) + \frac{a(\vp)}{r^2 \sin ^2 \theta} + \frac{b(\theta)}{r^2},
+\]
+es decir, si el $V$ tiene una forma como la de arriba en coordenadas esféricas.
+
+Consideremos unas coordenadas $\xi,\eta,\vp$ que se relacionan por
+\[
+	\rho = \xi \eta \qquad z = \frac{1}{2}( \xi - \eta ) \qquad \vp = \vp
+\]
+donde $\rho,z,\vp$ son las polares cilíndricas usuales.
+Un potencial de la forma 
+\[
+	\frac{ a(\xi) + b( \eta ) }{ \xi + \eta }
+\]
+en coordenadas parabólicas puede separarse.
+
+En coordenadas elípticas
+\[
+	\rho = \sigma \sqrt{ ( \xi^2 - 1 )( 1 - \eta^2 ) } \qquad z = \sigma \xi \eta \qquad \vp = \vp
+\]
+un potencial de la forma 
+\[
+	V = \frac{ a(\xi) + b( \eta ) }{ \xi^2 - \eta^2 }
+\]
+puede separarse.
+
+En cartesianas es
+\[
+	V(\vb{x}) = A(x) + B(y) + C(z)
+\]
+condición suficiente de verificación para Hamilton-Jacobi. Si el potencial es separable entonces tengo tantas coordenadas como 
+constantes de movimiento, entonces si tengo la solución [?].
+
 % =================================================================================================
 \section{Potencial electromagnético}
 % =================================================================================================
@@ -821,3 +946,4 @@ En este ejemplo hay que suponer que el lagrangiano es ya de entrada de pequeñas
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
 \end{document}
+ 
