@@ -660,6 +660,52 @@ En cartesianas es
 condición suficiente de verificación para Hamilton-Jacobi. Si el potencial es separable entonces tengo tantas coordenadas como 
 constantes de movimiento, entonces si tengo la solución [?].
 
+\subsection{Comentario Schrödinger}
+
+La ecuación de Schrödinger es
+\[
+	- \frac{\hbar^2}{2m} \nabla^2 \Psi(\vb{x},t) + V(r) \Psi(\vb{x},t) = i \hbar  \dpar{\Psi}{t} (\vb{x},t).
+\]
+Si ensayamos como solución 
+\[
+	\Psi(\vb{x},t) = b(\vb{x},t)  \euler^{i A(\vb{x},t) / \hbar},
+\]
+se tendrá 
+\[
+	b V(r) + \frac{b}{2m} \left[ \Dpar{A}{x}^2 + \Dpar{A}{y}^2 + \Dpar{A}{z}^2 \right] = - b \dpar{A}{t}
+\]
+o bien 
+\[
+	\frac{1}{2m} \left[ \Dpar{A}{x}^2 + \Dpar{A}{y}^2 + \Dpar{A}{z}^2 \right] + V(r) + \dpar{A}{t} = 0
+\]
+
+Ecuación de Hamilton-Jacobi (con igualar el orden cero)
+\[
+	\frac{1}{m} \Dpar{b}{x} \dpar{A}{x} + \frac{b}{2m} \dpar[2]{A}{x} = - \dpar{B}{t}
+\]
+\[
+	\dpar{}{x}\left( b^2 \frac{1}{m} \dpar{S}{x} \right) + \dpar{b^2}{t} = 0
+\]
+
+Esto lleva a 
+\[
+	\nabla \left( \rho \frac{\vb{p}}{m} \right) + \dpar{\rho}{t} = 0,
+\]
+que es una ecuación de continuidad para la densidad de probabilidad.
+De algún lado sacamos, por la situación estacionaria,
+\[
+	- \dpar{b}{x} \dpar{A}{x} = \frac{1}{2} \Dpar[2]{A}{x} b,
+\]
+que equivale a 
+\[
+	\frac{1}{b} \dpar{b}{x} = - \frac 1 2 \Dpar[2]{A}{x} \Dpar{A}{x}^{-1}
+\]
+o bien a 
+\[
+	\dtot{\log b}{x} = \dtot{}{x} \log\left( \Dpar{A}{x}^{-1/2} \right)
+\]
+de modo que $b = 1 / \sqrt{p}$ siendo el $p$ clásico.
+
 % =================================================================================================
 \section{Potencial electromagnético}
 % =================================================================================================
