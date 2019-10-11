@@ -706,6 +706,112 @@ o bien a
 \]
 de modo que $b = 1 / \sqrt{p}$ siendo el $p$ clásico.
 
+
+\subsection{Hamilton-Jacobi particular}
+
+Esto apareció en la práctica. Consideramos
+\[
+	S = \int \Lag dt,
+\]
+donde $S = S(q_0,t)$. Pictóricamente
+
+\includegraphics[scale=0.5]{images/fig_mc_ham-jac_1.jpg}
+
+El diferencial de la integral resulta, como hemos visto en incontables ocasiones para Euler-Lagrange, en
+\[
+	\delta S = \left. \dpar{ \Lag }{ q_i } \delta q_i \right|_{t_1}^{t_2} + 
+	\int_{t_1}^{t_2} \left[ \dpar{ \Lag }{ q_i } - \dtot{}{t}\Dpar{\Lag}{\dot{q}_i} \right] \delta q_i \: dt. 
+\]
+
+Luego, $ \delta S = p_i \delta q_i  $ y entonces $ p_i = dS / dq_i $. Como $\Lag = dS / dt $
+\[
+	\dtot{S}{t} = \dpar{S}{t} + \dpar{S}{q_i} \dot{q}_i \qquad \Lag = \dpar{S}{t} + p_i \dot{q}_i
+\]
+A partir de esta última, el diferencial $d\Lag$ es
+\[
+	d\Lag = \dot{p}_i dq_i + p_i d\dot{q}_i + \dpar{\Lag}{t}
+\]
+\[
+	d\Lag = \dot{p}_i dq_i + p_i d\dot{q}_i + d( p_i \dot{q}_i ) + \dpar{\Lag}{t},
+\]
+de manera que 
+\[
+	d( \Lag - p_i \dot{q}_i ) = p_i dq_i - q_i dp_i
+\]
+lo que nos lleva a las ecuaciones de Hamilton
+\[
+	\dot{p}_i = - \dpar{H}{q_i} \qquad \dot{q}_i = \dpar{H}{p_i} \qquad \dpar{H}{t} = - \dpar{\Lag}{t} 
+\]
+
+Entonces
+\[
+	S = \int ( p_i \dot{q}_i - H ) \: dt,
+\]
+y pidiendo $\delta S=0$ se tiene 
+\[
+	\delta S = \int_{t_1}^{t_2}  \: \left[ \dtot{}{t}( p_i \delta q_i ) - \dot{p}_i \delta q_i + \dot{q}_i \delta p_i 
+	- \dtot{H}{p_i} \delta q_i - \dpar{H}{p_i} \delta p_i \right] \: dt
+\]
+o bien 
+\[
+	\left. p_i \delta q_i \right|_{t_1}^{t_2} - \int dt 
+	\left[ \left( \dot{p}_i + \dpar{H}{q_i} \right) \delta q_i + ( \dtot{H}{p_i} - \dot{q}_i ) \delta p_i \right]
+\]
+
+Entonces las ecuaciones de Hamilton las podemos obtener con 
+\[
+	\delta \int ( p_i \dot{q}_i - H ) dt = 0 \qquad \delta \int ( P_i \dot{Q}_i - H' ) dt = 0
+\]
+y
+\[
+	dF_1 = p_i \dot{q}_i dt - P_i \dot{Q}_i dt + (H'-H)dt
+\]
+\[
+	dF( qq_i, Q_i, t ) = P_i dq_i - P_i dQ_i + (H'- H)dt
+\]
+y de la {\it lectura} de 
+\[
+	dF_1 =
+\]
+se identifican 
+\[
+	\dtot{F_1}{q_i} = p_i \qquad \qquad \dtot{F_1}{P_i} = -P_i.
+\]
+
+De modo ídem se tiene 
+\[
+	d(F_1 + P_iQ_i) = P_i dq_i + Q_i dP_i + (H'-H)dt
+\]
+($F_2(q_i,P_i,t)$) lo que lleva a 
+\[
+	\dtot{F_2}{q_i} = p_i \qquad \qquad \dtot{F_2}{P_i} = Q_i \qquad \qquad \dtot{F_2}{t} = H'- H.
+\]
+
+Entonces
+\[
+	\dpar{S}{t} + H(q_i,\dpar{S}{q_i},t) = 0
+\]
+pero la derivada parcial en el argumento es $p_i$. La transformación $(q_i,p_i) \to (Q_i,P_i) = (\beta_i,\alpha_i)$ 
+permite la escritura
+\[
+	\dpar{S}{t} + H(q_i,\alpha_i,t) = 0,
+\]
+y $S = S'(\alpha_i) + A$ donde los $\alpha_i$ son $n$ variables (dado que $S$ aparece sólo derivada).
+\[
+	\dpar{S}{\alpha_i} = \beta_i \qquad H'= H + \dpar{S}{t} = 0
+\]
+y entonces $ \dot{\alpha}_i = 0, \dot{\beta}_i=0 $. Ahora como los momentos y las coordenadas son constantes el problema
+es trivial pero la transformación es muy jodida.
+\[
+	\dpar{S}{t} + H(q_i,\dpar{S}{q_i}) = 0 \qquad \qquad S = S(q_i,t)
+\]
+en este caso $ \dtot{S}{t} = -E $ y se tiene 
+\[
+	S = W\left( q_i,\dpar{S}{q_i} \right) - E t.
+\]
+
+
+
 % =================================================================================================
 \section{Potencial electromagnético}
 % =================================================================================================
