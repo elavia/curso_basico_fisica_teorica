@@ -1074,10 +1074,71 @@ En este ejemplo hay que suponer que el lagrangiano es ya de entrada de pequeñas
 \end{ejemplo}
 
 \begin{ejemplo}{\bf Problema 1 P96}
- 
-\includegraphics[scale=0.5]{images/fig_mc_problema_1_p96.jpg} 
 
-\includegraphics[scale=0.5]{images/fig_mc_problema_1_p96_2.jpg} 
+El lagrangiano para el {\it setup} es 
+\[
+	\Lag = \frac 1 2 m ( \dot{x}^2 + \dot{y}^2 + \dot{z}^2 ) - \frac{k_x}{2} x^2 - \frac{k_y}{2} y^2 - \frac{k_z}{2} z^2,
+\]
+donde los momentos son 
+\[
+	p_i = \dpar{\Lag}{\dot{x}_i} = m\dot{x}_i,
+\]
+para cada una de las coordenadas. El hamiltoniano es $h = \sum_i p_i \dot{q}_i - \Lag$, que explícitamente
+\[
+	h = \frac{p_x^2}{2m} + \frac{p_y^2}{2m} + \frac{p_z^2}{2m} + \frac{k_x}{2} x^2 + \frac{k_y}{2} y^2 + \frac{k_z}{2} z^2
+\]
+de donde leemos
+\[
+	\dpar{H}{x} = k_x x = - \dot{p}_x \qquad \dpar{H}{p_x} = \frac{p_x}{m} = \dot{x},
+\]
+que conduce, derivando una vez más, a $ \ddot{x} = \dot{p}_x / m $ y $ \ddot{x} = - k_x / m $, que es la ecuación del oscilador
+armónico en $x$.
+ 
+El diagrama de fases es algo como lo que muestra la figura siguiente
+ 
+\includegraphics[scale=0.35]{images/fig_mc_problema_1_p96.jpg} 
+
+donde bajo el primer gráfico aparecen las curvas de nivel del potencial.
+
+Para fuerza central resulta $U(r)$ en esféricas y el lagrangiano es
+\[
+	\Lag =
+\]
+Calculando el hamiltoniano según la definición resulta, después de algo de álgebra, en
+\[
+	\Ham = \frac{p_r^2}{2m} + \frac{1}{2mr^2} \left( p_\theta^2 + \frac{p_\vp^2}{\sin^2\theta}\right) + U(r) .
+\]
+El hamiltoniano es constantes puesto que el lagrangiano no depende del tiempo y $p_\vp$, por la ciclicidad de $\vp$
+es constante.
+
+Si espedificamos como potencial el de Kepler, vemos que es separable en $\theta, r$ puesto que se tiene 
+\[
+	f(\theta,\vp) = g(r)
+\]
+de modo que cada una de estas funciones es una constante.
+
+La conservación del momento angular en términos del hamiltoniano resulta en
+\[
+	\dtot{}{t} \left( p_\theta^2 + \frac{p_\vp^2}{\sin^2\theta}\right) = 2 p_\theta \dot{p}_\theta +
+	\frac{ 2 p_\vp^2 \dot{p}_\vp^2}{\sin^2\theta} - \frac{2\cos\theta\dot{\theta}p_\vp^2}{\sin^3\theta}
+\]
+y entonces
+\[
+	\dot{p}_\theta = -\dpar{\Ham}{\theta} \left( \frac{-1}{2mr^2} \frac{-4p_\vp^2 \sin^2\theta \cos\theta}{\sin^2\theta} \right),
+\]
+y eso lleva a 
+\[
+	 \left( p_\theta^2 + \frac{p_\vp^2}{\sin^2\theta}\right) = cte
+\]
+
+EL hamiltoniano tiene un potencial efectivo dado por los dos últimos términos de la derecha,
+\[
+	\Ham = \frac{p_r^2}{2m} + \frac{1}{2mr^2} L^2 + U(r)
+\]
+
+El diagrama de fases aparece aquí abajo.
+
+\includegraphics[scale=0.35]{images/fig_mc_problema_1_p96_2.jpg} 
  
 \end{ejemplo}
 
