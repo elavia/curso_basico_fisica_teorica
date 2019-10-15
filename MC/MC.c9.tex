@@ -1144,7 +1144,104 @@ El diagrama de fases aparece aquí abajo.
 
 
 \begin{ejemplo}{\bf Problema 8 P97}
+
+Consideramos un potencial generalizado
+\[
+	U = q \vp - \frac q c \vb{v}\cdot\vb{A},
+\]
+donde $\vb{A} = 1/2 \pv{B}{x}$ y asimismo $\pv{\nabla}{A}=\vb{B}$ siendo el lagrangiano,
+\[
+	\Lag = \frac 1 2 m ( \dot{x}^2 + \dot{y}^2 + \dot{z}^2 ) + \frac{q}{c} \vb{v}\cdot\vb{A}
+\]
+
+Si el campo está en el eje $z$, es decir $\vb{B}=(0,0,B)$ se tiene $\vb{A} = 1 /2 ( -B y \hat{x} + B x \hat{y} )$, lo
+cual conduce a 
+\[
+	\Lag = \frac 1 2 m ( \dot{x}^2 + \dot{y}^2 + \dot{z}^2 ) + \frac{q}{c} \frac{B}{2} ( - \dot{x} y + \dot{y} x )
+\]
+y los momentos son
+\[
+	P_x = m \dot{x} - \frac{qB}{2c}y \qquad
+	P_y = m \dot{y} + \frac{qB}{2c}x \qquad 
+	P_z = m \dot{z}  
+\]
+de manera que $z$ es cíclica. Luego, calculando el hamiltoniano a través de la definición es 
+\[
+	\Ham = \frac{1}{2} m ( \dot{x}^2 + \dot{y}^2 + \dot{z}^2 ),
+\]
+o bien (usando las equivalencias anteriores)
+\[
+	\Ham = \frac{1}{2m} \left[ p_x^2 + p_y^2 + p_z^2 + \frac{qB}{c}\left( p_x y - p_y x \right) +
+	\Frac{qB}{2c}^2( x^2 + y^2 ) \right], 
+\]
+y el paréntesis dentro del corchete es el $L_z$.
+Paso a usar un hamiltoniano $\Ham' = \Ham + cte.$
+\[
+	\dot{x} = \dpar{\Ham'}{p_x} = \frac{p_x}{m} \qquad \dot{p_x} = -\dpar{\Ham'}{x} = \frac{1}{2m}\Frac{qB}{2c}^2 2x
+\]
+
+Obtenemos para la ecuación de Newton,
+\[
+	\ddot{x} - \frac{q^2 B^2}{4 c^2 m^2} x = 0
+\]
+mientras que para la coordenada $y$ obtenemos una ecuación similar. Entonces
+\[
+	\ddot{x} + \omega^2 x = 0 \qquad \ddot{y} + \omega^2 y = 0
+\]
+con $\omega = q B / ( 2 c m )$. Luego
+\[
+	x = \frac{1}{\sqrt{ }}( \sqrt{ 2p } + ) \qquad y = \frac{1}{\sqrt{ }}( \sqrt{ 2p } + )
+\]
+y sus correspondienes momentos,
+\[
+	p_x = \frac{\sqrt{ }}{2} () \qquad p_y = \frac{\sqrt{ }}{2} ()
+\]
  
+Deberíamos probar que es una transformación canónica chequeando que se verifican
+\[
+	[ x, p_x ], [ y, p_y ] = cte. \qquad [ x, y ] = [ p_x, p_y ] = 0
+\]
+\[
+	[ x, p_x ] = sum_i \dpar{x}{q_i} \dpar{p_x}{p_i} - \dpar{p_x}{q_i} \dpar{x}{p_i}
+\]
+y las derivadas
+\[
+	\dpar{x}{q_1} = \frac{1}{\sqrt{m\omega}} ( \sqrt{ 2p_1} \cos q_1 ) \qquad \dpar{x}{q_2} = 0
+\]
+\[
+	\dpar{x}{p_1} = \frac{1}{\sqrt{2 m p_1}} ( \sin q_1 ) \qquad \dpar{x}{p_2} = \frac{1}{\sqrt{m\omega}}
+\]
+\[
+	\dpar{p_x}{q_1} = -\frac{\sqrt{2 m p_1}}{2} ( \sin q_1 ) \qquad \dpar{p_x}{q_2} = -\frac{\sqrt{m \omega}}{2} \qquad \dpar{p_x}{p_2} = 0
+\] 
+\[
+	\dpar{p_x}{p_1} = \frac{\sqrt{ }}{\sqrt{2p_1}}
+\]
+\[
+	[ x, p_x ] = \frac{1}{ \sqrt{ m \omega} } \sqrt{ 2 p_1 } \cos^2 q_1 + \left( \frac{\sqrt{2 m p_1}}{2} \sin^2 q_1 \right) + \frac{1}{2}
+\]
+
+El hamiltoniano luce
+\[
+	\Ham = \frac{1}{2m} \left( p_x^2 + p_y^2 + \frac{m^2\omega^2}{4}[ x^2 + y^2 ] \right)
+\]
+\[
+	\Ham = \frac{\omega}{2} p_1 + \frac{\omega}{4} p_2^2 + \frac{\omega}{4} q_2^2,
+\]
+y se ve que $q_1$ resultó cíclica. Luego $p_1$ es una constante y 
+\[
+	\dot{p}_2 = \dpar{\Ham}{q_2} = \frac{\omega}{2} q_2.
+\]
+Resolviendo se llega a 
+\[
+	\ddot{q}_2 + \omega^2 q_2 = 0,
+\]
+de manera que $q_2$ tiene comportamiento oscilatorio. Pero
+\[
+	\dot{q}_1 = -\dpar{\Ham}{p_1} = \frac{\omega}{2} \qquad q_1 = - \frac{\omega}{2} t.
+\]
+
+
 \end{ejemplo}
 
 
