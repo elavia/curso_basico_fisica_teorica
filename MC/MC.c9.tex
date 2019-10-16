@@ -1240,11 +1240,62 @@ de manera que $q_2$ tiene comportamiento oscilatorio. Pero
 \[
 	\dot{q}_1 = -\dpar{\Ham}{p_1} = \frac{\omega}{2} \qquad q_1 = - \frac{\omega}{2} t.
 \]
-
-
 \end{ejemplo}
 
+\begin{ejemplo}{\bf Hamilton Jacobi para fuerza central}
 
+\[
+	\Ham = \frac{1}{2m} p_r^2 + \frac{1}{2mr^2}p_\vp^2 + V(r), \qquad S = S' - Et
+\]
+entonces se puede escribir
+\[
+	E  - \left[ \frac{1}{2m}\Dpar{S}{r}^2 + V(r) \right] = \frac{1}{2m}\Dpar{S}{\vp}^2.
+\]
+
+Para esféricas necesitaré:
+\[
+	V = V(r) + \frac{b(\theta)}{r^2} + \frac{c(\vp)}{r^2 \sin^2\theta}
+\]
+
+Si reemplazo en el hamiltoniano a la forma separable
+\[
+	W(r, \theta, \vp) = W'(r, \theta) + S_\vp(\vp),
+\]
+de modo que 
+\[
+	\Dpar{S}{\vp}^2 + C(\vp) = \alpha \vp
+\]
+que ya se integra directamente. Luego en forma ídem es
+\[
+	W'(r, \theta) = S_r( r ) + S_\theta(\theta).
+\]
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Otro ejemplo de potencial}
+
+\[
+	V = \frac{\alpha}{r} - F(z) \qquad \qquad ( r \text{ esféricos}, z \text{ cilíndricas })
+\]
+donde $(\xi, \eta, \vp)$ coordenadas parabólicas. Verifican
+\[
+	\frac{ a(\xi) + b(\eta) }{\xi + \eta}
+\]
+\[
+	z = \frac 1 2 ( \xi - \eta ), \quad \rho =  \sqrt{\xi \eta}, \quad \vp \in \{ 0, 2\pi \}, 0 < \xi, \eta < \infty 
+\] 
+\[
+	r = \sqrt{ \rho^2 + z^2 } = \sqrt{ \frac{1}{4} ( \xi - \eta )^2 + \xi \eta },
+\]
+de modo que $r = 1/2 (\xi + \eta)$. Consideremos
+\[
+	\Lag  = \frac{1}{2m} ( \dot{\rho}^2 + \rho^2 \dot{\vp}^2 + \dot{z}^2 ) - V(\rho,\vp,z)
+\]
+que lleva a 
+\[
+	\dot{\rho}^2 + \dot{z}^2 = \frac{1}{4} ( \xi + \eta )\left( \frac{\dot{\xi}^2}{\xi} + \frac{\dot{\eta}^2}{\eta} \right)
+\]
+ 
+\end{ejemplo}
 
 
 
