@@ -1294,7 +1294,56 @@ que lleva a
 \[
 	\dot{\rho}^2 + \dot{z}^2 = \frac{1}{4} ( \xi + \eta )\left( \frac{\dot{\xi}^2}{\xi} + \frac{\dot{\eta}^2}{\eta} \right)
 \]
+
+El lagrangiano es
+\[
+	\Lag = \frac{1}{8} m (\xi + \eta) \left( \frac{\dot{\xi}^2}{\xi} + \frac{\dot{\eta}^2}{\eta} \right) +
+	\frac{m}{2}\xi\eta\dot{\vp}^2 - V(\xi,\eta,\vp)
+\]
+y los momentos 
+\[
+	p_\xi = \dpar{\Lag}{\dot{\xi}} = \frac{m}{4} (\xi + \eta) \frac{\dot{\xi}}{\xi} \qquad 
+	p_\eta = \frac{m}{4} (\xi + \eta) \frac{\dot{\eta}}{\eta}, \qquad
+	p_\vp = m \xi \eta \dot{ \vp }
+\]
+mientras que el hamiltoniano es
+\[
+	\Ham = \frac{2}{m} \Frac{ \xi p_\xi^2 + \eta p_\eta^2 }{ \xi + \eta } + \frac{ p_\vp^2 }{ 2 m \xi \eta } + 
+	\frac{ a(\xi) + b(\eta) }{ \xi + \eta }
+\]
+
+Ahora vemos el potencial $V(r,z)$ que es 
+\[
+	V = \frac{1}{r} ( \alpha - Fr ) = \frac{1}{r} ( \alpha - \frac{1}{4} F ( \xi^2 - \eta^2 ) )
+\]
+\[
+	V = \frac{( \alpha - F \xi^2 / 2 ) + ( \alpha + F \eta^2 / 2 )}{\xi + \eta}
+\]
  
+Reemplazando en el hamiltoniano se tiene 
+\[
+	S = W(\xi,\eta,\vp) - Et = W(\xi,\eta) + p_\vp \vp - Et
+\]
+donde
+\[
+	E(\xi + \eta) = 2 \xi \Dpar{W}{\xi}^2 + 2 \eta \Dpar{W}{\eta}^2 + \frac{(\xi + \eta)p_\vp}{2 m \xi \eta} + a(\xi) + b(\eta)
+\]
+o bien 
+\[
+	E\xi - 2 \xi \Dpar{W}{\xi}^2 + E\xi - \frac{p_\vp}{2 m \xi} - a(\xi) =  2 \eta \Dpar{W}{\eta}^2 + E\xi - \frac{p_\vp}{2 m \eta} + b(\eta) - E\eta  
+\]
+y como $ W(\xi,\eta) = W_\xi(\xi) + W_eta(\eta) $ se tiene 
+\[
+	\beta =  2 \xi \Dpar{W_\xi}{\xi}^2 + \frac{p_\vp}{2 m \xi} + a(\xi) -E\xi
+\]
+\[
+	W(\xi) = \int \; \sqrt{ \frac{1}{2\xi} \left( \beta + E\xi - \frac{p_\vp}{2 m \xi} - a(\xi) \right)} d\xi,
+\]
+o bien
+\[
+	S = W_\xi(\xi) + W_\eta(\eta) + p_\vp \vp - Et
+\]
+
 \end{ejemplo}
 
 
