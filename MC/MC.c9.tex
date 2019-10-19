@@ -350,24 +350,36 @@ No confundir espacio de fases con espacio de configuración.
 \section{Variables ángulo-acción}
 % =================================================================================================
 
-Consideremos una transformación canónica 
+La idea es introducir un nuevo juego de variables canónicas. Para ello cnsideremos una transformación 
+canónica 
 \[
-	p,q \longrightarrow J,\theta
+	(p, q) \longrightarrow (J, \theta)
 \]
-la cual requiere
+con generatriz $W$ que cumple $W-Et=S$. 
+Estas variables se pueden utilizar solamente con
 \begin{itemize}
- \item Conservativos $S = W - Et $
- \item Totalmente separables $W = \sum_i^N \; W_i(q_1,\alpha_1,...,\alpha_n)$
- \item Problemas periódicos
+	\item Problemas conservativos, donde es $S = W - Et $
+	\item Problemas completamente separables, con
+	\[
+		W = \sum_i^N \; W_i(q_1,\alpha_1,...,\alpha_n)
+	\]
+	\item Problemas de movimiento periódico (condicionalmente)
 \end{itemize}
 
-El movimiento periódico es de rotación o libración,
+Solamente si se verifican estos tres supuestos, se pueden utilizar las variables $(J,\theta)$.
+
+El movimiento periódico es de dos tipos, de rotación o libración,
+
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.7\textwidth]{images/fig_mc_rot_lib.pdf}	 
+	\includegraphics[width=0.7\textwidth]{images/fig_mc_rot_lib.jpg}	 
 	\end{center}
 	\caption{}
 \end{figure} 
+
+Si tengo más de un grado de libertad tendré un gráfico $pq$ para cada par y puedo tener una
+libración o una rotación (si el problema es separable). De lo contrario no podré expresar
+cada $p$ en función de su $q$ correspondiente.
 
 La periodicidad de cada coordenada no implica periodicidad de todo el movimiento real.
 \[
