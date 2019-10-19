@@ -370,31 +370,46 @@ Solamente si se verifican estos tres supuestos, se pueden utilizar las variables
 
 El movimiento periódico es de dos tipos, de rotación o libración,
 
-\begin{figure}[htb]
-	\begin{center}
+% \begin{figure}[htb]
+% 	\begin{center}
 	\includegraphics[width=0.7\textwidth]{images/fig_mc_rot_lib.jpg}	 
-	\end{center}
-	\caption{}
-\end{figure} 
+% 	\end{center}
+% 	\caption{}
+% \end{figure} 
 
 Si tengo más de un grado de libertad tendré un gráfico $pq$ para cada par y puedo tener una
 libración o una rotación (si el problema es separable). De lo contrario no podré expresar
 cada $p$ en función de su $q$ correspondiente.
 
-La periodicidad de cada coordenada no implica periodicidad de todo el movimiento real.
+\subsection{Péndulo}
+
+La energía en el caso del péndulo es
 \[
-	S = \sum_i^N \; W_i(q_i,J_i) - Et
+	E = \frac{p^2}{2m} + m g \ell ( 1 - \cos q )
+\]
+y un grado de libertad es separable siempre si se conserva la energía.
+El péndulo realiza dos movimientos,
+\[
+	E > 2mg\ell \quad \text{ rotación} \qquad \qquad E < 2mg\ell \quad \text{ libración}
 \]
 
-Libración y rotación son dos movimientos de naturaleza diferente. No se puede pasar de
-uno a otro mediante pequeñas perturbaciones.
+\includegraphics[width=0.7\textwidth]{images/fig_mc_pendulo_angacc1.jpg}
 
-\begin{figure}
-	\begin{center}
-	\includegraphics[width=0.7\textwidth]{images/fig_mc_hamjac.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
+\includegraphics[width=0.7\textwidth]{images/fig_mc_pendulo_angacc2.jpg}
+
+En un sistema con varios grados de libertad, cada grado de libertad deberá tener un grafo de
+esta forma.
+Se ve que para pequeñas apartaciones $q$ es
+\[
+	E \approx \frac{p^2}{2m} + \frac{ m g \ell q^2 }{2},
+\]
+lo cual no es otra cosa que el gráfico de una elipse. Luego, será una elipse {\it toda la vida} mediante
+suma de pequeños desplazamientos (perturbaciones). La idea es, entonces, que no podemos pasar de una
+libración a una rotación mediante perturbaciones pequeñas. 
+Libración y rotación son dos movimientos de naturaleza diferente.
+No se puede atravesar la separatriz perturbando una solución de un movimiento.
+
+\includegraphics[width=0.3\textwidth]{images/fig_mc_pendulo_angacc3.jpg}
 
 La integral de acción es
 \[
@@ -404,8 +419,69 @@ donde
 \[
 	J_i = J_i(\alpha_1,...,\alpha_n)
 \]
-son constantes y a su vez los $\alpha_i$ son constantes de separación.
-Asimismo $\alpha_i=\alpha_i(J_1,...,J_n)$. 
+son los nuevos momentos, constantes, y a su vez los $\alpha_i$ son constantes de separación.
+Asimismo $\alpha_i=\alpha_i(J_1,...,J_n)$. Una integral de acción para cada grado de libertad.
+Esta integral las puedo hacer siempre dadas las condiciones que se supusieron.
+
+\includegraphics[width=0.8\textwidth]{images/fig_mc_pendulo_angacc4.jpg}
+
+\begin{ejemplo}{\bf Comentario central forces}
+
+En un problema de fuerzas centrales, por ejemplo, se tienen
+\[
+	p_r = p_r(r,\ell^2,\ell_z,E) \qquad p_\vp = p_\vp(\vp) \quad p_\theta =cte
+\]
+que son periódicas en cada coordenada pero no el movimiento total porque en general
+no coinciden los períodos de todos los movimientos en $r,\theta,\phi$.
+Es decir, que la a periodicidad de cada coordenada no implica periodicidad de todo el movimiento real.
+
+\includegraphics[width=0.7\textwidth]{images/fig_mc_pendulo_angacc5.jpg}
+
+\includegraphics[width=0.7\textwidth]{images/fig_mc_pendulo_angacc6.jpg}
+
+\end{ejemplo}
+
+\subsection{Oscilador armónico}
+
+La energía es
+\[
+	E = \frac{p^2}{2m} + \frac{1}{2} m \omega^2 q^2
+\]
+ 
+\includegraphics[width=0.5\textwidth]{images/fig_mc_osciladorarm_angacc.jpg}
+
+de manera que
+\[
+	1 = \frac{p^2}{2mE} + \frac{m\omega^2 q^2}{2E}
+\]
+y
+\[
+	J = \frac{1}{2\pi}(\pi a b )= \frac{E}{\omega}.
+\]
+
+Para el oscilador armónico es enteonces
+\[
+	\dpar{E}{J} = \dot{\theta}
+\]
+y entonces
+\[
+	\theta = \omega t + \theta_0
+\]
+
+\[
+	S = \sum_i^N \; W_i(q_i,J_i) - Et
+\]
+
+
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.7\textwidth]{images/fig_mc_hamjac.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
+
 La transformación $S$ es 
 \[
 	\dpar{S}{q_i} = p_i = \dpar{W}{q_i} \qquad \dpar{S}{J_i} = \theta_i = \dpar{W}{J_i}
