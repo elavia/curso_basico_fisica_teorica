@@ -459,20 +459,81 @@ y
 	J = \frac{1}{2\pi}(\pi a b )= \frac{E}{\omega}.
 \]
 
-Para el oscilador armónico es enteonces
+Para el oscilador armónico es entonces
 \[
 	\dpar{E}{J} = \dot{\theta}
 \]
-y entonces
+y luego
 \[
 	\theta = \omega t + \theta_0
 \]
-
+de modo que 
 \[
-	S = \sum_i^N \; W_i(q_i,J_i) - Et
+	E = E(J_1, J_2, ..., J_n)
+\]
+siempre puedo despejar $E$ en función de los nuevos momentos.
+\[
+	\dpar{E}{J_i} = \dot{\theta}_i = \omega_i(J_1,...,J_n)
+\]
+\be
+	\theta_i = \omega_i(J_1,...,J_n) t + \theta_0
+	\label{sol_theta}
+\ee
+y habrá órbitas cerradas dependiendo de las condiciones iniciales de los $J_i$.
+Ahora faltaría obtener los $q(t),p(t)$ a partir de la  \eqref{sol_theta}. Sabemos que 
+\[
+	W = \sum_i^N W_i(q_i,\alpha_1,...,\alpha_n),
+\]
+la generatriz total es una suma y los $\alpha_i$ son las constantes de separación. Necesito
+\[
+	W = W( q_i, J_1, ..., J_n ).
 \]
 
+Utilizo $\alpha_i( J_1, J_2, ..., J_n )$ (que se obtuvieron de las $n$ integrales de acción) y $\partial W /\partial J_i = \omega_t t + \theta_0 $.
+Luego tendré $n$ relaciones del tipo
+\be
+	\theta_i( q_i, J_1, ..., J_n ) = \dpar{\theta}{J_i} = \omega_i t + \theta_0
+	\label{sistema_theta}
+\ee
+y $n$ ecuaciones 
+\[
+	\dpar{W_i}{q_i} = p_i = p_i( q_i, J_1, ..., J_n ) 
+\]
+usando condiciones iniciales $(q_1, ..., q_n), (p_1, ..., p_n)$ en $t=0$ especializando a $t=0$ obtengo $J_1, ..., J_n$ constantes.
+\[
+	W = \sum_i^N \; W_i(q_i,J_1,...,J_n). 
+\]
 
+En el sistema \eqref{sistema_theta} con la $E$ hago 
+\[
+	\dpar{E}{J_i}(J_1,...,J_n) = \dot{\theta}_i(J_1,...,J_n)
+\]
+entonces $\theta_i = \omega_i (J_1,...,J_n) t + \theta_0$ que es la solución del problema en el espacio mecánico transformado.
+Los $J_1,...,J_n$ son constantes porque dependen de constantes $\alpha_i$ .
+
+Luego, consideramos $t=0$ y $\theta_i = \theta_i ( q_1,...,q_n,J_1,...,J_n)$ provee los $q_i = q_i(t)$. Se tiene 
+\[
+	p_\ell = \dpar{W_\ell}{q_\ell} = p_\ell( q_\ell, J_1, ..., J_n ).
+\]
+
+Para el oscilador armónico
+\[
+	E = \omega J \qquad \qquad \theta = \omega t + \theta_0
+\]
+\[
+	W(q,E) = \int \frac{dq}{ [ 2 m \left( E - \frac{1}{2} m \omega^2 q^2 \right) ]^{-1/2} } = 
+	W(q,J) = \int \frac{dq}{ [ 2 m \left( \omega J - \frac{1}{2} m \omega^2 q^2 \right) ]^{-1/2} },
+\]
+donde el denominador contiene el $\acos$ de algo.
+\[
+	\dpar{W}{J}(q,J) = \theta (t) = \omega t + \theta_0 = \int \frac{ m \omega dq }{ [ 2 m \left( \omega J - \frac{ m \omega^2 q^2 }{2} \right) ]^{1/2} }
+\]
+y
+\[
+	\dpar{W}{q} = \sqrt{ \omega J - \frac{ m \omega^2 q^2 }{2} \left( \right) } = p.
+\]
+
+\subsubsection{Quedó remanente}
 
 \begin{figure}
 	\begin{center}
