@@ -440,7 +440,38 @@ y como
 \[
 	\omega = \frac{\pi p}{m d} = \frac{2\pi v}{2d}
 \]
-siendo el período $\tau = 2d/v$
+siendo el período $\tau = 2d/v$. Podemos conectar $E$ con $p$ a través de estas fórmulas.
+Pasamos a un problema donde todas las coordenadas son cíclicas.
+\[
+	W = \int p dq = \begin{cases}
+			\sqrt{ 2 m E } \; q = \frac{J \pi q}{d} \text{ ida } \\
+			\\
+			\sqrt{ 2 m E } \; ( d + d - q) = \frac{J \pi (2d-q)}{d} \text{ vuelta }
+	                \end{cases}
+\]
+y
+\[
+	p = \dpar{W}{q} = \begin{cases}
+			\sqrt{ 2 m E } \\
+			\\
+			-\sqrt{ 2 m E }
+	                 \end{cases}
+\]
+\[
+	\theta = \dpar{W}{J} = \begin{cases}
+	                        \frac{\pi q}{d} \\
+	                        \\
+	                        \frac{\pi}{d}(2d-q)
+	                       \end{cases}
+\]
+que conducen a
+\[
+	q = \begin{cases}
+		\frac{d}{\pi} ( \omega t + \theta_0 ) \\
+		\\
+		2d - \frac{d}{\pi} ( \omega t + \theta_0 )
+	    \end{cases}
+\]
  
 \end{ejemplo}
 
