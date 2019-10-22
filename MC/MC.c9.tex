@@ -350,7 +350,7 @@ No confundir espacio de fases con espacio de configuración.
 \section{Variables ángulo-acción}
 % =================================================================================================
 
-La idea es introducir un nuevo juego de variables canónicas. Para ello cnsideremos una transformación 
+La idea es introducir un nuevo juego de variables canónicas. Para ello consideremos una transformación 
 canónica 
 \[
 	(p, q) \longrightarrow (J, \theta)
@@ -380,6 +380,70 @@ El movimiento periódico es de dos tipos, de rotación o libración,
 Si tengo más de un grado de libertad tendré un gráfico $pq$ para cada par y puedo tener una
 libración o una rotación (si el problema es separable). De lo contrario no podré expresar
 cada $p$ en función de su $q$ correspondiente.
+
+\subsection{Algunos claims sueltos}
+
+Dado un problema puede ser conveniente pasar a un hamiltoniano $H'$ más sencillo, donde la relación
+con el anterior es
+\[
+	H' = H + \dpar{S}{t},
+\]
+y si $S$ se elige del tipo $F_2$ se tiene $S = W - Et$. La $S$ depende de variables viejas y nuevas
+(en mitades). El hamiltoniano más conveniente es $H'=0$
+\[
+	S = W_1(q_1, \alpha_1, ..., \alpha_n) + W_2(q_2, \alpha_1, ..., \alpha_n) - Et,
+\]
+y es tal que 
+\[
+	p = \dpar{S}{q} \qquad Q = \dpar{S}{\alpha} = B = cte
+\]
+
+Las integrales que son $W$ conviene esperar para primero derivarlo [?].
+Ángulo-acción es un caso particular.
+Necesito periodicidad de los grados de libertad (no de todos igual período a la vez).
+La acción es $J$ y la tomamos como el nuevo momento,
+\[
+	J = \frac{1}{2\pi } \oint p dq,
+\]
+donde la integral se hace en un ciclo y el $2\pi$ está para que sea angular. Sin este factor será
+la frecuencia natural. Entonces el hamiltoniano será la energía, $H=H'=E$ e ignoramos la parte
+temporal.
+\[
+	\omega = \dpar{E}{J}
+\]
+
+Con esto ya obtenemos la frecuencia. Si queremos la solución completa habría que invertir.
+La geometría da $p,q \to J,\theta$ es $W = \int pdq$ generatriz.
+\[
+	\theta = \dpar{W}{J} = \omega t + \theta_0.
+\]
+
+En el espacio de fases el área de una trayectoria está asociada con la generatriz
+
+\includegraphics[width=0.5\textwidth]{images/fig_mc_angacc.jpg}
+
+\begin{ejemplo}{\bf Partícula en un pozo de potencial}
+
+Tenemos una partícula en un pozo de potencial
+
+\includegraphics[width=0.5\textwidth]{images/fig_mc_angacc2.jpg}
+ 
+Se tienen 
+\[
+	H = \frac{p^2}{2m} \qquad E = \frac{m v^2}{2} \qquad p = m v
+\]
+y entonces
+\[
+	J = \frac{1}{\pi} \int \sqrt{2 m E} dq = \sqrt{2 m E} d,
+\]
+y como 
+\[
+	\omega = \frac{\pi p}{m d} = \frac{2\pi v}{2d}
+\]
+siendo el período $\tau = 2d/v$
+ 
+\end{ejemplo}
+
 
 \subsection{Péndulo}
 
