@@ -1591,10 +1591,129 @@ o bien
 \end{ejemplo}
 
 
+\begin{ejemplo}{Problema interesante (reacomodar o desaparecer)}
 
+Este sistema tiene los mismos modos normales que si no estuvieran estos nuevos resortes conectados
 
+\includegraphics[scale=0.35]{images/fig_mc_problema_interesante.jpg}
 
+La matriz con resortes entre vecinos es
+\[
+	\begin{pmatrix}
+	2 k_1 & - k_1 & 0 & 0 & ... & - k_1 \\ 
+	-k_1 & 2k_1 & -k_1 & 0 & ... & - k_1 \\
+	0 & - k_1 & 2k_1 & ... &  \\
+	& 0 & 0 & ...& & -k_1 \\
+	& & &... & 2k_1 & 0 \\
+	-k_1 &  &  & -k_1 & 0 & 2k_1
+	\end{pmatrix}
+\]
+mientras que la matriz con resortes entre terceros
+\[
+	\begin{pmatrix}
+	2 (k_1 +k_2) & - k_1 & -k_2 & 0 & ... & - k_1 \\ 
+	-k_1 & 2(k_1+k_2) & -k_1 & 0 & ... & - k_1 \\
+	k_2 & - k_1 & 2(k_1+k_2) & ... &  \\
+	& 0 & 0 & ...& 2k_1 &  \\
+	-k_2& & &... &  & -k_1 \\
+	-k_1 & -k_2 &  &  & -k_1 & 2k_1
+	\end{pmatrix}
+\]
 
+Siempre tiene los mismos autovectores.
+Los modos normales están dados por la geometría y las condiciones de contorno.
+
+\end{ejemplo}
+
+\subsection{Popurrí de cosas para reubicar}
+
+{\bf Sobre el potencial}
+Si $\vb{F}$ proviene de un potencial que depende del tiempo entonces no será conservativo el campo de fuerzas.
+No vale lo mismo la integral $\int F(x,t) dx$ por diferentes caminos (dependerá del tiempo que tarde en cada
+camino).
+
+{\bf sobre generatrices}
+\[
+	F_2 = F_1 + \sum  Q_i P_i,
+\]
+con
+\[
+	\begin{cases}
+	Q_i = Q_i( q_i, P_i ) \\
+	P_i = P_i( q_i )
+	\end{cases}
+\]
+pero tienen que estar escritas $Q_i, P_i$ en términos de las variables de $F_2$
+
+{\bf Ángulo-acción}
+
+Todas los grados de libertad separables (de lo contrario no puedo definir una de las acciones).
+
+{\bf Observación}
+
+Se puede transformar entre $n$ grados de libertad dependiendo del tiempo a $n+1$ grados de 
+libertad conservativos.
+
+{\bf Bundle de Hamilton-Jacobi}
+
+Resolviendo Hamilton-Jacobi llego a
+\[
+	K = H(q_i,) - E = 0
+\]
+y si $t$ es separable paso al problema $ H(q_i,) = E $.
+\[
+	\dpar{W}{q_i} = p_i \qquad \qquad \dpar{W}{P_i} = Q_i
+\]
+con 
+\[
+	\theta_i = \omega_i(J_1,...,J_n) t + \theta_{i0}
+\]
+\[
+	\dpar{E}{J_i}(J_1,...,J_n) = \dot{\theta}_i = \omega_i (J_1,...,J_n)
+\]
+
+El problema general tiene como solución $J_i$ constante $\theta$ lineal.
+El asunto es pasar a la solución que sirve 
+\[
+	\begin{cases}
+	q_1(t), ..., q_n(t) \\
+	p_1(t), ..., p_n(t)
+	\end{cases}
+\]
+usando las condiciones iniciales y la generatriz $S$.
+
+La derivada
+\[
+	\dpar{W}{q_i} = p_i(q_1,... , q_n,J_1,...,J_n)
+\]
+hay que expresarla en función de los nuevos momentos $J_i$ (no de las constantes de separación $\alpha_i$) pero
+en realidad el problema es totalmente separable, entonces
+\[
+	\dpar{W}{q_i} = p_i(q_i,J_1,..,J_n)
+\]
+para ángulo-acción los $P_i$ no son las constantes de separación.
+\[
+	W = W(q_i,P_i) \qquad W = W(q_i,J_i)
+\]
+
+Energía en función de los momentos
+\[
+	W = \int \sqrt{ 2 m ( E[J] - V[q] ) } dq, 
+\]
+entonces $W = W( J, q )$. Si tenemos varios grados de libertad tendremos varias integrales
+\[
+	\dpar{W}{J_i} = \theta_i(q_i,J_n) = \omega_i t + \theta_{i0}
+\]
+
+Con las condiciones iniciales me meto en:
+\[
+	\dpar{W}{q_i}(q_1,J_1,...,J_n) = p_i(q_1,... , q_n,J_1,...,J_n)
+\]
+con los $p_{i0}$ y los $q_{i0}$ obtengo los $J_1, ..., J_n$ constantes $n$ ecuaciones $p_{i0} = p_i (q_1,J_1,...,J_n)$
+\[
+	\dot{\theta}_i = \omega_i (J_1, ..., J_n )
+\]
+con los $J_1, ..., J_n$ obtengo $\dot{\theta}_i$.
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
