@@ -1,7 +1,7 @@
 	%###########################################################################
 	%
 	%	Hoja de estilo para el Curso Básico de Física Teórica
-	%	v 1.2 [Abril 2016]
+	%	v 1.6 [Junio 2018]
 	%
 	%
 	%###########################################################################
@@ -11,6 +11,17 @@
 	% Es un trabajo en progreso de tal manera que son esperables cambios a medida
 	% que surja la necesidad de nuevas estructuras y macros.
 	
+	% Se fixeó el asunto de tener mejores versiones bold de las cantidades vectoriales
+	% utilizando el comando 'symbf'	
+	
+	
+	\usepackage{fixmath} % Para caracteres en negrita
+	% Con este usamos 'mathbold'
+%   	\usepackage[bold-style=TeX]{unicode-math}
+  	\usepackage[ math-style=TeX, bold-style=ISO ]{unicode-math}
+% 	Este package es el que configura cómo salen las cosas en negrita, y en general
+% 	en math mode. Conviene usar 'symbf' en lugar de 'mathbf'
+%	En DAS funciona un setup basado en unicode-math con 'symbf' y acá en el depto no funciona!
 	
 	%###########################################################################
 	%		TIPOGRAFÍAS para la hoja cls
@@ -51,19 +62,52 @@
 	% Derivadas parcial de #2 con respecto a #3 #1 veces (el argumento 1 es opcional)
 	\newcommand{\dpar}[3][\hspace{-0.05em}]{\frac{\partial^{#1} {#2}}{\partial {#3}^{#1}}}
 	\newcommand{\dtot}[3][\hspace{-0.05em}]{\frac{d^{#1} {#2}}{d {#3}^{#1}}}
+	% Derivada parcial con paréntesis externos	
+	\newcommand{\Dpar}[3][\hspace{-0.05em}]{ \left( \frac{\partial^{#1} {#2}}{\partial {#3}^{#1}} \right)}
+	\newcommand{\Dtot}[3][\hspace{-0.05em}]{\left( \frac{d^{#1} {#2}}{d {#3}^{#1}} \right)}
+	
+	% Derivada parcial evaluada de #2 con respecto a #3 con #4 constante (#1 es opcional)
+	% utilizando barra a la derecha
+	\newcommand{\dpare}[4][\hspace{-0.05em}]{ \left.\frac{\partial^{#1} {#2}}{\partial {#3}^{#1}}\right|_{#4} }
+	
+	% Entorno frac con paréntesis ajustables externos
+	\newcommand{\Frac}[2]{ \left( \frac{ #1 }{ #2 } \right) }
+
+	% Sumatoria con límites
+	\newcommand{\Sum}[2]{ \sum_{#1}^{#2}}
 	
 	% Para poner índices a tensores
 	\def\hx#1.#2.{_{#1}^{#2}}
 	
+	% Para ahorrar tipeo
+	\newcommand{\vp}{\varphi}
+	
+	% Vectores y versores (con espacios iniciales)
+ 	\newcommand{\rver}{\:\hat{r}}
+	\newcommand{\phiver}{\:\hat{\vp}}
+ 	\newcommand{\thetaver}{\:\hat{\theta}}
+ 	\newcommand{\xver}{\:\hat{x}}
+ 	\newcommand{\yver}{\:\hat{y}}
+ 	\newcommand{\zver}{\:\hat{z}}
+	
 	% Boldface para modo matemático y operadores varios
-	\newcommand{\vb}[1]{\ifmmode\mathbf{#1}\else$\mathbf{#1}$\fi} % Vector
-	\newcommand{\divem}[1]{\mathbf{\nabla}\mathbf{\cdot}\mathbf{#1}} % Divergencia
-	\newcommand{\rotorm}[1]{\mathbf{\nabla}\times \vb{#1}} % Rotor
+% 	\newcommand{\vb}[1]{\ifmmode\mathbf{#1}\else$\mathbf{#1}$\fi} % Vector usando mathbf
+	\newcommand{\vb}[1]{\ifmmode\symbf{#1}\else$\symbf{#1}$\fi} % Vector usando mathbf
+	\newcommand{\vB}[1]{\ifmmode\mathbold{#1}\else$\mathbold{#1}$\fi} % Vector usando mathbold 
+	
+	\newcommand{\dotvb}[1]{ \kern0.7ex \raisebox{1ex}\cdot \kern-1.1ex\vb{ #1 } } % Derivada temporal del vector
+	
+	\newcommand{\vS}[1]{\ifmmode\boldsymbol{#1}\else$\boldsymbol{#1}$\fi} % Vector usando boldsymbol
+	
+	
+% 	\newcommand{\divem}[1]{ {\nabla}\mathbf{\cdot}\mathbf{#1}} % Divergencia
+	\newcommand{\divem}[1]{ {\Nabla}\symbf{\cdot}\symbf{#1}} % Divergencia
+	\newcommand{\rotorm}[1]{ {\Nabla}\times \vb{#1}} % Rotor
 	\newcommand{\lapm}[1]{\nabla^2{#1}} % Laplaciano
 	\newcommand{\dparbis}[2]{\frac{\partial}{\partial #2}\left[ #1 \right]}
 	\newcommand{\dparcru}[3]{\frac{\partial^2 #1}{\partial #3\partial #2}} % Derivada parcial 2da cruzada
 	\newcommand{\ddpar}[2]{\frac{\partial^2 #1}{\partial #2^2}}
-	\newcommand{\Nabla}{\mathbf{\nabla}} % Nabla vectorial
+	\newcommand{\Nabla}{\symbf{\nabla}} % Nabla vectorial
 	\newcommand{\pe}[2]{\vb{#1} \cdot \vb{#2}}
 	\newcommand{\pv}[2]{\vb{#1} \times \vb{#2}}
 	\newcommand{\re}{\mathfrak{ R }}
@@ -73,12 +117,22 @@
 	% Una buena ´e´ de Euler
 	\newcommand{\euler}{\:\mathrm{e}}
 	
+	
+	% Un signo menos más pequeño
+	\newcommand{\minus}{\scalebox{0.65}[1.0]{$-$}}
+	
 	% Para mecánica clásica
 	\newcommand{\Lag}{\mathscr{L}} % Lagrangiano screen
 	\newcommand{\Ham}{\mathscr{H}} % Hamiltoniano
 	\newcommand{\Lagc}{\mathcal{L}} % Lagrangiano caligráfico
 	\newcommand{\Hamc}{\mathcal{H}} % Hamiltoniano caligráfico
 	\newcommand{\Or}[1]{\mathcal{O}\left(#1\right)} % Para escribir el orden de aprox. de un método
+
+	% Funciones trigonométricas para español?
+	\newcommand{\asen}{\text{ asin}}
+	\newcommand{\acos}{\text{ acos }}
+	\newcommand{\dy}{\delta y}
+	\newcommand{\dx}{\delta x}
 	
 	%###########################################################################
 	%		TAMAÑO DE HOJA
@@ -96,11 +150,40 @@
 	\usepackage[margin=10pt,font=small,labelfont=bf,labelsep=quad]{caption}
 	\usepackage{tocloft}
 	\usepackage{rotating}
+	\usepackage{braket} % Para quantum
+	\usepackage{multirow}
+	\usepackage[pscoord]{eso-pic}
+	% The zero point of the coordinate systemis the lower left corner of the page (the default).
+	\usepackage[absolute]{textpos}
+	\usepackage{nicefrac}
+	\usepackage{makeidx} % Para el índice final
+
+	
+
 	
 	%###########################################################################
 	%		ENTORNOS PERSONALIZADOS
 	%###########################################################################
 	
+	% Caja de texto en un costado
+% 	\newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+% 		\setbox0=\hbox{#3}% Put <stuff> in a box
+% 		\AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+% 		\put(\LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}){\vtop{{\null}\makebox[0pt][c]{#3}}}%
+% 	}%
+% 	}%
+	
+	% A partir de https://tex.stackexchange.com/questions/272634/how-to-adjust-position-of-minipage
+	\newcommand{\cajacostado}[3]{ 
+	\begin{textblock*}{4cm}(#1,#2)
+	\begin{minipage}{4cm}{
+	#3
+	}
+	\end{minipage}
+	\end{textblock*}
+	}
+	
+
 	% Entorno para notas marginales
 	\newcommand{\notamargen}[1]{\marginnote{\bfseries\footnotesize{#1}}[-0.5cm]}
 	
@@ -136,7 +219,7 @@
 	
 	% Entorno para los ejemplos
 	\newcounter{ejscount}
-	\newenvironment{ejemplillo}[1]
+	\newenvironment{ejemplo}[1]
 % 	[\scriptsize EJEMPLO \footnotesize \arabic{section}.\arabic{ejscount}]
 	{
 	\begin{trivlist}

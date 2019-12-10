@@ -4,7 +4,7 @@
 	\usepackage{amsmath}
 	\usepackage{graphicx}
 	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -35,86 +35,197 @@
 
 
 % =================================================================================================
-\section{Ecuaciones de Maxwell}
+% \section{Ecuaciones de Maxwell}
 % =================================================================================================
 
-Son ecuaciones lineales de modo que vale la superposición (con \vb{E}, \vb{B} y 
-cualquier vector relacionado linealmente con ellos).
+La idea del curso es resolver las ecuaciones que describen matemáticamente el comportamiento clásico 
+de los campos electromagnéticos, es decir las ecuaciones de Maxwell, en diversas situaciones.
+Luego, la conexión con la fuerza que experimentarán las partículas cargadas por la acción de dichos
+campos vendrá descripta por la fuerza de Lorentz.
+
+Panorámicamente, lo dicho corresponde a trabajar con el set de ecuaciones
 \[
-	\nabla \cdot \vb{D} = 4 \pi \rho_\ell \qquad \nabla \cdot \vb{B} = 0
+	\divem{D} = 4 \pi \rho_\ell \qquad \divem{B} = 0 
 \]
 \[
-	\nabla \times \vb{E} = - \frac{1}{c} \dpar{B}{t} \qquad \nabla \times \vb{H} =
-	\frac{4\pi}{c} \vb{J}_\ell + \frac{1}{c}\dpar{D}{t}
+	\rotorm{E} = - \frac{1}{c} \dpar{\vb{B}}{t} 
+	\qquad 
+	\rotorm{H} = \frac{4\pi}{c} \vb{J}_\ell + \frac{1}{c}\dpar{\vb{D}}{t},
 \]
+las cuales permiten determinar a los campos $\vb{E}, \vb{D}, \vb{B}, \vb{H}$ a partir de la densidad 
+de carga $\rho$ y de corriente $\vb{J}$ (notemos que también los campos $\vb{D}$ y $\vb{B}$ influyen
+en el comportamiento de $\vb{H}$ y $\vb{E}$).
+Finalmente, la fuerza de Lorentz que actúa sobre una partícula de carga $q$ que se mueve con velocidad
+$\vb{v}$ es
 \[
-	\vb{F} = q \left( \vb{E} + \frac{1}{c} \vb{v} \times \vb{B} \right)
+	\vb{F} = q \left( \vb{E} + \frac{1}{c} \pv{v}{B} \right).
 \]
 
-Los vectores pueden ser polares (tienen físicamente bien definido el sentido) o
-axiales (se les atribuye un sentido por convención).
+Crudamente podemos decir que de esto trata el electromagnetismo clásico.
+Las ecuaciones de Maxwell son lineales, de modo que vale la superposición aunque los campos tienen en
+sí matemáticamente naturaleza diferente.
+Los campo $\vb{E}, \vb{D}$ don ejemplos de vectores polares (aquellos que tienen bien definido el sentido,
+como la fuerza, la posición y la velocidad) mientras que $\vb{B}, \vb{H}$ son ejemplos de vectores axiales,
+que por el contrario tienen su sentido definido por una convención, como por ejemplo las velocidades
+angulares.
 
-Las ecuaciones son invariantes ante transformaciones del tipo: rotación
-y reflexión espacial y temporal.
+De acuerdo con ello, el carácter de vector axial o polar tiene consecuencias en la transformación de
+los mismos. Las transformaciones que se considerarán serán rotaciones, reflexiones espaciales y reflexiones
+temporales. Las ecuaciones de Maxwell permanecen invariantes ante estas transformaciones.
+
+\notamargen{Si multiplico vectorialmente dos vectores polares obtengo un vector axial.}
+
+% Son ecuaciones lineales de modo que vale la superposición (con \vb{E}, \vb{B} y 
+% cualquier vector relacionado linealmente con ellos).
+
+El resto del capítulo recorrerá lo que es la construcción usual del electromagnetismo; primeramente considerar 
+situaciones estáticas, independientes del tiempo, lo cual hace que aparezcan como fenómenos independientes la 
+electricidad y el magnetismo y luego repasar someramente algunas propiedades matemáticas útiles para el
+formalismo.
 
 % =================================================================================================
 \section{Electrostática}
 % =================================================================================================
 
-La ley de Coulomb reza que
+La ley de Coulomb establece que 
 \[
-	\vb{F}_{12} = q_1 q_2 \frac{(\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2 |^3}
+	\vb{F}_{12} = k \: q_1 q_2 \frac{(\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2 |^3}
 \]
-que es la fuerza sobre 1 debido a 2. De la ley de Coulomb se puede definir 
-\[
-	\vb{E}_{12}(\vb{x}_1) \equiv \vb{F}_{12}/q_1
-\]
-y tomando $\vb{x}_1 \equiv \vb{x}$ y haciendo el límite $q_1 \to 0$ se tiene
-\[
-	\vb{E}(\vb{x}) = \sum_{i=1}^N \; q_i \frac{(\vb{x} - \vb{x}_i)}{|\vb{x} - \vb{x}_i |^3}
-\]
-que es el campo eléctrico y que en el paso al continuo resulta
-\[
-	\vb{E}(\vb{x}) = \int_{V'} \rho(\vb{x}) \frac{(\vb{x} - \vb{x}_i)}{|\vb{x} - \vb{x}_i |^3} dV' 
-\]
-siendo \vb{x} punto campo y $\vb{x}_i$ punto fuente.
+es la fuerza sobre la partícula en $\vb{x}_1$ debido a la partícula en $\vb{x}_1$. La constante $k$ está para ajustar
+las unidades. En sistema gaussiano es $k=1$ y adimensional.
+La Figura \ref{fig_ft1_ejescargas} ilustra la situación para el caso en que ambas cargas tienen igual signo; en ese
+caso la fuerza $\vb{F}_{12}$ tiene la dirección del vector $\vb{x}_1 - \vb{x}_2$: apunta desde la fuente hacia el punto 
+donde se evalúa.
 
-\begin{figure}[htb]
+\begin{figure}[!h]
 	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/fig_ft1_ejescargas.pdf}	 
+	\includegraphics[width=0.5\textwidth]{images/fig_ft1_ejescargas.pdf}	 
 	\end{center}
-	\caption{}
+	\caption{Fuerza sobre la carga $q_1$ debida a la carga $q_2$.}
+	\label{fig_ft1_ejescargas}
 \end{figure} 
+
+Cuando la carga $q_1$ es suficientemente pequeña como para no perturbar a la carga $q_2$ que origina la fuerza, se puede 
+utilizar la ley de Coulomb para definir el campo eléctrico según
+\[
+	\vb{E}_{12}(\vb{x}_1) \equiv \lim_{q_1 \to 0} \frac{\vb{F}_{12}}{q_1}.
+\]
+
+Para una distribución discreta de $N$ cargas $q_i$ y tomando $\vb{x}_1 \equiv \vb{x}$ se tiene
+\[
+	\vb{E}(\vb{x}) = \sum_{i=1}^N \; q_i \frac{(\vb{x} - \vb{x}_i)}{|\vb{x} - \vb{x}_i |^3}.
+\]
+En el límite en que las cargas están lo suficientemente próximas como para considerar que forman se tiene una distribución
+de carga de volumen $\rho(\vb{x})$, la expresión del campo adopta la forma de una integral
+\[
+	\vb{E}(\vb{x}) = \int_{V'} \rho(\vb{x}') \frac{(\vb{x} - \vb{x}')}{|\vb{x} - \vb{x}' |^3} \: dV' 
+\]
+donde $V'$ es el volumen de integración. En general \vb{x} es el llamdo punto campo y $\vb{x}'$ punto fuente.
 
 \subsection{Conservación de la carga}
 
-La carga total sale de una integral 
+Aceptaremos el principio de conservación de la carga; la carga eléctrica no se genera ni se destruye. 
+Considerando una región $\Omega$ en el espacio (cuya frontera está fija) la carga total encerrada en la
+misma es 
 \[
-	Q = \int_{V'}  \rho(\vb{x}') dV'
+	Q(t) = \int_\Omega \rho(\vb{x}',t)\: d\Omega,
 \]
-como muestra la imagen
+siendo su variación temporal 
+\[
+	\dtot{Q(t)}{t} = \int_\Omega \dpar{\rho(\vb{x}',t)}{t} \: d\Omega,
+\]
+donde la derivada total se transforma en una derivada parcial debido a que el volumen es fijo.
+\notamargen{Acá creo que la derivada debería ser la parcial desde el vamos. Check!}
+
+La conservación de la carga nos dice que como la carga no aparece ni desaparece mágicamente, entonces
+la variación de la carga contenida en $\Omega$ en cualquier instante de tiempo se debe al flujo neto de 
+carga de la misma; es decir a la diferencia entre la que abandona la región y aquella que entra.
+Como ilustra esquemáticamente la Figura \ref{conserv_carga}, la variación de carga $\Delta Q$ en un
+dado $\Delta t$ corresponde a la diferencia entre las entrantes y las salientes.
+
+La forma que tiene ese flujo se construye a partir del análisis ilustrado en el inserto de la figura.
+Allí se ve un elemento pequeño $\delta \Omega$ que linda con la frontera de la región. Este elemento
+$\delta V$ es lo suficientemente pequeño como para que en su interior el campo de velocidad de
+las cargas sea constante. La {\it caja} $\delta V$ tiene un volumen que se puede expresar $\ell \delta S$
+(longitud de la caja por área de la base). La longitud $\ell $ se elige como
+$ \ell = v_n \delta t$, donde $v_n$ es la componente de la velocidad normal a la superficie. Así elegido, 
+el volumen $\delta V = v_n \delta t \delta S$ representa el volumen que pasaría a través de $\delta S$ 
+en el tiempo $\delta t$. En efecto, la partícula más lejana del borde $\delta S$ que está a distancia $\ell$ 
+recorrerá en $\delta t$ justamente esa distancia (la velocidad $v$ es constante para todo el elemento).
+Si la velocidad estuviese orientada hacia adentro, entonces tendríamos un bloque similar de carga 
+entrante, y el razonamiento es el mismo.
+
+La cantidad de carga $\delta Q$ que atraviesa el área $\delta S$ será entonces 
+\[
+	\delta Q = \rho \delta V = \rho v_n \delta S \delta t = \rho \vb{v} \cdot (\hat{n} \delta S) \delta t
+\]
+donde se ha expandido la velocidad normal. Entonces la variación de la carga en el elemento es
+\[
+	\frac{\delta Q}{\delta t} = \rho \vb{v} \cdot (\hat{n} \delta S).
+\]
+
+Si el producto escalar entre la velocidad y la normal es positivo entonces esto significa que la carga
+abandona la superficie mientras que el caso contrario implica carga entrando en la misma. Entonces 
+debemos ajustar la expresión anterior con un signo menos. Entonces, pasando al continuo
+\[
+	\dpar{Q}{t} = - \int_{\partial\Omega} \: \vb{J} \cdot d\vb{S}
+\]
+donde $\vb{J} = \rho \vb{v}$ es el vector densidad de corriente y $d\vb{S} = \hat{n}dS$ es el diferencial
+de superficie vectorial.
+
+Entonces, juntando las dos expresiones para la carga tenemos 
+\[
+	\int_\Omega \dpar{\rho(\vb{x}',t)}{t} \: d\Omega = - \int_{\partial\Omega} \: \vb{J} \cdot d\vb{S},
+\]
+y aplicando el teorema de la divergencia en el miembro derecho
+\[
+	\int_\Omega \dpar{\rho(\vb{x}',t)}{t} \: d\Omega = - \int_\Omega \: \divem{J} \: d\Omega,
+\]
+o bien 
+\[
+	\int_\Omega \left[ \dpar{\rho(\vb{x}',t)}{t} + \divem{J} \right] \: d\Omega = 0,
+\]
+y como esto vale para cualquier volumen $\Omega$ se sigue que el corchete debe ser nulo, de modo que se tiene
+\[
+	\dpar{\rho}{t} + \divem{J} = 0,
+\]
+que es la ecuación de continuidad de la carga.
+
+% Entonces la carga que existe en una región depende de la tasa con la cual entra a la misma y aquella con la que la abandona.
+% La carga total sale de una integral 
+% \[
+% 	Q = \int_{V'}  \rho(\vb{x}') dV'
+% \]
+% como muestra la imagen
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.25\textwidth]{images/fig_ft1_conserv.pdf}	 
 	\end{center}
 	\caption{}
+	\label{conserv_carga}
 \end{figure} 
-y si el volumen es fijo podemos tomar la derivada con respecto al tiempo que pasa el interior como
-derivada parcial,
-\[
-	\dtot{Q}{t} = \int_{V'} \dpar{\rho}{t} (\vb{x}') dV' = - \int_{S\equiv\partial V'} \vb{J} \cdot d\vb{S}
-\]
-y el miembro extremo derecho  se debe a que si la carga varía es a consecuencia de que se va en
-forma de flujo. Aplicando el teorema de la divergencia en el miembro derecho,
-\[
-	\int_{V'} \dpar{\rho}{t} (\vb{x}') dV' = - \int_{V'} \nabla \cdot \vb{J} \; dV'
-\]
-lo cual vale para todo volumen y entonces esto significa que
-\[
-	\dpar{\rho}{t} + \nabla \cdot \vb{J} = 0
-\]
-que es la ecuación de continuidad de la carga. Si fuera $\nabla \cdot \vb{J}=0$ esto significa que las líneas
-de \vb{J} no tienen principio ni fin.
+% y si el volumen es fijo podemos tomar la derivada con respecto al tiempo que pasa el interior como
+% derivada parcial,
+% \[
+% 	\dtot{Q}{t} = \int_{V'} \dpar{\rho}{t} (\vb{x}') dV' = - \int_{S\equiv\partial V'} \vb{J} \cdot d\vb{S}
+% \]
+% y el miembro extremo derecho  se debe a que si la carga varía es a consecuencia de que se va en
+% forma de flujo. 
+% Aplicando el teorema de la divergencia en el miembro derecho,
+% \[
+% 	\int_{V'} \dpar{\rho}{t} (\vb{x}') dV' = - \int_{V'} \nabla \cdot \vb{J} \; dV'
+% \]
+% lo cual vale para todo volumen y entonces esto significa que
+% \[
+% 	\dpar{\rho}{t} + \nabla \cdot \vb{J} = 0
+% \]
+% que es la ecuación de continuidad de la carga. 
+\notamargen{Si fuera $\nabla \cdot \vb{J}=0$ esto significa que las líneas
+de \vb{J} no tienen principio ni fin.Check!}
+
+Si es $\divem{J}=0$ no se acumula carga; las líneas de $\vb{J}$ no tienen principio ni fin.
+Los problemas de corrientes estacionarias cumplen esta condición. Esta condición en la ecuación de continuidad
+nos dice que la distribución de carga no varía con el tiempo.
 
 % =================================================================================================
 \section{Interacción magnética}
