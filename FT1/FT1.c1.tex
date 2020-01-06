@@ -236,19 +236,23 @@ ninguna parte). Las corrientes estacionarias producen efectos magnéticos dados 
 \[
 	\vb{B}(\vb{x}) = \frac{1}{c} \int_\Gamma \frac{I d\vb{\ell}' \times (\vb{x} - \vb{x}')}{|\vb{x} - \vb{x}'|^3} 
 \]
-que es válida para un circuito $\Gamma$, que es una curva que se recorre en sentido CCW.
-En el caso de un volumen la expresión es 
+que es válida para un circuito $\Gamma$, que es una curva --lineal-- que se recorre en sentido positivo (CCW).
+Si no puede despreciarse el espesor de un circuito, hay que considerar una integral de volumen y la expresión es 
 \[
-	\vb{B}(\vb{x}) = \frac{1}{c} \int_{V'} \frac{ \vb{J}(\vb{x}') \times (\vb{x} - \vb{x}')}{|\vb{x} - \vb{x}'|^3} 
-dV'
+	\vb{B}(\vb{x}) = 
+	\frac{1}{c} \int_{V'} \frac{ \vb{J}(\vb{x}') \times (\vb{x} - \vb{x}')}{|\vb{x} - \vb{x}'|^3} \: dV'.
 \]
-mientras que la fuerza sobre un circuito $\Gamma$ es
+Luego, la fuerza sobre un circuito lineal $\Gamma$ es
 \[
-	F = \frac{1}{c} \int_\Gamma I d\vb{\ell} \times \vb{B}
+	\vb{F} = \frac{1}{c} \int_\Gamma I d \vb{\ell} \times \vb{B},
 \]
-y sobre un volumen 
+mientras que para un volumen se tiene
 \[
-	F = \frac{1}{c} \int_V \vb{J} \times \vb{B} dV
+	\vb{F} = \frac{1}{c} \int_V \vb{J} \times \vb{B} \: dV.
+\]
+La expresión del torque es
+\[
+	\vb{\Tau} = \frac{1}{c} \int_V \vb{x} \times (\vb{J} \times \vb{B}) \: dV.
 \]
 
 La transformación entre estas integrales puede hacerse merced al siguiente razonamiento,
@@ -269,7 +273,8 @@ La transformación entre estas integrales puede hacerse merced al siguiente razo
 
 \subsection{Fuerza de un circuito sobre otro}
 
-La fuerza de un circuito 2 sobre otro circuito 1 puede calcularse con un poco de paciencia como sigue
+La fuerza ejercida por el campo magnético de un circuito 2 sobre otro circuito 1 puede calcularse con un poco de 
+paciencia como sigue
 \[
 	F_{12} = \frac{1}{c} \int_{\Gamma_1} I_1 d\vb{\ell}_1 \times \left\{
 	\frac{1}{c} \int_{\Gamma_2} \frac{I_2 d\vb{\ell}_2 \times (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
@@ -278,36 +283,40 @@ La fuerza de un circuito 2 sobre otro circuito 1 puede calcularse con un poco de
 \[
 	F_{12} = \frac{I_1 I_2}{c^2} \int_{\Gamma_1} \int_{\Gamma_2} d\vb{\ell}_1 \times \left\{
 	\frac{d\vb{\ell}_2 \times (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
-	\right\}
+	\right\},
 \]
+y utilizando una identidad vectorial, 
 \[
 	F_{12} = \frac{I_1 I_2}{c^2} \int_{\Gamma_1} \int_{\Gamma_2} d\vb{\ell}_2  \left\{
 	\frac{d\vb{\ell}_1 \cdot (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
 	\right\} - \int_{\Gamma_1} \int_{\Gamma_2} \frac{ (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
 	\left\{ d\vb{\ell}_1 \cdot d\vb{\ell}_2 \right\}
 \]
-donde el primer término se comprueba nulo si se reescribe utilizando que
+Luego, se puede reescribir el primer término notando que 
 \[
 	\frac{ (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} = 
 	\nabla_{\vb{x}_2} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} =
-	- \nabla_{\vb{x}_1} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} 
+	- \nabla_{\vb{x}_1} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} ,
 \]
-de manera que entonces
+de manera que la primer integral resulta 
 \[
-	- \int_{\Gamma_2} d\vb{\ell}_2  \int_{\Gamma_1} d\vb{\ell}_1 \cdot \nabla_{\vb{x}_1} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} 
+	- \int_{\Gamma_2} d\vb{\ell}_2 \int_{\Gamma_1} d\vb{\ell}_1 \cdot \nabla_{\vb{x}_1} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} ,
 \]
-donde se ve que es nula la última integral dado que 
-\[
-	\int_{\Gamma_1} d\vb{\ell}_1 \cdot \nabla_{\vb{x}_1} = 0.
-\]
+la cual es nula porque se está integrando un gradiente en una curva cerrada.
+% \[
+% 	\int_{\Gamma_1} d\vb{\ell}_1 \cdot \nabla_{\vb{x}_1} = 0.
+% \]
 
 Entonces, se tiene 
 \[
 	F_{12} = - \frac{I_1 I_2}{c^2} \int_{\Gamma_1} \int_{\Gamma_2} \frac{ (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} 
 	\left( d\vb{\ell}_1 \cdot d\vb{\ell}_2 \right)
 \]
-que vale lo mismo si intercambiamos $\Gamma_1$ con $\Gamma_2$ en la integración. Podemos decir que con corrientes estacionarias
-vale el principio de acción y reacción: las fuerzas son iguales y de sentido opuesto.
+que vale lo mismo si intercambiamos $\Gamma_1$ con $\Gamma_2$ en la integración, lo cual implica
+que la fuerza sobre un circuito debida a otro es igual a la fuerza sobre este último debida al primero.
+Esto quiere decir que vale el principio de acción y reacción en el caso de corrientes estacionarias.
+Si las corrientes no son estacionarias no se tendrá, en general, este resultado. Con corrientes no
+estacionarias se generará campo electromagnético y habrá emisión de radiación.
 
 
 % =================================================================================================
@@ -315,87 +324,124 @@ vale el principio de acción y reacción: las fuerzas son iguales y de sentido o
 % =================================================================================================
 
 Nos dice que un campo vectorial está completamente determinado por su divergencia y su rotor.
-Por ejemplo, para un campo eléctrico 
+Por ejemplo, para un campo eléctrico se tiene 
 \[
 	\vb{E} = \int_{V'} \rho \frac{\vb{x} - \vb{x}'}{|\vb{x} - \vb{x}'|^3} dV' = 
 		- \int_{V'} \rho \nabla_{\vb{x}} \frac{ 1 }{|\vb{x} - \vb{x}'|} dV' = 
 		- \nabla_{\vb{x}} \int_{V'}   \frac{ \rho }{|\vb{x} - \vb{x}'|} dV' = 
 \]
-y esta última es la integral de Poisson
+donde la integral que ha resultado dentro del gradiente es la integral de Poisson. Entonces,
 \[
-	\vb{E} = - \nabla_{\vb{x}} \phi (\vb{x}).
+	\vb{E} = - \nabla_{\vb{x}} \phi (\vb{x}),
 \]
-Entonces $\vb{E}$ es un gradiente y por ello 
+de modo que $\vb{E}$ es un gradiente y por ello 
 \[
-	\nabla  \times \vb{E} = 0
+	\nabla  \times \vb{E} = 0.
 \]
-de manera que $\vb{E}$ es conservativo, cumple $\int \vb{E}\cdot d\vb{\ell} = 0$ o lo que
-es lo mismo, $\vb{E}$ es irrotacional.
+
+Esta última condición implica que el campo electrostático $\vb{E}$ es conservativo, cumple 
+$\oint_\Gamma \vb{E}\cdot d\vb{\ell} = 0$, o lo que es lo mismo, $\vb{E}$ es irrotacional.
 Hemos hecho la construcción de un potencial electrostático.
+
+\notamargen{
+Para el curso de indicial:
+\[
+	[\pv{A}{B}]_i = \epsilon_{ijk}A_jB_k
+\]
+\[
+	[\rotorm{A}]_i = \epsilon_{ijk}\partial_jA_k
+\]
+\[
+	\epsilon_{ijk}\epsilon_{\ell mn} = \delta_{i\ell}
+	\delta_{jm} - \delta_{im}\delta_{j\ell}
+\]}
 
 % =================================================================================================
 \section{Ley de Gauss}
 % =================================================================================================
 
-
+La idea es considerar el campo ejercido por una carga puntual $q$ en un punto de una superficie $S\equiv\partial\Omega$,
+como se ilustra en la Figura \ref{fig_ft1_gauss}.
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.35\textwidth]{images/fig_ft1_gauss.pdf}	 
+	\includegraphics[width=0.35\textwidth]{images/fig_ft1_gauss.jpg}	 
 	\end{center}
 	\caption{}
+	\label{fig_ft1_gauss}
 \end{figure} 
+
+El campo en el punto verifica
 \[
 	\vb{E} \cdot \hat{n} = q \frac{\cos(\theta)}{r^2}
 \]
-y el ángulo sólido es
+y teniendo en cuenta el diferencial de superifice $dS$
 \[
 	\vb{E} \cdot \hat{n} dS = q \frac{\cos(\theta)}{r^2} dS
 \]
+donde el factor $ \cos\theta dS / r^2 $ es el ángulo sólido subtendido por $dS$ desde el punto donde se halla $q$
+
+\includegraphics[width=0.15\textwidth]{images/fig_ft1_gauss_solid_angle.jpg}
+
+Podemos escribir 
 \[
-	\vb{E} \cdot \hat{n} dS = q d\Omega \qquad \longrightarrow \qquad 
+	\vb{E} \cdot \hat{n} dS = q d\Omega
+\]
+donde $ d\Omega $ es el diferencial de ángulo sólido. Integrando para todo el volumen
+\[
 	\int_{S\equiv\partial V} \vb{E} \cdot \hat{n} \; dS = q \int_S d\Omega =
 	\begin{cases}
 	 0 \quad \textrm{carga exterior}\\
 	 4\pi \quad \textrm{carga interior}
 	\end{cases}
 \]
+y la integral es nula si la carga es exterior a $S$ o $4\pi$ si es interior.
+En el caso de una cantidad de cargas internas se tendrá, evidentemente,
 \[
-	\int_S \vb{E} \cdot \hat{n} \; dS = 4\pi \sum_i q_i
+	\int_S \vb{E} \cdot \hat{n} \; dS = 4\pi \sum_i q_i.
 \]
-La ley de Gauss es
+
+Este hecho se conoce como La ley de Gauss y se expresa 
 \[
-	\int_S \vb{E} \cdot \hat{n} \; dS = 4\pi Q_n
+	\int_S \vb{E} \cdot \hat{n} \; dS = 4\pi Q_n,
 \]
 donde $Q_n$ es la carga neta dentro de la superficie $S$. Al continuo pasa como 
 \[
-	\int_S \vb{E} \cdot \hat{n} \; dS = 4\pi \int_V \rho \: dV
+	\int_S \vb{E} \cdot \hat{n} \; dS = 4\pi \int_V \rho \: dV,
 \]
-de manera que 
+de manera que usando el teorema de la divergencia se obtiene 
 \[
-	\int_V \divem{E} \; dV = \int_V 4\pi \rho \: dV
+	\int_V \divem{E} \; dV = \int_V 4\pi \rho \: dV,
 \]
-y entonces
+o bien
 \[
 	\divem{E} = 4\pi \rho.
 \]
 
-Por otro lado si \vb{E} es el gradiente de un potencial $\phi$ se tiene
+Lo que es vital en todo este razonamiento es el hecho de que el campo decaiga como $1/r^2$.
+Luego, alguna `ley de Gauss' podrá aplicarse a cualquier campo con ese tipo de decaimiento.
+
+Por otro lado si \vb{E} es el gradiente de un potencial $\phi$ la divergencia del campo
 \[
 	\divem{E} = \Nabla\cdot{(-\Nabla\phi)} = - \lapm\phi = 4\pi \rho
 \]
-y se desprenden las ecuaciones de Poisson,
+conduce a la ecuación de Poisson para el potencial electrostático,
 \[
-	\lapm\phi = -4\pi \rho
+	\lapm\phi = -4\pi \rho,
 \]
-y de Laplace
+cuyo caso particular en el caso $\rho=0$
 \[
-	\lapm\phi = 0
+	\lapm\phi = 0,
 \]
-que es el caso particular de la anterior con cargas nulas.
+constituye la ecuación de Laplace.
 
-La solución de la ecuación no homogénea es suma de una solución del homogéneo más una solución
-particular. La carga está relacionada a la solución particular.
+Matemáticamente esto significa que la solución de la ecuación no homogénea (Poisson) es suma de 
+una solución del homogéneo (Laplace) más una solución particular. 
+La carga en el volumen está relacionada con la solución particular.
+
+Por supuesto para resolver cualquiera de estas ecuaciones hace falta dar las correspondientes
+condiciones de contorno. Usualmente serán de dos tipos: Dirichlet (valor del potencial en la
+superifice) o Newmann (valor de la derivada normal del potencial sobre la superficie).
 
 \subsection{Gauges}
 
@@ -420,9 +466,19 @@ se llega para el potencial electromagnético, bajo el gauge de Coulomb, a que
 	\lapm{\vb{A}} = - \frac{4\pi}{c}\vb{J} 
 \]
 
-	\begin{table}[hbt]
+	\begin{table}[ht]
 	\centering
         \begin{tabular}{|c|c|}
+		\hline
+		Electrostática & Magnetostática \\
+		\hline 
+		 & \\
+		$\displaystyle \vb{F}_{12} = \frac{q_1 q_2 ( \vb{x}_1 - \vb{x}_2 )}{ |\vb{x}_1 - \vb{x}_2|^3 } $
+		& 
+		$ \displaystyle d\vb{F}_{12} = \frac{1}{c^2} \frac{ I_1 d\vb{\ell}_1 \times J_2 d\vb{\ell}_2 \times ( \vb{x}_2 - \vb{x}_1 )}
+		{ |\vb{x}_2 - \vb{x}_1|^3 }$
+		\\
+		 & \\
 		\hline
 		& \\
 		$\displaystyle{\vb{E} = \int_{V'} \frac{\rho(\vb{x}')(\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} dV' 
@@ -436,8 +492,10 @@ se llega para el potencial electromagnético, bajo el gauge de Coulomb, a que
 		$\displaystyle{\int_\Gamma \vb{B}\cdot d\vb{\ell} = \frac{4\pi}{c} I_c}$ \\
 		& \\
 		\hline
+		Ecuaciones electrostáticas & Ecuaciones magnetostáticas \\
 		&\\
 		$\divem{E} = 4\pi\rho$ & $\divem{B} = 0$ \\
+		&\\
 		$\rotorm{E} = 0$ & $\rotorm{B} = \frac{4\pi}{c}\vb{J}$ \\
 		& \\
 		\hline
@@ -445,17 +503,28 @@ se llega para el potencial electromagnético, bajo el gauge de Coulomb, a que
 		$\vb{E} = - \Nabla\phi$ & $\vb{B} = \rotorm{A}$ \\
 		& \\
 		\hline
-        \end{tabular} 
-	\caption{}
+		\end{tabular} 
+		\caption{Recetario de ecuaciones básicas para la electrostática y la
+		magnetostática.}
 	\end{table} 
 
-La operación de tomar rotor y el producto vecrtorial cambian el carácter de los vectores: de
+\notamargen{Estos comentarios sobre vectores irán en el apéndice matemático vectorial.}
+La operación de tomar rotor y el producto vectorial cambian el carácter de los vectores: de
 polares pasan a axiales y viceversa.
+
+El laplaciano es la divergencia del gradiente, dos operaciones que no cambian el carácter de
+un vector. Luego, el laplaciano preserva la simetría.
 
 La fuerza general sobre una distribución de carga es
 \[
 	\vb{F} = \int_{V'} \rho \vb{E} dV' + \frac{1}{c} \int_{V'} \vb{J} \times \vb{B} dV'. 
 \]
+
+\notamargen{
+A partir de la tabla hay mucho para mencionar. Por ejemplo, el hecho de la separación total
+de fenómenos, que la fuerza magnética es una diferencial (no hay cargas puntuales magnéticas),
+que el potencial en un caso es escalar mientras que en el otro es vectorial, etc.
+}
 
 \subsection{Delta de Dirac}
 
