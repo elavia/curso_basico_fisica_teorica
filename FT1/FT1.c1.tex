@@ -642,7 +642,9 @@ el campo en una situación simétrica cumplirá
 \]
 mientras que un campo escalar sería $T(\vb{x}')=T(\vb{x})$.
 
-\begin{ejemplo}{\bf Ejemplo de problema simétrico}
+% Ejemplo eléctrico
+
+\begin{ejemplo}{\bf Ejemplo de problema simétrico (eléctrico)}
 
 Consideremos un plano infinito cargado con una densidad de carga $\sigma$, según se
 ve en la figura bajo estas líneas. 
@@ -652,7 +654,7 @@ La idea es que el campo en un punto $P$ será
 \]
 es decir que en principio tendrá los tres componentes.
 
-\includegraphics[width=0.4\textwidth]{images/fig_ft1_ej_plano_cargado.jpg}\\
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_ej_plano_cargado.jpg}
 
 Del otro lado del plano la situación es la misma de manera que se tiene una simetría de 
 reflexión en $xz$. La matriz de una reflexión es 
@@ -693,6 +695,90 @@ dicho plano separa dos semiespacios especularmente idénticos. En este caso como
 sobre dicho plano basta una rotación en un ángulo de $2\pi$, que deja el campo en el mismo
 sitio para obtener la relación $E_z = - E_z$ lo cual implica que $\vb{E} = E_y \hat{y}$.
 \end{ejemplo}
+
+% Ejemplo magnético 
+
+\begin{ejemplo}{\bf Ejemplo de problema simétrico (magnético)}
+
+Consideremos un plano infinito por el cual circula una corriente cuya densidad de corriente \vb{J}
+está mostrada en la figura bajo estas líneas. 
+La idea es que el campo magnético \vb{B} en un punto $P$ será 
+\[
+	\vb{B}(P) = (B_x, B_y, B_z), 
+\]
+es decir que en principio tendrá los tres componentes.
+ 
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_ej_plano_corriente.jpg}
+
+Dado que este campo es un pseudovector, debe reflejarse {\it mal} en el plano, como se ilustra en
+la figura. La reflexión en el plano $xz$ lleva a 
+\be
+	B_x' = -B_x, \qquad B_y' = B_y, \qquad B_z' = -B_z,
+	\label{Bsimetria_refl}
+\ee
+que proviene de la matriz de reflexión $R$ del caso anterior (es la misma porque giramos en el
+mismo sentido el mismo plano) a la cual se le ha multiplicado el determinante $|R|=-1$ de la misma
+puesto que el campo \vb{B} es un pseudovector.
+
+La rotación en torno a un ángulo $\pi$ del plano es también una simetría, representada por la misma
+matriz de rotación $R$ del ejemplo anterior por lo cual se tendrán 
+\be
+	B_x' = -B_x, \qquad B_y' = -B_y, \qquad B_z' = B_z,
+	\label{Bsimetria_rot}
+\ee 
+de lo cual se deduce que $ B_y = B_z = 0 $. El campo magnético sólo puede tener componente en $\hat{x}$,
+es decir que se escribirá como $\vb{B} = B_x \hat{x}$.
+Este hecho también puede deducirse cualitativamente utilizando la regla de la mano derecha.
+\end{ejemplo}
+
+
+\begin{ejemplo}{\bf Hilo cargado e hilo con corriente}
+
+Consideraremos ahora dos situaciones geométricas idénticas (un hilo infinito) pero en primer lugar el
+caso en que está cargado uniformemente y en segundo lugar el caso en que por el mismo circula una
+corriente estacionaria $i$. 
+
+En el caso del hilo cargado se quiere determinar las simetrías del campo $\vb{E}$ en un punto $\vb{P}$,
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_ej_hiloE.jpg}
+
+El punto \vb{P} es representativo de todo el cilindro. La simetría de reflexión en $xy$ no hace que el
+punto cambie ($\vb{P}' = \vb{P}$) pero el campo debe reflejarse, de lo cual se tiene 
+\[
+	E_x' = E_x, \qquad E_y' = E_y, \qquad E_z' = -E_z.
+\]
+Luego, la rotación en ángulo $2\pi$ implica que $E_z = -E_z$ y por ende el componente $z$ debe ser nulo.
+
+Por otra parte, la simetría de reflexión en $yz$ de igual manera lleva a $E_x = -E_x$ de forma que
+el campo \vb{E} de un hilo cargado solo tendrá componentes en $\hat{y}$.
+
+En el caso del hilo con una corriente que circula por el mismo se debe notar que ahora la corriente tiene
+dirección con lo cual la simetría de reflexión en $xy$ se verifica si incorporamos un signo menos que dé
+cuenta del cambio en la dirección de la corriente
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_ej_hiloB.jpg}
+
+Entonces por una parte tenemos la reflexión que, luego del añadido del signo extra, da las igualdades 
+\[
+	B_x' = B_x, \qquad B_y' = B_y, \qquad B_z' = -B_z,
+\]
+que al combinarse con las que resultan de que los puntos son el mismo $\vb{P}=\vb{P}'$ (o digamos que 
+giramos en ángulo $2\pi$) resultan en que $B_z = -B_z$ y por ende $B_z$ es nulo.
+
+La reflexión en $yz$ no requiere el signo menos extra por el cambio de la corriente, así que da sencillamente 
+\[
+	B_x' = B_x, \qquad B_y' = -B_y, \qquad B_z' = -B_z,
+\]
+y luego la igualdad de puntos establece 
+\[
+	B_x' = B_x, \qquad B_y' = B_y, \qquad B_z' = B_z,
+\]
+de modo que, igualando ambas expresiones, tiene que ser $ B_y = B_z = 0 $. Entonces el campo $\vb{B}$ sólo
+tiene componentes en $\hat{x}$, es un campo anular.
+\end{ejemplo}
+
+\notamargen{En estos ejemplos creo que es más beneficiosa la notación de la carpeta, ecuaciones `triples'.}
+
 
 Como se vió en el ejemplo anterior, una reflexión más una rotación permite eliminar componentes 
 de campo.
