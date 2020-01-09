@@ -517,7 +517,7 @@ un vector. Luego, el laplaciano preserva la simetría.
 
 La fuerza general sobre una distribución de carga es
 \[
-	\vb{F} = \int_{V'} \rho \vb{E} dV' + \frac{1}{c} \int_{V'} \vb{J} \times \vb{B} dV'. 
+	\vb{F} = \int_{V'} \rho \vb{E} \: dV' + \frac{1}{c} \int_{V'} \vb{J} \times \vb{B} \: dV'. 
 \]
 
 \notamargen{
@@ -537,21 +537,77 @@ Una densidad de carga puntual se puede escribir mediante una delta de Dirac de a
 \]
 siendo las dimensiones de la delta las de $1/L^3$ y cumpliéndose 
 \[
-	\int_{V'} \delta (\vb{x} - \vb{x}') dV' = 1
+	\int_{V'} \delta (\vb{x} - \vb{x}') dV' = 1.
 \]
+
+La delta de Dirac se puede aproximar con ciertas funciones matemáticas con gráficas como el 
+siguiente 
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_delta_dirac.jpg}
+
+La delta de Dirac cumple las siguientes propiedades
+\[
+	\int f(\vb{x}) \delta(\vb{x} - \vb{x}_0) dx = f(\vb{x}_0)
+\]
+\[
+	\int f(\vb{x}) \delta' (\vb{x} - \vb{x}_0) dx = -f'(\vb{x}_0)
+\]
+\[
+	\int f(\vb{x}) \delta^n (\vb{x} - \vb{x}_0) dx = (-1)^n f^n(\vb{x}_0)
+\]
+\[
+	\delta[f(x)] = \frac{\delta(\vb{x}-\vb{x}_0)}{|f'(\vb{x}_0)|} \qquad \qquad f(\vb{x}_0) = 0
+\]
+
+En coordenadas cartesianas es
+\[
+	\delta(\vb{x}-\vb{x}_0) = \delta(x-x_0)(y-u_0)(z-z_0)
+\]
+y para curvilíneas, como el elemento diferencial y el de volumen son  
+\[
+	d\vb{x} = h_1 dq_1 \hat{e}_1 + h_2 dq_2 \hat{e}_2 + h_3 dq_3 \hat{e}_3 
+	\qquad 	dV = h_1 h_2 h_3 dq_1 dq_2 dq_3
+\]
+se tiene
 \[
 	\delta (\vb{x} - \vb{x}') = \frac{1}{h_1h_2h_3} \delta(q_1-q_1') \delta(q_2-q_2') \delta(q_3-q_3')
 \]
 donde $q_1, q_2$ y $q_3$ son coordenadas curvilíneas generales y $h_1h_2h_3$ es el jacobiano
 de la transformación.
-Luego
+Puntualmente para coordenadas esféricas se tiene 
 \[
-	\int f(\vb{x}) \delta' (\vb{x} - \vb{x}_0) dx = -f'(\vb{x}_0)
+	\delta (\vb{x} - \vb{x}') = \frac{1}{r^2 \sin\theta} 
+	\delta(r-r') \delta(\theta-\theta') \delta(\varphi-\varphi')
+\]
+donde no está definido para $\theta=0$. Si $r_0=0$ entonces se tiene 
+\[
+	\delta(\vb{x}) = \frac{\delta(r)}{4\pi r^2}
+\]
+que involucra un factor de normalización.
+
+Para un casquete esférico se tendrá $\rho(\vb{x}) = \sigma \delta(r-R) $ y para una corriente
+circulando por un plano como ilustra la figura
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_deltas_ejemplos.jpg}
+se tiene $\vb{J} = g \delta(y) \hat{z}$. Estas deltas, al ser unidimensionales tienen unidades
+de $1/L^{-1}$ de manera que las otras unidades serán llevadas por $\sigma$ y $g$.
+
+\subsection{Vectores polares y axiales ante transformaciones}
+
+Las transformaciones propias son aquellas con determinante 1 y las impropias las que tienen determinante
+distinto de 1.
+Entonces, para un vector polar $\vb{p}$ y siendo $R$ la matriz de la transformación y $|R|$ su determinante, 
+se tiene 
+\[
+	\vb{p}' = R \: \vb{p},
+\]
+mientras que para un vector axial \vb{a}
+\[
+	\vb{a}' = |R| R \: \vb{a}.
 \]
 
-
-
-\subsection{reflexión}
+Aquí se ve que ante una transformación propia ambos vectores transforman igual pero ante una impropia 
+hay un cambio asociado al determinante.
 
 Un vector polar sufre reflexión especular mientras que un vector axial ({\it pseudovector})
 sufre una antireflexión especular. Ver la figura.
@@ -560,10 +616,88 @@ sufre una antireflexión especular. Ver la figura.
 	\begin{center}
 	\includegraphics[width=0.6\textwidth]{images/fig_ft1_reflexvect.pdf}	 
 	\end{center}
-	\caption{}
+	\caption{A la izquierda está el comportamiento polar mientras que a la derecha
+	se halla el comportamiento axial.}
 \end{figure} 
 
-Una reflexión más una rotación permite eliminar componentes de campo.
+Para un campo escalar, como podría ser la temperatura $T(\vb{x})$ una rotación deja invariante el valor
+del campo 
+
+\includegraphics[width=0.8\textwidth]{images/fig_ft1_rotacion_escalar.jpg}
+
+En el caso de un campo vectorial 
+
+\includegraphics[width=0.8\textwidth]{images/fig_ft1_rotacion_vectorial.jpg}\\
+se ve que 
+\[
+	\vb{E}'(\vb{x}') = R\vb{E}( R\vb{x}).
+\]
+
+En el caso de una simetría por reflexión como la de la figura 
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_reflexion_vectorial.jpg}\\
+el campo en una situación simétrica cumplirá 
+\[
+	\vb{V}(\vb{x}') = R \vb{V}(\vb{x})
+\]
+mientras que un campo escalar sería $T(\vb{x}')=T(\vb{x})$.
+
+\begin{ejemplo}{\bf Ejemplo de problema simétrico}
+
+Consideremos un plano infinito cargado con una densidad de carga $\sigma$, según se
+ve en la figura bajo estas líneas. 
+La idea es que el campo en un punto $P$ será 
+\[
+	\vb{E}(P) = (E_x, E_y, E_z), 
+\]
+es decir que en principio tendrá los tres componentes.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_ej_plano_cargado.jpg}\\
+
+Del otro lado del plano la situación es la misma de manera que se tiene una simetría de 
+reflexión en $xz$. La matriz de una reflexión es 
+\[
+	R = \begin{pmatrix}
+		1 & 0 & 0 \\
+		0 & -1 & 0 \\
+		0 & 0 & 1
+	\end{pmatrix}
+\]
+y entonces se tienen las relaciones (compruébese en la figura)
+\be
+	E_x' = E_x, \qquad E_y' = -E_y, \qquad E_z' = E_z.
+	\label{simetria_refl}
+\ee
+
+Luego, otra simetría es sencillamente rotar el plano un ángulo $\pi$ en torno a $\hat{z}$,
+y esta rotación será \notamargen{poner matriz de rotación en apéndice}
+\[
+	R = \begin{pmatrix}
+		-1 & 0 & 0 \\
+		0 & -1 & 0 \\
+		0 & 0 & 1
+	\end{pmatrix}
+\]
+que implica 
+\be
+	E_x' = -E_x, \qquad E_y' = -E_y, \qquad E_z' = E_z.
+	\label{simetria_rot}
+\ee
+
+Como ambas simetrías conllevan a la misma situación física, deben ser ciertas las relaciones 
+\eqref{simetria_refl} y \eqref{simetria_rot} de modo que como $E_x = - E_x$ se debe cumplir 
+que $E_x = 0$.
+
+Se puede hacer el mismo razonamiento para la simetría de reflexión en torno a $xy$ puesto que
+dicho plano separa dos semiespacios especularmente idénticos. En este caso como $P$ se halla
+sobre dicho plano basta una rotación en un ángulo de $2\pi$, que deja el campo en el mismo
+sitio para obtener la relación $E_z = - E_z$ lo cual implica que $\vb{E} = E_y \hat{y}$.
+\end{ejemplo}
+
+Como se vió en el ejemplo anterior, una reflexión más una rotación permite eliminar componentes 
+de campo.
+
+
 Una simetría más una rotación-traslación permite eliminar dependencias.
 
 Lo primero que debe hacerse es escribir bien la \vb{J} a partir del dato de la corriente
