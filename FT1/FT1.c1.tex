@@ -293,11 +293,12 @@ y utilizando una identidad vectorial,
 	\left\{ d\vb{\ell}_1 \cdot d\vb{\ell}_2 \right\}
 \]
 Luego, se puede reescribir el primer término notando que 
-\[
+\be
 	\frac{ (\vb{x}_1 - \vb{x}_2)}{|\vb{x}_1 - \vb{x}_2|^3} = 
 	\nabla_{\vb{x}_2} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} =
 	- \nabla_{\vb{x}_1} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} ,
-\]
+	\label{ident_vec_posicion}
+\ee
 de manera que la primer integral resulta 
 \[
 	- \int_{\Gamma_2} d\vb{\ell}_2 \int_{\Gamma_1} d\vb{\ell}_1 \cdot \nabla_{\vb{x}_1} \frac{ 1 }{|\vb{x}_1 - \vb{x}_2|} ,
@@ -803,30 +804,108 @@ y despejar de aquí la ecuación diferencial que emplear
 
 \section{El potencial vector}
 
-Por la ley de Biot y Savart,
+Por la ley de Biot y Savart, el campo \vb{B} debido a una densidad 
+de corriente en un volumen puede obtenerse a partir de
+\be
+	\vb{B} = 
+	\frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}') \times (\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} dV' .
+	\label{campo_B}
+\ee
+
+Utilizando la identidad de \eqref{ident_vec_posicion}, con el gradiente respecto del punto campo,
+y la identidad vectorial
 \[
-	\vb{B} = \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}') \times (\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} 
-	dV' = \Nabla_x \times \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|} dV'
+	\Nabla \times (\phi \vb{F} ) = \phi \rotorm{F} - \vb{F} \times \Nabla \phi
+\]
+la expresión \eqref{campo_B} para el campo magnético resulta en 
+\[
+	\vb{B} = \Nabla_x \times \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|} dV'
 \]
 de modo que
 \be
 	\vb{A} = \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|} dV'
 	\label{potvec}
 \ee
-pero 
+pero como el potencial vector se define a menos del gradiente de un escalar, resulta
 \[
-	\vb{A}' \equiv \vb{A} + \Nabla \Psi
+	\vb{A}' \equiv \vb{A} + \Nabla \psi
 \]
 es tan buen potencial vector como \vb{A} puesto que los rotores verifican $\rotorm{A}=\rotorm{A}'=\vb{B}$,
 de lo cual extraemos en conclusión que el potencial vector está definido a menos del gradiente de una
 función escalar.
+\notamargen{Reacomodar estas cosas.}
 
-Tomándole el rotor a \eqref{potvec} y considerando $\Nabla'\cdot\vb{J}(\vb{x}')=0$ lo cual se verifica si
+Cada componente de \vb{A} en el caso de que $\Nabla\psi=0$ puede verse como una integral de Poisson.
+
+Ahora bien, si se toma el rotor del campo \vb{B}, lo cual es tomar el rotor de \vb{A}, se tiene
+\[
+	\rotorm{B} = \Nabla\times\left( \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|} dV' \right)
+\]
+y usando la identidad del rotor de un rotor (ver apéndices XXX) resulta descompuesto en dos términos de
+acuerdo a
+\[
+	\rotorm{B} = 
+	\Nabla\left( \Nabla \cdot \left[ \frac{1}{c} 
+		\int_{V'} \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|} dV' \right] \right) -
+	\nabla^2 \left( \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|} dV' \right),
+\]
+el gradiente de una divergencia y el laplaciano de un vector. Trabajaremos cada uno de ellos por 
+separado. 
+
+Dado que la divergencia es con respecto a las coordenadas de \vb{x} y la integración es con respecto
+a las coordenadas \vb{x}' puede introducirse la misma bajo el signo integral y entonces
+\[
+	I_1 = \frac{1}{c} 
+		\int_{V'} \vb{J}(\vb{x}') \Nabla \cdot \left[ \frac{ 1 }{|\vb{x}-\vb{x}'|} \right] dV'
+		= - \frac{1}{c} 
+		\int_{V'} \vb{J}(\vb{x}') \Nabla' \cdot \left[ \frac{ 1 }{|\vb{x}-\vb{x}'|} \right] dV'
+\]
+donde la última igualdad se debe al cambio de las coordenadas contra las cuales se deriva.
+Ahora notando la siguiente expresión para la divergencia del integrando en el potencial vector,
+\[
+	\Nabla' \cdot \left[ \frac{ \vb{J}(\vb{x}') }{|\vb{x}-\vb{x}'|} \right] =
+	\frac{ \Nabla' \cdot \vb{J}(\vb{x}') }{|\vb{x}-\vb{x}'|} +
+	 \vb{J}(\vb{x}') \cdot \Nabla' \left[ \frac{ 1 }{|\vb{x}-\vb{x}'|} \right]
+\]
+
+Considerando que $\Nabla'\cdot\vb{J}(\vb{x}')=0$, lo cual se verifica si
 la corriente es estacionaria se tiene 
 \[
-	\rotorm{B} = \frac{4\pi}{c} \vb{J}(\vb{x})
+	I_1 = - \frac{1}{c} 
+	\int_{V'} \Nabla' \cdot \left[ \frac{ \vb{J}(\vb{x}')  }{|\vb{x}-\vb{x}'|} \right] dV'
 \]
-y entonces
+expresión a la cual se puede aplicar el teorema de la divergencia en una superficie 
+$ S' = \partial V' $ que englobe completamente a la distribución de corrientes dada por 
+$\vb{J}$ (y esto siempre se puede hacer si \vb{J} está acotada) resultando en 
+\[
+	I_1 = \frac{1}{c} \int_{S'} 
+	\frac{ \vb{J}(\vb{x}')  }{|\vb{x}-\vb{x}'|} \cdot \hat{n} dS' = 0.
+\]
+
+El segundo término es 
+\[
+	I_2 = \nabla^2 \left( \frac{1}{c} \int_{V'} \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|} dV' \right)
+\]
+donde el laplaciano, por la misma razón, también puede ser llevado dentro de la integral lo 
+cual resulta en 
+\[
+	I_2 = \frac{1}{c} \int_{V'} \vb{J}(\vb{x}') \: \nabla^2 \left( \frac{1}{|\vb{x}-\vb{x}'|} \right) dV'
+	= \frac{4 \pi }{c} \int_{V'} \vb{J}(\vb{x}') \: \delta( \vb{x}-\vb{x}') dV',
+\]
+luego de utilizar el valor del laplaciano de la diferencia entre puntos campo y fuente. La
+integral es nula salvo en el caso en el cual el punto \vb{x} se halle dentro de $V'$, lo cual 
+suponemos que es cierto obteniéndose entonces 
+\[
+	I_2 = - \frac {4 \pi} {c} \vb{J}(\vb{x}).
+\]
+
+Juntando todos los resultados de estas excursiones, arribamos a 
+\[
+	\rotorm{B} = \frac{4 \pi} {c} \vb{J}(\vb{x}).
+\]
+
+Integrando esta ecuación de Maxwell sobre una superficie $S$ cuya frontera es una curva
+cerrada $\Gamma$ se tiene 
 \[
 	\int_S \rotorm{B} \cdot d\vb{S} = \frac{4\pi}{c} \int_S \vb{J}(\vb{x}) \cdot d\vb{S}
 \]
@@ -835,21 +914,30 @@ y por el teorema de Stokes arribamos a
 	\int_{\Gamma\equiv\partial S} \vb{B}\cdot d\vb{\ell} = \frac{4\pi}{c} I_\Gamma
 \]
 que es la ley de Ampere. Notemos que $I_\Gamma$ es la corriente concatenada por el lazo $\Gamma$.
-Además
+
+Además, volviendo a la identidad vectorial del doble rotor, 
 \[
 	\rotorm{B} = \Nabla\times(\rotorm{A}) = \Nabla(\divem{A}) - \nabla^2 \vb{A} = \frac{4\pi}{c}\vb{J}
 \]
-pero utilizando el gauge de Coulomb es $\divem{A}=0$ y entonces
+que se simplifica utilizando el gauge de Coulomb, $\divem{A}=0$, para llegar a 
 \[
-	\nabla^2 \vb{A} = -\frac{4\pi}{c}\vb{J}
+	\nabla^2 \vb{A} = -\frac{4\pi}{c}\vb{J},
 \]
-que es una ecuación de Poisson vectorial.
+que es una ecuación de Poisson vectorial para la magnetostática.
 
 Magnetostática y electrostáctica son gobernadas por ecuaciones de Poisson para potenciales $\vb{A},\phi$ y
 el problema entonces se reduce a resolverlas para luego hallar los campos por derivación.
 
-\section{Unicidad de problemas de potencial}
+\section{Resolviendo problemas de potencial}
 
+Estaremos interesados en resolver las ecuaciones de Poisson y de Laplace en un cierto recinto.
+Para tener soluciones únicas necesitaremos condiciones de contorno de tipo Dirichlet o de tipo Newmann (derivada
+normal en el contorno).
+
+
+\subsection{Unicidad de problemas de potencial}
+
+La unicidad de la solución permite la fabricación de problemas equivalentes para otras soluciones.
 Si dos problemas satisfacen iguales condiciones de contorno entonces en el recinto encerrado por
 ese contorno tienen igual solución.
 
@@ -869,13 +957,15 @@ pero se da para el interior de $R$ que $\phi_1\neq\phi_2$ entonces se tiene suce
 	\Nabla\cdot\left( U\Nabla U \right) = U\left( \Nabla\cdot\Nabla U \right) + \Nabla U \cdot \Nabla U
 \]
 \[
-	\int_V \Nabla\cdot\left( U\Nabla U \right) dV = \int_V U \lapm{U}  + (\lapm{U})^2 dV =  \int_V (\lapm{U})^2 dV
+	\int_V \Nabla\cdot\left( U\Nabla U \right) dV = 
+	\int_V U \lapm{U}  + (\lapm{U})^2 dV =  \int_V (\lapm{U})^2 dV
 \]
 llegando al último miembro porque el potencial $U$ cumple la ecuación de Laplace. Luego,
 \[
 	\int_V (\lapm{U})^2 dV = \int_S U\Nabla{U} \cdot d\vb{S} = 0
 \]
-habiéndose pasado a la integral de superficie por el teorema de la divergencia y anulando el valor global porque 
+habiéndose pasado a la integral de superficie por el teorema de la divergencia y anulando 
+el valor global porque 
 $U$ en el contorno es nula (recuérdese \eqref{potnounico}). Además, 
 \[
 	\Nabla{U} \cdot d\vb{S}  \longrightarrow \left.\dpar{U}{\hat{n}}\right|_{cont}
@@ -890,7 +980,9 @@ y entonces
 \]
 a menos, por supuesto, de una constante.
 
-
+\notamargen{Veo la idea acá pero esto hay que hacerlo con mucho cuidado.
+Tal vez garabatear en papel y pasar los pasos importantes aquí.
+Utilizar claramente las condiciones de contorno; Dirichlet o Newmann.}
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
