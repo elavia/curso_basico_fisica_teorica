@@ -928,6 +928,53 @@ que es una ecuación de Poisson vectorial para la magnetostática.
 Magnetostática y electrostáctica son gobernadas por ecuaciones de Poisson para potenciales $\vb{A},\phi$ y
 el problema entonces se reduce a resolverlas para luego hallar los campos por derivación.
 
+\begin{ejemplo}{\bf Ejemplo de Gauss law y Ampere law}
+
+Se tiene un hilo cargado con una densidad lineal de carga $ \lambda $, tomando una superficie gaussiana
+cilindrica coaxial y concéntrica con el mismo 
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_gausslaw.jpg}
+
+se tiene 
+\[
+	\int \vb{E}\cdot d\vb{S} = 4 \pi Q,
+\]
+y dada la forma del campo en cada superficie se tiene
+\[
+	E 2 \pi r \ell = 4 \pi \lambda \ell
+\]
+de modo que 
+\[
+	E = \frac{2 \lambda}{r}.
+\]
+
+En el caso de un toro por el cual circula una corriente $i$ en cada vuelta de la espira se definen dos
+circuitos $\Gamma_1$ y $\Gamma_2$ según al figura debajo
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_amperelaw.jpg}
+
+El campo $\vb{B}$ estará en $\phiver$ y además no depende de $\vp$ por la simetría (en coordenadas
+cilíndricas), entonces para un dado $r_0$ y $z_0$ será una constante en $\phiver$.
+Entonces
+\[
+	\int_\Gamma \vb{B}\cdot d\vb{\ell} = \frac{4 \pi }{c} I_c
+\]
+y para los circuitos de la figura 
+\[
+	\int_{\Gamma_1} \vb{B}\cdot d\vb{\ell} = 0 \qquad \vb{B} = 0
+\]
+de modo que el campo magnético será nulo fuera. En cambio, dentro
+\[
+	\int_{\Gamma_1} \vb{B}\cdot d\vb{\ell} = \frac{4\pi}{c}Ni \qquad B = \frac{2Ni}{Rc}
+\]
+
+\notamargen{Estaría bueno hacer un análisis fino de las aproximaciones, hacer el cálculo
+posta de los campos magnéticos y ver que las consideraciones de simetría funcionan.
+Este ejemplo, pese a lo boludo, es muy ilustrativo.}
+
+\end{ejemplo}
+
+
 \section{Resolviendo problemas de potencial}
 
 Estaremos interesados en resolver las ecuaciones de Poisson y de Laplace en un cierto recinto.
@@ -983,6 +1030,182 @@ a menos, por supuesto, de una constante.
 \notamargen{Veo la idea acá pero esto hay que hacerlo con mucho cuidado.
 Tal vez garabatear en papel y pasar los pasos importantes aquí.
 Utilizar claramente las condiciones de contorno; Dirichlet o Newmann.}
+
+
+Los problemas que siguen parecen ser correspondientes a cálculo de campos a lo F3, de manera que
+tendrán que reubicarse luego. Suponemos que son guía 1.
+\begin{ejemplo}{\bf Problema 6}
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_setproblemasG1_1.jpg}
+
+La integral del campo magnético es
+\[
+	\vb{B}(\vb{x}) = \frac{1}{c}\int_\Omega  
+	\frac{ \vb{J}(\vb{x}) \times (\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} d\Omega
+\]
+pero primeramente se busca obtener la corriente, cuya distribución es proporcional a la delta
+de Dirac con alguna constante de proporcionalidad que hay que hallar. Entonces
+\[
+	I_T = \int_S \vb{J}\cdot d\vb{S} = \int_0^\infty \int_{-L/2}^{L/2} \alpha \delta(y-a) dy dz =
+	\alpha \int_{-L/2}^{L/2} dz = \alpha L = I n L
+\]
+de lo cual se obtiene $\alpha = n L$ y donde se ha usado $n=N/L$.
+
+Luego,
+\[
+	\vb{B}(\vb{x}) = \frac{1}{c} \int_{-L/2}^{L/2} \int_0^{2\pi} \int_0^a 
+	\frac{ n I \delta(r'-a) r' \phiver \times ( -r'\cos\vp'\xver - r'\sin\vp'\yver + (z-z')\zver) }
+	{({r'}^2 + [z-z']^2)^{3/2}} \: dr' d\vp' dz'
+\]
+y colapsando la delta en $r$,
+\[
+	\vb{B}(\vb{x}) = \frac{n I}{c} \int_{-L/2}^{L/2} \int_0^{2\pi} 
+	\frac{ a' \phiver \times ( -a'\cos\vp'\xver - a'\sin\vp'\yver + (z-z')\zver) }
+	{({a'}^2 + [z-z']^2)^{3/2}} \: d\vp' dz'
+\]
+donde el producto vectorial requiere previamente convertir $\phiver$ a cartesianas.
+Entonces, usando la regla mnemotécnica sabida,
+\[
+	\begin{vmatrix}
+	\xver & \yver & \zver \\
+	 -\sin\vp' & -\cos\vp' & 0 \\
+	 -a\cos\vp' & -a\sin\vp' & (z-z')\\
+	\end{vmatrix}
+	= \cos\vp'(z-z')\xver + \sin\vp'(z-z')\yver + a\zver
+\]
+
+Las integrales en $\cos\vp'$ y $\sin\vp'$ dan cero porque son trigonométricas entre 0 y 2$\pi$.
+Luego
+\[
+	\vb{B}(0,0,z) = \frac{n I 2 \pi a^2}{ c } \int_{-L2}^{L/2} \frac{ dz'}{( a^2 + [z-z']^2)^{3/2}} \: \zver =
+	\frac{2 \pi n I}{c } \left( \frac{L/2 + z}{a^2 + (z+L/2)^2 } + \frac{L/2 - z}{a^2 + (L/2 - z)^2} \right)
+\]
+\notamargen{Acá parece que se simplificaba el $a^2$.}
+y se obtiene 
+\[
+	\vb{B}(0,0,z) = \frac{2 \pi n I}{c}\left( \cos\theta_2 + \cos\theta_1 \right)
+\]
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_setproblemasG1_2.jpg}
+
+Piden hallar la componente radial. Como $B$ no depende de $\vp, B(r_0)$ es constante y entonces situándose
+en $\xver$ sabré que es válido en un círculo $r$
+\[
+	\vb{B}(\vb{x}) =  \frac{nIa}{c}\int_{-L2}^{L/2} \int_0^{2\pi} 
+	\frac{\hat{\vp}\times (\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} d\vp'dz
+\]
+Ahora es
+\[
+	\vb{x}-\vb{x}' =
+\]
+pero como requiero únicamente el campo en $\rver$ me interesará la parte en $\zver$ pués $\phiver\times\zver=\rver$.
+\[
+	\rver = \cos\vp'\xver + \sin\vp'\yver,
+\]
+pero como estoy situado en $\xver$ me quedo únicamente con el primer sumando.
+\[
+	B_x(r,z) = \frac{anI}{c}\int_{-L2}^{L/2} \int_0^{2\pi} 
+	\frac{ (z-z')\cos\vp' }{ ( a^2 + r^2 - 2ar\cos\vp + [z-z']^2 )^{3/2} } \: d\vp' dz' 
+\]
+y definiendo $b^2 \equiv a^2 + r^2 - 2ar\cos\vp$, se puede hacer la integral en $z'$ y  
+\[
+	B_x(r,z) = \frac{anI}{c} \int_0^{2\pi} 
+	\left[ \frac{ 1 }{ b^2 + [z-L/2]^2 )^{1/2} } -  \frac{ 1 }{ b^2 + [z+L/2]^2 )^{1/2} }
+	\right] \cos\vp' \: d\vp' dz' 
+\]
+
+Pero b es función de $\vp$ de modo que conviene aproximar con $L\gg a$ ( $r,a \ll L$, entonces $b \ll L$ y puedo
+expandir con Taylor y $z \ll L$.
+\[
+	\frac{1}{\sqrt{ b^2 + (z \pm L/2 )^2 }} = \frac{2}{L} \frac{1}{\sqrt{ 1 + 4b^2/L^2 + 4z^2/L^2 \pm 4z/L }}
+\]
+y definiendo $\alpha \equiv 4b^2/L^2 + 4z^2/L^2$ y $\beta \equiv 4z/L$ se tiene 
+\[
+	\frac{2}{L}( \frac{1}{\sqrt{1 +(\alpha - \beta)}} - \frac{1}{\sqrt{\alpha + \beta}} ) \approx 
+	1 - \frac{1}{2}(\alpha + \beta) + \frac{3}{8}(\alpha - \beta)^2 - 1 + \frac{1}{2}(\alpha + \beta) - \frac{3}{8}(\alpha + \beta)^2
+	= \beta \left(1 - \frac{3}{2}\alpha \right)
+\]
+y regresando al cálculo de B
+\[
+	B_x(r,z) = \frac{a n I}{c} \int_0^{2\pi} \frac{2}{L}
+	\left( \frac{4z}{L} \left( 1 - \frac{3}{2} \left[  \frac{4}{L^2}( r^2 - 2 a r \cos\vp'+ a^2 + z^2 ) 
+	\right] \right) \right)
+	\cos\vp'\:d\vp' 
+\]
+\[
+	B_x(r,z) = \frac{8aznI}{L^2c}\frac{12 ar\pi}{L^2} = \frac{96 \pi n I}{c}\Frac{a^2zr}{L^4}
+\]
+\notamargen{Anoté que el término que multiplica al 3/2 sería un $\alpha$ (supongo ``el'' $\alpha$).
+Chequearlo.}
+y junto con
+\[
+	B_z = \frac{2 \pi n I}{ c }( \cos\theta_1 + \cos\theta_2 ).
+\]
+
+\includegraphics[width=0.2\textwidth]{images/fig_ft1_setproblemasG1_3.jpg}
+
+Si $L \to \infty$ (caso de solenoide infinito) se tiene 
+\[
+	B_z = \frac{4 \pi n I}{ c },
+\]
+que es lo mismo que se obtiene haciendo una ley de Ampere.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 8}
+
+Acá esto es apenas un comentario.
+
+\notamargen{Para un hilo cargado es $E = 2\lambda /r$}
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_setproblemasG1_4.jpg} 
+
+\[
+	\vb{F}_{12} = \int \rho_1 \vb{E}_1 d\Omega_1 =
+	\frac{2 \lambda_2 }{a} \int_\Omega \lambda_1 \delta(x) \delta(y+a/2) d\Omega_1
+\]
+\[
+	\vb{F}_{12} = - \frac{2 \lambda_1 \lambda_2 }{a} L \yver
+\]
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 5}
+
+El potencial
+\[
+	\phi(r) = \frac{e}{r} \left( 1 + \frac{r}{a} \right) \euler^{-2r/a}
+\] 
+revienta en cero. No obstante se puede separar en dos potenciales uno de los cuales revienta y el otro no,
+\[
+	\phi(r) = \frac{e}{r} \euler^{-2r/a} +  \frac{e}{a} \euler^{-2r/a}
+\]
+donde el primer término es Yukawa, sumando y restando $e/r$ y agrupando
+\[
+	\phi(r) = \frac{e}{r} \left( \euler^{-2r/a} - 1\right) + \frac{e}{a} \euler^{-2r/a} + \frac{e}{r}
+\]
+donde el último término es el potencial de una carga en el origen que proviene de una densidad de
+carga $\rho = e\delta(\vb{x})$. Definiendo al primer término como $\phi_1$ se puede despejar $\rho$
+desde la ecuación de Poisson $ \lapm{\phi} = -4\pi \rho$,
+\[
+	\rho = -\frac{1}{4\pi r} \frac{1}{r} \dpar[2]{}{r}(r\phi_1)
+\]
+o bien
+\[
+	\rho = -\frac{1}{a^2 \pi r} \frac{e}{r} r \euler^{-2r/a}, 
+\]
+y hemos averiguado la densidad de carga de cada parte.
+
+Entonces, por ser átomo neutro
+\[
+	Q = \int_V \rho dV + e = 0,
+\]
+y la integral puede hacerse en esféricas porque la dependencia es solamente en $r$.
+
+\end{ejemplo}
+
+
+
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
