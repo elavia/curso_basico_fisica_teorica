@@ -6,8 +6,6 @@
 	\usepackage{bm}
 % 	\usepackage{libertine}
 % 	\usepackage[bold-style=TeX]{unicode-math}
-	\usepackage{libertine}
-% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -41,17 +39,6 @@
 El método de las imágenes es un procedimiento gráfico de encontrar problemas equivalentes simulando
 con cargas extras (cargas imagen) las condiciones de contorno.
 
-Queremos conseguir un problema equivalente al de la figura, una carga puntual frente a un plano
-conductor conectado a tierra.
-
-\includegraphics[width=0.3\textwidth]{images/fig_ft1_imagenes1.jpg}
-
-La solución del problema de arriba será la del problema siguiente 
-
-\includegraphics[width=0.3\textwidth]{images/fig_ft1_imagenes2.jpg}
-
-porque en el recinto de interés son la misma solución. Se puede garantizar esto por unicidad.
-
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.6\textwidth]{images/fig_ft1_imagegreen1.pdf}	 
@@ -62,16 +49,10 @@ porque en el recinto de interés son la misma solución. Se puede garantizar est
 Los problemas que ilustra la figura satisfacen iguales condiciones de contorno en el recinto punteado,
 entonces sus soluciones internas son la misma: $\phi_1 = \phi_2$ por unicidad.
 
-\[
-	\phi(\vb{x}) = \frac{q}{[ (x-x')^2 + (y-y')^2 + (z-z')^2 ]^{1/2}} - 
-	\frac{q}{[ (x+x')^2 + (y-y')^2 + (z-z')^2 ]^{1/2}}
-\]
-
 \subsection{El Método de Green}
 
 El concepto tras el método de Green es evaluar el $\phi$ de una carga puntual ante cierta configuración
-de contornos conductores; luego desde allí se extraerá información para el caso de una distribución de
-carga general. Considerar una carga puntual corresponde a una excitación elemental.
+de contornos conductores. Es una excitación elemental.
 
 Restando entre sí
 \[
@@ -84,13 +65,13 @@ y
 e integrando ambos miembros y utilizando el teorema de la divergencia, se llega a
 \[
 	\int_V \left[ \phi\lapm{\psi} - \psi\lapm{\phi}\right] dV =
-	\int_S \left[ \phi\Nabla\psi - \psi\Nabla\phi \right] \hat{n} dS,
+	\int_S \left[ \phi\Nabla\psi - \psi\Nabla\phi \right] dS,
 \]
 que es la segunda identidad de Green.
 
 Consideremos lo que llamaremos caso A, según vemos en figura, caracterizado según
 \[
-	\rho_{\text{int}} \qquad \vb{x}'\in R, \vb{x}\in R
+	\rho_{int} \qquad \vb{x}'\in R, \vb{x}\in R
 \]
 \begin{figure}[htb]
 	\begin{center}
@@ -98,10 +79,9 @@ Consideremos lo que llamaremos caso A, según vemos en figura, caracterizado seg
 	\end{center}
 	\caption{}
 \end{figure} 
-\be
+\[
 	\psi = \frac{1}{|\vb{x}-\vb{x}'|} \qquad \lapm{\psi} = -4\pi \delta(\vb{x}-\vb{x}')
-	\label{laplace_eq}
-\ee
+\]
 \[
 	-\phi(\vb{x})4\pi + \int_V 4\pi \frac{\rho(\vb{x}')}{|\vb{x}-\vb{x}'|} \; dV' =
 	\int_S \left( \phi\dpar{\psi}{n}-\frac{1}{|\vb{x}-\vb{x}'|}\dpar{\phi}{n}\right)\; dS 
@@ -110,104 +90,79 @@ donde estamos usando la abreviatura $\Nabla\phi\cdot\vb{n}=\partial\phi/\partial
 derivada normal en la superficie. Despejando
 \[
 	\phi(\vb{x}) = \int_V \frac{\rho(\vb{x}')}{|\vb{x}-\vb{x}'|} \; dV' +
-	\frac{1}{4\pi} \int_S \left( \frac{1}{|\vb{x}-\vb{x}'|}\dpar{\phi}{n} -
-	\phi\frac{\partial}{\partial n} \left[\frac{1}{|\vb{x}-\vb{x}'|} \right] \right)\; dS ,
+	\frac{1}{4\pi} \int_S \left( \frac{1}{|\vb{x}-\vb{x}'|}\dpar{\phi}{n} -\phi\frac{\partial}{\partial 
+n} \left[\frac{1}{|\vb{x}-\vb{x}'|} \right] \right)\; dS ,
 \]
-donde la primer integral es debido a las cargas internas y la segunda se puede ver como el efecto
-de las cargas fuera del recinto $ R $. 
+donde la primer integral es debido a las cargas internas y la segunda al efecto de las cargas
+fuera del reciento $R$.
 
-Recordemos que las condiciones tipo Dirichlet corresponden a $\phi|_S$ (el potencial evaluado sobre
-la superficie) y las tipo Neumann a $ \partial\phi/\partial \hat{n}|_S $ (la derivada normal del
-potencial evaluada sobre la superficie).
-Aquí se presentan condiciones tipo Dirichlet y Newmann simultáneamente en todo punto de la superficie,
-lo cual no puede ser.
+Recordemos que las condiciones tipo Dirichlet corresponden a $\phi|_S$ y las tipo Neumann a
+$\partial\phi/\partial \hat{n}|_S$.
 
 El caso B, según figura, corresponde a
 \[
-	\rho_{\text{ext}} \qquad \vb{x}'\notin R, \vb{x}\in R
+	\rho_{int} \qquad \vb{x}'\notin R, \vb{x}\in R
 \]
-y, como la delta de Dirac es ahora nula, se tiene  
+y 
 \[
 	\int_V \frac{\rho(\vb{x}')}{|\vb{x}-\vb{x}'|} \; dV' = 
 	\frac{1}{4\pi} \int_S \left( \phi\frac{\partial}{\partial n} \left[\frac{1}{|\vb{x}-\vb{x}'|} \right]
-	- \frac{1}{|\vb{x}-\vb{x}'|}\dpar{\phi}{n}  \right)\; dS,
+	- \frac{1}{|\vb{x}-\vb{x}'|}\dpar{\phi}{n}  \right)\; dS ,
 \]
-es decir que la integral de superficie proviene de las cargas fuera de $R$ que producen campo en el interior
-del recinto $R$.
-Nótese que hay cambios de signo debidos a la diferente orientación de la superficie.
-
-\includegraphics[width=0.4\textwidth]{images/fig_ft1_green_normales.jpg}
+la integral de superficie proviene de las cargas fuera de $R$ que producen campo en el interior
+$R$.
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.2\textwidth]{images/fig_ft1_imagegreen3.pdf}
+	\includegraphics[width=0.2\textwidth]{images/fig_ft1_imagegreen3.pdf}	 
 	\end{center}
 	\caption{}
-\end{figure}
+\end{figure} 
 
-Entonces el potencial 
-\[
-	\phi(\vb{x}) = \int_{ V = R_1 } \frac{\rho_{\text{int}}(\vb{x}')}{|\vb{x}-\vb{x}'|} \; dV' +
-	\int_{ V \neq R_1 } \frac{\rho_{\text{ext}}(\vb{x}')}{|\vb{x}-\vb{x}'|} \; dV'
-\]
+Hemos tomado $\psi=1/|\vb{x}-\vb{x}'|$ que verifica [1]; interpretándose $\psi$ como el potencial
+de una carga puntual unitaria.
 
-Hemos tomado en la fórmula de Green $\psi=1/|\vb{x}-\vb{x}'|$ que es solución particular de \eqref{laplace_eq},
-interpretándose $\psi$ como el potencial de una carga puntual unitaria. Verifica:
 \[
-	\lapm{\left( \frac{1}{|\vb{x}-\vb{x}'|} \right)} = - 4\pi \delta( |\vb{x}-\vb{x}'| )
+	\lapm{\frac{1}{|\vb{x}-\vb{x}'|}} = - 4\pi \delta( |\vb{x}-\vb{x}'| )
 \]
-Pero se puede considerar una solución general $G$ (la función de Green) que cumple 
+podemos tomar
 \[
-	G \equiv \frac{1}{|\vb{x}-\vb{x}'|} + f( \vb{x}, \vb{x}'),
+	G \equiv \frac{1}{|\vb{x}-\vb{x}'|} + f( \vb{x}, \vb{x}')
 \]
-siendo $f$ una función arbitraria. Luego,
+donde $G$ es la función de Green.
+
 \[
 	\lapm{G} = -4\pi  \delta( \vb{x}, \vb{x}' ) + \lapm{f}
 \]
-donde $f$ satisface Laplace (si el reciento no incluye a $\vb{x}'$).
+donde $F$ satisface Laplace (si el reciento no incluye a $\vb{x}'$).
 Con $\lapm{f( \vb{x}, \vb{x}' )}$.
 
-Entonces $f( \vb{x}, \vb{x}' )$ representan la o las imágenes necesarias para que $G$ cumpla el contorno
-necesario $G_D|_S=0$.
+Entonces $f( \vb{x}, \vb{x}' )$ representan la o las imágenes necesarias para que
+$G$ cumpla el contorno necesario $G_D|_S=0$.
 
 
 % =================================================================================================
-\subsection{Funciones de Green}
+\section{Funciones de Green}
 % =================================================================================================
 
-Utilizando $G$ en la expresión del potencial
 \be
 	\phi(\vb{x}) = \int_{V'} G(\vb{x},\vb{x}') \rho(\vb{x}')  \; dV' +
 	\frac{1}{4\pi} \int_{S'} \left( G(\vb{x},\vb{x}')\dpar{\phi}{n} -\phi\frac{\partial}{\partial 
 	n} G(\vb{x},\vb{x}') \right)\; dS' ,
 	\label{green1}
 \ee
-Pero para poder utilizar \eqref{green1} necesito tener un solo tipo de condiciones de contorno.
-Si tenemos condiciones tipo Dirichlet (valor de $\phi$ en la frontera $R_1$), podemos tomar $G$ nula 
-en $S$ de manera que se anula el término que multiplica a $\partial \phi / \partial n$ (que de todas
-maneras no puedo conocerlo).
-Entonces, llamando a esta función de Green $G_D$ (por Dirichlet) se ve que debe cumplir 
+Pero para poder utilizar \eqref{green1} necesito tener un solo tipo de condiciones de contorno,
+de manera que según sean
 \[
-	\lapm{G_D} = -4 \pi \delta(\vb{x},\vb{x}') \qquad \qquad G_D |_{S_1} = 0,
-\]
-condiciones que físicamente se asocian a un potencial que cumple una ecuación de Poisson para una carga 
-puntual en situada en $ \vb{x} = \vb{x}' $ y que además es nulo sobre la superficie $S_1$, como si 
-reemplazáramos esa superficie por un conductor metálico puesto a tierra.
-Entonces la expresión 
-\[
-	\phi(\vb{x}) = \frac{q}{[ (x-x')^2 + (y-y')^2 + (z-z')^2 ]^{1/2}} - 
-	\frac{q}{[ (x+x')^2 + (y-y')^2 + (z-z')^2 ]^{1/2}}	
-\]
-con $q=1$ es la función de Green para este problema.
-
-La solución del problema de potencial será 
-\[
-	\phi(\vb{x}) = \displaystyle \int_{V'} G_D \rho \; dV' - \frac{1}{4\pi}
+	\textrm{Dirichlet} \quad 	\begin{cases}
+				G_D : \lapm{G_D} = -4\pi \delta(\vb{x},\vb{x}') \\
+				G_D |_{contorno de R} = 0  \\
+				\phi|_S \\
+				\phi(\vb{x}) = \displaystyle \int_{V'} G_D \rho \; dV' - \frac{1}{4\pi}
 				\int_{S} \phi|_S\frac{\partial}{\partial n} G_D \; dS'
+			\end{cases}
 \]
-junto con el dato $ \phi|_S $.
-
-La condición de contorno de $G$ equivale, en el contexto físico del electromagnetismo, a
+donde la condición de contorno de $G$ equivale, en el contexto físico del electromagnetismo, a
 reemplazar el contorno por un conductor metálico puesto a tierra.
 Entonces $G$ es el potencial de la configuración de conductores con el contorno puesto a tierra
 frente a una carga puntual con magnitud unitaria.
@@ -230,21 +185,95 @@ La función de Green da la geometría del problema.
 
 \subsection{Green para el problema externo de una esfera}
 
-En este problema las condiciones adecuadas son las de Dirichlet, ver Figura
+\notamargen{Este título sería ``Ejemplo método de imágenes''. En realidad este es un ejemplo
+de cálculo de función de Green; así fue dado en la teoría.}
+
+La configuración es una carga puntual $q$ frente a una esfera metálica de radio $a$ conectada a tierra.
+La idea aquí es conocer dónde ubicar la imagen $ q' $ para que se verifique el contorno, es decir que
+el potencial será ahora el correspondiente a las dos cargas 
+\[
+	\vp(\vbx) = \frac{q}{|\vbx - \vb{y}|} + \frac{q'}{|\vbx - \vb{y}'|} 
+\]
+y debe cumplir que 
+\[
+	\left. \vp(\vbx)\right|_{r=a} = 0,
+\]
+por la conexión a tierra. Para ajustar esta condición se tienen dos variables, la magnitud de la carga
+$q'$ y su posición $\vb{y}'$.
+No obstante, la simetría de la configuración establece ciertas restricciones para la posición $\vb{y}'$;
+en efecto para el problema de una carga frente a una esfera el eje que une el centro de la esfera con
+la carga es un eje de simetría de revolución; si la esfera gira en torno a ese eje la configuración es
+la misma. Luego, la carga imagen debe ser tal que no rompa esa simetría: debe estar localizada en dicho
+eje. Entonces $\vb{y}'$ y $\vb{y}$ son colineales y la posición incógnita requerida es solamente el
+módulo $y'= |\vb{y}'|$.
+
+Los módulos en los denominadores pueden expresarse en términos de la ley de los cosenos, como
+\[
+	\vp(\vbx) = \frac{q}{\sqrt{ x^2 + y^2 - 2 \: x \: y \:\cos{\gamma}} } +
+	\frac{q'}{\sqrt{ x^2 + y'^2 - 2 \: x \: y' \cos{\gamma} }},
+\]
+donde $x, y$ son los módulos respectivos.
+
+\begin{figure}[!htb]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/fig_ft1_esfera_imagenes.pdf}
+	\end{center}
+	\caption{Geometría para el problema de la carga puntual $q$ frente a una esfera
+	metálica de radio $a$ conectada a tierra.}
+\end{figure} 
+
+Luego, la condición de contorno evaluada sobre la superficie de la esfera $|\vb{x}| = a$ implica que 
+\[
+	\left. \vp(\vbx)\right|_{|\vb{x}| = a} = 
+	\frac{q}{\sqrt{ a^2 + y^2 - 2 \: a \: y \:\cos{\gamma}} } +
+	\frac{q'}{\sqrt{ a^2 + y'^2 - 2 \: a \: y' \: \cos{\gamma} }} = 0,
+\]
+y entonces se tienen que obtener ahora $q, y'$ a partir de esta ecuación que en realidad representan
+infinitas direcciones dado que $ \gamma $ puede ser cualquier ángulo entre $0$ y $2\pi$.
+Se necesitarán dos ecuaciones para resolver unívocamente el problema.
+Si se eligen $\gamma = \pi$ y $\gamma = 0$ la ecuación anterior define el sistema
+\notamargen{Parece ser una constante que si elegimos las cosas del modo más simétrico posible, las
+expresiones resultan más sencillas.}
+\[
+	\begin{cases}
+		\displaystyle \frac{q}{y-a} + \frac{q'}{a-y'} = 0 \\
+		\\
+		\displaystyle  \frac{q}{a+y} + \frac{q'}{a+y'} = 0 
+	\end{cases}
+\]
+cuya solución es el par
+\[
+	q' = - \frac{a}{y} \: q, \qquad y' = \frac{a^2}{y}.
+\]
+
+Esta solución puede obtenerse un poco más heurísticamente \ref{notas_carga_frente_a_esfera}
+
+Lo que sucede físicamente es que se induce carga sobre la superficie de la esfera.
+Se querrá ver (luego?) cuál es la distribución de carga que se inducirá sobre la superficie.
+
+
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_green1.pdf}	 
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_carga_induciendo_en_esfera.jpg}	 
 	\end{center}
 	\caption{}
-\end{figure} 
-y podemos escribir la función de Green como 
+\end{figure}
+
+Este ejemplo ha servido también para mostrar la determinación de la funcion de Green para la configuración
+dada por una esfera aterrizada (condiciones de Dirichlet), que sería
 \[
-	G = \frac{1}{|\vb{r} - D\hat{r}'|} - \frac{a/D}{|\vb{r} - a^2/D\hat{r}'|} \qquad G|_{r=a}
+	G(\vbx,\vb{y}) = \frac{1}{| \: \vbx - \vb{y} \:|} - \frac{a/|\vb{y}|}{| \:\vbx - ( a^2 / |\vb{y}| ) \hat{y} \: |} 
 \]
-sujeta a que 
-\[
-	q' = -q a/D \qquad d = a^2/D
-\]
+
+% En este problema las condiciones adecuadas son las de Dirichlet, ver Figura,
+% y podemos escribir la función de Green como 
+% \[
+% 	G = \frac{1}{|\vb{r} - D\hat{r}'|} - \frac{a/D}{|\vb{r} - a^2/D\hat{r}'|} \qquad G|_{r=a}
+% \]
+% sujeta a que 
+% \[
+% 	q' = -q a/D \qquad d = a^2/D
+% \]
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.6\textwidth]{images/fig_ft1_green2.pdf}	 
@@ -932,6 +961,39 @@ donde
 
 
 
+\begin{notasfinales}
+
+\label{notas_carga_frente_a_esfera}
+\item{ \bf Sobre el problema de la carga frente a la esfera conductora a tierra}
+
+Decíamos que esta solución se puede obtener de manera más heurística, como lo hace Jackson? [CITA],
+a partir de la expresión en 
+\[
+	\frac{q}{\sqrt{ a^2 + y^2 - 2 \: a \: y \:\cos{\gamma}} } +
+	\frac{q'}{\sqrt{ a^2 + y'^2 - 2 \: a \: y' \: \cos{\gamma} }} = 0,
+\]
+se podría intentar forzar que el segundo denominador sea idéntico al primero para lo cual se puede multiplicar
+arriba y abajo por el factor $(y/a) $
+\[
+	\frac{q}{\sqrt{ a^2 + y^2 - 2 \: a \: y \:\cos{\gamma}} } +
+	\frac{q' (y/a) }{ y/a \sqrt{ a^2 + y'^2 - 2 \: a \: y' \: \cos{\gamma} }} = 0
+\]
+lo que conduce a
+\[
+	\frac{q}{\sqrt{ a^2 + y^2 - 2 \: a \: y \:\cos{\gamma}} } +
+	\frac{q' (y/a) }{\sqrt{ y^2 + y^2y'^2/a^2 - 2 \: y^2/a \: y' \: \cos{\gamma} }} = 0
+\]
+y esta ecuación se satisface si $ y y'= a^2 $ y si $ q = - q' (y/a)$, que es justamente la solución
+encontrada previamente de un modo más tradicional.
+
+También es interesante considerar algunos casos límite y ver que se recuperan resultados y comportamientos
+familiares. Si $ q $ está localizada muy cerca de la superficie de la esfera, i.e. $ |\vb{y}| \approx a + \varepsilon $
+resultan $ y' \approx a - \varepsilon $ y $ q' \approx -q + ( \varepsilon / a ) q $ que son exactamente los
+resultados para una carga frente a un plano conductor (si despreciamos la cantidad infinitesimal $( \varepsilon / a )$).
+Muy cerca de la superficie de la esfera la carga {\it ve} un plano infinito.
+
+
+\end{notasfinales}
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
