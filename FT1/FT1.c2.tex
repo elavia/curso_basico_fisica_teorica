@@ -1,9 +1,11 @@
 	\documentclass[10pt,oneside]{CBFT_book}
 	% Algunos paquetes
-	\usepackage{amssymb}
 	\usepackage{amsmath}
+	\usepackage{amssymb}
+% 	\usepackage{amsbsy}
+
 	\usepackage{graphicx}
-	\usepackage{bm}
+% 	\usepackage{bm}
 % 	\usepackage{libertine}
 % 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
@@ -349,48 +351,66 @@ en infinito entonces
 esto es el llamado {\it problema exterior}.
 
 % =================================================================================================
-\section{Condiciones de contorno}
+\section{Condiciones de contorno para los campos}
 % =================================================================================================
 
-La ley de Gauss nos dice
-\[
-	\int \vb{E} \cdot d\vb{S} = 4 \pi Q_n
-\]
-para el cilindrito de la figura
-\[
-	( \vb{E}_2 - \vb{E}_1 )\cdot \hat{n} \Delta S = 4 \pi \sigma \Delta S 
-\]
-\[
-	( \vb{E}_2 - \vb{E}_1 )\cdot \hat{n} = 4 \pi \sigma 
-\]
-\[
-	\rotorm{E} = 0 \Rightarrow \int_\Gamma \vb{E} \cdot d\vb{\ell} = 0 =
-	( \vb{E}_2 - \vb{E}_1 )\cdot d\vb{\ell}  = ( \vb{E}_1 + \vb{E}_2 ) \cdot \hat{n}\times\hat{\eta} d\ell
-\]
-donde esto vale en electrostática (nula la integral de línea del campo \vb{E}) y además
-\[
-	\hat{n}\times\hat{\eta} = \frac{d\vb{\ell}}{d\ell} 
-\]
+Consideraremos la superficie de separación entre dos medios 1 y 2, la cual puede estar cargada, y sobre
+la misma imaginaremos un cilindro pequeño $\Sigma$ de tapas paralelas a la superficie y altura despreciable y 
+asimismo, un circuito cerrado $\Gamma$ también de altura despreciable perpendicular a la superficie, ver figura.
 
-\begin{figure}[htb]
+La normal a la superficie es $\hat{n}$ mientras que $\hat{t}$ es un versor tangente a la misma.
+
+\begin{figure}[!htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_contorno1.pdf}	 
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_contornos_E.pdf} 
 	\end{center}
 	\caption{}
 \end{figure} 
-y puesto que vale la permutación
-\[
-	0 = ( -\vb{E}_2 + \vb{E}_1 )\cdot(\hat{n}\times\hat{\eta}) \longrightarrow 
-	0 = \hat{\eta} \cdot ( ( -\vb{E}_2 + \vb{E}_1 ) \times \hat{n} )
-\]
 
-de modo que la componente tangencial es continua y entonces
+La ley de Gauss establece para el cilindro $\Sigma$ que 
 \[
-	\hat{n} \times ( \vb{E}_2 - \vb{E}_1 ) = 0
+	\int_{S_\Sigma} \vb{E} \cdot d\vb{S} = 4 \pi \: Q_n,
 \]
+donde $ {S_\Sigma}$ es la superficie total del cilindro y $Q_n$ la carga neta encerrada.
+Como la superficie lateral es despreciable, por serlo la altura, la integral de superficie se reduce a la
+de las tapas. Si la densidad de carga sobre la superficie es $\sigma$ entonces
+\[
+	( \vb{E}_2 - \vb{E}_1 )\cdot \hat{n} \: \Delta S = 4 \pi \: \sigma \: \Delta S 
+\]
+o bien
+\[
+	( \vb{E}_2 - \vb{E}_1 )\cdot \hat{n} = 4 \pi \sigma 
+\]
+lo cual implica que la componente normal del campo $\vb{E}$ es discontinua si hay carga superficial presente.
+
+\notamargen{No sé si no decir directamente que en electrostática es nula la integral de línea de E y ya.}
+Por otra parte, como el rotor de $\vb{E}$ es nulo (en electrostática), el teorema de Stokes implica
+\[
+	\int_{S} \: \rotorm{E} = 0 = \int_{\Gamma} \vb{E} \cdot d \vec{\ell} 
+\]
+y despreciando el aporte de las partes del circuito que son perpendiculares a la superficie, resulta
+\[
+% 	\rotorm{E} = 0 \Rightarrow \int_\Gamma \vb{E} \cdot d\vb{\ell} = 0 =
+	( \vb{E}_2 - \vb{E}_1 ) \cdot d\vec{\ell}  = 
+	( \vb{E}_2 - \vb{E}_1 ) \cdot ( \hat{n}_\Gamma \times \hat{n} ) \: d\ell = 0
+\]
+donde en el miembro derecho se ha expresado la dirección del $d\vec{\ell}$ en función de los versores
+normal y tangencial, y entonces
+\[
+	\hat{n}_\Gamma \cdot ( \hat{n} \times  ( \vb{E}_2 - \vb{E}_1 ) ) = 0,
+\]
+que indica que el segundo factor tiene que ser nulo, es decir 
+\[
+	 \hat{n} \times  ( \vb{E}_2 - \vb{E}_1 ) = 0
+\]
+y esto implica que la componente tangencial del campo es continua, sin importar que exista carga o no.
+
+Resumiendo
 \[
 	E_{2\hat{n}} - E_{1\hat{n}} = 4 \pi \sigma \qquad \qquad E_{2\hat{t}} -E_{1\hat{t}} = 0
 \]
+
+Expresando el campo en términos del potencial, se tiene
 \[
 	-\Nabla\phi_2\cdot\hat{n} + \Nabla\phi_1\cdot\hat{n} = 4 \pi \sigma
 \]

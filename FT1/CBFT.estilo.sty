@@ -20,7 +20,7 @@
 	\usepackage{fixmath} % Para caracteres en negrita
 	% Con este usamos 'mathbold'
 %   	\usepackage[bold-style=TeX]{unicode-math}
-  	\usepackage[ math-style=TeX, bold-style=ISO ]{unicode-math}
+	\usepackage[ math-style=TeX, bold-style=ISO ]{unicode-math}
 % 	Este package es el que configura cómo salen las cosas en negrita, y en general
 % 	en math mode. Conviene usar 'symbf' en lugar de 'mathbf'
 %	En DAS funciona un setup basado en unicode-math con 'symbf' y acá en el depto no funciona!
@@ -95,12 +95,13 @@
 	
 	% Boldface para modo matemático y operadores varios
 % 	\newcommand{\vb}[1]{\ifmmode\mathbf{#1}\else$\mathbf{#1}$\fi} % Vector usando mathbf
-	\newcommand{\vb}[1]{\ifmmode\symbf{#1}\else$\symbf{#1}$\fi} % Vector usando mathbf
+	\newcommand{\vb}[1]{\ifmmode\symbf{#1}\else$\symbf{#1}$\fi} % Vector usando symbf
 	\newcommand{\vB}[1]{\ifmmode\mathbold{#1}\else$\mathbold{#1}$\fi} % Vector usando mathbold 
+	\newcommand{\vS}[1]{\ifmmode\boldsymbol{#1}\else$\boldsymbol{#1}$\fi} % Vector usando boldsymbol
 	
 	\newcommand{\dotvb}[1]{ \kern0.7ex \raisebox{1ex}\cdot \kern-1.1ex\vb{ #1 } } % Derivada temporal del vector
 	
-	\newcommand{\vS}[1]{\ifmmode\boldsymbol{#1}\else$\boldsymbol{#1}$\fi} % Vector usando boldsymbol
+
 	
 	
 % 	\newcommand{\divem}[1]{ {\nabla}\mathbf{\cdot}\mathbf{#1}} % Divergencia
