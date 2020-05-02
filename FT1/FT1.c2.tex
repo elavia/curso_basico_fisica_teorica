@@ -245,10 +245,18 @@ expresiones resultan más sencillas.}
 \]
 cuya solución es el par
 \[
-	q' = - \frac{a}{y} \: q, \qquad y' = \frac{a^2}{y}.
+	q' = - \frac{a}{y} \: q, \qquad y' = \frac{a^2}{y},
 \]
+y entonces
+\[
+	\vp(\vbx) = \frac{q}{\sqrt{ x^2 + y^2 - 2 \: x \: y \:\cos{\gamma}} } -
+	\frac{ ( a / y ) \: q }{ \sqrt{ x^2 + a^4 / y^2  - 2 \: x \:  ( a^2 / y ) \cos{\gamma} }}.
+\]
+El potencial en un punto $\vbx$ del espacio, debido a una carga en $\vb{y}$ depende de los módulos $x, y$ 
+y del ángulo $\gamma$ entre dichos vectores.
+\notamargen{Esta expresión, así como está, no se halla en ningún sistema de coordenadas en particular.}
 
-Esta solución puede obtenerse un poco más heurísticamente \ref{notas_carga_frente_a_esfera}
+Esta solución puede obtenerse un poco más heurísticamente, ver nota \ref{notas_carga_frente_a_esfera}.
 
 Lo que sucede físicamente es que se induce carga sobre la superficie de la esfera.
 Se querrá ver (luego?) cuál es la distribución de carga que se inducirá sobre la superficie.
@@ -386,12 +394,11 @@ lo cual implica que la componente normal del campo $\vb{E}$ es discontinua si ha
 \notamargen{No sé si no decir directamente que en electrostática es nula la integral de línea de E y ya.}
 Por otra parte, como el rotor de $\vb{E}$ es nulo (en electrostática), el teorema de Stokes implica
 \[
-	\int_{S} \: \rotorm{E} = 0 = \int_{\Gamma} \vb{E} \cdot d \vec{\ell} 
+	\int_{S} \: \rotorm{E} = 0 = \int_{\Gamma} \vb{E} \cdot d\Bell
 \]
 y despreciando el aporte de las partes del circuito que son perpendiculares a la superficie, resulta
 \[
-% 	\rotorm{E} = 0 \Rightarrow \int_\Gamma \vb{E} \cdot d\vb{\ell} = 0 =
-	( \vb{E}_2 - \vb{E}_1 ) \cdot d\vec{\ell}  = 
+	( \vb{E}_2 - \vb{E}_1 ) \cdot d\Bell  = 
 	( \vb{E}_2 - \vb{E}_1 ) \cdot ( \hat{n}_\Gamma \times \hat{n} ) \: d\ell = 0
 \]
 donde en el miembro derecho se ha expresado la dirección del $d\vec{\ell}$ en función de los versores
@@ -404,6 +411,8 @@ que indica que el segundo factor tiene que ser nulo, es decir
 	 \hat{n} \times  ( \vb{E}_2 - \vb{E}_1 ) = 0
 \]
 y esto implica que la componente tangencial del campo es continua, sin importar que exista carga o no.
+\notamargen{Acordate que harcodeaste con un pdf el $\ell$ bold.}
+
 
 Resumiendo
 \[
@@ -417,10 +426,111 @@ Expresando el campo en términos del potencial, se tiene
 \[
 	\frac{\Nabla(\phi_2-\phi_1)\cdot \hat{n}}{4 \pi} = \sigma
 \]
-\[
+\be
 	\sigma = \frac{1}{4\pi}\dpar{(\phi_1-\phi_2)}{n}
-\]
+	\label{densidad_de_carga}
+\ee
 esta es la densidad de carga inducida sobre la frontera entre medios.
+
+\subsection{Carga puntual frente a esfera puesta a tierra}
+
+Volvemos a este problema, recordando que el potencial fuera de la misma se hubo determinado por el método
+de imágenes. Recordemos también que dentro de la esfera el potencial debe ser constante (no hay carga allí,
+puesto que la imagen es un dispositivo virtual sin existencia física).
+Consideramos dos secciones, interna y externa.
+
+Por la simetría del problema la densidad de carga inducida tiene la simetría de revolución en torno al 
+eje que pasa por $q, q'$ y el origen de coordenadas y será máxima en el punto de la esfera más cercano a
+$q$.
+Dado que el potencial es constante dentro de la esfera, e igual al valor que toma sobre la superficie, la
+ecuación \eqref{densidad_de_carga} es 
+\[
+	\sigma = - \frac{1}{4\pi} \left.\dpar{\vp}{n}\right|_S.
+\]
+Ubicando nuestra esfera en el origen de un sistema de coordenadas esféricas, la normal externa $\hat{n}$
+es claramente $\rver$ de modo que derivar normalmente es derivar con respecto a la dirección radial, es 
+decir $\partial / \partial n \equiv \partial / \partial r$ y entonces 
+\[
+	\sigma = - \frac{1}{4\pi} \left.\dpar{\vp}{r}\right|_{r=a} =
+	- \frac{q}{4 \pi a^2} \Frac{a}{y} 
+	\frac{[ 1 - (a / y)^2 ]}{[\: 1 + (a / y)^2 - 2 \: (a/y) \: \cos \gamma \:]^{3/2}}.
+\]
+\notamargen{La definición de derivada normal puede ir para apéndice.}
+
+Si consideramos ahora el problema interno; esto es, una carga q rodeada por una esfera conductora conectada
+a tierra, se pueden hacer los mismos razonamientos que en el caso de la carga exterior y la solución es la
+misma intercambiando $q'$ por $q$ y $y'$ por $y$.
+Entonces, en ese caso el cálculo de la densidad utiliza $\hat{n} = -\rver$ y se tiene 
+\[
+	\sigma = \frac{1}{4\pi} \left.\dpar{\vp}{r}\right|_{r=a} =
+	- \frac{q}{4 \pi a^2} \Frac{a}{y} 
+	\frac{[ (a / y)^2 - 1 ]}{[\: 1 + (a / y)^2 - 2 \: (a/y) \: \cos \gamma \:]^{3/2}}
+\]
+\notamargen{Acá debiera estar claro que se invierte el significado de $y'$, ahora es mayor que $a$.}
+
+La carga total inducida sobre una superficie se evaluará en general a través de
+\[
+	Q = \int_S \: \sigma \: dS.
+\]
+
+En el caso anterior del problema de la carga frente a una esfera a tierra se puede utilizar la ley de Gauss
+para hallar en cada caso la carga total de una manera inmediata.
+
+Situando una superficie gaussiana $\Sigma$ por fuera de la esfera, como se ve en la figura, resulta que la
+carga encerrada neta es la misma con imagen o sin imagen. En efecto, en el problema real la carga encerrada
+se distribuye sobre la superficie mientras que en el problema equivalente está concentrada en la posición
+$y'$ y sabemos que es $q'$; luego como los dos problemas son equivalentes el lado derecho de la ley de 
+Gauss debe ser idéntico y la carga inducida será la neta encerrada, que es $q'$, la carga imagen.
+
+Procediendo de modo similar para el problema interno (ahora $q'$ está por fuera de la superficie $\Sigma$),
+ahora la situación es diferente porque el campo sobre \Sigma es nulo (solo es no nulo fuera de la esfera
+por la conexión a tierra). Entonces la ley de Gauss ya nos dice ahí que la carga neta es nula y ello
+lleva a que la carga inducida sea $-q$ que no es igual a la carga imagen.
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.25\textwidth]{images/fig_ft1_calculo_carga_fast.jpg}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
+\subsection{Principio de superposición}
+
+Consideremos la situación depicted en la figura
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.2\textwidth]{images/fig_ft1_rho_rodeada_por_V.jpg}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
+Una cierta distribución de carga está rodeada por una superficie a potencial $V$.
+El potencial en un punto $\vbx$ es
+\[
+	\vp{\vbx} = \int_\Omega \rho(\vbx') \: G_D(\vbx,\vbx') \: d\Omega 
+	- \frac{1}{4\pi} \int \vp \dpar{G}{n} \: dS
+\]
+pero como el potencial sobre la superficie está fijo en $V$ la última integral es 
+\[
+	- \frac{1}{4\pi} \int \vp \dpar{G}{n} \: dS = - \frac{V}{4\pi} \int \Nabla G \cdot\hat{n} \: dS,
+\]
+la cual por el teorema de la divergencia resulta
+\[
+	- \frac{V}{4\pi} \int \Nabla G_D \cdot\hat{n} \: dS =
+	- \frac{V}{4\pi} \int_V \Nabla \cdot (\Nabla G_D) \: dV =
+	- \frac{V}{4\pi} \int_V \lapm{G_D} \: dV
+\]
+y recordando que la función de Green es solución de la ecuación de Poisson para una densidad dada por
+la delta de Dirac, se tiene
+\[
+	- \frac{V}{4\pi} \int \Nabla G_D \cdot\hat{n} \: dS = 
+	V \int \delta(\vbx - \vbx') \: dV = V,
+\]
+de manera que 
+\[
+	\vp{\vbx} = \int_\Omega \rho(\vbx') \: G_D(\vbx,\vbx') \: d\Omega  + V,
+\]
+lo cual puede una manera de ver el principio de superposición.
 
 Para los medios magnéticos
 \[
