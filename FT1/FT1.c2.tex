@@ -476,6 +476,13 @@ La carga total inducida sobre una superficie se evaluará en general a través d
 En el caso anterior del problema de la carga frente a una esfera a tierra se puede utilizar la ley de Gauss
 para hallar en cada caso la carga total de una manera inmediata.
 
+% \begin{figure}[hb]
+% 	\begin{center}
+	\includegraphics[width=0.25\textwidth]{images/fig_ft1_calculo_carga_fast.jpg}	 
+% 	\end{center}
+% 	\caption{}
+% \end{figure} 
+
 Situando una superficie gaussiana $\Sigma$ por fuera de la esfera, como se ve en la figura, resulta que la
 carga encerrada neta es la misma con imagen o sin imagen. En efecto, en el problema real la carga encerrada
 se distribuye sobre la superficie mientras que en el problema equivalente está concentrada en la posición
@@ -487,16 +494,11 @@ ahora la situación es diferente porque el campo sobre \Sigma es nulo (solo es n
 por la conexión a tierra). Entonces la ley de Gauss ya nos dice ahí que la carga neta es nula y ello
 lleva a que la carga inducida sea $-q$ que no es igual a la carga imagen.
 
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.25\textwidth]{images/fig_ft1_calculo_carga_fast.jpg}	 
-	\end{center}
-	\caption{}
-\end{figure} 
 
 \subsection{Principio de superposición}
 
 Consideremos la situación depicted en la figura
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.2\textwidth]{images/fig_ft1_rho_rodeada_por_V.jpg}	 
@@ -507,7 +509,7 @@ Consideremos la situación depicted en la figura
 Una cierta distribución de carga está rodeada por una superficie a potencial $V$.
 El potencial en un punto $\vbx$ es
 \[
-	\vp{\vbx} = \int_\Omega \rho(\vbx') \: G_D(\vbx,\vbx') \: d\Omega 
+	\vp(\vbx) = \int_\Omega \rho(\vbx') \: G_D(\vbx,\vbx') \: d\Omega 
 	- \frac{1}{4\pi} \int \vp \dpar{G}{n} \: dS
 \]
 pero como el potencial sobre la superficie está fijo en $V$ la última integral es 
@@ -531,6 +533,40 @@ de manera que
 	\vp{\vbx} = \int_\Omega \rho(\vbx') \: G_D(\vbx,\vbx') \: d\Omega  + V,
 \]
 lo cual puede una manera de ver el principio de superposición.
+
+
+\textbf{Notas importantes sobre el principio de superposición}
+
+La ecuación de Poisson es muchas veces inútil porque en general no se tiene la distribución de cargas
+$ \rho(\vbx) $. Esto sucede en general con conductores pués la carga allí se distribuye acomodándose
+para alcanzar el equilibrio.
+
+Para campos y potenciales vale superposición.
+Pero cada problema de potencial (con su ecuación de poisson) incluye además de la ecuación las condiciones
+de contorno. 
+Dados dos problemas
+\[
+	\nabla^2 \vp_1 = - 4 \pi \rho_1 \qquad + \qquad \text{CC}_1
+\]
+y
+\[
+	\nabla^2 \vp_2 = - 4 \pi \rho_2 \qquad + \qquad \text{CC}_2
+\]
+la suma de soluciones $ \vp = \vp_1 + \vp_2 $ con $\rho = \rho_1 + \rho_2 $
+\be
+	\nabla^2 \rho = - 4 \pi \rho \qquad + \qquad \text{CC}
+	\label{problema_potencial_suma}
+\ee
+donde hay que asegurarse de que $ \text{CC} $ sea la suma de las condiciones del problema 1 y las del
+problema 2.
+Desde el otro punto de vista, si tengo un problema como \eqref{problema_potencial_suma} y lo quiero
+pensar como la superposición de dos potenciales $ \vp = \vp_1 + \vp_2 $ puedo generarme unas condiciones
+de contorno artificiales que tengan en cuenta las influencias mutuas.
+
+\notamargen{Habría que entender bien este tema que es crucial. Imagino que working los ejemplos podría
+recuperar lo que alguna vez supe.}
+
+\subsection{Condiciones de contorno para medios magnéticos}
 
 Para los medios magnéticos
 \[
@@ -578,41 +614,108 @@ de manera que
 \section{Desarrollo multipolar}
 % =================================================================================================
 
-\[
-	\phi(\vb{x}) = \int_{V'} \frac{\rho(\vb{x})}{|\vb{x}-\vb{x}'|} \; dV'
-\]
-Cuando la expresión es muy complicada podemos desarrollarla en una serie de potencias
-\[
-	\phi(\vb{x}) = \frac{Q}{|\vb{x}|} + \frac{\vb{x}\cdot\vb{p}}{|\vb{x}|^3} +
-	\sum_{i,j}^3 \frac{1}{2|\vb{x}|^5} x_i Q_{ij} x_j
-\]
-donde está centrado en el origen de coordenadas. El último término, matricialmente sería
-\[
-	\frac{1}{2} \frac{\vb{x}^t Q \vb{x}}{|\vb{x}|^5}
-\]
-y es el término cuadrupolar.
+Si se conoce la distrubución de carga el potencial se obtiene integrando
+\be
+	\phi(\vb{x}) = \int_{V'} \frac{ \rho( \vbx' ) }{| \vbx -\vbx' | } \; dV'.
+	\label{integral_potencial}
+\ee
 
-Los momentos son el momento dipolar,
+No obstante, esta expresión puede ser muy complicada porque en el denominador depende de la variable 
+$\vbx'$ sobre la cual se está integrando. 
+Resulta conveniente entonces hacer un desarrollo del denominador, que es una función de $\vbx'$, en
+torno a un punto que se toma como origen de una esfera que engloba a la distribución de carga.
+Luego, ese dearrollo será válido en puntos externos a dicha esfera.
+
+\notamargen{Se necesita una serie que converja, y que lo haga rápido.
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_expansion_multipolar.jpg}}
+
+Entonces, desarrollando en torno a $\vbx'=0$ (el origen de coordenadas) se tienen
+\[
+	\frac{ 1 }{| \vbx -\vbx' | } = 
+	\frac{ 1 }{| \vbx |} + \left.\partial_i \left( \frac{ 1 }{| \vbx -\vbx' | } \right)\right|_{\vbx'=0} x_i' +
+	\frac{1}{2} \: \left. \partial_j \partial_i \left( \frac{ 1 }{| \vbx -\vbx' | } \right)\right|_{\vbx'=0} x_i' x_j' + ...,
+\]
+o bien 
+\[
+	\frac{ 1 }{| \vbx -\vbx' | } = 
+	\frac{ 1 }{| \vbx |} + \frac{x_i \: x_i'}{| \vbx |^3} +
+	\frac{1}{2} \frac{ x_i \: x_i' \: x_j \: x_j' }{ | \vbx |^5 } + ...,	
+\]
+\notamargen{Chequear la expansión, tal vez ponerla en vectorial o hacerla bien en el Apéndice.
+Juntar huevos y hacer el término siguiente.}
+Luego, introduciendo la misma en \eqref{integral_potencial} resulta
+\begin{multline*}
+ 	\phi(\vb{x}) =
+	\frac{ 1 }{| \vbx |} \int_{V'} \rho( \vbx' ) \: dV' + 
+	\frac{x_i }{| \vbx |^3} \: \int_{V'} \: x_i' \: \rho( \vbx' ) \: dV' + \\
+	\frac{1}{2} \frac{ x_i  \: x_j  }{ | \vbx |^5 } 
+	\int_{V'} \: (\: 3 x_i' \: x_j' - \delta_{ij}|\vbx|^2 \:) \: \rho( \vbx' ) \: dV' + ...,
+\end{multline*}
+% \[
+% 	\phi(\vb{x}) =
+% 	\frac{ 1 }{| \vbx |} \int_{V'} \rho( \vbx' ) \: dV' + 
+% 	\frac{x_i }{| \vbx |^3} \: \int_{V'} \: x_i' \: \rho( \vbx' ) \: dV' +
+% 	\frac{1}{2} \frac{ x_i  \: x_j  }{ | \vbx |^5 } 
+% 	\int_{V'} \: (\: 3 x_i' \: x_j' - \delta_{ij}|\vbx|^2 \:) \: \rho( \vbx' ) \: dV' + ...,
+% \]
+
+Se tiene un desarrollo de diferentes órdenes 
+\[
+	\phi(\vb{x}) = \phi^{(0)}(\vbx) + \phi^{(1)}(\vbx) + \phi^{(2)}(\vbx) + \phi^{(3)}(\vbx) + ...
+\]
+que se conocen según
+\[
+	\frac{ 1 }{| \vbx |} \int_{V'} \rho( \vbx' ) \: dV' = \frac{ Q }{| \vbx |} \qquad \text{ Orden monopolar }
+\]
+\[
+	\frac{x_i }{| \vbx |^3} \: \int_{V'} \: x_i' \: \rho( \vbx' ) \: dV' = 
+	\frac{x_i \: p_i }{| \vbx |^3} \: \qquad \text{ Orden dipolar }
+\]
+\[
+	\frac{1}{2} \frac{ x_i  \: x_j  }{ | \vbx |^5 } 
+	\int_{V'} \: (\: 3 x_i' \: x_j' - \delta_{ij}|\vbx|^2 \:) \: \rho( \vbx' ) \: dV' =
+	\frac{1}{2} \frac{ x_i  \: Q_{ij} \: x_j  }{ | \vbx |^5 } \qquad \text{ Orden cuadrupolar }
+\]
+% \[
+% 	\qquad \text{ Orden octupolar }
+% \]
+
+El último término, matricialmente sería
+\[
+	\frac{1}{2} \frac{\vb{x}^t Q \vb{x}}{|\vb{x}|^5}.
+\]
+
+Los momentos son el momento monopolar,
+\[
+	Q = \int_V \rho(\vb{x}) dV, 
+\]
+que es la carga total, el momento dipolar,
 \[
 	\vb{p} = \int_V \vb{x} \: \rho(\vb{x}) \: dV
 \]
-el momento monopolar
-\[
-	Q = \int_V \rho(\vb{x}) dV
-\]
-que es la carga total, y el momento cuadrupolar
+y el momento cuadrupolar
 \[
 	Q_{ij} = \int_V  \rho(\vb{x}) \left[ 3 x_i x_j - \delta_{ij} |\vb{x}|^2 \right] \: dV
+	= 3 \int_V  \rho(\vb{x}) x_i \: x_j  \: dV - \delta_{ij} \int_V  \rho(\vb{x})  |\vb{x}|^2  \: dV
 \]
+\[
+	Q_{ij} = 3 C_{ij} - \delta_{ij} C_{ll},
+\]
+donde esta última expresión permite ver que el momento cuadrupolar es de traza nula ($C_{ll}$ es la traza).
 
 El momento cuadrupolar refleja apartamiento de la esfera perfecta, los momentos dipolar y cuadrupolar
 indican desbalance de carga.
 Asimismo $Q_{ij} = Q_{ji}$ es simétrico por ser producto de vectores polares.
-Es siempre diagonalizable. Tiene traza nula,
+Es siempre diagonalizable y tiene autovalores reales. 
+Tiene traza nula,
 \[
 	Q_{xx} + Q_{yy} + Q_{zz}  = 0
 \]
-se da también que $Q_{ij} (i\neq j)$ mide desbalance lejos de los ejes.
+
+El tensor diagonalizado tendrá tres componentes independientes.
+
+
+Se da también que $Q_{ij} (i\neq j)$ mide desbalance lejos de los ejes.
 Una esfera con $\rho$ uniforme tiene todos los momentos multipolares nulos salvo el monopolo.
 
 \begin{figure}[htb]
@@ -622,6 +725,9 @@ Una esfera con $\rho$ uniforme tiene todos los momentos multipolares nulos salvo
 	\caption{}
 \end{figure}
 
+\notamargen{El comentario en pag. 12 de la carpeta -recuadrado en rojo- induce algo diferente;
+pide simetría en el plano perpendicular al vector. Me parece a mí que lo que debiera verse es
+una simetría en la distribución de carga.}
 Una simetría de reflexión implica que el $\vb{p}_\perp = 0$ donde la notación significa perpendicular
 al plano. Esto es así porque no hay desbalance. Para una simetría de revolución $Q_{xx}=Q_{yy}$ entonces
 el $Q_{ij}$ puede darse con un sólo número.
@@ -920,7 +1026,7 @@ que nos dice que bien lejos cualquier distribución de corriente localizada pres
 campo magnético de un dipolo magnético dado por \vb{m}(\vb{x}). Esta aproximación corresponde, por 
 supuesto, al primer orden del desarrollo.
 
-\subsection{interpretacion del momento magnético}
+\subsection{Interpretacion del momento magnético}
 
 Se puede pensar \vb{m} como una espira.
 \[
@@ -1011,8 +1117,170 @@ energía
 de donde se ve claramente que si \vb{B} es uniforme entonces la fuerza es nula.
 \vb{m} es una constante que depende de la distribución de corrientes.
 
+\begin{ejemplo}{\bf Problema 6b}
+
+Ahora $ a \ll L $ y por la simetría de rotación son convenientes coordenadas cilíndricas.
+La simetría reclama que no hay dependencia en $ \vp $ ni componente $B_\vp$ de manera que
+\[
+	\vb{B}(r,z) = B_z(r,z) \zver + B_r(r,z) \rver
+\]
+Considerando una expansión de Taylor para $r$ pequeños
+\[
+	B_z(r,z) \approx B_z(0,z) + \left.\dpar{B_z}{r}\right|_{r=0} r\qquad \qquad 
+	B_r(r,z) \approx B_r(0,z) + \left.\dpar{B_r}{r}\right|_{r=0} r
+\]
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_problema_6b.jpg}
+
+La simetría dice también que  $B_r(0,z) = 0$ y utilizando la divergencia nula $\divem{B}=0$ del campo en
+cilíndricas se tiene 
+\[
+	\frac{1}{r} \dpar{rB_r}{r} + \dpar{B_z}{z} = 0,
+\]
+o bien
+\[
+	\dpar{B_r}{r} = - \dpar{B_z}{r} - \left.\dpar{B_z}{r}\right|_{r=0}
+\]
+y evaluando en $r=0$ se obtiene [CHECK ESTO]
+\[
+	\left. \dpar{B_r}{r} \right|_{r=0} = 
+	- \frac{1}{2} \left. \dpar{B_z}{r} \right|_{r=0}
+\]
+Se obtiene una expresión algo más general que la que se hubo obtenido (la de la clase pasada, que es la
+del capítulo 1)  que utilizaba $ L \to \infty $.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 11}
+
+Este es un problema que no incluye condiciones de contorno porque la distribución de carga está dada.
+Es un cilindro infinito.
+Si hacemos el potencial $\vp$ aquí vemos que revienta lo cual se debe a que la distribución de carga
+es infinita.
+
+El arreglo es el de la figura
+
+\includegraphics[width=0.375\textwidth]{images/fig_ft1_problema_11a.jpg}
+
+También se puede pensar de la siguiente forma
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft1_problema_11b.jpg}
+
+El campo para un cilindro de radio $R$ centrado en $r=0$ es 
+\[
+	\vb{E}  = 
+	\begin{cases} 
+		\displaystyle \frac{2 \pi a^2 \rho }{r} \rver & \qquad r \geq R  \\
+		\\
+		2 \pi r \rho \rver & \qquad r < R
+	\end{cases}
+\]
+Escribiendo el campo interno como 
+\[
+	2 \pi r \rho \rver = 2 \pi \rho \: \vb{x},
+\]
+donde $\vbx = r \rver $ es el vector que vive en el plano horizontal, se puede trasladar el cilindro
+así 
+\[
+	2 \pi \rho ( \vb{x} + d \xver )
+\]
+y entonces el campo dentro del cilindro es
+\[
+	\vb{E} = 2 \pi \rho d \xver.
+\]
+
+\notamargen{Hay que mirar la práctica porque esto está confuso.}
+
+Para la parte (b) se considera
+
+\includegraphics[width=0.2\textwidth]{images/fig_ft1_problema_11c.jpg}
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema_11d.jpg}
+
+\[
+	B(r) 2 \pi r = \frac{4\pi}{c} \pi r^2 j,
+\]
+pero $\vb{B}$ es en $\phiver$ y entonces
+\[
+	\vb{B} = \frac{2\pi r j}{c} \frac{\phiver}{r} = \frac{2\pi j}{c} ( -y \xver + x \yver )
+\]
+de manera que el campo total, que es la suma de los campos del cilindro grande
+y del pequeño, será
+\[
+	\vb{B} = \frac{2\pi j}{c}( -y \xver + d\yver + x \yver ) - \frac{2\pi j}{c}( -y \xver + x \yver ),
+\]
+o bien
+\[
+	\vb{B} = \frac{2\pi j}{c} d \yver.
+\]
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 13}
+
+Esfera central a tierra, esfera externa con densidad superficial $\sigma$.
+La siguiente equivalencia es posible
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft1_problema_13a.jpg}
+
+Luego, esto se resuelve así, usando la simetría esférica y la ley de Gauss $ \int \vb{E}\cdot d\vb{S} = 4 \pi Q$
+se tienen
+\[
+	4 \pi r^2 E = \begin{cases} 
+	               0 \\
+	               4 \pi a^2 \sigma
+	              \end{cases}
+	\qquad 
+	4 \pi r^2 E = \begin{cases} 
+	               0 \\
+	               4 \pi b^2 \sigma'
+	              \end{cases} 
+\]
+\[
+	\vb{E} = \begin{cases}
+	          \displaystyle 4 \pi \frac{\sigma a^2 + \sigma' b^2 }{r^2} \rver \quad & r > b \\ 
+	          \\
+	          \displaystyle 4 \pi \frac{\sigma' b^2}{r^2} \rver \quad & a < r < b \\
+	          \\
+	          0 & r < a 
+	         \end{cases}
+\]
+El potencial será
+\[
+	V = \begin{cases}
+	          \displaystyle 4 \pi \frac{\sigma a^2 + \sigma' b^2 }{r} + C_1 \quad & r > b \\ 
+	          \\
+	          \displaystyle 4 \pi \frac{\sigma' b^2}{r}  + C_2 \quad & a < r < b \\
+	          \\
+	          C_3 & r < a 
+	         \end{cases}
+\]
+y al pedir continuidad para el mismo, se tienen 
+\[
+	C_1 = 0, \qquad C_2 = 4 \pi \sigma, \qquad C_3 = 0 
+\]
+donde en la última está metida la $\sigma'$ que hace nulo el potencial $V$ sobre la esfera
+interna. Así, finalmente
+\[
+	V = \begin{cases}
+	          \displaystyle 4 \pi \frac{\sigma a (a-b)}{r} \quad & r > b \\ 
+	          \\
+	          \displaystyle 4 \pi \frac{\sigma a (r-b)}{r} \quad & a < r < b \\
+	          \\
+	          0 & r < a 
+	         \end{cases}
+\]
+
+Una serie de diagramitas a descular siguen:
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft1_problema_13b.jpg}
+ 
+\end{ejemplo}
+
+
+
 % =================================================================================================
-\section{Pertubación por un conductor sobre un campo eléctrico uniforme}
+\section{Perturbación por un conductor sobre un campo eléctrico uniforme}
 % =================================================================================================
 
 Se tiene un campo uniforme con $Q,R \to \infty$ pero con $2Q/R^2 = cte$, según se ve en la Figura.
