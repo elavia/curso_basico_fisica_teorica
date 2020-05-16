@@ -614,7 +614,7 @@ de manera que
 \section{Desarrollo multipolar}
 % =================================================================================================
 
-Si se conoce la distrubución de carga el potencial se obtiene integrando
+Si se conoce la distribución de carga el potencial se obtiene integrando
 \be
 	\phi(\vb{x}) = \int_{V'} \frac{ \rho( \vbx' ) }{| \vbx -\vbx' | } \; dV'.
 	\label{integral_potencial}
@@ -734,6 +734,7 @@ el $Q_{ij}$ puede darse con un sólo número.
 
 Si en una distribución dada, los momentos multipolares hasta el orden $\ell -1$ son nulos entonces
 el momento multipolar de orden $\ell$ no depende del origen de coordenadas.
+Así, por ejemplo, cuando el monopolo es nulo el momento dipolar no depende del centro de momentos.
 
 \begin{figure}[htb]
 	\begin{center}
@@ -759,11 +760,19 @@ En la Figura tenemos un elipsoide con densidad de carga $\rho$ uniforme. Tiene s
 de modo que el momento cuadripolar es un número. $Q_{zz} = 0 $ puesto que una esfera no tiene
 desbalance, entonces $\overleftrightarrow{Q} = 0 $ 
 
+Para una esfera uniformemente cargada todos los momentos dipolares más allá del monopolo valen
+cero, lo cual se ve por ley de Gauss.
+
+En general en las aplicaciones uno se queda con tres términos; monopolo, dipolo y cuadrupolo y se
+busca que esa expresión converja rápido. En general tomando como centro el centro de la distribución
+la convergencia es más rápida.
+
 
 % =================================================================================================
 \section{Dipolo eléctrico}
 % =================================================================================================
 
+El potencial de un dipolo es
 \[
 	\phi(\vb{x}) = \frac{ \vb{p}\cdot\vb{x} }{|\vb{x}|^3} 
 \]
@@ -771,12 +780,37 @@ si está en el origen, y
 \[
 	\phi(\vb{x}) = \frac{ \vb{p}\cdot(\vb{x}-\vb{x}_0) }{|\vb{x} - \vb{x}_0|^3} 
 \]
-si está en un punto $\vb{x}_0$
+si está en un punto $\vb{x}_0$. Para calcular el campo hay que tomar el gradiente de esta expresión,
+multiplicarlo por $-1$, lo cual es un poco trabajoso, pero ahí vamos.
+Usando que el segundo miembro es a su vez un gradiente [poner esa cuenta en el apéndice matemático]
+se tiene 
 \[
-	\vb{E}(\vb{x}) = \frac{3 \vb{p}\cdot\hat{n} }{|\vb{x} - \vb{x}_0|^3}  \hat{n} - 
+	\vb{E}(\vb{x}) = -\Nabla \phi(\vbx) = 
+	-\Nabla \left( \frac{ \vb{p}\cdot(\vb{x}-\vb{x}_0) }{|\vb{x} - \vb{x}_0|^3} \right) =
+	\Nabla \left( \vb{p} \cdot \Nabla\left( \frac{ 1 }{|\vb{x} - \vb{x}_0|} \right) \right),
+\]
+luego se utiliza la identidad para el gradiente de un producto escalar notando que como uno de
+los vectores en el escalar es a su vez un gradiente se tiene una expresión más sencilla 
+[otra cuenta de apéndice]
+\notamargen{La identidad es $\Nabla(\pe{A}{B}) =$ cuatro términos, dos rotores y dos
+términos del tipo convectivo.}
+En efecto, el primer término se anula por involucrar el producto vectorial de un gradiente, el
+segundo y tercero porque $\vb{p}$ es independiente de $\vbx$ reduciéndose la expresión a
+\[
+	\vb{E}(\vb{x}) = (\vb{p}\cdot\Nabla) \Nabla\left( \frac{ 1 }{|\vb{x} - \vb{x}_0|} \right)
+\]
+que implica que el operador $\Nabla$ que multiplica al momento dipolar se aplica sobre el gradiente
+de $1/|\vb{x} - \vb{x}_0|$. Ahora restauramos ese último valor y la cuenta se 
+puede hacer más fácilmente en indicial [la hago como nota al final]. 
+Finalmente
+\[
+	\vb{E}(\vb{x}) = \frac{3 \vb{p}\cdot\hat{n} }{|\vb{x} - \vb{x}_0|}  \hat{n} - 
 		\frac{ \vb{p} }{|\vb{x} - \vb{x}_0|^3}	
 \]
-donde debemos notar que \vb{p} no depende de \vb{x}.
+donde 
+\[
+	\hat{n} = \frac{\vb{x}-\vb{x}_0}{|\vb{x}-\vb{x}_0|}.
+\]
 
 \begin{figure}[htb]
 	\begin{center}
@@ -785,35 +819,156 @@ donde debemos notar que \vb{p} no depende de \vb{x}.
 	\caption{Dipolo centrado en el origen.}
 \end{figure}
 
+Si hacemos una transformación ortogonal de cartesianas a esféricas para un dipolo con \vb{p} en 
+el eje $z$, se tiene 
+\[
+	\begin{pmatrix}
+	 p_r \\ p_\theta \\ p_\vp
+	\end{pmatrix} =
+	\begin{pmatrix}
+	 \sin \theta \cos \vp & \sin \theta \sin \vp & \cos \theta \\
+	 \cos \theta \cos \vp & \cos \theta \sin \vp & -\sin \theta \\
+	 -\sin \vp & \cos \vp & 0
+	\end{pmatrix}
+	\begin{pmatrix}
+	 0 \\ 0 \\ p
+	\end{pmatrix}
+\]
+\notamargen{Pasarla al apéndice esta matriz.}
+y para este caso particular son el potencial
 \[
 	\phi(\vb{x}) = \frac{p\hat{z}\cdot r\hat{r}}{r^3} = \frac{p}{r^2} \cos(\theta)
 \]
-siendo 
-\[
-	\hat{n} = \frac{\vb{x}-\vb{x}_0}{|\vb{x}-\vb{x}_0|}
-\]
+y el campo
 \[
 	\vb{E}(r,\theta) = \frac{2 p\cos(\theta)}{r^3} \hat{r} + \frac{p\sin(\theta)}{r^3} \hat{\theta}
 \]
-tiene simetría de revolución, puesto que no depende de $\hat{\phi}$.
+que tiene simetría de revolución, puesto que no depende de $\phiver$.
 
-Las líneas de campo cuplen que $d\vb{\ell}$ a través de una línea de campo es tal que 
+Las líneas de campo cuplen que un diferencial de arco $d\Bell$ a través de una línea de campo es tal que 
 \[
-	d\vb{\ell} \parallel \vb{E} \quad \Rightarrow \quad  \vb{E} \times d\vb{\ell}  = 0
+	d \Bell \parallel \vb{E} \quad \Rightarrow \quad  \vb{E} \times d\Bell = 0
 \]
-la línea de campo sigue la dirección del campo. En el caso del dipolo no tendrán componente en
-$\hat{\phi}$ (como es de esperar).
+la línea de campo sigue la dirección del campo. 
 
-\subsection{Inteacción de un campo externo con una distribución de carga}
+En coordenadas curvilíneas generales es
+\[
+	d\Bell = h_1 dq_1 \hat{e}_1 + h_2 dq_2 \hat{e}_2 + h_3 dq_3 \hat{e}_3
+\]
+y para un campo cualquiera $\vb{E} = E_1 \hat{e}_1 + E_2 \hat{e}_2 + E_3 \hat{e}_3$ se verificarán
+\[
+	\frac{h_1 dq_1}{E_1} = \frac{h_2 dq_2}{E_2} = \frac{h_3 dq_3}{E_3}
+\]
+En el caso de esféricas $ h_1 = 1, h_2 = r, h_3 = r \sin \theta $ y evaluando el producto vectorial
+resulta $ dr/r = 2 \cotg \theta \: d\theta $, las líneas de campo, en el caso del dipolo no tendrán componente
+en $\phiver$ (como es de esperar).
+
+\subsection{Independencia del origen para el momento dipolar}
+
+Queremos ver el hecho de que si los momentos de orden $\ell-1$ son nulos entonces el momento de orden $\ell$
+no depende del origen.
+Escribimos el momento dipolar de orden $\ell$ como
+\[
+	Q^{\ell}_{\alpha\beta\gamma} \propto \int \rho(\vbx) \: x^\alpha y^\beta z^\gamma  \: d^3x
+\]
+donde $\ell = \alpha + \beta + \gamma$.
+Trasladamos el origen del sistema de coordenadas $\vbx'= \vbx - \vbx_0$, entonces
+\[
+	Q^{\ell}_{\alpha\beta\gamma} \propto \int \rho(\vbx') \: (x'+x_0)^\alpha (y'+y_0)^\beta (z'+z_0)^\gamma  \: d^3x',
+\]
+y usamos combinatoria allí
+\[
+	( x + c )^n = \sum_{r=0}^n \left( \frac{n}{r} \right) x^{n-r} c^r,
+\]
+\notamargen{Poner el símbolo correcto del combinatorio}
+donde $(n r) = n! / ( (n-r)! r! )$ de manera que 
+\[
+	Q^{\ell}_{\alpha\beta\gamma} \propto \sum_{rst}^{\alpha\beta\gamma} 
+	\left( \frac{\alpha}{r} \right) \left( \frac{\beta}{s} \right) \left( \frac{\gamma}{t} \right)
+	x_0^r \: y_0^s \: z_0^t \:
+	\int \rho(\vbx') \: {x'}^\alpha {y'}^\beta {z'}^\gamma  \: d^3x'
+\]
+donde $0\leq r\leq \alpha, 0\leq s\leq \beta$ y $0\leq t\leq \gamma$.
+Si $r=s=t=0$ entonces tenemos el multipolo de orden \ell calculado en el sistema $X'Y'Z'$.
+
+Esto es general; si en una distribución monopolo y dipolo son nulos entonces el cuadripolo no depende
+del origen de coordenadas.  
+\notamargen{Esto ya se dijo mucho, cansa.}
+
+\begin{ejemplo}{\bf Disco con carga uniforme}
+
+El momento dipolar nulo respecto del origen, pero no respecto de otro punto porque el momento monopolar 
+no es nulo.
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_disco_cargado.jpg}	 
+
+
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Aros cargados}
+
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_aros_cargados.jpg}
+
+En este caso la carga total es nula, el monopolo es nulo entonces.
+\[
+	\lambda_A = \frac{Q}{2 \pi a } \qquad \lambda_B = \frac{Q}{2 \pi b }
+\]
+de manera que 
+\[
+	|\lambda_A| = | \lambda_B | \: \frac{b}{a}
+\]
+El dipolo será nulo respecto del origen y respecto a otros puntos también.
+El tensor cuadripolar está caracterizado por un sólo número (luego consideramos a los átomos neutros
+monopolar y dipolarmente) $ Q_n = e^{-1} Q_{zz}$.
+\notamargen{Algunos momentos cuadripolares nucleares:
+Para el $^{14}\mathrm{N}$ es $Q= 7.1\cdot 10^{-2}$ y para el $^{35}\mathrm{Cl}$ es $Q= -7.9\cdot 10^{-2}$}
+\end{ejemplo}
+
+\subsection{Momento cuadripolar de un elipsoide}
+
+\[
+	\frac{x^2}{A^2} + \frac{y^2}{B^2} + \frac{z^2}{C^2} = 1
+\]
+y la componente $Q_{11}$ del tensor (que es de traza nula) es
+\[
+	Q_{xx} = \int \rho( \vbx ) ( 3x^2 - r^2 ) \: d^3x = \rho \int ( 2 x^2 - y^2 - z^2 ) d^3x
+\]
+donde el tercer término es porque consideramos densidad constante (un elipsoide uniformemente cargado).
+Para integrar se hace un cambio de coordenadas
+\[
+	x'= \frac{x}{A}; \quad y'= \frac{y}{B}; \quad z'= \frac{z}{C};
+\]
+y entonces se tienen
+\[
+	Q_{xx} = \frac{q}{5}(2A^2-B^2-C^2) \qquad 
+	Q_{yy} = \frac{q}{5}(2B^2-C^2-A^2)  \qquad 
+	Q_{zz} = \frac{q}{5}(2C^2-A^2-B^2)
+\]
+siendo q la carga total. Si el eje $z$ es el de revolución, entonces $A=B$ y se dan
+\[
+	Q_{xx} = Q_{yy} = \frac{q}{5}(A^2-C^2) \qquad \qquad Q_{zz} = \frac{2q}{5}(C^2-A^2)
+\]
+
+\notamargen{Observaciones marginales:
+$C_{ij}$ tiene más términos de los que necesito para describir un potencial.
+$Q_{ij} = C_{ij}-$ traza, usamos tensor de traza nula.}
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_3elipsoides.jpg}	
+
+
+\subsection{Interacción de un campo externo con una distribución de carga}
 
 Si tenemos un campo \vb{E} con sus fuentes lejos,
 
-\begin{figure}[htb]
-	\begin{center}
+
+% \begin{figure}[!h]
+% 	\begin{center}
 	\includegraphics[width=0.4\textwidth]{images/fig_ft1_dipolar3.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure}
+% 	\end{center}
+% 	\caption{}
+% \end{figure}
+
 
 y que cumple $\divem{E}=0$ y $\rotorm{E}=0$ (irrotacionalidad), se da la siguiente fuerza sobre la distribución
 \[
@@ -828,6 +983,7 @@ entonces
 	F_i = \int_V \rho E_i dV \approx E_i \int_V \rho dV + \int_V \rho  x_j \partial_j E_i dV +
 		\frac{1}{2} \int_V \rho x_j x_k \partial_j\partial_k E_i dV 
 \]
+\notamargen{En la carpeta puse que la integral del cuadrupolo da: $Q_{kj} \partial_k \partial_j E_i$.}
 o bien 
 \[
 	F_i = \int_V \rho E_i dV \approx E_i q + (\vb{p}\cdot\Nabla) E_i  +
@@ -842,6 +998,15 @@ Para un campo inhomogéneo, el torque $\vb{\Tau} = \vb{x} \times \vb{F}$ se pued
 \]
 donde $\vb{p}\equiv q\vb{x}$ es el momento dipolar y vemos que el torque tiende a centrar el dipolo
 según la dirección del campo \vb{E} aunque no lo logra por la agitación térmica.
+
+En la carpeta escribí que reescribía un término de la expansión como
+\[
+	\frac{1}{2} x_j x_k \partial_j\partial_k E_i =
+	\frac{1}{2} \left[ x_j x_k \partial_j\partial_k E_i - \frac{1}{3} r^2 \delta_{ik} \partial_j \partial_k E_i
+	\right]
+\]
+calculo que para lograr que seaa el cuadrupolo la integral. Es la componente sub-$i$ del Laplaciano.
+
 
 La energía de un dipolo será
 \[
@@ -871,13 +1036,24 @@ siendo $\vb{D}$ el momento dipolar por área que viene de acuerdo a la definici�
 \[
 	D = \lim_{\substack{\sigma\to\infty \\ \epsilon\to 0}} \: \sigma\epsilon
 \]
-refiérase a la ilustración bajo esta línea
-\begin{figure}[htb]
-	\begin{center}
+refiérase a la ilustración bajo esta línea. Pero antes algunas cuentas con los dedos
+\[
+	\delta \phi = \frac{ \delta \vb{p}\cdot(\vb{x}-\vb{x}_0) }{|\vb{x} - \vb{x}_0|^3} 
+\]
+\[
+	\delta \vb{p}(\vbx') = \vb{D}(\vbx') \delta S'
+\]
+\[
+	\int_S d \phi(\vb{x}) = 
+	\int_{S'} \frac{ \vb{D}(\vb{x}')\cdot(\vb{x}-\vb{x}') }{|\vb{x} - \vb{x}'|^3} \: dS'
+\]
+
+% \begin{figure}[htb]
+% 	\begin{center}
 	\includegraphics[width=0.2\textwidth]{images/fig_ft1_campo_dipolar3.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure}
+% 	\end{center}
+% 	\caption{}
+% \end{figure}
 
 Veamos algún detalle más sobre la capa dipolar, que está ilustrado en la Figura siguiente.
 \[
