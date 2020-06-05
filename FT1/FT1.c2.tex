@@ -359,7 +359,7 @@ en infinito entonces
 esto es el llamado {\it problema exterior}.
 
 % =================================================================================================
-\section{Condiciones de contorno para los campos}
+\section{Condiciones de contorno para el campo eléctrico}
 % =================================================================================================
 
 Consideraremos la superficie de separación entre dos medios 1 y 2, la cual puede estar cargada, y sobre
@@ -401,7 +401,7 @@ y despreciando el aporte de las partes del circuito que son perpendiculares a la
 	( \vb{E}_2 - \vb{E}_1 ) \cdot d\Bell  = 
 	( \vb{E}_2 - \vb{E}_1 ) \cdot ( \hat{n}_\Gamma \times \hat{n} ) \: d\ell = 0
 \]
-donde en el miembro derecho se ha expresado la dirección del $d\vec{\ell}$ en función de los versores
+donde en el miembro derecho se ha expresado la dirección del $d\Bell$ en función de los versores
 normal y tangencial, y entonces
 \[
 	\hat{n}_\Gamma \cdot ( \hat{n} \times  ( \vb{E}_2 - \vb{E}_1 ) ) = 0,
@@ -413,6 +413,14 @@ que indica que el segundo factor tiene que ser nulo, es decir
 y esto implica que la componente tangencial del campo es continua, sin importar que exista carga o no.
 \notamargen{Acordate que harcodeaste con un pdf el $\ell$ bold.}
 
+Entonces el trabajo yendo del medio 1 al 2 será nulo
+\[
+	W_{1\to 2} = 0 = q ( \phi_2 - \phi_1 ),
+\]
+lo cual implica que $\phi_2 = \phi_1$ porque la discontinuidad del campo es finita.
+Como veremos luego, esto no vale en el caso de una capa dipolar.
+\notamargen{Hay que ver la relación de esto con lo anterior; creo que no estoy entendiendo, o explicando,
+bien.}
 
 Resumiendo
 \[
@@ -772,6 +780,13 @@ la convergencia es más rápida.
 \section{Dipolo eléctrico}
 % =================================================================================================
 
+Se obtiene como límite de 
+\[
+	\phi(\vb{x}) = \frac{ q }{| \vbx - \vbx_+ |}  - \frac{ q }{| \vbx - \vbx_- |}.
+\]
+\notamargen{No sé si corresponde hacer mención a que el potencial del dipolo se obtiene como 
+límite en el caso de que la distancia entre cargas tiende a la nulidad.}
+
 El potencial de un dipolo es
 \[
 	\phi(\vb{x}) = \frac{ \vb{p}\cdot\vb{x} }{|\vb{x}|^3} 
@@ -845,7 +860,7 @@ y el campo
 \]
 que tiene simetría de revolución, puesto que no depende de $\phiver$.
 
-Las líneas de campo cuplen que un diferencial de arco $d\Bell$ a través de una línea de campo es tal que 
+Las líneas de campo cumplen que un diferencial de arco $d\Bell$ a través de una línea de campo es tal que 
 \[
 	d \Bell \parallel \vb{E} \quad \Rightarrow \quad  \vb{E} \times d\Bell = 0
 \]
@@ -1034,7 +1049,7 @@ y el potencial de una capa dipolar
 \]
 siendo $\vb{D}$ el momento dipolar por área que viene de acuerdo a la definición
 \[
-	D = \lim_{\substack{\sigma\to\infty \\ \epsilon\to 0}} \: \sigma\epsilon
+	D = \lim_{\substack{\sigma\to\infty \\ \epsilon\to 0}} \: \sigma \: \epsilon
 \]
 refiérase a la ilustración bajo esta línea. Pero antes algunas cuentas con los dedos
 \[
@@ -1050,7 +1065,7 @@ refiérase a la ilustración bajo esta línea. Pero antes algunas cuentas con lo
 
 % \begin{figure}[htb]
 % 	\begin{center}
-	\includegraphics[width=0.2\textwidth]{images/fig_ft1_campo_dipolar3.pdf}	 
+	\includegraphics[width=0.75\textwidth]{images/fig_ft1_campo_dipolar3.pdf}	 
 % 	\end{center}
 % 	\caption{}
 % \end{figure}
@@ -1089,9 +1104,20 @@ Para las condiciones de contorno se da lo siguiente
 	\dpar{\phi_1 - \phi_2}{\hat{n}} = 4\pi\sigma
 \]
 \[
-	\phi_1 - \phi_2 = 4\pi\sigma\epsilon
+	\phi_1 - \phi_2 = 4\pi\sigma\:\epsilon
 \]
 
+Y el cálculo del trabajo
+\[
+	W_{1\to 2} = - q \: 4 \pi \sigma \:\epsilon = q\:( \phi_1 - \phi_2 )
+\]
+desde donde deducimos que el potencial tiene un salto al surcar la capa dado por 
+\[
+	\phi_2 - \phi_1 = 4\pi D
+\]
+\notamargen{Acá hay que trabajar mejor esto de la capa dipolar en referencia a las BC.
+Además saber si lo del $W$ de 1 a 2 es usar la integral de línea por un camino perpendicular
+a la surface.}
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_dipolar2.pdf}	 
@@ -1099,10 +1125,8 @@ Para las condiciones de contorno se da lo siguiente
 	\caption{}
 \end{figure}
 
-desde donde deducimos que el potencial tiene un salto al surcar la capa dado por 
-\[
-	\phi_2 - \phi_1 = 4\pi D
-\]
+Entonces, asociado a una capa dipolar hay un salto de $4\pi D$.
+
 
 \subsection{Momento dipolar por unidad de volumen}
 
