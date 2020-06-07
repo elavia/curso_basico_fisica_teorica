@@ -131,13 +131,14 @@ podemos tomar
 \[
 	G \equiv \frac{1}{|\vb{x}-\vb{x}'|} + f( \vb{x}, \vb{x}')
 \]
-donde $G$ es la función de Green.
-
+donde $G$ es la función de Green, el potencial de una carga unidad situada en $\vbx'$ calculado
+en $\vbx$.
+Luego, se tiene
 \[
-	\lapm{G} = -4\pi  \delta( \vb{x}, \vb{x}' ) + \lapm{f}
+	\lapm{G} = -4\pi  \delta( \vb{x} - \vb{x}' ) + \lapm{f}
 \]
-donde $F$ satisface Laplace (si el reciento no incluye a $\vb{x}'$).
-Con $\lapm{f( \vb{x}, \vb{x}' )}$.
+donde $f$ satisface Laplace (si el reciento no incluye a $\vb{x}'$). 
+Es decir que $\lapm{f( \vbx, \vbx' )} = 0$.
 
 Entonces $f( \vb{x}, \vb{x}' )$ representan la o las imágenes necesarias para que
 $G$ cumpla el contorno necesario $G_D|_S=0$.
@@ -147,12 +148,21 @@ $G$ cumpla el contorno necesario $G_D|_S=0$.
 \section{Funciones de Green}
 % =================================================================================================
 
+El teorema de Green me da una expresión integral para el potencial $\phi$. En efecto,
 \be
 	\phi(\vb{x}) = \int_{V'} G(\vb{x},\vb{x}') \rho(\vb{x}')  \; dV' +
-	\frac{1}{4\pi} \int_{S'} \left( G(\vb{x},\vb{x}')\dpar{\phi}{n} -\phi\frac{\partial}{\partial 
+	\frac{1}{4\pi} \int_{S'} \left( G(\vb{x},\vb{x}')\dpar{\phi(\vbx')}{n} -\phi(\vbx')\frac{\partial}{\partial 
 	n} G(\vb{x},\vb{x}') \right)\; dS' ,
 	\label{green1}
 \ee
+y si $\vbx \notin V$, se tiene
+\be
+	0 = \int_{V'} G(\vb{x},\vb{x}') \rho(\vb{x}')  \; dV' +
+	\frac{1}{4\pi} \int_{S'} \left( G(\vb{x},\vb{x}')\dpar{\phi}{n}(\vbx') -\phi(\vbx')\frac{\partial}{\partial 
+	n} G(\vb{x},\vb{x}') \right)\; dS' .
+	\label{green2}
+\ee
+
 Pero para poder utilizar \eqref{green1} necesito tener un solo tipo de condiciones de contorno,
 de manera que según sean
 \[
@@ -184,6 +194,62 @@ La función de Green da la geometría del problema.
 				\frac{1}{4\pi} \int_{S} G_N|_S \dpar{G_N}{n} \; dS
 			\end{cases}
 \]
+
+\subsection{Función de Green libre}
+
+La ecuación de Green libre
+\[
+	G(\vb{x}, \vb{x}') = \frac{1}{|\vb{x} - \vb{x}'|}
+\]
+que representa una superficie infinita con condición de contorno $\phi(|\vbx| \to \infty) = 0 $
+lleva directo a la integral de Poisson. En efecto sería como no tener contornos (tenerlos en
+infinito es no tenerlos).
+Entonces 
+\[
+	\phi(\vb{x}) = \int_V G(\vbx,\vbx') \: \rho(\vbx') \:dV = 
+	\int_{V'} \frac{ \rho(\vb{x}) }{|\vb{x}-\vb{x}'|} dV'
+\]
+que es la integral de Poisson. La ecuación de Poisson se recupera teniendo en cuenta
+que
+\[
+	\nabla^2 \left( \frac{1}{|\vb{x} - \vb{x}'|} \right) = 4\pi \delta(\vb{x}-\vb{x}')
+\]
+% \[
+% 	G(\vb{x}, \vb{x}') =  \frac{1}{|\vb{x} - \vb{x}'|} + f(\vb{x}, \vb{x}') \qquad 
+% 	\textrm{con} \quad \lapm{f}(\vb{x}, \vb{x}') = 0 \quad \textrm{si} \quad \vb{x}\neq\vb{x}'
+% \]
+En este caso, Dirichlet y Neumann llevan a la misma solución porque potencial y campo son
+nulos en los contornos.
+
+\subsection{Sobre el caso de Neumann}
+
+Para condiciones de Neumann se toma:
+\[
+	\Nabla G_N|_S = -\frac{4\pi}{S} = \left. \dpar{G}{n} \right|_S
+\]
+la integral 
+\[
+	- \frac{1}{4\pi} \int_S \phi|_S \left.\dpar{G}{n}\right|_S  dS
+\]
+no se puede anular con 
+\[
+	\left.\dpar{G}{n}\right|_S = 0
+\]
+salvo que el volumen de integración no contenga a $\vb{x}=\vb{x}'$ en cuyo caso:
+se excluye $\vb{x}=\vb{x}'$ de la integración.
+\[
+	- \frac{1}{4\pi} \int_S \phi|_S \left.\dpar{G}{n}\right|_S  dS =
+	\frac{1}{S} \int_S \phi|_S dS = <\phi>|_S
+\]
+que es el valor promedio de $\phi$ en la superficie $S$.
+
+Se suele tomar la superficie $S \to \infty$ de modo que resulte nulo $<\phi>|_S$.
+Se toma el volumen $V$ rodeado por dos superficies una cerrada y finita y la otra
+en infinito entonces
+\[
+	<\phi>|_S = 0 \qquad \qquad \left. \dpar{G}{n}\right|_S = 0
+\]
+esto es el llamado {\it problema exterior}.
 
 \subsection{Green para el problema externo de una esfera}
 
@@ -301,62 +367,106 @@ El caso (c) de la Figura se resuelve con
 	= -\frac{V}{4\pi} (-4\pi)\int_V \delta(\vb{x}-\vb{x}') \: dV	= V 
 \]
 
-\section{Algunos campos}
+\subsection{Algunos campos}
 
 En distribuciones infinitas de carga la integral de Poisson diverge pero ello se debe a que en
 realidad no existen distribuciones infinitas de carga.
-\begin{figure}[thb]
-	\begin{center}
+% \begin{figure}[thb]
+% 	\begin{center}
 	\includegraphics[width=0.8\textwidth]{images/fig_ft1_campohilos.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
+% 	\end{center}
+% 	\caption{}
+% \end{figure} 
 
-\section{Notas método de Green}
+\begin{ejemplo}{\bf Problema 1}
 
-Función de Green libre (sin contornos) lleva directo a la integral de Poisson
+\includegraphics[width=0.2\textwidth]{images/fig_ft1_g1_p1_A.jpg} 
+
+Primeramente se calculan los valores de la carga imagen, los cuales, para un
+sistema de coordenadas esféricas, son
 \[
-	G(\vb{x}, \vb{x}') = \frac{1}{|\vb{x} - \vb{x}'|}
+	q'= -\frac{a}{r} q \qquad r'= \frac{a^2}{r}.
 \]
-entonces 
+Se ve que cumplen los límites razonables.
+Luego, habría que hacer el potencial nulo mandando el engendro a tierra y luego se
+le suma algo que de potencial $V$ en $r=a$.
+
+La función de Green por imágenes será
 \[
-	\phi(\vb{x}) = \int_V \rho \:G \:dV = \int_{V'} \frac{ \rho(\vb{x}) }{|\vb{x}-\vb{x}'|} dV'
+	G_D = \frac{1}{|\vbx - \vbx'|} - \frac{1}{r'|\vbx - a^2/r'^2 \vbx'|},
+\]
+la cual cumple que sobre la superficie es nula.
+
+Subsecuentemente,
+\[
+	\rho(\vbx') = \sigma \delta(r-b), \phi(\vbx')|_S = V, \phi(\vbx')|_{S_{R\to\infty}} = 0 
+\]
+y
+\[
+	\int \rho(\vbx') \: dV = 4 \pi b^2 \sigma 
 \]
 \[
-	\nabla^2 \left( \frac{1}{|\vb{x} - \vb{x}'|} \right) = 4\pi \delta(\vb{x}-\vb{x}')
+	\int \rho(\vbx') \: G_D( \vbx, \vbx')  \: dV = \int \frac{b^2 \sigma}{|\vbx - \vbx'|} \: dS
+\]
+siendo $b=|\vbx'|$. Poniendo manos a la obra en la integral (en esféricas)
+\[
+	\int \frac{b^2 \sigma}{|\vbx - \vbx'|} \: dS =
+	\int dt \int d\Omega r^2 \sigma \delta(r'-b) 
+	\left[ \frac{1}{|\vbx - \vbx'|} - \frac{1}{r'|\vbx - a^2/r'^2 \vbx'|} \right]
 \]
 \[
-	G(\vb{x}, \vb{x}') =  \frac{1}{|\vb{x} - \vb{x}'|} + f(\vb{x}, \vb{x}') \qquad 
-	\textrm{con} \quad \lapm{f}(\vb{x}, \vb{x}') = 0 \quad \textrm{si} \quad \vb{x}\neq\vb{x}'
+	\int d\Omega \sigma b^2
+	\left[ \frac{1}{|\vbx - \vbx'|} - \frac{1}{r'|\vbx - a^2/r'^2 \vbx'|} \right]
+\]
+donde el primer término es el potencial de un casquete, que es 
+\[
+	\begin{cases}
+	 \displaystyle \frac{4\pi b^2\sigma}{r} \quad \text{ si } \; r > b \\
+	 \\
+	 \displaystyle 4 \pi b^2 \sigma \quad \text{ si } \; a < r < b 
+	\end{cases}
+\]
+y el segundo término se puede trabajar para llegar a
+\[
+	\frac{b^2 a }{r} \int d\Omega \sigma \frac{-1}{|a^2/r^2 \vbx - \vbx'|} 
+\]
+Pero recordemos que 
+\[
+	\dpar[2]{\vbx}{r} = \frac{a^2}{r} < a
 \]
 
-Para condiciones de Neumann se toma:
+Juntando todo
 \[
-	\Nabla G_N|_S = -\frac{4\pi}{S} = \left. \dpar{G}{n} \right|_S
+	\begin{cases}
+	 \displaystyle \frac{4\pi b^2\sigma}{r} - \frac{a}{r} 4 \pi \sigma b \qquad \text{ si } \; r > b \\
+	 \\
+	 \displaystyle  4 \pi b^2 \sigma - \frac{a}{r} 4 \pi \sigma b \qquad \text{ si } \; a < r < b  
+	\end{cases}	
 \]
-la integral 
-\[
-	- \frac{1}{4\pi} \int_S \phi|_S \left.\dpar{G}{n}\right|_S  dS
-\]
-no se puede anular con 
-\[
-	\left.\dpar{G}{n}\right|_S = 0
-\]
-salvo que el volumen de integración no contenga a $\vb{x}=\vb{x}'$ en cuyo caso:
-se excluye $\vb{x}=\vb{x}'$ de la integración.
-\[
-	- \frac{1}{4\pi} \int_S \phi|_S \left.\dpar{G}{n}\right|_S  dS =
-	\frac{1}{S} \int_S \phi|_S dS = <\phi>|_S
-\]
-que es el valor promedio de $\phi$ en la superficie $S$.
 
-Se suele tomar la superficie $S \to \infty$ de modo que resulte nulo $<\phi>|_S$.
-Se toma el volumen $V$ rodeado por dos superficies una cerrada y finita y la otra
-en infinito entonces
+Y se tiene 
 \[
-	<\phi>|_S = 0 \qquad \qquad \left. \dpar{G}{n}\right|_S = 0
+	-\frac{ 1 }{ 4\pi } \int \phi(\vbx') \Nabla' G_D(\vbx,\vbx') dS' =
+	\frac{ V }{ 4 \pi } \int \Nabla' G_D(\vbx,\vbx') dS' = V Q_n,
 \]
-esto es el llamado {\it problema exterior}.
+donde en el último paso se ha usado el teorema de la divergencia. Luego, como
+$Q_n = -a/r$ se tiene 
+\[
+	\phi = \frac{Va}{r}
+\]
+que entonces en $r=a$ es $V$.
+
+\includegraphics[width=0.2\textwidth]{images/fig_ft1_g1_p1_B.jpg} 
+
+Esto conviene hacerlo integrando en esféricas con $\vbx \parallel \hat{z}$.
+
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Comentario superposición}
+ 
+\includegraphics[width=0.5\textwidth]{images/fig_ft1_comentario_superposicion.jpg} 
+ 
+\end{ejemplo}
 
 % =================================================================================================
 \section{Condiciones de contorno para el campo eléctrico}
