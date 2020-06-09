@@ -1293,29 +1293,89 @@ Haremos una especie de desarrollo multipolar del potencial vector \vb{A},
 \[
 	\vb{A}(\vb{x}) = \frac{1}{c} \int_V \frac{\vb{J}(\vb{x}')}{|\vb{x}-\vb{x}'|} \: dV' 
 \]
-pero como se puede escribir
+quedándonos a primer orden para $\vbx$ en torno a $\vb{x}'=0$. Es decir, se empleará
 \[
 	\frac{1}{|\vb{x}-\vb{x}'|} \approx \frac{1}{|\vb{x}|}  + \frac{\vb{x}\cdot\vb{x}'}{|\vb{x}|^3} 
 \]
-en torno a $\vb{x}'=0$ será
+lo cual conduce a
 \notamargen{Recordar que Biot \& Savart es para densidad de corriente estacionaria,
 i.e. $\divem{J}=0$}
-\[
-	\vb{A}(\vb{x}) = \frac{1}{c} \int_V \frac{\vb{J}(\vb{x}')}{|\vb{x}|} \: dV' 
-	+ \frac{1}{c} \frac{ \vb{x} \: }{|\vb{x}|^3} \cdot \int_V \vb{x}' \vb{J}(\vb{x}') \: dV' 
-\]
+% \[
+% 	\vb{A}(\vb{x}) = \frac{1}{c} \int_V \frac{\vb{J}(\vb{x}')}{|\vb{x}|} \: dV' 
+% 	+ \frac{1}{c} \frac{ \vb{x} \: }{|\vb{x}|^3} \cdot \int_V \vb{x}' \vb{J}(\vb{x}') \: dV' 
+% \]
 \[
 	\vb{A}(\vb{x}) = \frac{1}{c|\vb{x}|} \int_V \vb{J}(\vb{x}') \: dV' 
 	+ \frac{1}{c} \frac{ \vb{x} \: }{|\vb{x}|^3} \cdot \int_V \vb{x}' \vb{J}(\vb{x}') \: dV' 
 \]
-y el primer término es nulo lo cual puede verse porque sale integrando con alguna identidad (?)
-y usando que $\divem{J}=0$. Correspondería al orden monopolar y el hecho de que sea nulo refleja
-la no existencia de monopolos.
+donde el primer término es nulo lo cual se verá a continuación. En notación indicial la integral
+que interesa es 
 \[
-	\vb{A}(\vb{x}) = \left[ \left(\frac{1}{2c} \int_V \vb{x}'\times \vb{J} \: dV \right) \times \vb{x} \right] 
-			\frac{1}{|\vb{x}|^3}
+	\int_V J_i (\vb{x}') \: dV',
 \]
-y si definimos el paréntesis como \vb{m} (momento magnético) entonces
+luego notemos que 
+\[
+	\partial_k ( J_k x_i ) = ( \partial_k  J_k ) x_i + J_k \partial_k x_i 
+\]
+donde el primer término es nulo por ser la divergencia de $\divem{J}$ y el segundo es la delta
+de Kronecker de tal forma que
+\be
+	\partial_k ( J_k x_i ) = J_k \delta_{ki} = J_i. 
+	\label{expresion_J}
+\ee
+El teorema de la divergencia entonces nos asegura que
+\[
+	\int_V \partial_k ( J_k x_i ) \: dV = \int_S J_k x_i \: dS
+\]
+donde debe notarse que si la superficie es tal que engloba a todas las corrientes $J$ entonces
+ya no hay corriente sobre la superficie y el integrando es nulo.
+
+Se quiere ver que vale 
+\[
+	\int_V J_i \: x_k \: dV = - \int_V J_k \: x_i \: dV,
+\]
+y para ello veamos qué le pasa a la divergencia de un tensor de tercer rango, que se puede
+escribir
+\[
+	\partial_l( x_i J_l x_k ) =  \partial_l( x_i J_l ) \: x_k + x_i J_l \:\partial_l( x_k )
+\]
+usando el resultado anterior \eqref{expresion_J} es
+\[
+	\partial_l( x_i J_l x_k ) = J_i \: x_k + x_i J_k,
+\]
+y como es
+\[
+	\int_V (J_i \: x_k + x_i J_k ) \: dV = 0.
+\]
+\notamargen{Parece que acá termina la cosa. No me queda nada claro.}
+% puede verse porque sale integrando con alguna identidad (?)
+% y usando que $\divem{J}=0$. 
+
+Por otra parte, dado que 
+\[
+	\vbx \times ( \vbx'\times \vb{J}) = (\pe{x}{J})\: \vbx'- \vb{J} \: (\pe{x}{x'} )
+\]
+se puede aplicar esto en la integración del segundo término
+\[
+	\int_V x_i J_k x_i' \: dV' = \int_V x_i J_i x_k' \: dV' - \int_V \vbx \times ( \vbx' \times \vb{J} )_k \: dV'
+\]
+donde el primero aquí será nulo porque es idéntico al anterior, y entonces
+\[
+	\int_V x_i J_k x_i' \: dV' = - \frac{1}{2} \: \vbx \times \int_V  ( \vbx' \times \vb{J} )_k \: dV',
+\]
+quedando en deuda la explicación del $1/2$.
+
+\notamargen{Esto habrá que hacerlo bien. La notación está muy poco consistente.}
+
+Este término que resultó nulo correspondería al orden monopolar y su nulidad refleja la no existencia 
+de monopolos magnéticos.
+
+Esto conduce a 
+\[
+	\vb{A}(\vb{x}) = \frac{1}{|\vb{x}|^3} 
+	\left[ \left(\frac{1}{2c} \int_V \vb{x}'\times \vb{J} \: dV \right) \times \vb{x} \right] 
+\]
+y si definimos el corchete como \vb{m} (momento magnético) entonces
 \[
 	\vb{A}(\vb{x}) = \frac{\vb{m} \times \vb{x} }{|\vb{x}|^3}
 \]
@@ -1323,7 +1383,8 @@ en el origen, y
 \[
 	\vb{A}(\vb{x}) = \frac{\vb{m} \times (\vb{x}-\vb{x}') }{|\vb{x}-\vb{x}'|^3}
 \]
-en $\vb{x}'$, las cuales son expresiones a primer orden y que utilizan el gauge de Coulomb, $\divem{A}=0$.
+desplazado hacia $\vb{x}'$, las cuales son expresiones a primer orden y que utilizan el gauge de Coulomb, 
+$\divem{A}=0$.
 
 De esta manera tendremos
 \[
@@ -1334,18 +1395,38 @@ que es la magnetización o densidad de momento magnético, y entonces el momento
 	\vb{m} = \int_v \mathcal{M}(\vb{x}') \:dV'.
 \]
 
-Se puede trabajar con el potencial vector así
+Ahora se querrá ver qué le pasa al rotor de $\vb{A}$. Para ello se usa la identidad vectorial I2 del apéndice.
+Considerando $\vb{m} = \vb{M}$ y $\vb{N} = \vbx / |\vbx|^3 $ se tiene 
 \[
-	\rotorm{A}  = \Nabla \times \left( \frac{\vb{m} \times \vb{x} }{|\vb{x}|^3} \right) =
-	\left( \frac{\vb{x}}{|\vb{x}|^3}\cdot\Nabla \right)\vb{m}-(\vb{m}\cdot\Nabla)\frac{\vb{x}}{|\vb{x}|^3}, 
+	\Nabla \times \left( \frac{\vb{m} \times \vb{x} }{|\vb{x}|^3} \right) =
+	\vb{m} \: ( \Nabla \cdot \vbx / |\vbx|^3 ) - \vb{N} \: ( \divem{m} ) +
+	( \vbx / |\vbx|^3 \cdot \Nabla ) \: \vb{m} - ( \vb{m} \cdot \Nabla ) \: \vbx / |\vbx|^3,
 \]
-la cual luego de mucho álgebra vectorial se puede llevar a la forma
+donde los dos primeros términos son nulos \footnote{El segundo es nulo porque $\vb{m}$ no depende de $\vbx$}. 
+Entonces
+\[
+	\rotorm{A} = -( \vb{m} \cdot \Nabla ) \: \frac{\vbx}{|\vbx|^3} + 4 \pi \delta(\vb{x}) \: \vb{m},
+\]
+pero el segundo término con la delta no se considerará porque estamos lejos de la distribución de
+corrientes\footnote{El término con la delta de Dirac cobra importancia en análisis microscópicos y
+cuánticos}. Luego,
+\[
+	\rotorm{A} = \Nabla \times \left( \frac{\vb{m} \times \vb{x} }{|\vb{x}|^3} \right) =
+	-(\vb{m}\cdot\Nabla)\frac{\vb{x}}{|\vb{x}|^3}.
+\]
+Recordando la expresión para el momento dipolar del campo eléctrico (buscarla) como
+\[
+	\vb{E}^{(2)} = - ( \vb{p}\cdot\Nabla) \frac{\vbx}{|\vbx|^3},
+\]
+que llevaba a $\vb{E}^{(2)} = ( 3 (\vb{P}\cdot \hat{n}) \hat{n} - \vb{P} )/ |\vbx|^3$, por analogía
+se tendrá
 \[
 	\vb{B} = \frac{3 (\vb{m}\cdot\hat{n})\hat{n} - \vb{m}}{|\vb{x}|^3},
 \]
-que nos dice que bien lejos cualquier distribución de corriente localizada presenta como \vb{B} el 
+que nos dice que bien lejos cualquier distribución de corriente localizada \vb{B} se presenta como el 
 campo magnético de un dipolo magnético dado por \vb{m}(\vb{x}). Esta aproximación corresponde, por 
 supuesto, al primer orden del desarrollo.
+El momento magnético puede pensarse entonces como una espirilla.
 
 \subsection{Interpretacion del momento magnético}
 
