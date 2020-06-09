@@ -1218,9 +1218,17 @@ desde donde deducimos que el potencial tiene un salto al surcar la capa dado por
 \[
 	\phi_2 - \phi_1 = 4\pi D
 \]
+Entonces, asociado a una capa dipolar hay un salto de $4\pi D$.
+
 \notamargen{Acá hay que trabajar mejor esto de la capa dipolar en referencia a las BC.
 Además saber si lo del $W$ de 1 a 2 es usar la integral de línea por un camino perpendicular
 a la surface.}
+
+Para dos chapas infinitas de carga uniforme $\sigma$ pero opuesta el campo eléctrico es nulo 
+en todas partes salvo en el interior, donde vale $4\pi\sigma$ (véase ilustración abajo).
+Luego el potencial tiene un salto de $4\pi\sigma d$ que se produce a lo largo de la distancia
+$d$.
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_dipolar2.pdf}	 
@@ -1228,7 +1236,8 @@ a la surface.}
 	\caption{}
 \end{figure}
 
-Entonces, asociado a una capa dipolar hay un salto de $4\pi D$.
+Si se considera el límite $\sigma \to \infty$ y $d\to 0$ se tiene una capa dipolar y lo 
+que sucede es que la subida apreciable dada por la recta se colapsa a un escalón.
 
 
 \subsection{Momento dipolar por unidad de volumen}
@@ -1237,38 +1246,47 @@ El potencial de un dipolo es
 \[
 	\phi(\vb{x}) = \frac{ \vb{p}\cdot(\vb{x}-\vb{x}') }{|\vb{x} - \vb{x}'|^3} 
 \]
-y el potencial de muchos de ellos sale de la integración
+Suponiendo una distribución continua de dipolos dada por $\vb{P}(\vbx)$, el potencial total debido
+a la misma se obtiene de la integración
 \[
-	\phi(\vb{x}) = \int_V \frac{ \vb{P}(\vb{x}')\cdot(\vb{x}-\vb{x}') }{|\vb{x} - \vb{x}'|^3}  \: dV
+	\phi(\vb{x}) = \int_V \frac{ \vb{P}(\vb{x}')\cdot(\vb{x}-\vb{x}') }{|\vb{x} - \vb{x}'|^3}  \: dV,
 \]
+donde $\vb{P}$ es la llamada polarización, el momento dipolar por unidad de volumen, siendo $V$ un volumen
+que incluye a la zona de polarización (ver Figura).
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.3\textwidth]{images/fig_ft1_dipolarvol.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure}
-donde $\vb{P}$ es la llamada polarización, el momento dipolar por unidad de volumen, siendo $V$ un volumen
-que incluye a la zona de polarización (ver Figura).
+Este volumen debe incluir a la misma aunque puede no coincidir con ella.
+El potencial se puede escribir como 
 \[
 	\phi(\vb{x}) = \int_V \vb{P}(\vb{x}')\cdot \Nabla' \left(\frac{1}{|\vb{x} - \vb{x}'|} \right)\: dV
 \]
-y si usamos el teorema de la divergencia para convertir una de las integrales resulta
+Luego, usando la identidad ID 1 (apéndice) la anterior integral resulta en
+\[
+	\phi(\vb{x}) = \int_V  \Nabla' \cdot \left( \frac{\vb{P}(\vb{x}')}{|\vb{x} - \vb{x}'|} \right) \: dV
+	- \int_V \frac{ \Nabla' \cdot \vb{P}(\vb{x}') }{|\vb{x} - \vb{x}'|} \: dV
+\]
+y si usamos el teorema de la divergencia en la primera integral se tiene
 \[
 	\phi(\vb{x}) = \int_S \frac{\vb{P}(\vb{x}')}{ |\vb{x} - \vb{x}'|} \: dS
-	- \int_V  \frac{  \Nabla' \cdot \vb{P}(\vb{x}') }{|\vb{x} - \vb{x}'|} \: dV 
+	- \int_V  \frac{  \Nabla' \cdot \vb{P}(\vb{x}') }{|\vb{x} - \vb{x}'|} \: dV, 
 \]
-lo que habilita a pensar en como que 
+lo que habilita a pensar que el borde del cuerpo polarizado tiene una densidad de carga
+de polarización
 \[
-	\vb{P}\cdot\hat{n} \equiv \sigma_P
+	\sigma_P = \vb{P}\cdot\hat{n},
 \]
-está presente en el borde del cuerpo polarizado, y en su interior existe
+y que en el interior existe una carga de polarización volumétrica
 \[
-	- \Nabla\cdot\vb{P} \equiv \rho_P
+	\rho_P = - \Nabla\cdot\vb{P},
 \]
-siempre que $\divem{P}\neq 0$ es decir que la polarización no sea homogénea.
+siempre y cuando $\divem{P}\neq 0$, es decir que la polarización no sea homogénea.
 
 % =================================================================================================
-\section{El potencial vector}
+\section{Desarrollo multipolar para el campo magnético}
 % =================================================================================================
 
 Haremos una especie de desarrollo multipolar del potencial vector \vb{A},
