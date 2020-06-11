@@ -1285,6 +1285,14 @@ y que en el interior existe una carga de polarización volumétrica
 \]
 siempre y cuando $\divem{P}\neq 0$, es decir que la polarización no sea homogénea.
 
+\begin{ejemplo}{\bf Problema 3}
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 4}
+ 
+\end{ejemplo}
+
 % =================================================================================================
 \section{Desarrollo multipolar para el campo magnético}
 % =================================================================================================
@@ -1430,13 +1438,16 @@ El momento magnético puede pensarse entonces como una espirilla.
 
 \subsection{Interpretacion del momento magnético}
 
-Se puede pensar \vb{m} como una espira.
+Se puede pensar al \vb{m} como una espira plana, lo cual nos provee de una noción intuitiva del 
+momento dipolar magnético. 
+Entre un punto $\vbx$ del borde y un diferencial de arco $d\Bell$ queda definido un triángulo infinitesimal
+cuya área $dA$ será 
 \[
-	dA = \frac{ x d\ell \sin(\alpha) }{2}
+	dA = \frac{ 1 }{ 2 } x \: \sin(\alpha) \: d\ell, 
 \]
-siendo el área orientada
+que no es otra cosa que el área de un triángulo (base por altura sobre dos), siendo el área orientada
 \[
-	\vb{A} = \frac{1}{2} \int_\Gamma \vb{x}\times d\vb{\ell} 
+	\vb{A} = \frac{1}{2} \int_\Gamma \vb{x}\times d\Bell  
 \]
 y entonces
 \[
@@ -1449,14 +1460,14 @@ y entonces
 	\caption{}
 \end{figure}
 
-Desde volumen a espira hacemos la transformación del modo usual,
+Para convertir un volumen a espira hacemos la transformación del modo usual,
 \[
 	\vb{m} = \frac{1}{2c} \int_V  \vb{x} \times \vb{J}(\vb{x})  \:dV =
-		\frac{1}{2c} \int_\Gamma  \vb{x} \times \:d\vb{\ell}
+		\frac{I}{2c} \int_\Gamma  \vb{x} \times \:d\Bell
 \]
 usando que
 \[
-	\vb{J} \: dV = J d\vb{\ell} dS = \frac{I}{dS} d\vb{\ell} dS = I \: d\vb{\ell} 
+	\vb{J} \: dV = J \: d\Bell \: dS = \frac{I}{dS} \: d\Bell \: dS = I \: d\Bell 
 \]
 
 A modo de ejemplo, para una espira circular de radio $r$ es
@@ -1466,6 +1477,8 @@ A modo de ejemplo, para una espira circular de radio $r$ es
 
 \subsection{Interacción del campo magnético con una distribución de corriente}
 
+La idea es considerar la fuerza sobre una distribución de corrientes debida a un campo
+externo homogéneo.
 Hacemos una expansión de Taylor del campo \vb{B} con $|\vb{x}|\ggg|\vb{x}'|$,
 \[
 	\vb{B} = \vb{B}_0 + (\vb{x}\cdot\Nabla)\vb{B}
@@ -1486,31 +1499,35 @@ resulta que
 		\frac{1}{c} \int_V \vb{J} \times (\vb{x}'\cdot\Nabla)\vb{B} \: dV'
 \]
 siendo el primer término nulo.
+
+Mediante identidades vectoriales podemos llegar a una expresión
 \[
-	\vb{F} = \Nabla\times(\pv{B}{m}) = (\pe{m}{\Nabla})\vb{B} =
-		(\pe{m}{\Nabla})\vb{B} = \Nabla(\pe{m}{B})
+	\vb{F} = - \Nabla \times \frac{1}{c} \int_V \vb{J}(\vb{x}'\cdot\vb{B}) dV'
 \]
-Si el campo es homogéneo la fuerza es nula, pero como $\vb{F} = -\Nabla U$
+y utilizando la demostración previa de que 
 \[
-	F_m = \Nabla(\pe{m}{B}) \quad \Rightarrow \quad U_M = -\pe{m}{B}
+	\int \: (\vbx \cdot \vbx') \: \vb{J} \: dV = 
+	- \frac{1}{2} \: \vbx \times \int \: \vbx \times \vb{J} \: dV,
+\]
+resulta que 
+\[
+	\vb{F} = \Nabla \times \vb{B} \times \frac{1}{2c} \int_V \vb{x} \times \vb{J} \: dV
+\]
+y entonces, identidades vectoriales mediante,
+\[
+	\vb{F} = \Nabla\times(\pv{B}{m}) = (\pe{m}{\Nabla})\vb{B} = \Nabla(\pe{m}{B})
+\]
+Si el campo es homogéneo la fuerza es nula.
+Por otra parte, como $\vb{F} = -\Nabla U$ se puede definir energías para los dipolos
+de acuerdo con el esquema
+\[
+	F_m = \Nabla(\pe{m}{B}) \quad \Rightarrow \quad U_m = -\pe{m}{B}
 \]
 \[
 	F_e = \Nabla(\pe{p}{E}) \quad \Rightarrow \quad U_e = -\pe{p}{E}
 \]
 siendo $U_{m,e}$ la energía de los dipolos en campos externos.
 
-
-Mediante identidades vectoriales podemos llegar a una expresión
-\[
-	\vb{F} = - \Nabla \times \frac{1}{c} \int_V \vb{J}(\vb{x}'\cdot\vb{B}) dV' =
-	-\Nabla \times \frac{1}{2c} (-\vb{B}) \times \int_V \vb{x} \times \vb{J} dV' =
-\]
-\[
-	\vb{F} = \Nabla \times \vb{B} \times \frac{1}{2c}\int_V \vb{x} \times \vb{J} dV'
-\]
-\[
-	\vb{F} = \Nabla \times (\pv{B}{m}) = \Nabla(\pe{m}{B})
-\]
 La fuerza de un campo $\vb{B}$ externo sobre una distribución de corrientes es el gradiente de cierta
 energía
 \[
