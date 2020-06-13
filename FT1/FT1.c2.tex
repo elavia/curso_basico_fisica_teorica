@@ -1286,10 +1286,265 @@ y que en el interior existe una carga de polarización volumétrica
 siempre y cuando $\divem{P}\neq 0$, es decir que la polarización no sea homogénea.
 
 \begin{ejemplo}{\bf Problema 3}
- 
+
+El problema a resolver se esquematiza en la figura siguiente, donde se ve un dipolo eléctrico
+frente a una esfera de radio $a$ conectada a tierra y una carga $q$
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema3A.jpg}
+
+El potencial será
+\[
+	\phi(\vbx) = \int_V \rho(\vbx') G_D(\vbx,\vbx') dV - \frac{1}{4\pi}\int_S \phi \partial_n G_D dS,
+\]
+pero la última integral será nula puesto que la esfera está puesta a tierra ($\phi=0$ sobre la esfera).
+La función de Green para una carga $q$ frente a una esfera será
+\[
+	 G_D(\vbx,\vbx') = \frac{1}{|\vbx-\vbx'|} - \frac{a}{|\vbx'|}\frac{1}{|\vbx - a^2/r^2 \vbx'|}
+\]
+donde debe recordarse que en la expresión de la función de Green, 
+\[
+	G_D(\vbx,\vbx') = \frac{1}{|\vbx-\vbx'|} + F(\vbx,\vbx')
+\]
+que aporta la geometría del problema, la parte $F$ son las contribuciones debidas a las imágenes.
+La densidad de carga será
+\[
+	\rho(\vbx') = \lim_{\varepsilon\to 0} -q \delta(\vbx' - \vb{d}) + q \delta(\vbx' - \vb{d} - \vb{\varepsilon})
+\]
+donde el último término debiera expandirse en serie de Taylor (lo cual puede hacerse ahora o después
+de integrar). Entonces
+\[
+	q \delta(\vbx' - \vb{d} ) + q \Nabla \delta(\vbx' - \vb{d}) \cdot \vb{\varepsilon} + ...
+\]
+y se tiene
+\[
+	\rho(\vbx') =  \lim_{\varepsilon\to 0} - q \Nabla \delta(\vbx' - \vb{d}) \cdot \vb{\varepsilon} =
+	- \vb{p} \cdot \Nabla \delta(\vbx' - \vb{d}).
+\]
+
+De esta forma 
+\[
+	\phi(\vbx) = - \int_V  \vb{p} \cdot \Nabla \delta(\vbx' - \vb{d}) \: G_D(\vbx,\vbx') \: dV =
+	-  \vb{p} \cdot \Nabla G_D(\vbx,\vb{d}),
+\]
+que no es otra cosa que 
+\[
+	\phi(\vbx) =  \vb{p} \cdot \left. \Nabla_{x'} \left( 
+	\frac{1}{|\vbx-\vbx'|} - \frac{a}{|\vbx'|}\frac{1}{|\vbx - a^2/x^2 \vbx'|}
+	\right) \right|_{|\vbx'|=|\vb{d}|},
+\]
+pero se puede intercambiar $x\equiv|\vbx|$ con $x'\equiv |\vbx'|$ así no hay problemas con los diferentes
+versores $\hat{x},\hat{x}'$.
+Entonces el segundo término de la anterior expresión pasa a ser
+\[
+	\frac{a}{x} \frac{1}{| x'\hat{x}- a^2/x \:\hat{x}'|} =
+	\frac{a}{x} \: \frac{1}{ \left( {x'}^2 + \Frac{a^2}{x}^2 - 2 a^2 \cos( \hat{x}, \hat{x}') \right)},
+\]
+
+Teniendo en cuenta este intercambio,
+\[
+	\phi(\vbx) =  \vb{p} \cdot \left. \Nabla_{x'} \left( 
+	\frac{1}{|\vbx'-\vbx|} - \frac{a}{|\vbx|}\frac{1}{|\vbx' - a^2/x^2 \vbx|}
+	\right) \right|_{|\vbx'|=|\vb{d}|},
+\]
+que lleva a 
+\[
+	\phi(\vbx) = - \frac{\vb{p}\cdot(\vbx-\vbx')}{|\vbx-\vbx'|^3} 
+	- \frac{a}{x} \left. \frac{ \vb{p} \cdot ( x^2 \vbx' - a^2 \vb{x} )}{|\vbx' - a^2/x^2 \: \vbx|^3}
+	\right|_{|\vbx'|=|\vb{d}|},
+\]
+donde el primer término es un dipolo y al segundo puede dársele otra forma. En efecto, evaluando
+en el punto solicitado se tiene
+\[
+	\frac{a}{x^3} \frac{ \vb{p} \cdot ( x^2 \vb{d} - a^2 \vb{x} )}{|\vb{d} - a^2/x^2 \: \vbx|^3} = 
+	\frac{a}{d^3} \frac{ \vb{p} \cdot ( x^2 \vb{d} - a^2 \vb{x} )}{|\vbx - a^2/d^2 \: \vb{d}|^3}
+\]
+donde se ha podido intercambiar $d$ con $x$ por la forma de la expresión. Luego, considerando
+el ángulo $\theta$ entre \vb{p} y \vb{x} se tiene
+\[
+	\frac{ap}{d^2} \frac{( x^2 - a^2 /d \: \cos\theta)}{|\vbx - a^2/d^2 \: \vb{d}|^3}
+\]
+Luego, completando cuadrados en el numerador se puede poner
+\[
+	\frac{ap}{d^2}\left[\: x^2 - \frac{a^2}{d} x \cos\theta \:\right] =
+	\frac{ap}{d^3}\left[\: x^2 - 2 \frac{a^2}{d} x \cos\theta + \frac{a^2}{d} x \cos\theta 
+	+ \Frac{a}{d}^2 - \Frac{a}{d}^2 \:\right]
+\]
+\[
+	\frac{ap}{d^2}\left[\: x^2 - \frac{a^2}{d} x \cos\theta \:\right] =
+	\frac{ap}{d^2}\left[\: |\vbx - a^2/d \: \hat{z}|^2 + \frac{a^2}{d}\vbx\cdot\hat{z} - 
+	\left| \frac{a^2}{d} \hat{z} \right|^2 \:\right]
+\]
+de manera que finalmente
+\[
+	\phi(\vbx) =  - \frac{\vb{p}\cdot(\vbx-\vb{d})}{|\vbx-\vb{d}|^3} +
+	\frac{ap}{d^2} \frac{1}{|\vbx - a^2/d^2 \: \vb{d}|}+
+	\frac{a^3}{d^3} \frac{\vb{p}\cdot(\vbx- a^2/d^2 \: \vb{d})}{|\vbx - a^2/d^2 \: \vb{d}|^3}
+\]
+y se tienen entonces tres términos que son: un dipolo real, un monopolo imagen y un dipolo imagen.
+
+Notemos entonces que además de haber generado la imagen de un dipolo fue necesaria la imagen de una carga
+puntual extra. Si hubiésemos resuelto el problema haciendo la imagen directamente del dipolo hubiera
+estado incompleta\footnote{Si se hace la imagen del dipolo considerando sus cargas componentes sale
+bien la cosa}.
+
+Por imágenes el problema involucra resolver desde
+\[
+	\phi(\vbx) = \frac{-q}{|\vbx -\vb{d} |} + \frac{q}{|\vbx -(\vb{d} + \vb{\varepsilon}) |} + 
+	\frac{q}{d}\frac{1}{|\vbx - a^2/d^2 \: \vb{d} |} 
+	- \frac{q}{(d+\varepsilon)}\frac{1}{|\vbx - a^2/(d+\varepsilon)^2 \: (\vb{d} + \vb{\varepsilon}) |},
+\]
+y aquí deberían expandirse los denominadores con $\varepsilon\to 0$ mediante Taylor.
+En el último término de la expresión anterior convendría permutar $(d+\varepsilon)$ con $x$.
+Entonces hay que usar las mismas ideas que en el caso anterior.
+
+Acá hay una observación asociada al figurín bajo estas líneas
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema3B.jpg}
+
+Con un problema interior la carga inducida es la carga imagen; porque puedo usar Gauss con una
+superficie $\Sigma$ y el campo depende de la carga encerrada real ($\sigma$ inducida).
+
+La parte (c) 
+\[
+	\dpar{\phi_0}{n} - \dpar{\phi_I}{n} = - 4 \pi \sigma_\text{ind},
+\]
+y como el segundo término del LHS es cero, se tiene
+\[
+	\sigma_\text{ind} = - \frac{1}{ 4 \pi } \dpar{\phi_0}{r}(\vbx)
+\]
+donde la derivada es en esféricas.
+
+La parte (d) es un desarrollo multipolar
+\[
+	\phi(\vbx) = \frac{Q}{x} + \frac{ \pe{p}{x} }{x^3} + \frac{1}{2} \frac{ \vb{x}^t Q \vbx }{x^5} + ...
+\]
+Se tienen
+\[
+	Q = \int_V \rho(\vbx') dV = \frac{ a p }{ d^2 }
+\]
+que es la carga imagen puntual.
+\[
+	\vb{p} = \int_V \: \vbx'\rho(\vbx') \: dV = [ -q \vb{d} + q ( \vb{d} + \vb{\varepsilon} ) ] =
+	\vb{p} \left( 1  + 2\frac{a^3}{d^3} \right)
+\]
+que, considerando el primer dipolo, da el aporte de un dipolo más una contribución de la esfera.
+
+\notamargen{Anoté la definición del momento cuadrupolar
+\[
+	Q_{ij} = \int \: ( 3 x_i x_j - |\vbx|^2 \delta_{ij})\: \rho \: dV
+\]}
+
+Puedo tomar ejes principales en $x,y$. Por la simetría de este problema $Q_{xx}, Q_{yy}$ son iguales
+de manera que como la traza es nula, con solo calcular $Q_{xx}$ ya tengo todo lo que necesito.
+
+Para el dipolo real (será el momento cuadripolar de un dipolo desplazado del origen)
+\[
+	Q_{xx} = - q (-d^2 ) + q( -( d + \varepsilon )^2 ) = - 2 p d
+\]
+donde en el último término se ha hecho el límite $\varepsilon \to 0$.
+Para la carga imagen y el diplo imagen serán, respectivamente,
+\[
+	Q_{xx} = \frac{ap}{d^2} \Frac{a^2}{d}^2 \qquad \qquad 
+	Q_{xx} = - 2 \Frac{a^3 p}{d^3} \Frac{a^2}{d}
+\]
+Sumando todos
+\[
+	Q_{xx} = - 2 p d \left( 1 + \frac{a^5}{2 d^5} \right),
+\]
+el último factor es la contribución de la esfera al cuadripolo.
+
+Por superposición, si la esfera estuviera a potencial V como se muestra en el gráfico 
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema3C.jpg}
+
+se tendría 
+\[
+	\int_v \rho G_d dV - \frac{1}{4\pi} \int_S \phi \partial_n G_D dS
+\]
+y la integral de superficie se puede hacer utilizando la ley de Gauss,
+\[
+	-\frac{V}{4\pi} \int_S E_G dS = \frac{Va}{r}
+\]
+
+\notamargen{Anoté por allí que superposición es un Green gráfico.}
+
+Esta última situación no sé bien a qué viene:
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema3D.jpg}
+
+Cualquier carga $Q$ que se añada después ya non altera la distribución $\sigma$.
+
 \end{ejemplo}
 
 \begin{ejemplo}{\bf Problema 4}
+
+Aquí lo que sucede es que se generan imágenes en forma recurrente.
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema4.jpg}
+
+Podemos agrupar en un cuadro la generación según el orden. Entonces
+en cada orden $n$ tendremos un par $(q,r)$ que se construye colocando
+la prescripción $(q,r)$ anterior correspondiente al radio ``cruzado''.
+Así por ejemplo, el $n=2$ se construye en $r<a$ tomando la prescripción
+de $n=1$ con $r<a$ y reemplazando allí el $n=1$ de $r>b$. Consecuentemente,
+la prescripción $n=2$ para $r>b$ se construye tomando la $n=1$ de $r>b$ y
+reemplazando allí la $n=1$ de $r<a$.
+
+\begin{center}
+\begin{tabular}{c|c|c}
+$n$ & $r<a$ & $r> b$ \\
+\hline
+& & \\
+1 & $\displaystyle \left( -\frac{aq}{r}, \frac{a^2}{r} \right)$ & 
+$\displaystyle \left( -\frac{bq}{r}, \frac{b^2}{r} \right)$ \\
+& & \\
+2 & $\displaystyle \left( -\frac{a (-qb/r)}{b^2/r}, \frac{a^2}{b^2/r} \right) =
+\displaystyle \left( \frac{aq}{b}, \frac{a^2r}{b^2} \right)$ & 
+$\displaystyle \left( -\frac{b(-aq/r)}{a^2/r}, \frac{b^2}{a^2/r} \right) = 
+\displaystyle \left( \frac{bq}{a}, \frac{b^2r}{a^2} \right) $ \\
+& & \\
+3 & $\displaystyle \left( -\frac{qa^2}{br}, \frac{a^4}{b^2r} \right)$ & 
+$\displaystyle \left( -\frac{qb^2}{ar}, \frac{b^4}{a^2r} \right)$ \\
+& & \\
+ & ... & ...
+\end{tabular}
+\end{center}
+
+Siguiendo la recurrencia se tiene 
+\[
+	n=1,3 : \quad - q \: \frac{a}{r}\Frac{a}{b}^n \quad n \in \mathbb{N}_{+0} \quad r < a
+\]
+\[
+	n=2,4 : \quad q \Frac{a}{b}^n \quad n \in \mathbb{N} \quad r < a
+\]
+y
+\[
+	n=1,3 : \quad - q \: \frac{b}{r}\Frac{b}{a}^n \quad n \in \mathbb{N}_{+0} \quad r > b
+\]
+\[
+	n=2,4 : \quad q \Frac{b}{a}^n \quad n \in \mathbb{N} \quad r > b
+\]
+mientras que para las distancias se obtiene
+\[
+	n=1,3 : \quad  \: \frac{a^2}{r}\Frac{a}{b}^{2n} \quad n \in \mathbb{N}_{+0} \quad r < a
+\]
+\[
+	n=2,4 : \quad \: \Frac{a}{b}^{2n} \quad n \in \mathbb{N} \quad r < a
+\]
+y
+\[
+	n=1,3 : \quad - q \: \frac{b}{r}\Frac{b}{a}^n \quad n \in \mathbb{N}_{+0} \quad r > b
+\]
+\[
+	n=2,4 : \quad q \Frac{b}{a}^n \quad n \in \mathbb{N} \quad r > b
+\]
+
+Finalmente todo esto se puede ubicar en una serie para la función de Green, que será
+\[
+	G_D = \sum_{n=0}^\infty \left[ \right] +
+	\sum_{n=0}^\infty \left[ \right]  + \frac{1}{|\vbx -\vbx'|}
+\]
+
  
 \end{ejemplo}
 
