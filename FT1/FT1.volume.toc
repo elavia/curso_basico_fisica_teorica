@@ -1,0 +1,107 @@
+\select@language {spanish}
+\contentsline {chapter}{\numberline {1}Conceptos fundamentales de electromagnetismo}{1}
+\contentsline {section}{\numberline {1.1}Electrostática}{2}
+\contentsline {subsection}{\numberline {1.1.1}Conservación de la carga}{3}
+\contentsline {section}{\numberline {1.2}Interacción magnética}{5}
+\contentsline {subsection}{\numberline {1.2.1}Fuerza de un circuito sobre otro}{6}
+\contentsline {section}{\numberline {1.3}Teorema de Helmholtz}{7}
+\contentsline {section}{\numberline {1.4}Ley de Gauss}{7}
+\contentsline {subsection}{\numberline {1.4.1}Gauges}{9}
+\contentsline {subsection}{\numberline {1.4.2}Delta de Dirac}{11}
+\contentsline {subsection}{\numberline {1.4.3}Vectores polares y axiales ante transformaciones}{12}
+\contentsline {section}{\numberline {1.5}El potencial vector}{16}
+\contentsline {section}{\numberline {1.6}Resolviendo problemas de potencial}{20}
+\contentsline {subsection}{\numberline {1.6.1}Unicidad de problemas de potencial}{20}
+\contentsline {chapter}{\numberline {2}Teorema de Green}{25}
+\contentsline {section}{\numberline {2.1}Imágenes y método de Green}{25}
+\contentsline {subsection}{\numberline {2.1.1}El Método de Green}{25}
+\contentsline {section}{\numberline {2.2}Funciones de Green}{27}
+\contentsline {subsection}{\numberline {2.2.1}Función de Green libre}{28}
+\contentsline {subsection}{\numberline {2.2.2}Sobre el caso de Neumann}{29}
+\contentsline {subsection}{\numberline {2.2.3}Green para el problema externo de una esfera}{29}
+\contentsline {subsection}{\numberline {2.2.4}Algunos campos}{32}
+\contentsline {section}{\numberline {2.3}Condiciones de contorno para el campo eléctrico}{34}
+\contentsline {subsection}{\numberline {2.3.1}Carga puntual frente a esfera puesta a tierra}{36}
+\contentsline {subsection}{\numberline {2.3.2}Principio de superposición}{37}
+\contentsline {subsection}{\numberline {2.3.3}Condiciones de contorno para medios magnéticos}{39}
+\contentsline {section}{\numberline {2.4}Desarrollo multipolar}{40}
+\contentsline {section}{\numberline {2.5}Dipolo eléctrico}{43}
+\contentsline {subsection}{\numberline {2.5.1}Independencia del origen para el momento dipolar}{45}
+\contentsline {subsection}{\numberline {2.5.2}Momento cuadripolar de un elipsoide}{46}
+\contentsline {subsection}{\numberline {2.5.3}Interacción de un campo externo con una distribución de carga}{47}
+\contentsline {subsection}{\numberline {2.5.4}Capa dipolar}{48}
+\contentsline {subsection}{\numberline {2.5.5}Momento dipolar por unidad de volumen}{51}
+\contentsline {section}{\numberline {2.6}Desarrollo multipolar para el campo magnético}{56}
+\contentsline {subsection}{\numberline {2.6.1}Interpretacion del momento magnético}{59}
+\contentsline {subsection}{\numberline {2.6.2}Interacción del campo magnético con una distribución de corriente}{60}
+\contentsline {section}{\numberline {2.7}Perturbación por un conductor sobre un campo eléctrico uniforme}{64}
+\contentsline {chapter}{\numberline {3}Método de separación de variables}{68}
+\contentsline {section}{\numberline {3.1}Separación de variables}{68}
+\contentsline {section}{\numberline {3.2}Detalles sobre solución de problemas de potencial}{70}
+\contentsline {section}{\numberline {3.3}Expansiones ortonormales}{72}
+\contentsline {subsection}{\numberline {3.3.1}Prolongación analítica}{73}
+\contentsline {subsection}{\numberline {3.3.2}Comentario multipolos}{74}
+\contentsline {section}{\numberline {3.4}Armónicos esféricos}{75}
+\contentsline {section}{\numberline {3.5}Separación de variables en cilíndricas}{78}
+\contentsline {subsubsection}{Cambio de signo de la constante de separación}{79}
+\contentsline {chapter}{\numberline {4}Expansión en un campo multipolar}{81}
+\contentsline {section}{\numberline {4.1}Desarrollo dipolar del campo magnético}{81}
+\contentsline {section}{\numberline {4.2}Medios materiales}{81}
+\contentsline {subsubsection}{Imán permanente}{83}
+\contentsline {section}{\numberline {4.3}Polarización y magnetización}{84}
+\contentsline {subsubsection}{Algún detalle de contornos magnéticos}{85}
+\contentsline {subsubsection}{Consideraciones en medios magnéticos}{86}
+\contentsline {section}{\numberline {4.4}Consideraciones energéticas}{87}
+\contentsline {section}{\numberline {4.5}Interpretación termodinámica de U}{88}
+\contentsline {section}{\numberline {4.6}Teorema de Thomson}{90}
+\contentsline {section}{\numberline {4.7}Esfera con magnetización uniforme}{91}
+\contentsline {section}{\numberline {4.8}Histéresis}{91}
+\contentsline {section}{\numberline {4.9}Esfera ferromagnética en campo externo}{92}
+\contentsline {chapter}{\numberline {5}Fenómenos dependientes del tiempo}{94}
+\contentsline {section}{\numberline {5.1}Ley de Faraday e inducción}{94}
+\contentsline {subsection}{\numberline {5.1.1}Corrección a las ecuaciones}{95}
+\contentsline {subsection}{\numberline {5.1.2}Potenciales}{95}
+\contentsline {subsection}{\numberline {5.1.3}Cambio de Gauge}{96}
+\contentsline {section}{\numberline {5.2}Conservación de la energía (teorema de Poynting)}{98}
+\contentsline {subsection}{\numberline {5.2.1}Conservación del momento}{100}
+\contentsline {section}{\numberline {5.3}Tensor de Maxwell}{101}
+\contentsline {subsection}{\numberline {5.3.1}Ejemplos del tensor de Maxwell}{102}
+\contentsline {section}{\numberline {5.4}Método cuasiestacionario}{104}
+\contentsline {chapter}{\numberline {6}Ondas planas}{107}
+\contentsline {subsection}{\numberline {6.0.1}Sobre complejos}{108}
+\contentsline {subsection}{\numberline {6.0.2}Poynting promedio y energías promedio}{109}
+\contentsline {section}{\numberline {6.1}Polarización de ondas}{110}
+\contentsline {section}{\numberline {6.2}Reflexión y refracción de ondas en medios}{111}
+\contentsline {subsubsection}{Polarization (Brewster angle)}{114}
+\contentsline {subsubsection}{Reflexión interna total}{114}
+\contentsline {section}{\numberline {6.3}Corrientes en conductores}{115}
+\contentsline {section}{\numberline {6.4}Campo electromagnético en un medio conductor}{117}
+\contentsline {subsection}{\numberline {6.4.1}Algunos ejemplos y casos}{121}
+\contentsline {chapter}{\numberline {7}Relatividad especial}{123}
+\contentsline {section}{\numberline {7.1}Transformación de vectores}{123}
+\contentsline {subsubsection}{Cuadrivectores en el espacio 4D}{125}
+\contentsline {subsubsection}{Intervalos entre eventos}{125}
+\contentsline {subsubsection}{Operadores diferenciales}{126}
+\contentsline {subsection}{\numberline {7.1.1}Transcurso del tiempo en un sistema con V grande}{127}
+\contentsline {subsubsection}{Número de onda y conteo}{128}
+\contentsline {section}{\numberline {7.2}Forma covariante del electromagnetismo}{129}
+\contentsline {subsection}{\numberline {7.2.1}Transformación de los campos}{130}
+\contentsline {subsection}{\numberline {7.2.2}Covarianza con medios materiales}{132}
+\contentsline {section}{\numberline {7.3}Principio de Hamilton y relatividad}{133}
+\contentsline {subsection}{\numberline {7.3.1}Partícula en un campo electromagnético}{136}
+\contentsline {subsection}{\numberline {7.3.2}Cambio de gauge}{139}
+\contentsline {subsection}{\numberline {7.3.3}Especie de tiro oblicuo}{139}
+\contentsline {subsection}{\numberline {7.3.4}cuadrivelocidad}{140}
+\contentsline {chapter}{\numberline {8}Campos de cargas en movimiento}{141}
+\contentsline {section}{\numberline {8.1}Potenciales retardados}{141}
+\contentsline {subsection}{\numberline {8.1.1}Fuente armónica}{144}
+\contentsline {subsection}{\numberline {8.1.2}Radiación a orden $\ell =1$}{148}
+\contentsline {subsection}{\numberline {8.1.3}Ejemplo de antena}{148}
+\contentsline {section}{\numberline {8.2}Campos de una partícula cargada en movimiento}{151}
+\contentsline {section}{\numberline {8.3}Campo de una carga en movimiento}{153}
+\contentsline {section}{\numberline {8.4}Cálculo de potencia irradiada}{154}
+\contentsline {section}{\numberline {8.5}Frenado magnético}{156}
+\contentsline {subsection}{\numberline {8.5.1}Esponja electromagnética}{157}
+\contentsline {chapter}{\numberline {A}Delta de Dirac}{158}
+\contentsline {chapter}{\numberline {B}Coordenadas esféricas y cilíndricas}{159}
+\contentsline {chapter}{\numberline {C}Rejunte}{161}

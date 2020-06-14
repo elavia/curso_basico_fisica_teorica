@@ -1,0 +1,1509 @@
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.7.26)  12 JUN 2020 21:47
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**FT1.c2.tex
+(./FT1.c2.tex
+LaTeX2e <2018-04-01> patch level 5
+(./CBFT_book.cls
+Document Class: CBFT_book 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks14
+\ex@=\dimen103
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen104
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count89
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count90
+\leftroot@=\count91
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count92
+\DOTSCASE@=\count93
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count94
+\c@MaxMatrixCols=\count95
+\dotsspace@=\muskip10
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
+\tag@help=\toks15
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
+\andhelp@=\toks16
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 99.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+))
+\Gin@req@height=\dimen112
+\Gin@req@width=\dimen113
+)
+(/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty
+Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
+\c@lips@count=\count101
+)
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip46
+\bibsep=\skip47
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/polyglossia/polyglossia.sty
+Package: polyglossia 2018/04/07 v1.43 Alternative to Babel for XeLaTeX and LuaL
+aTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count103
+)
+(/usr/share/texlive/texmf-dist/tex/latex/makecmds/makecmds.sty
+Package: makecmds 2009/09/03 v1.0a extra command making commands
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks20
+\XKV@tempa@toks=\toks21
+)
+\XKV@depth=\count104
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2018-06-14 L3 programming layer (loader) 
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+Package: expl3 2018-06-14 L3 programming layer (code)
+\c_max_int=\count105
+\l_tmpa_int=\count106
+\l_tmpb_int=\count107
+\g_tmpa_int=\count108
+\g_tmpb_int=\count109
+\g__kernel_prg_map_int=\count110
+\c_log_iow=\count111
+\l_iow_line_count_int=\count112
+\l__iow_line_target_int=\count113
+\l__iow_one_indent_int=\count114
+\l__iow_indent_int=\count115
+\c_zero_dim=\dimen114
+\c_max_dim=\dimen115
+\l_tmpa_dim=\dimen116
+\l_tmpb_dim=\dimen117
+\g_tmpa_dim=\dimen118
+\g_tmpb_dim=\dimen119
+\c_zero_skip=\skip48
+\c_max_skip=\skip49
+\l_tmpa_skip=\skip50
+\l_tmpb_skip=\skip51
+\g_tmpa_skip=\skip52
+\g_tmpb_skip=\skip53
+\c_zero_muskip=\muskip11
+\c_max_muskip=\muskip12
+\l_tmpa_muskip=\muskip13
+\l_tmpb_muskip=\muskip14
+\g_tmpa_muskip=\muskip15
+\g_tmpb_muskip=\muskip16
+\l_keys_choice_int=\count116
+\l__intarray_loop_int=\count117
+\c__intarray_sp_dim=\dimen120
+\g__intarray_font_int=\count118
+\c__fp_leading_shift_int=\count119
+\c__fp_middle_shift_int=\count120
+\c__fp_trailing_shift_int=\count121
+\c__fp_big_leading_shift_int=\count122
+\c__fp_big_middle_shift_int=\count123
+\c__fp_big_trailing_shift_int=\count124
+\c__fp_Bigg_leading_shift_int=\count125
+\c__fp_Bigg_middle_shift_int=\count126
+\c__fp_Bigg_trailing_shift_int=\count127
+\g__fp_array_int=\count128
+\l__fp_array_loop_int=\count129
+\l__sort_length_int=\count130
+\l__sort_min_int=\count131
+\l__sort_top_int=\count132
+\l__sort_max_int=\count133
+\l__sort_true_max_int=\count134
+\l__sort_block_int=\count135
+\l__sort_begin_int=\count136
+\l__sort_end_int=\count137
+\l__sort_A_int=\count138
+\l__sort_B_int=\count139
+\l__sort_C_int=\count140
+\l__tl_analysis_normal_int=\count141
+\l__tl_analysis_index_int=\count142
+\l__tl_analysis_nesting_int=\count143
+\l__tl_analysis_type_int=\count144
+\l__regex_internal_a_int=\count145
+\l__regex_internal_b_int=\count146
+\l__regex_internal_c_int=\count147
+\l__regex_balance_int=\count148
+\l__regex_group_level_int=\count149
+\l__regex_mode_int=\count150
+\c__regex_cs_in_class_mode_int=\count151
+\c__regex_cs_mode_int=\count152
+\l__regex_catcodes_int=\count153
+\l__regex_default_catcodes_int=\count154
+\c__regex_catcode_L_int=\count155
+\c__regex_catcode_O_int=\count156
+\c__regex_catcode_A_int=\count157
+\c__regex_all_catcodes_int=\count158
+\l__regex_show_lines_int=\count159
+\l__regex_min_state_int=\count160
+\l__regex_max_state_int=\count161
+\l__regex_left_state_int=\count162
+\l__regex_right_state_int=\count163
+\l__regex_capturing_group_int=\count164
+\l__regex_min_pos_int=\count165
+\l__regex_max_pos_int=\count166
+\l__regex_curr_pos_int=\count167
+\l__regex_start_pos_int=\count168
+\l__regex_success_pos_int=\count169
+\l__regex_curr_char_int=\count170
+\l__regex_curr_catcode_int=\count171
+\l__regex_last_char_int=\count172
+\l__regex_case_changed_char_int=\count173
+\l__regex_curr_state_int=\count174
+\l__regex_step_int=\count175
+\l__regex_min_active_int=\count176
+\l__regex_max_active_int=\count177
+\l__regex_replacement_csnames_int=\count178
+\l__regex_match_count_int=\count179
+\l__regex_min_submatch_int=\count180
+\l__regex_submatch_int=\count181
+\l__regex_zeroth_submatch_int=\count182
+\g__regex_trace_regex_int=\count183
+\c_empty_box=\box28
+\l_tmpa_box=\box29
+\l_tmpb_box=\box30
+\g_tmpa_box=\box31
+\g_tmpb_box=\box32
+\l__box_top_dim=\dimen121
+\l__box_bottom_dim=\dimen122
+\l__box_left_dim=\dimen123
+\l__box_right_dim=\dimen124
+\l__box_top_new_dim=\dimen125
+\l__box_bottom_new_dim=\dimen126
+\l__box_left_new_dim=\dimen127
+\l__box_right_new_dim=\dimen128
+\l__box_internal_box=\box33
+\l__coffin_internal_box=\box34
+\l__coffin_internal_dim=\dimen129
+\l__coffin_offset_x_dim=\dimen130
+\l__coffin_offset_y_dim=\dimen131
+\l__coffin_x_dim=\dimen132
+\l__coffin_y_dim=\dimen133
+\l__coffin_x_prime_dim=\dimen134
+\l__coffin_y_prime_dim=\dimen135
+\c_empty_coffin=\box35
+\l__coffin_aligned_coffin=\box36
+\l__coffin_aligned_internal_coffin=\box37
+\l_tmpa_coffin=\box38
+\l_tmpb_coffin=\box39
+\l__coffin_display_coffin=\box40
+\l__coffin_display_coord_coffin=\box41
+\l__coffin_display_pole_coffin=\box42
+\l__coffin_display_offset_dim=\dimen136
+\l__coffin_display_x_dim=\dimen137
+\l__coffin_display_y_dim=\dimen138
+\g__file_internal_ior=\read1
+\l__coffin_bounding_shift_dim=\dimen139
+\l__coffin_left_corner_dim=\dimen140
+\l__coffin_right_corner_dim=\dimen141
+\l__coffin_bottom_corner_dim=\dimen142
+\l__coffin_top_corner_dim=\dimen143
+\l__coffin_scaled_total_height_dim=\dimen144
+\l__coffin_scaled_width_dim=\dimen145
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3xdvipdfmx.def
+File: l3xdvidpfmx.def 2018-06-14 v L3 Experimental driver: xdvipdfmx
+\g__driver_image_int=\count184
+))
+Package: xparse 2018-05-12 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count185
+\g__xparse_grabber_int=\count186
+\l__xparse_m_args_int=\count187
+\l__xparse_mandatory_args_int=\count188
+\l__xparse_v_nesting_int=\count189
+)
+Package: fontspec 2018/07/30 vv2.6h Font selection for XeLaTeX and LuaLaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2018/07/30 vv2.6h Font selection for XeLaTeX and LuaLaT
+eX
+\l__fontspec_script_int=\count190
+\l__fontspec_language_int=\count191
+\l__fontspec_strnum_int=\count192
+\l__fontspec_tmp_int=\count193
+\l__fontspec_em_int=\count194
+\l__fontspec_emdef_int=\count195
+\l__fontspec_strong_int=\count196
+\l__fontspec_strongdef_int=\count197
+\l__fontspec_tmpa_dim=\dimen146
+\l__fontspec_tmpb_dim=\dimen147
+\l__fontspec_tmpc_dim=\dimen148
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/tuenc.def
+File: tuenc.def 2017/04/05 v2.0i Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TU on input line 82.
+))
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \fontspec with sig. 'O{}mO{}' on line 561.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmainfont with sig. 'O{}mO{}' on line 566.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setsansfont with sig. 'O{}mO{}' on line 571.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmonofont with sig. 'O{}mO{}' on line 576.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathrm with sig. 'O{}mO{}' on line 580.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setboldmathrm with sig. 'O{}mO{}' on line 584.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathsf with sig. 'O{}mO{}' on line 588.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathtt with sig. 'O{}mO{}' on line 592.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setromanfont with sig. 'O{}mO{}' on line 596.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontfamily with sig. 'mO{}mO{}' on line 600.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \renewfontfamily with sig. 'mO{}mO{}' on line 604.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setfontfamily with sig. 'mO{}mO{}' on line 608.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontface with sig. 'mO{}mO{}' on line 612.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \defaultfontfeatures with sig. 't+om' on line 619.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \addfontfeatures with sig. 'm' on line 623.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \addfontfeature with sig. 'm' on line 627.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontfeature with sig. 'mm' on line 631.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newAATfeature with sig. 'mmmm' on line 635.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newopentypefeature with sig. 'mmm' on line 639.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newICUfeature with sig. 'mmm' on line 643.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \aliasfontfeature with sig. 'mm' on line 647.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \aliasfontfeatureoption with sig. 'mmm' on line 651.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontscript with sig. 'mm' on line 655.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontlanguage with sig. 'mm' on line 659.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareFontExtensions with sig. 'm' on line 663.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \IfFontFeatureActiveTF with sig. 'mmm' on line 667.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \EncodingCommand with sig. 'mO{}m' on line 3655.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \EncodingAccent with sig. 'mm' on line 3661.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \EncodingSymbol with sig. 'mm' on line 3667.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \EncodingComposite with sig. 'mmm' on line 3673.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \EncodingCompositeCommand with sig. 'mmm' on line 3679.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareUnicodeEncoding with sig. 'mm' on line 3704.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \UndeclareSymbol with sig. 'm' on line 3710.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \UndeclareAccent with sig. 'm' on line 3716.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \UndeclareCommand with sig. 'm' on line 3722.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \UndeclareComposite with sig. 'mm' on line 3729.
+.................................................
+
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg)
+LaTeX Info: Redefining \itshape on input line 3910.
+LaTeX Info: Redefining \slshape on input line 3915.
+LaTeX Info: Redefining \scshape on input line 3920.
+LaTeX Info: Redefining \upshape on input line 3925.
+LaTeX Info: Redefining \em on input line 3955.
+LaTeX Info: Redefining \emph on input line 3980.
+LaTeX Info: Redefining \- on input line 4034.
+.................................................
+. LaTeX info: "xparse/redefine-command"
+. 
+. Redefining command \oldstylenums with sig. 'm' on line 4129.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \liningnums with sig. 'm' on line 4133.
+.................................................
+))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\xpg@normalclass=\XeTeXcharclass1
+)
+(/usr/share/texlive/texmf-dist/tex/latex/polyglossia/gloss-spanish.ldf
+File: gloss-spanish.ldf polyglossia: module for spanish
+)
+Package polyglossia Info: Default language is spanish.
+
+(./CBFT.estilo.sty (/usr/share/texlive/texmf-dist/tex/latex/was/fixmath.sty
+Package: fixmath 2000/04/11 v0.9 (WaS)
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 27.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 28.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 29.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 30.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 31.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 32.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 33.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 34.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 36.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 37.
+LaTeX Font Info:    Redeclaring math symbol \alpha on input line 38.
+LaTeX Font Info:    Redeclaring math symbol \beta on input line 39.
+LaTeX Font Info:    Redeclaring math symbol \gamma on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \delta on input line 41.
+LaTeX Font Info:    Redeclaring math symbol \epsilon on input line 42.
+LaTeX Font Info:    Redeclaring math symbol \zeta on input line 43.
+LaTeX Font Info:    Redeclaring math symbol \eta on input line 44.
+LaTeX Font Info:    Redeclaring math symbol \theta on input line 45.
+LaTeX Font Info:    Redeclaring math symbol \iota on input line 46.
+LaTeX Font Info:    Redeclaring math symbol \kappa on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \lambda on input line 48.
+LaTeX Font Info:    Redeclaring math symbol \mu on input line 49.
+LaTeX Font Info:    Redeclaring math symbol \nu on input line 50.
+LaTeX Font Info:    Redeclaring math symbol \xi on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \pi on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \rho on input line 53.
+LaTeX Font Info:    Redeclaring math symbol \sigma on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \tau on input line 55.
+LaTeX Font Info:    Redeclaring math symbol \upsilon on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \phi on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \chi on input line 58.
+LaTeX Font Info:    Redeclaring math symbol \psi on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \omega on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \varepsilon on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \vartheta on input line 62.
+LaTeX Font Info:    Redeclaring math symbol \varpi on input line 63.
+LaTeX Font Info:    Redeclaring math symbol \varphi on input line 64.
+LaTeX Font Info:    Redeclaring math symbol \varrho on input line 65.
+LaTeX Font Info:    Redeclaring math symbol \varsigma on input line 66.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/unicode-math/unicode-math.sty
+Package: unicode-math 2018/07/29 vv0.8m Unicode maths in XeLaTeX and LuaLaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
+Package: unicode-math-xetex 2018/07/29 vv0.8m Unicode maths in XeLaTeX and LuaL
+aTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2018-05-12 LaTeX2e option processing using LaTeX3 keys
+)
+(/usr/share/texlive/texmf-dist/tex/latex/filehook/filehook.sty
+Package: filehook 2011/10/12 v0.5d Hooks for input files
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fix-cm.sty
+Package: fix-cm 2015/01/14 v1.1t fixes to LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+))
+\g__um_fam_int=\count198
+\g__um_fonts_used_int=\count199
+\l__um_primecount_int=\count266
+\g__um_primekern_muskip=\muskip17
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \unimathsetup with sig. 'm' on line 285.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathfont with sig. 'O{}mO{}' on line 289.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathfontface with sig. 'mO{}mO{}' on line 293.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setoperatorfont with sig. 'm' on line 298.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \addnolimits with sig. 'm' on line 303.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \removenolimits with sig. 'm' on line 307.
+.................................................
+
+(/usr/share/texlive/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex)
+.................................................
+. unicode-math info: "patch-macro"
+. 
+. I'm going to patch macro \subarray.
+.................................................
+.................................................
+. unicode-math info: "patch-macro"
+. 
+. I'm going to patch macro \r@@t.
+.................................................
+.................................................
+. LaTeX info: "xparse/redefine-command"
+. 
+. Redefining command \not with sig. 'm' on line 3909.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \NewNegationCommand with sig. 'mm' on line 3913.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \RenewNegationCommand with sig. 'mm' on line 3917.
+.................................................
+))
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'LibreBask(0)' created for font 'LibreBask' with options [Path =
+. fonts/,UprightFont = LibreBaskerville-Regular,ItalicFont =
+. LibreBaskerville-Italic,BoldFont = LibreBaskerville-Bold].
+.  
+.  This font family consists of the following NFSS series/shapes:
+.  
+. - 'normal' (m/n) with NFSS spec.:
+. <->"[fonts/LibreBaskerville-Regular]/OT:script=latn;language=DFLT;"
+. - 'small caps'  (m/sc) with NFSS spec.: 
+. - 'bold' (bx/n) with NFSS spec.:
+. <->"[fonts/LibreBaskerville-Bold]/OT:script=latn;language=DFLT;"
+. - 'bold small caps'  (bx/sc) with NFSS spec.: 
+. - 'italic' (m/it) with NFSS spec.:
+. <->"[fonts/LibreBaskerville-Italic]/OT:script=latn;language=DFLT;"
+. - 'italic small caps'  (m/itsc) with NFSS spec.: 
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \LibreBask with sig. '' on line 38.
+.................................................
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'Stix(0)' created for font 'Stix' with options [Path =
+. fonts/,UprightFont = STIX-Regular,ItalicFont = STIX-Italic,BoldFont =
+. STIX-Bold,BoldItalicFont = STIX-BoldItalic].
+.  
+.  This font family consists of the following NFSS series/shapes:
+.  
+. - 'normal' (m/n) with NFSS spec.:
+. <->"[fonts/STIX-Regular]/OT:script=latn;language=DFLT;"
+. - 'small caps'  (m/sc) with NFSS spec.: 
+. - 'bold' (bx/n) with NFSS spec.:
+. <->"[fonts/STIX-Bold]/OT:script=latn;language=DFLT;"
+. - 'bold small caps'  (bx/sc) with NFSS spec.: 
+. - 'italic' (m/it) with NFSS spec.:
+. <->"[fonts/STIX-Italic]/OT:script=latn;language=DFLT;"
+. - 'italic small caps'  (m/itsc) with NFSS spec.: 
+. - 'bold italic' (bx/it) with NFSS spec.:
+. <->"[fonts/STIX-BoldItalic]/OT:script=latn;language=DFLT;"
+. - 'bold italic small caps'  (bx/itsc) with NFSS spec.: 
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \Stix with sig. '' on line 46.
+.................................................
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2018/04/16 v5.8 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+\Gm@cnth=\count267
+\Gm@cntv=\count268
+\c@Gm@tempcnt=\count269
+\Gm@bindingoffset=\dimen149
+\Gm@wd@mp=\dimen150
+\Gm@odd@mp=\dimen151
+\Gm@even@mp=\dimen152
+\Gm@layoutwidth=\dimen153
+\Gm@layoutheight=\dimen154
+\Gm@layouthoffset=\dimen155
+\Gm@layoutvoffset=\dimen156
+\Gm@dimlist=\toks22
+)
+(/usr/share/texlive/texmf-dist/tex/latex/marginnote/marginnote.sty
+Package: marginnote 2018/08/09 v1.4b non floating margin notes for LaTeX
+\c@mn@abspage=\count270
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2018/05/01 v3.3-147 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2018/05/27 v1.8a caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen157
+\captionmargin@=\dimen158
+\captionwidth=\dimen159
+\caption@tempdima=\dimen160
+\caption@indent=\dimen161
+\caption@parindent=\dimen162
+\caption@hangindent=\dimen163
+)
+\c@ContinuedFloat=\count271
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tocloft/tocloft.sty
+Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
+Package tocloft Info: The document has chapter divisions on input line 51.
+\cftparskip=\skip54
+\cftbeforetoctitleskip=\skip55
+\cftaftertoctitleskip=\skip56
+\cftbeforepartskip=\skip57
+\cftpartnumwidth=\skip58
+\cftpartindent=\skip59
+\cftbeforechapskip=\skip60
+\cftchapindent=\skip61
+\cftchapnumwidth=\skip62
+\cftbeforesecskip=\skip63
+\cftsecindent=\skip64
+\cftsecnumwidth=\skip65
+\cftbeforesubsecskip=\skip66
+\cftsubsecindent=\skip67
+\cftsubsecnumwidth=\skip68
+\cftbeforesubsubsecskip=\skip69
+\cftsubsubsecindent=\skip70
+\cftsubsubsecnumwidth=\skip71
+\cftbeforeparaskip=\skip72
+\cftparaindent=\skip73
+\cftparanumwidth=\skip74
+\cftbeforesubparaskip=\skip75
+\cftsubparaindent=\skip76
+\cftsubparanumwidth=\skip77
+\cftbeforeloftitleskip=\skip78
+\cftafterloftitleskip=\skip79
+\cftbeforefigskip=\skip80
+\cftfigindent=\skip81
+\cftfignumwidth=\skip82
+\c@lofdepth=\count272
+\c@lotdepth=\count273
+\cftbeforelottitleskip=\skip83
+\cftafterlottitleskip=\skip84
+\cftbeforetabskip=\skip85
+\cfttabindent=\skip86
+\cfttabnumwidth=\skip87
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count274
+\rotFPtop=\skip88
+\rotFPbot=\skip89
+\rot@float@box=\box43
+\rot@mess@toks=\toks23
+)
+(/usr/share/texlive/texmf-dist/tex/latex/braket/braket.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2018/08/03 v2.3 Span multiple rows of a table
+\multirow@colwidth=\skip90
+\multirow@cntb=\count275
+\multirow@dima=\skip91
+\bigstrutjot=\dimen164
+)
+(/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2018/04/12 v2.0h eso-pic (RN)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/textpos/textpos.sty
+Package: textpos 2016/06/07 v1.8
+
+Package: textpos 2016/06/07 1.8, absolute positioning of text on the page
+(/usr/share/texlive/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+)
+\TP@textbox=\box44
+\TP@holdbox=\box45
+\TPHorizModule=\dimen165
+\TPVertModule=\dimen166
+\TP@margin=\dimen167
+\TP@absmargin=\dimen168
+
+Grid set 16 x 16 = 29.87538pt x 37.34424pt
+\TPboxrulesize=\dimen169
+\TP@ox=\dimen170
+\TP@oy=\dimen171
+\TP@tbargs=\toks24
+\TP@prevdepth=\dimen172
+TextBlockOrigin set to 0pt x 0pt
+) (/usr/share/texlive/texmf-dist/tex/latex/units/nicefrac.sty
+Package: nicefrac 1998/08/04 v0.9b Nice fractions
+\L@UnitsRaiseDisplaystyle=\skip92
+\L@UnitsRaiseTextstyle=\skip93
+\L@UnitsRaiseScriptstyle=\skip94
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
+)
+\c@problemas_count=\count276
+\c@notas_contador=\count277
+\c@ejscount=\count278
+) (./FT1.c2.aux)
+\openout1 = `FT1.c2.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 31.
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'latinmodern-math.otf(0)' created for font
+. 'latinmodern-math.otf' with options
+. [BoldItalicFont={},ItalicFont={},Script=Math,BoldFont={latinmodern-math.otf}]
+.
+.  
+.  This font family consists of the following NFSS series/shapes:
+.  
+. - 'normal' (m/n) with NFSS spec.:
+. <->"[latinmodern-math.otf]/OT:script=math;language=DFLT;"
+. - 'small caps'  (m/sc) with NFSS spec.: 
+. - 'bold' (bx/n) with NFSS spec.:
+. <->"[latinmodern-math.otf]/OT:script=math;language=DFLT;"
+. - 'bold small caps'  (bx/sc) with NFSS spec.: 
+.................................................
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'latinmodern-math.otf(1)' created for font
+. 'latinmodern-math.otf' with options
+. [BoldItalicFont={},ItalicFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=
+6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-mat
+h.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf}].
+.  
+.  This font family consists of the following NFSS series/shapes:
+.  
+. - 'normal' (m/n) with NFSS spec.:
+. <8.5->"[latinmodern-math.otf]/OT:script=math;language=DFLT;"<6-8.5>"[latinmod
+ern-math.otf]/OT:script=math;language=DFLT;+ssty=0;"<-6>"[latinmodern-math.otf]
+/OT:script=math;language=DFLT;+ssty=1;"
+. - 'small caps'  (m/sc) with NFSS spec.: 
+. - 'bold' (bx/n) with NFSS spec.:
+. <->"[latinmodern-math.otf]/OT:script=math;language=DFLT;"
+. - 'bold small caps'  (bx/sc) with NFSS spec.: 
+.................................................
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 31.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
+ line 31.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 31.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> TU/latinmodern-math.otf(1)/bx/n on inp
+ut line 31.
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'latinmodern-math.otf(2)' created for font
+. 'latinmodern-math.otf' with options
+. [BoldItalicFont={},ItalicFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=
+6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-mat
+h.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},Scale=1.00001,Fo
+ntAdjustment={\fontdimen
+. 8\font =6.77pt\relax \fontdimen 9\font =3.94pt\relax \fontdimen 10\font
+. =4.44pt\relax \fontdimen 11\font =6.86pt\relax \fontdimen 12\font
+. =3.45pt\relax \fontdimen 13\font =3.63pt\relax \fontdimen 14\font
+. =3.63pt\relax \fontdimen 15\font =2.89pt\relax \fontdimen 16\font
+. =2.47pt\relax \fontdimen 17\font =2.47pt\relax \fontdimen 18\font
+. =2.5pt\relax \fontdimen 19\font =2.0pt\relax \fontdimen 22\font =2.5pt\relax
+. \fontdimen 20\font =0pt\relax \fontdimen 21\font =0pt\relax }].
+.  
+.  This font family consists of the following NFSS series/shapes:
+.  
+. - 'normal' (m/n) with NFSS spec.:
+. <8.5->s*[1.00001]"[latinmodern-math.otf]/OT:script=math;language=DFLT;"<6-8.5
+>s*[1.00001]"[latinmodern-math.otf]/OT:script=math;language=DFLT;+ssty=0;"<-6>s
+*[1.00001]"[latinmodern-math.otf]/OT:script=math;language=DFLT;+ssty=1;"
+. - 'small caps'  (m/sc) with NFSS spec.: 
+. and font adjustment code:
+. \fontdimen 8\font =6.77pt\relax \fontdimen 9\font =3.94pt\relax \fontdimen
+. 10\font =4.44pt\relax \fontdimen 11\font =6.86pt\relax \fontdimen 12\font
+. =3.45pt\relax \fontdimen 13\font =3.63pt\relax \fontdimen 14\font
+. =3.63pt\relax \fontdimen 15\font =2.89pt\relax \fontdimen 16\font
+. =2.47pt\relax \fontdimen 17\font =2.47pt\relax \fontdimen 18\font
+. =2.5pt\relax \fontdimen 19\font =2.0pt\relax \fontdimen 22\font =2.5pt\relax
+. \fontdimen 20\font =0pt\relax \fontdimen 21\font =0pt\relax 
+. - 'bold' (bx/n) with NFSS spec.:
+. <->s*[1.00001]"[latinmodern-math.otf]/OT:script=math;language=DFLT;"
+. - 'bold small caps'  (bx/sc) with NFSS spec.: 
+. and font adjustment code:
+. \fontdimen 8\font =6.77pt\relax \fontdimen 9\font =3.94pt\relax \fontdimen
+. 10\font =4.44pt\relax \fontdimen 11\font =6.86pt\relax \fontdimen 12\font
+. =3.45pt\relax \fontdimen 13\font =3.63pt\relax \fontdimen 14\font
+. =3.63pt\relax \fontdimen 15\font =2.89pt\relax \fontdimen 16\font
+. =2.47pt\relax \fontdimen 17\font =2.47pt\relax \fontdimen 18\font
+. =2.5pt\relax \fontdimen 19\font =2.0pt\relax \fontdimen 22\font =2.5pt\relax
+. \fontdimen 20\font =0pt\relax \fontdimen 21\font =0pt\relax 
+.................................................
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 31.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
+t line 31.
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 31.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> TU/latinmodern-math.otf(2)/bx/n on inp
+ut line 31.
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'latinmodern-math.otf(3)' created for font
+. 'latinmodern-math.otf' with options
+. [BoldItalicFont={},ItalicFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=
+6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-mat
+h.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},Scale=0.99999,Fo
+ntAdjustment={\fontdimen
+. 8\font =0.4pt\relax \fontdimen 9\font =2.0pt\relax \fontdimen 10\font
+. =1.67pt\relax \fontdimen 11\font =1.11pt\relax \fontdimen 12\font
+. =6.0pt\relax \fontdimen 13\font =0pt\relax }].
+.  
+.  This font family consists of the following NFSS series/shapes:
+.  
+. - 'normal' (m/n) with NFSS spec.:
+. <8.5->s*[0.99999]"[latinmodern-math.otf]/OT:script=math;language=DFLT;"<6-8.5
+>s*[0.99999]"[latinmodern-math.otf]/OT:script=math;language=DFLT;+ssty=0;"<-6>s
+*[0.99999]"[latinmodern-math.otf]/OT:script=math;language=DFLT;+ssty=1;"
+. - 'small caps'  (m/sc) with NFSS spec.: 
+. and font adjustment code:
+. \fontdimen 8\font =0.4pt\relax \fontdimen 9\font =2.0pt\relax \fontdimen
+. 10\font =1.67pt\relax \fontdimen 11\font =1.11pt\relax \fontdimen 12\font
+. =6.0pt\relax \fontdimen 13\font =0pt\relax 
+. - 'bold' (bx/n) with NFSS spec.:
+. <->s*[0.99999]"[latinmodern-math.otf]/OT:script=math;language=DFLT;"
+. - 'bold small caps'  (bx/sc) with NFSS spec.: 
+. and font adjustment code:
+. \fontdimen 8\font =0.4pt\relax \fontdimen 9\font =2.0pt\relax \fontdimen
+. 10\font =1.67pt\relax \fontdimen 11\font =1.11pt\relax \fontdimen 12\font
+. =6.0pt\relax \fontdimen 13\font =0pt\relax 
+.................................................
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 3
+1.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
+t line 31.
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 31.
+
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/bx/n on inp
+ut line 31.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(28.45274pt, 318.6707pt, 130.88284pt)
+* v-part:(T,H,B)=(48.36958pt, 500.7687pt, 48.36958pt)
+* \paperwidth=478.00629pt
+* \paperheight=597.50787pt
+* \textwidth=318.6707pt
+* \textheight=500.7687pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
+* \topmargin=-53.9679pt
+* \headheight=12.0pt
+* \headsep=18.06749pt
+* \topskip=10.0pt
+* \footskip=25.29494pt
+* \marginparwidth=113.81102pt
+* \marginparsep=8.5359pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: rotating package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\AtBeginShipoutBox=\box46
+ABD: EveryShipout initializing macros
+Capítulo 1.
+File: images/fig_ft1_imagegreen1.pdf Graphic file (type pdf)
+<use images/fig_ft1_imagegreen1.pdf>
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00015pt on input line 52.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.01247pt on input line 52.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 4.9808pt on input line 52.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99985pt on input line 52.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.01224pt on input line 52.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.98067pt on input line 52.
+LaTeX Font Info:    Try loading font information for U+msa on input line 52.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 52.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+
+]
+File: images/fig_ft1_imagegreenCasos.pdf Graphic file (type pdf)
+<use images/fig_ft1_imagegreenCasos.pdf>
+ [2]
+Overfull \hbox (39.8841pt too wide) detected at line 150
+[][][][] [] [][] [][][][] [][][][][][][][] [][][] [] [] [][] []  [][][][]
+ []
+
+
+Overfull \hbox (23.0441pt too wide) detected at line 157
+[] [] [][] [][][][] [][][][][][][][] [][][] [] [] [][] []  [][][][]
+ []
+
+[3] [4]
+Package marginnote Info: Margin note 5.1 is on absolute page 5 on input line 25
+0.
+Package marginnote Info: right page because not two side mode on input line 250
+.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 250.
+ [5]
+File: images/fig_ft1_esfera_imagenes.pdf Graphic file (type pdf)
+<use images/fig_ft1_esfera_imagenes.pdf>
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 9.00014pt on input line 283.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.00009pt on input line 283.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00008pt on input line 283.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 8.99986pt on input line 283.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.99991pt on input line 283.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99992pt on input line 283.
+Package marginnote Info: Margin note 6.1 is on absolute page 7 on input line 29
+7.
+Package marginnote Info: right page because not two side mode on input line 297
+.
+Package marginnote Info: xpos seems to be 103.54276pt on input line 297.
+ [6]
+Package marginnote Info: Margin note 7.1 is on absolute page 7 on input line 31
+6.
+Package marginnote Info: right page because not two side mode on input line 316
+.
+Package marginnote Info: xpos seems to be 278.08942pt on input line 316.
+File: images/fig_ft1_carga_induciendo_en_esfera.jpg Graphic file (type bmp)
+<images/fig_ft1_carga_induciendo_en_esfera.jpg>
+File: images/fig_ft1_green2.pdf Graphic file (type pdf)
+<use images/fig_ft1_green2.pdf>
+ [7]
+File: images/fig_ft1_campohilos.pdf Graphic file (type pdf)
+<use images/fig_ft1_campohilos.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 374--375
+
+ []
+
+File: images/fig_ft1_g1_p1_A.jpg Graphic file (type bmp)
+<images/fig_ft1_g1_p1_A.jpg>
+[8]
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.00012pt on input line 380.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.99988pt on input line 380.
+ [9]
+File: images/fig_ft1_g1_p1_B.jpg Graphic file (type bmp)
+<images/fig_ft1_g1_p1_B.jpg>
+
+Underfull \hbox (badness 10000) in paragraph at lines 458--459
+
+ []
+
+File: images/fig_ft1_comentario_superposicion.jpg Graphic file (type bmp)
+<images/fig_ft1_comentario_superposicion.jpg>
+File: images/fig_ft1_contornos_E.pdf Graphic file (type pdf)
+<use images/fig_ft1_contornos_E.pdf>
+[10]
+Package marginnote Info: Margin note 11.1 is on absolute page 11 on input line 
+497.
+Package marginnote Info: right page because not two side mode on input line 497
+.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 497.
+File: ell_bold.pdf Graphic file (type pdf)
+<use ell_bold.pdf>
+File: ell_bold.pdf Graphic file (type pdf)
+<use ell_bold.pdf>
+File: ell_bold.pdf Graphic file (type pdf)
+<use ell_bold.pdf>
+Package marginnote Info: Margin note 11.2 is on absolute page 12 on input line 
+517.
+Package marginnote Info: right page because not two side mode on input line 517
+.
+Package marginnote Info: xpos seems to be 169.42276pt on input line 517.
+ [11]
+Package marginnote Info: Margin note 12.1 is on absolute page 12 on input line 
+526.
+Package marginnote Info: right page because not two side mode on input line 526
+.
+Package marginnote Info: xpos seems to be 318.07278pt on input line 526.
+Package marginnote Info: Margin note 12.2 is on absolute page 13 on input line 
+569.
+Package marginnote Info: right page because not two side mode on input line 569
+.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 569.
+ [12]
+Package marginnote Info: Margin note 13.1 is on absolute page 13 on input line 
+580.
+Package marginnote Info: right page because not two side mode on input line 580
+.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 580.
+File: images/fig_ft1_calculo_carga_fast.jpg Graphic file (type bmp)
+<images/fig_ft1_calculo_carga_fast.jpg>
+Missing character: There is no 𝛴 in font [lmroman10-regular]:mapping=tex-text;!
+File: images/fig_ft1_rho_rodeada_por_V.jpg Graphic file (type bmp)
+<images/fig_ft1_rho_rodeada_por_V.jpg>
+ [13] [14]
+Package marginnote Info: Margin note 15.1 is on absolute page 15 on input line 
+678.
+Package marginnote Info: right page because not two side mode on input line 678
+.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 678.
+File: images/fig_ft1_contorno2.pdf Graphic file (type pdf)
+<use images/fig_ft1_contorno2.pdf>
+ [15]
+Package marginnote Info: Margin note 16.1 is on absolute page 16 on input line 
+741.
+Package marginnote Info: right page because not two side mode on input line 741
+.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 741.
+File: images/fig_ft1_expansion_multipolar.jpg Graphic file (type bmp)
+<images/fig_ft1_expansion_multipolar.jpg>
+ [16]
+Package marginnote Info: Margin note 17.1 is on absolute page 17 on input line 
+756.
+Package marginnote Info: right page because not two side mode on input line 756
+.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 756.
+
+Overfull \hbox (4.60612pt too wide) detected at line 789
+[][] [][] [] [][][] [][] [] [][][][][][] [] [][][][][] [][][] [] [][] []
+ []
+
+[17]
+File: images/fig_ft1_multipolo2.pdf Graphic file (type pdf)
+<use images/fig_ft1_multipolo2.pdf>
+Package marginnote Info: Margin note 18.1 is on absolute page 18 on input line 
+841.
+Package marginnote Info: right page because not two side mode on input line 841
+.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 841.
+File: images/fig_ft1_multipolo3.pdf Graphic file (type pdf)
+<use images/fig_ft1_multipolo3.pdf>
+File: images/fig_ft1_multipolo4.pdf Graphic file (type pdf)
+<use images/fig_ft1_multipolo4.pdf>
+ [18]
+Package marginnote Info: Margin note 19.1 is on absolute page 19 on input line 
+891.
+Package marginnote Info: right page because not two side mode on input line 891
+.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 891.
+ [19]
+Package marginnote Info: Margin note 20.1 is on absolute page 20 on input line 
+914.
+Package marginnote Info: right page because not two side mode on input line 914
+.
+Package marginnote Info: xpos seems to be 302.82248pt on input line 914.
+File: images/fig_ft1_dipolar2.pdf Graphic file (type pdf)
+<use images/fig_ft1_dipolar2.pdf>
+Package marginnote Info: Margin note 20.2 is on absolute page 20 on input line 
+955.
+Package marginnote Info: right page because not two side mode on input line 955
+.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 955.
+ [20]
+File: ell_bold.pdf Graphic file (type pdf)
+<use ell_bold.pdf>
+File: ell_bold.pdf Graphic file (type pdf)
+<use ell_bold.pdf>
+File: ell_bold.pdf Graphic file (type pdf)
+<use ell_bold.pdf>
+File: ell_bold.pdf Graphic file (type pdf)
+<use ell_bold.pdf>
+ [21]
+Package marginnote Info: Margin note 22.1 is on absolute page 22 on input line 
+1001.
+Package marginnote Info: right page because not two side mode on input line 100
+1.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 1001.
+Missing character: There is no ℓ in font [lmroman10-regular]:mapping=tex-text;!
+Package marginnote Info: Margin note 22.2 is on absolute page 22 on input line 
+1014.
+Package marginnote Info: right page because not two side mode on input line 101
+4.
+Package marginnote Info: xpos seems to be 300.87276pt on input line 1014.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1016--1017
+
+ []
+
+File: images/fig_ft1_disco_cargado.jpg Graphic file (type bmp)
+<images/fig_ft1_disco_cargado.jpg>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1026--1027
+
+ []
+
+File: images/fig_ft1_aros_cargados.jpg Graphic file (type bmp)
+<images/fig_ft1_aros_cargados.jpg>
+Package marginnote Info: Margin note 22.3 is on absolute page 23 on input line 
+1043.
+Package marginnote Info: right page because not two side mode on input line 104
+3.
+Package marginnote Info: xpos seems to be 218.0552pt on input line 1043.
+[22]
+Overfull \hbox (28.8904pt too wide) detected at line 1065
+[][] [] [][][][][] [] [][] [] [][][] [][] [] [][][][][] [] [][] [] [][][] [][] 
+[] [][][][][] [] [][] [] [][][]
+ []
+
+Package marginnote Info: Margin note 23.1 is on absolute page 23 on input line 
+1073.
+Package marginnote Info: right page because not two side mode on input line 107
+3.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 1073.
+File: images/fig_ft1_3elipsoides.jpg Graphic file (type bmp)
+<images/fig_ft1_3elipsoides.jpg>
+File: images/fig_ft1_dipolar3.pdf Graphic file (type pdf)
+<use images/fig_ft1_dipolar3.pdf>
+[23]
+Package marginnote Info: Margin note 24.1 is on absolute page 24 on input line 
+1104.
+Package marginnote Info: right page because not two side mode on input line 110
+4.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 1104.
+ [24]
+File: images/fig_ft1_campo_dipolar3.pdf Graphic file (type pdf)
+<use images/fig_ft1_campo_dipolar3.pdf>
+File: images/fig_ft1_campo_dipolar1.pdf Graphic file (type pdf)
+<use images/fig_ft1_campo_dipolar1.pdf>
+ [25]
+Package marginnote Info: Margin note 26.1 is on absolute page 27 on input line 
+1225.
+Package marginnote Info: right page because not two side mode on input line 122
+5.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 1225.
+ [26]
+File: images/fig_ft1_campo_dipolar2.pdf Graphic file (type pdf)
+<use images/fig_ft1_campo_dipolar2.pdf>
+File: images/fig_ft1_dipolarvol.pdf Graphic file (type pdf)
+<use images/fig_ft1_dipolarvol.pdf>
+ [27]
+Underfull \hbox (badness 10000) in paragraph at lines 1288--1289
+
+ []
+
+File: images/fig_ft1_problema3A.jpg Graphic file (type bmp)
+<images/fig_ft1_problema3A.jpg>
+[28] [29]
+File: images/fig_ft1_problema3B.jpg Graphic file (type bmp)
+<images/fig_ft1_problema3B.jpg>
+ [30]
+Package marginnote Info: Margin note 31.1 is on absolute page 31 on input line 
+1435.
+Package marginnote Info: right page because not two side mode on input line 143
+5.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 1435.
+File: images/fig_ft1_problema3C.jpg Graphic file (type bmp)
+<images/fig_ft1_problema3C.jpg>
+Package marginnote Info: Margin note 31.2 is on absolute page 31 on input line 
+1469.
+Package marginnote Info: right page because not two side mode on input line 146
+9.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 1469.
+File: images/fig_ft1_problema3D.jpg Graphic file (type bmp)
+<images/fig_ft1_problema3D.jpg>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1479--1480
+
+ []
+
+File: images/fig_ft1_problema4.jpg Graphic file (type bmp)
+<images/fig_ft1_problema4.jpg>
+[31] [32]
+Package marginnote Info: Margin note 33.1 is on absolute page 33 on input line 
+1575.
+Package marginnote Info: right page because not two side mode on input line 157
+5.
+Package marginnote Info: xpos seems to be 107.33275pt on input line 1575.
+ [33]
+Package marginnote Info: Margin note 34.1 is on absolute page 34 on input line 
+1623.
+Package marginnote Info: right page because not two side mode on input line 162
+3.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 1623.
+Package marginnote Info: Margin note 34.2 is on absolute page 34 on input line 
+1641.
+Package marginnote Info: right page because not two side mode on input line 164
+1.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 1641.
+ [34]
+Overfull \hbox (1.47943pt too wide) detected at line 1677
+[] [] [] [] [] [][] [] [][][][][][][] [] [] [][] [] [][] [] [][][][][][][] [] [
+][] [] [] [][] [] [][] [][][][][][][]
+ []
+
+[35]
+File: ell_bold.pdf Graphic file (type pdf)
+<use ell_bold.pdf>
+File: ell_bold.pdf Graphic file (type pdf)
+<use ell_bold.pdf>
+File: images/fig_ft1_mmag.pdf Graphic file (type pdf)
+<use images/fig_ft1_mmag.pdf>
+File: ell_bold.pdf Graphic file (type pdf)
+<use ell_bold.pdf>
+File: ell_bold.pdf Graphic file (type pdf)
+<use ell_bold.pdf>
+File: ell_bold.pdf Graphic file (type pdf)
+<use ell_bold.pdf>
+File: ell_bold.pdf Graphic file (type pdf)
+<use ell_bold.pdf>
+ [36]
+File: images/fig_ft1_campocorr.pdf Graphic file (type pdf)
+<use images/fig_ft1_campocorr.pdf>
+ [37]
+Underfull \hbox (badness 10000) in paragraph at lines 1804--1805
+
+ []
+
+File: images/fig_ft1_problema_6b.jpg Graphic file (type bmp)
+<images/fig_ft1_problema_6b.jpg>
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 1838--1839
+
+ []
+
+File: images/fig_ft1_problema_11a.jpg Graphic file (type bmp)
+<images/fig_ft1_problema_11a.jpg>
+File: images/fig_ft1_problema_11b.jpg Graphic file (type bmp)
+<images/fig_ft1_problema_11b.jpg>
+[39]
+Package marginnote Info: Margin note 40.1 is on absolute page 40 on input line 
+1876.
+Package marginnote Info: right page because not two side mode on input line 187
+6.
+Package marginnote Info: xpos seems to be 28.45274pt on input line 1876.
+File: images/fig_ft1_problema_11c.jpg Graphic file (type bmp)
+<images/fig_ft1_problema_11c.jpg>
+File: images/fig_ft1_problema_11d.jpg Graphic file (type bmp)
+<images/fig_ft1_problema_11d.jpg>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1903--1904
+
+ []
+
+File: images/fig_ft1_problema_13a.jpg Graphic file (type bmp)
+<images/fig_ft1_problema_13a.jpg>
+[40]
+File: images/fig_ft1_problema_13b.jpg Graphic file (type bmp)
+<images/fig_ft1_problema_13b.jpg>
+File: images/fig_ft1_perturbacion1.pdf Graphic file (type pdf)
+<use images/fig_ft1_perturbacion1.pdf>
+ [41]
+Overfull \hbox (1.45403pt too wide) detected at line 2006
+[] [] [] [] []
+ []
+
+[42]
+File: images/fig_ft1_perturbacion3.pdf Graphic file (type pdf)
+<use images/fig_ft1_perturbacion3.pdf>
+ [43] [44] (./FT1.c2.aux) ) 
+Here is how much of TeX's memory you used:
+ 21052 strings out of 493050
+ 396063 string characters out of 6139094
+ 705946 words of memory out of 5000000
+ 24769 multiletter control sequences out of 15000+600000
+ 538943 words of font info for 91 fonts, out of 8000000 for 9000
+ 1328 hyphenation exceptions out of 8191
+ 64i,11n,98p,826b,728s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on FT1.c2.pdf (44 pages).

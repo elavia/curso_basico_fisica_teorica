@@ -1,0 +1,171 @@
+	\documentclass[10pt,oneside]{CBFT_book}
+	% Algunos paquetes
+	\usepackage{amssymb}
+	\usepackage{amsmath}
+	\usepackage{graphicx}
+	\usepackage{bm}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
+	\usepackage{lipsum}
+
+	\usepackage{natbib}
+	\setcitestyle{square}
+
+	\usepackage{polyglossia}
+	\setdefaultlanguage{spanish}
+
+
+	\usepackage{CBFT.estilo} % Cargo la hoja de estilo
+
+	% Tipografías
+	% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+	% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+	% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+	%===================================================================
+	%	DOCUMENTO PROPIAMENTE DICHO
+	%===================================================================
+
+\begin{document}
+ 
+ 
+\appendix
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\chapter{Delta de Dirac}\label{App.delta_dirac}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La delta de Dirac tiene representaciones numéricas en términos de límites. En sí, debe entenderse como un proceso límite.
+Las dos más utilizadas son las representaciones lorentziana,
+\[
+	\delta (x) = \lim_{\epsilon \to 0} \: \frac{\epsilon }{\pi (x^2 + \epsilon^2)}
+\]
+gaussiana
+\[
+	\delta (x) = \lim_{\epsilon \to 0} \: \frac{\euler^{-x^2/(4\epsilon)} }{ 2 \sqrt{ \pi } \sqrt{ \epsilon } }
+\]
+y la que utiliza la función sinc, [CHECK]
+\[
+	\delta (x) = \lim_{\epsilon \to 0} \: \frac{\sin( x / \epsilon ) }{\pi x}
+\]
+
+\notamargen{Hacer grafiquitos de estas funciones.}
+
+La variable que tiene a cero $\epsilon$ cuantifica el ancho mientras que $1/\epsilon$ cuantifica la altura.
+
+
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\chapter{Coordenadas esféricas y cilíndricas}\label{App.coord_esf_cil}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Acá se condensan algunas expresiones asociadas al aspecto de los operadores diferenciales en los diferentes
+sistemas de coordenadas curvilíneos.
+
+El prototipo de sistema curvilíneo es el esférico.
+Teníamos
+\[
+	\dX = dr \rver + r d\theta \thetaver + r\sin\theta \phiver \qquad 
+	dV = r^2 \sin\theta dr d\theta d\phi
+\]
+donde $r^2 \sin\theta$ es el jacobiano de la transformación.
+
+La idea  es que en cualquier sistema curvilíneo de coordenadas $\{ q_i \}$ se tiene para el diferencial total
+de una función $f$ 
+\[
+	df = \Nabla f \cdot \dX
+\]
+y como en coordenadas cartesianas es
+\[
+	df = \Nabla f \cdot \dX = \sum_i \dpar{f}{q_i} dq_i,
+\]
+la idea es que tiene que valer lo mismo en todo sistema de coordenadas.
+Luego, en un sistema donde las coordenadas no son las cartesianas se tiene
+\[
+	\dX = h_1 dq_1 \hat{e}_1 + h_2 dq_2 \hat{e}_2 + h_3 dq_3 \hat{e}_3
+\]
+donde los $ h_i $ dan la métrica del espacio coordenado. El gradiente será 
+\[
+	\Nabla f = g_1 \hat{e}_1 + g_2 \hat{e}_2 + g_3 \hat{e}_3
+\]
+donde $g_i$ se ajusta pidiendo que el escalar $df$ sea un invariante
+\[
+	\Nabla f \cdot \dX = \sum_i h_i g_i dq_i,
+\]
+de lo cual surge que 
+\[
+	\Nabla \equiv \sum_i \frac{1}{h_i} \dpar{}{q_i} \hat{e}_i.
+\]
+Este es el operador gradiente en un sistema curvilíneo.
+
+La divergencia en cartesianas es 
+\[
+	\divem{F} = \dpar{F_x}{x} + \dpar{F_y}{y} + \dpar{F_z}{z} 
+\]
+y utilizando el teorema de la divergencia de Green,
+\[
+	\int_\Omega \divem{F} d\Omega = \int_{\partial \Omega} \vb{F}\cdot d\vb{S}
+\]
+se arriba a 
+\[
+	\divem{F} = \frac{1}{h_1h_2h_3} \left( 
+	\dpar{}{q_1}\left[ h_2 h_3 F_1 \right] + \dpar{}{q_2}\left[ h_1 h_3 F_2 \right] + \dpar{}{q_3}\left[ h_1 h_2 F_3 \right]
+	\right)
+\]
+
+Luego, el laplaciano (que será el operador más usado en este curso) resulta de 
+\[
+	\lapm{\vp} = \divem{\Nabla \vp},
+\]
+es decir la divergencia del gradiente de la función.
+
+En un sistema curvilíneo la delta será algo como
+\[
+	\delta (\vb{x} - \vb{x}') = \frac{1}{h_1 h_2 h_3 } \delta(q_1 - q_1')\delta(q_2 - q_2') \delta(q_3 - q_3').
+\]
+ 
+\chapter{Rejunte} 
+
+{\bf Simplificaciones}
+
+Recordemos que
+\[
+	\sqrt{ x^2 }  = |x|,
+\]
+la simplificación de las raíces cuadradas implican el módulo para tener en cuenta las dos posibilidades del signo.
+
+{\bf Ángulo entre dos vectores}
+
+En esféricas el ángulo entre dos vectores $\vb{v}_1$ y $\vb{v}_2$, escribiendo los versores en cartesianas resulta 
+\[
+	\cos \gamma \equiv \frac{ \vb{v}_1 \cdot \vb{v}_2 }{ |\vb{v}_1 \cdot \vb{v}_2 |} =
+	\cos( \theta_1 ) \cos( \theta_2 ) + \sin( \theta_1 ) \sin( \theta_2 ) \cos (\vp_1 - \vp_2 )
+\]
+
+{\bf Cálculo diferencial e integral vectorial sobre superficies}
+
+Hablar sobre la normal $\hat{n}$ de una superficie y versores tangenciales $\hat{t}$.
+
+{\bf Identidades vectoriales}
+Esta,
+\[
+	A \cdot {B \times C } = C \cdot {A \times B },
+\]
+y otras.
+
+
+{\bf ID 1}
+Siendo $\vb{A}$ un vector generico y $\phi$ un campo escalar,
+\[
+	\divem{(\phi \vb{A})} = \phi \: \divem{A} + \vb{A}\cdot{\Nabla \phi}
+\]
+
+
+{\bf ID 2}
+\[
+	\Nabla\times[\vb{M}\times\vb{N}] = 
+	\vb{M} \: ( \divem{N} ) - \vb{N} \: ( \divem{M} ) +
+	( \vb{N} \cdot \Nabla ) \: \vb{M} - ( \vb{M} \cdot \Nabla ) \: \vb{N}
+\]
+ 
+\end{document}
