@@ -674,6 +674,69 @@ Desde el otro punto de vista, si tengo un problema como \eqref{problema_potencia
 pensar como la superposición de dos potenciales $ \vp = \vp_1 + \vp_2 $ puedo generarme unas condiciones
 de contorno artificiales que tengan en cuenta las influencias mutuas.
 
+\begin{ejemplo}{\bf Consideraciones sobre imágenes y Green}
+
+Superposición vale para las distribuciones de carga y para los contornos.
+Veamos el siguiente problema.  
+
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_comen_green_super_A.jpg}
+
+Se puede resolver mediante la superposición ilustrada en \textcircled{1} y \textcircled{2}.
+En efecto
+\[
+	\phi_1(\vbx) = \frac{q}{|\vbx - \vb{y}|} - \frac{a/y \: q}{|\vbx - a^2 / y^2 \: \vb{y}|} 
+	\qquad \phi_2(\vbx) =\frac{q'}{|\vbx|}
+\]
+\notamargen{Esta esfera \textcircled{2} equivale a que $V=q/a$.}
+Utilizando la ley de Gauss para una superficie esférica de radio $r$ tal que $a<r<y$, se tiene 
+$\int \vb{E}\cdot \hat{n} dS = 4 \pi Q^n$ y como según la superposición que estamos haciendo
+es $\vb{E}=\vb{E}_1+\vb{E}_2$ resulta 
+\[
+	\int \vb{E}\cdot \hat{n} dS = 4 \pi Q^n = -\frac{4 \pi q a}{y} + 4 \pi q',
+\]
+de manera que 
+\[
+	q'= Q + q\frac{a}{y},
+\]
+y luego:
+\[
+	\phi = \frac{q}{|\vbx - \vb{y}|} - \frac{aq/y}{|\vbx - a^2 / y^2 \: \vb{y}|} +
+	\frac{ Q + q \: a/y }{| \vbx |}
+\]
+donde el segundo término es la imagen de la carga $q$ y es tercero es otra imagen, cuya carga
+está distribuida uniformemente sobre la esfera conductora.
+
+Veamos qué pasa con la fuerza ahora.
+La fuerza sobre la carga $q$ será
+\[
+	\vb{F} = \vb{F}_1 + \vb{F}_2
+\]
+\[
+	\vb{F} = - \frac{q^2}{a^2} \Frac{a}{y}^3 \frac{1}{[ 1 - a^2 / y^2 ]} \hat{e}_y + 
+	q \: \frac{Q + q \: a/y }{ y^2 } \hat{e}_y = 
+	\frac{q}{y^2} \left[ Q - \frac{ q a^3 ( 2y^2 - a^2 ) }{ y ( y^2 - a^2 )^2 } \right] \hat{e}_y
+\]
+lo que nos dice que a cierta distancia la fuerza cambia de signo. Si $ y \gg a $ podemos llegar
+a 
+\[
+	\vb{F} \approx \frac{q}{y^2} \left[ Q - \frac{2 a^3 q }{y^3} \right],
+\]
+o bien, con un límite más brutal, a $\vb{F} \approx q Q /y^2$.
+Se comporta como una carga puntual.
+El gráfico siguiente ilustra la fuerza
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_comen_green_super_B.jpg}
+
+Si un electrón escapa de la superficie de un conducotr necesitamos hacer un trabajo (función trabajo)
+
+\end{ejemplo}
+
+% \includegraphics[width=0.4\textwidth]{images/fig_ft1_comen_green_super_C.jpg}
+% \includegraphics[width=0.4\textwidth]{images/fig_ft1_comen_green_super_D.jpg}
+% \includegraphics[width=0.4\textwidth]{images/fig_ft1_comen_green_super_E.jpg}
+
+
 \notamargen{Habría que entender bien este tema que es crucial. Imagino que working los ejemplos podría
 recuperar lo que alguna vez supe.}
 
