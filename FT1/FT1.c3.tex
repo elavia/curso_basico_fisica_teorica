@@ -3,8 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -30,6 +30,58 @@
 % =================================================================================================
 \chapter{Método de separación de variables}
 % =================================================================================================
+
+Al resolver una PDE (partial differential equation) se termina en general en un problema de
+Sturm-Liouville, que lleva a autovalores y autofunciones.
+
+Un problema regular de Sturm-Liouville está representado por una ecuación del tipo
+\[
+	\dtot{}{x}\left[ r(x) \dtot{f}{x} \right] + [ q(x) + \lambda p(x)] f = 0,
+\]
+donde $p(x)$ es una función peso que definenla ortogonalidad (muchas veces vale 1).
+Las condiciones de contorno en el intervalo $(a,b)$ serán
+\[	
+	f(a) + \dtot{f}{x}(a) = \qquad \qquad f(b) + \dtot{f}{x}(b) =
+\]
+
+En el (a,b) las condiciones de ortogonalidad se leen
+\[
+	\int_a^b \: U_n^*(\xi) U_m(\xi) p(\xi) d\xi = 0 \qquad n \neq m
+\]
+Asimismo, si están normalizadas, se puede escribir
+\[
+	\int_a^b \: U_n^*(\xi) U_m(\xi) p(\xi) d\xi = \delta_{nm}
+\]
+Luego, cualquier $f$ (well behaved) se puede poner como
+\[
+	f(x) \equiv \sum_{n=1}^N a_n U_n(x)
+\]
+Entonces
+\[
+	M_N = \int_a^b \: \left| f(x) - \sum_{n=1}^N \: U_n(x') \right|^2 \: dx,
+\]
+y esta expresión es mínima cuando los $a_n$ son
+\[
+	a_n = \int_a^b \: U_n^*(x') \: f(x') \: p(x') \: dx'
+\]
+
+Entonces,
+\[
+	f(x) = \sum_{n=1}^\infty \: U_n(x')
+\]
+es correcto porque la serie converge. Luego, integrando en $x'$
+\[
+	f(x) = \int_a^b \left[ \sum_{n=1}^\infty \: U_n^*(x') \: f(x') \: p(x') \: dx' \right] U_n(x)
+\]
+y donde
+\[
+	f(x) = \int_a^b \left[ \sum_{n=1}^\infty \: U_n^*(x') U_n(x) \right] \: f(x') \: p(x') \: dx'
+\]
+es claro que esto debe tener comportamiento de delta de Dirac, y
+\[
+	\sum_{n=1}^\infty \: U_n^*(x') U_n(x) = \delta(\vbx-\vbx')
+\]
+es la llamada condición de clausura.
 
 % =================================================================================================
 \section{Separación de variables}
