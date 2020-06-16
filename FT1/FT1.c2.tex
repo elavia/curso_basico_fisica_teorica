@@ -216,25 +216,29 @@ nulos en los contornos.
 
 \subsection{Sobre el caso de Neumann}
 
-Para condiciones de Neumann se toma:
+En el caso de las condiciones de Neumann se tiene un problema si se toma
+$\partial_n G = 0$. En efecto
 \[
-	\Nabla G_N|_S = -\frac{4\pi}{S} = \left. \dpar{G}{n} \right|_S
+	\int \partial_n G dS = \int \Nabla G \cdot \hat{n} \: dS = 
+	\int \Nabla\cdot(\Nabla G) \: dV = \int \nabla^2 G \: dV = - 4 \pi,
 \]
-la integral 
+si el punto de evaluación $\vbx$ está dentro del dominio definido por $V$.
+Por ello, para condiciones de Neumann se toma:
 \[
-	- \frac{1}{4\pi} \int_S \phi|_S \left.\dpar{G}{n}\right|_S  dS
+	\left. \dpar{G}{n} \right|_S = -\frac{4\pi}{S}.
 \]
-no se puede anular con 
+Entonces, la integración resulta en
+\[
+	- \frac{1}{4\pi} \int_S \phi|_S \left.\dpar{G}{n}\right|_S dS =
+	\frac{1}{S} \int \phi dS = <\phi>|_S,
+\]
+que es el valor promedio de $\phi$ en la superficie $S$.
+No se puede anular con 
 \[
 	\left.\dpar{G}{n}\right|_S = 0
 \]
-salvo que el volumen de integración no contenga a $\vb{x}=\vb{x}'$ en cuyo caso:
+salvo que el volumen de integración no contenga a $\vb{x}=\vb{x}'$ en cuyo caso
 se excluye $\vb{x}=\vb{x}'$ de la integración.
-\[
-	- \frac{1}{4\pi} \int_S \phi|_S \left.\dpar{G}{n}\right|_S  dS =
-	\frac{1}{S} \int_S \phi|_S dS = <\phi>|_S
-\]
-que es el valor promedio de $\phi$ en la superficie $S$.
 
 Se suele tomar la superficie $S \to \infty$ de modo que resulte nulo $<\phi>|_S$.
 Se toma el volumen $V$ rodeado por dos superficies una cerrada y finita y la otra
@@ -243,6 +247,8 @@ en infinito entonces
 	<\phi>|_S = 0 \qquad \qquad \left. \dpar{G}{n}\right|_S = 0
 \]
 esto es el llamado {\it problema exterior}.
+\notamargen{Como en scattering.}
+
 
 \subsection{Green para el problema externo de una esfera}
 
@@ -734,7 +740,7 @@ Si un electrón escapa de la superficie de un conducotr necesitamos hacer un tra
 
 % \includegraphics[width=0.4\textwidth]{images/fig_ft1_comen_green_super_C.jpg}
 % \includegraphics[width=0.4\textwidth]{images/fig_ft1_comen_green_super_D.jpg}
-% \includegraphics[width=0.4\textwidth]{images/fig_ft1_comen_green_super_E.jpg}
+%
 
 
 \notamargen{Habría que entender bien este tema que es crucial. Imagino que working los ejemplos podría
@@ -2027,16 +2033,19 @@ Una serie de diagramitas a descular siguen:
 
 
 % =================================================================================================
-\section{Perturbación por un conductor sobre un campo eléctrico uniforme}
+\section{Perturbación de un campo eléctrico uniforme por un conductor}
 % =================================================================================================
 
-Se tiene un campo uniforme con $Q,R \to \infty$ pero con $2Q/R^2 = cte$, según se ve en la Figura.
-
-
-El potencial $\phi$ de la esfera es constante por ser conductor.
-Puedo definir 
+En la figura, parte superior, se tienen dos cargas separadas una distancia $2R$ según se muestra,
+lo que produce un campo 
 \[
-	\phi|_{esf} \equiv 0
+	\vb{E} = \frac{2Q}{R^2}  \zver.
+\]
+En el límite de $Q,R \to \infty$ con $2Q/R^2 = cte$, se tiene un campo uniforme.
+
+El potencial $\phi$ de la esfera es constante por ser conductor, y se puede definir como
+\[
+	\phi|_{\text{esf}} \equiv 0
 \]
 pues $\phi(\infty)\neq 0 $ porque hay densidad de carga $\rho$ en el infinito.
 
@@ -2048,11 +2057,11 @@ pues $\phi(\infty)\neq 0 $ porque hay densidad de carga $\rho$ en el infinito.
 \end{figure}
 Para la carga superior,
 \[
-	\phi_1 = \frac{-Q}{|\vb{x} - R\hat{z}|} + \frac{a/R Q}{|\vb{x} - a^2/R\hat{z}|}
+	\phi_1 = \frac{-Q}{|\vb{x} - R\zver|} + \frac{a/R Q}{|\vb{x} - a^2/R \zver|}
 \]
 mientras que para la inferior
 \[
-	\phi_2 = \frac{Q}{|\vb{x} + R\hat{z}|} + \frac{ a/R Q}{|\vb{x} + a^2/R\hat{z}|}
+	\phi_2 = \frac{Q}{|\vb{x} + R\zver|} - \frac{ a/R Q}{|\vb{x} + a^2/R \zver|}
 \]
 
 Recordemos que
@@ -2061,28 +2070,28 @@ Recordemos que
 \]
 y podemos trabajar el denominador
 \[
-	|\vb{x} - R\hat{z}| = \sqrt{ x^2 + R^2 - 2Rx\cos(\theta)}
+	|\vb{x} - R\zver| = \sqrt{ x^2 + R^2 - 2Rx\cos\theta}
 \]
 \[
-	\frac{1}{|\vb{x} - R\hat{z}|} = \frac{1}{\sqrt{ x^2 + R^2 - 2Rx\cos(\theta)}} =
-	\frac{1}{R(1 + x^2/R^2 - 2x/R\cos(\theta))^(1/2)}
+	\frac{1}{|\vb{x} - R\zver|} = \frac{1}{\sqrt{ x^2 + R^2 - 2Rx\cos\theta}} =
+	\frac{1}{R(1 + x^2/R^2 - 2x/R\cos\theta)^(1/2)}
 \]
 \[
-	\frac{1}{|\vb{x} - R\hat{z}|} \approx \frac{1}{R}\left(1+ \frac{x}{R} \cos(\theta) \right)
+	\frac{1}{|\vb{x} - R\zver|} \approx \frac{1}{R}\left(1+ \frac{x}{R} \cos\theta \right)
 \]
 de manera que luego
 \begin{multline*}
-	\phi(r) \approx Q\left[ \frac{1}{R}\left(1+ \frac{x}{R} \cos(\theta) \right) + 
-	\frac{a}{Rx}\left(1+ \frac{a^2}{Rx} \cos(\theta) \right) + \right. \\
-	\left. \frac{1}{R}\left(1 - \frac{x}{R} \cos(\theta) \right) -
-	\frac{a}{Rx}\left(1 - \frac{a^2}{Rx} \cos(\theta) \right) \right]
+	\phi(r) \approx Q\left[ \frac{1}{R}\left(1+ \frac{x}{R} \cos\theta \right) + 
+	\frac{a}{Rx}\left(1+ \frac{a^2}{Rx} \cos\theta \right) + \right. \\
+	\left. \frac{1}{R}\left(1 - \frac{x}{R} \cos\theta \right) -
+	\frac{a}{Rx}\left(1 - \frac{a^2}{Rx} \cos\theta \right) \right]
 \end{multline*}
 \[
-	\phi(x) \approx -\frac{2Qx}{R^2} \cos(\theta) + \frac{2a^3Q}{R^2x^2}\cos(\theta)
+	\phi(x) \approx -\frac{2Qx}{R^2} \cos\theta + \frac{2a^3Q}{R^2x^2}\cos\theta
 \]
 y haciendo $x\equiv r$ y tomando el límite,
 \[
-	\phi(r) = -E_0 r \cos(\theta) + E_0\frac{a^3}{r^2} \cos(\theta)
+	\phi(r) = -E_0 r \cos\theta + E_0\frac{a^3}{r^2} \cos\theta
 \]
 y la carga total sobre la esfera es nula puesto que estuvo aislada todo el tiempo.
 Respecto de la Figura, si hacemos un Gauss en la zona indicada se obtiene $Q_n=0$,
@@ -2095,14 +2104,21 @@ entonces $\phi(r=a)=0$.
 	\caption{}
 \end{figure}
 
-El segundo término es como un dipolo puntual,
+El segundo término es como un dipolo puntual, apuntando en la misma dirección que el campo
+externo,
 \[
-	E_0\frac{a^3}{r^2} \cos(\theta) = E_0\frac{a^3 \hat{z}\cdot\vb{r}}{r^3} 
+	E_0\frac{a^3}{r^2} \cos\theta = E_0\frac{a^3 \zver\cdot\vb{r}}{r^3} 
 \]
 donde
 \[
-	\vb{p} \equiv E_0 a^3 \hat{z}
+	\vb{p} \equiv E_0 a^3 \zver
 \]
+
+\begin{ejemplo}{\bf Problemita interesante}
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft1_comen_green_super_E.jpg}
+ 
+\end{ejemplo}
 
 
 
