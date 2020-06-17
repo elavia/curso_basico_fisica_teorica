@@ -90,26 +90,77 @@ es la llamada condición de clausura.
 Separamos los problemas en regiones donde vale $\lapm{\phi} = 0$ entonces las fronteras tendrán la
 $\rho(\vb{x}')$ en general en forma de $\sigma,\lambda$.
 
-Para coordenadas cartesianas intentaremos resolver $\lapm{\phi} = 0$, es decir
+Para coordenadas cartesianas la ecuación de Laplace $\lapm{\phi} = 0$, adquiere la forma
 \[
-	\dpar[2]{\phi}{x} + \dpar[2]{\phi}{y}  + \dpar[2]{\phi}{z}  = 0
+	\dpar[2]{\phi}{x} + \dpar[2]{\phi}{y}  + \dpar[2]{\phi}{z}  = 0,
 \]
-pidiendo
+que intentaremos resolver a partir de un {\it ansatz} 
 \[
-	\phi(x,y,z) = X(x)Y(y)Z(z)
+	\phi(x,y,z) = X(x) \: Y(y) \: Z(z)
 \]
-de manera que 
+lo que conduce a 
 \[
-	\frac{1}{X}\dtot[2]{X}{x} + \frac{1}{Y}\dtot[2]{Y}{y} + \frac{1}{Z}\dtot[2]{Z}{z} = 0 \qquad 
-	- \alpha^2  - \beta^2 + \gamma^2 = 0 \quad \Rightarrow  \gamma^2 = \alpha^2 + \beta^2 
+	\frac{1}{X}\dtot[2]{X}{x} + \frac{1}{Y}\dtot[2]{Y}{y} + \frac{1}{Z}\dtot[2]{Z}{z} = 0.
 \]
-cada término es una constante. La solución general es
+Para que esta solución valga, cada término tiene que ser una constante, entonces primeramente
+\[
+	\frac{1}{X} \dtot[2]{X}{x} = - \alpha^2
+\]
+lleva a 
+\[
+	\frac{1}{Y}\dtot[2]{Y}{y} + \frac{1}{Z}\dtot[2]{Z}{z} = \alpha^2,
+\]
+y 
+\[
+	\frac{1}{Y} \dtot[2]{Y}{y} = - \beta^2,
+\]
+conduce a
+\[
+	\frac{1}{Z}\dtot[2]{Z}{z} = \alpha^2 + \beta^2 = \gamma^2
+\]
+donde cada una de estas ecuaciones es una versión simplificada de Sturm-Liouville. En estos
+casos particulares son osciladores armónicos; uno en cada dirección.
+Luego suponiendo $\alpha,\beta \int \mathbb{R}>0$ será $\gamma \in \mathbb{R}$ y la solución 
+general es
 \[
 	\phi(x,y,z) = \sum_{m=0}^\infty \sum_{n=0}^\infty A_{m,n} \euler^{\pm i\alpha_m x}
-	\euler^{\pm i\beta_n y} \euler^{\pm i\sqrt{\alpha_m^2 + \beta_n^2 }z}
+	\euler^{\pm i\beta_n y} \euler^{\pm i\sqrt{\alpha_m^2 + \beta_n^2 }z}.
 \]
-donde habrá que adaptar según las condiciones de contorno. Se da que $A_{m,n}$ es una constante general
-y hay condiciones periódicas en $x,y$
+donde $A_{m,n}$ es una constante general. 
+Las condiciones de contorno permitirán fijar las constantes y entonces la solución tendrá
+diversas formas. 
+
+\begin{ejemplo}{\bf Potencial en una caja}
+
+En este caso interesa el potencial $V$ dentro de la caja. El exterior está fuera del ámbito
+de la resolución.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_potencial_caja.jpg}
+
+Se plantea para el potencial 
+\begin{multline*}
+	\phi(x,y,z) =  \sum_{\alpha,\beta} \:
+	\left[ A_\alpha\sin( \alpha x) + B_\alpha\cos( \alpha x) \right]
+	\left[ C_\beta\sin( \beta x) + D_\beta\cos( \beta x) \right]\times \\
+	\left[ E_\gamma\sin( \gamma x) + F_\gamma\cos( \gamma x) \right]
+\end{multline*}
+Utilizando que el potencial es nulo en los contornos indicados (ver figura) resulta
+\[
+	\phi(0,0,0) = 0 \qquad \longrightarrow \qquad F_\gamma = 0
+\]
+\[
+	B_\alpha = 0 \qquad D_\beta = 0
+\]
+\notamargen{Tal vez poner que esto es por las tapas laterales.}
+
+
+
+
+ 
+\end{ejemplo}
+
+
+Se da que $A_{m,n}$ es una constante general y hay condiciones periódicas en $x,y$
 \[
 	A\euler^{\pm i\alpha x} = A_\alpha \cos(\alpha x) + B_\alpha \sin(\alpha x)
 \]

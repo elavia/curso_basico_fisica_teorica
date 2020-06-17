@@ -804,7 +804,8 @@ No obstante, esta expresión puede ser muy complicada porque en el denominador d
 $\vbx'$ sobre la cual se está integrando. 
 Resulta conveniente entonces hacer un desarrollo del denominador, que es una función de $\vbx'$, en
 torno a un punto que se toma como origen de una esfera que engloba a la distribución de carga.
-Luego, ese dearrollo será válido en puntos externos a dicha esfera.
+Luego, ese dearrollo será válido en puntos externos a dicha esfera. Es decir que la distribución
+de carga tiene que estar localizada.
 
 \notamargen{Se necesita una serie que converja, y que lo haga rápido.
 \includegraphics[width=0.3\textwidth]{images/fig_ft1_expansion_multipolar.jpg}}
@@ -875,11 +876,22 @@ que es la carga total, el momento dipolar,
 \]
 y el momento cuadrupolar
 \[
-	Q_{ij} = \int_V  \rho(\vb{x}) \left[ 3 x_i x_j - \delta_{ij} |\vb{x}|^2 \right] \: dV
-	= 3 \int_V  \rho(\vb{x}) x_i \: x_j  \: dV - \delta_{ij} \int_V  \rho(\vb{x})  |\vb{x}|^2  \: dV
+	Q_{ij} = \int_V  \rho(\vb{x}) \left[ 3 x_i x_j - \delta_{ij} |\vb{x}|^2 \right] \: dV.
 \]
+
+Con esta escritura es
 \[
-	Q_{ij} = 3 C_{ij} - \delta_{ij} C_{ll},
+ 	\phi(\vb{x}) \approx
+	\frac{ q }{| \vbx |} + 
+	\frac{ \pe{p}{x} }{| \vbx |^3} + 
+	\frac{1}{2} \frac{\vb{x}^t \: Q \: \vb{x}}{|\vb{x}|^5}
+\]
+
+Separando la expresión del momento cuadrupolar se ve que
+\[
+	Q_{ij} = 
+	3 \int_V  \rho(\vb{x}) x_i \: x_j  \: dV - \delta_{ij} \int_V  \rho(\vb{x})  |\vb{x}|^2  \: dV
+	= 3 C_{ij} - \delta_{ij} C_{ll},
 \]
 donde esta última expresión permite ver que el momento cuadrupolar es de traza nula ($C_{ll}$ es la traza).
 
@@ -891,7 +903,7 @@ Tiene traza nula,
 \[
 	Q_{xx} + Q_{yy} + Q_{zz}  = 0
 \]
-
+y cada $Q_{ii}$ informa sobre la distribución de carga a lo largo del eje $i$.
 El tensor diagonalizado tendrá tres componentes independientes.
 
 
@@ -946,6 +958,8 @@ cero, lo cual se ve por ley de Gauss.
 En general en las aplicaciones uno se queda con tres términos; monopolo, dipolo y cuadrupolo y se
 busca que esa expresión converja rápido. En general tomando como centro el centro de la distribución
 la convergencia es más rápida.
+
+Los multipolos pueden sumarse (superposición) para varias distribuciones de carga.
 
 
 % =================================================================================================
@@ -1208,6 +1222,185 @@ siendo los últimos tres términos nulos según lo que consideramos previamente 
 \[
 	\vb{F} = (\vb{p}\cdot\Nabla)\vb{E}.
 \]
+
+\begin{ejemplo}{\bf Problema 3}
+
+Se tiene el ingenio de la figura.
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema_3A.jpg}
+
+La distribución de carga está caracterizada por
+\[
+	\vb{p} = p_0 \zver \qquad \sigma_1 = \sigma_0 \cos(\theta) 
+	\qquad \sigma_2 = \sigma_0\left( \frac{r}{a} - c \right)
+\]
+pero el casquete es neutro.
+\[
+	\int \rho(\vbx') \: dV = \int_S \: b^2 \sigma_0 \cos\theta'\sin\theta' \: d\theta \: d\varphi =
+	2 \pi b^2 \sigma_0 \int_0^\pi \cos\theta'\sin\theta' \: d\theta = 0
+\]
+\[
+	\int \rho(\vbx') \: dV = \int_0^1 r \: dr  \int_0^{2\pi} \sigma_0 \left( \frac{r}{a} - c \right) \: d\theta =
+	2 \pi \sigma_0 \int_0^a \: \left( \frac{r^2}{a} - r c \right) \: dr 
+\]
+\[
+	\int \rho(\vbx') \: dV = 2 \pi \sigma_0 \left. \left( \frac{r^3}{3a} - \frac{r^2 c}{2} \right) \right|_0^a 
+\]
+y esta expresión se anula para $c = 2 / 3$.
+En este caso el momento dipolar de {\it toda} la distribución no dependerá del sistema de coordenadas,
+aunque las partres entre sí podrían depender.
+
+El cálculo del momento dipolar requiere mirar la simetría del problema.
+Hay simetría de revolución y el $vb{p}$ es en $\zver$ pero la densidad de carga $\rho$ en $\zver$ es nula
+de manera que el momento dipolar del disco es nulo. En $\xver,\yver$ es cero por la simetría de revolución.
+\[
+	\int \rho(\vbx) z \: dV =  \int_0^\pi \int_0^{2\pi} a^3 \sin \theta \cos^2 \theta \: d\theta \: d\varphi
+	= 2 \pi a^3 \sigma_0 \int_{-1}^1 u^2 \: du
+\]
+y entonces 
+\[
+	p_z = \frac{4}{3} \pi a^3 \sigma_0.
+\]
+Luego desde $p_z + p_0 = 0$  obtenemos
+\[
+	p_0 = -\frac{4}{3} \pi a^3 \sigma_0.
+\]
+
+Respecto del momento cuadruploar será, tomando ejes principales, $ Q_{ij} = 0 $ si $i \neq j$ así también
+como $Q_{xx} = Q_{yy}$ (simetría de revolución) y la traza nula $Q_{xx} + Q_{yy} + Q_{zz} = 0$ de modo que
+\[
+	Q_{xx} = -\frac{1}{2} Q_{zz} = -\frac{Q}{2}.
+\]
+
+El dipolo en el origen tiene cuadripolo nulo; pero si no estuviera en el origen habría que calcularlo.
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema_3B.jpg}
+
+El momento cuadripolar del dipolo se calcula utilizando la definición del dipolo, con sus límites,
+según
+\[
+	Q_{zz} = - 2 q (d - \varepsilon/2 )^2 + 2 q (d + \varepsilon/2 )^2 = 4 q d \varepsilon = 4 d p_0,
+\]
+siendo esto último el aporte del dipolo al momento cuadripolar.
+El momento cuadripolar del casquete es nulo. Como
+\[
+	z^2 = a^2 \cos^2\theta \qquad x^2 + y^2 = a^2 \sin^2\theta
+\]
+se tiene
+\[
+	2z^2 - x^2 -y^2 = 3 a^2 \cos^2\theta -a^2
+\]
+\[
+	Q_zz = 2 \pi a^2 \int_0^\pi \sin\theta \cos\theta ( 3 a^2 \cos^2 \theta - a^2 ) d\theta
+\]
+Aquí puede ver que tiene que anularse.
+
+Para la placa que descansa sobre el plano se tiene
+\[
+	z = 0 \qquad x^2 + y^2 = r^2
+\]
+y entonces
+\[
+	Q = -2\pi \int_0^a r^3 \sigma_0 \left( \frac{r}{a} - c \right) \: dr =
+	- 2 \pi \sigma_0 a^4 \left( \frac{1}{5} - \frac{c}{4} \right)
+\]
+Restando
+\[
+	Q = 4 dp_0 - 2 \pi \sigma_0 a^4 \left( \frac{1}{5} - \frac{c}{4} \right) 
+\]
+se llega finalmente a
+\[
+	Q = - \frac{2}{3} \pi \sigma_0 a^3 \left( \frac{a}{10} + 8 d \right).
+\]
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 5}
+
+Núcleo elipsodal con simetría de revolución en $\zver$. Las medidas en la ilustración aquí abajo:
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema_5.jpg}
+ 
+\[
+	Q \equiv Q_{zz} \qquad Q_{xx} = Q_{yy} = - \frac{1}{2} Q
+\]
+Y la integral será
+\[
+	\int \: \rho(\vbx) ( 2 z^2 - x^2 - y^2 ) \: dr,
+\]
+y haciendo el cambio de variables
+\[
+	u = \frac{x}{b} \qquad v = \frac{y}{b} \qquad w = \frac{z}{a}
+\]
+el diferencial es $du dv dw = dV / (b^2a)$. La integración es en una esfera unitaria entonces
+conviene pasar a coordenadas esféricas,
+\[
+	\int \rho b^2 a (2aw^2 - b^2v^2 - b^2u^2) du dv dw =
+	\int_0^1 \int_0^{2\pi} \int_0^\pi r^2 \sin\theta \rho b^2 a 
+	( 2 a^2r^2 \cos^2\theta - b^2r^2\sin^2\theta) d\varphi d\theta dr
+\]
+dos de las integrales son directas,
+\[
+	I = \frac{ 2 \pi \rho b^2 a }{ 5 } \int_0^\pi \sin\theta  
+	( 2 a^2 \cos^2\theta - b^2 \sin^2\theta) d\theta
+\]
+Con un nuevo cambio de variables $t = \cos \theta$ la integral puede hacerse y resulta
+\[
+	I = \frac{8}{15} \pi \rho b^2 a (a+b) (a-b).
+\]
+Para $a>b$ se tendrá una pelota de rugby ($Q>0$) mientras que para $a<b$ se tiene una lenteja
+($Q<0$).
+ 
+Si $q=Ze$  la carga total será 
+\[
+	q^T = \frac{4}{3} \pi b^2 a \rho,
+\]
+de modo que 
+\[
+	Q = \frac{4}{5} Z e \frac{(a+b)}{2} (a-b)
+\]
+y siendo $R$ el radio medio ${(a+b)}/{2}$ será
+\[
+	\frac{a-b}{R} = \frac{5Q}{4ZeR^2}.
+\]
+ 
+Ahora evaluamos el trabajo [?] 
+\[
+	W = \int_V \rho(\vbx) \: \phi(\vbx) \: dV
+\]
+donde el factor $1/2$ no va porque el potencial $\phi$ es externo. Si éste no cambia mucho a lo
+largo del volumen V se puede utilizar su desarrollo de Taylor,
+\[
+	\phi(\vbx) = \phi(0) - \vbx \cdot \vb{E}(0) - \frac{1}{2} \sum_{i,j} x_i x_j \dpar{E_j}{x_i},
+\]
+y como $\divem{E}=0$ puesto que se está lejos de las fuentes, tenemos
+\[
+	\divem{E} = 0 = \sum_{i,j} \delta_{ij} \dpar{E_j}{x_i}
+\]
+Sumando y multiplicando cosas puedeo formar la siguiente expresión
+\[
+	\phi(\vbx) = \phi(0) - \vbx \cdot \vb{E}(0) - 
+	\frac{1}{6} \sum_{i,j} \left[ 3 x_i x_j - \delta_{ij} |\vbx|^2 \right] \dpar{E_j}{x_i},
+\]
+y entonces
+\[
+	W = q \: \phi(0) - \vb{p}\cdot\vb{E}(0) - \frac{1}{6} \sum_{ij} Q_{ij} \dpar{E_j}{x_i}.
+\]
+
+Si tomo ejes principales es
+\[
+	- \frac{1}{6} \sum_{i} Q_{i} \dpar{E_j}{x_i} =
+	- \frac{1}{6} \left[ -\frac{1}{2}\dpar{E_x}{x} Q -\frac{1}{2}\dpar{E_y}{y} Q 
+	+ \dpar{E_z}{z} Q \right],
+\]
+o bien
+\[
+	- \frac{1}{6} \left[ -\frac{1}{2} \divem{E} \: Q + \frac{3}{2} \: \dpar{E_z}{z} Q \right] =
+	- \frac{1}{4} Q \dpar{E_z}{z}.
+\]
+
+\end{ejemplo}
+
 
 \subsection{Capa dipolar}
 
