@@ -52,7 +52,7 @@ Asimismo, si están normalizadas, se puede escribir
 \[
 	\int_a^b \: U_n^*(\xi) U_m(\xi) p(\xi) d\xi = \delta_{nm}
 \]
-Luego, cualquier $f$ (well behaved) se puede poner como
+Luego, cualquier $f$ (well behaved) en el $(a,b)$ se puede poner como
 \[
 	f(x) \equiv \sum_{n=1}^N a_n U_n(x)
 \]
@@ -200,6 +200,8 @@ dos ceros.
 % \]
 % corresponde a atravesar densidades de carga.
 
+\subsection{Coordenadas esféricas}
+
 Para coordenadas esféricas es
 \[
 	\frac{1}{r} \frac{\partial}{\partial r}\left( r^2 \dpar{\phi}{r} \right) + 
@@ -216,17 +218,97 @@ resulta en
 	\frac{\sin\theta}{\Theta} \dtot{}{\theta}\left( \sin(\theta)\dtot{\Theta}{\theta}\right) =
 	- \frac{1}{Q} \dtot[2]{Q}{\vp} 
 \]
-Procediendo como en el caso anterior
+Procediendo como en el caso anterior, se tiene primeramente
+\[
+	\frac{1}{Q} \dtot[2]{Q}{\vp} = - \alpha^2,
+\]
+un oscilador armónico en $\vp$ de manera que 
+\[
+	Q = \euler^{\pm i\alpha \varphi},
+\]
+donde en principio $\alpha \in \mathbb{R}$ pero podemos ir más lejos y como 
+\[
+	\cos \alpha\vp = \cos (\alpha\vp \pm 2\pi)
+\]
+se sigue que $\alpha \in \mathbb{Z}$ y podemos llamarlo $m^2 \equiv \alpha^2 \in \mathbb{Z}$.
+Estamos suponiendo que tenemos un recinto de integración que abarca todo el rango de $\vp$
+de $0$ a $2\pi$. Debe tenerse presente que esta solución no sirve si la distribución no
+abarca todo el intervalo angular mencionado.
+
+Luego,
+\[
+	- \frac{1}{\Theta \sin\theta } \dtot{}{\theta}\left( \sin(\theta)\dtot{\Theta}{\theta}\right) +
+	\frac{m^2}{\sin^2\theta} = \beta^2,
+\]
+que merced al cambio de variables $x = \cos\theta$, que implica $d/d\theta = - \sin\theta d/dx$ lleva
+la ecuación anterior a la forma
+\[
+	\dtot{}{x}\left[ (1-x^2)\dtot{\Theta}{x} \right] + \left[ \beta^2 - \frac{m^2}{1-x^2} \right] \Theta = 0,
+\]
+la cual es claramente un problema de Sturm-Liouville. Con respecto a $r$ se tiene
+\[
+	\frac{1}{R} \dtot{}{r}\left( r^2 \dtot{R}{r} \right) = \beta^2
+\]
+donde un nuevo cambio de variables $R(r) = U(r)/r$ conduce a
+\[
+	\dtot[2]{U}{r} - \frac{\beta^2 U }{r^2}= 0
+\]
+
+Si el problema tiene simetría azimutal ($m=0$) se tendrá\footnote{Si $m=0$ significa sencilamente
+que no depende del ángulo $\vp$, o sea que hay simetría de revolución.}:
+\be
+	\dtot{}{x}\left[ (1-x^2)\dtot{P}{x} \right] + \beta^2 P = 0,
+	\label{sep_spherical_P}
+\ee
+la cual tiene un punto singular en $x^2=1$ que corresponde al coseno en $0$ o en $\pi$ (el eje polar).
+Este problema se evita con 
+\be
+	\beta^2 = \ell ( \ell + 1 ), \qquad \ell \in \mathbb{N}
+	\label{cond_pol_lag}
+\ee
+porque la serie sólo se mueve entre $z \in (-1,1)$ y entonces con la condición \eqref{cond_pol_lag} las funciones
+aque salen de la ecuación \eqref{sep_spherical_P} no presentan singularidades.
+La serie que da $P$ se corta. Son los polinomios de Legendre. Tenemos una nueva restricción entonces que es el
+eje polar $-1<z<1$. Se reescribe la \eqref{sep_spherical_P} como
+\[
+	\dtot{}{x}\left[ (1-x^2)\dtot{P}{x} \right] +  \ell ( \ell + 1 ) P = 0.
+\]
+
+Las funciones $P$ son los polinomios de Legendre $P_\ell$ que forman un conjunto completo y son ortogonales
+entre sí. Se pueden construir con la fórmula de Rodrigues
+\[
+	P_\ell (x) = \frac{1}{2^\ell \ell!} \frac{d^\ell}{d x^\ell} [x^2 - 1]^\ell, 
+\]
+donde se cumple $P_\ell(x=1) = 1$ y además las condiciones de ortogonalidad son
+\[
+	\int_{-1}^{+1} P_{\ell'}(x) P_\ell (x) \: dx= \frac{2}{2\ell + 1} \: \delta_{\ell\ell'}
+\]
+Se ve [¿?]
+\[
+	(\ell+1) P_{\ell+1} - (2\ell+1) x P_{\ell} + \ell P_{\ell-1} = 0
+\]
+\[
+	\dtot{P_{\ell+1}}{x} - x \dtot{P_{\ell}}{x} - (\ell+1) P_{\ell} = 0
+\]
+\[
+	(x^2-1) \dtot{P_{\ell}}{x} - \ell x P_{\ell} + \ell P_{\ell-1} = 0
+\]
+y
+\[
+	\dtot[2]{U}{r} - \frac{\ell(\ell+1)}{r^2} U = 0
+\]
+de manera que su solución será del tipo
+\[
+	U(r) = A r^{\ell+1} + B R^{-\ell}.
+\]
 
 siendo
 \[
 	Y(\theta,\varphi) = \Theta(\theta) Q(\varphi)
 \]
 un armónico esférico.
-Tenemos un oscilador armónico en $\varphi$,
-\[
-	Q = \euler^{\pm i\alpha \varphi}
-\]
+
+
 si usamos $0\leq \varphi \leq 2\pi$ de modo que $\alpha\in\mathbb{Z}$ y entonces $\alpha=m$, con simetría
 azimutal es $m=0$ (rotación en $\varphi$), 
 \[
@@ -360,25 +442,7 @@ pero en el continuo
 \]
 usamos $exp(ike_1)$ para que la integral converja en lugar de $(\cos(ke_1) + \sin(ke_1))$.
 
-% =================================================================================================
-\section{Expansiones ortonormales}
-% =================================================================================================
-
-\[
-	\int_a^b U^*_n U_m d\xi = \delta_{mn} \qquad U_i \; mathrm{ortonormales}
-\]
-entonces en $(a,b)$ se da que la serie 
-\[
-	f(\xi) = \sum_{n=0}^\infty a_n U_n(\xi) 
-\]
-converge, donde  
-\[
-	a_n = \int_a^b U^*_n f(\xi) d\xi.
-\]
-La clausura es
-\[
-	\sum_{n=1}^\infty U^*_n(\vb{x}') U_n(\vb{x}) = \delta(\vb{x}-\vb{x}')
-\]
+\subsection{Desarrollo distancia entre puntos}
 
 \begin{figure}[thb]
 	\begin{center}
