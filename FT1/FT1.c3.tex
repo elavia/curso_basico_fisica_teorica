@@ -141,8 +141,8 @@ Se plantea para el potencial
 \begin{multline*}
 	\phi(x,y,z) =  \sum_{\alpha,\beta} \:
 	\left[ A_\alpha\sin( \alpha x) + B_\alpha\cos( \alpha x) \right]
-	\left[ C_\beta\sin( \beta x) + D_\beta\cos( \beta x) \right]\times \\
-	\left[ E_\gamma\sin( \gamma x) + F_\gamma\cos( \gamma x) \right]
+	\left[ C_\beta\sin( \beta y) + D_\beta\cos( \beta y) \right]\times \\
+	\left[ E_\gamma\sinh( \gamma z) + F_\gamma\cosh( \gamma z) \right]
 \end{multline*}
 Utilizando que el potencial es nulo en los contornos indicados (ver figura) resulta
 \[
@@ -153,23 +153,52 @@ Utilizando que el potencial es nulo en los contornos indicados (ver figura) resu
 \]
 \notamargen{Tal vez poner que esto es por las tapas laterales.}
 
+Entonces, juntando todas las constantes en una única constante $A$ el potencial será la 
+suma siguiente
+\[
+	\phi(x,y,z) =  \sum_{\alpha,\beta} \:
+	A_{\alpha\beta} \: \sin( \alpha x) \: \sin( \beta y) \: \sinh( \gamma z)
+\]
+donde dada la relación $\gamma^2 = \alpha^2 + \beta^2$ este índice se ha absorbido junto a los
+otros dos de manera que solo es una doble sumatoria.
 
+Para satisfacer las condiciones de potencial nulo en $x=a$ y en $y=b$ se deben cumplir
+\[
+	\alpha = n \frac{\pi}{a} \qquad \beta = m \frac{\pi}{b}
+\]
+para todo natural $n, m$. Luego
+\[
+	\gamma = \pi \sqrt{ \frac{n^2}{a^2} + \frac{m^2}{b^2} }.
+\]
+Entonces, cambiando los índices de la sumatoria a
+\[
+	\phi(x,y,z) =  \sum_{n,m} \:
+	A_{nm} \: \sin\left( n \frac{\pi}{a} x \right) \: \sin\left( m \frac{\pi}{b} y \right)
+	\: \sinh\left( \pi \sqrt{ \frac{n^2}{a^2} + \frac{m^2}{b^2} } z \right)
+\]
 
+Finalmente sobre la tapa superior será $\phi(x,y,c) = V(x,y)$ de manera que, mediante un
+cálculo rutinario llegamos a
+\[
+	A_{nm} = \frac{4}{ a b \sinh( \pi \sqrt{ n^2/a^2 + m^2/b^2} c )} \:
+	\int_0^a \int_0^b \: V( x,y) \: \sin\left( n \frac{\pi}{a} x \right) \: 
+	\sin\left( m \frac{\pi}{b} y \right) \: dy dx.
+\]
 
- 
 \end{ejemplo}
 
-
-Se da que $A_{m,n}$ es una constante general y hay condiciones periódicas en $x,y$
-\[
-	A\euler^{\pm i\alpha x} = A_\alpha \cos(\alpha x) + B_\alpha \sin(\alpha x)
-\]
-corresponde a condiciones de potencial periódicas, cuando necesito dos ceros por ejemplo (ver ilustración
-lateral --que falta--)
-\[
-	A\euler^{\pm \gamma z} = A_\gamma \cosh(\gamma z) + B_\gamma \sinh(\gamma z)
-\]
-corresponde a atravesar densidades de carga.
+Lo que sucede en las direcciones x, y son condiciones periódicas de potencial que requieren
+dos ceros.
+% Se da que $A_{m,n}$ es una constante general y hay condiciones periódicas en $x,y$
+% \[
+% 	A\euler^{\pm i\alpha x} = A_\alpha \cos(\alpha x) + B_\alpha \sin(\alpha x)
+% \]
+% corresponde a condiciones de potencial periódicas, cuando necesito dos ceros por ejemplo (ver ilustración
+% lateral --que falta--)
+% \[
+% 	A\euler^{\pm \gamma z} = A_\gamma \cosh(\gamma z) + B_\gamma \sinh(\gamma z)
+% \]
+% corresponde a atravesar densidades de carga.
 
 Para coordenadas esféricas es
 \[
@@ -179,8 +208,16 @@ Para coordenadas esféricas es
 \]
 proponiéndose la separación
 \[
-	\phi(r,\theta,\varphi) = R(r) \Theta(\theta) Q(\varphi)
+	\phi(r,\theta,\varphi) = R(r) \: \Theta(\theta) \: Q(\varphi)
 \]
+resulta en 
+\[
+	\frac{\sin^2\theta}{R} \dtot{}{r}\left( r^2 \dtot{R}{r} \right) + 
+	\frac{\sin\theta}{\Theta} \dtot{}{\theta}\left( \sin(\theta)\dtot{\Theta}{\theta}\right) =
+	- \frac{1}{Q} \dtot[2]{Q}{\vp} 
+\]
+Procediendo como en el caso anterior
+
 siendo
 \[
 	Y(\theta,\varphi) = \Theta(\theta) Q(\varphi)
