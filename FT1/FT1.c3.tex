@@ -84,7 +84,7 @@ es claro que esto debe tener comportamiento de delta de Dirac, y
 es la llamada condición de clausura.
 
 % =================================================================================================
-\section{Separación de variables}
+\section{Separación en coordenadas cartesianas}
 % =================================================================================================
 
 Separamos los problemas en regiones donde vale $\lapm{\phi} = 0$ entonces las fronteras tendrán la
@@ -129,6 +129,27 @@ general es
 donde $A_{m,n}$ es una constante general. 
 Las condiciones de contorno permitirán fijar las constantes y entonces la solución tendrá
 diversas formas. 
+
+Según la conveniencia del problema particular será
+\[
+	\euler^{\pm \gamma x_i } = \cosh( \gamma x_i ) + \sinh( \gamma x_i )
+\]
+\[
+	\euler^{\pm i k x_i } = \cos( k x_i ) + i \sin( k x_i )
+\]
+
+\subsubsection{Algunos tips}
+
+Queremos resolver la ecuación de Poisson, 
+en el caso de cargas tipo (puntuales, lineales y superficiales)
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_tips_separacion.jpg}
+
+podemos resolver $\nabla^2 \vp = 0$ que es más sencilla y separamos en dos
+regiones \textcircled{I} y \textcircled{II} donde me preocupo solamente
+por Laplace.
+Si las fuentes son más complejas que esto nos remitiremos a la función
+de Green.
 
 \begin{ejemplo}{\bf Potencial en una caja}
 
@@ -186,6 +207,195 @@ cálculo rutinario llegamos a
 \]
 
 \end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 2}
+
+El problema a resolver está en el sketch de abajo
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_problema2_sep_A.jpg}
+
+Queremos que no haya carga en las regiones en las cuales se subdividiráel
+espacio nos ocuparemos del laplaciano.
+
+El sistema coordenado a utilizar está mostrado abajo
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_problema2_sep_B.jpg}
+
+La densidad de carga se puede escribir según
+\[
+	\rho(\vbx) = \lambda \delta(x) \delta(z) = \sigma \delta(z)
+\]
+donde hemos definido una densidad $\sigma$.
+La solución será de la forma
+\[
+	\Phi = X \: Y \: Z,
+\]
+donde $Y$ será una constante porque el problema no depende de $y$.
+Como las funciones trigonométricas se anulan en puntos y $Z$ necesita
+esto se eligen
+\[
+	Z \propto \cos( k_z z ), \sin( k_z z )
+\]
+y $X \propto \euler^{- K x} $ porque el potencial podría ir decreciendo
+en $x$ --aunque es infinito--.
+Donde $K=k_z$ y $k_y=0$. Hay una simetría en $xy$ de reflexión, entonces el
+potencial es par. Luego, para la base de funciones usaré funciones pares
+(cosenos).
+Luego,
+\[
+	\phi(z=\pm a/2) = 0,
+\]
+por ser planos conductores a tierra. Entonces hacer que se cumpla
+\[
+	\cos(\pm a/2 K) = 0,
+\]
+necesita $k_n = ( 2n + 1 ) \pi / a$ (nos alcanza con $\mathbb{N}$ más el cero).
+La base de funciones será
+\[
+	\phi_I = \sum \: A_n^I \: \euler^{-K_n x} \: \cos(K_n z) \qquad 
+	x > 0
+\]
+\[
+	\phi_{II} = \sum \: A_n^{II} \: \euler^{K_n x} \: \cos(K_n z) \qquad 
+	x < 0
+\]
+
+Ahora pediremos condiciones en la superficie de seperación, la continuidad
+del potencial
+\[
+	\phi_I( x=0 ) = \phi_{II}( x=0 )
+\]
+Entonces, para el campo resultan
+\[
+	\sum_n^\infty A_n^{I} \cos(k_nz) = 
+	\sum_n^\infty A_n^{II} \cos(k_nz)
+\]
+es decir $A_n^{I}= A_n^{II} \equiv A$, y para las derivadas del potencial
+\[
+	- \dpar{\phi_I}{x} - \left( - \dpar{\phi_{II}}{x} \right) = 
+	4 \pi \lambda \delta(z) |_{x=0}
+\]
+\[
+	2 \sum_n \: k_n A_n \cos( k_n z ) = 4 \pi \lambda \delta(z)
+\]
+
+Para despejar el coeficiente se utilizan las propiedades de ortogonalidad,
+tomando el producto escalar en ambos miembros de la anterior ecuación,
+\notamargen{El período es $a$ pues hay nodos en $\pm a/2$. Se multiplica 
+por coseno y se integra.}
+\[
+	a k_m A_m = 4 \pi \lambda \int_{-a/2}^{a/2} \cos( k_m z ) \delta{z} dz
+\]
+y como la integral da uno,
+\[
+	A_n = \frac{ 4 \lambda }{ 2 n + 1 }
+\]
+
+Ahora considero el plano $xy$.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_problema2_sep_C.jpg}
+
+Se propone una fórmula 
+\[
+	\phi = X Y Z,
+\]
+donde $X$ es una $\euler^{ikx}$, $Y$ es una constante y para $Z$
+se toma $ \sinh( k |z - a/2| ) $ porque un solo cero es necesario.
+Entonces tenemos prescripciones para cada zona que son 
+\[
+	\phi_I = \int_{-\infty}^{\infty} \: 
+	\sinh( k|z-a/2| ) \: A_k^I \: \euler^{ikx} \: dk
+\]
+\[
+	\phi_{II} = \int_{-\infty}^{\infty} \: 
+	\sinh( k|z-a/2| ) \: A_k^{II} \: \euler^{ikx} \: dk
+\]
+
+Entonces, de la evaluación de los contornos 
+\[
+	\phi_I(z=0) = \phi_{II}(z=0)
+\]
+surgen
+\[
+	A_k^{I} = A_k^{II} \equiv A_k
+\]
+y asimismo
+\[
+	- 2 \int A_k \euler^{ikx} k \cosh( ka/2 ) \: dk 
+	- 2 \int A_k \euler^{ikx} k \cosh( ka/2 ) \: dk = 4 \pi \lambda \delta(x)
+\]
+lo cual nos lleva a
+\[
+	- 2 \int A_k \euler^{ikx} k \cosh( ka/2 ) \: dk
+	= 4 \pi \lambda \delta(x),
+\]
+y multiplico por $\int \euler{-ik'x} dx$
+\notamargen{
+Usaremos la expresión de la delta en Fourier:
+\[
+	2 \pi \delta(k-k') = \int \: \euler^{ i (k - k') x} \: dx
+\]}
+lo cual lleva a 
+\[
+	A_k = \frac{-\lambda}{k'\cosh(ka/2)},
+\]
+y volviendo todo a $k$ sin primar
+\[
+	\phi = -\lambda \int dk \: \euler^{ikx} \:
+	\frac{\sinh( k|z-a/2|)}{k'\cosh(ka/2)}
+\]
+
+Para este caso obtenemos para el potencial una integral, contrariamente
+a lo que teníamos para el otro caso donde aparecía una serie.
+
+Queremos ver la relación entre ambas,
+\[
+	\sinh( k |z-a/2 |) = \sum_{n} A_n \cos(k_n z)
+\]
+Sacamos de una tabla la forma del $A$, que es
+\[
+	A_n = - \frac{4k}{a} \frac{\cosh( ka/2 )}{ ( k^2 + k_n^2 ) }
+\]
+y obtenemos, a menos de una constante,
+\[
+	\int \frac{ \euler^{ i k x } }{ ( k^2 + k_n^2 ) } \: dx
+\]
+Por residuos se tiene 
+\[
+	\int \frac{ \euler^{ i k x } }{ ( k - i k_n )( k + i k_n ) } \: \mathrm{Res}(f, \text{den.})
+\]
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_problema2_sep_D.jpg}
+
+Usamos residuos para evaluar la integral. Vemos que da
+\[
+	\frac{2 \pi i \euler^{-k_n} }{ 2 i k_n }
+\]
+
+En el caso de $x>0$ se tendrá
+\[
+	\phi = 4 \lambda \sum_n \frac{\cos(k_nz)}{2n +1} \euler^{- k_n x}
+\]
+
+Para calcular las cargas inducidas, véase figurin bajo estas líneas, será
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_problema2_sep_E.jpg}
+
+\[
+	\left. \dpar{\phi^{II}}{z} \right|_{z=-a/2} = 4 \pi \sigma_{\text{ind}}
+\]
+donde
+\[
+	\sigma = \frac{ \lambda \euler^{ \pi |x|} }{a( 1 + \euler^{-})} 
+\]
+y entonces
+\[
+	\int \sigma dx = \frac{Q^{\text{ind}}}{L} = - \frac{\lambda}{2}
+\]
+
+\end{ejemplo}
+
+
 
 Lo que sucede en las direcciones x, y son condiciones periódicas de potencial que requieren
 dos ceros.
@@ -384,6 +594,78 @@ En esféricas las constantes de separación están asociadas
 	Q(\phi) \; \mathrm{con} \; m
 \]
 
+
+\begin{ejemplo}{\bf Problema de separación esférica}
+
+Ya este problema, ver figura, tiene simetría de revolución. Entonces será $m = 0$ 
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_ejemplo_sep_sphe_A.jpg}
+
+\be
+	\vp(r,\theta) = \sum_{\ell=0}^\infty \: \left[ 
+	A_\ell r^\ell + B_\ell r^{-(\ell+1)}
+	\right] P_\ell \cos\theta
+	\label{potencial_azimutal}
+\ee
+En dos secciones diferentes se tendrá
+\[
+	r> a \qquad \quad 
+		\vp_I(r,\theta) = \sum_{\ell=0}^\infty \: 
+	B_\ell r^{-(\ell+1)} P_\ell \cos\theta
+\]
+\[
+	r< a \qquad \quad 
+	\vp(r,\theta) = \sum_{\ell=0}^\infty \:
+	A_\ell r^\ell P_\ell \cos\theta
+\]
+
+Entonces, cada potencial tiende al valor $V(x)$
+\[
+	\vp_I(r,\theta)_{r=a} \to V(x) \qquad 
+	\vp_{II}(r,\theta)_{r=a} \to V(x)
+\]
+
+El escalón refleja la imparidad, de manera que sólo aparecerán
+términos impares. Ahora queremos desarrollar el escalón en
+polinomios de Legendre
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_ejemplo_sep_sphe_B.jpg}
+
+El gráfico de arriba tiene también el cambio de variables $x\equiv \cos\theta$,
+\[
+	\frac{V(x)}{V} = \sum_{\ell=0}^\infty \: c_\ell P_\ell 
+\]
+con $\ell$ impar. El coeficiente 
+\[
+	c_\ell = \frac{2\ell + 1}{2} \: \int_{-1}^{1} P_\ell (x) \: dx
+	= ( 2 \ell + 1 ) \int_{0}^{1} P_\ell (x) \: dx,
+\]
+y usando la fórmula de Rodrigues
+\[
+	c_\ell = \frac{2\ell + 1}{2^\ell \ell! } \: 
+	\int_{0}^{1} \: \dtot[\ell]{ ( x^2 - 1 )^\ell }{x} \: dx
+\]
+se viene 
+\[
+	c_\ell = \Frac{-1}{2}^{(\ell -1)/ 2}
+	\frac{(2\ell +1)(\ell -2)!!}{2((\ell+1)/2)!}
+\]
+donde el doble factorial es sobre los impares. Hemos hallado los coeficientes.
+Reemplazando para los primeros
+\[
+	c_1 = 3/2 \qquad c_3 = -7/8 \qquad c_5 = 11/16,
+\]
+Entonces 
+\[
+	A_\ell = V a^{-\ell} c_\ell \qquad \qquad 
+	B_\ell = V a^{\ell+1} c_\ell
+\]
+
+\end{ejemplo}
+
+
+
+
 % =================================================================================================
 \section{Detalles sobre solución de problemas de potencial}
 % =================================================================================================
@@ -464,6 +746,74 @@ que surge del teorema del coseno.
 
 Consiste en {\it prolongar} una solución restringida por ejemplo en el eje polar a todo el
 resto del espacio pegándole los polinomios de Legendre.
+
+Como ejemplo vemos un anillo con carga $Q$ distribuida uniformemente. Hay un plano
+de simetría perpendicular al eje de simetría.
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_prolongacion_A.jpg}
+
+A partir de la prescripción \eqref{potencial_azimutal}
+\[
+	r > a \quad \vp_1(\vbx) = \sum_{n=0}^{\infty} B_{2n} r^{-(2n+1)} P_{2n}( \cos\theta )
+\]
+\[
+	r < a \quad \vp_2(\vbx) = \sum_{n=0}^{\infty} A_{2n} r^{2n} P_{2n}( \cos\theta )
+\]
+y hay que ver las condiciones de contorno. Me quedaré con los coeficientes
+pares porque es simétrico el potencial por la simetría en $\theta$,
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_prolongacion_B.jpg}
+
+y por ello sólo me aparecerán coeficientes pares.
+Los potenciales están evaluados en el eje polar que son dos ángulos theta,
+\[
+	\vp_1(\theta=0^\circ,180^\circ) = 
+	\sum_{n=0}^{\infty} \: B_{2n} r^{-(2n + 1)} \qquad
+	\vp_2(\theta=0^\circ,180^\circ) = 
+	\sum_{n=0}^{\infty} \: A_{2n} r^{2n}
+\]
+una serie de potencias para el potencial $V(\vbx = \zver)$ de un anillo (que
+es un caso ya resuelto en F3).
+
+Luego, multiplicando esta serie de potencias por los polinomios de Legendre
+tendremos el $V$ para todo el espacio.
+El cálculo elemental da
+\[
+	\vp(\vbx)(\theta=0^\circ,180^\circ) = \frac{Q}{\sqrt{r^2 + a^2}} =
+	\frac{Q}{r \sqrt{1 + a^2 / r^2 }}
+\]
+Entonces
+\[
+	\vp_1(\theta=0^\circ,180^\circ) =
+	\frac{Q}{r} \sum_{n=0}^{\infty} \: (-1)^n \Frac{a}{r}^{2n}
+	\frac{(2n-1)!!}{2^n n!}
+\]
+\[
+	\vp_2 =
+	\frac{Q}{a} \sum_{n=0}^{\infty} \: (-1)^n \Frac{r}{a}^{2n}
+	\frac{(2n-1)!!}{2^n n!}
+\]
+
+Ahora para todo el espacio es
+\[
+	\vp_1(r>a) =
+	\frac{Q}{r} \sum_{n=0}^{\infty} \: (-1)^n \Frac{a}{1}^{2n}
+	\frac{(2n-1)!!}{2^n n!} \: r^{-2n} \: P_{2n}( \cos\theta )
+\]
+\[
+	\vp_2(r<a) =
+	\frac{Q}{a} \sum_{n=0}^{\infty} \: (-1)^n \Frac{r}{a}^{2n}
+	\frac{(2n-1)!!}{2^n n!} \: \: P_{2n}( \cos\theta )
+\]
+
+En notación compacta
+\[
+	\vp(\vbx) = Q \sum_{n=0}^{\infty} \: (-1)^n \frac{(2n-1)!!}{2^n n!}
+	\Frac{r_<}{r_>}^{2n+1} \: P_{2n}(\cos\theta) .
+\]
+
+\notamargen{A partir de aquí están los barruntos de las notas de final. Habría
+que consolidar con lo transcripto desde la carpeta.}
 Lo ponemos en serie (pasamos un cálculo de F3 a una serie)
 \[
 	\phi(r,\phi/2) = \frac{Q}{\sqrt{r^2 + a^2}} = \sum_{\ell=0}^\infty Q \frac{a^\ell}{r^{\ell + 1}} 
