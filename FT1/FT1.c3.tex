@@ -871,37 +871,83 @@ radio de convergencia.
 \section{Armónicos esféricos}
 % =================================================================================================
 
+Considérese el problema de Sturm-Liouville siguiente
+\[
+	\dtot{}{x} \left[ (1-x^2) \dtot{P}{x} \right] + \left[ e(e+1) - \frac{m^2}{1-x^2} \right] P = 0
+\]
+para $ 0 \leq \vp \leq 2\pi$ y $-1 \leq x \leq 1$. Como $ \ell \geq 0$ y $ -\ell \leq m \leq \ell$
+se tendrán 
+\[
+	P_{\ell m} = (-1)^m (1-x)^{m/2} \dtot[m]{}{x} P_\ell(x) =
+	\frac{(-1)^m}{2^\ell \ell!} (1-x)^{m/2} \dtot[{\ell+m}]{}{x} (x^2-1)^\ell
+\]
+y entonces
+\[
+	P_{\ell, -m} = (-1)^m \frac{(\ell -m)!}{(\ell + m)!} P_{\ell m}(x)
+\]
+con $\phi_m = \euler^{im\vp}$.
+La condición de ortogonalidad nos dice que
+\[
+	\int_{-1}^1  P_{\ell' m}(x) \: P_{\ell m}(x) \: dx = 
+	\frac{2}{2\ell +1} \frac{(\ell + m)!}{(\ell - m)!} \delta_{\ell\ell'}
+\]
+y de lo cual deducimos que 
+\[
+	 P_{\ell m}(x)\phi_m(x).
+\]
+Estas expresiones se presentan en forma conjunta y normalizada. Son los armónicos
+esféricos.
 \[
 	Y_{\ell,m}(\theta,\varphi) = \sqrt{ \frac{ 2\ell + 1}{4\pi} \frac{(\ell-m)! }{(\ell+ m)! } }
 	P_\ell^m(\cos(\theta)) \euler^{i m \varphi}
 \]
 Los armónicos esféricos son un conjunto ortonormalizado en 
+\notamargen{En la carpeta tenía $x$ en lugar de $\cos(\theta)$.}
 \[
 	- 1 \leq \cos(\theta) \leq 1 , \qquad 0 \leq \varphi \leq 2\pi
 \]
+
+Se verifica también
 \[
-	Y_{\ell,-m}(\theta,\varphi) = (-1) Y_{\ell,m}^*(\theta,\varphi)
+	Y_{\ell,-m}(\theta,\varphi) = (-1) Y_{\ell,m}^*(\theta,\varphi).
 \]
 
-La ortonormalidad
+La ortonormalidad es
 \[
-	\int_0^{2\pi} d\varphi \int_0^\pi \sin(\theta) Y_{\ell,m}(\theta,\varphi) Y_{\ell,m}^*(\theta,\varphi) d\theta 
+	\int_0^{2\pi} d\varphi \int_0^\pi \sin(\theta) 
+	Y_{\ell,m}(\theta,\varphi) Y_{\ell,m}^*(\theta,\varphi) d\theta 
 	= \delta_{\ell'\ell}\delta_{m'm}
 \]
-La completitud
+mientras que la completitud
 \[
 	\sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell Y_{\ell,m}(\theta,\varphi) Y_{\ell,m}^*(\theta,\varphi) = 
-\delta(\varphi 	-\varphi') \delta(\cos(\theta)-\cos(\theta'))
+	\delta(\varphi 	-\varphi') \delta(\cos(\theta)-\cos(\theta'))
 \]
+nos dice que solo es diferente de cero esta suma cuando los ángulos primados y 
+sin primar son iguales.
 Entonces una función $f$ cualquiera $\in L^2$ se puede expresar en armónicos esféricos,
 \[
 	f(\theta,\varphi) = \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell A_{\ell,m} Y_{\ell,m}(\theta,\varphi)
 \]
-de manera que el potencial en coordenadas esféricas es
+donde 
 \[
-	\phi(r,\theta,\varphi) = \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell [A_{\ell,m}r^\ell + B_{\ell,m} r^{-(\ell+1)}] 
-	Y_{\ell,m}(\theta,\varphi)
+	A_{\ell,m} = 	\int_0^{2\pi} d\varphi \int_0^\pi \sin(\theta) f(\theta,\vp)
+	Y_{\ell,m}(\theta,\varphi) Y_{\ell,m}^*(\theta,\varphi) \: d\theta, 
 \]
+y como el potencial es $L^2$, entonces en coordenadas esféricas es
+\[
+	\phi(r,\theta,\varphi) = 
+	\sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 
+	[A_{\ell,m}r^\ell + B_{\ell,m} r^{-(\ell+1)}] Y_{\ell,m}(\theta,\varphi)
+\]
+donde la parte radial no se ha inmutado. Esta es la solución de la ecuación de Laplace en coordenadas
+esféricas, que será la solución general para un problema de potencial en dichas coordenadas.
+
+El figurín siguiente muestra anillos con carga, según se indica, centrados en un sistema de
+coordenadas. Son problemas con simetría de revolución en torno al eje $\hat{z}$ y permiten ser
+resueltos con el método de la prolongación analítica.
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft1_eje_proble_prolonga.jpg}
 
 Con respecto a la Figura, 
 
