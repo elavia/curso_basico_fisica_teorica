@@ -572,7 +572,7 @@ el polinomio asociado de Legendre
 \]
 que cumple
 \[
-	P_\ell (1) = 1 \quad P_\ell (-1) = (-1)^\ell \qquad  \forall \ell
+	P_\ell (1) = 1 \qquad  \qquad P_\ell (-1) = (-1)^\ell \qquad  \forall \ell
 \]
 con 
 \[
@@ -949,26 +949,40 @@ resueltos con el método de la prolongación analítica.
 
 \includegraphics[width=0.5\textwidth]{images/fig_ft1_eje_proble_prolonga.jpg}
 
-Con respecto a la Figura, 
+Ahora consideraremos la siguiente figura
 
+\includegraphics[width=0.5\textwidth]{images/fig_ft1_ejez_separacionEsfericas.jpg}
+\\
+y la evaluación del potencial 
+\[
+	\frac{1}{|\vbx - \vbx'|} = \sum_{\ell} \: 
+	[ \: A_\ell r^\ell + B_\ell r^{-(\ell +1 )} \: ] \: P_\ell ( \cos \gamma )
+\]
+Claramente hay simetría de revolución si la carga $q$ se hallase sobre el eje $z$. 
+En este caso el problema no puede depender de $\vp$ y ello se ve en que 
+$P_\ell ( 1 ) = 1$ para todo $\ell$.
+
+La siguiente figurita explicita lo que sucede
 \begin{figure}[bht]
 	\begin{center}
 	\includegraphics[width=0.7\textwidth]{images/fig_ft1_armesf1.pdf}	 
 	\end{center}
-	\caption{}
-\end{figure} 
+	\caption{Figurin}
+\end{figure}
 
-si $q$ está en $\hat{z}$ entonces simetría de revolución ($\gamma \to \theta$). Si por el contrario ,
-$\gamma $ es nulo entonces simetría de revolución.
+Se ve que si $q$ está en $\hat{z}$ entonces la simetría de revolución implica que
+$\gamma $ se transforma en el $\theta$ de esféricas.  
+Si, además,  $\gamma $ es nulo entonces se tiene simetría de revolución en
+torno al eje determinado por la recta que contiene a ambos puntos.
 
 \begin{figure}[tb]
 	\begin{center}
-	\includegraphics[width=0.3\textwidth]{images/fig_ft1_armesf2.pdf}	 
+	\includegraphics[width=0.2\textwidth]{images/fig_ft1_armesf2.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
 
-Un poco de álgebra de coordenadas,
+Con respecto al inverso de la distancia recíproca resulta
 \[
 	\frac{1}{|\vb{x}-\vb{x}'|} = \frac{1}{\sqrt{r^2 + {r'}^2  - 2rr'\cos(\gamma)}} \Rightarrow
 	\frac{1}{\sqrt{r^2 + {r'}^2  - 2rr'\cos(\theta)}}
@@ -978,7 +992,9 @@ donde $|\vb{x}|=r$ y $|\vb{x}'|=r'$. Así
 	\left. \frac{1}{|\vb{x}-\vb{x}'|} \right|_{\gamma=0} = \frac{1}{\sqrt{r^2 + r'^2 -2rr'}}=
 	\frac{1}{|r-r'|}
 \]
-luego si $r'<r$ será
+Esto define dos zonas \textcircled{1} $r'>r$ y \textcircled{2} $r'<r$.
+Serán $\phi_1 = \sum_\ell A_\ell r^\ell$ y $\phi_2 = \sum_\ell B_\ell r^{-(\ell+1)}$.
+Entonces, si $r'<r$ será
 \[
 	\frac{1}{|r-r'|} = \frac{1}{r(1 - r'/r )} = \frac{1}{r} \sum_{\ell=0}^\infty \left(\frac{r'}{r}\right)^\ell = 
 	\sum_{\ell=0}^\infty \frac{r'^\ell}{r^{\ell+1}}
@@ -992,19 +1008,48 @@ de manera que
 \[
 	\left. \frac{1}{|\vb{x}-\vb{x}'|} \right|_{\gamma=0} = \sum_{\ell=0}^\infty  \frac{r_<^\ell}{r_>^{\ell+1}}
 \]
-y podemos pensar en $1=P_\ell(1) \forall \ell$ y $1=P_\ell(\cos 0)$
+donde $r_<$ y $r_>$ son el mayor y el menor $r$ para cada región.
+Con esta notación se puede escribir una única fórmula.
+Además podemos pensar en $1 = P_\ell( 1 ) \forall \ell$ que también es $ 1 = P_\ell(\cos 0 )$, 
+lo cual nos lleva a 
 \[
 	\left. \frac{1}{|\vb{x}-\vb{x}'|} \right|_{\gamma=0} = \sum_{\ell=0}^\infty  \frac{r_<^\ell}{r_>^{\ell+1}}
 	P_\ell(\cos 0)
 \]
-que será el $\phi$ de una carga unitaria en $\hat{z}$ y evaluado en $\hat{z}$.
+que es la descomposición en polinomios de Legendre del $\phi$ de una carga unitaria
+en $\hat{z}$ y evaluado en $\hat{z}$.
+
 Hacemos de esta manera prolongación analítica,
 \[
 	\frac{1}{|\vb{x}-\vb{x}'|}  = \sum_{\ell=0}^\infty  \frac{r_<^\ell}{r_>^{\ell+1}}
 	P_\ell(\cos \gamma)
 \]
-y decimos que será el $\phi$ de una carga unitaria en cualquier parte (descompuesto en polinomios de Legendre).
-Aquí $\gamma=\gamma(\theta,\varphi)$ y se puede llegar a una descomposición similar utilizando armónicos esféricos.
+y decimos que será el $\phi$ de una carga unitaria en cualquier parte
+(descompuesto en polinomios de Legendre).
+Aquí $\gamma=\gamma(\theta,\varphi)$ de modo que $\cos\gamma$  será una función muy complicada de los ángulos
+esféricos, en efecto,
+\[
+	\cos\gamma = \cos \theta \cos \theta' + \sin \theta \sin \theta' \cos( \vp - \vp').
+\]
+Se separará el espacio en las dos regiones definidas previamente,
+y entonces tendremos
+\[
+	r < r': \qquad 
+	\phi_1(r,\theta,\varphi) = 
+	\sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 
+	A_{\ell,m}r^\ell  Y_{\ell,m}(\theta,\varphi)
+\]
+\[
+	r > r': \qquad 
+	\phi_2(r,\theta,\varphi) = 
+	\sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 
+	D_{\ell,m} r^{-(\ell+1)} Y_{\ell,m}(\theta,\varphi)
+\]
+
+Con estas prescripciones aplicaremos las condiciones de contorno: el potencial será nulo en el infinito,
+en la superficie será continuo y no habrá divergencias en el interior de la esfera.
+
+% y se puede llegar a una descomposición similar utilizando armónicos esféricos.
 
 El potencial $\phi$ descompuesto en armónicos esféricos es
 \[
