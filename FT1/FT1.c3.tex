@@ -1033,35 +1033,80 @@ esféricos, en efecto,
 \]
 Se separará el espacio en las dos regiones definidas previamente,
 y entonces tendremos
-\[
+\be
 	r < r': \qquad 
 	\phi_1(r,\theta,\varphi) = 
 	\sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 
 	A_{\ell,m}r^\ell  Y_{\ell,m}(\theta,\varphi)
-\]
-\[
+	\label{phi_1}
+\ee
+\be
 	r > r': \qquad 
 	\phi_2(r,\theta,\varphi) = 
 	\sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 
 	D_{\ell,m} r^{-(\ell+1)} Y_{\ell,m}(\theta,\varphi)
-\]
+	\label{phi_2}
+\ee
 
 Con estas prescripciones aplicaremos las condiciones de contorno: el potencial será nulo en el infinito,
 en la superficie será continuo y no habrá divergencias en el interior de la esfera.
 
-% y se puede llegar a una descomposición similar utilizando armónicos esféricos.
+\[
+	\phi_1(r=a) = \phi_2(r=a)
+\]
+\be
+	\left( \dpar{\phi_2}{r} - \dpar{\phi_1}{r} \right)_{r=a} = - 4 \pi \sigma
+	\label{contorno_2}
+\ee
+donde esta última $\sigma$ cumple que\footnote{Es una delta de Dirac adecuada para que se cumpla lo que
+se tiene que cumplisr}
+\[
+	\int \sigma dS = q \qquad \sigma = \frac{q}{a^2} \delta(\cos\theta'' - \cos\theta') \delta(\vp''-\vp')
+\]
 
-El potencial $\phi$ descompuesto en armónicos esféricos es
+Luego, usando la relación para la $\delta $ anterior se tienen
+\[
+	\sigma = \frac{q}{a^2} \: Y_{\ell,m}(\theta'',\varphi'') Y_{\ell,m}^*(\theta',\varphi')
+\]
+y evaluando 
+\[
+	\phi_1(r'=a) = \phi_2(r'=a)
+\]
+se tiene $D_{\ell m} = A_{\ell m} a^{2\ell +1}$ puesto que las ecuaciones \eqref{phi_1} y \eqref{phi_2}
+son iguales término a término ya que los armónicos independientes son linealmente independientes.
+
+Utilizando la \eqref{contorno_2} con la $\sigma$ definida se llega a que
+\[
+	\: \sum_{\ell,m} \: 
+	\left[ D_{\ell m}(\ell +1) a^{-(\ell + 2)} + A_{\ell m} \ell a^{\ell - 1 } \right] 
+	Y_{\ell,m}(\theta,\varphi) =
+	\frac{4 \pi q}{a^2} \: \sum_{\ell,m} \: Y_{\ell,m}^*(\theta',\varphi') \: Y_{\ell,m}(\theta,\varphi).
+\]
+Otra vez usando que son funciones linealmente independientes, se tiene
+\[
+	\frac{D_{\ell m}^{\ell +1}}{a^{\ell + 2}} + A_{\ell m} \ell a^{\ell - 1 } = 
+	\frac{4 \pi q}{a^2} \: Y_{\ell,m}^*(\theta',\varphi')
+\]
+
+Ya tenemos los ceoficientes y entonces podemos expresar
+el potencial $\phi$ descompuesto en armónicos esféricos como
 \[
 	\frac{1}{|\vb{x}-\vb{x}'|}  = \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell \frac{r_<^\ell}{r_>^{\ell+1}}
 	\frac{4\pi}{2\ell+1} Y_{\ell,m}(\theta,\varphi) Y_{\ell,m}^*(\theta',\varphi')
 \]
-y el teorema de adición de los armónicos esféricos ha sido usado
+que es el potencial de una carga puntual unitaria con armónicos esféricos.
+Con esta expresión debiera hacerse más sencilla la integral de Poisson, pero no
+tanto porque como sumamos sobre $\ell$ y $m$ la expresión es simétrica por los
+índices.
+
+El polinomio $P_\ell$ en función del $\cos\gamma$ se puede escribir utilizando
+el {\it teorema de adición} de los armónicos esféricos ha sido usado
 \[
 	P_\ell(\cos \gamma) = \sum_{m=-\ell}^\ell \frac{4\pi}{2\ell+1} Y_{\ell,m}(\theta,\varphi) 
 	Y_{\ell,m}^*(\theta',\varphi')
 \]
 
+Ahora, si reemplazamos en la integral de Poisson se tiene
 \[
 	\phi(\vb{x})= \int_{V'} \rho(\vb{x}')\left[ \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 
 	\frac{r_<^\ell}{r_>^{\ell+1}}\frac{4\pi}{2\ell+1} Y_{\ell,m}(\theta,\varphi) 
@@ -1073,20 +1118,77 @@ que se puede cosmetizar como
 	\int_{V'} \rho(\vb{x}') Y_{\ell,m}^*(\theta',\varphi') {r'}_<^\ell dV' \right] 
 	\frac{Y_{\ell,m}(\theta,\varphi) }{r_>^{\ell+1}},
 \]
-definiéndose el corchete como $q_{\ell m}$ coeficiente multipolar de orden $\ell m$, así
+definiéndose el corchete como $q_{\ell m}$ coeficiente multipolar de orden $\ell,m$, así
 \[
 	\phi(\vb{x})= 4\pi \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell \frac{q_{\ell m}}{2\ell+1} 
-	\frac{Y_{\ell,m}(\theta,\varphi) }{r_>^{\ell+1}}.
+	\frac{Y_{\ell,m}(\theta,\varphi) }{r_>^{\ell+1}},
+\]
+es el desarrollo multipolar para el potencial $\phi$.
+
+Entonces, definiendo 
+\[
+	\phi_{\ell m}(\vb{x})= 
+	4\pi \frac{q_{\ell m}}{2\ell+1}\frac{Y_{\ell,m}(\theta,\varphi) }{r_>^{\ell+1}}
+\]
+se tiene para el campo eléctrico
+\[
+	\vb{E}(\vb{x}) = - \Nabla \phi(\vb{x})= 
+	-\Nabla \sum_{\ell,m} \phi_{\ell m}(\vb{x}) =
+	\sum_{\ell,m} \vb{E}_{\ell m}(\vb{x})
+\]
+que es una suma de campos multipolares
+\[
+	\vb{E}_{\ell m}(\vb{x}) = - \Nabla \phi_{\ell m}(\vb{x}).
 \]
 
+\subsection{Relación de los multipolos esféricos y los cartesianos}
+
+El operador gradiente en coordenadas esféricas es Apéndice XXX.
 Entonces
 \[
-	\phi_{\ell m}(\vb{x})= 4\pi \frac{q_{\ell m}}{2\ell+1}\frac{Y_{\ell,m}(\theta,\varphi) }{r_>^{\ell+1}}
+	E_r^{\ell m} = \frac{4\pi(\ell+1)}{ 2\ell+1 } 
+	\frac{Y_{\ell,m}(\theta,\varphi) }{r^{\ell+2}} \: q_{\ell m}
 \]
-y consecuentemente
 \[
-	\vb{E}_{\ell m}(\vb{x}) = - \Nabla \phi_{\ell m}(\vb{x})
+	E_\theta^{\ell m} = \frac{-2\pi}{2\ell+1} \frac{1}{r^{\ell+2}}
+	\dpar{Y_{\ell,m}(\theta,\varphi) }{\theta} \: q_{\ell m}
 \]
+\[
+	E_\vp^{\ell m} = \frac{-4\pi}{2\ell+1} \frac{ i m}{r^{\ell+2}\sin\theta} 
+	Y_{\ell,m}(\theta,\varphi) \: q_{\ell m}
+\]
+De aquí, reemplazando sale la relación entre desarrollos
+\[
+	q_{00} = \frac{q}{\sqrt{4\pi}} \qquad \qquad Y_{00} = Y_{00}^* = \frac{1}{\sqrt{4\pi}}
+\]
+\[
+	\ell = 1 \qquad 
+	\begin{cases}
+	q_{1,1} = - \sqrt{\frac{3}{4\pi}}( p_x -i p_y ) \\
+	\\
+	 q_{1,-1} = \sqrt{\frac{3}{4\pi}}( p_x + i p_y ) \\
+	 \\
+	 q_{1,0} = \sqrt{\frac{3}{4\pi}} \: p_z
+	\end{cases}
+	\qquad 
+	Y_{11} = -\sqrt{\frac{3}{8\pi}}  \sin\theta \: \euler^{i\vp}
+\]
+\[
+	(-1)^m q_{\ell m}^* = q_{\ell,-m}
+\]
+\[
+	\begin{cases}
+	q_{20} = \frac{1}{2} \sqrt{\frac{5}{4\pi}} Q_{33} \\
+	\\
+	 q_{21} = - \frac{1}{3} \sqrt{\frac{15}{2\pi}}( Q_{13} -i Q_{23} ) \\
+	 \\
+	 q_{22} = - \frac{1}{12} \sqrt{\frac{15}{2\pi}}( Q_{11} - 2 i Q_{12} - Q_{22} )	 
+	\end{cases}
+	\quad 
+	Y_{20} = \sqrt{\frac{5}{4\pi}}\left(  \frac{3}{2} \cos^2\theta - \frac{1}{2} \right)	
+\]
+donde en estas últimas expresiones los índices numéricos representan las
+coordenadas de acuerdo con $1,2,3 \equiv x,y,z$.
 
 % =================================================================================================
 \section{Separación de variables en cilíndricas}
@@ -1096,12 +1198,33 @@ Se propone
 \[
 	\phi(\rho,\phi,z) = R(\rho) Q(\phi) Z(z)
 \]
-de modo que
+de modo que el laplaciano en cilíndricas (ver Apéndice XXX) conduce a
 \[
 	\frac{1}{R} \dtot[2]{R}{\rho} + \frac{1}{R\rho} \dtot{R}{\rho} + \frac{1}{Q\rho^2} \dtot[2]{Q}{\phi} 
-				+ \frac{1}{Z} \dtot[2]{Z}{z} = 0
+				+ \frac{1}{Z} \dtot[2]{Z}{z} = 0.
 \]
-donde los primeros dos términos conducen a la ecuación de Bessel, el tercero es igual a $-\nu^2$ y el
+Entonces
+\[
+	\frac{1}{Z} \dtot[2]{Z}{z} = k^2
+\]
+donde la naturaleza de $k$ dependerá también de las condiciones de contorno
+del problema.
+Entonces podemos escribir
+\[
+	\frac{\rho^2}{R} \dtot[2]{R}{\rho} + 
+	\frac{\rho}{R} \dtot{R}{\rho} + 
+	\frac{1}{Q} \dtot[2]{Q}{\phi} 
+	+ \rho^2 k^2 = 0.
+\]
+y hacemos
+\[
+	\frac{1}{Q} \dtot[2]{Q}{\phi} = -\nu^2
+\]
+donde la constante se toma negativa por la condición de que $Q$ sea periódica
+en $2\pi$.
+
+
+Donde los primeros dos términos conducen a la ecuación de Bessel, el tercero es igual a $-\nu^2$ y el
 cuarto a $k^2$. Sacamos
 \[
 	Z = \euler^{\pm kz}
