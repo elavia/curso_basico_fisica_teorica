@@ -410,7 +410,7 @@ dos ceros.
 % \]
 % corresponde a atravesar densidades de carga.
 
-\subsection{Coordenadas esféricas}
+\section{Separación en coordenadas esféricas}
 
 Para coordenadas esféricas es
 \[
@@ -428,6 +428,8 @@ resulta en
 	\frac{\sin\theta}{\Theta} \dtot{}{\theta}\left( \sin(\theta)\dtot{\Theta}{\theta}\right) =
 	- \frac{1}{Q} \dtot[2]{Q}{\vp} 
 \]
+\notamargen{Las coordenadas convenientes dependerán de los contornos.
+Recordemos que siempre la cosa es resolver la ecuación más sus BC.}
 Procediendo como en el caso anterior, se tiene primeramente
 \[
 	\frac{1}{Q} \dtot[2]{Q}{\vp} = - \alpha^2,
@@ -541,6 +543,11 @@ Los $\{ P_\ell\}$ son un conjunto completo y ortogonal en $-1 \leq x \leq 1$ o b
 
 Los $\{ Q_\ell^m(\cos(\theta))\}$ tienen problemas en $\theta=0,\theta=\pi$ (eje $z$) de manera que si está el
 eje $z$ no podemos usar $Q_\ell^m$; en estos problemas sólo podemos usar $P_\ell^m(\cos(\theta))$.
+Luego, la solución total será
+\[
+	\phi(r,\theta,\phi) = [ \: R(r) \: ] [ \: \Theta(\theta) \: ] [ \: Q(\vp) \: ],
+\]
+o bien
 \[
 	\phi(r,\theta,\phi) = \sum_{\ell=0}^{\infty}\sum_{m=-\infty}^{\infty} \left[ A_\ell r^\ell + 
 	B_\ell r^{-\ell-1} \right] \left[ C_\ell P_\ell^m + D_\ell Q_\ell^m \right] \left[ E_m \cos(m\phi) + 
@@ -865,6 +872,179 @@ de puntos (como ser el eje azimutal) entonces deben ser la misma solución.
 Estos dos problemas son equivalentes, pero multipolarmente tienen desarrollos diferentes.
 El problema es que el metal a tierra tendrá carga hasta el infinito y entonces no podemos tener un
 radio de convergencia.
+
+\begin{ejemplo}{\bf Problema esfera y aro}
+
+La situación del problema puede verse en la ilustración dada por el figurín siguiente
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft1_problema_esfera_anillada_A.jpg}
+
+La situación física que se observa qes que habrá simetría azimutual, dado que la distribución
+es la misma para todo ángulo $\vp$. Entonces será $m=0$.
+Además, como el eje polar forma parte de la solución también se descartará $Q^m_\ell$
+dado que se necesita regularidad en $-1,1$.
+
+Entonces, el candidato es
+\[
+	\phi^{I,II} = \sum_\ell \: ( A_\ell^{I,II} r^\ell + B_\ell^{I,II} r^{-\ell-1}) P_\ell(\cos\theta)
+\]
+donde hemos establecido las dos regiones ilustradas aquí abajo
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_problema_esfera_anillada_B.jpg}
+
+Luego, requeriremos regularidad en $r \to \infty$ para $\phi^{II}$ y en $r=0$ para $\phi^{I}$
+lo cual conduce a
+\[
+	A_\ell^{II} = 0 \qquad B_\ell^{I} = 0
+\]
+
+Entonces
+\[
+	\phi^{I} = \sum_\ell \: A^I_\ell \: r^\ell \: P_\ell(\cos\theta) \qquad \qquad 
+	\phi^{II} = \sum_\ell \: B^{II}_\ell \: r^{-\ell-1} \: P_\ell(\cos\theta)
+\]
+y del contorno en $b$ se tiene
+\[
+	\phi^{I}(r=b) = \phi^{II}(r=b) = \qquad 
+	A^{I}_\ell \: b^{-\ell-1} = B^{II}_\ell \: b^{-\ell-1} \equiv \frac{C_\ell}{b}
+\]
+\[
+	\phi^{I} = \frac{1}{b} \: \sum_\ell \: C_\ell \: \Frac{r}{b}^{\ell} \: P_\ell(\cos\theta) \qquad\qquad 
+	\phi^{II} = \frac{1}{r} \: \sum_\ell \: C_\ell \: \Frac{b}{r}^{\ell} \: P_\ell(\cos\theta)
+\]
+
+El análisis de $\rho(r,\theta,\vp)$ tal que $\int \rho dV = q$ en principio nos dice que no 
+dependerá de $\vp$ y tendremos una forma
+\[
+	\rho = f(\theta) \delta(r-b) \qquad \rho = \alpha(r,\theta) \delta(\theta-\pi/2) \delta(r-b)
+\]
+la cual por integración
+\[
+	\rho = \frac{q}{2 \pi r^2 \sin \theta } \: \delta(\theta-\pi/2) \delta(r-b)
+\]
+\notamargen{En este caso el $\sin\theta$ podría no estar [¿?].}
+lo cual conduce a una 
+\[
+	\sigma = \frac{\lambda}{b} \: \delta(\theta-\pi/2)
+\]
+
+Las derivadas del potencial serán
+\[
+	\dpar{\phi^{I}}{n} = \dpar{\phi^{I}}{r} = 
+	\frac{1}{b} \: \sum_\ell \: C_\ell \: \ell \: \Frac{r}{b}^{\ell-1} b \: P_\ell(\cos\theta) 
+\]
+\[
+	\dpar{\phi^{II}}{n} = \dpar{\phi^{II}}{r} =
+	- \frac{1}{r} \: \sum_\ell \: C_\ell \: {\ell+1} \: \Frac{b}{r}^{\ell+1} \: b^{-1} \: P_\ell(\cos\theta)
+\]
+y al evaluarlas en $r=b$
+\[
+	\left.\dpar{\phi^{I}}{r} \right|_b = 
+	\frac{1}{b^2} \: \sum_\ell \: C_\ell \: \ell \: P_\ell(\cos\theta) 
+	\qquad 
+	\left.\dpar{\phi^{II}}{r} \right|_b =
+	- \frac{1}{b^2} \: \sum_\ell \: C_\ell \: (\ell+1) \: P_\ell(\cos\theta)
+\]
+por lo tanto
+\[
+	 \left. -\left( \dpar{\phi^{II}}{n} - \dpar{\phi^{I}}{n} \right) \right|_b =
+	 \frac{1}{b^2} \: \sum_\ell \: C_\ell \: (2\ell+1) \: P_\ell(\cos\theta) = 
+	 \frac{4\pi \lambda}{b} \delta(\theta-\pi/2)
+\]
+\[
+	\sum_\ell \: C_\ell \: (2\ell+1) \: P_\ell(\cos\theta) = 
+	4\pi \lambda b \delta(\theta-\pi/2)
+\]
+y ahora necesitaríamos encontrar $C_\ell$ para lo cual multiplicaremos ambos miembros
+y haremos uso de las condiciones de ortogonalidad de los polinomios [ver equaciones
+tal y tal]
+\[
+	\sum_\ell \: C_\ell \: (2\ell+1) \: \int_0^\pi \sin\theta P_{\ell'}(\cos\theta) P_\ell(\cos\theta) d\theta = 
+	4\pi \lambda b \int_0^\pi \sin\theta P_{\ell'}(\cos\theta) \delta(\theta-\pi/2) d\theta
+\]
+que resulta en
+\[
+	C_{\ell'} \: (2\ell'+1) \frac{2}{2\ell'+1} = 
+	4\pi \lambda b \: P_{\ell'}(0)
+\]
+y de lo cual se desprende que ahora podemos escribir
+\[
+	\phi^{I} = 2\pi\lambda \: \sum_\ell \: \Frac{r}{b}^{\ell} \: P_{\ell}(0) \: P_\ell(\cos\theta) 
+	\qquad \qquad 
+	\phi^{II} = 2\pi\lambda \: \sum_\ell \: \Frac{b}{r}^{\ell+1} \: P_{\ell}(0) \: P_\ell(\cos\theta)
+\]
+
+Luego,
+\[
+	P_{\ell+1}(x) (\ell+1) - (2\ell+a) x P_{\ell}(x) + \ell P_{\ell-1}(x) = 0
+\]
+y para sucesivos
+\[
+	P_{\ell+1}(0) (\ell+1) + \ell P_{\ell-1}(0) = 0 \qquad 
+	P_{\ell+2}(0) (\ell+2) + (\ell+1) P_{\ell}(0) = 0
+\]
+\[
+	P_{\ell+2}(0) = -\frac{(\ell+1)}{(\ell+2)} P_{\ell}(0)
+\]
+\[
+	P_0(x) = 1 \qquad P_1(x) = x \qquad \qquad 
+	P_0(0) = 1 \qquad P_1(0) = 0
+\]
+y se ve que los $P_\ell$ que aportarán serán los pares, de manera que
+\[
+	P_{2}(0) = -\frac{1}{2} \qquad 
+	P_{4}(0) = \left( -\frac{3}{4}  \right) \left( -\frac{1}{2}  \right)\qquad 
+	P_{6}(0) = \left( -\frac{5}{6}  \right)\left( -\frac{3}{4}  \right) \left( -\frac{1}{2}  \right)
+\]
+\[
+	P_{2n}(0) = (-1)^n \frac{(2n-1)!!}{(2n)!!}
+\]
+tras lo cual
+\[
+	\phi^{I} = 2\pi\lambda \: \sum_n \: (-1)^n \frac{(2n-1)!!}{(2n)!!} 
+	\: \Frac{r}{b}^{2n} \: P_{2n}(\cos\theta) 
+\]
+\[
+	\phi^{II} = 2\pi\lambda \: \sum_n \: (-1)^n \frac{(2n-1)!!}{(2n)!!} 
+	\: \Frac{b}{r}^{2n+1} \: P_{2n}(\cos\theta)
+\]
+
+Ahora se {\it mete} a tierra la esfera por imágenes, ver ilustración siguiente
+
+\includegraphics[width=0.45\textwidth]{images/fig_ft1_problema_esfera_anillada_C.jpg}
+
+Con ello
+\[
+	\lambda = \frac{dq}{b \: d\theta} \qquad \lambda' = \frac{dq'}{b' \: d\theta}
+\]
+y
+\[
+	\lambda'= -\frac{b}{a}\lambda.
+\]
+
+Deberíamos obtener, si hacemos la superposición,
+\[
+	\phi^{I} = 2\pi\lambda \: \sum_n \: (-1)^n \frac{(2n-1)!!}{(2n)!!} 
+	\: \Frac{ r^{4n+1} - a^{4n+1} }{ r^{2n+1} b^{2n} } \: P_{2n}(\cos\theta) 
+\]
+\[
+	\phi^{II} = 2\pi\lambda \: \sum_n \: (-1)^n \frac{(2n-1)!!}{(2n)!!} 
+	\: \Frac{ b^{4n+1} - a^{4n+1} }{r^{2n+1} b^{2n} } \: P_{2n}(\cos\theta)
+\]
+
+También se puede llegar directamente a la resolución por seperación de variables en
+la configuración
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema_esfera_anillada_D.jpg}
+
+Es similar de entrada
+\[
+	\phi^{I,II} = \sum_\ell \: ( A_\ell^{I,II} r^\ell + B_\ell^{I,II} r^{-\ell-1}) P_\ell(\cos\theta).
+\]
+
+
+\end{ejemplo}
+
 
 
 % =================================================================================================
