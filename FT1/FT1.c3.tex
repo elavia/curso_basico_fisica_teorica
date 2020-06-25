@@ -1403,6 +1403,370 @@ y hacemos
 donde la constante se toma negativa por la condición de que $Q$ sea periódica
 en $2\pi$.
 
+Esto conduce a 
+\[
+	\dtot[2]{R}{\rho} + \frac{1}{\rho} \dtot{R}{\rho} +
+	R \left( k^2 -  \frac{\nu^2}{\rho^2} \right) = 0,
+\]
+la cual haciendo un reemplazo $x = k \rho$ lleva a
+\[
+	\dtot{}{x}\left( x \dtot{R}{x} \right) +
+	\left( x -  \frac{\nu^2}{x} \right) R = 0,
+\]
+que ahora tiene forma de Sturm-Liouville.
+
+Las soluciones serán funciones de Bessel de primera y segunda especie,
+\[
+	J_\nu (x) \qquad \qquad N_\nu(x), 
+\]
+donde las de segunda especie se definen a partir de las de primera según
+\[
+	N_\nu(k\rho) \equiv \frac{ J_\nu(k\rho) \cos(\nu\pi) - J_{-\nu}(k\rho)}{\sin(\nu\pi)}
+\]
+la cual se suele llamar función de Neumann.
+
+En general $J_{\nu}$ y $J_{-\nu}$ no son independientes, pero $J_{\nu}$ y $N_{\nu}$ sí lo
+son de manera que la combinación lineal
+\[
+	J_{\nu} + N_{\nu}
+\]
+es una buena solución general (luego hay que introducir los contornos).
+
+La función $J_{\nu}$ tiene valores bien comportados siempres mientras que $N_{\nu}$, en cambio,
+diverge en el origen del eje $\hat{z}$. Si la región de integración incluye dicho eje, entonces
+los coeficientes asociados a la función de Neumann deben anularse.
+
+También se suelen definir
+\[
+	H^{(1)}_\nu(k\rho) = J_\nu(k\rho) + i N_\nu(k\rho)
+\]
+\[
+	H^{(2)}_\nu(k\rho) = J_\nu(k\rho) - i N_\nu(k\rho)
+\]
+que son las funciones de Bessel de tercera especie o bien Hankel de primera y segunda especie respectivamente.
+
+Todas las funciones cilíndricas verifican las siguientes relaciones de recurrencia
+\[
+	\Omega_{\nu-1}(x) + \Omega_{\nu+1}(x) = \frac{2\nu}{x} \Omega_{\nu}(x)
+\]
+\[
+	\Omega_{\nu-1}(x) - \Omega_{\nu+1}(x) = 2 \dtot{ \Omega_{\nu} }{ x }(x)
+\]
+donde $\Omega$ es cualquiera de las funciones cilíndricas.
+
+Algunos valores asintóticos serán de utilidad. Con $ x \ll 1$ se tiene
+\[
+	J_\nu \approx \frac{1}{\Gamma(\nu+1)} \Frac{x}{2}^\nu \qquad \qquad 
+	\Gamma(n) = \int_0^\infty \: \euler{-x} \: x^{n-1} \: dx
+\]
+\[
+	N_\nu \quad \to \quad \begin{cases}
+			\frac{2}{\pi}\left[ \ln\Frac{x}{2} + 0.57... \right]  \qquad \nu=0 \\
+			\\
+			- \frac{\Gamma(\nu)}{\pi}\Frac{2}{x}^\nu  \qquad \nu\neq 0
+	             \end{cases}
+\]
+donde $\Gamma$ es la función gamma generalizada que verifica [¿?]
+$\Gamma(n+1) = n \Gamma(n) = n!$ cuando $n$ es un natural.
+
+Para el límite $ x \gg 1 $ y $ x \gg \nu$ se dan
+\[
+	J_\nu(x) \approx \sqrt{ \frac{2}{\pi x} } \: \cos\left( x - \frac{\nu \pi}{2} - \frac{\pi}{4} \right) \qquad 
+	N_\nu(x) \approx \sqrt{ \frac{2}{\pi x} } \: \sin\left( x - \frac{\nu \pi}{2} - \frac{\pi}{4} \right)
+\]
+donde los factores senoidales implican un comportamiento oscilante.
+
+\subsubsection{Ceros de la función de Bessel}
+
+Las funciones de Bessel tienen infinitos ceros,
+\[
+	J_\nu(x_{\nu n}) = 0 \qquad \mathrm{con} \; n\in\mathbb{N}, \nu \quad \mathrm{fijo} 
+\]
+siendo $x_{\nu n}$ un cero de $J_\nu$. Así
+\[
+	\sqrt{\rho} \: J_\nu\left( x_{\nu n} \frac \rho a \right) \qquad\qquad 0 \leq \rho \leq a
+\]
+con $\nu \geq 0$ fijo es un conjunto ortonormal completo en el intervalo $[0,a]$ siendo $a$ 
+el radio del cilindro.
+
+% Las funciones
+% \[
+% 	J_\nu\left( x_{\nu n} \frac{\rho}{a}\right) \qquad \qquad 0\leq \rho \leq a
+% \]
+% donde $a$ es el radio del cilindro, forman un conjunto completo en el intervalo $[0,a]$.
+Luego, se cumple la siguiente ortogonalidad
+\[
+	\int_0^a \rho  J_\nu (x_{\nu n'} \rho/a)  J_\nu (x_{\nu n} \rho/a)  d\rho = 
+	\frac{a^2}{2}[J_{\nu+1}(x_{\nu n})]^2 \delta_{nn'}.
+\]
+donde $\rho$ es el factor de peso. Entonces se puede desarrollar cualquier función $L^2$ en el $[0,a]$
+en términos de ceros de Bessel.
+Entonces la expansión
+\[
+	f(\rho) = \sum_{n=1}^{\infty}  A_{x_{\nu n}} J_{\nu}( x_{\nu n} \rho/a ) \qquad \qquad 
+	f(a) = 0
+\]
+donde $n$ numera los ceros de la función de Bessel.
+Así, los coeficientes son
+\[
+	A_{\nu n} = \frac{2}{a^2 J_{\nu +1}^2 (x_{\nu n})} 
+	\int_0^a \rho f(\rho) J_\nu (x_{\nu n} \rho/a) 	d\rho
+\]
+
+Los ceros de las derivadas de las funciones de Bessel (derivadas con respecto a su argumento) 
+también dan un conjunto completo de autofunciones.
+
+\subsubsection{Cambio de signo de la constante de separación}
+
+Un asunto interesante es el signo de la constante $k$. Si suponemos que es imaginaria se
+tendría
+\[
+	\frac{1}{Z} \dtot[2]{Z}{z} = (-ik)^2 = -k^2
+\]
+lo cual conduce a ecuaciones de oscilador armónico en $Z, Q$ para las cuales
+\[
+	Z = \euler^{\pm i k z} \qquad \qquad Q = \euler^{\pm i \nu \phi}
+\]
+Esto siempre suponiendo que todo el rango $0 \leq \vp \leq 2\pi$ está accesible.
+Sucederá esto cuando las condiciones en las tapas sean periódicas.
+Se modificará Sturm-Liouville de acuerdo con
+\[
+	\dtot[2]{R}{\rho} + \frac{1}{\rho} \dtot{R}{\rho} - R \left( k^2 + \frac{\nu^2}{\rho^2}\right) = 0 
+\]
+y mediante $x \equiv k\rho$, será
+\[
+	\dtot[2]{R}{x} + \frac{1}{x} \dtot{R}{x} - \left( 1 + \frac{\nu^2}{x^2}\right) R = 0 
+\]
+lo cual nos lleva a la solución de Bessel modificadas, y, consecuentemente 
+a las funciones de Bessel modificadas
+\notamargen{En la carpeta no usé el argumento $k\rho$, sino el $x$. Habría que
+consolidar la notación.}
+\[
+	I_\nu(k\rho) = (-i)^{-\nu} J_\nu(ik\rho)
+\]
+\[
+	K_\nu(k\rho) = \frac{\pi}{2}i^{\nu+1} H_\nu^{(1)}(ik\rho),
+\]
+donde son respectivamente las de primera y segunda especie y vemos que tienen 
+argumento imaginario.
+Las solcuiones serán las mismas que antes solamente que con argumento 
+imaginario.
+
+
+
+Como en el caso anterior, son convenientes algunas expresiones asintóticas.
+Para $ x \ll 1$ y $ x \ll \nu $ se tiene
+\[
+	I_\nu \approx \frac{1}{\Gamma(\nu+1)} \Frac{x}{2}^\nu 
+\]
+\[
+	K_\nu \quad \to \quad \begin{cases}
+			- \left[ \ln\Frac{x}{2} + 0.57... \right] \qquad \nu=0 \\
+			\\
+			- \frac{\Gamma(\nu)}{2}\Frac{2}{x}^\nu \qquad \nu \neq 0
+	             \end{cases}
+\]
+
+Para el límite $ x \gg 1 $ y $ x \gg \nu$ se dan
+\[
+	I_\nu(x) \approx \frac{\euler^{x}}{\sqrt{ 2 \pi } x} \: \qquad \qquad 
+	K_\nu(x) \approx \sqrt{ \frac{\pi}{2 x} } \: \euler^{-x}.
+\]
+
+\begin{ejemplo}{\bf Problema 3.6[8](9) de Jackson primera[segunda](tercera) edición}
+
+Se ve un cilindro donde las tapas están a potencial $V=0 $ mientras los laterales
+tienen un potencial $V=V(\phi,z)$.
+Las condiciones de contorno según $\hat{z}$ son periódicas, entonces el parámetro
+de separación debe tomarse imaginario puro como se vio antes. Estaremos utilizando
+funciones modificadas de Bessel.
+ 
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_sep_cilin_A.jpg} 
+ 
+El potencial dentro de este cilindro verificará $\nabla^2 V = 0$.
+El potencial debería entonces poder escribirse como una combinación lineal del tipo
+\[
+	\phi = \sum_{\nu,k} \:
+	\left[ A_{\nu k}\:\sin(\nu\vp) + B_{\nu k}\:\cos(\nu\vp) \right] 
+	\left[ C_{\nu k}\:\sin(kz) +  D_{\nu k}\:\cos(kz) \right]
+	\left[ E_{\nu k}\:I_{\nu}(k\rho) +  F_{\nu k}\:K_{\nu}(k\rho)  \right]
+\]
+y luego como $\phi(z=0) = 0$ implica que $D_{\nu k}=0$, luego como $\sin(\rho,\vp,z=L)=0$
+se tendrá $k = n \phi / L$. Como en el eje $z$ no hay cargas, pero las funciones $K_{\nu k}$
+divergen allí estamos obligados a tomar $F_{\nu k}=0$.
+Con toda esta información y redefiniendo constantes resulta
+\[
+	\phi = \sum_{\nu,k} \:
+	\left[ A_{\nu n}\:\sin(\nu\vp) + B_{\nu n}\:\cos(\nu\vp) \right] 
+	\: \sin\left( \frac{n\pi z}{L} \right)  \: I_{\nu}\left(\frac{n\pi \rho}{L}\right) 
+\]
+
+Dado el dato del problema $\phi(a,\vp,z) = V(\phi,z)$ debe ser
+\[
+	V = \sum_{\nu,k} \:
+	\left[ A_{\nu n}\:\sin(\nu\vp) + B_{\nu n}\:\cos(\nu\vp) \right] 
+	\: \sin\left( \frac{n\pi z}{L} \right)  \: I_{\nu}\left(\frac{n\pi a}{L}\right) 
+\]
+que es una serie doble de Fourier donde los coeficientes serán
+\[
+	A_{m\rho} = \frac{2}{\pi L I_m(\pi a \rho/L )} \: 
+	\int_0^{2\pi} d\vp \int_0^L \: dz \: V(\phi,z) \: \sin(m\vp) \: \sin\left( \frac{\rho \pi z}{L}\right)
+\]
+\[	
+	B_{m\rho} = \frac{2}{\pi L I_m(\pi a \rho/L )} \: 
+	\int_0^{2\pi} d\vp \int_0^L \: dz \: V(\phi,z) \: \cos(m\vp) \: \sin\left( \frac{\rho \pi z}{L}\right)
+\]
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Otro problema}
+ 
+Se conoce el potencial en el plano, será $V(\rho,\vp)$ donde se supone que $V \to 0$
+con $\rho\to\infty$ y también con $z\to\infty$.
+No hay restricciones en $\vp$, y el rango de $\rho$ es el natural entre $[0,\infty)$.
+No hay condiciones periódicas de ningún tipo.
+Entonces se usarán funciones de Bessel usuales.
+
+La solución será una combinación lineal de todoas los valores de los parámetros,
+y para $z\geq 0$
+\[
+	\phi(\rho,\vp,z) = \left[ A_{\nu}I_{\nu}(k\rho) + B_{\nu}N_{\nu}(k\rho) \right] \: 
+	\left[ \sin(\nu\vp) + \cos(\nu\vp) \right] \: \euler^{-kz}
+\]
+ 
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_sep_cilin_B.jpg} 
+
+\[
+	= \sum_{m=0}^\infty \: \int_0^{\infty} \: dk \:
+	\euler^{-kz} \: J_{m}(k\rho) \: 
+	[ \: A_m(k) \: \sin(m\vp) \: + B_m(k) \: \cos(m\vp) \: ]
+\]
+de modo que
+\[
+	V(\rho,\vp) = \sum_{m=0}^\infty \: \int_0^{\infty} \: dk \:
+	\: J_{m}(k\rho) \: 
+	[ \: A_m(k) \: \sin(m\vp) \: + B_m(k) \: \cos(m\vp) \: ]
+\]
+que involucra un Fourier en la variable $\vp$ con coeficientes de función $k$.
+Entonces
+\[
+	\frac{1}{\pi} \int_0^{2\pi} \: V(\rho,\vp) \: \sin(m\vp) \: d\vp = 
+	\int_0^{\infty} \: J_{m}(k'\rho) \: A_m(k') \: dk'
+\]
+y
+\[
+	\frac{1}{\pi} \int_0^{2\pi} \: V(\rho,\vp) \: \cos(m\vp) \: d\vp = 
+	\int_0^{\infty} \: J_{m}(k'\rho) \: B_m(k') \: dk'
+\]
+
+La ortogonalidad
+\[
+	\int_0^{\infty} \: x \: J_{m}(kx) \: J_{m}(k'x) \: dx = \frac{1}{k} \: \delta(k'-k)
+\]
+y usando la completitud para la integral
+\[
+	\frac{1}{\pi} \int_0^{2\pi} \:  \sin(m\vp) \: d\vp \: 
+	\int_0^{\infty} \: \rho \: J_{m}(k\rho) \:V(\rho,\vp) \: d\rho =
+	\int_0^{\infty} \: \int_0^{\infty} \: \rho \: J_{m}(k'\rho) \: J_{m}(k\rho) \: A_m(k') \: dk' \: d\rho
+\] 
+\[
+	\int_0^{\infty} \: A_m(k') \: dk' \: \int_0^{\infty} \: 
+	\: \rho \: J_{m}(k'\rho) \: J_{m}(k\rho) \: d\rho = \frac{A_m(k)}{k}
+\]
+de tal modo que los coeficientes serán
+\[
+	A_m(k) = \frac{k}{\pi} \: \int_0^{\infty} \: \rho \: d\rho \: 
+	\int_0^{2\pi} \: V(\rho,\vp) \: J_{m}(k\rho) \: \sin(m\vp) \: d\vp
+\]
+\[
+	B_m(k) = \frac{k}{\pi} \: \int_0^{\infty} \: \rho \: d\rho \: 
+	\int_0^{2\pi} \: V(\rho,\vp) \: J_{m}(k\rho) \: \cos(m\vp) \: d\vp
+\]
+
+Finalmente el potencial es
+\[
+	\phi(\rho,\vp,z) = \sum_{m=0}^\infty \: \int_0^{\infty} \: dk \:
+	\euler^{-kz} \: J_{m}(k\rho) \: 
+	[ \: A_m(k) \: \sin(m\vp) \: + B_m(k) \: \cos(m\vp) \: ]
+\]
+que para el valor especial $\vp=0$ resulta en
+\[
+	\phi(\rho,0,z) =  \int_0^{\infty} \: dk \:
+	\euler^{-kz} \: J_{0}(k\rho) \: B_0(k) \: \cos(m\vp).
+\]
+
+El problema del Jackson ilustrado en esta figuretta es un caso particular del anterior.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_sep_cilin_C.jpg} 
+ 
+\end{ejemplo}
+
+
+
+
+
+Las $I_\nu(k\rho)$ tendrán problemas en $\rho\to\infty$ y $K_\nu(k\rho)$ problemas en $\rho=0$ (en el eje 
+$\hat{z}$).
+Si atravesamos densidades de carga en $\hat{z}$ entonces usamos Bessel
+\[
+	Z = \euler^{\pm k z} \quad \Rightarrow \quad J_\nu^{(1)}(k\rho) ; N_\nu^{(2)}(k\rho)
+\]
+pero bajo condiciones periódicas en $\hat{z}$ se usan Bessel modificadas
+\[
+	Z = \euler^{ \pm i k z} \quad \Rightarrow \quad I_\nu^{(1)}(k\rho) ; K_\nu^{(2)}(k\rho)
+\]
+y esto último se da por ejemplo en tapas del cilindro.
+La función de Bessel de primera especie se puede expresar como serie según
+\[
+	J_\nu^{(1)}(k\rho) = \left(\frac{x}{2}\right)^\nu \sum_{j=0}^\infty \frac{(-1)^j}{j!\Gamma(j+\nu +1)} 
+		\left(\frac{x}{2}\right)^{2j}
+\]
+
+
+
+
+{\bf Escrachos+}
+
+% \[
+% 	f(\rho) = \sum_{n=1}^{\infty}  A_{x_{\nu n}} J_{\nu}( x_{\nu n} \rho/a )
+% \]
+% con $0 \leq \rho \leq a$. Así $f(\rho=a)=0$,
+% \[
+% 	A_{\nu n} = \frac{2}{a^2 J_{\nu +1}^2 (x_{\nu n})} \int_0^a \rho f(\rho) J_\nu (x_{\nu n} \rho/a) 
+% 	d\rho
+% \]
+% la ortogonalidad
+% \[
+% 	\int_0^a \rho  J_\nu (x_{\nu n'} \rho/a)  J_\nu (x_{\nu n} \rho/a)  d\rho = 
+% 	\frac{a^2}{2}[J_{\nu+1}(x_{\nu n})]^2 \delta_{nn'}.
+% \]
+
+Para $k$ sea $\phi(\rho=a)=0$ entonces 
+\[
+	J_\nu(ka) = 0 \Rightarrow ka=x_{\nu n} \Rightarrow J_\nu (x_{\nu n} \rho/a)
+\]
+y $k=\frac{x_{\nu n}}{a}$ si $0\leq \rho \leq a$ y si está acotado en $\rho$ entonces es discreto y se
+suma $\sum_{n=1}^\infty$ y $\nu\to m \in \mathbb{Z}$ si $0 \leq \phi \leq 2\pi$ y si no está acotado en
+$\rho$ entonces usamos 
+\[
+	\int_0^\infty dk
+\]
+y la completitud
+\[
+	\int_0^\infty x J_\nu(kx) J_\nu(k'x) dx = \frac{1}{k} \delta (k-k')
+\]
+y $k$ en general será función de $n\in \mathbb{N}$ por condición periódica en tapas (en $\hat{z}$) o en
+cilindros (en $\hat{\rho}$).
+\[
+	\phi(\rho,\phi,z) = \sum_{\nu=0}^\infty \sum_{n=1}^\infty
+	[A_{\nu k}\begin{cases} J_\nu(k\rho)  \\ I_\nu(k\rho) \end{cases} + 
+	B_{\nu k} \begin{cases} N_\nu(k\rho)  \\ K_\nu(k\rho) \end{cases} ]
+	[C_k \begin{cases} \euler^{\pm kz} \\ \euler^{\pm ikz} \end{cases}]
+	[D_{k\nu} \euler^{\pm i \nu \phi}]
+\]
+donde $k=k(n)$ y usamos $\sin(kz)+\cos(kz)$ si hay discretización.
+
+{\bf Escrachos++}
 
 Donde los primeros dos términos conducen a la ecuación de Bessel, el tercero es igual a $-\nu^2$ y el
 cuarto a $k^2$. Sacamos
@@ -1433,100 +1797,6 @@ siendo $J_\nu(k\rho)$ la función de Bessel de primera especie, $N_\nu(k\rho)$ l
 especie (Neumann).
 $N_\nu(k\rho)$ tiene problemas en el origen de modo que no sirve si el dominio incluye al eje $\hat{z}$, en 
 cambio $J_\nu(k\rho)$ tiene problemas en $\rho\to \infty$.
-
-También se suelen definir
-\[
-	H^{(1)}_\nu(k\rho) = J_\nu(k\rho) + i N_\nu(k\rho)
-\]
-\[
-	H^{(2)}_\nu(k\rho) = J_\nu(k\rho) - i N_\nu(k\rho)
-\]
-que son las funciones de Bessel de tercera especie o bien Hankel de primera y segunda especie respectivamente.
-
-\subsubsection{Cambio de signo de la constante de separación}
-
-\[
-	... + \underbrace{\frac{1}{Z} \dtot[2]{Z}{z}}_{-k^2} =  0
-\]
-entonces nos lleva a
-\[
-	Z = \euler^{\pm i k z} \qquad \qquad Q = \euler^{\pm i \nu \phi}
-\]
-y entonces a las funciones de Bessel modificadas
-\[
-	I_\nu(k\rho) = i^{-\nu} J_\nu(k\rho)
-\]
-\[
-	K_\nu(k\rho) = \frac{\pi}{2}i^{\nu+1} H_\nu^{(1)}(k\rho),
-\]
-donde son respectivamente las de primera y segunda especie y vemos que tienen argumento imaginario.
-Las $I_\nu(k\rho)$ tendrán problemas en $\rho\to\infty$ y $K_\nu(k\rho)$ problemas en $\rho=0$ (en el eje 
-$\hat{z}$).
-Si atravesamos densidades de carga en $\hat{z}$ entonces usamos Bessel
-\[
-	Z = \euler^{\pm k z} \quad \Rightarrow \quad J_\nu^{(1)}(k\rho) ; N_\nu^{(2)}(k\rho)
-\]
-pero bajo condiciones periódicas en $\hat{z}$ se usan Bessel modificadas
-\[
-	Z = \euler^{ \pm i k z} \quad \Rightarrow \quad I_\nu^{(1)}(k\rho) ; K_\nu^{(2)}(k\rho)
-\]
-y esto último se da por ejemplo en tapas del cilindro.
-La función de Bessel de primera especie se puede expresar como serie según
-\[
-	J_\nu^{(1)}(k\rho) = \left(\frac{x}{2}\right)^\nu \sum_{j=0}^\infty \frac{(-1)^j}{j!\Gamma(j+\nu +1)} 
-		\left(\frac{x}{2}\right)^{2j}
-\]
-
-Las funciones de Bessel tienen infinitos ceros,
-\[
-	J_\nu(x_{\nu n}) = 0 \qquad \mathrm{con} \; n\in\mathbb{N}, \nu \quad \mathrm{fijo} 
-\]
-siendo $x_{\nu n}$ un cero de $J_\nu$. Así
-\[
-	\sqrt{\rho} J_\nu(x_{\nu n} \rho/a) 
-\]
-con $\nu \geq 0$ fijo es un conjunto ortonormal completo en $0 \leq \rho \leq a$ siendo $a$ el radio del 
-cilindro.
-\[
-	f(\rho) = \sum_{n=1}^{\infty}  A_{x_{\nu n}} J_{\nu}( x_{\nu n} \rho/a )
-\]
-con $0 \leq \rho \leq a$. Así $f(\rho=a)=0$,
-\[
-	A_{\nu n} = \frac{2}{a^2 J_{\nu +1}^2 (x_{\nu n})} \int_0^a \rho f(\rho) J_\nu (x_{\nu n} \rho/a) 
-	d\rho
-\]
-la ortogonalidad
-\[
-	\int_0^a \rho  J_\nu (x_{\nu n'} \rho/a)  J_\nu (x_{\nu n} \rho/a)  d\rho = 
-	\frac{a^2}{2}[J_{\nu+1}(x_{\nu n})]^2 \delta_{nn'}.
-\]
-
-Para $k$ sea $\phi(\rho=a)=0$ entonces 
-\[
-	J_\nu(ka) = 0 \Rightarrow ka=x_{\nu n} \Rightarrow J_\nu (x_{\nu n} \rho/a)
-\]
-y $k=\frac{x_{\nu n}}{a}$ si $0\leq \rho \leq a$ y si está acotado en $\rho$ entonces es discreto y se
-suma $\sum_{n=1}^\infty$ y $\nu\to m \in \mathbb{Z}$ si $0 \leq \phi \leq 2\pi$ y si no está acotado en
-$\rho$ entonces usamos 
-\[
-	\int_0^\infty dk
-\]
-y la completitud
-\[
-	\int_0^\infty x J_\nu(kx) J_\nu(k'x) dx = \frac{1}{k} \delta (k-k')
-\]
-y $k$ en general será función de $n\in \mathbb{N}$ por condición periódica en tapas (en $\hat{z}$) o en
-cilindros (en $\hat{\rho}$).
-\[
-	\phi(\rho,\phi,z) = \sum_{\nu=0}^\infty \sum_{n=1}^\infty
-	[A_{\nu k}\begin{cases} J_\nu(k\rho)  \\ I_\nu(k\rho) \end{cases} + 
-	B_{\nu k} \begin{cases} N_\nu(k\rho)  \\ K_\nu(k\rho) \end{cases} ]
-	[C_k \begin{cases} \euler^{\pm kz} \\ \euler^{\pm ikz} \end{cases}]
-	[D_{k\nu} \euler^{\pm i \nu \phi}]
-\]
-donde $k=k(n)$ y usamos $\sin(kz)+\cos(kz)$ si hay discretización.
-
-
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica

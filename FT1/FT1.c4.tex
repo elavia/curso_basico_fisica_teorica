@@ -3,8 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -28,7 +28,7 @@
 \begin{document}
 
 % =================================================================================================
-\chapter{Expansión en un campo multipolar}
+\chapter{Medios materiales}
 % =================================================================================================
 
 % =================================================================================================
@@ -77,16 +77,21 @@ y se pueden pensar como corrientes $\vb{J}_M$ y $\vb{g}_M$,
 	 \text{buen conductor} \\
 	 \text{mal conductor}
 	\end{cases}$
+\item Plasmas (gas ionizado)
 \end{itemize}
 
 Podemos hacer una suerte de tabla comparativa entre eléctrico y magnético
 (pero lo armaremos después con minipage)
 
-Polarización  
+La polarización  
 \[
 	\vb{P} = \frac{\delta \vb{p}}{\delta V}
 \]
-que es el Momento dipolar eléctrico por unidad de volumen. Luego el potencial es
+es el momento dipolar eléctrico por unidad de volumen. 
+
+\includegraphics[width=0.6\textwidth]{images/fig_ft1_medios_picturete.jpg}	
+
+Luego el potencial es
 \[
 	\phi( \vb{x}) = \int_S \frac{\vb{P}(\vb{x}')}{|\vb{x}-\vb{x}'|} d\vb{S}' - 
 	\int_V \frac{\Nabla\cdot\vb{P}(\vb{x}')}{|\vb{x}-\vb{x}'|}  dV'
