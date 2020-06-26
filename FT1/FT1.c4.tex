@@ -91,7 +91,19 @@ es el momento dipolar eléctrico por unidad de volumen.
 
 \includegraphics[width=0.6\textwidth]{images/fig_ft1_medios_picturete.jpg}	
 
-Luego el potencial es
+
+
+\notamargen{No sé qué pasaba con la parte de la integral de superficie.}
+Cuando se construye el potencial llegamos a 
+\[
+	\int_V \frac{\vb{P}\cdot ( \vbx - \vbx')}{|\vb{x}-\vb{x}'|^3} dV =
+	\int_V \vb{P}\cdot \frac{ 1 }{ |\vb{x}-\vb{x}'| } dV 
+\]
+y esta integral por partes lleva a lo de más abajo.
+
+
+Luego el potencial es, posteriormente a haber hecho partes
+es
 \[
 	\phi( \vb{x}) = \int_S \frac{\vb{P}(\vb{x}')}{|\vb{x}-\vb{x}'|} d\vb{S}' - 
 	\int_V \frac{\Nabla\cdot\vb{P}(\vb{x}')}{|\vb{x}-\vb{x}'|}  dV'
@@ -99,6 +111,8 @@ Luego el potencial es
 \[
 	\qquad \vb{P}\cdot\hat{n} = \sigma_P \qquad \Rightarrow \qquad \divem{P} = -\rho_0
 \]
+Entonces, se puede construir un vector $\vb{D}$ siguiendo
+esta línea de razonamiento:
 \[
 	\begin{cases}
 	\rotorm{E}  = 0 \\
@@ -130,16 +144,38 @@ Los contornos entre medios se resuelven según
 \[
 	\hat{n} \times (\vb{E}_2 -\vb{E}_1) = 0 \qquad 
 	(\vb{D}_2 -\vb{D}_1)\cdot\hat{n} = 4 \pi \sigma_L \qquad 
-	(\vb{P}_2 -\vb{P}_1)\cdot\hat{n} = - \sigma_L
+	(\vb{P}_2 -\vb{P}_1)\cdot\hat{n} = - \sigma_P,
 \]
+que provienen del rotor de \vb{E}, la divergencia de \vb{D} y la divergencia
+de \vb{P} respectivamente.
+
+\subsubsection{Imanes inducidos}
+
+
+% %% FIGURIN
 
 Para la Magnetización,
 \[
 	\vb{M} = \frac{\delta \vb{m}}{\delta V}
 \]
-que es el Momento dipolar magnético por unidad de volumen. Luego el potencial es
+que es el momento dipolar magnético por unidad de volumen. Luego el potencial 
 \[
-	\vb{A}( \vb{x}) = \frac{1}{c} \int_S \frac{ \vb{M}\times\hat{n} }{|\vb{x}-\vb{x}'|} d\vb{S}' - 
+	\delta\vb{A} = \frac{ \delta \vb{m} \times ( \vbx - \vbx') }{|\vbx - \vbx'|}
+\]
+se evalúa con la misma idea que la del dipolo para polarización.
+Queda por incorporar el asuntete de 
+\[
+	\frac{1}{c} \int_V c \vb{M} \times \Nabla\frac{ 1 }{|\vb{x}-\vb{x}'|}  dV'
+	= \frac{1}{c} \int_V \frac{ c(\rotorm{M}) }{|\vb{x}-\vb{x}'|}  dV'
+\]
+usando partes.
+
+% Figurin de observación
+
+Entonces es
+\[
+	\vb{A}( \vb{x}) = \frac{1}{c} \int_S 
+	\frac{ \vb{M}\times\hat{n} }{|\vb{x}-\vb{x}'|} d\vb{S}' - 
 	\frac{1}{c} \int_V \frac{ c(\rotorm{M}) }{|\vb{x}-\vb{x}'|}  dV'
 \]
 \[
@@ -160,19 +196,61 @@ de modo que
 \]
 y por la linealidad
 \[
-	\vb{M} = \xi_M \vb{H} \qquad \text{MLIH}
+	\vb{M} = \chi_M \vb{H} \qquad \text{MLIH}
 \]
 \[
-	\vb{B} = ( 1 + 4\pi\xi_M ) \vb{H} 
+	\vb{B} = ( 1 + 4\pi\chi_M ) \vb{H} 
 \]
 \[
-	\vb{B} = \epsilon \vb{H}
+	\vb{B} = \mu \vb{H}
 \]
 donde $\xi_M$ es la susceptibilidad magnética y $\mu$ es la permeabilidad magnética.
+Si $\mu > 1 $ es un medio paramagnético y $\mu < 1$ es diamagnético.
+
+
+Si hay linealidad e isotropía
+\[
+	\vb{P} = \chi_e \: \vb{E} \qquad \qquad \vb{D} = ( 1 + 4 \pi \chi_e ) \vb{E}
+\]
+donde el paréntesis es $\varepsilon$ es la permitividad eléctrica.
+Si hay isotropía
+\[
+	\begin{pmatrix}
+		p_x \\
+		p_y \\
+		p_z
+	\end{pmatrix} 
+	=
+	\begin{pmatrix}
+		\varepsilon & 0 & 0 \\
+		0 & \varepsilon & 0 \\
+		0 & 0 & \varepsilon
+	\end{pmatrix} 
+	\begin{pmatrix}
+		E_x \\
+		E_y \\
+		E_z
+	\end{pmatrix} 
+\]
+
+
 Los contornos entre medios se resuelven según
 \[
 	\hat{n} \times (\vb{H}_2 -\vb{H}_1) = \frac{4 \pi}{c} \vb{g}_L \qquad 
 	(\vb{B}_2 -\vb{B}_1)\cdot\hat{n} = 0 
+\]
+donde $\vb{g}_L$ se refiere a densidad de corriente superficial.
+Si esta es nula se tiene
+\[
+	\begin{cases}
+	B_{n2} = B_{n1} \\
+	\\
+	B_{t2} = \frac{\mu_2}{\mu_1}\: B_{t1}
+	\end{cases}
+	\begin{cases}
+	H_{n2} = \frac{\mu_2}{\mu_1}\: H_{n1} \\
+	H_{t2} = H_{t1} 
+	\end{cases}
 \]
 
 \subsubsection{Imán permanente}
@@ -181,6 +259,8 @@ Hay magnetización \vb{M} aún en ausencia de campo. No es un medio lineal de mo
 \[
 	\vb{M}	 \neq \xi_M \vb{H} \Rightarrow \vb{B} \neq \mu \vb{H}
 \]
+El campo \vb{M} es fuente de campo. El asunto es que $\vb{M}$ tiene el problema de
+la discontinuidad, pero $ \vb{M} = 0 $ fuera del medio.
 La relación entre \vb{B},\vb{H} depende de la historia del medio.
 \[
 	\frac{1}{c}\vb{J}_M = \rotorm{M}
@@ -202,6 +282,9 @@ que es un potencial escalar magnético.
 \[
 	\nabla^2 \phi_m = -4\pi\rho_m
 \]
+donde se ha definido cargas ficticias de magnetización.
+Se deduce una $ \sigma = \vb{M} \cdot \hat{n} $.
+
 \[
 	\divem{M} \equiv -\rho_m \qquad \qquad \vb{M}\cdot\hat{n} \equiv \sigma_m
 \]
@@ -367,6 +450,42 @@ una ecuación de Poisson para el potencial $\phi_m^H$.
 \[
 	(-\Nabla \phi^2_H + \Nabla \phi^1_H )\cdot\hat{n} = 4\pi \vb{M}\cdot\hat{n} = 4\pi \sigma_M
 \]
+
+\begin{ejemplo}{\bf Problema 5 (imán esférico)}
+
+Calculamos todo de varias maneras
+
+% figurin bola
+
+Bola \textcircled{1}
+\[
+	\vb{m} = \int \vb{M} \: dV = \frac{4 \pi a^3 }{3} M_0 \hat{z}
+\]
+
+Bola \textcircled{2}
+\[
+	\rotorm{H} = 0 \qquad \qquad \divem{H} = 4 \pi \rho_m
+\]
+\[
+	\vb{m} = \int \rho_m \vbx dV = \hat{z} \int \rho_m \: z \: dV
+\]
+Se tienen además
+\[
+	\rho_m = - \divem{M} \qquad \sigma_M = \vb{M}\cdot{\hat{n}}
+\]
+y como \vb{M} es constante en el interior, no hay $\rho_m$ en el volumen.
+Habría que escribir bien la magnetización \vb{M}.
+Usaremos una función escalón
+
+% figurin graficos
+
+% figurin bola corriente
+
+% figurin anillo
+ 
+\end{ejemplo}
+
+
 
 % =================================================================================================
 \section{Consideraciones energéticas}
