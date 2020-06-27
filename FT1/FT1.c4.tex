@@ -152,7 +152,7 @@ de \vb{P} respectivamente.
 \subsubsection{Imanes inducidos}
 
 
-% %% FIGURIN
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_imaninducidos.jpg}
 
 Para la Magnetización,
 \[
@@ -170,7 +170,7 @@ Queda por incorporar el asuntete de
 \]
 usando partes.
 
-% Figurin de observación
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_imaninducidos_nota.jpg}
 
 Entonces es
 \[
@@ -245,10 +245,12 @@ Si esta es nula se tiene
 	\begin{cases}
 	B_{n2} = B_{n1} \\
 	\\
-	B_{t2} = \frac{\mu_2}{\mu_1}\: B_{t1}
+	\displaystyle B_{t2} = \frac{\mu_2}{\mu_1}\: B_{t1}
 	\end{cases}
+	\qquad 
 	\begin{cases}
-	H_{n2} = \frac{\mu_2}{\mu_1}\: H_{n1} \\
+	\displaystyle H_{n2} = \frac{\mu_2}{\mu_1}\: H_{n1} \\
+	\\
 	H_{t2} = H_{t1} 
 	\end{cases}
 \]
@@ -455,7 +457,7 @@ una ecuación de Poisson para el potencial $\phi_m^H$.
 
 Calculamos todo de varias maneras
 
-% figurin bola
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_imanesferico_A.jpg}
 
 Bola \textcircled{1}
 \[
@@ -477,11 +479,174 @@ y como \vb{M} es constante en el interior, no hay $\rho_m$ en el volumen.
 Habría que escribir bien la magnetización \vb{M}.
 Usaremos una función escalón
 
-% figurin graficos
+Consideramos una función escalón $ \Theta $ de tal manera que 
+\[
+	\vb{M} = M_0 \hat{z} \Theta(a-r)
+\]
+donde 
+\[
+	M_0 \hat{z} = M_0 ( \cos\theta \hat{r} - \sin\theta \hat{\theta} ) \Theta(a-r)
+\]
+según puede verse en el figurín bajo estas líneas (se ve solo el tetón).
 
-% figurin bola corriente
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_imanesferico_B.jpg}
 
-% figurin anillo
+Entonces,
+\[
+	\divem{M} = M_0 \left( 
+	 \frac{1}{r^2}\dpar{}{r}[ r^2 \cos\theta \Theta(a-r) ] -
+	 \frac{1}{r\sin\theta}\dpar{}{\theta}[ \sin^2\theta \Theta(a-r) ]
+	\right) = - M_0 \cos\theta \delta(r-a)
+\]
+donde $ M_0 \cos\theta = \sigma_M $ resultado que es consistente con la cuenta de
+$\sigma = \vb{M}\cdot\hat{n}$.
+
+Finalmente,
+\[
+	\vb{m} = \int \rho_m z dV = M_0 \int_0^{2\pi} \int_0^\pi \: a^3\cos^2\theta \sin\theta d\theta d\vp
+	= 2 \pi M_0 a^3 \int_{-1}^1 x^2 dx = \frac{4\pi}{3} M_0 a^3 \zver
+\]
+
+Bola \textcircled{3}. Se ilustra en la postal siguiente
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_imanesferico_C.jpg}
+Desde
+\[
+	\vb{J}_m = c \rotorm{M}
+\]
+se deduce
+\[
+	\vb{g}_m = c \vb{M}\times \hat{n} = c M_0 \zver\times\rver = cM_0\sin\theta \phiver
+\]
+\[
+	\vb{m} = \frac{1}{2c}\int \pv{x}{J}_m \: dV = \frac{I}{2c} \int \vbx \times d\Bell =  
+	\frac{I \text{ Area }}{c}\zver
+\]
+y hemos obtenido el resultado de \vb{m} como área por corriente.
+
+Para el anillete mostrado en el cartón
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_imanesferico_D.jpg}
+
+\[
+	d\vb{m} = \frac{\text{seccion}}{c} du =
+	\frac{1}{c} \pi a^2 \sin^2\theta \: a \: \vb{g}_m d\theta
+\]
+o bien, integrando,
+\[
+	\vb{m} = \zver \int_0^\pi \: M_0 \pi a^3 \sin^3\theta \: d\theta = 
+	\zver \left( \frac{4 \pi }{3} a^3 M_0 \right)
+\]
+con lo cual el potencial resulta
+\[
+	\phi_M = \int \: \frac{ \rho_m }{ | \vbx - \vbx' | } \: dV
+\]
+o en full splendor
+\[
+	\phi_M = \int \int M_0 \: \cos\theta
+	\left[ \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell \frac{4\pi}{2\ell+1} 
+	Y_{\ell m}^*(\theta',\vp') Y_{\ell m}(\theta,\vp) 
+	\frac{r_<^\ell}{r_>^{\ell+1}} \right]
+	a^2 \sin\theta \: d\theta d\vp.
+\]
+
+Aquí hay simetría en torno a \vp de manera que el problema no puede depender de esta
+coordenada. Los armónicos esféricos pasan a ser los polinomios de Legendre. Puedo ver
+que $\cos\theta$ es un armónico $Y_{10}$ y por ortogonalidad se va toda la doble
+sumatoria y sobreviven solamente $\ell=1, m=0$.
+
+\notamargen{Valen $\cos\theta = Y_{10} \sqrt{ 4 \pi / 3 }$.}
+Usando esta información tenemos
+\[
+	\phi_M = M_0 a^2 \Frac{r_<}{r_>^2} \sqrt{ \frac{ 4\pi }{ 3 } } \frac{4\pi}{3} 
+	Y_{10}^*(\theta,\vp) =
+	M_0 \frac{4\pi}{3} a^2 \frac{r_<}{r_>^2} \cos\theta
+\]
+solución que es válida en todo el espacio.
+\[
+	\phi_{M} = \begin{cases}
+		\displaystyle M_0 \frac{ 4 \pi a^2 }{3} \frac{r}{a^2} \cos\theta \qquad r < a \\
+		\\
+		\displaystyle M_0 \frac{ 4 \pi a^2 }{3} \frac{a}{r^2} \cos\theta \qquad r > a
+	\end{cases}
+\]
+donde el último caso $r>a$ se puede escribir como
+\[
+	M_0 \frac{ 4 \pi }{3} \Frac{a}{r}^3 z = \frac{\pe{m}{r}}{|x|^3}
+\]
+
+Recordemos que si $ r>a $ es $\vb{B}=\vb{H}$ mientras que para $r<a$ es $\vb{B} = \vb{H} + 4\pi \vb{M}$.
+
+Si introducimos este imán pelota en un medio tengo una alteración en el contorno.
+Aquí hay que usar separación de variables.
+\[
+	\phi_I = \sum_\ell \: A^I_\ell \: r^\ell \: P_\ell(\cos\theta)
+\]
+\[
+	\phi_{II} = \sum_\ell \: \frac{B^{II}_\ell}{r^{\ell+1}} \: P_\ell(\cos\theta)
+\]
+donde en $I$ se ha tirado una parte de la solución porque diverge en cero, mientras que en $II$ se tira
+en cambio la parte que corresponde.
+
+Los contornos salen de evaluar
+\[
+	\phi_I(a,\theta) = \phi_{II}(a,\theta)
+\]
+lo cual conduce a 
+\[
+	A^I_\ell = \frac{B_\ell^{I}}{a^{2\ell+1}}
+\]
+
+En el caso de los campos $\vb{B}$ se tendrá $B_{nII} = B_{nI}$ que conduce a [¿?]
+\[
+	\mu H_{nI} = H_{nII} + 4 \pi M_{nI}
+\]
+donde el lhs no se puede plantear en un imán permanente y el rhs implica que para plantear
+esto mismo en el caso $II$ necesito conocer $M$ pero conozco $\mu$.
+\[
+	- \mu \dpar{\phi_{II}}{r} + \dpar{\phi_{II}}{r} = 4 \pi M_0 \cos\theta = 4 \pi \sigma_M
+\]
+donde esta última ecuación es casi una de contorno como para el campo \vb{E}  pero ojo que
+está el $\mu$. Viene de que $\vb{H} = - \nabla\phi$.
+Luego,
+\[
+	\sum_{\ell=0}^\infty \: 
+	\left[ \mu(\ell+1) \frac{B^{II}_\ell}{a^{\ell+2}} + \ell a^{\ell-1} A_\ell^I \right] 
+	P_\ell (\cos\theta) =  4 \pi \sigma_M
+\]
+y ahora se aplica ortogonalidad multiplicando por $P_{\ell'}$ e integrando, entonces
+\[
+	c_\ell \frac{2}{2\ell +1} \delta_{\ell\ell'} = \frac{4\pi M_0}{2\ell'+1} \delta_{\ell 1}
+	\qquad \qquad  2 \mu \frac{B_1}{a^3} + A_1 = 4 \pi M_0
+\]
+y de estas dos ecuaciones se obtienen los coeficientes
+\[
+	A^I_\ell = \frac{B_\ell^{I}}{a^{2\ell+1}}
+\]
+sumados a
+\[
+	4\pi M_0 = (1+2\mu) A \qquad A_1 = \frac{4 \pi M_0}{1+2\mu} \qquad B_1 = \frac{4 \pi M_0 a^3}{1+2\mu}
+\]
+
+Finalmente,
+\[
+	\phi = \begin{cases}
+		\displaystyle \frac{4 \pi M_0}{1+2\mu}\: r \:\cos\theta \quad \qquad r < a \\
+			\\
+		\displaystyle \frac{4 \pi M_0}{1+2\mu}\: \frac{a^3}{r^2} \:\cos\theta \quad \qquad r > a
+		\end{cases}
+\]
+donde otra vez la última expresión, para $ r > a $, tiene la forma $ \pe{m}{x}/|x|^3$ donde
+$\vb{m} = 4 \pi M_0 a^3 \zver /(1+2\mu)$.
+
+Un momento dipolar magnético diferente al inicial es porque hubo momento inducido
+\[
+	\vb{m}_{\text{ind}} = \vb{m}_T - \vb{m} =
+	\left( \frac{4 \pi a^3}{1+2\mu} M_0 - \frac{4 \pi a^3}{3} M_0 \right) \zver
+\]
+\[
+	\vb{m}_{\text{ind}} = \Frac{1-\mu}{1 + 2\mu} \frac{8\pi}{3} a^3 M_0 \zver
+\]
  
 \end{ejemplo}
 
