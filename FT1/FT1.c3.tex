@@ -1321,6 +1321,64 @@ que es una suma de campos multipolares
 	\vb{E}_{\ell m}(\vb{x}) = - \Nabla \phi_{\ell m}(\vb{x}).
 \]
 
+\begin{ejemplo}{\bf Green en términos de armónicos esféricos para el problema de la esfera y
+la carga}
+
+Para una esfera y una carga puntual frente a ella (ver sección XXX y cartoon bajo estas líneas)
+se tenía bajo condiciones de Dirichlet,
+\[
+	G_D(\vbx,\vbx') = \frac{1}{|\vbx - \vbx'|} - \frac{1}{x^{'}/a|\vbx - a^2/{x'}^2\vbx'|}
+\]
+donde el primer término tiene ya un desarrollo en armónicos esféricos según se vio [conectar].
+El segundo término, en cambio, tiene eje de simetría de revolución y puede resolverse
+usando {\it prolongación analítica}.
+
+\includegraphics[width=0.35\textwidth]{images/fig_ft1_green_ArmEsf_esferacarga.jpg}
+
+\[
+	 \frac{1}{x^{'}/a|\vbx - a^2/{x'}^2\vbx'|} = \sum_{\ell=0}^{\infty} \: f_\ell \: P_\ell(\cos\gamma)
+\]
+y habría que hacer una expansión de Taylor de esto. Con $\gamma=0$ se tiene
+\[
+	\sum_{\ell=0}^{\infty} \: f_\ell(|\vbx|) = \frac{1}{x^{'}/a|x - a^2/{x'}^2x'|}
+\]
+
+Vemos esto para chequear que la serie converja $ x x'> a^2 $
+\[
+	\frac{a}{x x' ( 1 - a^2/( xx') )} = 
+	\frac{a}{xx'} \sum_{\ell=0}^{\infty} \: \Frac{a^2}{xx'}^\ell =
+	\sum_{\ell=0}^{\infty} \: \frac{a^{2\ell+1}}{(xx')^{\ell+1}} = 
+	\sum_{\ell=0}^{\infty} \: f_\ell(|\vbx|)
+\]
+y para $x,x'>a$
+\[
+	\frac{1}{x^{'}/a|\vbx - a^2/{x'}^2\vbx'|} = 
+	4 \pi \sum_{\ell=0}^{\infty} \: \frac{a^{2\ell+1}}{(xx')^{\ell+1}} \:
+	\frac{1}{2^{\ell+1}} \: \sum_{m=-\ell}^{\ell} \: Y_{\ell m}^*(\theta',\vp') \:
+	Y_{\ell m}(\theta,\vp)
+\]
+y lo de adentro [¿?] es Green en armónicos esféricos para la esfera. Esto tiene que valer cero
+sobre la esfera $ G_D(|\vbx|=a,|\vbx'|=a) = 0$.
+
+Para el problema interno debemos alterar el radio de convergencia porque cambian las relaciones
+entre $xx'$ y $a$.
+
+Observación interesante para el problema de una superficie a potencial nulo (una chapa, por ejemplo).
+Veamos ilustración más abajo.
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_green_ArmEsf_chapaV0_1.jpg} 
+
+Si desarrollamos ambos problemas multipolarmente en el problema equivalente (calculo que esto quise
+ilustrar con la figurilla de abajo) la expresión no es la misma.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_green_ArmEsf_chapaV0_2.jpg} 
+
+El problema es que la chapa tiene carga hasta el infinito y entonces no podemos tener un radio
+de convergencia.
+ 
+\end{ejemplo}
+
+
 \subsection{Relación de los multipolos esféricos y los cartesianos}
 
 El operador gradiente en coordenadas esféricas es Apéndice XXX.
@@ -1684,11 +1742,12 @@ de tal modo que los coeficientes serán
 \]
 
 Finalmente el potencial es
-\[
+\be
 	\phi(\rho,\vp,z) = \sum_{m=0}^\infty \: \int_0^{\infty} \: dk \:
 	\euler^{-kz} \: J_{m}(k\rho) \: 
 	[ \: A_m(k) \: \sin(m\vp) \: + B_m(k) \: \cos(m\vp) \: ]
-\]
+	\label{ejdisco_pot_total}
+\ee
 que para el valor especial $\vp=0$ resulta en
 \[
 	\phi(\rho,0,z) =  \int_0^{\infty} \: dk \:
@@ -1698,6 +1757,107 @@ que para el valor especial $\vp=0$ resulta en
 El problema del Jackson ilustrado en esta figuretta es un caso particular del anterior.
 
 \includegraphics[width=0.4\textwidth]{images/fig_ft1_sep_cilin_C.jpg} 
+
+Es el nunca bien ponderado disco a potencial fijo. Es un potencial azimutalmente simétrico, 
+de manera que será $ m = 0 $. Las expresiones son otra vez \eqref{ejdisco_pot_total} reducido
+al único término $m=0$.
+\notamargen{Parece que esas dos últimas ecuaciones refieren a este problema más que al
+anterior. Aquí la carpeta parece ser {\it misleading}.}
+
+El valor para el eje $\zver$ calculable por otros medios es
+\be
+	\phi(z) = V\left( 1 - \frac{z}{\sqrt{a^2 + z^2}} \right)
+	\label{ejdisco_pot_ejez}
+\ee
+y el coeficiente $B_0$ es
+\[
+	B_0(k) = \frac{k}{2\pi} \int_0^\infty \: \rho \: d\rho 
+	\int_0^{2\pi} \: V(\rho) \: J_0(k\rho)\: d\vp  = 
+	k V \int_0^a \: J_0(k\rho)\: d\rho 
+\]
+haciendo un cambio de variables $x\equiv k\rho$ y mirando en una tabla de integrales
+\[
+	B_0 = \frac{V}{k} \int_0^{ka} \: x \: J_0(x)\: dx = \frac{V}{k} k a J_1(ka)
+\]
+donde se ha usado el resultado
+\[
+	\int \: x \: J_0(x)\: dx = x \: J_1(x).
+\]
+
+Entonces,
+\[
+	\phi(\rho,z) = V a \int_0^\infty \: J_0(k\rho) \: J_1(ka) \: \euler^{-kz} \: dk
+\]
+que para el eje $\zver$ es
+\[
+	\phi(0,z) =  V a \int_0^\infty \: J_0(0) \: J_1(ka) \: \euler^{-kz} \: dk 
+\]
+y como $J_0(0)=1$ estos nos lleva a 
+\[
+	\phi(0,z) = V a \int_0^\infty \: J_1(ka) \: \euler^{-kz} \: dk
+\]
+
+Otra vez miramos el handbook y tomamos
+\be
+	\int_0^\infty \: \euler^{-ax} \: J_n(bx) \: dx = 
+	\frac{[\sqrt{a^2+b^2} - a]^n}{b^n \sqrt{a^2+b^2}}, \qquad n>1.
+	\label{ejdisco_integralHandbook}
+\ee
+Usando este resultado,
+\[
+	\int_0^\infty \: J_1(ka) \: \euler^{-kz} \: dk = \frac{z^2+a^2-z}{a\sqrt{z^2+a^2}},
+\]
+de manera que el potencial en el eje $\zver$ es efectivamente el anticipado en \eqref{ejdisco_pot_ejez}.
+Tomando $n=0,a=z,b=\rho$ en la expresión de la integral \eqref{ejdisco_integralHandbook} se tiene
+\[
+	\int_0^\infty \: J_0(x\rho) \: \euler^{-xz} \: dx = 
+	\frac{1}{\sqrt{z^2+\rho^2}} = \frac{1}{R}
+\]
+que es el potencial de una carga puntual unitaria situada en el origen dado en 
+coordenadas cilindricas.
+ 
+Ahora encerramos la carga unitaria por un cilindro infinito a tierra de radio $a$.
+Veamos el figurín para entender un poco.
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_ejdisco_cilindro.jpg} 
+
+Se tendrán ciertas condiciones más o menos obvias,
+\[
+	z=0 \qquad\qquad  \phi_1 = \phi_2 \quad \dpar{\phi_2}{z} - \dpar{\phi_1}{z} = 4 \pi \sigma
+\]
+El problema tiene, además, simetría azimutal, y entonces
+\[
+	\phi(\rho,z) = R(\rho) \: Z(z)
+\]
+\[
+	R(\rho) = A_\nu \:J_\nu(k\rho) + B_\nu \: N_\nu(k\rho)
+\]
+pero $B_\nu$ debe ser nulo porque $N_\nu \to \infty$ si $\nu=0$. Luego,
+\[
+	Z(z) = E_k \euler^{kz} + F_k \euler^{-kz}
+\]
+
+Considerando la condición de contorno de $V$ nulo sobre el cilindro resultan
+\[
+	\phi_1(\rho,z)  = \sum_{n=1}^\infty \: 
+	A_n J_0\left( \frac{\rho \chi_{0n}}{a}\right) \euler^{-\chi_{0n}z/a}
+\]
+\[
+	\phi_2(\rho,z)  = \sum_{n=1}^\infty \: 
+	A_n^{'} J_0\left( \frac{\rho \chi_{0n}}{a}\right) \euler^{\chi_{0n}z/a}
+\]
+
+Ahora habría que expresar la delta de Dirac de la carga (que consideraremos $q$).
+\[
+	\int_0^a \rho d\rho \int_0^{2\pi} \sigma d\vp = q
+\]
+de lo cual resulta
+\[
+	\sigma = \frac{q}{2\pi} \: \delta(\rho)
+\]
+Desde las condiciones de contorno resultan $A_n=A_n^{'}$ y el valor dado por la
+de la derivada normal. Luego el lector podría seguirlo [tal vez yo lo tenga que
+seguir, je.]
  
 \end{ejemplo}
 

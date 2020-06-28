@@ -83,23 +83,127 @@ y se pueden pensar como corrientes $\vb{J}_M$ y $\vb{g}_M$,
 Podemos hacer una suerte de tabla comparativa entre eléctrico y magnético
 (pero lo armaremos después con minipage)
 
-La polarización  
+\subsection{Campos estáticos en medios materiales}
+
+\notamargen{Esta subsección tal vez mejor sería que fuera llamada
+``polarización eléctrica''.}
+
+En la picture de acá abajo tenemos un átomo esféricamente simétrico, un medio y un vector
+de polarización. Entonces vemos en la vista zoom cómo se induce un dipolo
+
+\includegraphics[width=0.6\textwidth]{images/fig_ft1_medios_campos_estaticos.jpg}
+
+Habrá una componente dipolar paralela al campo eléctrico externo.
+Esto nos lleva a la constante dieléctrica del medio (dependerá decrecientemente 
+de la temperatura).
+
+Supondremos que las propiedades macroscópicas para dos campos se satisfacen para los
+campos vistos microscópicamente
+\[
+	\vb{\mathcal{E}}(\vbx) \to \rotorm{\mathcal{E}} = 0
+\]
+El campo macro \vb{E} será un promedio estadístico de su versión microscópica
+\[
+	\vb{E}(\vbx) = \langle \vb{\mathcal{E}}(\vbx)  \rangle =
+	\frac{1}{\Delta V} \int_V \vb{\mathcal{E}}( \vbx + \vb{\chi} ) \: d^3\chi,
+\]
+donde $\chi$ es una coordenada que barre el volumencillo $\Delta V$.
+Como vale la linealidad, se tiene $ \rotorm{\mathcal{E}} = 0 $ que conduce a
+$ \rotorm{ E } = 0 $ de manera que $ \vb{E} = - \nabla \phi(\vbx) $.
+El vector \vb{D} no cumple esto último.
+
+Se construye así
+\[
+	\vb{P}(\vbx) = \sum_i \: N_i \langle p_i \rangle,
+\]
+donde la polarización  
 \[
 	\vb{P} = \frac{\delta \vb{p}}{\delta V}
 \]
 es el momento dipolar eléctrico por unidad de volumen. 
 
-\includegraphics[width=0.6\textwidth]{images/fig_ft1_medios_picturete.jpg}	
+\includegraphics[width=0.45\textwidth]{images/fig_ft1_medios_picturete.jpg}	
 
+Luego, un {\it cacho} de potencial $ \phi $ será
+\[
+	\delta \phi(\vbx,\vbx') = \frac{\rho_L(\vbx')}{|\vbx - \vbx'|} \delta V' +
+	\vb{P}(\vbx')\cdot\frac{(\vbx - \vbx')}{|\vbx - \vbx'|^3} \delta V'
+\]
+de manera que el potencial
+\[
+	\phi(\vbx) = \int \delta \phi(\vbx,\vbx') \: d^3x' =
+	\int \frac{\rho_L(\vbx')}{|\vbx - \vbx'|} \: dV' +
+	\int \vb{P}(\vbx')\cdot\frac{(\vbx - \vbx')}{|\vbx - \vbx'|^3} \: dV'
+\]
 
+Ahora el último término se puede escribir como
+\[
+	\int_V \frac{\vb{P}(\vbx')\cdot ( \vbx - \vbx')}{|\vb{x}-\vb{x}'|^3} dV' =
+	-\int_V \vb{P}(\vbx')\cdot \Nabla\left( \frac{ 1 }{ |\vb{x}-\vb{x}'| } \right) dV' 
+\]
+y considerando integración por partes en esta última 
+\notamargen{Hay que hacer partes con sumo detalle aquí y justificar que el surface term
+se arroja a los chanchos.}
+\[
+	\int_{V'} \frac{\rho_L(\vbx')}{|\vb{x}-\vb{x}'|} \: dV' -
+	\int_{V'} \frac{ \divem{P} }{|\vb{x}-\vb{x}'|} \: dV' 
+\]
+que se pueden consolidar en
+\[
+	\phi(\vbx ) = \int_{V'} \frac{1}{|\vb{x}-\vb{x}'|}
+	\left[ \: \rho_L(\vbx') - \divem{P}(\vbx') \:\right] \: dV',
+\]
+donde el volumen $V'$ abarca todas las fuentes (incluso las de polarización). Entonces
+considerando que
+\[
+	\divem{P} = -\rho_P,
+\]
+se puede definir una densidad de carga total 
+\[
+	\rho_T = \rho_L + \rho_P.
+\]
+Entonces, el potencial se escribe como
+\[
+	\phi(\vbx ) = \int_{V'} \frac{\rho_T}{|\vb{x}-\vb{x}'|} \: dV'.
+\]
+
+De esta forma se puede construir un vector $\vb{D}$ siguiendo
+esta línea de razonamiento:
+\[
+	\begin{cases}
+	\rotorm{E}  = 0 \\
+	\divem{E} = 4\pi\rho_T = 4 \pi ( \rho_L + \rho_P )
+	\end{cases}
+\]
+y pasando de miembros
+\[
+	\divem{E} -  4 \pi \rho_P = 4 \pi \rho_L 
+\]
+\[
+	\divem{E} + 4 \pi \divem{P} = \Nabla\cdot(\vb{E} + 4\pi\vb{P} )
+\]
+de modo que
+\[
+	\vb{D} \equiv \vb{E} + 4 \pi \vb{P} \qquad \qquad \divem{D} = 4\pi\rho_L
+\]
+donde \vb{D} es el llamado vector desplazamiento y estas expresiones valen para todo medio.
+
+En la situación depicted en la figurilla siguiente
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_rhoP_nocompensada.jpg}
+
+se tendrá una compensación exacta si \vb{P} es uniforme, de manera que $\divem{P}=0$. En caso
+contrario existirá una $\rho_P$ no nula en el interior.
+
+{\bf escrachos}
 
 \notamargen{No sé qué pasaba con la parte de la integral de superficie.}
-Cuando se construye el potencial llegamos a 
-\[
-	\int_V \frac{\vb{P}\cdot ( \vbx - \vbx')}{|\vb{x}-\vb{x}'|^3} dV =
-	\int_V \vb{P}\cdot \frac{ 1 }{ |\vb{x}-\vb{x}'| } dV 
-\]
-y esta integral por partes lleva a lo de más abajo.
+% Cuando se construye el potencial llegamos a 
+% \[
+% 	\int_V \frac{\vb{P}\cdot ( \vbx - \vbx')}{|\vb{x}-\vb{x}'|^3} dV =
+% 	\int_V \vb{P}\cdot \frac{ 1 }{ |\vb{x}-\vb{x}'| } dV 
+% \]
+% y esta integral por partes lleva a lo de más abajo.
 
 
 Luego el potencial es, posteriormente a haber hecho partes
@@ -111,25 +215,8 @@ es
 \[
 	\qquad \vb{P}\cdot\hat{n} = \sigma_P \qquad \Rightarrow \qquad \divem{P} = -\rho_0
 \]
-Entonces, se puede construir un vector $\vb{D}$ siguiendo
-esta línea de razonamiento:
-\[
-	\begin{cases}
-	\rotorm{E}  = 0 \\
-	\divem{E} = 4\pi\rho = 4\phi( \rho_L + \rho_P )
-	\end{cases}
-\]
-\[
-	\divem{E} -  4\phi\rho_P = 4\phi\rho_L 
-\]
-\[
-	\divem{E} + 4 \pi \divem{P} = \Nabla\cdot(\vb{E} + 4\pi\vb{P} )
-\]
-de modo que
-\[
-	\vb{D} = \vb{E} + 4 \pi \vb{P} \qquad \qquad \divem{D} = 4\pi\rho_L
-\]
-y por la linealidad
+
+Por la linealidad
 \[
 	\vb{P} = \xi_e \vb{E} \qquad \text{MLIH}
 \]
@@ -149,7 +236,7 @@ Los contornos entre medios se resuelven según
 que provienen del rotor de \vb{E}, la divergencia de \vb{D} y la divergencia
 de \vb{P} respectivamente.
 
-\subsubsection{Imanes inducidos}
+\subsection{Imanes inducidos}
 
 
 \includegraphics[width=0.4\textwidth]{images/fig_ft1_imaninducidos.jpg}
@@ -255,7 +342,7 @@ Si esta es nula se tiene
 	\end{cases}
 \]
 
-\subsubsection{Imán permanente}
+\subsection{Imán permanente}
 
 Hay magnetización \vb{M} aún en ausencia de campo. No es un medio lineal de modo que
 \[
@@ -341,7 +428,7 @@ se puede asociar
 
 
 % =================================================================================================
-\section{Polarización y magnetización}
+\section{Contornos para polarización y magnetización}
 % =================================================================================================
 
 Suelen \vb{P},\vb{M} depender de los campos externos, es decir $\vb{P}=\vb{P}(\vb{E})$ y 
