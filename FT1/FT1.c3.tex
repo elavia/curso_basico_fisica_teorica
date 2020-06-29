@@ -1438,15 +1438,16 @@ Se propone
 \]
 de modo que el laplaciano en cilíndricas (ver Apéndice XXX) conduce a
 \[
-	\frac{1}{R} \dtot[2]{R}{\rho} + \frac{1}{R\rho} \dtot{R}{\rho} + \frac{1}{Q\rho^2} \dtot[2]{Q}{\phi} 
-				+ \frac{1}{Z} \dtot[2]{Z}{z} = 0.
+	\frac{1}{R} \dtot[2]{R}{\rho} + \frac{1}{R\rho} \dtot{R}{\rho} + 
+		\frac{1}{Q\rho^2} \dtot[2]{Q}{\phi} +
+		\frac{1}{Z} \dtot[2]{Z}{z} = 0.
 \]
-Entonces
+Entonces el último término será constante de la forma
 \[
-	\frac{1}{Z} \dtot[2]{Z}{z} = k^2
+	\frac{1}{Z} \dtot[2]{Z}{z} = k^2,
 \]
-donde la naturaleza de $k$ dependerá también de las condiciones de contorno
-del problema.
+donde la naturaleza de $k$ dependerá también de las condiciones de contorno del problema
+(en conexión con lo del $k$ negativo que se dirá luego).
 Entonces podemos escribir
 \[
 	\frac{\rho^2}{R} \dtot[2]{R}{\rho} + 
@@ -1458,10 +1459,14 @@ y hacemos
 \[
 	\frac{1}{Q} \dtot[2]{Q}{\phi} = -\nu^2
 \]
-donde la constante se toma negativa por la condición de que $Q$ sea periódica
-en $2\pi$.
+donde la constante se toma negativa por la condición de que $Q$ sea periódica en $2\pi$.
+[Acá yo diría que la periodicidad hace que la constante $\nu$ sea entera].
+Se tienen, en suma
+\[
+	Q \propto \euler^{ \pm i \nu \phi } \qquad\qquad  Z \propto \euler^{ \pm k z }.
+\]
 
-Esto conduce a 
+Prosiguiendo, esto conduce a 
 \[
 	\dtot[2]{R}{\rho} + \frac{1}{\rho} \dtot{R}{\rho} +
 	R \left( k^2 -  \frac{\nu^2}{\rho^2} \right) = 0,
@@ -1533,6 +1538,223 @@ Para el límite $ x \gg 1 $ y $ x \gg \nu$ se dan
 	N_\nu(x) \approx \sqrt{ \frac{2}{\pi x} } \: \sin\left( x - \frac{\nu \pi}{2} - \frac{\pi}{4} \right)
 \]
 donde los factores senoidales implican un comportamiento oscilante.
+
+
+\begin{ejemplo}{\bf Cilindro a tierra con tapa a potencial}
+
+El figureti siguiente ilustra la distribución
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_cilindricasA.jpg} 
+
+Se tienen
+\[
+	\phi|_{\rho=a} =0 \qquad \phi|_{z=0} =0
+\]
+condiciones que conducen, respectivamente, a que 
+\[
+	J_m(ka)=0 \qquad Z(z) \propto \sinh( k_{mn} z )
+\]
+donde $ k_{mn} a \equiv x_{mn} $ etiqueta ceros de Bessel. El primer subíndice es el
+orden de Bessel y el segundo el orden del cero. Esta será la forma en que se enumerarán
+los ceros.
+
+El potencial tendrá la pinta
+\[
+	\phi(\rho,\phi,z) = \sum_{m,n} \: c_{mn} \euler^{ i m \phi } \: 
+	J_{m}( k_{mn} \rho ) \sinh( k_{mn} z )
+\]
+donde las funciones de Neumann se retiraron puesto que no son finitas en $\rho=0$.
+Evaluando sobre la tapa se tiene $\phi(\rho,\phi,L) = V(\rho,\phi)$.
+La ortogonalidad para $\phi$ y $\rho$ involucra las siguientes dos integrales
+\[
+	\int_0^{2\pi} \: \euler^{ i(m-m')\phi } \: d\phi = 2 \pi \delta_{mm'},
+\]
+\[
+	\int_0^a \: \rho \: J_{m'}( k_{m'n} \rho ) J_{m'}( k_{mn'} \rho ) \: d\rho =
+	\frac{a^2}{2} [J_{m'+1}( k_{m'n'} a )]^2 \delta_{nn'},
+\]
+las cuales aplicadas conducen a
+\[
+	C_{m'n'} 2 \pi \frac{a^2}{2} [J_{m'+1}( k_{m'n'} a )]^2 =
+	\int_0^{2\pi} \: \euler^{ -i m'\phi } \: d\phi \int_0^a \: \rho \: 
+	J_{m'}( k_{m'n} \rho ) J_{m'}( k_{mn'}\rho) \: V(\rho,\phi) \: d\rho
+\]
+que como es todo primado en $m$ puede expresarse con $m$ a secas.
+ 
+\end{ejemplo}
+
+
+
+\begin{ejemplo}{\bf Problema de aros}
+
+\notamargen{La observación principal aquí es que $k$ sin ``enes'' es un $k$ continuo.}
+Este problema de aros no tiene simetría azimutal pero aún así la variable va de $0$ a $2\pi$.
+Las densidades de carga de los aros superior e inferior son, respectivamente,
+\[
+	\rho = \lambda_0 \: \sin (n\phi) \: \delta(\rho-a) \delta(z-L/2)
+	\qquad \qquad
+	\rho = -\lambda_0 \: \sin (n\phi) \: \delta(\rho-a) \delta(z+L/2)
+\]
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_cilindricasB.jpg} 
+
+
+El espacio será separado de la manera ilustrada en la figurilla siguiente, para generar un
+problema equivalente. Se redefine $L/2 \to L$ para no arrastrar un molesto dos.
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_cilindricasC.jpg} 
+ 
+Se tendrán
+\[
+	R(\rho) \sim J_m(k\rho)
+\]
+\[
+	Q(\phi) \sim \euler^{\pm i m \phi } \;\text{ o bien }\; \cos(m\phi) + \sin(m\phi)
+\]
+\[
+	Z(z) \sim \begin{cases}
+	           Z^I(z) \sim \euler^{-kz} \\
+	           Z^{II}(z) \sim \sinh(kz)
+	          \end{cases}
+\]
+La densidad de carga será
+\[
+	\sigma = \frac{\rho}{ \delta(z-L)} = \lambda_0 \: \sin (n\phi) \: \delta(\rho-a)
+\]
+que conduce a
+\[
+	\phi^I = \int dk \: \sum_{m} \: J_m(k\rho) 
+	\left[ A^I_{m} \: \cos(m\phi) + B^I_{m} \: \sin(m\phi) \right] \euler^{-kz}
+\]
+\[
+	\phi^{II} = \int dk \: \: \sum_{m} \: J_m(k\rho) 
+	\left[ A^{II}_{m} \: \cos(m\phi) + B^{II}_{m} \: \sin(m\phi) \right] \: \sinh(kz)
+\]
+Como se dijo, $k$ es continuo cuando no está discretizado el contorno.
+\notamargen{Estas las condiciones de ortogonalidad para el seno y coseno, que seguramente
+tengo tipeadas en otro lado. Mejor referir a ese lado.}
+La continuidad del potencial en el borde establece que
+\[
+	\phi^{I}|_{z=L} = \phi^{II}|_{z=L},
+\]
+mientras que la discontinuidad de las derivadas lleva a 
+\[
+	- \dpar{\phi^{I}}{z} - \left( - \dpar{\phi^{II}}{z} \right) = 
+	4\pi \sigma = 4 \pi \lambda_0 \: \sin (n\phi) \: \delta(\rho-a).
+\]
+La única posibilidad es que $ m = n $ y $ A_m^{I,II} = 0 $ para todo $m$.
+Se puede ver analíticamente
+\[
+	\phi^I = \int dk \: k \: J_n(k\rho) B^I_{kn} \: \sin(n\phi) \euler^{-kz}
+\]
+\[
+	\phi^{II} = \int dk \: k \: J_n(k\rho) B^{II}_{kn} \: \sin(n\phi) \: \sinh(kz)
+\]
+y emparejando será
+\[
+	B_{kn}^I \euler^{-kL} = B_{kn}^{II} \sinh(kL)
+\]
+y además como
+\[
+	\int_0^\infty \: J_n(k\rho) J_n(k'\rho) \: d\rho = \frac{\delta(k-k')}{k},
+\]
+el contorno ha resultado escrito así
+\[
+	\int dk k  J_n(k\rho) B^I_{kn} \euler^{-kL} + \int dk k  J_n(k\rho) B^{II}_{kn} \cosh(kL)
+	= 4 \pi \lambda_0 \delta( \rho - a )
+\]
+\begin{multline*}
+	\int dk \: k \: B^I_{kn} \euler^{-kL} \int d\rho \: \rho \: J_n(k'\rho) J_n(k\rho) \: + \\
+	\int dk \: k \: B^{II}_{kn} \cosh(kL) \int d\rho \: \rho \: J_n(k'\rho) J_n(k\rho) 
+	= 4 \pi \lambda_0 J_n(k' a) 
+\end{multline*}
+que conduce, luego de retirar las primas, a 
+\[
+	B^{II}_{kn}( \sinh kL + \cosh kL ) = 4 \pi \lambda_0 a J_n( k a )
+\]
+
+Se ve que si $z \to \infty$ entonces $\euler^{-kz} \to 0$ salvo para $k=0$.
+Luego,
+\[
+	\phi^I(z\to\infty) = \int \: J_n(k\rho) \euler^{-kz} \: \sin(n\phi) \: B_{k=0,n}\: dk
+\]
+y esta integral se halla en los handbooks.
+ 
+\end{ejemplo}
+
+\subsubsection{Función de Green para el cilindro}
+
+Tenemos una carga y ponemos un plano que pasa por deonde está la carga. 
+La picture de abajo depictea la situación.
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_cilindricasD.jpg} 
+
+La densidad de carga puede escribirse como
+\[
+	\rho = \frac{1}{\rho} \: q \: \delta(\rho-\rho') \delta(\phi-\phi')  \delta(z-z')
+\]
+y se pueden plantear: plano en $z'$, plano en $\vp'$ y cilindro en $r'$ (esto último dará origen
+a funciones especiales de Bessel).
+Con objeto de tener Laplace en el interior, se tiene una densidad de carga $ \rho = \sigma \delta(z-z') $
+que da origen a
+\[
+	\sigma = \frac{q}{\rho} \delta(\rho-\rho') \delta(\phi-\phi') 
+\]
+Entonces
+\[
+	\Phi(\vp) \sim \euler^{\pm i m \phi }  \qquad R(\rho) \sim J_n(k_{mn}\rho)
+\]
+\[
+	Z(z) = \begin{cases}
+		Z^I(z) = \sinh( k_{mn}[ z-L ] ) \\
+			\\
+		Z^{II}(z) = \sinh( k_{mn}z )
+	       \end{cases}
+\]
+\[
+	\phi^{I,II} = \sum_{m=-\infty}\sum_{n=1} \: A^{I,II}_{mn} \: J_{|m|}(k_{|m|}\rho) 
+		\begin{Bmatrix}
+		\sinh( k_{|m|n}(z-L) )	\\
+			\\
+		\sinh( k_{|m|n}z )	
+	       \end{Bmatrix}
+\]
+dodne $m$ y $-m$ no serán ortogonales.
+La continuidad llevará a 
+\[
+	A^{I}_{mn} \: \sinh( k_{mn}(z'-L) )  = 
+	A^{II}_{mn} \: \sinh( k_{mn}z' ) \qquad \qquad z=z'
+\]
+mientras que la discontinuidad en las derivadas
+\begin{multline*}
+	- \sum_{m,n} \: A_{mn}^I \: \euler^{i m \phi} \: J_n(k_{mn}\rho) 
+	\: k_{mn} \: \cosh( k_{mn}[z'-L]) \: + \\
+	\sum_{m,n} \: A_{mn}^{II} \: \euler^{i n \phi} \: J_m(k_{mn}\rho) 
+	\: k_{mn} \: \cosh( k_{mn}z')
+	= 4 \pi \sigma 
+\end{multline*}
+
+La ortogonalidad, en cambio permite
+\begin{multline*}
+	- \sum_{n} \: A_{mn}^I \: J_m(k_{mn}\rho) 
+	\: k_{mn} \: \cosh( k_{mn}[z'-L]) \: + \\
+	\sum_{n} \: A_{mn}^{II} \: J_m(k_{mn}\rho) \: k_{mn} \: \cosh( k_{mn}z')
+	= 4 \pi \delta(\rho-\rho')
+\end{multline*}
+\[
+	\int d\phi \: \euler^{- i m \phi } \delta(\phi-\phi')
+\]
+\[
+	\int_0^a \rho \: J_m(k_{mn}\rho) \: J_m(k_{mn'}\rho) \: d\rho = 
+	\delta_{mn'} \frac{a^2}{2} [ J_{m+1}(k_{mn}a) ]^2
+\]
+\begin{multline*}
+	\frac{a^2}{2} [ J_{m+1}(k_{mn}a) ]^2 
+	\left( -A_{mn}^I \: k_{mn} \: \cosh( k_{mn}[z'-L]) \: + \right.\\
+	\left. A_{mn}^{II} \: k_{mn} \: \cosh( k_{mn}z') \right) 
+	= \euler^{-i m \phi } \: 4 \pi \: J_m( k_{mn} \rho')
+\end{multline*}
+y finalizaremos con este comentario: Jackson lo resolvió.
 
 \subsubsection{Ceros de la función de Bessel}
 
