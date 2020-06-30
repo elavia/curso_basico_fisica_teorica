@@ -168,4 +168,9 @@ Siendo $\vb{A}$ un vector generico y $\phi$ un campo escalar,
 	( \vb{N} \cdot \Nabla ) \: \vb{M} - ( \vb{M} \cdot \Nabla ) \: \vb{N}
 \]
  
+{\bf ID 3} 
+\[
+	\int_V \: \rotorm{R}\: dV = \int_S \: \vb{R}\times\hat{n}\: dS
+\]
+ 
 \end{document}

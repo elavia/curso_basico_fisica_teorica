@@ -31,34 +31,12 @@
 \chapter{Medios materiales}
 % =================================================================================================
 
-% =================================================================================================
-\section{Desarrollo dipolar del campo magnético}
-% =================================================================================================
+% % =================================================================================================
+% \section{Medios materiales}
+% % =================================================================================================
 
-El potencial vector de un dipolo es
-\[
-	\vb{A}(\vb{x}) = \frac{\vb{v}\times(\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} = \vb{m} \times \Nabla 
-		\frac{1}{|\vb{x}-\vb{x}'|}
-\]
-\[
-	\vb{A}(\vb{x}) = \int_{V'} \vb{\mathcal{M}}(\vb{x}') \times \Nabla 
-			\left(\frac{1}{|\vb{x}-\vb{x}'|}\right) dV'
-\]
-Es el potencial vector de una distribución de momento dipolar magnético con densidad $ \vb{M}(\vb{x}')$
-
-\[
-	\vb{A}(\vb{x}) = \int_{V'} \frac{\rotorm{\vb{M}}}{|\vb{x}-\vb{x}'|} dV' +
-			\int_{S'} \frac{\vb{M}\times\hat{n}}{|\vb{x}-\vb{x}'|} dS'
-\]
-y se pueden pensar como corrientes $\vb{J}_M$ y $\vb{g}_M$,
-\[
-	\vb{A}(\vb{x}) = \frac{1}{c} \int_{V'} \frac{\vb{J}_M}{|\vb{x}-\vb{x}'|} dV' +
-			\frac{1}{c} \int_{S'} \frac{\vb{g}_M}{|\vb{x}-\vb{x}'|} dS'
-\]
-
-% =================================================================================================
-\section{Medios materiales}
-% =================================================================================================
+Digamos, un poco {\it sketchi} que los medios se pueden agrupar, según sus propiedades
+según el siguiente esquema.
 
 \begin{itemize}
  \item Dieléctricos
@@ -83,7 +61,7 @@ y se pueden pensar como corrientes $\vb{J}_M$ y $\vb{g}_M$,
 Podemos hacer una suerte de tabla comparativa entre eléctrico y magnético
 (pero lo armaremos después con minipage)
 
-\subsection{Campos estáticos en medios materiales}
+\section{Campos estáticos en medios materiales}
 
 \notamargen{Esta subsección tal vez mejor sería que fuera llamada
 ``polarización eléctrica''.}
@@ -737,6 +715,51 @@ Un momento dipolar magnético diferente al inicial es porque hubo momento induci
  
 \end{ejemplo}
 
+% =================================================================================================
+\section{Desarrollo dipolar del campo magnético}
+% =================================================================================================
+
+El potencial vector de un dipolo es
+\[
+	\vb{A}(\vb{x}) = \frac{\vb{m}\times(\vb{x}-\vb{x}')}{|\vb{x}-\vb{x}'|^3} = \vb{m} \times \Nabla 
+		\frac{1}{|\vb{x}-\vb{x}'|}
+\]
+Supongo que integrando esto en volumen y usando partes se arriba a
+\[
+	\vb{A}(\vb{x}) = \int_{V'} \frac{\rotorm{\vb{M}}}{|\vb{x}-\vb{x}'|} dV' -
+	\int_{V'} \Nabla \times \frac{\vb{M}}{|\vb{x}-\vb{x}'|} \: dV'
+\]
+Entonces, usando la identidad {\bf ID 3} del apéndice se convierte en
+\[
+	\vb{A}(\vb{x}) = \int_{V'} \frac{\rotorm{\vb{M}}}{|\vb{x}-\vb{x}'|} dV' +
+			\int_{S'} \frac{\vb{M}\times\hat{n}}{|\vb{x}-\vb{x}'|} dS'
+\]
+y se pueden pensar que el término de volumen se debe a una corriente de magnetización 
+$\vb{J}_M$ y el de superficie a una corriente superficial $\vb{g}_M$, de modo que
+se tiene
+\[
+	\vb{A}(\vb{x}) = \frac{1}{c} \int_{V'} \frac{\vb{J}_M}{|\vb{x}-\vb{x}'|} dV' +
+			\frac{1}{c} \int_{S'} \frac{\vb{g}_M}{|\vb{x}-\vb{x}'|} dS'
+\]
+El término de superficie puede ser fácil si se conoce $\vb{M}$ sobre la superficie.
+Este componente se puede dejar de lado si se toma una región de integración que
+engloba a toda la distribución.
+\notamargen{Esto puede ser el kid de lo que no entendía y de esos dibujillos en
+la carpeta
+\includegraphics[width=0.2\textwidth]{images/fig_ft1_regionintegracion.jpg}
+}
+
+Las unidades de $\vb{g}_M$ tienen que ser de corriente sobre longitud ($q/(t\ell)$ 
+o bien $i/\ell$).
+
+Me falta descular esta expresión, pero tendría que ser la expresión anterior luego
+de cosmética y tirar el término de superficie. Veremos
+\[
+	\vb{A}(\vb{x}) = \int_{V'} \vb{\mathcal{M}}(\vb{x}') \times \Nabla 
+			\left(\frac{1}{|\vb{x}-\vb{x}'|}\right) dV'
+\]
+Es el potencial vector de una distribución de momento dipolar magnético con densidad
+$ \vb{M}(\vb{x}')$
 
 
 % =================================================================================================
