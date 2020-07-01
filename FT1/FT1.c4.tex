@@ -214,14 +214,35 @@ Los contornos entre medios se resuelven según
 que provienen del rotor de \vb{E}, la divergencia de \vb{D} y la divergencia
 de \vb{P} respectivamente.
 
-\subsection{Imanes inducidos}
+\subsection{Magnetismo en la materia}
+\notamargen{Esta sección fue antes ``imanes inducidos''.}
 
+Los dipolos magnéticos inducidos son de dirección opuesta al campo externo $\vb{B}$ 
+(diamagnetismo).
+Aquellas sustancias con momento magnético permanente se orientan en la dirección del
+campo \vb{B} (paramagnético).
 
 \includegraphics[width=0.4\textwidth]{images/fig_ft1_imaninducidos.jpg}
 
-Para la Magnetización,
+Microscópicamente se tiene un campo $\vb{b}$ que verifica $\divem{b}=0$ de manera 
+que el campo total será un promedio en la región, i.e.
 \[
-	\vb{M} = \frac{\delta \vb{m}}{\delta V}
+	\vb{B} = \langle \vb{b} \rangle = 
+	\frac{1}{\Delta V} \int_{\Delta V} \: \vb{b} \: (\vbx + \vb{\xi} ) \: d^3\xi,
+\]
+donde $\Delta V$ es microscópicamente grande pero macroscópicamente chico.
+La linealidad permite que la divergencia de \vb{B} sea nula de modo que existe \vb{A}
+tal que su rotor es \vb{B}.
+Entonces,
+\[
+	\vb{M}(\vbx) = \sum_i N_i(\vbx_i) \langle \vb{m}_i \rangle
+\]
+donde $N_i$ es un tipo de moléculas y $ \langle \vb{m}_i \rangle$ es un momento magnético
+medio. La sumatoria vale para ciertos tipos de moléculas [¿?].
+
+Por otro lado la magnetización se puede interpretar/definir como
+\[
+	\vb{M} = \frac{\delta \vb{m}}{\delta V},
 \]
 que es el momento dipolar magnético por unidad de volumen. Luego el potencial 
 \[
@@ -235,17 +256,44 @@ Queda por incorporar el asuntete de
 \]
 usando partes.
 
-\includegraphics[width=0.4\textwidth]{images/fig_ft1_imaninducidos_nota.jpg}
+\notamargen{Tenía este figurín por allí. Sería bueno ver si es una
+idea importante.
+\includegraphics[width=0.375\textwidth]{images/fig_ft1_imaninducidos_nota.jpg}
+}
 
-Entonces es
+El potencial vector puede escribirse como
+\[
+	\vb{A}( \vb{x}) = \frac{1}{c} \int_V 
+	\left[ \frac{ \vb{J}_L(\vb{x}') }{|\vb{x}-\vb{x}'|} +
+	\frac{ c \vb{M} \times (\vb{x}-\vb{x}') }{|\vb{x}-\vb{x}'|^3} \right] dV',
+\]
+y con el trick usual la segunda integral se convierte a 
+\[
+	\vb{A}( \vb{x}) = \frac{1}{c} \int_V 
+	\left[ \frac{ \vb{J}_L(\vb{x}') }{|\vb{x}-\vb{x}'|} +
+	\frac{ c \divem{M} }{|\vb{x}-\vb{x}'|} \right] dV'
+\]
+mientras que con la definición de las corrientes total y de magnetización es
+\[
+	\vb{A}( \vb{x}) = \frac{1}{c} \int_V 
+	\frac{ \vb{J}_L(\vb{x}') + \vb{J}_M(\vb{x}' ) }{|\vb{x}-\vb{x}'|} dV'
+\]
+que vale para toda región donde haya corrientes libres (o desplazamientos
+microscópicos de carga) más medios magnetizados.
+
+Tenemos, por otra parte, la otra construcción
 \[
 	\vb{A}( \vb{x}) = \frac{1}{c} \int_S 
 	\frac{ \vb{M}\times\hat{n} }{|\vb{x}-\vb{x}'|} d\vb{S}' - 
 	\frac{1}{c} \int_V \frac{ c(\rotorm{M}) }{|\vb{x}-\vb{x}'|}  dV'
 \]
+que debiéramos consolidar de alguna manera.
+Cuando tenemos volumen y superficie son pertinentes:
 \[
 	\rotorm{M} = \frac{1}{c}\vb{J}_M \qquad \qquad \vb{M}\times\hat{n} = \frac{1}{c}\vb{g}_m
 \]
+
+Para la ecuación del rotor tendremos
 \[
 	\rotorm{B} = \frac{4\pi}{c}\vb{J}  = \frac{4\pi}{c}( \vb{J}_L + \vb{J}_M )
 \]
@@ -259,7 +307,10 @@ de modo que
 \[
 	\vb{H} = \vb{B} - 4 \pi \vb{M} \qquad \qquad \divem{M} = \frac{1}{c}\vb{J}_M  
 \]
-y por la linealidad
+donde \vb{H} es la intensidad de campo magnético.
+\notamargen{Se puede hacer un parangón con \vb{D} según se vio para sustancias polarizadas.}
+
+Por la linealidad
 \[
 	\vb{M} = \chi_M \vb{H} \qquad \text{MLIH}
 \]
@@ -298,6 +349,7 @@ Si hay isotropía
 	\end{pmatrix} 
 \]
 
+\subsubsection{Condiciones de contorno con medios}
 
 Los contornos entre medios se resuelven según
 \[
@@ -305,6 +357,32 @@ Los contornos entre medios se resuelven según
 	(\vb{B}_2 -\vb{B}_1)\cdot\hat{n} = 0 
 \]
 donde $\vb{g}_L$ se refiere a densidad de corriente superficial.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_contornos_medios.jpg}
+
+Aplicando teorema de Stokes sobre el rotor de $\vb{H}$ para el circuitito
+diminuto se tiene
+\[
+	\int_S \rotorm{H}\cdot \hat{n} \: dS = (\vb{H}_2 - \vb{H}_1) \cdot d\Bell
+\]
+pero como 
+\[
+	\frac {d\Bell} {d\ell} = d\hat{\ell} = \hat{n}_0 \times \hat{n}
+\]
+y será (tendiendo a cero la superficie del circuitito)
+\[
+	(\vb{H}_2 - \vb{H}_1) \cdot ( \hat{n}_0 \times \hat{n} ) d\ell =
+	d\ell \hat{n}_0 \cdot [ \: \hat{n} \times (\vb{H}_2 - \vb{H}_1) \: ]
+\]
+Como la orientación de $\hat{n}_0$ es arbitraria los dos miembros son iguales y
+entonces
+\[
+	\hat{n} \times (\vb{H}_2 - \vb{H}_1) = \frac{4\pi}{c} \vb{g}_L 
+\]
+que nos dice que el componente tangencial de \vb{H} no es continuo cuando circula
+por el borde una $\vb{g}_L$.
+
+
 Si esta es nula se tiene
 \[
 	\begin{cases}
@@ -385,17 +463,18 @@ se puede asociar
 	\divem{P} = \rho_P.
 \]
 
-\[
-	\vb{A}( \vb{x}) = \frac{1}{c} \int_V \left[ \frac{ \vb{J}_L(\vb{x}') }{|\vb{x}-\vb{x}'|} +
-		\frac{ c \vb{M} \times (\vb{x}-\vb{x}') }{|\vb{x}-\vb{x}'|^3} \right] dV'
-\]
-\[
-	\vb{A}( \vb{x}) = \frac{1}{c} \int_V \left[ \frac{ \vb{J}_L(\vb{x}') }{|\vb{x}-\vb{x}'|} +
-		\frac{ c \divem{M} }{|\vb{x}-\vb{x}'|} \right] dV'
-\]
-\[
-	\vb{A}( \vb{x}) = \frac{1}{c} \int_V \frac{ \vb{J}_L(\vb{x}') + \vb{J}_M(\vb{x}' ) }{|\vb{x}-\vb{x}'|}	
-\]
+% Sueltos:
+% \[
+% 	\vb{A}( \vb{x}) = \frac{1}{c} \int_V \left[ \frac{ \vb{J}_L(\vb{x}') }{|\vb{x}-\vb{x}'|} +
+% 		\frac{ c \vb{M} \times (\vb{x}-\vb{x}') }{|\vb{x}-\vb{x}'|^3} \right] dV'
+% \]
+% \[
+% 	\vb{A}( \vb{x}) = \frac{1}{c} \int_V \left[ \frac{ \vb{J}_L(\vb{x}') }{|\vb{x}-\vb{x}'|} +
+% 		\frac{ c \divem{M} }{|\vb{x}-\vb{x}'|} \right] dV'
+% \]
+% \[
+% 	\vb{A}( \vb{x}) = \frac{1}{c} \int_V \frac{ \vb{J}_L(\vb{x}') + \vb{J}_M(\vb{x}' ) }{|\vb{x}-\vb{x}'|}	
+% \]
 
 \begin{figure}[htb]
 	\begin{center}
@@ -406,11 +485,12 @@ se puede asociar
 
 
 % =================================================================================================
-\section{Contornos para polarización y magnetización}
+\section{Polarización y magnetización de medios}
 % =================================================================================================
 
-Suelen \vb{P},\vb{M} depender de los campos externos, es decir $\vb{P}=\vb{P}(\vb{E})$ y 
-$\vb{M}=\vb{M}(\vb{H})$.
+La polarización y la magnetización suelen depender de los campos externos, es decir 
+$\vb{P}=\vb{P}(\vb{E})$ y $\vb{M}=\vb{M}(\vb{H})$.
+Una sustancia lineal admite un desarrollo del tipo
 \[
 	\vb{M} \approx M_{0i} + \left.\dpar{M_i}{H_j}\right|_{H=0} H_j
 \]
@@ -436,24 +516,24 @@ y como en general vale que $\vb{M}_0=0, \vb{P}_0=0$  se da que
 	 H_z
 	\end{pmatrix}
 \]
-y ahí vemos que es un tensor,
+y ahí se ve explícitamente que tienen que ser tensores,
 \[
-	\vb{M} = \overleftrightarrow{\xi}_M \vb{H} \qquad\qquad \vb{P} =  \overleftrightarrow{\xi}_e \vb{E}.
+	\vb{M} = \overleftrightarrow{\xi}_M \vb{H} \qquad\qquad 
+	\vb{P} =  \overleftrightarrow{\xi}_e \vb{E}.
 \]
 
-\subsubsection{Algún detalle de contornos magnéticos}
+Estos tensores son, respectivamente, los tensores de susceptibilidad magnética y
+eléctrica. En el caso en que sean escalares (isotropía [¿?]) la susceptibilidad
+eléctrica solo puede tomar valores positivos mientras que la magnética puede
+tomar también valores negativos.
 
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/fig_ft1_medios1.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure}
-Sea
+\subsubsection{Medios magnéticos de muy alta permeabilidad}
+
+Consideremos un caso especial donde
 \[
-	\vb{g}_L = 0 
+	\vb{g}_L = 0.
 \]
-entonces
+Entonces
 \[
 	\hat{n}\times\vb{H}_1 = \hat{n}\times\vb{H}_2
 \]
@@ -462,15 +542,25 @@ entonces
 		\mu_1\vb{H}_1\cdot\hat{n} = \mu_2\vb{H}_2\cdot\hat{n}
 \]
 \[
-	H_2 = \frac{\mu_1}{\mu_2} H_1 \quad \text{si} \; \mu_1 \gg \mu_2 \Rightarrow H_2 \gg H_1
+	H_{2n} = \frac{\mu_1}{\mu_2} H_{1n} \quad \text{si} \; \mu_1 \gg \mu_2 \Rightarrow H_2 \gg H_1
 \]
 En el límite $\vb{H}_2 \perp$ superficie del medio y es similar al \vb{E} a la salida de un
 conductor; las superficies de materiales de permeabilidad muy alta son aproximadamente {\it equipotenciales}.
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.9\textwidth]{images/fig_ft1_medios1.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure}
 
 Para medio anisótropo
 \[
 	D_i = \epsilon_{ij} E_j \qquad \text{es decir} \quad \vb{D} = \overleftrightarrow{\epsilon} \vb{E}
 \]
+\notamargen{Esto estaba en las inmediaciones
+\includegraphics[width=0.35\textwidth]{images/fig_ft1_picdipolitos.jpg}
+}
 
 \subsubsection{Consideraciones en medios magnéticos}
 
@@ -715,9 +805,7 @@ Un momento dipolar magnético diferente al inicial es porque hubo momento induci
  
 \end{ejemplo}
 
-% =================================================================================================
-\section{Desarrollo dipolar del campo magnético}
-% =================================================================================================
+\subsection{Desarrollo dipolar del campo magnético}
 
 El potencial vector de un dipolo es
 \[
@@ -761,11 +849,53 @@ de cosmética y tirar el término de superficie. Veremos
 Es el potencial vector de una distribución de momento dipolar magnético con densidad
 $ \vb{M}(\vb{x}')$
 
+% =================================================================================================
+\subsection{Campo externo sobre distribución}
+% =================================================================================================
+
+Se quiere ver la maquinaria matemática para evaluar el efecto de un campo externo sobre
+una configuración de carga.
+Recuérdese que un campo homogéneo no hace fuerza sobre un dipolo.
+El punto de partida es la integral del potencial
+\[
+	W = \int \rho(\vbx) \phi(\vbx) d^3x
+\]
+y el potencial
+\[
+	\phi(\vbx) = \phi(0) + \vbx \cdot \Nabla\phi(0) + 
+	\frac{1}{2} x_i x_j \partial_i \partial_j \phi(0) + ...
+\]
+\[
+	\phi(\vbx) = \phi(0) + \vbx \cdot \vb{E}(0) + 
+	\frac{1}{2} x_i x_j \partial_i \vb{E}_j(0) + ...
+\]
+
+Implantando esta expansión en la integral previa,
+\[
+	W = \phi(0) \int \rho(\vbx) d^3x - \vb{E}(0) \int \vbx \rho(\vbx) d^3x 
+	- \frac{1}{6} Q_{ij}  \partial_i \vb{E}_j(0)
+\]
+\[
+	W = q \phi - \pe{p}{E} - \frac{1}{6} Q_{ij} \partial_i \vb{E}_j 
+\]
+Tomando el gradiente, con su signo, $ \vb{F} = - \Nabla W $ y
+entonces
+\[
+	F_k = - \partial_k W =
+	-q \:\partial_k \phi + p_i \partial_k E_i + \frac{1}{6} Q_{}ij\partial_i\partial)j E_k
+\]
+entonces $ \partial_k E_j = \partial_j E_k $ puesto que el carácter irrotacional del
+campo externo hace que puedan intercambiarse los índices en la expresión.
+El primer término del rhs es $q\vb{E}$.
+
 
 % =================================================================================================
 \section{Consideraciones energéticas}
 % =================================================================================================
 
+Aquí la idea es construir la configuración carga a carga. Evaluando el trabajo de
+generar el potencial total.
+Recordemos [¿?]
 \[
 	\vb{F} = q \vb{E} = q (-\Nabla\phi) = - \Nabla U
 \]
@@ -777,9 +907,11 @@ $ \vb{M}(\vb{x}')$
 	\delta U = \vb{F}\cdot\delta\vb{x} \qquad\qquad  \frac{\delta U}{\delta x} = F_t
 \]
 donde el subíndice es por tangencial.
+
+Se empieza con $W_1 = 0 $. Luego
 \[
-	W_2 = q_2 \frac{q_1}{r_{12}} = \frac{1}{2}\left( q_1 \frac{q_2}{r_{12}} + 
-		q_2 \frac{q_1}{r_{21}} \right)
+	W_2 = q_2 \frac{q_1}{r_{12}} = \frac{1}{2}( W_2^a + W_2^b ) =
+	\frac{1}{2}\left( q_1 \frac{q_2}{r_{12}} + q_2 \frac{q_1}{r_{21}} \right)
 \]
 \[
 	W_3 = q_2 \frac{q_1}{r_{12}} + q_3 \frac{q_1}{r_{13}} + q_2 \frac{q_3}{r_{23}}
@@ -793,20 +925,53 @@ donde el subíndice es por tangencial.
 	\sum_{i,j}^N \frac{1}{2} q_i \phi_{ij}[ 1 - \delta_{ij}]
 \]
 siendo $\phi_{ij}$ el potencial sobre $q_i$ debido a $q_j$.
+Entonces,
 \[
-	W_N = \sum_i^N \frac{1}{2} q_i \phi_i 
+	W_N = \frac{1}{2} \sum_i^N  q_i \phi_i 
 \]
 es el potencial de todas las cargas producido en la posición de $q_i$.
+La versión continua será, evidentemente,
 \[
 	W = \frac{1}{2} \int_V \rho(\vb{x}) \phi(\vb{x}) dV
 \]
-Supongamos ahora la presencia de un medio material 
+Supongamos ahora la presencia de un medio material.
+Se quiere ver que trabajo $W$ debe hacerse para modificarlo en un $\Delta \rho$.
 \[
-	\delta W = \frac{1}{2} \rho \delta V \phi
+	\delta W = \frac{1}{2} \: \rho \: \delta V \phi,
 \]
+o bien
+\[
+	\Delta(\delta W) = \delta q \: \phi =  \delta \rho \: dV \: \phi.
+\]
+Se integra en todo el volumen,
+\[
+	\delta W = \int \: \delta \rho\: \phi \: dV.
+\]
+que satisface $\divem{D}=4\pi\rho_L$ de modo que
 \[
 	\delta W = \frac{1}{2}\frac{\Nabla\cdot(\delta\vb{D})}{4\pi} \delta V \phi 
 \]
+o bien
+\[
+	\delta W = \frac{1}{4\pi} \int \: \Nabla \cdot \delta \vb{D} \: \phi \: dV.
+\]
+y usando identidades (la de siempre -ponerla en Apéndice- o partes)
+\[
+	\delta W = \frac{1}{4\pi} \left( 
+	\int \: \Nabla \cdot ( \delta \vb{D} \: \phi ) \: dV -
+	\int \: \delta\vb{D} \cdot \Nabla \phi \: dV
+	\right)
+\]
+Ahora se presupone que se integra en todo el espacio. La superficie en el infinito
+tiene $\phi,\vb{D}$ tendiendo a cero y me olvido de esa integral. Entonces, reemplazando
+el gradiente del potencial por el campo, se tiene
+\[
+	\delta W =  \frac{1}{4\pi}  \int \: \delta\vb{D} \cdot \vb{E} \: dV =
+	\frac{1}{4\pi}  \int \: \left( \int_0^D \vb{E} \cdot \delta\vb{D} \right) \: dV
+\]
+y esto es el trabajo necesario para formar la configuración en presencia de medios
+materiales.
+Resquechos de la otra deducción [habría que consolidar] siguen a continuación:
 \[
 	\Nabla\cdot(\delta\vb{D}\phi) = \delta\vb{D} \cdot \Nabla\phi  + \phi \Nabla\cdot\delta\vb{D}
 \]
@@ -830,6 +995,50 @@ para medios lineales, sin imponer isotroía u homogeneidad.
 Este cálculo es a temperatura constante, el medio material no altera su $\epsilon$.
 Es un proceso isotérmico. Uno asume que $\epsilon=\epsilon(\vb{x})$ y no varía con el tiempo.
 En la práctica $\epsilon$ varía con la temperatura.
+
+\subsection{Medios anisótropos}
+
+Consideremos un medio lineal anisótropo
+\[
+	D_i = \varepsilon_{ij} E_j
+\]
+con el tensor de segundo rango $\varepsilon_{ij}$. En este caso
+\[
+	\delta W = \frac{1}{4\pi} \int  \varepsilon_{ij} E_i \delta E_j \qquad \qquad
+	W =  \frac{1}{4\pi} \int \varepsilon_{ij} dV \int_0^E E_i \delta E_j
+\]
+en la cual el campo \vb{E} desde cero a su valor final es paralelo a si mismo en todo
+momento.
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_mediolinealanisotropo.jpg}
+
+Entonces
+\[
+	\frac{\delta E_i}{\cos\alpha_i} = \frac{\delta E_j}{\cos\alpha_j}
+\]
+\[
+	\delta E_j = a_{ij} \delta E_i 
+\]
+con $a_{ij} = \cos\alpha_j / \cos\alpha_i$. Entonces $E_j = a_{ij} E_i = a^{ij} E_i$ y 
+\notamargen{¿Qué será el $a$ contravariante?}
+\[
+	 \int_0^E E_i \delta E_j =  a^{ij} \int_0^E E_i \delta E_i = \frac{1}{2}  a^{ij} E_i^2
+\]
+de modo que también
+\[
+	\int_0^E E_i \delta E_j = \frac{1}{2} E_i E_j,
+\]
+y entonces
+\[
+	W = \frac{1}{4\pi} \int \frac{1}{2} \varepsilon_{ij} E_i E_j  dV =
+	\frac{1}{8\pi} \int \pe{E}{D} \: dV.
+\]
+
+Esta expresión vale para medios lineales isótropos o no homogéneos o no homogéneos.
+Es decir, es bastante general.
+Traemos cargas desde el infinito pensando que el medio material no cambia su constante
+(temperatura constante), por ello indirectamente hemos supuesto un proceso isotérmico.
+Este trabajo ha incrementado la función libre de Helmholtz.
 
 % =================================================================================================
 \section{Interpretación termodinámica de U}
