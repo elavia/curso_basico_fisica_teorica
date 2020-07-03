@@ -1242,6 +1242,314 @@ Usando la curva de histéresis relacionamos $\vb{B}_I, \vb{H}_I$ y entonces
 Un imán es tanto más estable cuando $\vb{H}_I$ es pequeño; en el caso de $\vb{M} \parallel$ superficie,
 por ejemplo.
 
+
+\begin{ejemplo}{\bf Problema 6. Separación de variables con medios}
+ 
+El setup cuyo campo queremos calcular se muestra en el figurín siguiente
+
+\includegraphics[width=0.2\textwidth]{images/fig_ft1_problema6_medios.jpg} 
+
+Por separación de variables podríamos plantear tres regiones.
+Podemos usar la solución de la ecuación de Poisson, que para medios homogéneos
+resulta
+\[
+	\lapm{\phi} = - \frac{4\pi}{\varepsilon} \rho	
+\]
+Se tendrán
+\[
+	\begin{cases}
+	\lapm{\phi}^I = - \frac{4\pi}{\varepsilon_1} \: q\delta(\vbx -\vbx') \\
+	\lapm{\phi}^{II} = 0 
+	\end{cases}
+\]
+y de la zona $I$ conozco una solución (una carga puntual). Luego,
+\[
+	{\phi}^{I} = \frac{q}{\varepsilon_1|\vbx - \vbx'|} 
+	+ F^I(\vbx,\vbx') \qquad \text{ con } \; \lapm{F}^I = 0
+\]
+\[
+	{\phi}^{II} = \sum_{\ell} \: \frac{B_\ell}{r^{\ell + 1}} \: P_\ell(\cos\theta)
+\]
+\[
+	F^{I} = \sum_{\ell} \: A_\ell \: r^\ell \: P_\ell(\cos\theta)
+\]
+Por teorema de expansión se tiene
+\[
+	\frac{q}{\varepsilon_1|\vbx - \vbx'|}  =
+	\sum_{\ell} \: \frac{q}{\varepsilon} \: \frac{ r_<^\ell }{ r_>^{\ell+1} }
+	\: P_\ell(\cos\theta)
+\]	
+La continuidad de $\phi$ en $r=a$ lleva a que $r'<a=r$ entonces $r_<=r$ y $r_>=a$
+de modo que 
+\[
+	\frac{q}{\varepsilon} \sum_\ell \left( 
+	\frac{ {r'}^\ell }{ a^{\ell+1} } + A_\ell \: a^\ell
+	\right) \: P_\ell(\cos\theta) =
+	\sum_\ell \: \frac{B_\ell}{a^{\ell +1}} \: P_\ell(\cos\theta)
+\]
+\[
+	\frac{q}{\varepsilon_1} \left( 
+	\frac{ {r'}^\ell }{ a^{\ell+1} } + A_\ell \: a^\ell \right) =
+	\frac{B_\ell}{a^{\ell +1}} 
+\]
+Esta última es la Eq. 1.
+Luego tendremos
+\[
+	D^{II}_n - D^{I}_n = 4 \sigma_L = 0,
+\]
+lo cual conduce a 
+\[
+	\varepsilon_2 \left. \dpar{\phi^{II}}{r}\right|_{r=a} =
+	\varepsilon_1 \left. \dpar{\phi^{I}}{r}\right|_{r=a}
+\]
+que evaluadas son
+\[
+	\varepsilon_1 \sum_\ell \: \frac{q}{\varepsilon_1} \left( 
+	-\frac{ {r'}^\ell (\ell +1)}{ a^{\ell+2} } + \ell A_\ell \: a^{\ell-1} \right)
+	 \: P_\ell(\cos\theta) = \varepsilon_2 \sum_\ell \: 
+	-\frac{B_\ell(\ell+1)}{a^{\ell +2}}  \: P_\ell(\cos\theta) 
+\]
+\[
+	\varepsilon_1 \: \left(  \frac{q}{\varepsilon_1}
+	\frac{ {r'}^\ell (\ell +1)}{ a^{\ell+2} } + \ell A_\ell \: a^{\ell-1} \right)
+	= \varepsilon_2 \: \frac{B_\ell(\ell+1)}{a^{\ell +2}} 
+\]
+\notamargen{Parece haber un error en el despeje. Copio la carpeta tal cual. Veremos.}
+que es la Eq. 2.
+La solución será
+\[
+	B_\ell = \frac{(2\ell + 1) q {r'}^\ell }{ \varepsilon_1 \ell + 
+	\varepsilon_2 (\ell + 1) } \qquad \qquad 
+	A_\ell = \frac{q(\varepsilon_1 - \varepsilon_2)}{\varepsilon_1}
+	\frac{(\ell + 1)}{ \varepsilon_1 \ell + \varepsilon_2 (\ell + 1) }
+	\frac{{r'}^\ell}{a^{2\ell +1}}
+\]
+\[
+	B_0 =  \frac{q}{\varepsilon_2} \qquad \qquad 
+	A_0 =  -\frac{q}{\varepsilon_2 a} \left( 1 - \frac{\varepsilon_1}{\varepsilon_2} \right)
+\]
+
+Si $r'=0$ tendríamos una solución razonable simétrica y nos quedarían solamente
+los coeficientes $A_0, B_0$. En efecto se tendría
+\[
+	\begin{cases}
+	\lapm{\phi}^I = \frac{q}{\varepsilon_1 r} + 
+	\frac{q}{\varepsilon_2}\left( 1 - \frac{\varepsilon_2}{\varepsilon_1} \right) \frac{1}{a} \\
+	\\
+	\lapm{\phi}^{II} =  \frac{q}{\varepsilon_2 r}
+	\end{cases}
+\]
+
+Para evaluar la carga de polarización se debe usar
+\[
+	E_n^{II} - E_n^{I} = 4 \pi \sigma_T = 4 \pi \sigma_P,
+\]
+o bien
+\[
+	\frac{D_n^{II}}{\varepsilon_2} - \frac{D_n^{I}}{\varepsilon_1} = 
+	4 \pi \sigma_P
+\]
+
+También se puede usar
+\[
+	\sigma_P = - ( P_n^{II} - P_n^{I} ).
+\]
+
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 7 }
+
+La ilustración es por demás elocuente.
+
+\includegraphics[width=0.2\textwidth]{images/fig_ft1_problema7_medios.jpg} 
+
+Se pueden plantear tres regiones y Laplace o bien plantear dos regiones
+\[
+	\phi^{II} = \phi_{\text{poisson}} + F^{II} \qquad \qquad 
+	\phi^{I} = F^{I}
+\]
+\[
+	\phi_{\text{poisson}} = \int \: \frac{\rho(\vbx)}{|\vbx - \vbx'|} \: dV
+\]
+y usando el desarrollo del denominador,
+\[
+	\frac{1}{|\vb{x}-\vb{x}'|}  = \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 
+	\frac{r_<^\ell}{r_>^{\ell+1}}
+	\frac{4\pi}{2\ell+1} Y_{\ell,m}(\theta,\varphi) Y_{\ell,m}^*(\theta',\varphi')
+\]
+\[
+	F^{II} = \sum_\ell \: \left( \frac{A_\ell}{r^{\ell+1}} +
+	B_\ell \: r^\ell \right) \: P_\ell(\cos\theta) =
+	\sum_\ell \: \frac{A_\ell}{r^{\ell+1}} \: P_\ell(\cos\theta) -
+	E_0 \: r \: \cos\theta
+\]
+\[
+	F^{I} = \sum_\ell \: B_\ell \: r^\ell \: P_\ell(\cos\theta).
+\]
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 9}
+ 
+La polarización se interpreta más o menos así
+\[
+	\vb{P} = \frac{\delta\vb{p}}{\delta V} = 
+	\frac{N}{V} \: \langle \vb{p}_{\text{mol}} \rangle 
+\]
+aunque puede existir una relación para moléculas en particular, del tipo
+$ \langle \vb{p}_{\text{mol}} \rangle = \gamma \: \vb{E} $, donde este 
+último campo eléctrico es el que actúa sobre una molécula. No será necesariamente
+igual al externo.
+Globalmente, sabemos que $ \vb{P} = \chi_e \vb{E}$.
+
+\includegraphics[width=0.35\textwidth]{images/fig_ft1_problema9A_medios.jpg} 
+
+Qué campo eléctrico siente una molécula en el origen debido a sus vecinos
+presentes en el $\delta V$.
+Pensamos en una red con moléculas equiespaciadas, algo como lo ilustrado abajo
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema9B_medios.jpg} 
+ 
+\[
+	\vbx'= i a \xver + j a \yver + k a \zver 
+\] 
+\[
+	\vb{E} = - \Nabla \phi \approx 
+	- \Nabla ( \sum_{i=-\infty}^\infty \sum_{j=-\infty}^\infty 
+	\sum_{k=-\infty}^\infty \phi_{ijk} )
+\]
+donde el paréntesis es el potencial de cada una de las moléculas, y así
+\[
+	\vb{E} \approx - \Nabla \left( \sum_{i,j,k} \: 
+	\frac{\vb{P}\cdot(\vbx-\vbx')}{|\vbx-\vbx'|^3}\right) 
+\]
+donde $\vbx=0$ en este caso. Pero esto es
+\[
+	\vb{E} \approx \nabla 
+	\left[ \sum_{i,j,k} \: \frac{ p_x i a + p_y j a + p_z k a }
+	{a^3 (i^2 + j^2 + k^2 )^{3/2}} \: \right] = 0, 
+\]
+y es nulo porque sumo desde $-\infty$ a $\infty$ y los índices positivos
+y negativos ... [¿?].
+
+Ahora queremos ver el efecto del resto del medio, y esto se resuelve del
+modo usual.
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema9C_medios.jpg} 
+
+Es decir que se proponen
+\[
+	\phi^{II} = \sum_\ell \: \left( \frac{B_\ell}{r^{\ell+1}} +
+	A_\ell^{II} \: r^\ell \right) \: P_\ell(\cos\theta)
+\]
+\[
+	\phi^{I} = \sum_\ell \: A_\ell^I \: r^\ell \: P_\ell(\cos\theta).
+\]
+Luego, proponiendo continuidad en $r=a$ resultan
+\[
+	A_\ell^{I} = \frac{B_\ell}{a^{2\ell + 1}} - E_0\delta_{1\ell} \qquad 
+	\qquad A_\ell^{II} = -E_0 \delta_{\ell 1}
+\]
+
+\notamargen{Tomé la siguiente nota que pego aquí:
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema9D_medios.jpg} 
+}
+
+A partir de la igualdad $ D_{n}^I = D_n^{II}$ surge 
+\[
+	-\varepsilon \dpar{\phi^{II}}{r} = -  \dpar{\phi^{I}}{r}.
+\]
+Como 
+\[
+	\sum_{\ell=0} \: 
+	\left[ 
+	\ell A_\ell^I a^{\ell -1} - \varepsilon \ell A_\ell^{II} a^{\ell-1} 
+	+ \varepsilon (\ell + 1) \frac{B_\ell}{a^{\ell+2}}
+	\right] \: P_\ell(\cos\theta) = 0 ,
+\]
+y tras usar la ortogonalidad de los $P_\ell$,
+\[
+	\left( \ell a^{\ell-1} + \varepsilon (\ell + 1) \right) \frac{B_\ell}{a^{\ell+2}}
+	+ (\varepsilon - 1 ) \ell \: E_0 \: \delta_{1\ell} = 0
+\]
+de modo que para $ \ell = 1 $ es
+\[
+	A_1^I = - \frac{3\varepsilon}{2\varepsilon +1} \: a^3 \: E_0
+	B_1 = - \frac{\varepsilon -1}{2\varepsilon +1} \: a^3 \: E_0
+\]
+
+Sobrevive solamente el término $\ell=1$ de manera que
+\[
+	\phi^I = \frac{3\varepsilon}{2\varepsilon +1} \: r \: E_0 \: \cos\theta 
+\]
+\[
+	\phi^II = - r \: E_0 \: \cos\theta - \frac{\varepsilon -1}{2\varepsilon +1} 
+	\: r \: E_0 \: \cos\theta \Frac{a}{r}^3
+\]
+
+El campo eléctrico es mayor en la región vacía porque no hay dieléctrico.
+\[
+	E = \frac{3\varepsilon}{2\varepsilon +1} =
+	\frac{\varepsilon-1}{2\varepsilon +1} \: E_0 + E_0
+\]
+ 
+Trabajando en la condición de juntura,
+\[
+	\dpar{\phi_{II}}{n} - \dpar{\phi_{I}}{n} = - 4 \pi \sigma_P
+\]
+y usando las expresiones anteriores se llega a 
+\[
+	\sigma_P = - \frac{3}{4\pi} \frac{\varepsilon-1}{2\varepsilon +1} 
+	E_0 \cos\theta = P_n^I - P_n^{II},
+\]
+pero en el último miembro la polarizaciṕon en la región $I$ es nula.
+Entonces, usando que $\cos\theta = \vbx\cdot\hat{z}$
+\[
+	\vb{P} =  \frac{3}{4\pi} \frac{\varepsilon-1}{2\varepsilon+1}
+	E_0 \: \zver
+\]
+o bien
+\[
+	\vb{P} = \frac{N}{V} \langle \vb{p}_{\text{mol}}\rangle =
+	n \gamma \left( \vb{E} + 4\pi/3 \vb{P} \right)
+\]
+que macroscópicamente equivale a $\vb{P} = \chi_e \vb{E} $. De estas últimas
+dos se puede despejart
+\[
+	\chi_e = \frac{ n \gamma }{1 - n \gamma 4 \pi / 3 }
+\]
+que es la ecuación de Clausius-Mossotti.
+Como $ \varepsilon = 1 + 4\pi \chi_e$ se da 
+\[
+	\gamma = \frac{3}{4\pi n} \frac{\varepsilon-1}{\varepsilon+2}
+\]
+el cual depende de la temperatura.
+
+Un grafiquín fuera de tema:
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema9E_medios.jpg}
+
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 8}
+ 
+ 
+Explica la determinación del $\varepsilon$.
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema8_medios.jpg}
+
+
+No alcanzo a ver bien las ecuaciones definidas, pero 	
+\[
+	E_2 - E_1 = 4 \pi \sigma_P
+\]
+y
+\[
+	\sigma_P = \frac{(\varepsilon - 1 )}{4\pi} E_{\text{medio}} .
+\]
+ 
+\end{ejemplo}
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
