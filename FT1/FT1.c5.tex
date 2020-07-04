@@ -3,8 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -387,16 +387,30 @@ Observemos que el tensor de Maxwell es un tensor cartesiano.
 \section{Tensor de Maxwell}
 % =================================================================================================
 
+Se consideran sistemas interactuantes a distancia
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_PicsMaxwellA.jpg}
+
+y la idea es encerrar al cuerpo con una superficie cerrada $\Sigma$ lo que nos permitira conocer
+el campo total sobre esa superficie.
+Tenemos la siguiente ecuación que no sé bien que
+\[
+	F_i(b) = \int_V f_i(b) \: dV = \int_V \partial_j T_{ij} \: dV = \int_S T_{ij} \hat{n}_j dS.
+\]
+
 El tensor T será diagonal si una de las direcciones es paralela al campo. Con el T puede calcularse
 la fuerza que hacen los campos \vb{E}, \vb{B} sobre una cierta distribución de cargas y corrientes,
 con tal de evaluar su flujo en alguna superficie que las contenga (como se ve en la figura)
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.4\textwidth]{images/fig_ft1_maxwell.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
-y con tal dde que 
+
+
+y con tal de que 
 \[
 	\dtot{}{t}\left(\int_V \vb{g} dV \right) = 0 \qquad \qquad \vb{g} =  \frac{1}{4\pi c}(\pv{E}{B})
 \]
@@ -473,22 +487,58 @@ Aquí abajo el campo es tangencial al recinto, la tensión penetra en él.
 \end{figure} 
 
 Se llega al concepto de T cuando pensamos en campos para justificar las interacciones.
-Para medios materiales se tendrán consecuentemente los siguientes tensores eléctrico
-y magnético, respectivamente,
+Para medios materiales, lineales e isótropos, se tendrán consecuentemente los siguientes tensores
+eléctrico y magnético estáticos [electro- y magneto-estáticos], respectivamente,
 \[
 	T_{ik} = \frac{1}{4\pi} \left[ E_iD_k - \frac{1}{2}\delta_{ik} \pe{D}{E}(1-b_e) \right] 
 \]
 \[
-	T_{ik} = \frac{1}{4\pi} \left[ H_iB_k - \frac{1}{2}\delta_{ik} \pe{H}{B}(1-b_m)  \right] 
+	T_{ik} = \frac{1}{4\pi} \left[ H_iB_k - \frac{1}{2}\delta_{ik} \pe{H}{B}(1-b_m)  \right] .
 \]
+Se definen la electrofricción y magnetofricción, $b_e,b_m$, respectivamente como
+\[
+	b_e = \frac{\rho}{\varepsilon} \dtot{\varepsilon}{\rho}  = \int_S T_{ij} n_j \: dS
+\]
+hallándose la $b_m$ con una definición análoga.
+La fuerza total de este término es nula pero el efecto es tender a reventar el medio.
 
-Cuando T está diagonalizado la traza no es nula. Cuando se diagonaliza, ahciendo
+Para el vacío el $T_{ij}$ es simétrico y con elementos reales, por lo tanto es diagonalizable 
+con autovalores reales.
+Para diagonalizarlo podemos usar razonamientos físicos o matemáticos.
+
+Cuando T está diagonalizado la traza no es nula y figura el cuadrado del campo eléctrico,
+o sea que no depende de la dirección sino solo del valor absoluto de la intensidad.
+Cuando se diagonaliza, haciendo
 \[
 	| T - \lambda \mathbb{1} | = 0
 \]
 se tienen $\lambda_1 = E^2 / 8\pi$ y $\lambda_{2,3} = - E^2 / 8\pi$, donde el
 autovector de $\lambda_1$ corresponde a la dirección de \vb{E} y $\lambda_{2,3}$
 a las direcciones perpendiculares.
+
+El siguiente figurín ilustra
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_tensorMax_B.jpg}
+
+donde se tiene
+\[
+	d\vb{F} = T d\vb{S} = \frac{E^2}{8\pi} dS \hat{e}_x,
+\]
+o bien en palabras; el campo $\vb{E}$ por unidad de área en la dirección de la normal a la superficie
+por el elemento de superficie transmite una tensión a través de la superficie.
+
+Considerando el siguiente dibujo vemos que se quiere obtener la fuerza sobre $q$ para lo cual se
+encierra la carga (con una semiesfera al infinito) y calcula el flujo resultante
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_tensorMax_C.jpg}
+
+Queda un plano sobre el cual solamente hay $E_x\hat{x}$.
+Entonces
+\[
+	F_x = -\frac{4d^2q^2}{8\pi} \int_{\text{Plano xy}} \: \frac{dy dz}{( \: d^2 + y^2 + z^2 \: )^3} = 
+	- \frac{q^2}{( 2 d )^2}.
+\]
+
 \[
 	d\vb{F}|_{\parallel} = T\cdot d\vb{S}|_{\parallel} \rightarrow \frac{E^2}{8\pi} dS|_{\parallel}
 \]
@@ -501,6 +551,17 @@ El tensor diagonalizado es
 		0	& 0	& -E^2/2
 	       \end{pmatrix}
 \]
+En cambio, el tensor no diagonalizado es
+\[
+	T = \frac{1}{4\pi}\begin{pmatrix}
+	        \frac{1}{2}( E_x^2 - E_y^2 -E_z^2 ) & E_x E_y	& E_x E_z \\
+		E_x E_y	& \frac{1}{2}( E_y^2 - E_z^2 -E_x^2 ) & E_y E_z \\
+		E_x E_z & E_y E_z & \frac{1}{2}( E_z^2 - E_x^2 -E_y^2 )
+	       \end{pmatrix}
+\]
+
+Si se elige uno de los ejes a lo largo del campo $\vb{E}$ se diagonaliza el tensor, lo cual es
+un razonamiento matemático.
 
 % =================================================================================================
 \section{Método cuasiestacionario}
