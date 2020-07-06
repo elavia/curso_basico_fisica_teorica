@@ -487,6 +487,7 @@ Aquí abajo el campo es tangencial al recinto, la tensión penetra en él.
 \end{figure} 
 
 Se llega al concepto de T cuando pensamos en campos para justificar las interacciones.
+Este concepto es válido también para el campo magnético.
 Para medios materiales, lineales e isótropos, se tendrán consecuentemente los siguientes tensores
 eléctrico y magnético estáticos [electro- y magneto-estáticos], respectivamente,
 \[
@@ -527,6 +528,8 @@ donde se tiene
 o bien en palabras; el campo $\vb{E}$ por unidad de área en la dirección de la normal a la superficie
 por el elemento de superficie transmite una tensión a través de la superficie.
 
+\begin{ejemplo}{}
+
 Considerando el siguiente dibujo vemos que se quiere obtener la fuerza sobre $q$ para lo cual se
 encierra la carga (con una semiesfera al infinito) y calcula el flujo resultante
 
@@ -538,7 +541,74 @@ Entonces
 	F_x = -\frac{4d^2q^2}{8\pi} \int_{\text{Plano xy}} \: \frac{dy dz}{( \: d^2 + y^2 + z^2 \: )^3} = 
 	- \frac{q^2}{( 2 d )^2}.
 \]
+En este caso las dos cargas tienen signos opuestos. Sobre el plano el campo es perpendicular,
+se transmite entonces una tensión a través del mismo plano; existe una fuerza atractiva.
 
+Para dos cargas iguales
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_tensorMax_D.jpg}
+
+se tiene en $x=0$
+\[
+	\vb{E} = \frac{ 2 q ( y \yver + z \zver )}{( d^2 + y^2 + z^2 )^{3/2}}
+\]
+el campo es paralelo al plano. Entonces la interacción es repulsiva porque se ejerce una presión a
+través de $dS$ que empuja a $q$. El tensor es
+\[
+	T(0,y,z) = \frac{1}{4\pi}\begin{pmatrix}
+	        -\frac{E^2}{2} & 0 & 0 \\
+		0 & E_y^2 - \frac{E^2}{2} & E_y E_z \\
+		0 & E_y E_z & E_z^2 - \frac{E^2}{2} 
+	\end{pmatrix}
+\]
+Inmediatamente se llega, para la fuerza sobre la carga de la derecha, a
+\[
+	F_x = - \frac{q^2}{ 8 \pi } \int \frac{ 4 ( y^2 + z^2 ) }{( d^2 + y^2 + z^2 )^3} dy dz = 
+	- q^2 \int_0^\infty \frac{ \rho^3 }{(d^2 + \rho^2)^3} d\rho = 
+	\frac{q^2}{(2d)^2},
+\]
+que recupera el resultado de la ley de Coulomb (previo pasaje a cilíndricas de la integral
+y buscando el resultado en una tabla).
+
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Cables paralelos por los que circula corriente}
+
+Se analizará fuerza por unidad de longitud dada la extensión infinita de los cables.
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_cablesParalelosCorriente.jpg}
+
+\[
+	\vb{B}(\eta) = \vb{B}^1(\eta) + \vb{B}^2(\eta) = - \frac{4I}{c} \frac{y}{(d/2)^2 + y^2} \xver
+\]
+Los cables se atraerán si las corrientes son paralelas. Los cables se repulsan si las
+corrientes son antiparalelas (sentido contrario).
+
+La siguiente figurita  ilustra
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_cablesParalelosCorrienteB.jpg}
+
+que si cambio de normal $\hat{n}$ cambio dirección de la fuerza (debida al flujo del tensor
+de Maxwell, no al flujo del campo que será nulo).
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Fuerza en imán polar}
+
+En este ejemplo se desprecia el flujo lateral y el interior (que es mucho más pequeño).
+La ilustración muestra una pieza polar de imán.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_imanPolar.jpg}
+ 
+Luego, el tensor es
+\[
+	T_{ij} = \frac{1}{4\pi} \left[ H_i B_j - \frac{1}{2} \delta_{ij} \vb{H}\cdot\vb{B} \right].
+\]
+ 
+\end{ejemplo}
+
+
+\notamargen{Un campo ejerce una presión en una dirección perpendicular al campo.}
 \[
 	d\vb{F}|_{\parallel} = T\cdot d\vb{S}|_{\parallel} \rightarrow \frac{E^2}{8\pi} dS|_{\parallel}
 \]

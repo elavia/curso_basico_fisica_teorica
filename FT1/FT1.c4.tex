@@ -401,20 +401,32 @@ Si esta es nula se tiene
 \subsection{Imán permanente}
 
 Hay magnetización \vb{M} aún en ausencia de campo. No es un medio lineal de modo que
+no hay relación lineal entre \vb{B} y \vb{H}, luego
 \[
 	\vb{M}	 \neq \xi_M \vb{H} \Rightarrow \vb{B} \neq \mu \vb{H}
 \]
 El campo \vb{M} es fuente de campo. El asunto es que $\vb{M}$ tiene el problema de
 la discontinuidad, pero $ \vb{M} = 0 $ fuera del medio.
-La relación entre \vb{B},\vb{H} depende de la historia del medio.
+La relación entre \vb{B}, \vb{H} depende de la historia del medio.
 \[
 	\frac{1}{c}\vb{J}_M = \rotorm{M}
 \]
-si \vb{J}$_L=0$ entonces 
+Para un imán es \vb{J}$_L=0$ de manera que
 \[
-	\rotorm{H} = 0 \qquad \Rightarrow \vb{H} = -\Nabla\phi_m
+	\rotorm{H} = 0 \qquad \Rightarrow \qquad \vb{H} = -\Nabla\phi_m,
 \]
-que es un potencial escalar magnético.
+que es un potencial escalar magnético, que explica \vb{H}.
+Fuera del imań no hay $ \vb{J}_M $ y se tiene
+\[
+	\rotorm{B} = \frac{4\pi}{c}\vb{J}_T = 0.
+\]
+Se podría utilizar un potencial para \vb{B} por lo anterior pero esto fallará en la
+superficie de separación.
+En general no es conveniente un $\phi_B$ escalar. La relación constitutiva es
+\[
+	\vb{H} = \vb{B} - 4\pi\vb{M}
+\]
+y entonces
 \[
 	\Nabla\cdot( \vb{H} + 4\pi\vb{M} ) = \divem{B} = 0
 \]
@@ -428,6 +440,7 @@ que es un potencial escalar magnético.
 	\nabla^2 \phi_m = -4\pi\rho_m
 \]
 donde se ha definido cargas ficticias de magnetización.
+Las cargas magnéticas producen el $\phi_m$ dentro del imán.
 Se deduce una $ \sigma = \vb{M} \cdot \hat{n} $.
 
 \[
