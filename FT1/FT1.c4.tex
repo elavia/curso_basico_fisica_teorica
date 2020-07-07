@@ -491,10 +491,52 @@ se puede asociar
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/fig_ft1_magnetizaciones.pdf}	 
+	\includegraphics[width=0.8\textwidth]{images/fig_ft1_magnetizaciones.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure}
+
+\begin{ejemplo}{\bf Esfera magnetizada}
+ 
+Consideremos la ilustración de aquí abajo donde aparece el problema en cuestión.
+Es un problema análogo a los de electrostática.
+
+\includegraphics[width=0.2\textwidth]{images/fig_ft1_esfera_magnetizada.jpg}
+
+No hay densidades de magnetización $\rho_M$ pues $\divem{M}=0$ pero se tiene
+\[
+	\begin{cases}
+	$\vb{M}$ \neq 0 \qquad r < a \\
+	$\vb{M}$ = 0 \qquad r > a 
+	\end{cases}
+\]
+Esta discontinuidad generará cargas de magnetización en superficie que resolveremos con
+los contornos. Se divide en dos regiones según indica la figura.
+\[
+	\lapm{\phi^I_H} = 0 \qquad \qquad \hat{n} \times (\vb{H}_2 - \vb{H}_1 ) = 0
+\]
+\[
+	\lapm{\phi^{II}_H} = 0 \qquad \qquad (\vb{B}_2 - \vb{1}_1 ) \cdot \hat{n} = 0
+\]
+\[
+	\left( - \Nabla\phi_H^{II} + \Nabla\phi_H^I - 4 \pi \vb{M} \right) \cdot \hat{n} = 0
+\]
+de la cual
+\[
+	\left( - \Nabla\phi_H^{II} + \Nabla\phi_H^I \right) \cdot \hat{n} = 4 \pi \vb{M}\cdot \hat{n}
+\]
+y $\vb{M}\cdot \hat{n} = M \cos\theta $ y la continuidad $ \phi_H^{II} = \phi_H^{I} $.
+Entonces para fuera de la esfera es el campo equivalente a un dipolo puntual en el origen.
+
+\includegraphics[width=0.2\textwidth]{images/fig_ft1_esfera_magnetizada2.jpg}
+
+Dentro de la esfera $\vb{B}, \vb{H}$ son homogéneos y valen
+\[
+	\vb{B}_I = \frac{8 \pi}{3} \vb{M} \qquad \qquad \vb{H}_I = -\frac{4 \pi}{3} \vb{M}
+\]
+
+\end{ejemplo}
+
 
 
 % =================================================================================================
@@ -1283,17 +1325,24 @@ de histéresis; \vb{B} es una función multivaluada de \vb{H} y $f$ depende de l
 
 
 % =================================================================================================
-\section{Esfera ferromagnética en campo externo}
+\subsection{Esfera ferromagnética en campo externo}
 % =================================================================================================
 
-Si sumergimos la esfera en un $\vb{B}_0$ uniforme tendremos
+Si sumergimos la esfera en un campo magnético uniforme $\vb{B}_0$ tendremos
 \[
 	\vb{H}_I = \vb{B}_0 - \frac{4\pi}{3} \vb{M} \qquad \vb{B}_I = \vb{B}_0 + \frac{8\pi}{3} \vb{M}
 \]
-y podemos eliminar \vb{M} de manera que 
+y podemos eliminar \vb{M} de acuerdo con
 \[
 	2\vb{H}_I + \vb{B}_I = 3\vb{B}_0
 \]
+
+La curva de histéresis, ver figura siguiente, permite relacionar $ \vb{H}_I $ y $ \vb{B}_I$.
+Queremos forzar la ocurrencia de 
+\[
+	\vb{B}_I + 2 \vb{H}_I = 0.
+\]
+El campo \vb{H} se conoce como campo desmagnetizante.
 
 \begin{figure}[htb]
 	\begin{center}
@@ -1302,16 +1351,31 @@ y podemos eliminar \vb{M} de manera que
 	\caption{}
 \end{figure} 
 
-Vemos en la figura en P el punto de trabajo del imán esférico. Subimos $\vb{B}_0$ hasta saturar la
-esfera y luego cuando $\vb{B}_0 = 0$ nos hallamos en P. Hemos recorrido el camino ABP.
+Vemos en la figura que $P$ es el punto de trabajo del imán esférico. 
+Subimos $\vb{B}_0$ hasta saturar la esfera y luego cuando $\vb{B}_0 = 0$ nos hallamos en $P$. 
+Hemos recorrido el camino $ABP$. Si $\vb{H}$ es pequeño dentro del imán, éste es bastante
+estable en el sentido de que no se desmagnetiza fácilmente.
 
 Usando la curva de histéresis relacionamos $\vb{B}_I, \vb{H}_I$ y entonces
 \[
 	\vb{B}_I = 3 \vb{B}_0  - 2 \vb{H}_I.
 \]
 
-Un imán es tanto más estable cuando $\vb{H}_I$ es pequeño; en el caso de $\vb{M} \parallel$ superficie,
-por ejemplo.
+% Un imán es tanto más estable cuando $\vb{H}_I$ es pequeño; en el caso de $\vb{M} \parallel$ superficie,
+% por ejemplo.
+
+En un toroide se tienen $\vb{M}\cdot \hat{n} = 0 $ de manera que $\sigma_M=0$ lo cual conduce
+a $\vb{H}=0$. Es un imán estable.
+
+Si el \vb{M} es paralelo a la superficie el imán será tanto más estable. En la figura bajo
+estas líneas se ven algunos conceptos importantes.
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_magnetiz3.jpg}
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_magnetiz4.jpg}
+
+En la figura de la derecha vemos que se regresa por una minicurva de histéresis a una magnetización
+menor.
+
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica

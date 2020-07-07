@@ -35,12 +35,39 @@
 \section{Ley de Faraday e inducción}
 % =================================================================================================
 
+En un circuito $\Gamma$ se induce una fuerza electromotriz (fem) dada por
+\[
+	\mathcal{E} = \int_\Gamma \vb{E}\cdot d\vb{\ell}
+\]
+y por otra parte
+\[
+	\int_\Gamma \vb{E}\cdot d\vb{\ell} = - k \: \dtot{}{t}\left( \int_S \vb{B}\cdot d\vb{S} \right)
+\]
+donde el signo menos es la ley de lenz; la fem se opone el cambio de flujo.
+Esta propiedad no puede depender de que exista o no circuito.
+Si el circuito permanece rígido, la derivada temporal pasa directamente adentro como derivada
+parcial y se tiene
+\[
+	\int_\Gamma \vb{E}\cdot d\Bell = - k \: \left( \int_S \dpar{\vb{B}}{t} \cdot d\vb{S} \right)
+\]
+la cual, por aplicación del teorema de Stokes en una superficie que englobe al circuito,
+conduce a
+\[
+	\int_S \rotorm{E} \cdot d\vb{S} = - k \: \left( \int_S \dpar{\vb{B}}{t} \cdot d\vb{S} \right),
+\]
+o bien
+\[
+	\rotorm{E} = -\frac{1}{c} \dpar{\vb{B}}{t},
+\]
+que nos dice que si en un punto hay variación temporal de \vb{B} se está produciendo un
+campo \vb{E} no conservativo.
+
 \[
 	\mathcal{E} = -\frac{1}{c} \frac{d}{dt}\left( \int_S \vb{B}\cdot d\vb{S} \right)
 \]
 siendo $S=\partial\Gamma$ y donde 
 \[
-	\mathcal{E} \equiv \int_\Gamma \vb{E}\cdot d\vb{\ell}
+	\mathcal{E} = \int_\Gamma \vb{E}\cdot d\vb{\ell}
 \]
 siendo \vb{E} un campo irrotacional medido en el frame donde $\Gamma$ está en reposo.
 El signo menos es la ley de lenz, la FEM se opone el cambio de flujo.
@@ -73,7 +100,7 @@ siendo este campo \vb{E} claramente no conservativo.
 
 Entonces resultan las siguientes cuatro ecuaciones
 \[
-	\divem{D} = 4 \pi \rho \qquad \qquad \rotorm{E} = \frac{1}{c} \dpar{\vb{B}}{t}
+	\divem{D} = 4 \pi \rho \qquad \qquad \rotorm{E} = -\frac{1}{c} \dpar{\vb{B}}{t}
 \]
 que son las leyes de Coulomb y Faraday en forma diferencial. Asimismo
 \[
@@ -91,15 +118,18 @@ Entonces, como
 se sigue que 
 \[
 	\divem{J} + \frac{\partial}{\partial t} \frac{\divem{D}}{4\pi} =
-	\Nabla\cdot\left[ \vb{J} + \frac{1}{4\pi} \dpar{D}{t} \right]
+	\Nabla\cdot\left[ \vb{J} + \frac{1}{4\pi} \dpar{\vb{D}}{t} \right]
 \]
 que es posible pensar como una nueva densidad de corriente \vb{J}. 
 Entonces la ley de Ampere completa es:
 \[
-	\rotorm{H} = \frac{4\pi}{c} \vb{J} + \frac{1}{c}\dpar{D}{t}
+	\rotorm{H} = \frac{4\pi}{c} \vb{J} + \frac{1}{c}\dpar{\vb{D}}{t}
 \]
-siendo $\dpar{D}{t}$ la llamada corriente de desplazamiento. 
+siendo $\partial\vb{D}/\partial t$ la llamada corriente de desplazamiento. 
 Las cuatro ecuaciones están ahora completas y constituyen las {\it ecuaciones de Maxwell}.
+
+Estas ecuaciones son lineales de manera que vale superposición para ellas. No obstante no vale
+superposición para campos relacionados no linealmente con $\vb{D}, \vb{E}, \vb{H}$ y $\vb{B}$.
 
 \subsection{Potenciales}
 
@@ -108,7 +138,7 @@ Las cuatro ecuaciones están ahora completas y constituyen las {\it ecuaciones d
 	\label{maxwell_e}
 \ee
 \be
-	\divem{B} = 0 \qquad \qquad \rotorm{H} = \frac{4\pi}{c} \vb{J} + \frac{1}{c}\dpar{D}{t}
+	\divem{B} = 0 \qquad \qquad \rotorm{H} = \frac{4\pi}{c} \vb{J} + \frac{1}{c}\dpar{\vb{D}}{t}
 	\label{maxwell_m}
 \ee
 Dado que $\divem{B} = 0$ al igual que en magnetostática, podemos derivar \vb{B} del potencial 
@@ -116,7 +146,8 @@ vector \vb{A}, pero \vb{E} no tiene rotor nulo, entonces no existe $\phi$ potenc
 
 Tomando
 \[
-	\rotorm{E} + \frac{1}{c}\dpar{D}{t} = \rotorm{E} + \frac{\partial}{\partial t}\left( \frac{1}{c} 
+	\rotorm{E} + \frac{1}{c}\dpar{\vb{D}}{t} = 
+	\rotorm{E} + \frac{\partial}{\partial t}\left( \frac{1}{c} 
 	\rotorm{A}\right) = \Nabla\times\left[ \vb{E} + \frac{1}{c}\dpar{\vb{A}}{t}\right] = 0
 \]
 podemos pensar en un potencial general $\Phi$ tal que 
@@ -130,10 +161,11 @@ o bien
 donde por supuesto $\Phi$ no tiene significado de trabajo como sí lo tenía el potencial
 electrostático.
 
-Podemos expresar las ecuaciones \eqref{maxwell_e} y \eqref{maxwell_m} con $\vb{A},\Phi$,
+Podemos expresar las ecuaciones de Maxwell \eqref{maxwell_e} y \eqref{maxwell_m} en
+términos de estos potenciales $\vb{A},\Phi$,
 \[
 	\divem{E} = 4\pi\rho \rightarrow 
-	Nabla\cdot\left( -\Nabla \Phi - \frac{1}{c}\dpar{\vb{A}}{t} \right) = 4\pi\rho
+	\Nabla\cdot\left( -\Nabla \Phi - \frac{1}{c}\dpar{\vb{A}}{t} \right) = 4\pi\rho
 \]
 \[
 	\rotorm{B} - \frac{1}{c}\dpar{E}{t} =  \frac{4\pi}{c} \vb{J}  \rightarrow
@@ -148,6 +180,7 @@ de manera que resultan dos ecuaciones para los potenciales, pero acopladas
 	\nabla^2 \vb{A} - \frac{1}{c^2} \dpar[2]{\vb{A}}{t} -\Nabla \left( \divem{A} + \frac{1}{c}
 	\dpar{\Phi}{t} \right) = -\frac{4\pi}{c} \vb{J}
 \]
+Así como están son de difícil resolución.
 
 \subsection{Cambio de Gauge}
 
@@ -193,7 +226,7 @@ y si usamos los nuevos potenciales, ahora sin apóstrofes para no confundir con 
 \[
 	\nabla^2 \Phi - \frac{1}{c^2}\dpar[2]{\Phi}{t} = -\frac{4\pi}{c}\rho
 \]
-ambos potenciales satisfacen sendas ecuaciones de onda. El {\it gauge de Lorentz} o ``condición de
+ambos potenciales satisfacen sendas ecuaciones de onda. El {\it gauge} de Lorentz o ``condición de
 Lorentz'' es
 \[
 	\divem{A} + \frac{1}{c} \dpar{\Phi}{t} = 0.
@@ -203,11 +236,13 @@ Podemos imponer también
 \[
 	\divem{A} = 0
 \]
-el gauge de Coulomb y entonces
+el {\it gauge} de Coulomb y entonces
 \[
 	\nabla^2 \Phi = -4\pi\rho
 \]
 vemos que el potencial $\phi$ cumple la ecuación de Poisson.
+No obstante, veremos luego que la condición de Lorentz es invariante relativista mientras
+que la de Coulomb no lo es.
 El campo se describirá como el estacionario (electrostático) entonces
 \[
 	\dpar{\Phi}{t} = 0
