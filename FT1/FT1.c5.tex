@@ -118,7 +118,7 @@ Entonces, como
 se sigue que 
 \[
 	\divem{J} + \frac{\partial}{\partial t} \frac{\divem{D}}{4\pi} =
-	\Nabla\cdot\left[ \vb{J} + \frac{1}{4\pi} \dpar{\vb{D}}{t} \right]
+	\Nabla\cdot\left[ \vb{J} + \frac{1}{4\pi} \dpar{\vb{D}}{t} \right] = 0
 \]
 que es posible pensar como una nueva densidad de corriente \vb{J}. 
 Entonces la ley de Ampere completa es:
@@ -133,8 +133,9 @@ superposición para campos relacionados no linealmente con $\vb{D}, \vb{E}, \vb{
 
 \subsection{Potenciales}
 
+Entonces, para campos dinámicos el conjunto de ecuaciones es
 \be
-	\divem{D} = 4 \pi \rho \qquad \qquad \rotorm{E} = \frac{1}{c} \dpar{\vb{B}}{t}
+	\divem{D} = 4 \pi \rho \qquad \qquad \rotorm{E} = -\frac{1}{c} \dpar{\vb{B}}{t}
 	\label{maxwell_e}
 \ee
 \be
@@ -142,9 +143,9 @@ superposición para campos relacionados no linealmente con $\vb{D}, \vb{E}, \vb{
 	\label{maxwell_m}
 \ee
 Dado que $\divem{B} = 0$ al igual que en magnetostática, podemos derivar \vb{B} del potencial 
-vector \vb{A}, pero \vb{E} no tiene rotor nulo, entonces no existe $\phi$ potencial escalar.
-
-Tomando
+vector \vb{A}. Luego veremos que persistirá una indeterminación de la $\divem{A}$. 
+No obstante, como \vb{E} no tiene rotor nulo, entonces no existe $\phi$ potencial escalar.
+En efecto, tomando
 \[
 	\rotorm{E} + \frac{1}{c}\dpar{\vb{D}}{t} = 
 	\rotorm{E} + \frac{\partial}{\partial t}\left( \frac{1}{c} 
@@ -158,8 +159,8 @@ o bien
 \[
 	\vb{E}  = -\Nabla \Phi - \frac{1}{c}\dpar{\vb{A}}{t},
 \]
-donde por supuesto $\Phi$ no tiene significado de trabajo como sí lo tenía el potencial
-electrostático.
+donde por supuesto $\Phi$ no tiene significado de trabajo, medido independientemente de la
+trayectoria, como sí lo tenía el potencial electrostático.
 
 Podemos expresar las ecuaciones de Maxwell \eqref{maxwell_e} y \eqref{maxwell_m} en
 términos de estos potenciales $\vb{A},\Phi$,
@@ -182,7 +183,7 @@ de manera que resultan dos ecuaciones para los potenciales, pero acopladas
 \]
 Así como están son de difícil resolución.
 
-\subsection{Cambio de Gauge}
+\subsubsection{Cambio de Gauge}
 
 Podemos desacoplarlas utilizando la arbitrariedad de los potenciales
 \be
@@ -226,11 +227,15 @@ y si usamos los nuevos potenciales, ahora sin apóstrofes para no confundir con 
 \[
 	\nabla^2 \Phi - \frac{1}{c^2}\dpar[2]{\Phi}{t} = -\frac{4\pi}{c}\rho
 \]
-ambos potenciales satisfacen sendas ecuaciones de onda. El {\it gauge} de Lorentz o ``condición de
-Lorentz'' es
+ambos potenciales satisfacen sendas ecuaciones de onda no homogéneas. 
+Los potenciales son como ondas propagándose en el espacio y luego se verá que los campos también
+serán algo parecido.
+El {\it gauge} de Lorentz o ``condición de Lorentz'' es
 \[
 	\divem{A} + \frac{1}{c} \dpar{\Phi}{t} = 0.
 \]
+En este caso resulta una ecuación de onda para $\Lambda$ de manera que habrá muchísimos $\Lambda$
+que nos dan el mismo campo. Infinitos potenciales dan el mismo campo.
 
 Podemos imponer también 
 \[
@@ -243,7 +248,7 @@ el {\it gauge} de Coulomb y entonces
 vemos que el potencial $\phi$ cumple la ecuación de Poisson.
 No obstante, veremos luego que la condición de Lorentz es invariante relativista mientras
 que la de Coulomb no lo es.
-El campo se describirá como el estacionario (electrostático) entonces
+El campo se describirá como el electrostático, que es estacionario, de manera que
 \[
 	\dpar{\Phi}{t} = 0
 \]
@@ -258,26 +263,28 @@ Los resultados físicos deben ser independientes del gauge.
 \section{Conservación de la energía (teorema de Poynting)}
 % =================================================================================================
 
-Sea una región con volumen fijo. Existen \vb{E}, \vb{B} solamente que varían con el tiempo.
-Pareciera que la energía debiera conservarse.
+Sea una región $V$ con volumen fijo, en la cual existen \vb{E}, \vb{B} variantes con el tiempo y
+ninguna otra cosa. Parece lógico suponer que se puede escribir una ecuación de continuidad para
+$U$ la densidad de energía electromagnética por unidad de volumen.
+La fuerza por unidad de volumen de los campos sobre las cargas es
 \[
 	\vb{F} = q \left( \vb{E} + \frac{1}{c} \pv{v}{B} \right)
 \]
 entonces
 \[
-	\delta W = \vb{F}\cdot d\vb{\ell} = q \vb{E}\cdot d\vb{\ell} 
+	\delta W = \vb{F}\cdot d\vb{\Bell} = q \vb{E}\cdot d\vb{\Bell}, 
 \]
-dado que \vb{B} no hace trabajo por ser perpendicular la fuerza la velocidad.
+dado que \vb{B} no hace trabajo por ser perpendicular la fuerza a la velocidad.
 \[
-	\delta U = q \vb{E}\cdot d\vb{\ell} 
+	\delta U = q \:\vb{E}\cdot d\vb{\Bell} 
 \]
-para una carga $q$ es
+Para una carga $q$ es
 \[
-	\dtot{U}{t} = q \vb{E}\cdot \vb{v} 
+	\dtot{U}{t} = q \: \vb{E}\cdot \vb{v} 
 \]
 y para una distribución de cargas,
 \[
-	\dtot{U}{t} = \int_V \rho \vb{E}\cdot \vb{v}  dV = \int_V \vb{J}\cdot \vb{E} dV
+	\dtot{U}{t} = \int_V \rho \vb{E}\cdot \vb{v} \: dV = \int_V \vb{J}\cdot \vb{E} \: dV
 \]
 que no es otra cosa que la potencia entregada por los campos \vb{E}, \vb{B} dentro del volumen
 $V$. Es una conversión de energía electromagnética en energía mecánica o térmica.
@@ -299,6 +306,7 @@ podemos escribir
 	= - \frac{1}{4\pi}\int_V \left[ \vb{H}\cdot\dpar{\vb{B}}{t} + \dpar{\vb{D}}{t}\cdot\vb{E} \right] dV - 
 		\int_V \frac{c}{4\pi}  \Nabla\cdot(\pv{E}{H}) dV
 \]
+\notamargen{Acá hay un par de tricks que hay que explicar, de como extraer la derivada temporal, etc.}
 \[
 	= - \frac{1}{8\pi}\frac{d}{dt} \int_V \left[ \vb{H}\cdot\vb{B} + \vb{D}\cdot\vb{E} \right] dV - 
 		 \frac{c}{4\pi} \int_S (\pv{E}{H}) dS
@@ -312,17 +320,21 @@ siendo $S\equiv\partial V$. Si denominamos ahora
 \]
 resulta que 
 \[
-	\pe{J}{E} = -\dpar{U}{t} - \divem{S}
+	\pe{J}{E} = -\dpar{U}{t} - \divem{S},
 \]
-entonces la conservación de la energía por unidad de volumen es
+entonces hemos hallado una ecuación de continuidad con $U, \vb{S}$ en función de los campos, que nos
+dice que la conservación de la energía por unidad de volumen es
 \[
-	-\pe{J}{E} = \dpar{U}{t} + \divem{S}
+	\dpar{U}{t} = -\divem{S} -\pe{J}{E}.
 \]
-e integrada
+Integrando esta ecuación resulta
 \[
 	\int_V \dpar{U}{t} dV + \int_V \divem{S} dV = - \int_V \pe{J}{E} dV = -\int_S \vb{S}\cdot d\vb{S}
 \]
-donde se ha aplicado el teorema de Gauss en el miembro derecho. Así
+donde se ha aplicado el teorema de Gauss en el miembro derecho.
+\notamargen{Si cambia la energía en el volumen $V$ es debido a que se transfiere energía a las
+cargas como $\pe{E}{J}$ o se escapa energía electromagnética como flujo de \vb{S}.}
+Así
 \[
 	\int_V \dpar{U}{t} dV + \int_V \divem{S} dV = -\int_S \vb{S}\cdot d\vb{S}
 \]
@@ -332,9 +344,9 @@ vector de Poynting.
 Notemos que $\pe{J}{E}$ es el trabajo hecho por unidad de tiempo y por volumen por los campos.
 Localmente la conservación de la energía es
 \[
-	\dtot{U_cam}{t} + \dtot{Umec}{t} = -\int_S \vb{S}\cdot d\vb{S}.
+	\dtot{U_{cam}}{t} + \dtot{U_{mec}}{t} = -\int_S \vb{S}\cdot d\vb{S}.
 \]
-\vb{S} y $U$ no están relacionados linealmente con \vb{E} y \vb{H}.
+Los campos \vb{S} y $U$ no están relacionados linealmente con \vb{E} y \vb{H}.
 
 \subsection{Conservación del momento}
 
