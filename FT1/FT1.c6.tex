@@ -86,28 +86,46 @@ Al utilizar las ecuaciones de divergencia sobre las soluciones se obtiene que
 de manera que las ondas se propagan perpendicularmente a los campos, por ello las
 ondas electromagnéticas son transversales.
 
-Utilizando las ecuaciones de rotor se llega a la importante relación 
+Utilizando las ecuaciones de rotor de \vb{E}, en indicial (hacerlas), se llega a la importante 
+relación 
 \[
 	\vec{\mathbb{B}}_0 = \sqrt{\mu\epsilon} \hat{n} \times \vec{\mathbb{E}}_0
 \]
 de modo que los vectores $\vec{\mathbb{E}}_0$ y $\vec{\mathbb{B}}_0$ también son perpendiculares.
+Procediendo en forma análoga para la ley de Ampere-Maxwell se obtiene el mismo resultado.
 Si el vector $\vb{k} \in \mathbb{R}$ entonces $\vec{\mathbb{E}}_0$ y $\vec{\mathbb{B}}_0$
 tienen la misma fase.
 
 En el vacío o en un medio LIH los campos \vb{E} y \vb{B} estarán en fase.
-Asimismo
+Asimismo $\vb{E}, \vb{B}, \hat{n}$ forman una terna derecha, lo cual se debe a que se definió
+en primer lugar a $\vb{B}$ con una terna derecha. 
+
+\includegraphics[width=0.2\textwidth]{images/fig_ft1_ondas_pic.jpg}
+
+Luego,
 \[
 	\vb{S} \parallel \hat{n}
 \]
-pues $\vb{S} \propto \pv{E}{H} $.
+si el medio es LIH pues $\vb{S} \propto \pv{E}{H} $. El vector de Poynting apunta en la
+dirección de propagación de la onda.
 
 En un medio anisótropo $\divem{D}=\divem{}(\epsilon \vb{E}) = 0$ siendo $\epsilon$ un tensor.
-Allí $\vec{\mathbb{E}}_0 \cdot \hat{n} \neq 0$ salvo que $\epsilon$ estee diagonalizado y
+Allí $\vec{\mathbb{E}}_0 \cdot \hat{n} \neq 0$ salvo que $\epsilon$ esté diagonalizado y
 $\vb{E} \parallel$ al eje principal.
 
-Notemos que $\vb{E},\vb{B}$ y $\hat{n}$ forman una terna derecha.
+Entonces si bien todavía se tiene que
+\[
+	\vb{S} = \frac{c}{4\pi} \left( \pv{E}{H} \right)
+\]
+pero si  $\vec{\mathbb{E}} $ ya no es perpendicular a $\hat{n}$ no será el vector de Poynting
+$\vb{S}$ (dirección de propagación de la energía) paralelo a la dirección $\hat{n}$ de propagación 
+de la onda.
+
 
 \subsection{Sobre complejos}
+
+El formalismo complejo es útil para operaciones lineales; cuando haya mangitudes no relacionadas
+linealmente es un problema.
 \[
 	\mathcal{R}(A) = \frac{1}{2}( A + A^* )	\qquad \text{con} \; A \in \mathbb{C}
 \]
@@ -116,28 +134,48 @@ Sean
 	\vb{A}(\vb{x},t) = \vb{A}(\vb{x})\euler^{-i\omega t} \qquad \qquad 
 			\vb{B}(\vb{x},t) = \vb{B}(\vb{x})\euler^{-i\omega t}
 \]
-siempre trabajaremos en general con dependencias temporales armónicas y metemos $\euler^{i\pe{k}{x}}$ en el 
-módulo $vb{A}_0$ que pasa a depender de $\vb{x}$.
+siempre trabajaremos en general con dependencias temporales armónicas y metemos $\euler^{i\pe{k}{x}}$
+en el módulo $\vb{A}_0$ que pasa a depender de $\vb{x}$.
 
 Los campos físicos son siempre la parte real de las expresiones complejas.
+Así, los campos físicos serán
 \[
-	\mathcal{R}(\vb{A} + \vb{B}) = \mathcal{R}( \vb{A} ) + \mathcal{R}( \vb{B} )
+	\vb{A}(\vb{x},t) = \frac{1}{2} \left[ \vb{A}(\vb{x})\euler^{-i\omega t} + 
+	\vb{A}^*(\vb{x})\euler^{i\omega t} \right]
 \]
-con operaciones lineales es lo mismo tomar parte real antes o después.
 \[
-	\mathcal{R}(\vb{A}.\vb{B}) \neq  \mathfrak{R}( \vb{A} ) + \mathcal{R}( \vb{B} )
+	\vb{B}(\vb{x},t) = \frac{1}{2} \left[ \vb{B}(\vb{x})\euler^{-i\omega t} + 
+	\vb{B}^*(\vb{x})\euler^{i\omega t} \right]
 \]
-con operaciones no lineales no es lo mismo.
+La parte real de la suma es la suma de las partes reales,
+\[
+	\mathcal{R}(\vb{A} + \vb{B}) = \mathcal{R}( \vb{A} ) + \mathcal{R}( \vb{B} ),
+\]
+de modo que con operaciones lineales es lo mismo tomar parte real antes o después.
+Pero para el producto,
+\[
+	\mathcal{R}(\vb{A}.\vb{B}) \neq  \mathfrak{R}( \vb{A} ) + \mathcal{R}( \vb{B} ),
+\]
+de modo que con operaciones no lineales no es lo mismo.
 Para hacer producto necesito tomar la parte real de cada factor y entonces
 \[
-	\mathfrak{R}( \vb{A} ).\mathfrak{R}( \vb{B} ) = \frac{1}{2}\mathfrak{R}( \vb{A}.\vb{B}^* + 
-			\vb{A}.\vb{B} \euler^{ -i 2 \omega t })
+	\mathfrak{R}( \vb{A} ).\mathfrak{R}( \vb{B} ) = 
+	\frac{1}{2}\mathfrak{R}( \vb{A}.\vb{B}^* + 
+	\vb{A}.\vb{B} \euler^{ -i 2 \omega t }) =
+	\frac{1}{2}\mathfrak{R}( \vb{A}^*.\vb{B} + 
+	\vb{A}^*.\vb{B}^* \euler^{ i 2 \omega t }),
 \]
+donde el tercer término es porque a los efectos de tomar la parte real conjugar y no conjugar es lo
+mismo.
+Si $\vb{A}, \vb{B}$ son tales que tienen la misma fase, el resultado será real.
 
-Pero como en las aplicaciones estaré interesado en el promedio sobre un número entero de períodos,
+En las aplicaciones uno estará interesado en promedios temporales. El término con 
+$\euler^{ i 2 \omega t}$ se hace nulo cuando el promedio es sobre un número entero de períodos,
+entonces
 \[
-	\langle \vb{A} \vb{B} \rangle = \langle \mathfrak{R}( \vb{A} ). \mathfrak{R}( \vb{B} ) \rangle =
-			\frac{1}{2} \mathfrak{R} ( \vb{A}.\vb{B}^* )
+	\langle \vb{A} \vb{B} \rangle =
+	\langle \mathfrak{R}( \vb{A} ).\mathfrak{R}( \vb{B} ) \rangle =
+	\frac{1}{2} \: \mathfrak{R} ( \vb{A}.\vb{B}^* )
 \]
 
 \subsection{Poynting promedio y energías promedio}
@@ -161,7 +199,7 @@ En un MLIH es
 	\vec{\mathbb{B}} = \sqrt{ \mu \epsilon } \hat{n} \times \vec{\mathbb{E}} \qquad\qquad 
 	\vec{\mathbb{H}} = \sqrt{ \frac{\epsilon}{\mu } } \hat{n} \times \vec{\mathbb{E}}
 \]
-donde usamos que $\vb{H} = \vb{B}/\mu$
+donde usamos que $\vb{H} = \vb{B}/\mu$, lo cual conduce a
 \[
 	\langle \vb{S}( \vb{x},t ) \rangle = \frac{c}{8\pi} \re( \vec{\mathbb{E}} \times 
 		\sqrt{\frac{\epsilon}{\mu}}(\hat{n} \times \vec{\mathbb{E}})^* )
@@ -177,6 +215,7 @@ y finalmente
 		\sqrt{\frac{\epsilon}{\mu}}|\vec{\mathbb{E}}|^2 \hat{n}
 \]
 que es el vector de Poynting para ondas en MLIH.
+Se puede proceder en forma análoga para la energía. Entonces,
 \[
 	U(\vb{x},t) = \frac{1}{8\pi}( \pe{H}{B} + \pe{E}{D} )
 \]
