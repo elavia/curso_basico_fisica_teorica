@@ -172,5 +172,12 @@ Siendo $\vb{A}$ un vector generico y $\phi$ un campo escalar,
 \[
 	\int_V \: \rotorm{R}\: dV = \int_S \: \vb{R}\times\hat{n}\: dS
 \]
+
+\subsubsection{Bessel Functions}
+\label{apendice_bessel}
+
+\[
+	J_0( x ) = \sum_{i=0}^{\infty} \frac{(-1)^i}{i! \Gamma(i+1)} \Frac{x}{2}^{2i}
+\]
  
 \end{document}

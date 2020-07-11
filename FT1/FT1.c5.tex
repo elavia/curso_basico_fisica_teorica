@@ -684,13 +684,17 @@ un razonamiento matemático.
 \section{Método cuasiestacionario}
 % =================================================================================================
 
-Se aproximan campos y fuentes con frecuencias bajas, es decir cuando $\omega \approx 0$.
+Se aproximan campos y fuentes con frecuencias bajas, es decir cuando $\omega \approx 0$, serán
+campos que varían lentamente con el tiempo.
+O sea que en alguna medida se utilizarán expresiones estáticas para una situación dinámica.
 Observemos que se desarrollará la parte espacial pero la temporal quedará como está.
 Se considera
 \[
 	\vb{E}(\vb{x},t) = \vec{\mathbb{E}} \euler^{i\omega/c \hat{n}\cdot\vb{x}} \euler^{-i\omega t}
 \]
-y se desarrollará la parte espacial en torno a $\omega=0$. Comencemos el show,
+y se desarrollará la parte espacial en torno a $\omega=0$. Se hace un Taylor derivando con respecto
+a $\omega$ y evaluando en $\omega=0$.
+Comencemos el show,
 \[
 	\vb{E}(\vb{x},t) = \vec{\mathbb{E}} + \omega\frac{i\hat{n}\cdot\vb{x}}{c} \vec{\mathbb{E}} +
 			\omega^2 \frac{i^2(\hat{n}\cdot\vb{x})^2}{c^2} \vec{\mathbb{E}}
@@ -702,7 +706,10 @@ y si le {\it pegamos} la parte temporal será
 	\underbrace{\omega^2\frac{i^2(\hat{n}\cdot\vb{x})^2}{c^2}\vec{\mathbb{E}}\euler^{-i\omega t}}_{\vb{E}^{(2)}}
 \]
 
-Para el campo \vb{B} puede hacerse una descomposición análoga,
+Para el campo \vb{B} puede hacerse una descomposición análoga. 
+Veamos cómo resulta esto aplicándolo a la ecuación del rotor del campo $\vb{E}$, es decir a
+$\rotorm{E} = -1/c \: \partial{\vb{B}}/\partial t$.
+Considerando hasta orden 2, se tienen
 \[
 	\rotorm{}(\vb{E}^0 + \vb{E}^1 + \vb{E}^2) = -\frac{1}{c} \dpar{}{t}(\vb{B}^0 + \vb{B}^1 + \vb{B}^2)
 \]
@@ -722,11 +729,13 @@ Para el campo \vb{B} puede hacerse una descomposición análoga,
 	+ \frac{i\omega}{c} \underbrace{ \left.\frac{\omega^2}{2}\frac{i^2(\hat{n}\cdot\vb{x})^2}	
 	{c^2}\vec{\mathbb{B}} \euler^{-i\omega t}\right.}_{\vb{B}^{(2)}}
 \]
-Esto establece una equivalencia entre órdenes,
+Igualando miembro a miembro se establece una equivalencia entre órdenes,
 \[
 	\rotorm{E}^{(0)} = 0 \qquad \qquad \rotorm{E}^{(1)} = -\frac{1}{c}\dpar{\vb{B}^{(0)}}{t}
 \]
-donde el orden cero es el de los campos estáticos.
+donde el orden cero es el de los campos estáticos y el orden 1 es el término
+cuasiestacionario. Notemos que no {\it cabalgan} en la misma medida \vb{E} y \vb{B},
+como se aprecia de la ecuación del rotor para el orden 1 del campo eléctrico.
 
 \begin{sidewaystable}
 	%\centering A table
@@ -763,9 +772,18 @@ Consideramos $\omega/c \ell \ll 1$ con $\ell$ alguna longitud característica de
 Esta es la aproximación del sistema para poder usar cuasiestacionario.
 
 En general, en el método cuasiestacionario se alternarán para un mismo campo el valor constante
-(no necesariamente cero) y alguna función de $(\vb{x}, t)$. Es decir, que si $E_par = cte.$
-entonces $E_impar \neq cte.$ y si $B_impar \neq cte.$ entonces $B_par = cte.$
+(no necesariamente cero) y alguna función de $(\vb{x}, t)$. Es decir, que si $E_{par} = cte.$
+entonces $E_{impar} \neq cte.$ y si $B_{impar} \neq cte.$ entonces $B_{par} = cte.$
 
+No es muy formal decir $\omega$ chico puesto que no es adimensional. Débese comparar contra
+alguna magnitud del problema físico, por ejemplo
+\[
+	\frac{\omega}{c} \ell \to 0
+\]
+es una buena magnitud característica, donde $\ell$ es una longitud característica del
+sistema físico.
+
+Para las densidades de carga y de corriente, $\rho,\vb{J}$ vale un desarrollo similar.
 Recordemos que la nomenclatura de corrientes en 
 \[
 	\rotorm{H} = \frac{4\pi}{c}\vb{J} + \frac{1}{c}\dpar{\vb{D}}{t}
@@ -778,6 +796,239 @@ Cuando un conductor no es perfecto vale la ley de Ohm,
 \]
 donde $\delta$ es la profundidad pelicular, una longitud de penetración.
 
+
+\begin{ejemplo}{\bf Problema 4}
+
+La figura ilustra la situación, donde se considera $ a \gg h$ y se desprecian los bordes.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_problema4_cuasiestac.jpg}
+
+Se considera también que está alimentado con tensión y no con corriente. Luego, 
+$ \omega /c \ell \to 0$ con $\ell$ cierta longitud característica.
+Luego veremos quién es esta $\ell$.
+
+Se trabaja cada uno de los órdenes.
+
+{\bf Orden cero}. De las ecuaciones corresopndientes y por integración del campo estático
+obtenemos
+\[
+	\int \vb{E}\cdot d\Bell = V_0,
+\]
+de modo que 
+\[
+	\vb{E}^{(0)} = \frac{V_0}{h} \zver \qquad \vb{B}^{(0)} = 0
+\]
+
+{\bf Orden uno}. Desde las ecuaciones de \vb{E}, que utilizan el $\vb{B}^{(0)}$ se obtiene
+$\vb{E}^{(1)}=0$.
+Utilizando las ecuaciones de $\vb{B}$, con la prescripción de $\vb{E}^{(0)}$ se llega a
+\[
+	\vb{B}^{(1)} = - i \left[ \frac{\omega r}{c} \right] \frac{V_0}{2h} \phiver
+\]
+donde $r < a$. De esta expresión se puede ver que el término entre corchetes involucra una
+variable adimensional que nos puede servir de candidata para $\ell$. En efecto con $\ell \equiv a$
+el radio del capacitor puede ser la longitud buscada.
+
+La densidad $\sigma$ de cada placa es uniforme, dadas las aproximaciones, o lo que es lo mismo,
+fluctúa muy rápidamente. Como $ \lambda \gg a $ entonces
+\[
+	\frac{\omega a}{c} \ll 1.
+\]
+
+{\bf Orden dos}. La ecuación del rotor del campo eléctrico es
+\[
+	\rotorm{E}^{(2)} = \Frac{\omega}{c}^2 \frac{V_0}{2h} r \phiver,
+\]
+lo cual conduce a 
+\[
+	\vb{E}^{(2)} = -\Frac{\omega}{c}^2 \frac{V_0}{4h} r^2 \zver \qquad \vb{B}^{(2)} = 0.
+\]
+
+Como vemos, se alterna qué campo es nulo en cada orden subsiguiente. Todas estas expresiones son
+la parte espacial de los campos, faltando {\it pegarles} la parte temporal.
+
+Se puede ver que el campo converge a una función de Bessel
+\[
+	\vb{E} = \vb{E}^{(0)} + \vb{E}^{(2)} + \vb{E}^{(4)} + ... =
+	\frac{V_0}{h} \left[ 1 - \frac{1}{4} \Frac{\omega}{c}^2 r^2 + ...\right] =
+	\frac{V_0}{h} J_0( \omega r / c )
+\]
+que tiene simetría de revolución. Ver apéndice expresión \ref{apendice_bessel}.
+
+El capacitor tiene vacío, entonces no se disipa energía. Solamente la energía se hallará almacenada
+en los campos $\vb{E}, vb{B}$.
+Entonces
+\[
+	U(\vbx,t) = \frac{1}{8\pi} \left[ |E|^2 + |B|^2 \right]
+\]
+\notamargen{Acá tenía observado en la carpeta que los campos eran vectores reales, pero el
+B de orden 1 es claramente complejo.}
+lo cual conduce a
+\[
+	U(\vbx,t) = \frac{1}{8\pi} \Frac{V_0}{h}^2 
+	\left[ \cos^2(\omega t) + \frac{\omega r}{2c}^2 \sin^2(\omega t) \right],
+\]
+que es la energía instantánea. Generalmente interesa la potencia media, es decir la integral en un
+período, luego
+\[
+	\langle U(\vbx) \rangle = \frac{1}{16\pi} \Frac{V_0}{h}^2 
+	\left[ 1 + \frac{\omega r}{2c}^2 \right],
+\]
+que vale en cada punto del capacitor. Entonces,
+\[
+	\langle \vb{S} \rangle = 0,
+\]
+dado que resulta un coseno multiplicado por un seno. Esta cantidad es nula porque nos hemos quedado
+a primer orden. A orden dos son los términos que tienen que ver con la radiación hacia el infinito.
+ 
+\end{ejemplo}
+
+
+\begin{ejemplo}{\bf Problema 5}
+
+Consideramos un cable conductor real, no perfecto.
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema5_cuasiestac.jpg}
+
+Se tiene 
+\[
+	\vb{J} = \sigma \vb{E},
+	\label{corr_cable}
+\]
+donde $\sigma$ es constante. Digamos que en un cable la corriente
+no circula igual en toda la sección, en corriente alterna. En corriente continua es uniforme.
+Las ecuaciones de Maxwell de los campos eléctricos y magnéticos están acopladas como sabemos.
+Clavándoles un rotor a ambas resulta
+\notamargen{Esto tiene que estar hecho con detalle en el proóximo chapter.}
+\[
+	\nabla^2 \vb{E} + \Frac{\omega}{c}^2 \left( 1 + i \frac{4\pi\sigma}{\omega} \right) \vb{E} = 0,
+\]
+donde el factor lineal que multiplica al campo será denominado $K^2$. El campo $\vb E$ debe tener 
+dirección en $\zver$ dado que la corriente tiene la dirección del campo. Se propone una solución
+del tipo $ E_0 \euler^{i \omega t}$ y de la condición \eqref{corr_cable} vemos que el comportamiento
+temporal tiene que ser del tipo propuesto.
+
+En un buen conductor $\sigma$ es muy grande respecto de $\omega$; si ésta última crece deja de
+ser un buen conductor. La aproximación de buen conductor implica entonces,
+\[
+	\frac{4 \omega \sigma }{\omega} \gg 1
+\]
+y utilizándola en nuestra ecuación para el campo eléctrico se tiene
+\[
+	K^2 \approx  i \frac{4\pi\sigma\omega}{c^2}
+\]
+y consecuentemente
+\[
+	K \frac{1+i}{\sqrt{2}} \frac{\sqrt{4 \pi \omega \sigma}}{c} = \frac{1+i}{\delta}
+\]
+donde 
+\[
+	\delta \equiv \frac{c}{\sqrt{2 \pi \omega \sigma}}
+\]
+tiene unidades de longitud y se denomina longitud de penetración. Será como una longitud
+característica del problema dado que 
+\[
+	\delta = \frac{c}{\omega \sqrt{2 \pi \sigma / omega }}
+\]
+y entonces
+\[
+	\frac{\omega \delta }{c} \ll 1.
+\]
+Para resolver este problema aplicaremos el método cuasiestacionario.
+
+{\bf Orden cero}.
+Nos da sencillamente $\lapm{E}=0$.
+
+{\bf Orden uno}.
+Resulta la ecuación de Helmholtz para el campo eléctrico,
+\[
+	(\nabla^2+K^2 )\vb{E}^{(1)} = 0,
+\]
+que en coordenadas cilíndricas es la ecuación de Bessel, previo cambio de
+variables a $x = Kr$,
+\[
+	\dtot[2]{\vb{E}^{(1)}}{x} + 
+	\frac{1}{x}\dtot{\vb{E}^{(1)}}{x} + \vb{E}^{(1)} = 0
+\]
+su solución es 
+\[
+	\vb{E}^{(1)} = E_0 J_0(kr) \zver
+\]
+siendo $E_0$ una constante a determinar a partir de la condición de contorno.
+Utilizando $\vb j$ para la corriente, para no confundir con las funciones de Bessel,
+se tiene
+\[
+	I_0 = \int \vb j \: d\vb{S} = 
+	2 \pi \sigma \int_0^a E_0 J_0(kr) r \: dr
+\]
+que se integrará con ayuda de las expresiones del apéndice \ref{apendice_bessel}.
+Luego,
+\[
+	E_0 = \frac{I_0 K}{2 \pi \sigma a J_1(ka)}
+\]
+de manera que $E^{(1)} = E_0 J_0(kr)$.
+
+De la ecuación del rotor del campo eléctrico se despeja el campo magnético hallándose
+\[
+	\vb{B}^{(0)} = - c \int E_0 J_1(kr) k \euler^{-i \omega t} \: dt \phiver, 
+\]
+de la cual se obtiene
+\[
+	\vb{B}^{(0)} = -\frac{icK}{\omega} \frac{I_0 K J_1(kr)}{2 \pi \sigma a J_1(ka)} 
+	\euler^{-i \omega t} \phiver =
+	\frac{2I_0}{ac} \frac{J_1(kr)}{J_1(ka)} \euler^{-i \omega t} \phiver
+\]
+
+Los siguientes grafiquetes muestran el comportamiento de $\vb j$ y de $\vb B$
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_problema5_cuasiestacA.jpg}
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_problema5_cuasiestacB.jpg}
+
+donde se ve en función del radio y vemos que la corriente viaja casi por completo en las
+paredes. Los casos límite se ven en estas ilustraciones.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_problema5_cuasiestacC.jpg}
+
+Vemos también el cálculo del campo $\vb{B}$ afuera, mediante ley de Ampere,
+\[
+	B = \frac{2I_0}{ac} \Frac{r}{a}^2
+\]
+y su relación con las aproximaciones anteriores. Cuando $\omega$ es alta $B$ es nulo en el
+interior.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_problema5_cuasiestacD.jpg}
+
+Calculemos ahora la potencia disipada por efeco Joule. Será un cálculo de promedio temporal,
+\[
+	\langle \pe{J}{E}\rangle = \frac{1}{2} \mathcal{Re}\left\{ \vb J \cdot \vb E^* \right\}
+\]
+donde dentro de la toma de parte real son fasores. Entonces
+\[
+	\langle \pe{J}{E}\rangle = \frac{1}{2}\sigma 
+	\mathcal{Re}\left\{ 
+	\Frac{I_0 J_0(kr)}{2 \pi \sigma a |J_1(ka)|}^2 
+	\frac{\sqrt{2}}{\delta} \euler^{i\pi/4} \euler^{i\omega t}
+	\frac{\sqrt{2}}{\delta} \euler^{-i\pi/4} \euler^{i\omega t} \right\} =
+	\frac{ I_0^2 |J_0(kr)|^2 }{ 4 \pi^2 \sigma a^2 |J_1(ka)|^2 \delta^2 }
+\]
+
+Esta es la disipación por unidad de volumen. Tenemos que integrar ahora
+\[
+	P = \int_0^{2\pi} d\phi \int_0^a r dr \int_0^L dz 
+	\frac{ I_0^2 |J_0(kr)|^2 }{ 4 \pi^2 \sigma a^2 |J_1(ka)|^2 \delta^2 },
+\]
+y usando las propiedades de integración de las funciones de Bessel,
+\[
+	P = \frac{I_0^2}{4} \Frac{L}{\sigma \pi \delta^2 } \left( 1 + \frac{J_0(ka)}{J_1(ka)} \right)^2
+\]
+y como el paréntesis es $\sim 1$ se tiene que
+\[
+	P \approx \frac{I_0^2}{2} R_{\text{eq}}
+\]
+donde $ R_{\text{eq}} $ es una resistencia equivalente y la disipación se produce en la longitud
+$\delta$ no en todo el radio del cable.
+ 
+\end{ejemplo}
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
