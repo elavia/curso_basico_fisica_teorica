@@ -246,21 +246,76 @@ Una onda plana bien general en $\hat{n}$ es
 	\vb{E}( \vb{x},t )=(\hat{\epsilon}_1 \vec{\mathbb{E}}_1 + 
 			\hat{\epsilon}_2\vec{\mathbb{E}}_2) \euler^{i( \pe{k}{x} -\omega t)}
 \]
+Las amplitudes $\vec{\mathbb{E}}_1,\vec{\mathbb{E}}_2$ son complejos para permitir la diferencia 
+de fase entre componentes.
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_polariz.pdf}	 
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_polariz.pdf} 
 	\end{center}
 	\caption{}
 \end{figure} 
 
 Si $\vec{\mathbb{E}}_1,\vec{\mathbb{E}}_2$ están en fase entonces $\vb{E}( \vb{x},t )$ está linealmente
-polaridaza con $\theta$ fijo.
-Es como que \vb{E} viaja siempre por el mismo andarivel, oscilando. Las amplitudes 
-$\vec{\mathbb{E}}_1,\vec{\mathbb{E}}_2$ son complejos para permitir la diferencia de fase entre componentes.
+polaridaza con $\theta$ fijo. Es como que \vb{E} viaja siempre por el mismo andarivel, oscilando. 
+
+\begin{ejemplo}{\bf Polarización lineal}
+
+Consideremos una onda que se propaga en $\zver$
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_ondas_polarizacion_lineal.jpg} 
+
+\[
+	E_x = E_{0x} \cos( \omega t + \delta ) \qquad \qquad 
+	E_y = E_{0y} \cos( \omega t )
+\]
+que son los valores que determinan la punta del vector en el tiempo.
+Entonces
+\[
+	\frac{x^2}{E^2_{0x}} + \frac{y^2}{E^2_{0y}} - \frac{xy}{E_{0x}E_{0y}} \cos\delta = \sin^2\delta
+\]
+Si las dos componentes están en fase, $\delta = 0$ y de la ecuación anterior se deduce
+\[
+	y = \frac{ E_{0y} }{ E_{0x} } x.
+\]
+Onda linealmente polarizada.
+\end{ejemplo}
+
 
 Si $\vec{\mathbb{E}}_1,\vec{\mathbb{E}}_2$ tienen fase arbitraria entonces $\vb{E}( \vb{x},t )$ está elípticamente 
 polarizada.
+
+\begin{ejemplo}{\bf Polarización elíptica}
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_ondas_polarizacion_eliptica.jpg} 
+
+Si $\delta = \pi/2$ entonces la ecuación resulta 
+\[
+	\frac{x^2}{E^2_{0x}} + \frac{y^2}{E^2_{0y}} = 1
+\]
+la punta del vector está sobre una elipse.
+Puede ser sentido horario o antihorario.
+Esto degenerará en una polarización circular; horaria (que lleva $\vb{L}$ en la dirección de $-\hat{k}$)
+o antihoraria (que lleva $\vb{L}$ en la dirección de $\hat{k}$). Aquí la dirección $\hat{k}$ de la onda
+es $\zver$.
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_ondas_polarizacion_espejo.jpg} 
+
+Pasará lo mismo con el momento angular $\vb{L}$ si incide una onda polarizada circularmente.
+Aquí la superficie azul es un espejo. Incide una onda plana que le transfiere impulso lineal: hay presión
+de radiación.
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_ondas_polarizacion_espejo2.jpg} 
+
+Supongamos que al llegar al espejo (rebote) el campo $\vb{E}$ sea en la dirección $\hat{t}$.
+Como $ \hat{n} \times (\vb{E}_1 - \vb{E}_2 ) = 0$ se desfase $\pi$.
+Los contornos en los casos dinámicos son iguales a los estáticos.
+
+Estamos reflejando la onda y no se altera el \vb{L} porque relfejanos el sistema y al ser \vb{L} vector axial
+no debe sufrir cambios.
+\notamargen{Como está circularmente polarizada, la onda lleva momento angular \vb{L}.} 
+ 
+\end{ejemplo}
 
 Si $|\vec{\mathbb{E}}_1|=|\vec{\mathbb{E}}_2|$ y la fase es $\pi/2$ entonces $\vb{E}( \vb{x},t )$ está circularmente 
 polarizada.
@@ -273,6 +328,15 @@ entonces
 	\vb{E}( \vb{x},t )= \vec{\mathbb{E}}_1 (\hat{\epsilon}_1  \pm \hat{\epsilon}_2 )
 				\euler^{i( \pe{k}{x} -\omega t)}	
 \]
+\notamargen{Revisar porque en la carpeta no coincide. Se tiene en cambio lo que pongo en el ejemplo
+par dinamitar.}
+\begin{ejemplo}{\bf Para dinamitar}
+\[
+ 	\vb{E}( \vb{x},t )= \vec{\mathbb{E}}_1 (\hat{\epsilon}_1 \pm i \: \hat{\epsilon}_2 )
+				\euler^{i( \pe{k}{x} -\omega t)}
+\]
+donde el $+$ es horario y el $-$ antihorario (momento angular en el sentido de propagación).
+\end{ejemplo}
 donde el $+$ corresponde a $\mathcal{C}^+$ antihoraria y el $-$ a horaria. Nos definimos por comodidad,
 \[
 	\hat{\epsilon}_+ \equiv \frac{\hat{\epsilon}_1 + i \hat{\epsilon}_2 }{\sqrt{2}} \qquad\qquad 
@@ -304,6 +368,47 @@ Además,
 	\frac{\vec{\mathbb{E}}_-}{\vec{\mathbb{E}}_+} = r\euler^{i\alpha} 
 \]
 si $r = \pm 1, \alpha=0 $ entonces estamos frente a linealmente polarizada.
+
+\subsection{El tensor de Maxwell para las ondas}
+
+Para la onda plana hay direcciones privilegiadas. Fijemos
+\[
+	x : \text{ campo } \vb{E} \qquad 
+	y : \text{ campo } \vb{B} \qquad 
+	z : \text{ propagación }
+\]
+El tensor será
+\[
+	T = \frac{1}{4\pi} \: \begin{pmatrix}
+	        0	& 0 	& 0 \\
+		0	& 0	& 0 \\
+		0	& 0	& -2\epsilon|\vb{E}_0|^2
+	       \end{pmatrix}
+\]
+donde los ceros en los dos elementos diagonales superiores se deben a que no transmite impulso en una
+dirección que no es la de propagación. 
+Luego, el valor promedio temporal será
+\[
+	\langle T \rangle =  \langle T_E \rangle + \langle T_M \rangle
+\]
+que lleva a
+\[
+	- \epsilon|\vb{E}_0|^2  - \frac{1}{\mu} |\vb{B}_0|^2 = -2\epsilon|\vb{E}_0|^2
+\]
+
+En el ejemplito que ilustra esta figura [Chequear esto que es super sketchi!]
+
+\includegraphics[width=0.225\textwidth]{images/fig_ft1_paraTensorOndasMax.jpg}
+	
+\[
+	E = \langle \mu \rangle a L = \langle \vb{S} \rangle a t
+\]
+puesto que $t=L/v$ y donde $v = \langle S \rangle / \langle \mu \rangle  = c / \sqrt{\mu \epsilon}$.
+Se ve que 
+\[
+	\langle \vb{S} \rangle =  \frac{c}{8\pi} \sqrt{ \frac{\varepsilon}{\mu} }|\vb{\epsilon}|^2
+	\langle \mu \rangle = \frac{\varepsilon}{8\pi}  |\vb{\epsilon}|^2
+\]
 
 % =================================================================================================
 \section{Reflexión y refracción de ondas en medios}

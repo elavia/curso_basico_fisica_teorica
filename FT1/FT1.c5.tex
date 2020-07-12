@@ -257,7 +257,8 @@ y entonces
 	\divem{A} + \frac{1}{c} \dpar{\Phi}{t} = 0
 \]
 siendo cada uno de los términos nulos por sí mismo.
-Los resultados físicos deben ser independientes del gauge.
+El gauge, la ``medida'' describe a los potenciales, pero los resultados físicos deben ser
+independientes del gauge.
 
 % =================================================================================================
 \section{Conservación de la energía (teorema de Poynting)}
@@ -344,12 +345,29 @@ vector de Poynting.
 Notemos que $\pe{J}{E}$ es el trabajo hecho por unidad de tiempo y por volumen por los campos.
 Localmente la conservación de la energía es
 \[
-	\dtot{U_{cam}}{t} + \dtot{U_{mec}}{t} = -\int_S \vb{S}\cdot d\vb{S}.
+	\dtot{U_{cam}}{t} + \dtot{U_{mec}}{t} = -\int_S \vb{S}\cdot d\vb{S},
 \]
+donde la integral del miembro derecho es la energía que escapa a través de una región.
 Los campos \vb{S} y $U$ no están relacionados linealmente con \vb{E} y \vb{H}.
 
-\subsection{Conservación del momento}
+% =================================================================================================
+\section{Conservación del momento. Tensor de Maxwell}
+% =================================================================================================
 
+La idea es que una onda plana puede portar momento pero no momento angular.
+Una onda electromagnética circularmente polarizada puede transportar momento angular.
+Se tiene
+\[
+	\dtot{\vb{P}_{cam}}{t} + \dtot{\vb{P}_{mec}}{t} = \int_S \: T \: \hat{n} dS
+\]
+y el miembro derecho refleja el momento lineal que se escapa por la superficie de
+integración.
+La versión integral de la anterior es
+\[
+	\dtot{}{t} \int_V \: \vb{g} \: dV + \dtot{}{t} \int_V \: \vb{p} \: dV = \int_S \: T \: \hat{n} dS
+\]
+
+Acometeremos primeramente la segunda integral del lado izquierdo.
 En el discreto se tiene
 \[
 	\vb{F} = \dtot{\vb{P}}{t} = q\vb{E} + q\frac{1}{c} \pv{v}{B} 
@@ -358,25 +376,30 @@ y pasando al continuo
 \[
 	\dtot{\vb{P}_M}{t} = \int_V \left[ \rho\vb{E} + \frac{1}{c} \pv{J}{B}  \right] dv
 \]
+y si suponemos MLIH se puede expresar la densidad de carga en términos de la divergencia
+del campo $\vb{D}$ y así
 \[
 	\dtot{\vb{P}_M}{t} = \int_V \left[ \frac{1}{4\pi} (\divem{D}) \vb{E} + 
-	\frac{1}{c} \left( \frac{c}{4\pi}\rotorm{H} - \frac{1}{4\pi}\dtot{\vb{D}}{t} \right)\times {B} \right] dv
+	\frac{1}{c} \left( \frac{c}{4\pi}\rotorm{H} - \frac{1}{4\pi}\dtot{\vb{D}}{t} \right) 
+	\times \vb{B} \right] dv
 \]
 \[
 	\dtot{\vb{P}_M}{t} = \int_V \left[ \frac{1}{4\pi} (\divem{D}) \vb{E} +  
-	\frac{1}{4\pi} (\Nabla\times\vb{H}\times\vb{B}) - \frac{1}{4\pi c}\dtot{\vb{D}}{t}\times {B} \right] dv
+	\frac{1}{4\pi} (\Nabla\times\vb{H}\times\vb{B}) - \frac{1}{4\pi c}\dtot{\vb{D}}{t} 
+	\times \vb{B} \right] dv
 \]
 Ahora, usando las siguientes cuentas auxiliares
 \[
 	\dpar{}{t}(\pv{D}{B}) = \dpar{\vb{D}}{t}\pv{}{B} + \pv{D}{}\dpar{\vb{B}}{t}
 \]
 \[
-	\epsilon\mu\dpar{}{t}(\pv{E}{H}) = \epsilon\mu\dpar{\vb{D}}{t}\pv{}{B} + \epsilon\mu\pv{D}{}\dpar{\vb{B}}{t}
+	\epsilon\mu \: \dpar{}{t}(\pv{E}{H}) = \epsilon\mu \: \dpar{\vb{D}}{t}\pv{}{B} + 
+	\epsilon\mu\pv{D}{}\dpar{\vb{B}}{t}
 \]
 y ahora volviendo
 \[
 	\dtot{\vb{P}_M}{t} = \frac{1}{4\pi} \int_V \left[  (\divem{D}) \vb{E} + (\Nabla\times\vb{H}\times\vb{B}) 
-	-\frac{1}{c}\epsilon\mu \left( \dpar{}{t}(\pv{E}{H}) - \pv{E}{}\dpar{\vb{H}}{t} \right) \right] dv	
+	-\frac{\epsilon\mu}{c} \left( \dpar{}{t}(\pv{E}{H}) - \pv{E}{}\dpar{\vb{H}}{t} \right) \right] dv	
 \]
 haciendo un pase de miembros y expresando \vb{H} en términos de \vb{E} es
 \begin{multline*}
@@ -385,26 +408,59 @@ haciendo un pase de miembros y expresando \vb{H} en términos de \vb{E} es
 	\rotorm{H}\times\vb{B} + \vb{H}(\divem{B}) \right] dV	 
 \end{multline*}
 donde el último término en el integrando del RHS es cero y se lo puedo sumar por ello.
+Esto es para lograr un término simétrico en los campos eléctrico y magnético.
 Prosiguiendo
 \begin{multline*}
 	\dtot{\vb{P}_M}{t} + \frac{\epsilon\mu }{4\pi c} \dtot{}{t}\int_V (\pv{E}{H}) dV = \\
 	\frac{1}{4\pi} \int_V \left[  (\divem{D}) \vb{E} - \pv{D}{}(\Nabla\times\vb{E}) +
 	\vb{H}(\divem{B}) - \vb{B}(\rotorm{H}) \right] dV	
 \end{multline*}
-y con algunads identidades más
+donde la segunda integral del lhs define a
 \[
-	= \frac{1}{4\pi} \int_V \Nabla\left( \left[ \vb{D}\vb{E} - \frac{1}{2}\mathbb{1}( \pe{D}{E}) \right] + 
-		\left[ \vb{H}\vb{B} - \frac{1}{2}\mathbb{1}(\pe{H}{B}) \right] \right) dV
+	\vb{g} = \frac{\mu \epsilon}{4\pi} (\pv{E}{H}) = \frac{\vb{S}}{v^2}
 \]
-donde los primeros términos dentro de cada corchete son productos tensoriales (su resultado no es un
-número sino un tensor).
+siendo $v$ la velocidad de la onda en el medio.
+\notamargen{Tenía anotado: ``transferencia de impulso lineal de los campos a las cargas''.}
+Podemos utilizar un identidad más, ver Apéndice ID4, para expresar
+\[
+	\vb{D}\times(\rotorm{E}) = \frac{1}{2} \Nabla(\pe{E}{D}) - (\vb{E}\cdot\nabla)\vb{D}
+\]
+y así obtener
+\[
+	\Nabla \cdot[ \vb{E}\vb{D} - \frac{1}{2} \: \mathbb{1} \: (\pe{D}{E}) ],
+\]
+donde debe notarse que el primer producto $\vb{E}\vb{D}$ es un producto tensorial, no es un
+número su resultado sino un tensor (que vendrá representado como una matriz).
+Se puede hacer lo propio con el campo magnético y al final del día se tendrá
+\begin{multline*}
+	\dtot{\vb{P}_M}{t} + \frac{1}{c} \dtot{}{t}\int_V \vb{g} \: dV = \\
+	\frac{1}{4\pi} \int_V \Nabla\left( \left[ \vb{D}\vb{E} - 
+	\frac{1}{2}\mathbb{1}( \pe{D}{E}) \right] + 
+	\left[ \vb{H}\vb{B} - \frac{1}{2}\mathbb{1}(\pe{H}{B}) \right] \right) dV
+\end{multline*}
+% \[
+% 	= \frac{1}{4\pi} \int_V \Nabla\left( \left[ \vb{D}\vb{E} - \frac{1}{2}\mathbb{1}( \pe{D}{E}) \right] + 
+% 		\left[ \vb{H}\vb{B} - \frac{1}{2}\mathbb{1}(\pe{H}{B}) \right] \right) dV
+% \]
+donde los primeros términos dentro de cada corchete son productos tensoriales.
+Aplicando el teorema de la divergencia en el rhs, y expresando la derivada de la integral
+de $\vb{g}$ con el momento de los campos, se puede escribir
+\be
+	\dtot{\vb{P}_M}{t} + \dtot{\vb{P}_{C}}{t}  =
+	\frac{1}{4\pi} \int \: \vb{D}\vb{E} + \vb{H}\vb{B}
+	- \frac{1}{2} \: \mathbb{1} \left[ \: \pe{D}{E} + \pe{H}{B} \: \right] \: d\vb{S}
+\ee
+
 
 Hemos encontrado que se puede definir la conservación como flujo de un tensor de segundo rango,
 \[
 	T_{ik} = \frac{1}{4\pi}\left[ \epsilon E_iE_k + \mu H_iH_k - \frac{1}{2}\delta_{ik}
 	( \epsilon E^2 + \mu H^2)\right]
 \]
-que es el tensor de esfuerzos de Maxwell.
+que es el tensor de esfuerzos de Maxwell. El tensor da entonces flujo de momento. Si el
+medio es LIH el tensor es simétrico.
+El tensor de Maxwell dinámico es la suma de los tensores estáticos eléctrico y magnético
+a la vez.
 
 Entonces
 \[
@@ -413,7 +469,7 @@ Entonces
 \]
 con la normal saliente. Luego, localmente la conservación del momento lineal es
 \[
-	\dtot{\vb{P}_mec}{t} + \dtot{\vb{P}_cam}{t}  = \int_S T \cdot d\vb{S}
+	\dtot{\vb{P}_{mec}}{t} + \dtot{\vb{P}_{cam}}{t}  = \int_S T \cdot d\vb{S}
 \]
 donde el RHS es la fuerza por unidad de área a través de $S$ que actúa sobre las partículas y
 los campos dentro de $V$.
@@ -431,7 +487,7 @@ Observemos que el tensor de Maxwell es un tensor cartesiano.
 
 
 % =================================================================================================
-\section{Tensor de Maxwell}
+\subsection{El tensor de Maxwell en acción}
 % =================================================================================================
 
 Se consideran sistemas interactuantes a distancia
