@@ -347,7 +347,8 @@ Localmente la conservación de la energía es
 \[
 	\dtot{U_{cam}}{t} + \dtot{U_{mec}}{t} = -\int_S \vb{S}\cdot d\vb{S},
 \]
-donde la integral del miembro derecho es la energía que escapa a través de una región.
+donde la integral del miembro derecho es la energía que escapa a través de una región (menos el flujo
+del vector de Poynting).
 Los campos \vb{S} y $U$ no están relacionados linealmente con \vb{E} y \vb{H}.
 
 % =================================================================================================
@@ -366,6 +367,9 @@ La versión integral de la anterior es
 \[
 	\dtot{}{t} \int_V \: \vb{g} \: dV + \dtot{}{t} \int_V \: \vb{p} \: dV = \int_S \: T \: \hat{n} dS
 \]
+que refleja la conservación del momento lineal. El primer término del lhs es el momento
+lineal del campo electromagnético, mientras que el segundo representa las fuerzas sobre
+las cargas en volumen.
 
 Acometeremos primeramente la segunda integral del lado izquierdo.
 En el discreto se tiene
@@ -484,6 +488,97 @@ se tiene que \vb{g} es una densidad de flujo de momento y también puede expresa
 
 Observemos que el tensor de Maxwell es un tensor cartesiano.
 
+\begin{ejemplo}{\bf Problema 10b}
+
+El problema está relacionado con lo ilustrado bajo estas líneas
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema10bA.jpg}
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema10bB.jpg}
+
+Los campos y los ángulos involucrados son
+\[
+	\vb{B}_1 = \frac{2}{c \rho_1 } I_1 \: \hat{e}_{\vp_1} \qquad \qquad 
+	\vb{B}_2 = \frac{2}{c \rho_2 } I_2 \: \hat{e}_{\vp_2}
+\]
+\[
+	\cos\vp_1 = \frac{x}{\rho_1} \qquad \sin\vp_1 = \frac{y}{\rho_1} \qquad 
+	\cos\vp_2 = \frac{x}{\rho_2} \qquad \sin\vp_2 = \frac{y-d}{\rho_1} 
+\]
+\[
+	\rho_1 = \sqrt{ x^2 + y^2 } \qquad \hat{e}_{\vp_1} = \cos\vp_1 \:\yver - \sin\vp_1 \:\xver
+\]
+\[
+	\rho_1 = \sqrt{ x^2 + (y-d)^2 } \qquad 
+	\hat{e}_{\vp_2} = \cos\vp_2 \:\yver - \sin\vp_2 \:\xver
+\]
+ 
+Calcularemos el tensor de Maxwell (será genérico)
+\[
+	\vb{B} = \vb{B}_1 + \vb{B}_2 \qquad \qquad B_z=0
+\]
+luego como $\nver = (n_x,n_y,0)$ es
+\[
+	T = \frac{1}{8\:\pi}\begin{pmatrix}
+	        B_x^2 - B_y^2  & 2 B_x B_y & 0 \\
+		2 B_x B_y  & B_y^2 - B_x^2  & 0 \\
+		0	& 0	& B_z^2 - B_x^2 - B_y^2
+	       \end{pmatrix}	
+\]
+\[
+	T \cdot \nver |_y = (T\cdot\nver)\cdot\yver =
+	\frac{1}{8\:\pi} \left[ 2B_xB_y n_x - ( B_y^2 - B_x^2 ) n_y\right]
+\]
+Me interesa solamente la componente en $\yver$ dado que las otras serán nulas.
+La dirección $\nver$ es la saliente en el semicilindro infinito.
+
+El producto escalar tiene metido $B_1, B_2$ lo cual generará términos con $B_1$,
+términos con $B_2$ y términos acoplados.
+Lo que depende de $B_1$ es como una autofuerza y debería ser nula (es antifísica).
+Vemos la parte de interacción solamente (términos mezclados).
+Lo que depdnde solamente de $B_2$ tampoco lo consideramos.
+
+Luego,
+\[
+	B_{y_1} B_{y_2} = \frac{4 J_1 J_2}{c^2} \frac{y_0}{x^2 + y_0^2} 
+	\frac{y_0-d}{(\sqrt{x^2+ (y_0-d)^2})^2}
+\]
+\[
+	B_{x_1} B_{x_2} = \frac{4 J_1 J_2}{c^2} 
+	\frac{x}{x^2 + y_0^2} \frac{x}{(x^2+ (y_0-d)^2)}
+\]
+\[
+	F_y = \int\int (T\cdot\nver)\cdot\yver \: dx \: dz
+\]
+definiendo un $f_y \equiv F_y/\text{Long.}$ se tendrá
+\[
+	f_y = \int_{-\infty}^\infty (T\cdot\nver)\cdot\yver \: dx =
+	8 \frac{J_1 J_2}{c^2} \frac{-2\pi}{d} \frac{1}{8\pi} = - \frac{2I_1I_2}{c^2 d}
+\]
+y la última integral sale porque es {\it de esas} que están en tablas.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 12b}
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema12bA.jpg}
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema12bB.jpg}
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 14}
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema14A.jpg}
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema14B.jpg}
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_problema14C.jpg}
+ 
+\end{ejemplo}
+
+
+
 
 
 % =================================================================================================
@@ -524,7 +619,7 @@ puesto que en ese caso será
 
 En este caso se suele definir el concepto de presión de radiación
 \[
-	\vb{R}_rad \equiv \dtot{\vb{F}}{S} T\cdot\hat{n}.
+	\vb{R}_{rad} \equiv \dtot{\vb{F}}{S} T\cdot\hat{n}.
 \]
 
 T es un tensor con autovalores reales; coincidiendo sus autovectores con la dirección del campo.
