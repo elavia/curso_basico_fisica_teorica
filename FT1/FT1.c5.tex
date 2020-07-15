@@ -561,19 +561,148 @@ y la última integral sale porque es {\it de esas} que están en tablas.
 
 \begin{ejemplo}{\bf Problema 12b}
 
+Un esquema del problema puede verse aquí abajo
+
 \includegraphics[width=0.3\textwidth]{images/fig_ft1_problema12bA.jpg}
 
+Usaremos esta expresión previamente calculada
+\[
+	\phi(r,\theta) = - E_0 r \cos\theta + 
+	E_0 \cos\theta \frac{a^3}{r^2} + \frac{Q}{r}
+\]
+\[
+	\vb{E} = - \Nabla\phi = - \left( \dpar{}{r}\rver + 
+	\frac{1}{r}\dpar{}{\theta}\thetaver \right)
+\]
+\[
+	\vb{E} = \left( E_0 \cos\theta + 2 E_0 \frac{a^3}{r^3} \cos\theta + 
+	\frac{Q}{r^2} \right) \rver
+	- E_0 \sin\theta \left( 1 - \frac{a^3}{r^3} \right) \thetaver
+\]
+
+Para hacer la integral 
+\[
+	\vb{F} = \int T \nver dS = \dtot{\vb{P}_\text{mec}}{t}
+\]
+se utiliza la superficie siguiente
+
 \includegraphics[width=0.3\textwidth]{images/fig_ft1_problema12bB.jpg}
+ 
+y conviene ésta porque el campo es radial allí. Será $\nver \equiv \rver$.
+Tomo $\rver$ en tercer lugar para que el último elemento sea positivo y tenemos
+\[
+	T = \frac{1}{8\:\pi}\begin{pmatrix}
+	        -E^2  & 0 & 0 \\
+		0 & -E^2 & 0 \\
+		0	& 0	& E^2
+	       \end{pmatrix}		
+\]
+y entonces
+\[
+	T\nver = \frac{E^2}{8\pi}\rver
+\]
+
+Me interesará solamente la componente en $\zver$ (puesto que la fuerza estará
+dirigida en esa componente)
+\[
+	T\nver \cdot \zver = \frac{E^2}{8\pi}\rver \cdot \zver = 
+	\frac{E^2}{8\pi}\cos\theta
+\]
+y como 
+\[
+	E(r=a)^2 = \left( 3E_0\cos\theta+\frac{Q}{r^2} \right)^2
+\]
+entonces
+\[
+	F_z = \frac{a^2}{4} \int_0^{\pi/2} \cos\theta\sin\theta \: 
+	\left( 9E_0^2\cos^2\theta + 6E_0\cos\theta \frac{Q}{r^2} + 
+	\frac{Q}{8a^2} \right) \: d\theta
+\]
+y finalmente
+\[
+	F_z = \frac{1}{4} \left( \frac 9 4 E_0^2 a^2 +
+	2 E_0 \frac{Q}{3r^2} + \frac{Q}{8a^2} \right).
+\]
  
 \end{ejemplo}
 
 \begin{ejemplo}{\bf Problema 14}
 
+Se calcurá solamente en el cacho mostrado en la figura. El ingenio tiene $n$ vueltas por
+unidad de longitud y consideramos que el campo magnético es
+\[
+	\vb{B} = \frac{4\pi}{c} n I \zver
+\]
+
 \includegraphics[width=0.3\textwidth]{images/fig_ft1_problema14A.jpg}
+
+Al elegir el eje $\zver$ el tensor $T$ ya es diagonal. Por simetría debería anularse
+el flujo en las tapitas superioer e inferior. Usamos un eje cartesiano en el eje $\xver$
+\[
+	T = \frac{1}{8\:\pi}\begin{pmatrix}
+	        -B^2  & 0 & 0 \\
+		0 & -B^2 & 0 \\
+		0	& 0	& B^2
+	       \end{pmatrix}		
+\]
+donde $\nver = (-1,0,0)$ y $T\nver = B^2/(8\pi) \xver $ y entonces
+\[
+	\dtot{F_x}{S} = P = \frac{B^2}{8\pi}.
+\]
+
+Si ahora es una corriente alterna la que circula podemos emplear un formalismo
+cuasiestacionario. Serán
+\[
+	\vb{B}^{(0)} = \frac{4\pi}{c} n I_0 \sin(\omega t) \zver
+\]
+\[
+	E^{(1)} = - \frac{2\omega \pi n r^2}{c^2} I_0 \cos(\omega t) 
+\]
+y usando los dos circuitos de Ampere ilustrados en el siguiente cartoon
 
 \includegraphics[width=0.3\textwidth]{images/fig_ft1_problema14B.jpg}
 
-\includegraphics[width=0.25\textwidth]{images/fig_ft1_problema14C.jpg}
+se tiene (hemos calculado el campo $E$ con una analogía [?])
+\[
+	E_{\vp}^{(1)} = \begin{cases}
+	 \displaystyle - \frac{2 \pi \omega n}{c^2} I_0 \cos(\omega t) r \qquad r < a  \\
+	 \\
+	 \displaystyle - \frac{2 \pi \omega a^2}{r c^2} I_0 \cos(\omega t) \qquad r > a
+	\end{cases}
+\]
+
+El vector de Poynting será
+\[
+	\vb{S} = - \frac{c}{4\pi}\Frac{ 4 \pi n I_0 }{c }^2 
+	\frac{ \omega r \cos( \omega t ) \sin( \omega t ) }{ 2 c } \rver
+\]
+mientras que la energía, dado que $\omega \sim 0$ será
+\[
+	\mu \approx \frac{1}{8\pi}|(B^{(0)})^2,
+\]
+dado que las variaciones de $E^2$ serán despreciables.
+
+Para el cálculo del flujo de $\vb{S}$ se utiliza la superficie mostrada en el grafiquete
+
+\includegraphics[width=0.15\textwidth]{images/fig_ft1_problema14C.jpg}
+
+\[
+	\dpar{\mu}{t} = \frac{\omega}{4\pi} \Frac{ 4 \pi n I_0 }{c }^2
+	\sin(\omega t) \cos(\omega t)
+\]
+e integrando en volumen
+\[
+	\int \: \dpar{\mu}{t}  \: dV = \pi r^2 \ell \dpar{\mu}{t}
+\]
+y para el Poynting
+\[
+	\int \vb{S}\cdot \nver dS = S(r) 2\pi r \ell =
+	- \Frac{ 4 \pi n I_0 }{c }^2 \frac{\ell \pi \omega r^2}{4\pi} \cos(\omega t)\sin(\omega t)
+\]
+porque son paralelos el \vb{S} y $\nver$. Se llega a
+\[
+	\dpar{}{t} \int \: \mu \: dV = - \int \vb{S}\cdot \nver dS.
+\]
  
 \end{ejemplo}
 
