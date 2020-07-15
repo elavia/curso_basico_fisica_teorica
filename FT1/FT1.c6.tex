@@ -242,10 +242,11 @@ y entonces la densidad de energía promedio es
 % =================================================================================================
 
 Una onda plana bien general en $\hat{n}$ es 
-\[
+\be
 	\vb{E}( \vb{x},t )=(\hat{\epsilon}_1 \vec{\mathbb{E}}_1 + 
 			\hat{\epsilon}_2\vec{\mathbb{E}}_2) \euler^{i( \pe{k}{x} -\omega t)}
-\]
+	\label{plane_wave_1}
+\ee
 Las amplitudes $\vec{\mathbb{E}}_1,\vec{\mathbb{E}}_2$ son complejos para permitir la diferencia 
 de fase entre componentes.
 
@@ -352,11 +353,125 @@ una base de polarizaciones. Se cumplen
 	\hat{\epsilon}_2 = \sqrt{2}( \hat{\epsilon}_+ - i \hat{\epsilon}_- )
 \]
 luego cualquier polarización se puede escribir como combinación lineal de $\mathcal{C}^+$ y $\mathcal{C}^-$.
-Entonces una onda plana general es
+
+Por otra parte, una onda plana general también se puede escribir, además de como en
+\eqref{plane_wave_1}, según
 \[
 	\vb{E}( \vb{x},t )=(\hat{\epsilon}_+ \vec{\mathbb{E}}_+ + 
 			\hat{\epsilon}_-\vec{\mathbb{E}}_-) \euler^{i( \pe{k}{x} -\omega t)}
 \]
+donde la conversión entre bases la tenemos en las expresiones previas. Luego,
+\[
+	\frac{E_1}{E_2} = \frac{1 + E_-/E_+}{1 - E_-/E_+} =\frac{|1+r|}{|1-r|} \qquad \qquad 
+	\frac{E_-}{E_+} = r \euler^{i\alpha}
+\]
+Entonces
+\[
+	\vb{E} = \Frac{E_+ + E_-}{\sqrt{2}} \hat{\epsilon}_1 + 
+	i \Frac{ E_+ - E_- }{\sqrt{2}}\hat{\epsilon}_2
+\]
+donde el cambio de bases es
+\[
+	\begin{pmatrix}
+	\hat{\epsilon}_+ \\
+	\\
+	\hat{\epsilon}_-
+	\end{pmatrix} =
+	\begin{pmatrix}
+	\frac{1}{\sqrt{2}} & \frac{i}{\sqrt{2}} \\
+	\\
+	\frac{1}{\sqrt{2}} & \frac{-i}{\sqrt{2}}
+	\end{pmatrix}
+	\begin{pmatrix}
+	\hat{\epsilon}_1 \\
+	\\
+	\hat{\epsilon}_2
+	\end{pmatrix} =
+	T_1 
+	\begin{pmatrix}
+	\hat{\epsilon}_1 \\
+	\\
+	\hat{\epsilon}_2
+	\end{pmatrix}
+\]
+\[
+	\begin{pmatrix}
+	\hat{\epsilon}_1 \\
+	\\
+	\hat{\epsilon}_2
+	\end{pmatrix} =
+	\begin{pmatrix}
+	\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+	\\
+	\frac{-i}{\sqrt{2}} & \frac{i}{\sqrt{2}}
+	\end{pmatrix}
+	\begin{pmatrix}
+	\hat{\epsilon}_+ \\
+	\\
+	\hat{\epsilon}_-
+	\end{pmatrix} =
+	T_1^{-1} 
+	\begin{pmatrix}
+	\hat{\epsilon}_+ \\
+	\\
+	\hat{\epsilon}_-
+	\end{pmatrix}
+\]
+donde $T_1, T_2$ son transformaciones que nos llevan de una base a otra por
+rotación de los versores.
+\[
+	T_2 = 	\begin{pmatrix}
+	\cos x & \sin x \\
+	\\
+	- \sin x & \cos x 
+	\end{pmatrix}
+\]
+\[
+	\begin{pmatrix}
+	\hat{\epsilon}_1' \\
+	\\
+	\hat{\epsilon}_2'
+	\end{pmatrix} =
+	T_2
+	\begin{pmatrix}
+	\hat{\epsilon}_1 \\
+	\\
+	\hat{\epsilon}_2
+	\end{pmatrix}
+\]
+\[
+	\begin{pmatrix}
+	\hat{\epsilon}_+' \\
+	\\
+	\hat{\epsilon}_-'
+	\end{pmatrix} =
+	T_1 T_2
+	\begin{pmatrix}
+	\hat{\epsilon}_1 \\
+	\\
+	\hat{\epsilon}_2
+	\end{pmatrix}
+\]
+con
+\[
+	T_1 T_2 = \begin{pmatrix}
+	\euler^{-ix} & 0 \\
+	\\
+	0 & \euler^{ix}
+	\end{pmatrix}
+\]
+
+Ahora se cambia de base la onda \vb{E}, lo cual da
+\[
+	\vb{E} = \left[ \euler^{ix} E_+ \hat{\epsilon}_+ + \euler^{-ix} E_- \hat{\epsilon}_- \right]
+	\euler^{i \pe{k}{x} - i \omega t}
+\]
+y pasamos a una nueva base donde la elipse es canónica.
+\[
+	\frac{E_-'}{E_+'} = \frac{E_-}{E_+} \euler^{-2 i x} = r \euler^{ i \alpha} \euler^{-2 i x}
+\]
+Habiendo girado $\alpha/2$ hemos hecho coincidir con los ejes los semiejes principales
+de la elipse.
 
 Una onda que rebota en un espejo transfiere impulso lineal. Una onda $\mathcal{C}$ lleva \vb{L} pero no lo transfiere 
 en un rebote perfecto. Por ser \vb{L} un vectorial axial (pseudovector) el reflejo es equivalente a una simetría del 
@@ -414,6 +529,21 @@ Se ve que
 \section{Reflexión y refracción de ondas en medios}
 % =================================================================================================
 
+Consideramos una onda plana que llega a una separación entre medios transparentes.
+Las condiciones de contorno deben adaptarse a la dinámica, pero las ecuaciones de las divergencias
+\[
+	\divem{B} = 0 \qquad \divem{D} = 0
+\]
+se mantienen iguales al caso estático de manera que no variará el contorno que dependa de ellas.
+No olvidemos que las fuentes están muy lejos y entonces $\rho \sim 0$ y $\vb{J} \sim 0$.
+
+Los medios son LIH y transparentes. Las ecuaciones de rotor serán
+\[
+	\rotorm{E} = -\frac{1}{c} \dpar{\vb{B}}{t} \qquad 
+	\rotorm{H} = \frac{1}{c} \dpar{\vb{D}}{t}
+\]
+Luego las condiciones de contorno son las mismas que para el caso estático.
+
 Partimos de una onda
 \[
 	\vb{E}( \vb{x},t )= \vec{\mathbb{E}}_0 \euler^{i( \pe{k}{x} -\omega t)}
@@ -438,26 +568,53 @@ de tal suerte que los campos son
 	\caption{}
 \end{figure} 
 
-y tenemos 
-
+Las ondas reflejada y transmitida serán, respectivamente,
 \[
-	|\vb{k}| = |\vb{k}''| \qquad \text{pues} \quad \mu''= \mu,\; \epsilon''=\epsilon
+	\vb{E}'' = \vec{\mathbb{E}}_0'' \euler^{i( \pe{k''}{x} -\omega'' t)} \qquad 
+	\vb{E}' = \vec{\mathbb{E}}_0' \euler^{i( \pe{k'}{x} -\omega' t)},
+\]
+pero como el medio $''$ y el sin primar es el mismo ($\mu''= \mu, \epsilon''=\epsilon$) 
+se tendrá 
+\[
+	|\vb{k}| = |\vb{k}''|.
 \]
 
-Utilizando las condiciones de contorno llegamos a
+Se quiere saber si al cruzar de un medio al otro cambia $\omega$, $k$ o ambas.
+Notemos que las condiciones de contorno se deben satisfacer sobre el contorno durante
+todo instante de tiempo, entonces las fases de las tres ondas
 \[
-	\omega t = \omega' t = \omega'' t
+	\pe{k}{x}\:|_{z=0} - \omega t = 
+	\pe{k'}{x}\:|_{z=0} - \omega' t  = 
+	\pe{k''}{x}\:|_{z=0} - \omega t 
 \]
+y $\omega' = \omega $ dado que ambas tienen que ser iguales término a término 
+(parte espacial y parte temporal).
+Entonces la frecuencia $\omega$ no varía entre medios, lo que varía es la longitud
+de onda.
+
+Esto conduce a
+% \[
+% 	\omega t = \omega' t = \omega'' t
+% \]
 \[
 	\pe{k}{x}\:|_{z=0} = \pe{k'}{x}\:|_{z=0}  = \pe{k''}{x}\:|_{z=0} 
 \]
-La existencia de condiciones de contorno en $z=0$ que deben ser satisfechas en todo $t$ en todo punto $(x,y)$ lleva a 
-todos los factores de fase iguales en $z=0$. Se debe tener \vb{B} normal continuo y \vb{D} normal continuo también, lo 
-cual viene de $\divem{B}=0$ y $\divem{D}=0$.
+Pero notemos que $ \nver \cdot \vbx|_{z=0} = 0$ y que se puede escribir
+\[
+	\vb{x}|_{z=0} = \vbx (\nver\cdot\nver) - (\nver\cdot\vbx)\nver |_{z=0},
+\]
+y entonces
+\[
+	\vb{k}\cdot [ \nver \times ( \vbx \times \nver ) ]_{z=0} =
+	\vb{k}'\cdot [ \nver \times ( \vbx \times \nver ) ]_{z=0} =
+	\vb{k}''\cdot [ \nver \times ( \vbx \times \nver ) ]_{z=0}
+\]
+y esto es la ecuación de un vector contenido en un plano. Luego, los tres vectores 
+$\vb{k}, \vb{k}', \vb{k}''$  tienen un plano en común.
 
-La frecuencia $\omega$ es la misma para el medio 1 y el medio 2 pues $\lambda_1 \neq \lambda_2$.
-
-Los tres vectores $\vb{k}, \vb{k}', \vb{k}''$ están en un mismo plano, entonces 
+Con esto se obtiene la primer ley de la óptica geométrica, habiendo postulado la mera
+existencia de condiciones de contorno. Los vectores que representan las ondas están
+en un mismo plano y se verifica
 \[
 	k \sin(i) = k' \sin(r) = k'' \sin(i'),
 \]
@@ -465,12 +622,24 @@ y se deducen las consecuencias
 \[
 	n \sin (i) = n' \sin(i') \qquad \text{Ley de Snell},
 \]
+donde $n = \sqrt{\mu \epsilon}$ y que el ángulo de incidencia es igual al de reflexió
 \[
-	i = i' \qquad \text{Ley de reflexión}
+	i = i' \qquad \text{Ley de reflexión}.
 \]
-Luego se plantean los contornos 
+
+La existencia de condiciones de contorno en $z=0$ que deben ser satisfechas en todo $t$ 
+en todo punto $(x,y)$ lleva a todos los factores de fase iguales en $z=0$. 
+
+Se debe tener \vb{B} normal continuo y \vb{D} normal continuo también, lo 
+cual viene de $\divem{B}=0$ y $\divem{D}=0$.
+
+% La frecuencia $\omega$ es la misma para el medio 1 y el medio 2 pues $\lambda_1 \neq \lambda_2$.
+% Los tres vectores $\vb{k}, \vb{k}', \vb{k}''$ están en un mismo plano, entonces 
+
+Luego se plantean los contornos considerando que los campos bajo $z=0$ son suma de
+incidente y reflejado.
 \[
-	D_{\hat{n}} : \qquad [ \vb{D}_2 - \vb{D}_1 ]\cdot\hat{n} = 0 \qquad \rightarrow  \qquad 
+	D_{\nver} : \qquad [ \vb{D}_2 - \vb{D}_1 ]\cdot\hat{n} = 0 \qquad \rightarrow  \qquad 
 		[ \epsilon'\vb{E}_0^{'} - \epsilon (\vb{E}_0 + \vb{E}_0^{''} )  ]\cdot\hat{n} = 0
 \]
 \[
@@ -491,11 +660,70 @@ de manera que
 	\vb{B} = \frac{\sqrt{\mu\epsilon}}{k} \pv{k}{E} = \frac{c}{\omega} \pv{k}{E} \qquad \qquad 
 	\vb{H} = \frac{c}{\mu \omega } \pv{k}{E}
 \]
-
 donde $c/\omega$ es el mismo para ambos medios.
 
 Aplicando diligentemente los contornos se llega a las {\it relaciones de Fresnel} que son los cocientes de las 
 amplitudes relativas.
+
+\notamargen{Pese a que el rotor de \vb{E} es no nulo en dinámica, para los contornos
+vale lo mismo que para el caso estático.}
+
+Analicemos primeramente el transverso eléctrico, cuya situación está depicted en la figura
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_ondas_TE.jpg} 
+
+La condición de $D_{\nver}$ se satisface idénticamente, y
+\[
+	- \vb{E}_0^{'} + \vb{E}_0 + \vb{E}_0^{''} = 0,
+\]
+luego, usando que $ (\pv{k}{E})\cdot\nver= (\vb{E}_0\times\nver)\cdot\vb{k} = E_0 \: k \sin(i)$
+se tiene
+\[
+	(\pv{k}{E})\times\nver = -\vb{k} (\nver\cdot\vb{E}_0) + \vb{E}_0 (\nver\cdot\vb{k}) =
+	E_0'\: k \: \cos( i )
+\]
+que conduce a
+\[
+	\sqrt{\frac{\epsilon}{\mu}} (E_0 - E_0'') \cos( i ) -
+	\sqrt{\frac{\epsilon'}{\mu'}} E_0' \cos( r ) = 0.
+\]
+donde se ha usado también que
+\[
+	k'= k \sqrt{\frac{\mu'\epsilon'}{\mu\epsilon}}.
+\]
+Entonces
+\[
+	\frac{E_0^{''}}{E_0} = \frac{1 - \frac{\mu\tan(i)}{\mu'\tan(r)} }{ 1 + \frac{\mu\tan(i)}{\mu'\tan(r)} } 
+	\approx -\frac{\sin(i-r)}{\sin(i+r)}
+\]
+donde la última aproximación es porque para medios transparentes se tiene $\mu \sim 1$.
+Asimismo
+\[
+	\frac{E_0^{'}}{E_0} = \frac{ 2 }{1 + \frac{\mu}{\mu'} \frac{\tan(i)}{\tan(r)} } =
+	1 + \frac{\sin(r-i)}{\sin(r+i)}
+\]
+
+Sea la situación $ r < i $ y $ n' < n $, entonces se tendrán:
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft1_ondas_TE2.jpg} 
+
+Analicemos ahora el transverso magnético
+\notamargen{¿trans o tras?}
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft1_ondas_TM.jpg} 
+
+Haciendo los cálculos se llega a
+\[
+	\frac{E_0^{''}}{E_0} = \frac{ -\frac{\mu}{\mu'} \sin(2r) + \sin(2i) }
+	{ \frac{\mu'}{\mu} \sin(2r) + \sin(2i) } 
+	\approx \frac{ \tan(i-r)}{\tan(i+r)}
+\]
+\[
+	\frac{E_0^{'}}{E_0} = 2 \sqrt{ \frac{\mu\epsilon}{\mu'\epsilon'} }
+	\frac{ \sin( 2i ) }{ \sin(2r) + \frac{\mu}{\mu'}\sin(2i) }
+	\approx \frac{ 2 \sin(r) \cos( i) }{\sin(i+r) \cos(i-r) }
+\]
+donde las últimas igualdades en cada caso se obtienen usando medio transparente.
 
 Usando $\mu \sim 1$ (válido para medios transparentes) tenemos
 
@@ -512,14 +740,34 @@ Usando $\mu \sim 1$ (válido para medios transparentes) tenemos
 \]
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.7\textwidth]{images/fig_ft1_reflex2.pdf}	 
+	\includegraphics[width=0.7\textwidth]{images/fig_ft1_reflex2.pdf} 
 	\end{center}
 	\caption{}
 \end{figure} 
 
 \notamargen{frecuencias ópticas $\mu'/\mu = 1$}.
 
-Si $i \sim 0$ entonces TE y TM son similares a menos de un signo.
+Si $i \sim 0$ entonces TE y TM son similares a menos de un signo, el cual es debido
+solamente a la convención asumida para los campos a la entrada y a la salida.
+
+Si $i+r = \pi/2$ el TM es nulo y el ángulo $i$ es el ángulo de Brewster.
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft1_ondas_autete.jpg} 
+
+Cuando case el sol será más molesta la luz reflejada pero se puede evitar con un
+polarizador ubicado convenientemente.
+
+Recordemos que el campo \vb{E} es el vector que caracteriza el vector óptico, lo cual
+se ve en experiencias de Lloyd? o Wiener?.
+
+Notemos que  
+\[
+	\vb{S}_i \neq \vb{S}_r + \vb{S}_t ,
+\]
+pues \vb{S} no está relacionado linealmente con \vb{E}, \vb{B}, y lo que sí vale es
+\[
+	\vb{S}_i \cdot \hat{n} = \vb{S}_r \cdot \hat{n} + \vb{S}_t \cdot \hat{n}.
+\]
 
 \subsubsection{Polarization (Brewster angle)}
 
@@ -543,15 +791,6 @@ Sirve para producir luz polarizada linealmente.
 	\end{center}
 	\caption{}
 \end{figure} 
-
-Atención, pero 
-\[
-	\vb{S}_i \neq \vb{S}_r + \vb{S}_t ,
-\]
-pues \vb{S} no está relacionado linealmente con \vb{E}, \vb{B}, y lo que sí vale es
-\[
-	\vb{S}_i \cdot \hat{n} = \vb{S}_r \cdot \hat{n} + \vb{S}_t \cdot \hat{n} 
-\]
 
 
 \subsubsection{Reflexión interna total}
@@ -605,10 +844,10 @@ La continuidad de la carga y la divergencia de \vb{D},
 \[
 	\divem{J} + \dpar{\rho}{t} = 0 \qquad \qquad \divem{D} = 4\pi \rho,
 \]
-nos llevan a
-\[
-	\divem{J} + \frac{1}{4\pi}\Nabla\cdot \dpar{\vb{D}}{t} = 0
-\]
+para medios LIH, nos llevan a
+% \[
+% 	\divem{J} + \frac{1}{4\pi}\Nabla\cdot \dpar{\vb{D}}{t} = 0
+% \]
 \[
 	\Nabla\cdot \left( \vb{J} + \frac{1}{4\pi} \dpar{\vb{D}}{t} \right) = 0
 \]
@@ -628,14 +867,14 @@ Recordando la ley de Ohm microscópica, $\vb{J} = \sigma \vb{E}$ ,
 y esto nos conduce a una ecuación diferencial para \vb{J},
 \[
 	\vb{J}_e = \vb{J} + \frac{\epsilon}{4\pi\sigma} \dpar{\vb{J}}{t} =
-	\left( 1 + \frac{\epsilon}{4\pi\sigma} \dpar{}{t} \right)
+	\left( 1 + \frac{\epsilon}{4\pi\sigma} \dpar{}{t} \right)\vb{J}
 \]
 y entonces 
 \[
-	\vb{J} = \vb{J}_e + \vb{J}_0 \euler^{-4\pi\sigma/\epsilon t }
+	\vb{J} = \vb{J}_e + \vb{J}_0 \euler^{-4\pi\sigma/\epsilon \: t }
 \]
-siendo el segundo término del RHS la parte no estacionaria de la corriente. Evidentemente, si $t \to \infty$ esta 
-tiende a cero.
+siendo el segundo término del RHS la parte no estacionaria de la corriente. 
+Evidentemente, si $t \to \infty$ ésta tiende a cero.
 
 Dado que se verifica \eqref{diver_jcond} se tiene 
 \[
