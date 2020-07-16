@@ -775,13 +775,13 @@ Es un $i_B$ tal que no hay onda \vb{E} reflejada (en TM),
 \[
 	E_0^{''} = 0,
 \]
-puest $\tan( i + r) \to \infty$
+pues $\tan( i + r) \to \infty$ con $i+r =\pi/2$ se da
 \[
-	i_b = atan \left( \frac{n'}{n}\right) ,
+	i_b = \atan \left( \frac{n'}{n}\right) ,
 \]
-pues $ i_B + r = \pi/2$ entonces 
+y entonces 
 \[
-	\frac{n}{n'}\sin(i_B) = cos(i_B) \rightarrow i_b = atan \left( \frac{n'}{n}\right),
+	\frac{n}{n'}\sin(i_B) = \cos(i_B) \rightarrow i_b = \atan\left( \frac{n'}{n}\right),
 \]
 Sirve para producir luz polarizada linealmente.
 
@@ -792,6 +792,7 @@ Sirve para producir luz polarizada linealmente.
 	\caption{}
 \end{figure} 
 
+No puede suceder Brewster y reflexión total interna simultáneamente (¿se come la onda el medio?)
 
 \subsubsection{Reflexión interna total}
 
@@ -807,7 +808,7 @@ y el LHS es mayor igual a 1 para algunos $i$. Existe un ángulo límite
 	\sin(r) = 1 = \frac{n}{n'} \sin(i) 
 \]
 \[
-	i_0 = asin\left( \frac{n'}{n} \right)
+	i_0 = \asen\left( \frac{n'}{n} \right)
 \]
 de manera que si $i \geq i_0$ entonces $\sin(r) > 1$ y se debe tener un $r\in \mathbb{C}$.
 
@@ -818,12 +819,16 @@ de manera que si $i \geq i_0$ entonces $\sin(r) > 1$ y se debe tener un $r\in \m
 	\caption{}
 \end{figure} 
 
+\notamargen{Tenía este sketch para la convención de TM y TE:
+\includegraphics[width=0.32\textwidth]{images/fig_ft1_ondas_convencion.jpg}
+}
+
 Si $\sin(r)>1$ se tiene $\sin(r)^2 > 1$ y como por teorema de Pitágoras es 
 \[
 	\cos(r)^2 = 1 - \sin(r)^2 \rightarrow \cos(r) = i \sqrt{ \sin(r)^2 - 1 }
 \]
-donde notemos espcialmente que hemos sacado fuera un $\sqrt{-1} = i$ para que el argumento de la raíz sea positivo en 
-este caso especial. Luego 
+donde notemos especialmente que hemos sacado fuera un $\sqrt{-1} = i$ para que el argumento 
+de la raíz sea positivo en este caso especial. Luego 
 \[
 	\cos(r) = i \sqrt{ \frac{n}{n'}\sin(i)^2 - 1 } = i a 
 \]
@@ -834,6 +839,159 @@ Entonces
 		\underbrace{\euler^{-kaz}}_{\text{atenuación}} 
 		\underbrace{\euler^{ik\sin(r)x}}_{\text{propagación}}
 \]
+Hay ondas evanescentes en la reflexión interna total
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_reflexion_total.jpg}
+
+El vector de onda $\vb{k}'$ se puede pensar como un $\vb{k}'= k'\cos(r) - ik'\sin(r)$ aunque
+este pensamiento no es muy feliz (anoté).
+
+
+\begin{ejemplo}{\bf Problema 1}
+ 
+Se trata de reflexión interna total.
+Se considera el promedio de $\vb{S}$ porque alterna en el tiempo, luego
+\[
+	\vm{\vb{S}\cdot\nver} = \frac 1 2 \mathcal{Re}\left( \frac{c}{4\pi} 
+	\vb{E}\times\vb{H}^*\right) \cdot \nver
+\]
+y entonces
+\[
+	\frac 1 2 \mathcal{Re}\left( S'\hat{k}'\cdot\nver \right) =
+	\frac 1 2 \mathcal{Re}\left( \frac{c}{4\pi} 
+	\vb{E}'\times\sqrt{\epsilon}( \hat{k}'\times\vb{E})^*\right)
+\]
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_problema1_ondas.jpg}
+
+\[
+	\vm{\vb{S}\cdot\nver} = \frac{1}{2}  \mathcal{Re}\left( 
+	\sqrt{\epsilon} \frac{c}{4\pi} |\vb{E}|^2 \hat{k}^*\cdot\nver \right)
+\]
+\[
+	\vm{\vb{S}\cdot\nver} = \frac{1}{2} \frac{ \sqrt{\epsilon} c}{4\pi} |\vb{E}|^2
+	\mathcal{Re}\left( \cos r \right)
+	= 0,
+\]
+lo cual es nulo porque es imaginario puro el coseno, entonces no hay flujo del vector 
+de Poynting hacia abajo.
+ 
+\end{ejemplo}
+
+
+\begin{ejemplo}{\bf Problema 3}
+
+Se considera incidencia normal. En el dibujete están esquematizadas direcciones y medidas
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_problema3A_ondas.jpg}
+
+Se plantean dos coeficientes en el medio porque hay una onda que viene y una que va. En la incidencia
+no escribimos explícitamente la parte temporal $i \omega t$ y el coeficiente se toma $E_0=1$.
+Consideramos $\mu=1$ y se obtendrá $\vb{H}$ a partir de $\vb{E}$ según
+\[
+	\vb{H} = \frac{n}{\mu} \hat{k}\times\vb{E}
+\]
+
+Como no hay fuentes, hay continuidad de componentes tangenciales de $\vb{H}$ y $\vb{E}$,
+\[
+	z = 0 \qquad 	\begin{cases}
+			\; 1 + r = A + B \qquad\qquad \textcircled{1} \text{ campo } \vb{E} \\
+			\\
+			\; n_1 ( 1 - r ) = n_2 ( A - B ) \qquad \qquad \textcircled{2} \text{ campo } \vb{H}
+			\end{cases}
+\]
+\[
+	z = d \qquad 	\begin{cases}
+			\; A \euler^{i k_2 d} + B \euler^{-i k_2 d} = t 
+			\qquad\qquad \textcircled{3} \text{ campo } \vb{E} \\
+			\\
+			\; n_3 ( A \euler^{i k_2 d} - B \euler^{-i k_2 d} ) = n_3 t 
+			\qquad\qquad \textcircled{4} \text{ campo } \vb{H} \\
+			\end{cases}
+\]
+
+Entonces, se despejan $A,B$ desde \textcircled{3} y \textcircled{4}, dando
+\[
+	A \euler^{ i k_2 d } = \frac 1 2 \left( 1 + \frac{ n_3 }{ n_2 } \right) t \qquad \qquad 
+	B \euler^{ - i k_2 d } = \frac 1 2 \left( 1 - \frac{ n_3 }{ n_2 } \right) t
+\]
+y utilizando estas junto con \textcircled{1} y \textcircled{2}
+\[
+	\frac{1+r}{1-r} = \frac{n_1}{n_2} \Frac{ 1 + r_{23} \euler^{2ik_2d}}{ 1 - r_{23} \euler^{2ik_2d} }
+	\qquad \qquad r_{23} \equiv \frac{1 - n_3/n_2}{1 + n_3/n_2}
+\]
+siendo este último $r_{23}$ el coeficiente de reflexión del medio 2 al 3.
+Ahora buscaremos cuándo se anula esta cosa.
+\[
+	r = \frac{ r_{12} - r_{23} \euler^{i 2 k_2 d} }
+	{ 1 + r_{12} r_{23} \euler^{i 2 k_2 d} }
+	\qquad \qquad r_{12} \equiv \frac{n_2 - n_1}{n_2 + n_1}
+\]
+y la anulación de partes real e imaginaria requiere
+\[
+	r_{12} + r_{23} \euler^{i \delta} = 0 
+\]
+\[
+	r_{12} + r_{23}\cos\delta = 0 \qquad r_{12} + r_{23}\sin\delta = 0
+\]
+luego, si $ \delta = 2 k_2 d = m \pi $ será
+\[
+	r_{12} + r_{23}(-1)^m = 0,
+\]
+y con $m$ par
+\[
+	r_{12} = -r_{23} \qquad r_{12} = -r_{21}
+\]
+se invierte el orden de los medios. Una solución razonable es $n_3=n_1$ que lleva a $r_{21} = r_{23}$.
+Con $m$ impar se tienen $ r_{12} = r_{23} $ que lleva a $n_2^2 = n_3 n_1$.
+
+{\bf Forma alternativa}
+
+Esto se puede resolver de una forma alternativa, como en interferencia. Veamos el dibujete
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_problema3B_ondas.jpg}
+ 
+se tiene que
+\[
+	\vb{E} = \sum_{j=0}^\infty \: \vb{E}_j \euler^{i \delta_j }
+\]
+y será
+\[
+	\delta = \k_2 \Delta L_1 - k_1 \Delta L_0
+\]
+\[
+	\Delta L_1 = 2 \Frac{d}{\cos r} \qquad \qquad 
+	\Delta L_0 = 2 d \tan r \sin i
+\]
+y haciendo cálculos
+\[
+	\delta = \frac{2 d \omega }{c} n_2 \cos r
+\]
+con cada rayo se suma al desafasaje $\delta$.
+\notamargen{Estamos haciendo $\delta_j = j \delta $.}
+
+Para las amplitudes se tiene
+\[
+	E_0 = r_{12} E_i \qquad E_j = t_{21} r_{23}^j r_{21}^{j-1} t_{12} E_i,
+\]
+y los primeros se pueden hacer {\it a mano}, así
+\[
+	E = \left[ \: r_{12} + \frac{t_{12}t_{21}}{r_{21}} \sum_{j=1}^\infty \: 
+	( r_{23} r_{21} \euler^{i\delta} )^j \: \right] E_i = 
+	\left[ \: r_{12} + \frac{t_{12}t_{21}}{r_{21}} \: 
+	\frac{ r_{23} r_{21} \euler^{i\delta} }{1 - r_{23} r_{21} \euler^{i\delta} } \: \right] E_i 
+\]
+y usando $ t_{12} t_{21} = 1 - r_{12}?^2 $ con $r_{12} = r_{21}$ se tiene
+\[
+	E = \left( \frac{ r_{12} + r_{23} \euler^{i\delta} }{1 + r_{23} r_{12} \euler^{i\delta} } \right) E_i
+\]
+con 
+\[
+	d = \frac{ \lambda_2 \ell }{ 2 \cos r} \qquad \delta = m\pi \qquad n_3 = n_1
+\]
+que es el mismo resultado al que arribásemos por el otro método.
+ 
+\end{ejemplo}
 
 
 % =================================================================================================
