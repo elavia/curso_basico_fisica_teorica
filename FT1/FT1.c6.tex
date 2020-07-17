@@ -1272,7 +1272,8 @@ Supongamos que los campos penetrantes tienen la dependencia
 \]
 y el rotor de $\vb{H}$ se puede escribir entonces
 \[
-	i \pv{k}{H_0} + i \omega \frac{\varepsilon}{c} \vb{E} - \frac{4 \pi \sigma }{c} \vb{E} = 0,
+	i \pv{k}{H_0} + i \omega \frac{\varepsilon}{c} \vb{E} -
+	\frac{4 \pi \sigma }{c} \vb{E} = 0,
 \]
 y haciendo producto vectorial por el vector de onda $\vb{k}$
 \[
@@ -1294,21 +1295,24 @@ de lo cual se deduce
 	\left( 1 + i \frac{4\pi\sigma}{\omega\varepsilon}\right) 
 	\frac{\vb{B}_0}{k^2}.
 \]
-Por ello $ k^2 \in \mathbb{C}$ y $k \in \mathbb{C} $. Se necesita que el campo al medrar en el conductor,
-vaya disipando energía. 
+Por ello $ k^2 \in \mathbb{C}$ y $k \in \mathbb{C} $. 
+Se necesita que el campo al medrar en el conductor, vaya disipando energía. 
 \notamargen{Tendremos que conectar con lo siguiente.}
 
-Asimismo la energía está metida casi por completo en el campo magnético cuando es un muy buen conductor.
+Asimismo la energía está metida casi por completo en el campo magnético 
+cuando es un muy buen conductor.
 \[
-	K^2 = \mu \varepsilon \frac{\omega^2}{c^2} \left[ 1 + i\frac{4\pi\sigma}{\varepsilon \omega} \right]
+	K^2 = \mu \varepsilon \frac{\omega^2}{c^2} 
+	\left[ 1 + i\frac{4\pi\sigma}{\varepsilon \omega} \right]
 \]
 Conviene escribir el número de onda como
 \[
 	K = \beta + i \: \frac{\alpha}{2},
 \]
-siendo $\beta$ el término responsable de la propagación, $\alpha$ el término que se atenúa. 
-Operando se llega a las formas ``simétricas'' siguientes (para lograr esta bella simetría es que se
-escribió el $k$ de esa manera),
+siendo $\beta$ el término responsable de la propagación, $\alpha$ el término
+que se atenúa. 
+Operando se llega a las formas ``simétricas'' siguientes (para lograr esta 
+bella simetría es que se escribió el $k$ de esa manera),
 \[
 	\beta = \sqrt{ \mu \varepsilon } \: \frac{\omega}{c} \:
 	\left[ \frac{1 + \sqrt{ 1 + (\omega\tau )^{-2}}}{2}\right]^{1/2} = k
@@ -1318,8 +1322,9 @@ escribió el $k$ de esa manera),
 	\left[ \frac{1 + \sqrt{ -1 + (\omega\tau )^{-2}}}{2}\right]^{1/2} = k
 \]
 
-Podemos pensar en dos límites extremos: pésimo conductor $ 4 \pi \sigma / (\omega \varepsilon ) \ll 1 $ 
-y excelente conductor $ 4 \pi \sigma / (\omega \varepsilon ) \gg 1 $.
+Podemos pensar en dos límites extremos: pésimo conductor 
+$ 4 \pi \sigma / (\omega \varepsilon ) \ll 1 $ y excelente conductor 
+$ 4 \pi \sigma / (\omega \varepsilon ) \gg 1 $.
 La calidad de buen o mal conductor depende de la frecuencia de la onda penetrante.
 \[
 	\tau = \frac{\varepsilon}{4\pi\sigma} \qquad \rightarrow \qquad 
@@ -1339,7 +1344,8 @@ corresponde a un término que se atenúa
 	 \frac{2 \pi i}{c} \: \sqrt{ \frac{ \mu }{ \varepsilon } } \: \sigma
 \]
 
-Entonces resulta que para el caso de un mal conductor $ \frac{4\pi\sigma}{\omega \varepsilon} \ll 1 $ o bien 
+Entonces resulta que para el caso de un mal conductor 
+$ \frac{4\pi\sigma}{\omega \varepsilon} \ll 1 $ o bien 
 $ \frac{4\pi\sigma}{\varepsilon} \ll \omega $ o bien $ 1/\tau \ll \omega $ se tiene 
 \[
 	K = \sqrt{ \mu \varepsilon }\frac{\omega}{c} +
@@ -1422,7 +1428,7 @@ $\lambda \ll \ell$ es transparente para la onda. No ve el conductor.
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.5\textwidth]{images/fig_ft1_conduc4.pdf}	 
+	\includegraphics[width=0.5\textwidth]{images/fig_ft1_conduc4.pdf} 
 	\end{center}
 	\caption{}
 \end{figure} 
@@ -1461,6 +1467,63 @@ Los valores promedio son
 \]
 donde se ve que la energía está metida casi toda en el campo $\vb{B}$ cuando el medio es muy buen
 conductor.
+
+\begin{ejemplo}{\bf Problema 8. Explicación del modelo de Drude}
+
+Tenemos un plasma (gas ionizado) con cargas libres.
+Estado estacionario, baño térmico (temperatura constante) y campo $\vb{E}$ externo armónico.
+Los choques se producen en un tiepo $\tau$ promedio.
+Sean $ n \equiv $ electrones con promedio $ \vb{p} $ y los choques hacen que vayan perdiendo
+momento $\vb{p}$
+\[
+	\frac{n(t)}{\tau} = - \dtot{n(t)}{t}
+\]
+y
+\[
+	m \dtot{\vb{v}}{t} \approx e \vb{E} - \frac{m}{\tau} \vb{v},
+\]
+donde se desprecia la fuerza de $\vb{H}$. Es la fuerza debida a choques con moléculas vecinas.
+
+\includegraphics[width=0.35\textwidth]{images/fig_ft1_problema8.jpg} 
+\includegraphics[width=0.35\textwidth]{images/fig_ft1_problema8B.jpg} 
+
+Como el campo es armónico la velocidad $\vb{v}$ será armónica $ \vb{v} = \vb{v}_0 \euler^{- i \omega t} $,
+donde $ \nu \equiv 1 / \tau $ es la frecuencia entre choques.
+Simplificamos la exponencial temporal
+\[
+	i \omega m \vb{v}_0 = e \vb{E}_0 - \frac{m}{\tau} \vb{v}_0
+\]
+\[
+	\vb{v}_0 = \frac{e\tau}{m} \frac{1}{1-i\omega\tau} \vb{E}_0.
+\]
+Entonces para la corriente en promedio tenemos
+\[
+	\vb{J} = n e \vb{v}_0 = \frac{n e^2 \tau}{m} \frac{1}{1-i\omega\tau} \vb{E}_0
+\]
+donde el factor del campo sub-cero puede verse como un $\sigma(\omega)$, y entonces
+podemos escribir
+\[
+	\vb{J} = \frac{ \sigma(0) }{1 - i \omega \tau } \vb{E}_0
+\]
+donde si $\omega \tau \gg 1$ tiro el uno y tengo un desfasaje de 90$^\circ$ ($-i$).
+
+La siguiente picture muestra diversos comportamientos en función de la frecuencia $\omega$.
+Puntualmente con $\omega \gg \nu$ tenemos una frecuencia de choques muy baja (gas ionizado)
+partículas muy alejadas entre sí.
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft1_problema8C.jpg} 
+
+
+
+\includegraphics[width=0.35\textwidth]{images/fig_ft1_problema8D.jpg} 
+
+\includegraphics[width=0.35\textwidth]{images/fig_ft1_problema8E.jpg} 
+
+\includegraphics[width=0.35\textwidth]{images/fig_ft1_problema8F.jpg} 
+
+ 
+\end{ejemplo}
+
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
