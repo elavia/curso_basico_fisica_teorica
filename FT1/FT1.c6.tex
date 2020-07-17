@@ -1081,8 +1081,9 @@ y una vez que $t \gg \tau$ y se estabiliza el sistema es $\rho=\rho_0$ entonces
 \section{Campo electromagnético en un medio conductor}
 % =================================================================================================
 
-Tenemos un campo EM de fuentes lejanas y queremos ver qué sucede en un medio conductor.
-Se verifican
+Tenemos un campo EM de fuentes lejanas y queremos ver qué sucede en un medio conductor
+cuando una onda penetra en él.
+Lejos de la fuente se verifican
 \ben
 \begin{aligned}
 	\divem{B}=0 &\qquad 
@@ -1119,7 +1120,7 @@ usar que la divergencia de \vb{E} es nula de manera que
 \]
 y entonces
 \[
-	-\lapm{\vb{E}} + \frac{4\pi\mu\sigma}{c^2} \dpar{\vb{E}}{t} + 
+	\lapm{\vb{E}} - \frac{4\pi\mu\sigma}{c^2} \dpar{\vb{E}}{t} - 
 			\frac{\mu\varepsilon}{c^2}\ddpar{\vb{E}}{t} = 0.
 \label{onda_gen}
 \]
@@ -1143,8 +1144,9 @@ de manera que reemplazando este {\it ansatz} en la ecuación arribamos a
 que se puede agrupar de manera más inteligente como 
 \[
 	\lapm{\vb{E}} + \frac{\mu\varepsilon\omega^2}{c^2}
-		\left( 1 + i 4 \pi \frac{\sigma}{\varepsilon\omega}\right)\vb{E} = 0
+		\left( 1 + i 4 \pi \frac{\sigma}{\varepsilon\omega}\right)\vb{E} = 0.
 \]
+\notamargen{Esta parece ser una ecuación con difusión o de difusión. Investigarlo.}
 Podemos definir una especie de número de onda efectivo
 \[
 	K^2 \equiv k^2 \left( 1 + i 4 \pi \frac{\sigma}{\varepsilon\omega}\right)
@@ -1162,7 +1164,7 @@ se tiene
 \[
 	\lapm{\vb{E}} + i \frac{4 \pi \sigma \mu\omega}{c^2} \vb{E} = 0
 \]
-que es una ecuación de difusión para la corriente de conducción (?). Por el contrario en el
+que es una ecuación de difusión para la corriente de conducción [?]. Por el contrario en el
 caso de un conductor pobre 
 \[
 	4 \pi \frac{\sigma}{\varepsilon\omega} \ll 1
@@ -1173,6 +1175,9 @@ resulta en
 \]
 que es una ecuación de ondas usual dando como resultado una propagación. Tiende a la ecuación
 de ondas con $\sigma=0$.
+
+Para frecuencias ópticas se da que la corriente de conducción es similar a la corriente de
+desplazamiento [?].
 
 En general podemos escribir
 \[
@@ -1196,15 +1201,26 @@ y para metales se cumple que $1.10^{14} \gg 6.10^6$ siendo este último un valor
 
 
 Si consideramos los campos funciones de la distancia $\xi$ de una plano al origen O,
+donde $ \xi \parallel \vb{E}_n $, 
 tendremos 
 
-\begin{figure}[htb]
-	\begin{center}
+% \begin{figure}[htb]
+% 	\begin{center}
 	\includegraphics[width=0.3\textwidth]{images/fig_ft1_conduc1.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
-los campos son constantes en los planos de normal $\hat{n}$ (ver ilustración).
+% 	\end{center}
+% 	\caption{}
+% \end{figure} 
+
+Los campos son constantes en los planos de normal $\hat{n}$ (ver ilustración).
+Se puede escribir,
+\[
+	\vb{E}(\xi,t) = \vb{E}_n(\xi,t) + \vb{E}_t(\xi,t)
+\]
+donde $n$ es longitudinal y $t$ refiere a transversal a la variación de la coordenada
+\[
+	\vb{H}(\xi,t) = \vb{H}_n(\xi,t) + \vb{H}_t(\xi,t)
+\]
+donde consideramos medios LIH.
 
 \[
 	\Nabla = \hat{n} \dpar{}{\xi}
@@ -1212,6 +1228,10 @@ los campos son constantes en los planos de normal $\hat{n}$ (ver ilustración).
 y de acuerdo a Maxwell,
 \[
 	\hat{n} \cdot \dpar{\vb{D}}{\xi} = 0 \qquad \qquad \hat{n} \cdot \dpar{\vb{B}}{\xi} = 0
+\]
+se tendrá
+\[
+	\dpar{E_n}{\xi} = 0  \qquad \qquad \dpar{H_n}{\xi} = 0
 \]
 \[
 	\hat{n} \times \dpar{\vb{E}}{\xi} = -\frac{1}{c} \dpar{\vb{B}}{t} \qquad \qquad
@@ -1225,55 +1245,128 @@ y si tomamos producto escalar de la última ecuación con la normal resulta
 \]
 de manera que 
 \[
-	E_n = E_n^0 \euler^{-\frac{4\pi\sigma}{\varepsilon} t}.
+	E_n = E_n^0 \: \euler^{- 4 \: \pi \: \sigma / \varepsilon \: t },
 \]
-
-El $E_{\hat{n}}$ (electrostático) se apaga exponencialmente con el tiempo de relajación
+con lo cual el $E_{\hat{n}}$ (electrostático) se apaga exponencialmente con el tiempo de relajación
 del conductor. 
+El campo electrostático, el longitudinal proviene sí de un potencial.
+
+Además,
 \[
-	\hat{n} \cdot \left( \hat{n} \times \dpar{\vb{E}}{\xi} \right) = \frac{\mu}{c} \dpar{H}{t} = 0
+	\hat{n} \cdot \left( \hat{n} \times \dpar{\vb{E}}{\xi} \right) =
+	\frac{\mu}{c} \dpar{ \vb{H} }{t} = 0
 \]
-$H_n$ solo es constante en el tiempo y uniforme en el espacio.
+y haciendo escalar con el versor $\nver$
+\[
+	- \frac{\mu}{c}\dpar{E_n}{t} = 0  \qquad \qquad \dpar{H_n}{\xi} = 0.
+\]
+El tiempo de relajación coincide con el tiempo de atenuación [?].
+Luego, un campo $\vb{H}$ sólo es constante en el tiempo y uniforme en el espacio.
 
-No se ve influenciado por el conductor. Asimismo la energía está metida casi por
-completo en el campo magnético cuando es un muy buen conductor.
+Un campo magnético so se ve influenciado por el conductor (que tenga, por supuesto,
+propiedades magnéticas despreciables). No se apantalla. 
 
+Supongamos que los campos penetrantes tienen la dependencia
+\[
+	\euler^{i \pe{k}{x} - i \omega t},
+\]
+y el rotor de $\vb{H}$ se puede escribir entonces
+\[
+	i \pv{k}{H_0} + i \omega \frac{\varepsilon}{c} \vb{E} - \frac{4 \pi \sigma }{c} \vb{E} = 0,
+\]
+y haciendo producto vectorial por el vector de onda $\vb{k}$
+\[
+	\vb{k}\times (\rotorm{k}{H_0}) = - \frac{k^2}{\mu} \vb{B}_0
+\]
+de lo cual
+\[
+	\vb{B}_0 =\frac{\mu \varepsilon \omega }{ c} 
+	\left( 1 + i \frac{4\pi\sigma}{\omega\varepsilon}\right) 
+	\frac{1}{k^2} (\rotorm{k}{E_0}),
+\]
+y del rotor del campo eléctrico sale
+\[
+	\vb{B}_0 = \frac{c}{\omega} (\rotorm{k}{E_0})
+\]
+de lo cual se deduce
+\[
+	\vb{B}_0 =\frac{\mu \varepsilon \omega^2 }{ c^2 } 
+	\left( 1 + i \frac{4\pi\sigma}{\omega\varepsilon}\right) 
+	\frac{\vb{B}_0}{k^2}.
+\]
+Por ello $ k^2 \in \mathbb{C}$ y $k \in \mathbb{C} $. Se necesita que el campo al medrar en el conductor,
+vaya disipando energía. 
+\notamargen{Tendremos que conectar con lo siguiente.}
+
+Asimismo la energía está metida casi por completo en el campo magnético cuando es un muy buen conductor.
 \[
 	K^2 = \mu \varepsilon \frac{\omega^2}{c^2} \left[ 1 + i\frac{4\pi\sigma}{\varepsilon \omega} \right]
 \]
-de manera que podemos escribir
+Conviene escribir el número de onda como
 \[
-	K = \beta + i \frac{\alpha}{2}
+	K = \beta + i \: \frac{\alpha}{2},
 \]
-siendo $\beta$ el término responsable de la propagación, $\alpha$ el término que se atenua. Esta escritura
-es sólo conveniente puesto que resulta que 
+siendo $\beta$ el término responsable de la propagación, $\alpha$ el término que se atenúa. 
+Operando se llega a las formas ``simétricas'' siguientes (para lograr esta bella simetría es que se
+escribió el $k$ de esa manera),
 \[
-	\beta = \sqrt{ \mu \varepsilon }\frac{\omega}{c} 
+	\beta = \sqrt{ \mu \varepsilon } \: \frac{\omega}{c} \:
 	\left[ \frac{1 + \sqrt{ 1 + (\omega\tau )^{-2}}}{2}\right]^{1/2} = k
 \]
 \[
-	\frac{\alpha}{2} = \sqrt{ \mu \varepsilon }\frac{\omega}{c} 
+	\frac{\alpha}{2} = \sqrt{ \mu \varepsilon } \: \frac{\omega}{c} \:
 	\left[ \frac{1 + \sqrt{ -1 + (\omega\tau )^{-2}}}{2}\right]^{1/2} = k
 \]
-y ahí vemos la simetría.
+
+Podemos pensar en dos límites extremos: pésimo conductor $ 4 \pi \sigma / (\omega \varepsilon ) \ll 1 $ 
+y excelente conductor $ 4 \pi \sigma / (\omega \varepsilon ) \gg 1 $.
+La calidad de buen o mal conductor depende de la frecuencia de la onda penetrante.
+\[
+	\tau = \frac{\varepsilon}{4\pi\sigma} \qquad \rightarrow \qquad 
+	\frac{1}{\tau \omega } \ll 1 \qquad \frac{T}{2\pi\tau} \ll 1
+\]
+Usando la aproximación (de mal conductor) resulta en
+\[
+	\beta \approx \sqrt{ \mu \varepsilon } \frac{\omega}{c} \qquad \qquad 
+	\frac{\alpha}{2} \approx \sqrt{ \mu \varepsilon } \frac{\omega}{c} 
+	\Frac{ 2 \pi \sigma }{\omega \varepsilon }
+\]
+
+La parte real corresponde a un término que se propaga y la parte imaginaria 
+corresponde a un término que se atenúa
+\[
+	k \approx  \sqrt{ \mu \varepsilon } \: \frac{\omega}{c} + 
+	 \frac{2 \pi i}{c} \: \sqrt{ \frac{ \mu }{ \varepsilon } } \: \sigma
+\]
 
 Entonces resulta que para el caso de un mal conductor $ \frac{4\pi\sigma}{\omega \varepsilon} \ll 1 $ o bien 
 $ \frac{4\pi\sigma}{\varepsilon} \ll \omega $ o bien $ 1/\tau \ll \omega $ se tiene 
 \[
-	K = \sqrt{ \mu \varepsilon }\frac{\omega}{c} + i \frac{2\pi\sqrt{\mu}\sigma}{c\sqrt{\varepsilon}}
+	K = \sqrt{ \mu \varepsilon }\frac{\omega}{c} +
+	i \frac{2\pi\sqrt{\mu}\sigma}{c\sqrt{\varepsilon}}
 \]
-y en cambio por el mismo razonamiento pero para un excelente conductor, $1/\tau \gg \omega$
+
+En cambio, por el mismo razonamiento pero para un excelente conductor, $1/\tau \gg \omega$
 \[
-	K = \frac{\sqrt{2\pi\omega\mu\sigma}}{c}( 1 + i )
+	K = ( 1 + i ) \: \frac{ \sqrt{2\pi\omega\mu\sigma} }{ c }
 \]
 y aquí la parte de atenuación $\alpha/2 = \alpha(\omega)/2$ de modo que hay distorsión.
+Se distorsiona porque la parte de atenuación depende de la frecuencia.
 En general tendremos
 \[
-	\vb{E} = \vec{\mathbb{E}}_0 \euler^{-\alpha/2 \hat{n}\cdot\vb{x}} \euler^{i[\beta \hat{n}\cdot\vb{x} - 
-\omega t]}
+	\vb{E} = \vec{ \mathbb{E} }_0 \euler^{ -\alpha/2 \: \nver\cdot\vb{x} } 
+	\euler^{ i [ \: \beta \: \hat{n}\cdot\vb{x} \: - \: \omega t \: ] }
 \]
-que nos muestra una primera exponencial real que es el factor de atenuación. Entre más conductor un medio más
-rápida es la atenuación.
+que nos muestra una primera exponencial real que es el factor de atenuación. E
+ntre más conductor un medio más rápida es la atenuación.
+
+La amplitud cae a $E_0 \euler^{-1}$ es una longitud $\delta$
+\[
+	\delta = \frac{1}{\alpha/2} \approx \frac{ c }{ \sqrt{ 2 \pi \mu \omega \sigma } }
+\]
+que es la distancia que se desplazó el campo para que su amplitud sea $1/\mathrm{e}$ menor.
+Es la llamada ``profundidad pelicular'' ({\it skin depth}) que da idea de cuánto penetra una onda
+electromagnética sin atenuarse.
 
 \[
 	\vb{H} = \frac{c}{\mu\omega}\left[ \beta + i \frac{\alpha}{2} \right] \hat{k}\times \vb{E}
@@ -1316,7 +1409,7 @@ radio FM & 1.10$^8$ Hz & 3 m
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_conduc3.pdf}	 
+	\includegraphics[width=0.5\textwidth]{images/fig_ft1_conduc3.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
@@ -1329,7 +1422,7 @@ $\lambda \ll \ell$ es transparente para la onda. No ve el conductor.
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_conduc4.pdf}	 
+	\includegraphics[width=0.5\textwidth]{images/fig_ft1_conduc4.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
@@ -1337,6 +1430,37 @@ $\lambda \ll \ell$ es transparente para la onda. No ve el conductor.
 En un buen conductor $ \mu_M > \mu_E $ el material se comporta inductivamente.
 En un mal conductor $ \mu_E > \mu_M $ el material se comporta capacitivamente.
 
+\section{Desfasajes en los campos}
+
+Al ser $k$ un compleo los campos $\vb{E}, \vb{B}$ no están en fase dentro del medio. Entonces
+$ \vb{k} = |\vb{k}| \euler^{i \vp} $ donde el ángulo es el desfasaje en el campo al entrar en el
+conductor.
+\[
+	\tan \vp = \frac{\alpha}{2\beta}
+\]
+de lo cual se deduce
+\[
+	\frac{2 \tan \vp }{1 - \tan^2 \vp} = \tan (2\vp) = 
+	\frac{4 \pi \sigma }{\omega \varepsilon }
+\]
+\[
+	\vp = \frac{1}{2} \:\atan\Frac{4\pi\sigma}{\omega\varepsilon}
+\]
+el máximo desfasaje es de $ \pi /4 $ y se da cuando el amterial es muy buen conductor.
+Los valores promedio son
+\[
+	\vm{\mu} = \vm{\mu_\varepsilon} + \vm{\mu_M} = \frac{1}{16\pi}
+	\left( \vb{E}\cdot\vb{D}^* + \vb{B}\cdot\vb{H}^* \right)
+\]
+\[
+	\vm{\mu_M} = \mu\varepsilon \:\frac{\omega^2}{c^2} 
+	\left[ 1 + \Frac{4\pi\sigma}{\omega\varepsilon}^2 \right]^{1/2} |\vb{E}_0|^2
+\]
+\[
+	\vm{\mu_M} = \Frac{4\pi\sigma}{\omega\varepsilon} \vm{\mu_\varepsilon}
+\]
+donde se ve que la energía está metida casi toda en el campo $\vb{B}$ cuando el medio es muy buen
+conductor.
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica

@@ -3,8 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -40,13 +40,27 @@ Digamos que un vector transforma
 	X'_{i} = a_{ij} X_j
 \]
 de manera que se verifique que las leyes físicas sean invariantes frente a rotaciones propias.
+El módulo no cambia $ |\vb{X}'|^ 2 = |\vb{X}|^2$.
 
 Einstein postula que:
 \begin{itemize}
- \item Todos los sistemas inerciales son equivalentes.
+ \item Todos los sistemas inerciales son equivalentes (no se puede hablar de espacio absoluto).
  \item La velocidad de la luz en un sistema inercial es constante. No depende del estado de
  movimiento del observador.
 \end{itemize}
+
+
+
+Las ecuaciones vistas hasta ahora son igualdades vectoriales.
+Toda ley física debe ser covariante de un sistema inercial a otro.
+
+Para una magnitud tensorial de 2do rango la traza del mismo debe ser invariante y además satisface
+\[
+	a_{ij} a_{ik} = \delta_{jk}.
+\]
+Transformación ortogonal.
+En la época de Maxwell se postuló que las ondas EM viajaban con velocidad $c$ respecto al espacio absoluto
+(el éter). Pero esta idea muere con Einstein en 1905.
 
 Sea un sistema $S'$ que se mueve con velocidad \vb{v} de otro $S$ en forma paralela a un eje (ver figura).
 \begin{figure}[htb]
@@ -54,7 +68,7 @@ Sea un sistema $S'$ que se mueve con velocidad \vb{v} de otro $S$ en forma paral
 	\includegraphics[width=0.4\textwidth]{images/fig_ft1_transfvec.pdf}	 
 	\end{center}
 	\caption{}
-\end{figure} 
+\end{figure}
 
 Se verifica entonces la transformación de Lorentz
 \begin{align*}
@@ -69,6 +83,12 @@ donde son
 \]
 
 A la transformación [1] se le puede dar forma de rotación en funciones hiperbólicas como sigue
+definiendo
+\[
+	\beta \equiv \tanh(\eta) \qquad \gamma \equiv \cosh(\eta) \qquad 
+	\gamma\cdot \beta = \sinh(\eta)
+\]
+y con esta nueva notación puede escribirse
 \[
 	x^{0'} = x^0 \cosh( \eta ) - x^3 \sinh( \eta )
 \]
@@ -92,8 +112,9 @@ donde seguimos viendo que las leyes son lineales en las coordenadas (el espacio 
 	 x^{3} \\
 	\end{pmatrix}
 \]
-y no es otra cosa  que una rotación en eje $\hat{0}, \hat{3}$ con el ángulo $\eta = atanh( \beta )$. Notemos
-que se verifica la invariancia del módulo de la transformación
+y no es otra cosa  que una rotación en eje $\hat{0}, \hat{3}$ con el ángulo $\eta = \atanh( \beta )$.
+O sea, son rotaciones en funciones hiperbólicas.
+Notemos que se verifica la invariancia del módulo de la transformación
 \[
 	(x^{0'})^2 -  ( (x^{1'})^2  + (x^{2'})^2 + (x^{3'})^2 ) =
 		(x^{0})^2 -  ( (x^{1})^2  + (x^{2})^2 + (x^{3})^2 ) 
@@ -102,6 +123,8 @@ o en una notación más feliz
 \[
 	(ct')^2 - ( x'^2 + y'^2 + z'^2 ) = (ct)^2 - ( x^2 + y^2 + z^2 )
 \]
+Estamos queriendo generar una estructura geométrica para pasar entre sistemas inerciales.
+
 	
 Este espacio 4D es el de Minkowski y no es euclídeo.
 \[
