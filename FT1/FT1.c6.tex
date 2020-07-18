@@ -1513,16 +1513,228 @@ partículas muy alejadas entre sí.
 
 \includegraphics[width=0.5\textwidth]{images/fig_ft1_problema8C.jpg} 
 
-
-
-\includegraphics[width=0.35\textwidth]{images/fig_ft1_problema8D.jpg} 
-
-\includegraphics[width=0.35\textwidth]{images/fig_ft1_problema8E.jpg} 
+Tenemos la siguiente observación que debería pasarse a texto o ilustrar de otra manera, o quiźas
+mejor entender en qué sentido van las longitudes de onda (las ondas EM son transversales).
 
 \includegraphics[width=0.35\textwidth]{images/fig_ft1_problema8F.jpg} 
 
+Con toda esta información podemos resolver las ecuaciones de Maxwell faltantes.
+Estamos con
+\[
+	\sigma(\omega) = \frac{i \sigma_0}{\omega \tau} = \frac{ i n e^2}{ m \omega }
+\]
+con $\omega \tau \gg 1$ y debemos resolver
+\[
+	\rotorm{E} = - \frac{1}{c} \dpar{\vb{B}}{t}
+\]
+\[
+	\rotorm{H} = \frac{4\pi}{c}\vb{J} + \frac{1}{c} \dpar{\vb{E}}{t}
+\]
+Entonces tomo la primera y la introduzco en la segunda, luego
+\[
+	\Nabla\times\Nabla\times\vb{E} = - \frac{1}{c}\dpar{}{t}(\rotorm{B})
+\]
+que resulta en
+\[
+	\lapm{E} + K^2 E = 0,
+\]
+donde
+\[
+	K^2 = \Frac{\omega}{c}^2 \left[ 1 + \frac{i 4 \pi \sigma}{\omega}\right]
+\]
+de lo cual extraemos
+\[
+	\frac{k}{\omega} = \frac{1}{c} \sqrt{ 1 - \frac{4\pi n e^2}{m \omega^2} }
+\]
+y podemos definir una $\omega_P^2 \equiv 4\pi n e^2 / m$ que es una frecuencia del plasma típica.
+Luego, si $k/\omega$ es un número real tenemos una onda que se propaga pues implica que
+$\omega > \omega_P $ y $K$ es real entonces $E_0 \euler^{i (kx-\omega t)}$.
+Por el contrario si $k/\omega$ es un número imaginario tenemos una onda que se atenúa y 
+$ \omega < \omega_P $ y el $K$ es imaginario lo cual lleva a a $E_0 \euler^{-|k|x}\euler^{i i\omega t)}$,
+que significa que la onda no puede penetrar el medio y empieza a decaer.
+
+El típico modelo de un plasma es la ionosfera. Véase la siguiente nota:
+
+\includegraphics[width=0.45\textwidth]{images/fig_ft1_problema8D.jpg} 
+
+La radio AM refleja y tiene más alcance. La radio FM en cambio deja pasar y se va al espacio.
+
+{\bf Observación}
+
+Esto que sigue parece ser un tema nuevo, así que no correspondería realmente a este ejemplo.
+Tenemos un campo magnético fuerte.
+Una onda $\vb{E}$ linealmente polarizada (se puede ver como superposición de dos polarizaciones
+circulares)
+\[
+	\vb{E} = E_0 ( \xver \pm i \yver ) \euler^{i (kz -\omega t)}
+\]
+
+\includegraphics[width=0.35\textwidth]{images/fig_ft1_problema8E.jpg} 
+
+Escribimos, sin incluir la fuerza viscosa, pero sí el campo magnético porque es intenso, luego
+\[
+	m \dtot{\vb{v}}{t} \approx e \vb{E} + e \left( \frac{\vb{v}}{c} \times B_0\zver \right)
+\]
+Trabajo en la zona de plasma diluído
+\[
+	\sigma(\omega) = \frac{\sigma_0}{1-i\omega\tau} \approx -\frac{\sigma_0}{i\omega\tau} \sim 0,
+\]
+donde lo último es porque la frecuencia es muy grande.
+Usando la aproximación vista de que $ E \sim \euler^{ i \omega t } $
+\[
+	- i m \omega \vb{v}_0 = e E_0 (\xver \pm \yver ) + \frac{e v_0 B_0 }{c} (-\yver \pm i\xver ) 
+\]
+y tenemos el sistemita [?]
+\[
+	\begin{cases}
+	- i m \omega v_0 = eE_0 \pm i \frac{e v_0 B_0}{c} \\
+	\\
+	\pm m \omega v_0 = \pm i e E_0 - \frac{e v_0 B_0}{c}
+	\end{cases}
+\]
+de manera que
+\[
+	v_0 = \frac{ i e E_0}{m( \omega \pm e B_0 / (mc) )}
+\]
+luego, como $ J = n e v_0$ se tiene
+\[
+	J = \frac{ i n e^2 }{m( \omega \pm e B_0 / (mc) )} E_0
+\]
+donde 
+\[
+	\omega_c \equiv \frac{e B_0}{m c},
+\]
+es la llamada frecuencia de ciclotrón. Tenemos dos $\sigma$. Se sigue que
+\[
+	\frac{K}{\omega} = \frac{1}{c} \sqrt{ 1 - \frac{ \omega_P^2 }{ \omega (\omega \pm \omega_C )} }
+\]
+entonces la raíz en el rhs es una especie de índice de refracción $n_r = n\pm$.
+
+Las dos ondas circularmente polarizadas ven diferentes índices de refracción.
+Tomo
+\[
+	\frac{ \xver \pm i \yver }{\sqrt{2}} \equiv \hat{e}_{\pm}
+\]
+y, absorbiendo la $\sqrt{2}$ en la amplitud $E_0$ se tiene
+\[
+	\vb{E} = \vb{E}_+ + \vb{E}_- = 
+	E_0 \: \left( \hat{e}_{+} \euler^{i (K_+z -\omega t)} +
+	+ \hat{e}_{-} \euler^{i (K_-z -\omega t)} \right)
+\]
+\[
+	\vb{E} = \vb{E}_+ + \vb{E}_- = 
+	E_0 \: \left( \frac{ \euler^{i K_+ z } + \euler^{ i K_- z } }{\sqrt{2}}\xver +
+	i \frac{ \euler^{i K_+ z} - \euler^{i K_- z }}{\sqrt{2}} \yver \right) 
+	\euler^{ -i \omega t }
+\]
+El ángulo $\alpha$ de la onda linealmente polarizada se obtiene dividiendo las partes
+en $\xver$ y en $\yver$.
+Así tendremos
+\[
+	\tan\vp = \frac{\euler^{i K_+ z} - \euler^{i K_- z }}{\euler^{i K_+ z} + \euler^{i K_- z }}
+\]
+y esta expresión se puede ``simetrizar'' para obtener
+\[
+	\tan\vp = \frac{\euler^{i ( K_+/2 - K_-/2 ) z} - \euler^{- i ( K_+/2 - K_-/2 ) z }}
+	{ \euler^{i  ( K_+/2 - K_-/2 )  z} + \euler^{-i ( K_+/2 - K_-/2 ) z } }
+\]
+\[
+	\tan \vp = \tan\Frac{(K_+ - K_-)z}{2}
+\]
+y como $K_+ =\omega/c \: n_+$ y $K_- =\omega/c \: n_-$ se tiene finalmente
+\[
+	\vp = \frac{\omega z}{2c}( n_+ - n_- ).
+\]
+  
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 4. Mixed tips}
+
+Tenemos un mal conductor (un conductor pobre) y un buen conductor.
+La ecuación general es
+\[
+	\lapm{E} + \frac{\mu\varepsilon\omega^2}{c^2}
+	\left[ 1 + i \frac{4\pi\sigma}{\omega\varepsilon}\right] E =0
+\]
+donde toda la constante que acompaña al campo es una $K^2$ efectiva (para que tengamos una
+ecuación de Helmholtz). Luego en un conductor bueno desprecio el 1 porque $\sigma$ es
+constante y muy grande. En un conductor magro no se puede despreciar el 1 claramente porque
+$\sigma$ es muy pequeño y entonces tengo dos expresiones para $K^2$. En este último caso
+aproximamos $ K = \sqrt{1 + \chi }\sim 1 + 1/2 \:\chi$.
+Entonces
+\[
+	K \approx (1+i)\frac{\sqrt{2\pi\sigma\mu\omega}}{c} = \frac{1+i}{\delta} \qquad \qquad
+	K \approx \sqrt{\mu\varepsilon} \frac{\omega}{c}\left[ 1 + i \frac{2\pi\sigma}{\omega\varepsilon}\right]
+\]
+para conductor bueno y magro, respectivamente.
+El siguiente gráfico ilustra los diferentes comportamientos
+
+\includegraphics[width=0.40\textwidth]{images/fig_ft1_problema4A.jpg} 
+
+En el problema se piden calcular
+$ \vm{\mu_E}, \vm{\mu_H}, \vm{W} = \vm{\pe{J}{E}}$ siendo esta última la energía disipada
+por efecto Joule.
+
+Digamos en sumario que un buen conductor disipa más energía; $\mu_E$ disminuye y
+$\mu_E < \mu_B$, es más magnético que eléctrico. Por lo tanto el material se comporta
+de forma inductiva. Un conductor magro en cambio disipa menos energía, entonces
+$\mu_E > \mu_B$, el conductor expulsa corriente y el material se comporta en forma
+capacitiva.
+
+Se define el factor de mérito $Q$ de la siguiente forma (una cuenta que haremos para un
+buen y para un mal conductor)
+\[
+	Q \equiv \omega \frac{ \vm{\mu} }{ \vm{W}} =
+	\begin{cases}
+	\displaystyle \frac{\varepsilon \omega}{4 \pi \sigma} \gg 1 &\qquad \text{ mal conductor } \\
+	\\
+	\displaystyle \frac{1}{2} &\qquad \text{ buen conductor}
+	\end{cases}
+\]
+Se ve que para el caso de buen conductor la relación entre la energía en el campo y la
+disipada es fija y no depende de nada.
+
+{\bf Otra cosa}
+
+¿Pero qué sucede cuando una onda atraviesa un conductor bueno en el contorno?
+La situación está depicted en el gráfico siguiente:
+
+\includegraphics[width=0.40\textwidth]{images/fig_ft1_problema4B.jpg} 
+
+\[
+	\begin{cases}
+	 E_{t_2} - E_{t_1} = 0 \\
+	 \\
+	 H_{t_2} - H_{t_1} = \frac{4 \pi}{c} g \quad \text{ perfecto }
+	\end{cases}
+\]
+y vemos que no hay deltas en el rhs de la segunda condición [?]. En el caso de conductor bueno
+(no perfecto) se tiene un cero y entonces $  H_{t_2} - H_{t_1} = 0 $.
+
+En la zona $\textcircled{1}$
+\[
+	\vb{E}_1 = E_0 \: \euler^{i (K_1x - \omega t)} \yver  \qquad \qquad 
+	\vb{H}_1 = \frac{c}{\mu \omega} \pv{k_1}{E_1} = \frac{E_0}{\sqrt{\mu/\varepsilon}} 
+	\euler^{i (k_1x - \omega t)} \zver
+\]
+
+En la zona $\textcircled{2}$, teniendo en cuenta que aquí $k_2 = (1 + i) / \delta$ resulta
+\[
+	\vb{E}_2 = E_0 \euler^{-x/\delta} \euler^{i (x/\delta - \omega t)} \xver
+	\qquad \qquad 
+	\vb{H}_2 = \frac{E_0 \euler^{-x/\delta} \euler^{i (x/\delta - \omega t)} }
+	{ \sqrt{\mu/\varepsilon} \sqrt{\omega\varepsilon/(4\pi\sigma)} \euler{-i\pi/4} }\xver
+\]
+\notamargen{Check que el campo $\vb{H}$ sea en $x$ versor.}
+
+Y vemos que $\vb{H}$ siempre se puede llevar al campo $\vb{E}$ sobre algo que tiene unidades
+de impedancia.
+En la zona $\textcircled{1}$ los campos $\vb{E}, \vb{B}$ viajan en fase pues la impedancia es un
+número real. En la zona $\textcircled{2}$ los campos viajan desfasados porque la impedancia es
+compleja; hay un desfasaje de $\pi/4$.
  
 \end{ejemplo}
+
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
