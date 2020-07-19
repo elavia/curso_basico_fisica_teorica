@@ -1883,6 +1883,94 @@ Se evaluarán
 	\int_S T\nver dS - \int_V \dpar{\vb{g}}{t} dV.
 \]
 donde $\vb{g}$ es la densidad de momento lineal del campo electromagnético.
+El tensorete es
+\[
+	T_{ij} = \frac{1}{4\pi}
+	\left[
+	E_i D_j + B_i B_j - \frac{1}{2} \: ( \pe{E}{D} + \pe{B}{H} ) \: \delta_{ij}
+	\right]
+\]
+y el valor promedio de la densidad de momento en el volumen será, para un cierto
+período $\tau$
+\[
+	\vm{ \int_V \dpar{\vb{g}}{t} dV } =
+	\frac{1}{\tau} \int_0^{\tau} \int_V \dpar{g}{t} dV =
+	\frac{1}{\tau} \int_0^{\tau} \int_V \left[ g(\tau) - g(0) \right] dV \to 0,
+\]
+esto último porque $\tau$ es largo y $g(\tau)$ oscila. Pero $\tau$ es un tiempo promedio
+cualquiera no es un período aquí, y luego robamos on esta integral metiéndola hacia adentro.
+
+Considerando la fuerza en $ \zver $ (porque es la presión) no necesito considerar todos
+los componentes, luego
+\[
+	\vm{\vb{F}_z} = \int_{m1} \vm{ T_{zz} }_1|_{z=a} dS - 
+	\int_{m2} \vm{ T_{zz} }_1|_{z=0} dS
+\]
+\[
+	T \cdot \nver = T_{xz} \xver + T_{yz} \yver + T_{zz} \zver
+\]
+siendo la presión de radiación la expresión
+\[
+	P_{\text{Rad}} = \left[ - \vm{ T_{zz} }_1 + \vm{ T_{zz} }_2 \right]_{z=0}
+\]
+luego
+\[
+	T_{zz} = \frac{1}{4\pi}\left( 
+	\vare E_z^2 + \frac{1}{\mu} B_z^2 - \frac{1}{2}( \vare E^2 + \mu^{-1} B^2 ) 
+	\right)
+\]
+ 
+Consideramos el TE, ver figura
+
+\includegraphics[width=0.40\textwidth]{images/fig_ft1_problema5_ondasB.jpg}
+
+Dados los campos, para el medio ``2''
+\[
+	\vb{E}'= E' \euler^{i ( \pe{k}{x} - \omega t)} \xver
+	\qquad 
+	\vb{B}'= - \sqrt{ \mu_2\vare_2 } \: E' \euler^{i ( \pe{k}{x} - \omega t)} 
+	\: ( \sin(r)\zver + \cos(r)\yver )
+\]
+será
+\[
+	\vm{T_{zz}}_z = - \frac{1}{8\pi} \vare_z {E'}^2 \cos^2(r)
+\]
+
+Para el medio ``1'', los campos son
+\[
+	\vb{E} = \euler^{i ( k_y y - \omega t)} 
+	\left[ E_i \euler^{ -i k_z z } + E_r \euler^{ i k_z z } \right]
+\]
+\[
+	\vb{B} = \mu_1\vare_1 \euler^{i ( k_y y - \omega t)}
+	\left\{ 
+	 \left[ E_i \euler^{ -i k_z z } + E_r \euler^{ i k_z z } \right] \cos(i) \yver -
+	\left[ E_i \euler^{ -i k_z z } + E_r \euler^{ i k_z z } \right] \sin(i) \zver
+	\right\}
+\]
+y las condiciones nos conducen a
+\[
+	i) \quad E_z = 0
+\]
+\[
+	ii) \quad \mathcal{Re}( B_z B_z^*) =
+	\mu_1\vare_1( E_i^2 + E_r^2 - 2 E_i E_r \cos( 2 k_z z) \sin^2( i ) )
+\]
+\[
+	iii) \quad \mathcal{Re}( \vb{E}\cdot\vb{E}^*) = 
+	E_i^2 + E_r^2 + 2 E_i E_r \cos( 2 k_z z)
+\]
+\begin{multline*}
+	iv) \quad \mathcal{Re}( \vb{B}\cdot\vb{B}^*) =
+	\mathcal{Re}( B_z B_z^*) + \mathcal{Re}( B_y B_y^*) = \\
+	\mu_1\vare_1( E_i^2 + E_r^2 - 2 E_i E_r \cos( 2 k_z z) \sin^2( i ) ) \\
+	+ \mu_1\vare_1( E_i^2 + E_r^2 + 2 E_i E_r \cos( 2 k_z z) \cos^2( i ) ) 
+\end{multline*}
+
+Sumando los resultados de $i),ii), iii), iv)$ se llega a
+\[
+	P_{\text{Rad}} = \frac{\vare_1}{8\pi}(E_i^2 + E_r^2) \cos^2(i) - \frac{\vare_2}{8\pi} E' \sin^2(i)
+\]
  
 \end{ejemplo}
 
