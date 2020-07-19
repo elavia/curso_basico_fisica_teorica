@@ -1735,9 +1735,160 @@ compleja; hay un desfasaje de $\pi/4$.
  
 \end{ejemplo}
 
+\begin{ejemplo}{\bf Problema 7 (Experiencia de Wiener)}
+
+Se muestra en la figuretta un conductor perfecto, un espejo perfecto.
+
+\includegraphics[width=0.40\textwidth]{images/fig_ft1_problema7A_ondas.jpg} 
+
+Planteamos las prescripciones de los campos, dado el sistema coordenado.
+\[
+	\vb{B} = \sqrt{\mu\vare} \:\pv{k}{E}
+\]
+\[
+	\vb{E}_i = E_i \euler^{ i ( \pe{k_i}{x} - \omega t )} \xver \qquad \qquad 
+	\vb{B}_i = \sqrt{\mu\vare} \: E_i \: \euler^{ i ( \pe{k_i}{x} - \omega t ) } 
+	\hat{k}_i\times\hat{x}
+\]
+\[
+	\vb{E}_r = E_r \euler^{ i ( \pe{k_r}{x} - \omega t )} \xver \qquad \qquad 
+	\vb{B}_r = \sqrt{\mu\vare} \: E_r \: \euler^{ i ( \pe{k_r}{x} - \omega t ) } 
+	\hat{k}_r\times\hat{x}
+\]
+
+Evaluaremos los contornos. En el material el campo eléctrico es nulo, pero el contorno
+asociado al campo magnético no es nulo porque hay densidad de corriente superficial al
+rebotar la onda incidente,
+\[
+	E_r + E_i = 0 \qquad \qquad ( \vb{B}_i + \vb{B}_r ) \times \hat{n} = 0
+\]
+\notamargen{El producto escalar $ ( \vb{B}_i + \vb{B}_r ) \cdot \hat{n} $ lleva en
+realidad a la ley de Snell.}
+Podemos descomponer los vectores de onda según
+\[
+	\vb{k}_i = \vb{k}_y + \vb{k}_z \qquad \qquad 
+	\vb{k}_r = \vb{k}_y - \vb{k}_z 
+\]
+donde 
+\[
+	k_y = |k|\sin( i) \qquad k_z = |k|\cos( i) .
+\]
+Entonces
+\[
+	\vb{E} = E_i ( \euler^{ i ( \pe{k_i}{x} - \omega t)} - 
+	\euler^{i ( \pe{k_r}{x} - \omega t)} ) \xver
+\]
+y los vectoriales son
+\[
+	\hat{k}_i \times \xver = - \sin(i) \zver + \cos(i) \yver
+	\qquad \qquad 
+	\hat{k}_r \times \xver = - \sin(i) \zver - \cos(i) \yver
+\]
+de manera que el campo magnético
+\[
+	\vb{B} = -E_i \sqrt{\mu\vare} 
+	\left[ 
+	( \euler^{ i ( \pe{k_i}{x} - \omega t)} - \euler^{i ( \pe{k_r}{x} - \omega t)} ) 
+	\sin(i) \zver
+	( \euler^{ i ( \pe{k_i}{x} - \omega t)} + \euler^{i ( \pe{k_r}{x} - \omega t)} ) 
+	\cos(i) \yver
+	\right]
+\]
+
+Simplificando un poco las expresiones anteriores,
+\[
+	\vb{E} = 2 i E_i \euler^{ i k_i y } \euler^{ - i \omega t)} \sin( k_z z )
+\]
+\[
+	\vb{B} = 2 E_i \sqrt{\mu\vare} \euler^{ i k_i y } 
+	\left[ 
+	- i \sin( k_z z ) \sin(i ) \zver +
+	\cos( k_z z ) \cos(i ) \yver
+	\right]
+\]
+y entonces el vector de Poynting 
+\[
+	\vm{\vb{S}} = \frac{c}{8\pi \mu} \mathcal{Re}( \vb{E}^* \times \vb{B} )
+\]
+resulta
+\[
+	\vm{\vb{S}} = \frac{c}{8\pi \mu} 4 \sqrt{\mu\vare} E_i^2 \sin^2(k_z z )\sin(i) \yver,
+\]
+tenemos flujo en la dirección $\yver$. Se tienen, además,
+\[
+	\vm{\mu_E} = \frac{\vare}{16\pi} 4 E_i^2 \sin^(k_z z) 
+\]
+\[
+	\vm{\mu_M} = \frac{\vare}{4\pi} E_i^2 
+	\left(
+	\sin^2(k_zz) \sin^2(i) + \cos^2(k_zz) \cos^2(i)
+	\right)
+\]
+Con incidencia normal $i=0$ se tiene vector de Poynting promedio nulo. Hay ondas estacionarias
+en ese caso.
+
+{\bf Incidencia normal}
+
+Consideramos $i=0$ ahora. El Poynting promedio es nulo, pero 
+\[
+	\vm{\mu_E} = \frac{\vare}{4\pi} E_i^2 \sin^(k_z z) 
+	\qquad 
+	\vm{\mu_M} = \frac{\vare}{4\pi} E_i^2 \cos^2(k_zz) \cos^2(i) 
+\]
+
+\includegraphics[width=0.40\textwidth]{images/fig_ft1_problema7B_ondas.jpg} 
+
+En $ z = 0 $ se tienen $ \vm{\mu_E} = 0 $ y $ \vm{\mu_M} \neq 0$ si la placa está en $\vp=0, z=0$
+no se registra nada y entonces $\vb{E}$ es el vector óptico.
+
+Cuando $ \vp \neq 0 $ y existe un $ d > 0 $  se imprimen franjas oscuras en los máximos de $E$.
+El máximo de $ \vm{\mu_E} $ vendrá de la cuenta
+\[
+	kz = \left( n + \frac{1}{2}\right) \pi
+\]
+y será 
+\[
+	z_M = \frac{\lambda}{2} \left( n + \frac{1}{2}\right)
+\]
+con un espaciamiento entre máximos (interfranja) de $ \Delta D = 1 / (2\sin\vp)$.
+
+{\bf Incidencia 45$^\circ$}
+
+La incidencia es $ i = \pi / 4 $ y entonces seno y coseno dan lo mismo $1/\sqrt{2}$ de modo
+que el TE nos da la información
+\[
+	\vm{\mu_E} = \frac{\vare}{16\pi} 4 E_i^2 \sin^(k_z z / \sqrt{2})  \qquad 
+	z_M = \frac{\lambda}{\sqrt{2}} \left( n + \frac{1}{2}\right) \qquad 
+	\Delta D = \frac{ 1 }{ ( \sqrt{2} \sin\vp ) }
+\]
+
+Para el TM no hace falta hacer las cuentas nuevamente. Es similar al TE pero con $\vb{E}=\vb{B}$
+de manera que $ \vm{\mu_E}^{\text{TM}} = \vm{\mu_B}^{\text{TE}} $ y será
+\[
+	\vm{\mu_B}^{\text{TE}} = \frac{\vare}{8\pi} E_i^2,
+\]
+que es uniforme (no hay franjas).
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 5 (presión de radiación)}
+
+Veamos el dibujete
+
+\includegraphics[width=0.40\textwidth]{images/fig_ft1_problema5_ondas.jpg}
+
+No me interesará la componente tangencial porque se hace tender la pared a cero.
+Se evaluarán
+\[
+	\int_S T\nver dS - \int_V \dpar{\vb{g}}{t} dV.
+\]
+donde $\vb{g}$ es la densidad de momento lineal del campo electromagnético.
+ 
+\end{ejemplo}
+
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
-\end{document}
+\end{document} 

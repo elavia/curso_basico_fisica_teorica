@@ -127,6 +127,19 @@ Estamos queriendo generar una estructura geométrica para pasar entre sistemas i
 
 	
 Este espacio 4D es el de Minkowski y no es euclídeo.
+Un punto de este espacio es lo que se llama un {\it evento}; el radio vector posición en
+este espacio.
+
+Busquemos ahora la transformación inversa. Dado que
+\[
+	\begin{cases}
+	x^{0'} = \gamma (x^0 - \beta x^3) \\
+	\\
+	x^{3'} = \gamma (x^3 - \beta x^0)
+	\end{cases}
+\]
+y entonces se tienen los componentes contravariantes de las coordenadas del evento,
+que verifican
 \[
 	\begin{pmatrix}
 	 x^{0'} \\
@@ -148,12 +161,47 @@ Este espacio 4D es el de Minkowski y no es euclídeo.
 	 x^{3} \\
 	\end{pmatrix}
 \]
-
-La transformación inversa se obtiene tomando los reemplazos
+y la transformación inversa, que se obtiene tomando los reemplazos
 \[
-	x^{i'} \to x^i \quad ,\quad  x^i \to x^{i'} \quad ,\quad  \beta \to -\beta
+	x^{i'} \to x^i \quad ,\quad  x^i \to x^{i'} \quad ,\quad  \beta \to -\beta,
 \]
-El elemento invariante de línea es 
+permite hallar los componentes covariantes de dichas coordenadas que verifican
+\[
+	\begin{pmatrix}
+	 x^{0} \\
+	 x^{1} \\
+	 x^{2} \\
+	 x^{3} \\
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+	\gamma & 0 & 0 & \beta\gamma \\
+	0 & 1 & 0 & 0 \\
+	0 & 0 & 1 & 0\\
+	\beta\gamma  & 0 & 0 & \gamma \\
+	\end{pmatrix}
+	\begin{pmatrix}
+	 x^{0'} \\
+	 x^{1'} \\
+	 x^{2'} \\
+	 x^{3'} \\
+	\end{pmatrix}
+\]
+
+En realidad hemos considerado una transformación de Lorentz muy sencilla. Una 
+más general será
+\[
+	\begin{cases}
+	x^{\alpha'} = x^{\alpha'}(x^0, x^1, x^2, x^3) \\
+	\\
+	x^{\alpha} = x^{\alpha}(x^{0'}, x^{1'}, x^{2'}, x^{3'})
+	\end{cases}
+\]
+que nos da el radio vector contravariante y el covariante, respectivamente.
+Cada coordenada es función de todas las otras.
+
+
+El elemento diferencial de línea, que es un invariante, es 
 \[
 	ds^2 = (dx^0)^2 - (dx^1)^2 - (dx^2)^2 - (dx^3)^2 = ds^{'2}
 \]
@@ -161,7 +209,7 @@ o bien
 \[
 	ds^2 = g_{\alpha\beta}dx^{\alpha}dx^{\beta}
 \]
-que es el tensor de la métrica. Se verifica
+que define el tensor de la métrica. Se verifica
 \[
 	g_{\alpha\beta} = g^{\alpha\beta} =
 	\begin{pmatrix}
@@ -201,9 +249,18 @@ que es invariante por ser un escalar de Lorentz,
 	A_\alpha B^\alpha = A'_\alpha B'^\alpha
 \]
 
+Se ve que las reglas de transformación son tales que en el producto interno se cancelan los factores
+y el mismo resulta, como es sano que suceda, independiente del sistema coordenado.
+No cualesquiera cuatro cantidades forman los componentes de un cuadrivector.
+
 \subsubsection{Intervalos entre eventos}
 
-Los intervalos deben ser invariantes relativistas y de Lorentz, si el intervalo es temporal se tiene 
+La distancia entre evento origen y un evento cualquiera es
+\[
+	S^2 = g_{\alpha\beta} X^\alpha X^\beta = (ct)^2 - (x^1)^2 - (x^2)^2 - (x^3)^2,
+\]
+pero los intervalos deben ser invariantes relativistas y de Lorentz.
+Si el intervalo es temporal se tiene 
 \[
 	x^0 > x^i x_i \Rightarrow \delta s^2 > 0  
 \]
@@ -215,6 +272,9 @@ y los eventos no pueden estar conectados causalmente. Se cumple
 \[
 	\delta s^2 = (x^0)^2 - [ (x^1)^2 + (x^2)^2 + (x^3)^2 ]
 \]
+
+Como $\delta s^2$ es un invariante, entonces el carácter del mismo se conserva en todos
+los sistemas inerciales.
 
 \subsubsection{Operadores diferenciales}
 
@@ -228,6 +288,8 @@ que es la derivada covariante, y también la derivada respecto de una coordenada
 \]
 que es la derivada contravariante. Note la asimetría entre derivo respecto de arriba y es derivada abajo
 y viceversa. La notación abreviada puede inducir a confusiones.
+\notamargen{En el operador $\partial_{\alpha}$ el subíndice cambia de ubicación pero se mantiene el
+caracter (contra-) o (co-) variante del operador.}
 
 La cuadridivergencia de un cuadrivector es un invariante,
 \[
@@ -240,7 +302,11 @@ y aquí vemos $\partial_\alpha A^\alpha = \partial^\alpha A_\alpha$. Esto nos ll
 \[
 	\Box \equiv \partial_\alpha \partial^\alpha = \dpar[2]{}{x^0} - \nabla^2
 \]
-S es el intervalo entre los eventos 1 y 2, y es un invariante lorentziano
+
+{\bf Conexión de sucesos}
+
+Sean dos sucesos $x_1^\alpha, x_2^\alpha$ tales que 
+$s^2$ es el intervalo entre los mismos (al cuadrado), y es un invariante lorentziano
 \[
 	s^2 = c^2( t_1 - t_2 )^2 - | \vb{x}_1 - \vb{x}_2 |^2
 \]
@@ -257,14 +323,36 @@ $c^2 < 0$ se tiene
 y existe entonces frame inercial donde los dos eventos son en el mismo sitio $x_1=x_2$ y entonces $c\delta t 
 < 0$ y $t_2 < t_1$ de manera que no pueden estar conectados causalmente.
 
+Sea 
+\[
+	dt'= \gamma \left( dt - \frac{v}{c^2} dz \right)
+\]
+y si es $\textcircled{2}$ posterior a $\textcircled{1}$ en $S$ entonces $dt > 0 $.
+Entonces $ dt'$ puede ser mayor, menor o igual a cero (no respeta la temporalidad de $S$).
+
+El orden temporal se puede alterar pasando de $S$ a $S'$, pero en ese caso se rompe la causalidad.
+En todos aquellos intervalos donde tienen diferentes signos $dt$ y $dt'$ se viola el principio de causalidad.
+Dos sucesos estarán relacionados causalmente si dado $dt > 0$ se tiene 
+\[
+	dt > \frac{v}{c^2} dz
+\]
+y eligiendo $S'$ fijo a la señal que se emite y siendo $v$ la velocidad de propagación de la señal, será
+\[
+	1 > \frac{v}{c^2} \dtot{z}{t} = \frac{v^2}{c^2}
+\]
+para que ninguna señal se pueda mover a mayor velocidad que la de la luz (porque tiene que valer la
+causalidad).
+El gráfico siguiente intenta ilustrar estas consideraciones.
+Suponemos haz de luz desde el $-\infty$ que pasa por el origen
+
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/fig_ft1_intervalos.pdf}	 
+	\includegraphics[width=0.7\textwidth]{images/fig_ft1_intervalos.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
 
-Según se interpreta claramente del gráfico de la figura [ampliar].
+Ahora se ve lo que pasa para otro observador haciendo un cambio de coordenadas 
 \[
 	x'^0 = \gamma (x^0 - \beta x^3) \qquad x'^3 = \gamma (x^3 - \beta x^0)
 \]
@@ -279,6 +367,11 @@ o bien $x^0 = \beta x^3$ y aquí es $x'^3 = 0$ de modo que
 y entonces $a$ de la figura puede ser causado por un suceso en el origen pero $b$ no tiene 
 conexión causal con el origen.
 
+Para el observador $S'$ el punto $b$ está debajo de su ``ahora'' que es el pasado.
+Por otra parte $a$ para el observador S es el futuro. Para este mismo observador, el punto
+$b$ está en ``cualquier otra parte'' de tal manera que no puede estar conectado causalmente
+con el origen.
+
 \subsection{Transcurso del tiempo en un sistema con V grande}
 
 Sea $v/c$ no despreciable 
@@ -291,7 +384,7 @@ Sea $v/c$ no despreciable
 pero si en $S'$ la partícula está en reposo es $v = dz/dt $ de manera que 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.3\textwidth]{images/fig_ft1_vgrande.pdf}	 
+	\includegraphics[width=0.3\textwidth]{images/fig_ft1_vgrande.pdf} 
 	\end{center}
 	\caption{}
 \end{figure} 
@@ -305,35 +398,49 @@ de modo que $ \Delta t' < \Delta t$, en $S'$ el tiempo transcurre más lentament
 
 \subsubsection{Número de onda y conteo}
 
-Un proceso de conteo (discreto) es invariante lorentziano
+Un proceso de conteo (discreto) es invariante lorentziano, pero no así el medir
+longitudes.
+Supongamos un aparato que cuenta el número de crestas de ondas (que viajan con velocidad
+$c$).
+Cuento en $x^3$ entre
+
+\includegraphics[width=0.6\textwidth]{images/fig_ft1_sr_ondas.jpg}
+
 \[
 	x'^3 = \gamma ( x^3 - \beta x^0 )
 \]
-siendo \vb{v} entre sistemas $SS'$.
-El número de crestas es 
+siendo \vb{v} entre los sistemas $S$ y $S'$.
+El número de crestas que cuenta el aparato es 
 \[
 	\#_s = \frac{ z_1 - z }{ \lambda } = \frac{ k }{ 2\pi }( z_1 - z ) = \frac{ k }{ 2\pi }( ct - z ) = 
 	\frac{ 1 }{ 2\pi }( \omega t - kz )
 \]
+donde se ha usado que $z_1 = ct $, luego para un observador primado se tendrá consecuentemente
 \[
 	\#_s' = \frac{ 1 }{ 2\pi }( \omega' t' - k'z' )
 \]
 y se puede generalizar
 \[
-	\pe{k'}{x'} - \omega' t' = \pe{k}{x} - \omega t
+	\pe{k'}{x'} - \omega' t' = \pe{k}{x} - \omega t,
 \]
+lo cual nos conduce a ver que
 \[
-	-\left( \pe{k'}{x'} - \frac{\omega' x'^0 }{c} \right) = -\left( \pe{k}{x} - \frac{\omega x^0 }{c}  
-\right)
+	-\left( \pe{k'}{x'} - \frac{\omega' x'^0 }{c} \right) = 
+	-\left( \pe{k}{x} - \frac{\omega x^0 }{c}  \right)
 \]
-es un invariante lorentziano como
-\[
-	k_\alpha x^\alpha = k^\alpha x_\alpha
-\]
-donde el cuadrivector de onda se define
+es un invariante lorentziano de acuerdo con
+\be
+	k_\alpha x^\alpha = k_{\alpha}' x^{'\alpha}
+	\label{escalar_kx}
+\ee
+Entonces dado ese comportamiento se puede definir el cuadrivector de onda como
 \[
 	k^\alpha = \left( \frac{\omega}{c}, \vb{k}\right).
 \]
+
+Una onda plana debe ser invariante relativista. En una onda plana la ecuación de invariancia
+\eqref{escalar_kx} conduce al efecto Doppler. En el caso relativista depende de la velocidad
+relativa entre fuente y observador.
 
 % =================================================================================================
 \section{Forma covariante del electromagnetismo}
