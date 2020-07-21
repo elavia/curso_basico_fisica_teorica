@@ -442,6 +442,139 @@ Una onda plana debe ser invariante relativista. En una onda plana la ecuación d
 \eqref{escalar_kx} conduce al efecto Doppler. En el caso relativista depende de la velocidad
 relativa entre fuente y observador.
 
+\subsection{Efecto Doppler relativista}
+
+Volamos a la transformación entre sistemas $S$ y $S'$, teníamos
+\[
+	k'_z = \gamma \left( k_z - \beta \frac{\omega}{c} \right) \qquad \qquad 
+	\frac{\omega'}{c}  = \gamma \left( \frac{\omega}{c} - \beta k_z \right)
+\]
+y de estas dos diferentes $k_z$ surge el efecto Doppler.
+Se tienen los sistemas (el sin primar es en una galaxia)
+
+\includegraphics[width=0.6\textwidth]{images/fig_ft1_sperel_doppler1.jpg}
+
+y serán
+\[
+	k_z = k \cos\theta \qquad 
+	\frac{\omega'}{\gamma \omega} = 1 - \beta \cos \theta
+\]
+donde $\theta$ es el ángulo del número de onda con el eje $\zver$.
+Considerando la transformación inversa (acercamiento)
+$ \omega  = \omega' \gamma \left( 1 + \beta \cos\theta' \right) $ resulta
+\[
+	\frac{\omega'}{\gamma \omega} = \frac{ 1 }{ \gamma^2( 1 + \beta \cos \theta' ) }
+\]
+
+Ahora bien, tomando $\beta \ll 1 $ resulta
+\[
+	\omega \approx \omega \left( 1 - \frac{v}{c} \cos\theta \right)
+\]
+y a primer orden, con $\theta \sim \theta'$ usando 
+\[
+	\tan\theta = \frac{\sin\theta}{\gamma(\cos\theta -\beta)}.
+\]
+
+Veamos casos particulares de la invariancia del producto escalar.
+
+{\bf Caso 1}
+
+En este caso son paralelos la velocidad y el vector de onda, i.e. $\vb{v} \parallel \vb{k}$
+se tienen $k_x=k_y=0$ y $k_z=k$ entonces
+\[
+	k' =  \gamma k (1 - \beta) = k \sqrt{ \frac{1-\beta}{1+\beta} }
+\]
+luego,
+\[
+	\omega' = \omega \sqrt{ \frac{1-\beta}{1+\beta} } \qquad 
+	\lambda' = \lambda \sqrt{ \frac{1+\beta}{1-\beta} }
+\]
+donde $\beta > 0 $ implica alejamiento y $\beta < 0 $ implica acercamiento.
+Luego la diferencia de longitudes de onda es
+\[
+	\Delta \lambda = \lambda' - \lambda = 
+	\lambda \: \frac{ \sqrt{1+\beta} - \sqrt{1-\beta} }{ \sqrt{1-\beta} } 
+	\approx \lambda \beta
+\]
+de lo cual se deduce que a primer orden en $\beta$ es $\Delta\lambda \sim \lambda\beta$.
+
+Queríamos ver si es una buena aproximación, usamos
+\[
+	\frac{\lambda'}{\lambda} = \sqrt{\frac{1+\beta}{1-\beta}} = 
+	\frac{ 14580 \:\mathrm{ \AA} }{ 6560 \:\mathrm{ \AA}}
+\]
+que es el cociente entre la longitud de onda medida en la tierra respecto de la misma
+que viene de la estrella.
+Entonces
+\[
+	\Frac{\lambda'}{\lambda}^2 = \Frac{1+\beta}{1-\beta}^{-1} = 0.202
+\]
+de modo que $\beta = 0.664$. Pero usando la aproximación
+\[
+	\beta = \frac{\Delta \lambda}{\lambda} = 1.223.
+\]
+Y entonces es claro que se necesita $\beta$ chico para que valga la aproximación hecha
+más arriba.
+
+{\bf Caso 2}
+
+En este caso son perpendiculares la velocidad y el vector de onda, i.e. $\vb{v} \perp \vb{k}$,
+se tiene un efecto Doppler transversal.
+
+\includegraphics[width=0.6\textwidth]{images/fig_ft1_sperel_doppler2.jpg}
+
+Se tienen en este caso $k_x' = k_x,  k_y'= k_y , k_z = 0 $ y es
+\[
+	k_z'= - \gamma \beta k  \qquad 
+	{k'}^2= \gamma^2 k^2
+\]
+de modo que $ k' = \gamma k $ y $ \omega' = \gamma \omega $.
+Vemos que en este caso el efecto Doppler transversal es notable solo a orden dos, es un fenómeno
+netamente relativista ($\gamma$ es de orden cuadrado en su efecto). A orden cero (clásico) no hay
+efecto.
+
+Supongamos una partícula a velocidad constante según el observador $S$. Sean dos sucesos de esa
+partícula.
+\[
+	c \Delta t' =  \gamma c \Delta t \left( 1 - \frac{\beta}{c} \frac{\Delta z}{\Delta t} \right)
+\]
+\[
+	\Delta t' = \Delta t \sqrt{1 - \beta^2} = \frac{\Delta t}{\gamma}
+\]
+donde el intervalo de tiempo primado es tiempo propio pues en $S'$ la partícula está en reposo.
+Se ve que en el sistema $S'$ el tiempo transcurre más lentamente, $ \Delta t' < \Delta t $.
+
+Si no hay sistema en el cual se halle en reposo, podemos pensar en un intervalo infinitesimal
+donde está en reposo instante a instante pero cambia.
+\[
+	dt'=  \sqrt{ 1 - \beta^2 } dt = d\tau
+\]
+
+\subsubsection{Ejemplo relojes}
+
+Tenemos la situación depicted en el figurin:
+
+\includegraphics[width=0.6\textwidth]{images/fig_ft1_sperel_mellizos.jpg}
+
+Tenemos un reloj 1 en S y un reloj 2 en S' dando la vuelta a la galaxia.
+Se tiene
+\[
+	\tau_2 - \tau_1 = \int_{\tau_1}^{\tau_2} d\tau = 
+	\int_{t_1}^{t_2} \sqrt{ 1 - \frac{v^2(t')}{c^2}} dt < t_2 - t_1
+\]
+y estos sistemas no son equivalentes. Es la paradoja de los mellizos.
+El tiempo pasa más lento para el que viajó
+\[
+	\tau_2 - \tau_1 = \frac{1}{c} \int_{a}^{b} ds
+\]
+
+La métrica de Minkowski no corresponde a una euclideana.
+
+\includegraphics[width=0.6\textwidth]{images/fig_ft1_sperel_mellizos2.jpg}
+
+En el espacio de Minkwoski la línea recta es la distancia mayor entre dos puntos.
+
+
 % =================================================================================================
 \section{Forma covariante del electromagnetismo}
 % =================================================================================================
@@ -450,17 +583,18 @@ Partimos de la ecuación de continuidad para la carga,
 \[
 	\dpar{\rho}{t} + \divem{J} = 0
 \]
+\notamargen{La conservación de la carga es una de las leyes más firmemente establecidas.}
 la cual con la definición del cuadrivector corriente
 \[
 	J^\mu = ( c\rho , \vb{J} )
 \]
 se puede escribir como 
 \[
-	\partial_\mu J^\mu = \dpar{c\rho}{ct} + \divem{J} = 0 .
+	\partial_\mu J^\mu = \dpar{ (c\rho)}{(ct)} + \divem{J} = 0 .
 \]
 
-La formulación covariante empleaba el gauge de Lorentz (así las ecuaciones son validas en cualquier sistema
-inercial), el gauge de Lorentz era
+La formulación covariante empleaba el gauge de Lorentz (es necesario) puesto que con él las 
+ecuaciones son válidas en cualquier sistema inercial. El gauge de Lorentz era
 \[
 	\frac{1}{c} \dpar{\phi}{t} + \divem{A} = 0
 \]
@@ -477,7 +611,7 @@ Se podía ver que resultan ecuaciones de onda inhomogéneas para los potenciales
 \[
 	\Nabla^2 \vb{A} - \frac{1}{c^2} \dpar[2]{\vb{A}}{t} = -\frac{4\pi}{c} \vb{J}
 \]
-que viene a ser 
+que viene a ser, usando el D'alembertiano, 
 \[
 	\partial_\mu\partial^\mu = \Box \vb{A} = \frac{4\pi}{c} \vb{J}
 \]
@@ -495,12 +629,42 @@ Al aplicar el D'Alembertiano a un cuadrivector obtenemos otro cuadrivector
 	\Box A^\mu = \frac{4\pi}{c} J^\mu.
 \]
 
-Los campos \vb{E}, \vb{B} forman parte de un tensor de segundo rango antisimétrico llamado tensor
-de intesidad de campo 
+
+Veamos qué sucede con las ecuaciones de Maxwell en forma tensorial.
+Recordemos que toda ecuación de igualdad de entes tensoriales en el espacio
+de Minkowski es covariante.
+\notamargen{Otros gauges sirven bien si no me interesa pasar de un sistema a otro.}
+
+Teníamos
+\[
+	\vb{E} = -\Nabla \phi - \frac{1}{c}\dpar{\vb{A}}{t}, 
+\]
+de modo que en términos del cuadripotencial
+\[
+	E_i = - \partial_i A^0 -\partial^0 A^i = -( \partial^0 A^i - \partial^i A^0)
+\]
+y luego el campo $\vb{B}$ viene del rotor del cuadripotencial, por lo tanto
+\[
+	B_x = \dpar{A_z}{y} - \dpar{A_y}{z} = \partial^3A^2 - \partial^2A^3
+\]
+del mismo modo que
+\[
+	B_y = \dpar{A_x}{z} - \dpar{A_z}{x} = \partial^1A^3 - \partial^3A^1 \qquad 
+	B_z = \partial^2A^1 - \partial^1A^2
+\]
+y entonces se puede definir un ente
 \[
 	F^{\alpha\beta} = \partial^\alpha A^\beta - \partial^\beta A^\alpha
 \]
-que matricialmente se puede ver como 
+que unifica notaciones para los dos campos.
+
+Los campos \vb{E}, \vb{B} forman parte de un tensor de segundo rango antisimétrico llamado tensor
+de intensidad de campo (tiene diagonal nula),
+\[
+	F^{\alpha\beta} = \partial^\alpha A^\beta - \partial^\beta A^\alpha
+\]
+que tendrá seis elementos independientes. Tres para el campo eléctrico y tres para el magnético.
+Matricialmente se puede ver como 
 \[
 	F^{\alpha\beta} =
 	\begin{pmatrix}
@@ -531,6 +695,14 @@ Entonces las ecuaciones de Maxwell en forma covariante explícita resultan
 	\partial_\alpha \mathcal{F}^{\alpha\beta} =  0 \qquad \qquad 
 	\partial_\alpha F^{\alpha\beta} =  \frac{4 \pi}{c} J^\alpha.
 \]
+
+\begin{ejemplo}{\bf Comentario corrientes parásitas}
+
+Un conductor en el seno de un campo magnético genera sobre sí al moverse corrientes
+de Foucault o turbillonarias que tienden a frenar su movimiento.
+ 
+\end{ejemplo}
+
 
 \subsection{Transformación de los campos}
 
@@ -945,7 +1117,7 @@ Cualitativamente vemos que $v_x$ crece a medida que ingresa en la zona de campo 
 constante se tiene que $\gamma$ aumenta y aumenta la inercia de modo que disminuye $|\vb{v}|$ y describe
 aproximadamente una parábola.
 
-\subsection{cuadrivelocidad}
+\subsection{Cuadrivelocidad}
 
 \vb{u} no transforma como cuadrivector (¿que u?), pero lo que sí transforma así es
 \[
