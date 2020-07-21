@@ -372,6 +372,151 @@ Por otra parte $a$ para el observador S es el futuro. Para este mismo observador
 $b$ está en ``cualquier otra parte'' de tal manera que no puede estar conectado causalmente
 con el origen.
 
+\begin{ejemplo}{\bf Problema}
+ 
+No relativista será la información propia (desde el sistema donde se produce el evento solidario
+al objeto). Tenemos $K, K'$ sistemas inerciales, donde el segundo se mueve con velocidad \vb{V}
+con respecto al primero. Suponemos $\vb{V} = V\zver$.
+\[
+	\xver \parallel \xver' \qquad 
+	\yver \parallel \yver' \qquad 
+	\zver \parallel \zver'
+\]
+Una barra moviéndose en $K'$ a velocidad constante medida desde $K$
+\[
+	\begin{cases}
+		L'= Z_1'- Z'_0 \\
+		L= Z_1- Z_0
+	\end{cases}
+\]
+y entonces tenemos la contracción de Lorentz
+\[
+	L = \frac{L'}{\gamma} \leq L',
+\]
+la longitud de un objeto es relativa.
+
+Consideremos dos eventos en un punto fijo $\vb{x}'_1 = \vb{x}'_2$ (sigo un evento).
+Una lámpara que está encendida $t'_1=0$ y se apaga en $t'_2=t'=\tau'$.
+¿Cómo se ven desde laboratorio estos eventos? Transformo a laboratorio.
+\[
+	\Delta t = \tau =  \gamma \tau'> \tau
+\]
+y el tiempo transcurrido desde el laboratorio es mayor.
+
+Un muón no relativista tendrá $\tau'= 2.2 \cdot 10^{-6}$ seg. Los muones siempre
+están medidos en tiempo de laboratorio.
+\[
+	d = 1907 \text{ m } \: t=0 \quad 
+	v = 0.9952 c \quad 
+	\Delta t = 6.3873 \cdot 10^{-6} \text{ seg }
+\]
+dado que en $t=0$ se miden 573 muones por hora, en $t_0 = 6.3873 \cdot 10^{-6}$ se verán 
+424 muones por hora.
+Entonces
+\[
+	N(t) = N(0) \euler^{t/\tau}
+\]
+de lo cual se deduce $\tau = 2.2527 \cdot 10^{-5}$ seg.
+Entonces desde $\tau = \gamma \tau'$ será 
+\[
+	\beta = \sqrt{ 1 - \Frac{\tau'}{\tau}^2 } = 0.9952,
+\]
+de manera que según relatividad el resultado está consistente.
+
+Las magnitudes contables son invariables relativistas.
+
+\notamargen{Lorentz vincula sistemas inerciales; a velocidad constante entre ellos.}
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema }
+
+Algunas cuentas sobre Doppler relativista. La fase es un invariante de manera que
+\[
+	\pe{k}{x} - \omega t = \pe{k'}{x'} - \omega t' \qquad 
+	\vb{k}_\parallel^{'} = \gamma \left( \vb{k}_\parallel - \beta \frac{\omega}{c} \right)
+\]
+Considerando que $\theta$ es el ángulo entre $\vb{V}$ y $\vb{k}$ y además
+$\vb{\beta} = \vb{V}/c$ con $\gamma = (\sqrt{1-\beta^2})^{-1}$ se tienen
+\[
+	\vb{k}_\perp = \vb{k}_\perp \qquad \omega'= \gamma( \omega - c \pe{\beta}{k} )
+\]
+y definimos los módulos con
+\[
+	|\vb{k}| = \frac{\omega}{c} \qquad |\vb{k}'| = \frac{\omega}{c}
+\]
+donde
+\[
+	\begin{cases}
+	 \omega' = \gamma \omega ( 1 - \beta\cos\theta ) \\
+	 \tan\theta' = \gamma \sin\theta /( \cos\theta - \beta)
+	\end{cases}
+\]
+siendo la transformación de Galileo
+\[
+	\begin{cases}
+	 $\vb{x}$_{\parallel}' = $\vb{x}$_{\parallel}' - $\vb{V}$ t \\
+	 $\vb{x}$_{\perp}' = $\vb{x}$_{\perp} \\
+	 t'= t
+	\end{cases}
+\]
+lo cual nos lleva a
+\[
+	\vb{k}_{\parallel} \cdot \vbx_{\parallel} + \vb{k}_{\perp} \cdot \vbx_{\perp} - \omega t =
+	\vb{k}_{\parallel}' \cdot (\vbx_{\parallel} - \vb{V}t ) + \vb{k}_{\perp}'  \cdot \vbx_{\perp} - \omega' t
+\]
+\[
+	\vb{k}_{\parallel}' = \vb{k}_{\parallel} \qquad \qquad 
+	\vb{k}_{\perp}' = \vb{k}_{\perp}
+\]
+luego se tendrá $\omega =  \vb{k}_{\parallel}' \cdot \vb{V} + \omega'$
+\[
+	\omega' = \omega ( 1 - \beta \cos\theta ),
+\]
+que es la ecuación del efecto Doppler relativista.
+
+Por otra parte,
+\[
+	\gamma = \frac{1}{\sqrt{1 - \beta^2}} = 1 + \frac{1}{2}\beta^2
+\]
+que nos conduce a
+\[
+	\frac{\omega'}{\omega} - 1 =   \frac{1}{2}\beta^2 - \beta \cos\theta 
+\]
+
+Si estoy tratando de forzar la situación para obtener corriemientos opuestos
+\[
+	f_{nr} = - \beta\cos\theta \qquad
+	f_r = \frac{1}{2} \beta^2 - \beta\cos\theta
+\]
+entonces
+\[
+	\begin{cases}
+	 f_{nr} > 0 \quad \text{ si } \quad \cos\theta < 0 \\
+	 f_{nr} < 0 \quad \text{ si } \quad \cos\theta > 0 \\
+	 f_{r} > 0 \quad \text{ si } \quad \cos\theta < 1/2 \beta  \\
+	 f_{r} < 0 \quad \text{ si } \quad \cos\theta > 1/2 \beta
+	\end{cases}
+\]
+necesitaré $ 0 < \cos\theta < 1/2 \beta$ o bien
+
+	\includegraphics[width=0.3\textwidth]{images/fig_ft1_sr_dopplerA.jpg}
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_sr_dopplerB.jpg} 
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema}
+
+\[
+	\tan\theta' = \gamma \sin\theta /( \cos\theta - \beta)
+\]
+y basta con ver lo que sucede en $\theta'= \pi/2, -\pi/2$. En su mayor parte, la energía toda
+se va para adelante.
+
+\end{ejemplo}
+
+
 \subsection{Transcurso del tiempo en un sistema con V grande}
 
 Sea $v/c$ no despreciable 
@@ -521,7 +666,7 @@ más arriba.
 En este caso son perpendiculares la velocidad y el vector de onda, i.e. $\vb{v} \perp \vb{k}$,
 se tiene un efecto Doppler transversal.
 
-\includegraphics[width=0.6\textwidth]{images/fig_ft1_sperel_doppler2.jpg}
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_sperel_doppler2.jpg}
 
 Se tienen en este caso $k_x' = k_x,  k_y'= k_y , k_z = 0 $ y es
 \[
