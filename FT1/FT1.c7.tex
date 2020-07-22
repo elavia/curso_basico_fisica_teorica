@@ -819,9 +819,26 @@ Matricialmente se puede ver como
 	 E_z & -B_y & B_x & 0 \\
 	\end{pmatrix}
 \]
-También se suele definir un tensor de intensidad de campo dual
+Utilizando la métrica $g_{\mu\nu}$ podemos arribar a la versión covariante
 \[
-	\mathcal{F}^{\alpha\beta} =  \frac{1}{2} \varepsilon^{\alpha\beta\gamma\delta} F_{\gamma\delta}
+	F_{\alpha\beta} = g_{{\alpha\mu}} g_{{\alpha\nu}} F^{\mu\nu} 
+	= g_{{\alpha\mu}} F^{\mu}_{\ \alpha}
+\]
+\[
+	F_{\alpha\beta} =
+	\begin{pmatrix}
+	 0 & E_x & E_y & E_z \\
+	 E_x & 0 & -B_z & B_y \\
+	 E_y & B_z & 0 & B_x \\
+	 E_z & -B_y & B_x & 0 \\
+	\end{pmatrix}
+\]
+
+También es conveniente definir un tensor de intensidad de campo dual,
+con ambos índices contravariantes,
+\[
+	\mathcal{F}^{\alpha\beta} =  \frac{1}{2} 
+	\vare^{\alpha\beta\gamma\delta} F_{\gamma\delta}
 \]
 que no es otra cosa que 
 \[
@@ -833,13 +850,69 @@ que no es otra cosa que
 	 B_z & E_y & -E_x & 0 \\
 	\end{pmatrix}
 \]
-y donde $\varepsilon^{\alpha\beta\gamma\delta}$ es el tensor de Levi-Civita de cuatro dimensiones, que es nulo
-cuando se repite un índice.
-Entonces las ecuaciones de Maxwell en forma covariante explícita resultan 
+y donde $\varepsilon^{\alpha\beta\gamma\delta}$ es el tensor de Levi-Civita 
+de cuatro dimensiones -totalmente antisimétrico-, que es nulo cuando se repite un índice.
+
+\begin{ejemplo}{\bf Tensor dual}
+
+Sea por ejemplo el elemento $\mathcal{F}^{01}$,
 \[
-	\partial_\alpha \mathcal{F}^{\alpha\beta} =  0 \qquad \qquad 
+	\mathcal{F}^{01} = \frac{1}{2} \: \vare^{01\gamma\delta} \: F_{\gamma\delta},
+\]
+así que dado el comportamiento del tensor de Levi-Civita se tienen
+\[
+	\mathcal{F}^{01} = \frac{1}{2} \: \left( 
+	\vare^{ 0123} \: F_{23} +
+	\vare^{ 0132} \: F_{32}
+	\right),
+\]
+dado que toda otra posibilidad es nula. Entonces
+\[
+	\mathcal{F}^{01} = \vare^{ 0123}  \: F_{23}
+\]
+y vemos que se pasa del $F$ al $\mathcal{F}$ con la regla
+\[
+	\vb{E}\to\vb{B} \qquad \qquad \vb{B}\to -\vb{E}
+\]
+\end{ejemplo}
+
+
+Se querrá entonces escribir las ecuaciones de Maxwell en forma covariante explícita, lo
+que significa que no cambiarán de forma al pasar entre sistemas inerciales.
+
+Tomamos las dos ecuaciones con fuentes, y se ve que las podemos expresar según
+\[
+	\partial_i E_i = \frac{4 \pi }{c} J^0 = \partial_i F^{i0} = \partial_{\alpha} F^{\alpha 0},
+\]
+asimismo
+\[
+	\partial_2 B_{3} - \partial_3 B^{2} - \partial_0 E^{1} = 
+	\frac{4 \pi }{c} J^1 = \partial_{\alpha} F^{\alpha 1}
+\]
+es la componente 1 del mismocuadrivector. Entonces
+\[
 	\partial_\alpha F^{\alpha\beta} =  \frac{4 \pi}{c} J^\alpha.
 \]
+resume las dos ecuaciones de Maxwell con fuentes.
+
+Con respecto a las ecuaciones sin fuentes
+\[
+	\partial_i \mathcal{F}^{0i} =  0 =
+	\partial_\alpha \mathcal{F}^{0\alpha} 
+\]
+entonces 
+\[
+	\partial_\alpha \mathcal{F}^{\alpha \beta}  = 0
+\]
+resume las ecuaciones sin fuentes.
+Si se usa el tensor directo quedan expresadas como
+\[
+	\partial^\alpha \mathcal{F}^{\beta\gamma} +
+	\partial^\beta \mathcal{F}^{\gamma\alpha} +
+	\partial^\gamma \mathcal{F}^{\alpha\beta} = 0.
+\]
+Recordemos que usaremos índices griegos para los cuatros componentes $0,1,2,3$ e índices
+latinos para la parte espacial $1,2,3$.
 
 \begin{ejemplo}{\bf Comentario corrientes parásitas}
 
@@ -851,21 +924,42 @@ de Foucault o turbillonarias que tienden a frenar su movimiento.
 
 \subsection{Transformación de los campos}
 
-L transformación de Lorentz era 
+Volviendo a la transformación de Lorentz de los sistemas $S$ a $ S'$ 
 \begin{align*}
 	ct' &= \gamma \: [ ct - \pe{\beta}{x} ] \\
 	\mathbf{x'}_\parallel &= \gamma \: [ \mathbf{x}_\parallel - {\beta}ct ] \\
 	\mathbf{x'}_\perp &= \mathbf{x}_\perp
 \end{align*}
-con $\vb{\beta} = \vb{v}/c$ y donde la transformación de los campos \vb{E}, \vb{B}
+con $\vb{\beta} = \vb{v}/c$ y siendo la matriz de la transformación la siguiente
+\[
+	a^{\mu}_{\nu} = 
+	\begin{pmatrix}
+	\gamma & 0 & 0 & -\gamma\beta \\
+	0 & 1 & 0 & 0 \\
+	0 & 0 & 1 & 0 \\
+	-\gamma\beta & 0 & 0 & \gamma
+	\end{pmatrix}
+\]
+se tiene $ F^{\mu\nu'} = a^{\mu}_{\lambda} a^{\nu}_{\sigma} F^{\lambda\sigma}$
+donde $ F^{\lambda\sigma} $ es el tensor con índices contravariantes.
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_transfCampo1.pdf}	 
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_transfCampo1.pdf}
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_transfCampo2.pdf} 
 	\end{center}
 	\caption{}
 \end{figure} 
 
+La transformación de los campos \vb{E}, \vb{B} según la figura superior satisface 
+\begin{align*}
+	&E'_x = \gamma ( E_x - \beta B_y ) &\qquad B'_x = \gamma ( B_x + \beta E_y ) \\
+	&E'_y = \gamma ( E_y + \beta B_x ) &\qquad B'_y = \gamma ( B_y - \beta E_x ) \\
+	&E'_z = E_z \qquad \qquad \qquad & \qquad \qquad \qquad B'_z = B_z &  
+\end{align*}
+y separando los campos en componentes paralelas y perpendiculares, esto es
+$\vb{E} = \vb{E}_\parallel + \vb{E}_\perp $ y $\vb{B} = \vb{B}_\parallel + \vb{B}_\perp $
+se tienen
 \[
 	\vb{E}' = \vb{E}_\parallel + \gamma \: ( \vb{E}_\perp  + \pv{\beta}{B} )
 \]
@@ -879,31 +973,25 @@ que se pueden poner como
 \]
 \[
 	\vb{B}' = - \frac{ \gamma^2 }{ \gamma + 1 }\vb{\beta} (\pe{\beta}{B}) + 
-		\gamma \: ( \vb{B}  - \pv{\beta}{E} )
+		\gamma \: ( \vb{B}  - \pv{\beta}{E} ).
 \]
-y recordemos que la transformación de Galileo era
+
+Recordemos que la transformación de Galileo era
 \[
 	\vb{E}' = \vb{E} + \frac{1}{c} \pv{V}{B} \qquad \qquad 
 	\vb{B}' = \vb{B} - \frac{1}{c} \pv{V}{E}
 \]
-siendo el segundo término el que da origen a las corrientes de Foucault al mover un conductor en el seno
-de un campo \vb{B}.
+siendo el segundo término el que da origen a las corrientes de Foucault al mover 
+un conductor en el seno de un campo \vb{B}.
+Las chapas en un transformador aisladas buscan cortas las corrientes de Foucault.
+No conviene diseñar un aparato que tenga que moverse en el seno de un campo
+magnético si es de material conductor.
 
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_transfCampo2.pdf}	 
-	\end{center}
-	\caption{}
-\end{figure} 
 
-Según la figura superior la transformación de los campos satisface 
-\begin{align*}
-	E'_x = \gamma ( E_x - \beta B_y ) \qquad B'_x = \gamma ( B_x + \beta E_y ) \\
-	E'_y = \gamma ( E_y + \beta B_x ) \qquad B'_y = \gamma ( B_y - \beta E_x ) \\
-	E'_z = E_z \qquad B'_z = B_z 
-\end{align*}
-
-Las contracciones del producto escalar entre el tensor de intensidad son invariantes. Así, por ejemplo,
+Las contracciones del producto escalar entre el tensor de intensidad son invariantes.
+\notamargen{Como estamos poniendo contracciones opuestas se compensan los efectos 
+entre sí y dan invariantes [?].}
+Así, por ejemplo,
 \begin{align*}
 	F^{\alpha\beta}F_{\alpha\beta} &= 2( B^2 - E^2 ) \\
 	\mathcal{F}^{\alpha\beta}\mathcal{F}_{\alpha\beta} &= 2( E^2 - B^2 ) \\
@@ -914,13 +1002,18 @@ Sea
 \[
 	\mathcal{F}^{\alpha\beta}F_{\alpha\beta} = -4 \: \pe{B}{E} = 0,
 \]
-entonces $\vb{E} \perp \vb{B}$ o alguno de los campos es nulo en todo sistema inercial. Para una carga 
-que se mueve con velocidad \vb{v} se tiene $\vb{B}=0$ en un sistema en el que $q$ está en reposo de manera
-que 
+entonces $\vb{E} \perp \vb{B}$ o alguno de los campos es nulo en todo sistema inercial.
+Lo mismo si se tiene que el invariante es mayor a cero; lo será en todos los sistemas
+inerciales.
+
+Para una carga que se mueve con velocidad \vb{v} se tiene $\vb{B}=0$ en un sistema en 
+el que $q$ está en reposo de manera que 
 \[
 	\pe{B}{E} = \pe{B'}{E'} = 0
 \]
-siempre y entonces $\vb{E'} \perp \vb{B'}$ para cualquier sistema inercial S'.
+siempre y entonces $\vb{E'} \perp \vb{B'}$ para cualquier sistema inercial $S'$. El 
+campo magnético que crea la partícula será perpendicular al campo eléctrico en toda
+situación.
 
 Un sistema electromagnético dependiente del tiempo intercambiará \vb{p} con el campo entonces no vale el
 principio de acción y reacción ,
@@ -934,7 +1027,16 @@ mientras que
 
 \subsection{Covarianza con medios materiales}
 
-En presencia de medios materiales puede definirse
+Las ecuaciones sin fuentes tienen la misma forma en presencia de medios materiales.
+Las que cambian son las que tienen fuentes, porque ahora aparecen los campos $\vb{H}$
+y $\vb{D}$.
+
+Para un medio material podemos reemplazar el tensor $F^{\alpha\beta} $ por otro
+tensor $ G^{\alpha\beta}  $ tal que 
+\[
+	E_i \to D_i, \qquad B_i \to H_i
+\]
+donde 
 \[
 	G^{\alpha\beta} =
 	\begin{pmatrix}
@@ -944,24 +1046,34 @@ En presencia de medios materiales puede definirse
 	 D_z & -H_y & H_x & 0 \\
 	\end{pmatrix}
 \]
-y 
+que se puede pensar como otro tensor corrector?
 \[
-	F^{\alpha\beta} \to G^{\alpha\beta}, \quad E_i \to D_i, \quad B_i \to H_i
+	F^{\alpha\beta} = G^{\alpha\beta} + R^{\alpha\beta}, 
 \]
-si las relaciones constitutivas son 
+donde 
 \[
-	\vb{D} = \vb{E} + 4\pi\vb{P} \qquad\qquad \vb{H} = \vb{B} - 4\pi\vb{M}
+	R^{\alpha\beta} = 4 \pi
+	\begin{pmatrix}
+	 0 & -P_x & -P_y & -P_z \\
+	 P_x & 0 & M_z & -M_y \\
+	 P_y & -M_z & 0 & M_x \\
+	 P_z & -M_y & M_x & 0 \\
+	\end{pmatrix}
 \]
-desde 
+que provienen de las relaciones constitutivas
 \[
-	G^{\alpha\beta} = F^{\alpha\beta} + R^{\alpha\beta}
+	\vb{D} = \vb{E} + 4\pi\vb{P} \qquad\qquad \vb{H} = \vb{B} - 4\pi\vb{M}.
 \]
-y con 
+Finalmente
 \[
 	\partial_\alpha G^{\alpha\beta} = \frac{4\pi}{c} J^\beta
 \]
 donde la información de $P_i$ y $M_i$ está en el tensor $R^{\alpha\beta}$.
-Recordemos que los campos transforman según 
+Estamos diciendo que en un medio material los vectores $\vb{P}, \vb{M}$ se deben
+comportar como los elementos de un tensor.
+
+Procediendo en forma análoga a lo que se hiciera para los campos $\vb{E}$ y $\vb{B}$
+en la transformación de Lorentz, se tendrán los campos transforman según 
 \[
 	\vb{P}' = \vb{P}_\parallel + \gamma \: ( \vb{P}_\perp  - \pv{\beta}{M} )
 \]
@@ -979,14 +1091,17 @@ Habiéndonos situado en un espacio de Minkowski, tenemos la acción
 \[
 	S = -\alpha \int_a^b ds,
 \]
-siendo $\alpha$ una constante a fijar luego, y $ds$ un arco en el espacio minkowskiano. La acción debe ser 
-un invariante pues es un extremo.
+siendo $\alpha$ una constante a fijar luego, y $ds$ un arco en el espacio minkowskiano entre
+dos eventos $a$ y $b$. 
+La acción debe ser un invariante pues es un extremo y el intervalo $ds$ debe ser temporal,
 \[
-	ds = \sqrt{ c^2 dt^2 - dx^2 - dy^2 - dz^2 } = c dt \sqrt{ 1 - v^2/c^2 }
+	ds = \sqrt{ c^2 dt^2 - dx^2 - dy^2 - dz^2 } = 
+	c \: \sqrt{ 1 - v^2/c^2 } \: dt
 \]
 de manera que 
 \[
-	S = -\alpha \int_{t_1}^{t_2} c dt  \sqrt{ 1 - v^2/c^2 } = \int_{t_1}^{t_2} \mathcal{L} dt
+	S = -\alpha \int_{t_1}^{t_2} c \sqrt{ 1 - v^2/c^2 } \: dt = 
+	\int_{t_1}^{t_2} \mathcal{L} dt
 \]
 y donde $\mathcal{L}$ es el lagrangiano, 
 \[
@@ -1008,9 +1123,12 @@ A partir de las ecuaciones de Euler-Lagrange es
 \]
 y haciendo el álgebra,
 \[
-	p_i = \frac{ m v }{\sqrt{ 1 - v^2/c^2 }}
+	p_i = \frac{ m v_i }{\sqrt{ 1 - v^2/c^2 }},
 \]
-que es el momento relativista. Entonces
+donde $m$ es la masa en reposo y $p_i$ es el momento relativista. 
+Notemos que si $v=c$ entonces el momento diverge si $m\neq 0$, mientras que con m=0 no sabemos
+qué sucede.
+Entonces
 \[
 	\dtot{\vb{P}}{t} = m \dtot{}{t}\left( \frac{\vb{v}}{\sqrt{1 - v^2/c^2 }}\right).
 \]
