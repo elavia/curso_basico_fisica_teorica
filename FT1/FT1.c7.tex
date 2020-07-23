@@ -1222,6 +1222,223 @@ siendo
 \]
 el invariante asociado a la conservación (del cuadrimomento).
 
+\begin{ejemplo}{\bf Problema 11}
+ 
+Se espera que al tener una carga en movimiento aparezca en alguna parte una corriente.
+Consideramos un sistema $K'$ en movimiento relativo con respecto a otro sistema $K$.
+Con las definiciones usuales de $\beta$ y $\gamma$ tendremos
+\[
+	\vb{E}_\parallel' = \vb{E}_\parallel \qquad \qquad  
+	\vb{E}_\perp' = \gamma ( \vb{E}_\perp + \pv{\beta}{B} )
+\]
+\[
+	\vb{B}_\parallel' = \vb{B}_\parallel \qquad \qquad  
+	\vb{B}_\perp' = \gamma ( \vb{B}_\perp - \pv{\beta}{E} )
+\]
+de lo cual las inversas
+\[
+	\vb{E}_\perp' = \gamma ( \vb{E}_\perp - \pv{\beta}{B}' ) \qquad \qquad 
+	\vb{B}_\perp' = \gamma ( \vb{B}_\perp' + \pv{\beta}{E}' )
+\]
+
+Introduciendo la física en la transformación
+\[
+	\vb{E}' = q \: \frac{\vb{x}'}{|\vbx'|^3} \qquad \qquad \vb{B}' = 0
+\]
+y tendríamos que convertir a coordenadas sin primar.
+\[
+	\vb{E}_\parallel = \vb{E}_\parallel' =  q \: \frac{\vb{x}_\parallel'}{|\vbx'|^3} 
+	\qquad \qquad  \vb{E}_\perp = \gamma \vb{E}_\perp' 
+\]
+\[
+	\vb{B}_\parallel = \vb{B}_\parallel' = 0 \qquad \qquad  
+	\vb{B}_\perp = \gamma \pv{\beta}{E}_\perp' 
+\] 
+donde son
+\[
+	\vbx_\parallel' = \gamma ( \vbx_\parallel - c \vb{\beta}t ) 
+	\qquad \qquad \vbx_\perp' = \vbx_\perp,
+\]
+y luego la norma será
+\[
+	|\vbx'|^2 = |\vbx_\parallel'|^2 + |\vbx_\perp'|^2 =
+	\gamma^2 ( \vbx_\parallel - c \vb{\beta}t )^2 + |\vbx_\perp'|^2
+\]
+Juntando todo podemos escribir
+\[
+	\vb{E}_\parallel = \frac{q ( \vbx_\parallel - c \vb{\beta}t ) }
+	{ (\gamma^2 ( \vbx_\parallel - c \vb{\beta}t )^2 + |\vbx_\perp'|^2)^{3/2} } 
+	\qquad \qquad  
+	\vb{E}_\perp = \frac{ q \: \gamma \vbx_\perp }
+	{ (\gamma^2 ( \vbx_\parallel - c \vb{\beta}t )^2 + |\vbx_\perp'|^2)^{3/2} } 
+\]
+\[
+	\vb{B}_\parallel = 0 \qquad \qquad  
+	\vb{B}_\perp = \pv{\beta}{E}_\perp 
+\] 
+Entonces tenemos dos partículas con velocidad perpendicular.
+Un sistema dependiente del tiempo intercambia momento con el campo.
+ 
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_speRel_prob11A.jpg} 
+ 
+Aquí tenemos la expresión de los campos producidos por una partícula en movimiento vista
+desde un sistema reposante, el sistema que se mueve está en la partícula.
+Presupusimos que ambos coinciden en $x=0$ y $t=0$.
+En esta situación se verá que no vale acción y reacción.
+
+Veamos ahora los campos para $q'$ donde 
+\[
+	\vb{\beta}' = \frac{V'}{c}\yver \qquad \qquad \gamma' = \frac{1}{\sqrt{ 1 - {\beta'}^2}}
+\]
+\[
+	\vb{E}_\parallel = 0 (t=0)  \qquad \qquad  
+	\vb{E}_\perp = \gamma' q' \frac{1}{b} \xver 
+\]
+\[
+	\vb{B}_\parallel = B_y \yver = 0 \qquad \qquad  
+	\vb{B}_\perp = - \frac{\gamma' q' V' }{cb^2} \zver 
+\]  
+y la fuerza de Lorentz, sobre $q$ debido a $q'$, será
+\[
+	\vb{F} = \frac{\gamma q q'}{b^2}\left( \xver + \frac{VV'}{c^2} \yver \right)
+\]
+ 
+Ahora corremos el sistema de referencia, que es el eje $\yver$. Recordemos que los sistemas
+siempre están en reposo. No están en movimiento relativo.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_speRel_prob11B.jpg} 
+
+Se tienen ahora
+\[
+	\vb{E}_\parallel = - \frac{ q }{ \gamma^3 b^2} \xver \qquad \vb{E}_\perp = 0 
+	\vb{B}_\parallel = 0 \qquad \qquad  \vb{B}_\perp = 0
+\]
+de tal manera que el campo total es $\vb{B}=0$ y $\vb{E}=\vb{E}_\parallel$.
+La fuerza será
+\[
+	\vb{F} = - \frac{q q'}{\gamma^3 b^2} \xver ,
+\]
+y vemos que no es la misma expresión.
+
+Hay momento que se va hacia alguna parte; las partículas transfieren momento hacia afuera
+(hacia el campo).
+\[
+	\vb{P}_\text{campo} = \frac{1}{4\pi} \int_V \: \pv{E}{B} \: dV
+\]
+pero habría que calcular el campo para todo el espacio puesto que el integrando abarca todo.
+Si tomo el volumen muy grande y usamos la expresion [CITA]
+\[
+	\dtot{P_\text{mec}}{t} + \dtot{P_\text{campo}}{t}  = \int_{S(v)} T \cdot \nver dS,
+\]
+será la integral de surface nula pues no se escapa energía. Entonces
+\[
+	\dtot{P_\text{mec}}{t} = - \dtot{P_\text{campo}}{t}
+\]
+y la fuerza de Lorentz será
+\[
+	\vb{F}_\text{Lorentz} = - \dtot{P_\text{campo}}{t} = 
+	-\dtot{}{t}\left( \frac{1}{4 \pi c} \int_V \: \pv{E}{B} \: dV \right)
+\]
+y esta cuenta debería dar lo mismo.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 13}
+
+Consideremos la cuenta
+\[
+	\pv{E'}{B'} = ( \vb{E}_\parallel' + \vb{E}_\perp' )\times( \vb{B}_\parallel' + \vb{B}_\perp' ) =
+	\vb{E}_\parallel' \times \vb{B}_\parallel' +
+	\vb{E}_\parallel' \times \vb{B}_\perp' +
+	\vb{E}_\perp' \times \vb{E}_\parallel' +
+	\vb{E}_\perp' \times \vb{B}_\perp' 
+\]
+que da cuatro términos de los cuales el primero es nulo, el segundo y tercero son proporcionales a
+$\vb{\beta}_\perp$ mientras que el cuarto es proporcional a $\vb{\beta}_\parallel$.
+Entonces tenemos la separación de los productos vectoriales de acuerdo con
+\[
+	( \pv{E'}{B'} )_\parallel = \pv{E'_\perp}{B'_\perp}
+	\qquad \qquad 
+	( \pv{E'}{B'} )_\perp = \pv{E'_\parallel}{B'_\perp} + \pv{E'_\perp}{B'_\parallel} 
+\]
+\[
+	( \pv{E'}{B'} )_\parallel = \gamma^2 ( \vb{E}_\perp + \pv{\beta}{B} ) \times ( \vb{B}_\perp + \pv{\beta}{E} )
+\]
+\[
+	( \pv{E'}{B'} )_\perp = \gamma \vb{E_\parallel} \times ( \vb{B}_\perp - \pv{\beta}{E} )
+	+ \gamma ( \vb{E}_\perp + \pv{\beta}{B} ) \times \vb{B_\parallel} 
+\]
+que conducen a
+\[
+	\pv{E_\perp}{B_\perp} - ( \vb{E}_\perp \times \pv{\beta}{E} ) + ( \pv{\beta}{B} ) \times \vb{B_\perp}  - 
+	( \pv{\beta}{B} ) \times ( \pv{\beta}{E} ) 
+\]
+de los cuales el primero es $(\pv{E}{B})_\parallel$, el segundo $-E^2_\perp \vb{\beta}$ mientras que
+el tercero
+\[
+	(\pe{\beta}{B})\vb{\beta} - (\pe{B}{B_\perp})\vb{\beta} = - B^2_\perp \vb{\beta}
+\]
+y el cuarto
+\[
+	( (\pv{\beta}{E})\cdot \vb{B} ) \vb{\beta} - [ (\pv{\beta}{E})\cdot \vb{\beta} ]\vb{B} =
+	[ (\pv{E}{B})\cdot \vb{\beta} ]\vb{\beta} = [ (\pv{E}{B})_\parallel \beta] \vb{\beta}
+\]
+de manera que 
+\[
+	(\pv{E'}{B'})_\parallel = \gamma^2 ( 1 + \beta^2 ) (\pv{E}{B})_\parallel -
+	\gamma^2 ( E^2_\perp + B^2_\perp ) \vb{\beta}.
+\]
+
+Ahora operamos $ (\pv{E'}{B'})_\perp $ y obtenemos
+\[
+	\gamma (\pv{E}{B})_\perp - \gamma \vb{E}_\parallel \times (\pv{\beta}{E}) +
+	\gamma ( \pv{\beta}{B}) \times \vb{B}_\parallel,
+\]
+y este último término se desarma como
+\[
+	\gamma (\pe{\beta}{B_\parallel})\vb{B} - (\pe{B}{B_\parallel})\vb{\beta} =
+	(\pe{\beta}{B})\vb{B}_\perp
+\]
+y puede verse que sucede lo mismo con el término que contiene al campo $\vb{E}$ de modo que
+\[
+	(\pv{E'}{B'})_\perp = \gamma (\pv{E}{B})_\perp + \gamma (\pe{\beta}{E}) \vb{E}_\perp 
+	+ \gamma (\pe{\beta}{B}) \vb{B}_\perp .
+\]
+
+Ahora habría que ver que hay un sistema de referencia donde se cumple que sean colineales.
+Entonces el producto vectorial será nulo.
+\[
+	\begin{cases}
+	( 1 + \beta^2 ) (\pv{E}{B})_\parallel = ( E^2_\perp + B^2_\perp ) \vb{\beta} \\
+	(\pv{E}{B})_\perp = -(\pe{\beta}{E}) \vb{E}_\perp - (\pe{\beta}{B}) \vb{B}_\perp
+	\end{cases}
+\]
+de manera que al ser colineales sucede que
+\[
+	( 1 + \beta^2 ) (\pv{E}{B}) = ( E^2_\perp + B^2_\perp ) \vb{\beta}  -
+	( 1 + \beta^2 ) [ (\pe{\beta}{E}) \vb{E}_\perp + (\pe{\beta}{B}) \vb{B}_\perp ]
+\]
+y además
+\[
+	\frac{\vb{V}}{1 + V^2/c^2} = c \frac{\pv{E}{B}}{E^2+B^2}
+\]
+de tal modo que 
+\[
+	( E^2 + B^2 )\vb{\beta} = ( 1 + \beta^2 )( \pv{E}{B} )
+\]
+y se deduce que $ ( \pv{E}{B} )_\perp = 0 $.
+Pero a la última parte no se llega fácil; presupongo $\pe{\beta}{E} = \pe{\beta}{B} = 0$
+y entonces de $\pe{E}{B} = 0$ tenemos que ambos campos son perpendicularesy puede ser que
+$\vb{E}= 0 = \vb{B}$, si en cambio son $\vb{E} \parallel \vb{B}$ (por lo que se vio antes) 
+se tendrá $E^2 - B^2 < 0$ o bien $E^2 - B^2 > 0$; si en un sistema es $E=0$ entonces será
+$B\neq 0$.
+Estamos usando como invariantes $\pe{E}{B}$ y $E^2-B^2$.
+
+ 
+\end{ejemplo}
+
+
+
 \subsection{Partícula en un campo electromagnético}
 
 Dado que es de la mecánica clásica $\Lag = T - V$ la acción correspondiente la podemos expresar  como 
