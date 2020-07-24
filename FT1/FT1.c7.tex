@@ -1150,12 +1150,17 @@ si en cambio es $ \dtot{|\vb{v}|}{t} \neq 0 $ se tiene
 donde el primer término en el RHS está asociado a la variación en la dirección y el segundo a la variación
 en la magnitud (hemos usado con $ \gamma^3 v^2/c^2 > \gamma $ ?). De esto se desprende que la inercia es
 mayor para variar la longitud de \vb{v} que su dirección. Es más fácil cambiar dirección que rapidez.
+\notamargen{En la carpeta hay otra cosa: Tengo
+$ \dtot{\vb{p}}{t} = \gamma^3 m \dtot{\vb{v}}{t} $.}
 
-Entonces
+Entonces, volviendo al langrangiano
 \[
 	E = \pe{p}{v} - \Lag = m \gamma v^2 + m c^2 \gamma^{-1} = m \gamma c^2
 \]
-y esta es la energía relativista de una partícula libre. Veamos el límite de bajas velocidades, es decir
+y esta es la energía relativista de una partícula libre. 
+\notamargen{Anoté que esta energía es compatible con el PAM,
+que calculo será el principio de acción mínima.}
+Veamos el límite de bajas velocidades, es decir
 que si $v/c \ll 1$ entonces 
 \[
 	\gamma = \sqrt{ 1 - v^2/c^2 } \approx 1 + \frac{v^2}{2c^2},
@@ -1164,11 +1169,13 @@ y resulta
 \[
 	E \approx  m c^2 + \frac{m v^2}{2} = E_0 + \frac{m v^2}{2}
 \]
-donde $E_0$ es una energía en reposo, que no depende de \vb{v} y podemos expresar la energía cinética como 
+donde $E_0$ es una energía en reposo, que no depende de \vb{v} y podemos 
+expresar la energía cinética como 
 \[
 	E - m c^2 = \frac{m v^2}{2} = T.
 \]
-Si es 
+
+Se puede definir
 \[
 	\vb{p} = m \vb{w},
 \]
@@ -1434,20 +1441,75 @@ se tendrá $E^2 - B^2 < 0$ o bien $E^2 - B^2 > 0$; si en un sistema es $E=0$ ent
 $B\neq 0$.
 Estamos usando como invariantes $\pe{E}{B}$ y $E^2-B^2$.
 
- 
 \end{ejemplo}
 
+\subsection{Principio de Hamilton e interacción electromagnética}
 
+Se parte de una variación de la acción
+\[
+	\delta S = - m c \: \delta \int_a^b \: ds
+\]
+donde $ds = \sqrt{ g_{\alpha\beta}dx^\alpha dx^\beta}$ de manera que 
+\[
+	- m c \delta \int_a^b \: \sqrt{ g_{\alpha\beta}dx^\alpha dx^\beta} =
+	- \frac{mc}{2} \int_a^b \: \frac{ \delta( dx_\mu dx^\mu)}{ \sqrt{ g_{\alpha\beta}dx^\alpha dx^\beta} }
+	= - m \int_a^b \: \delta( dx_\mu ) \dtot{x^\mu}{\tau}
+\]
+donde nos hemos sacado la raíz de encima. Esto ahora se puede integrar por
+partes,
+\[
+	\delta S = - m \int_a^b \: w^\nu \delta dx_\nu =  
+	- m w^\nu dx_\nu |_a^b + m \int_a^b \: w_\nu \delta x^\nu
+\]
+y como $a$ y $b$ son puntos fijos, el primer término se anula. Luego
+\[
+	\delta S =  m \int_a^b \: w^\nu \delta (dx_\nu)
+\]
+o bien
+\[
+	\delta S =  m \int_a^b \: \dtot{w^\nu}{\tau} \delta x_\nu  d\tau =
+	m \int_a^b \: a^\nu \delta x_\nu  d\tau,
+\]
+que implica que el cuadrivector aceleración $a^\mu$ debe ser nulo.
+Luego, la cuadrivelocidad de la partícula debe ser constante.
+Podemos escribir esta equivalencia 
+\[
+	\vb{p} = \Nabla S \quad \longrightarrow \quad  p^\mu = \partial^\mu S
+\]
+
+Consideremos ahora que el punto $a$ se varía (ya no es fijo) $ \delta x^\nu \equiv \delta x^\nu |_a \neq 0 $
+de manera que 
+\[
+	\delta S = m w^\nu \delta x_\nu
+\]
+y
+\[
+	p^\nu = m w^\nu = \dpar{S}{x_\nu}
+\]
+entonces
+\[
+	w^\nu = (\gamma c, \gamma \vb{v})
+\]
+es proporcional a la energía de la partícula. Luego, $p^\nu = ( m \gamma c, m \gamma \vb{v})$ y
+\[
+	p^0 = m \gamma c = \frac{ m \gamma c^2 }{c} = \frac{E}{c} = \dpar{S}{x^0}
+\]
+de modo que
+\[
+	\partial_\mu  S \partial^\mu S = m^2c^2
+\]
+es invariante lorentziano.
 
 \subsection{Partícula en un campo electromagnético}
 
 Dado que es de la mecánica clásica $\Lag = T - V$ la acción correspondiente la podemos expresar  como 
 \[
-	S = S_0 + S_inter = \int_{t_1}^{t_2} T dt - \int_{t_1}^{t_2} V dt
+	S = S_0 + S_{\text{inter}} = \int_{t_1}^{t_2} T dt - \int_{t_1}^{t_2} V dt
 \]
-es decir la suma de una parte libre y una de interacción. Luego 
+es decir la suma de una parte libre y una de interacción. Luego la acción no relativista (bajas
+velocidades) será
 \[
-	S_{inter}^{NR} = \int_{t_1}^{t_2} -e \phi dt =  -\int_{t_1}^{t_2} \frac{ e \phi }{c} d(ct) = 
+	S_{\text{inter}}^{NR} = \int_{t_1}^{t_2} -e \phi dt =  -\int_{t_1}^{t_2} \frac{ e \phi }{c} d(ct) = 
 		-\int_{x_1}^{x_2} \frac{ e A^0 }{c} dx^0
 \]
 si usamos los cuadrivectores 
@@ -1456,26 +1518,32 @@ si usamos los cuadrivectores
 \]
 y generalizamos 
 \[
-	S_{inter} = - \frac{e}{c} \int_{x_1}^{x_2} A_\mu dx^\mu
+	S_{\text{inter}} = - \frac{e}{c} \int_{x_1}^{x_2} A_\mu dx^\mu
 \]
 tendremos 
 \[
-	S_inter = \frac{e}{c} \int_{x_1}^{x_2} \left( \vb{A}\cdot d\vb{x} - c \phi dt \right) = 
-		\frac{e}{c} \int_{x_1}^{x_2} \left( \vb{A}\cdot\vb{v} - c \phi \right) dt
+	S_{\text{inter}} = \frac{e}{c} \int_{x_1}^{x_2} \left( \vb{A}\cdot d\vb{x} - c \phi dt \right) = 
+	\frac{e}{c} \int_{t_1}^{t_2} \left( \vb{A}\cdot\vb{v} - c \phi \right) dt
 \]
+\notamargen{Notemos que los límites de integración pasaron a ser los momentos temporales.}
 y finalmente el lagrangiano de una partícula en un campo electromagnético es 
 \[
 	\Lag = - m c^2 \sqrt{ 1 - v^2/c^2 } + \frac{e}{c} \pe{A}{v} - e \phi
 \]
 donde el primer término es el lagrangiano de partícula libre y la interacción viene luego. Esta lagrangiano 
 no es invariante de medida; sin embargo no perjudica porque en las ecuaciones de movimiento sólo entran las
-derivadas del mismo. Recordemos además que $\Lag$ no es invariante relativista pero la acción $S$ sí lo es.
+derivadas del mismo. Recordemos además que $\Lag$ no es invariante relativista (porque su integral temporal
+debiera ser invariante relativista [?]) pero la acción $S$ sí lo es.
 
 Para construir el hamiltoniano necesitamos el momento conjugado,
 \[
 	\vb{P} = \dpar{\Lag}{\vb{v}} = \vb{p} + \frac{e}{c}\vb{A} = m\gamma \vb{v} + \frac{e}{c}\vb{A}
 \]
-y siguiendo la prescripción usual $\Ham = \dpar{\Lag}{\vb{v}}\vb{v} -\Lag $,
+y siguiendo la prescripción usual 
+\[ 
+	\Ham = \dpar{\Lag}{\vb{v}}\vb{v} - \Lag,
+\]
+se arriba a
 \begin{multline*}
 	H = ( m\gamma \vb{v} + \frac{e}{c}\vb{A} )\vb{v} + mc^2(1-v^2/c^2)^{1/2} -
 		\frac{e}{c}\pe{A}{v} + e\phi = \\
@@ -1489,6 +1557,12 @@ de manera que el hamiltoniano en un campo es
 \[
 	H = m \gamma c^2 + e \phi
 \]
+En presencia de un campo electrostático tenemos esta versión de hamiltoniano, con energía
+cinética (el primer término) y potencial (el segundo). En el caso de un campo 
+magntetostático la expresión es solamente el primer término y se mantiene constante por
+ello la energía.
+
+Notemos lo siguiente
 \[
 	\vb{P} = m \gamma v + \frac{e}{c} \vb{A} \qquad \qquad H = m \gamma c^2 + e \vb{\phi}
 \]
@@ -1508,7 +1582,8 @@ sometida a un potencial electromagnético es
 \]
 que es un caso particular del xxxx.
 
-Para el caso de H es 
+Podemos usar esto para fabricarnos un hamiltoniano relativista.
+En efecto, se tendrá
 \[
 	H = c \sqrt{ m^2 c^2 + ( \vb{p} - \frac{e}{c}\vb{A} )} + e \phi
 \]
@@ -1522,12 +1597,23 @@ usando la aproximación de baja velocidad,
 \]
 donde tiro el término de reposo $mc^2$ y
 \[
-	H^{nr} \approx \frac{1}{2m} ( \vb{p} - \frac{e}{c}\vb{A} )^2 + e \phi
+	H^{nr} \approx \frac{1}{2m} ( \vb{p} - \frac{e}{c}\vb{A} )^2 + e \phi.
 \]
 
-Aplicando las ecuaciones de Euler-Lagrange al lagrangiano electromagnético hallado se llega a
+Ahora se aplicarán las ecuaciones de Euler-Lagrange al lagrangiano electromagnético hallado, para
+obtener el movimiento de una partícula cargada. Para eso notemos que
 \[
-	\dtot{\vb{P}}{t} = \dtot{}{t}(m\gamma\vb{v}) = e \left(  \vb{E} + \frac{1}{c}\pv{v}{B} \right)
+	\dpar{\Lag}{\vbx} \equiv 
+	\Nabla \Lag = \frac{e}{c} \Nabla (\pe{A}{v}) - e \Nabla \phi =
+	\frac{e}{c} (\vb{v}\cdot\Nabla) \vb{A} + \frac{e}{c} \vb{v} \times(\rotorm{A}) - e \Nabla \phi
+\]
+donde se ha usado la identidad ID 4 del apéndice. Luego
+\[
+	\dpar{\Lag}{\vb{v}} = \vb{p} + \frac{e}{c}\vb{A}
+\]
+y tomándole derivada temporal y juntando todo
+\[
+	\dtot{\vb{p}}{t} = \dtot{}{t}(m\gamma\vb{v}) = e \left(  \vb{E} + \frac{1}{c}\pv{v}{B} \right)
 \]
 qu es la fuerza de Lorentz con la corrección relativista. Es la misma expresión hallada otrora pero
 sin tener en cuanta la relatividad.
@@ -1537,8 +1623,10 @@ Si $\vb{E}=0$ entonces
 	\dtot{\vb{P}}{t} = m \gamma \dtot{\vb{v}}{t} \quad \text{pues} \quad \dtot{v}{t} = 0 
 \]
 y el campo \vb{B} sólo variará la dirección de \vb{v}, no su módulo.
+$S$ no es invariante relativista porque no está directamente conectada a ningún observable.
+
 El radio de giro de una partícula ciclotrón es mayor con la aproximación relativista que con la newtoniana
-porque su inercia es mayor $\gamma > 1$. Planteamos
+porque su inercia dada por su masa variable es mayor, puesto que $\gamma > 1$. Planteamos
 \[
 	|\vb{F}| = e v B
 \]
@@ -1566,7 +1654,16 @@ entonces
 \[
 	A'0 = \phi - \partial^0 f \qquad \qquad \vb{A}' = \vb{A} + \Nabla f
 \]
+La acción es 
+\[
+	S = \int_a^b \: \left( - m c ds + \frac{e}{c} A^\mu dx_\mu \right) =
+	\int_a^b \: \left( - m c ds + \frac{e}{c} {A'}^\mu dx_\mu + \frac{e}{c} \partial^\nu f dx_\nu \right)
+\]
+y lo último es una diferencial total exacta en el espacio de Minkowski $e/c \: df$; 
+no contribuye al cambio de gauge.
+
 El cambio de gauge no es invariante pero $\delta S = 0$ sí es invariante.
+\notamargen{Esto último parece un poco descolgado.}
 La cuadridensidad de fuerza de Lorentz 
 \[
 	f^\beta = - \partial_\alpha T^{\alpha\beta}.
@@ -1576,7 +1673,7 @@ La cuadridensidad de fuerza de Lorentz
 
 La situación física es la depicted en la figura bajo estas líneas
 \[
-	\dtot{\vb{P}}{t} = e\vb{E} = \frac{}{t}( m \gamma \vb{v} )
+	\dtot{\vb{P}}{t} = e\vb{E} = \dtot{}{t}( m \gamma \vb{v} )
 \]
 que lleva a un sistema hartocomplicado de resolver que es 
 
@@ -1595,7 +1692,9 @@ que lleva a un sistema hartocomplicado de resolver que es
 
 Cualitativamente vemos que $v_x$ crece a medida que ingresa en la zona de campo \vb{E} entonces como $v_y$ es
 constante se tiene que $\gamma$ aumenta y aumenta la inercia de modo que disminuye $|\vb{v}|$ y describe
-aproximadamente una parábola.
+aproximadamente una parábola (curva catenaria).
+
+En estos problemas estamos despreciando la energía radiada por la partícula.
 
 \subsection{Cuadrivelocidad}
 
