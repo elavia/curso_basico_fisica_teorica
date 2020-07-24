@@ -1721,6 +1721,220 @@ De esta manera el cuadrimomento es
 	p^\mu = ( m\Gamma c, m \Gamma \vb{u}) \qquad \Rightarrow \qquad m W^\mu = p^\mu.
 \]
 
+\begin{ejemplo}{\bf Problema 14}
+
+Tenemos un cable con corriente o cilindro
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_setup_problema14.jpg}
+
+\[
+	\int_S \: \vb{E}\cdot d\vb{S} = 4 \pi Q \qquad \qquad 
+	\int_\Gamma \: \vb{B}\cdot d\Bell = \frac{ 4 \pi }{c} I_c
+\]
+Los campos serán
+\[
+	2 \pi r h E = 4 \pi 
+	\begin{cases}
+	\pi R^2 h \rho \quad \rho > R \\ 
+	\pi r^2 h \rho \quad \rho < R
+	\end{cases}
+	\qquad \qquad
+	2 \pi r B = \frac{ 4 \pi }{ c }
+	\begin{cases}
+	\pi R^2 j \quad \rho > R \\ 
+	\pi r^2 j \quad \rho < R
+	\end{cases}
+\]
+\[
+	\vb{ E } = 
+	\begin{cases}
+	\frac{ 2 \pi R^2 \rho }{ r^2 } \vbx \quad \rho > R \\ 
+	2 \pi \rho \vbx \quad \rho < R
+	\end{cases}
+	\qquad \qquad
+	\vb{B} = 
+	\begin{cases}
+	\frac{ 2 \pi R^2 }{ c r } j \hat{\theta} \quad \rho > R \\ 
+	\frac{ 2 \pi r j }{ c } \hat{\theta} \quad \rho < R
+	\end{cases}
+\]
+
+Tenemos los invariantes y entonces $\pe{E}{B} \propto \rver\cdot\thetaver $ entonces al final
+serán $\vb{E}, \vb{B}$ serán perpendiculares.
+\[
+	E^2 = \frac{ 4 \pi^2 R^4 \rho^2 }{ r^2 } \qquad B^2 = \frac{ 4 \pi^2 R^4 j^2 }{ c^2 r^2 },
+\]
+con los campos internos, a menos de un factor dan lo mismo
+\[
+	E^2 - B^2 = \frac{ 4 \pi^2 R^4 }{ c^2 r^2 } (c^2\rho^2 - j^2),
+\]
+y el paréntesis es $-j_\mu j^\mu$, que viene de la forma de la cuadricorriente [referir a la primera
+vez que aparece]. Se puede hacer esto transformando $\vb{j}$ que lo hace como lo hacen las
+coordenadas.
+
+Entonces, los dos casos son $ c \rho > j $ entonces existe sistema $K'$ tal que $\vb{B'}= 0 $.
+El otro caso, si $ c \rho < j $ entonces existe sistemas $K'$ tal que $\vb{E'}= 0 $.
+
+En el primer caso se tiene $\vb{B'} = 0 $ y usamos las leyes de transformación de los campos ya
+vistas.
+\[
+	\vb{B'}_\parallel = 0 = \vb{B}_\parallel 
+\]
+\[
+	\vb{B'}_\perp = 0 = \gamma ( \vb{B}_\perp - \pv{\beta}{E} )
+\]
+y de acá despejamos el campo magnético perpendicular. Entonces $ \vb{B} = \pv{\beta}{E} $.
+Habría que ver quién es $\vb{\beta}$, pero las dependencias generales serán
+\[
+	\vb{B}(\thetaver) = \vb{\beta}(\rver,\zver) \times \vb{E}(\rver),
+\]
+entonces serán $ \vb{\beta} = \beta \zver $. No pueden tener componente en $\rver$ porque
+la velocidad cambiaría punto a punto, entonces sólo en $\zver$.
+Finalmente,
+\[
+	\beta = \frac{ j }{ c \rho },
+\]
+así se anula $\vb{B}$.
+
+En el segundo caso hay un sistema donde $\vb{E'} = 0$,
+\[
+	\begin{cases}
+	{E'}_\parallel = 0 = \vb{E}_\parallel \\
+	{E'}_\perp = 0 = \gamma ( E_\perp + \vb{\beta} \times \vb{B} ) 
+	\end{cases}
+\]
+de lo cual deducimos que $ E_{\parallel} = 0 $ y $ E_\perp = \vb{B} \times \vb{\beta} $,
+entonces $ \vb{\beta} = \beta \zver $.
+Finalmente,
+\[
+	\beta = \frac{ c \rho }{ j },
+\]
+que es el resultado que habíamos obtenido antes.
+Los otros campos serán
+\[
+	\vb{B'} = 0 \qquad \vb{E'} = ?
+\]
+\[
+	\vb{E'}_\parallel = \vb{E}_\parallel = E_z \zver = 0
+\]
+\[
+	\vb{E'}_\perp = \vb{E'} = \gamma ( \vb{E}_\perp + 1/(c\rho) \pv{J}{B} ) 
+\]
+pero hay que pasar de $r \to r'$.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 18 \& 17}
+
+\[
+	\begin{cases}
+	\frac{\partial \vb{p}}{\partial t} = q ( \vb{E} + \pv{\beta}{B} ) \\
+	\dtot{U}{t} = q c \pe{\beta}{E}
+	\end{cases}
+	\qquad \qquad 
+	\begin{cases}
+	$\vb{p}$ = m \gamma $\vb{v}$ = m \gamma c $\vb{\beta}$ \\
+	U = \gamma m c^2 
+	\end{cases}
+\]
+Para campo eléctrico $\vb{E}$ constante, $\vb{B}=0$ entonces 
+\[
+	\dtot{\vb{p}}{t} = q \vb{E} 
+\]
+y tomando la cuenta $\vb{p} - \vb{p}_0 = q \vb{E} \Delta t $, con $\vb{p} = p_0\yver$
+y $\vb{E} = E\xver t$.
+
+Entonces,
+\[
+	p^2 = \frac{ m^2 c^2 \beta^2 }{ 1 - \beta^2 } = p_0^2 + q^2 E^2 t^2
+\]
+y desarrollando
+\[
+	1 - \beta^2 = \frac{ m^2 c^2 }{ m^2 c^2 + p_0^2 + q^2 E^2 t^2 }
+\]
+de lo cual
+\[
+	\vb{\beta} = \frac{ q \vb{E} t + \vb{p}_0 }{ ( q^2 E^2 t^2 + p_0^2 + m^2 c^2 )^{1/2} }
+	\qquad 
+	\vb{v} = \frac{ c q \vb{E} t + \vb{p}_0 }{ ( q^2 E^2 t^2 + p_0^2 + m^2 c^2 )^{1/2} }
+\]
+si definimos el argumento de la raíz que aparece en el denominador, se tienen
+\[
+	v_z= 0 
+	\qquad 
+	v_x = \frac{c q E t}{ \sqrt{ \Phi } }
+	\qquad 
+	v_z = \frac{ p_0 }{ \sqrt{ \Phi } }
+\]
+ 
+Ahora integramos estas ecuaciones y obtenemos
+\[
+	x = c \sqrt{ t^2 + (p_0^2 + m^2 c^2) / q^2 E^2} - \frac{U_0}{qE}
+\]
+donde la energía inicial es $U_0 = \sqrt{ c^2p_0^2 + m^2c^4 }$, 
+\[
+	x = \sqrt{ c^2t^2 + \frac{U_0}{q^2E^2} } -  \frac{U_0}{qE}
+\]
+
+Para valores de velocidad
+\[
+	v_y = \frac{ c p_0 }{ q E \sqrt{ t^2 + \alpha^2 } }
+\]
+con $ \alpha^2 = U_0^2/( c^2 q^2 E^2 )$ y con integración elemental llegamos a
+\[
+	y = \frac{ c p_0 }{ q E } \asinh\Frac{ c q t E }{U_0}
+\]
+y correspondientemente
+\[
+	x = \frac{ U_0 }{ q E }\left[ \cosh\Frac{ q E y }{ c \rho_0 } - 1 \right]
+\]
+Esto es una especie de parábola.
+
+Para el problema 18 es $\vb{B} = cte.$ y $\vb{E}=0$ 
+\[
+	\begin{cases}
+	\displaystyle \frac{d\vb{p}}{dt} = q \pv{\beta}{B} \\
+	\\
+	\displaystyle \dtot{U}{t} = 0
+	\end{cases}
+\]
+de lo cual extraemos $ \gamma m c^2 = cte. $. Por otra parte
+\[
+	\vb{\omega} = \frac{q}{\gamma m c}\vb{B}
+\]
+y entonces $ \partial \vb{\beta} / \partial t = \pv{\beta}{\omega} $.
+Luego,
+\[
+	\dtot{\vb{\beta}_\parallel}{t} = 0 \qquad \qquad
+	\dtot{\vb{\beta}_\perp}{t} = \pv{\beta_\perp}{\omega}
+\]
+y el campo $ \vb{\beta}_\perp $ sólo varía su dirección, mientras que $\vb{\beta}_\parallel$
+es constante. De todo esto saldrá que $\theta = \omega t$.
+
+Se tiene
+\[
+	\vb{v}_\perp = \omega a ( \cos(\omega\Delta t) \xver + \sin(\omega\Delta t)\yver ),
+\]
+y el radio de giro es
+\[
+	a = \frac{ c p_\perp }{ q B },
+\]
+donde $ v_\perp = \omega a $ de modo que $\beta_\perp = \omega a / c $ y entonces
+\[
+	p_\perp = \gamma m c \beta_\perp,
+\]
+lo cual nos provee el link para calcular el radio de giro.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 19}
+
+La idea es moverme a un sistema de referencia donde uno se anula y entonces evalúo el otro
+(campo en un campo eléctrico o magnético puro). Esto lo puedo hacer si $E \neq B$.
+
+\end{ejemplo}
+
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
