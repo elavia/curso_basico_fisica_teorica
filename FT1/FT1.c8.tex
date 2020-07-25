@@ -3,8 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -28,20 +28,28 @@
 \begin{document}
 
 % =================================================================================================
-\chapter{Campos de cargas en movimiento}
+\chapter{Radiación}
 % =================================================================================================
+
 
 % =================================================================================================
 \section{Potenciales retardados}
 % =================================================================================================
 
-Usando el gauge de Lorentz y las ecuaciones de Maxwell se llega a
+Veremos el campo debido a cargas en movimiento.
+Usando el gauge de Lorentz y las ecuaciones de Maxwell se había llegado al 
+set de ecuaciones
 \[
 	\lapm{\vb{A}} - \frac{1}{c^2} \dpar[2]{\vb{A}}{t} = -\frac{4\pi}{c} \vb{J}
 \]
 \[
 	\lapm{\phi} - \frac{1}{c^2} \dpar[2]{\phi}{t} = - 4 \pi \phi
 \]
+para las cuales buscaremos ahora soluciones.
+Estas soluciones serán los {\it potenciales retardados}, que son potenciales que pertenecen al gauge
+de Lorentz.
+
+Las ecuaciones anteriores son ecuaciones diferenciales hiperbólicas que incluyen el tiempo, 
 con forma general 
 \be
 	\lapm{\psi} - \frac{1}{c^2} \dpar[2]{\psi}{t} = - 4 \pi f(\vb{x},t)
@@ -79,21 +87,24 @@ de manera que se satisface la ecuación de Helmholtz inhomogénea,
 	(\nabla^2 + k^2)\psi(\vb{x},\omega) = - 4\pi f(\vb{x},\omega),
 \]
 para cada valor de frecuencia $\omega$.
+Recordemos que los campos se producen en el vacío y se propagan en un medio no dispersivo.
 
 Una función de Green satisfacerá 
 \[
 	(\nabla^2 + k^2) G(\vb{x},\vb{x}') = - 4\pi \delta(\vb{x}-\vb{x}'),
 \]
 donde $\vb{x}-\vb{x}' = \vb{R}$ y la función de Green será simétricamente esférica pues pedimos la
-no existencia de contornos, entonces llamando a aquella $G_k(R)$ se tiene 
-\[
+no existencia de contornos, entonces llamando a aquélla $G_k(R)$ se tiene 
+\be
 	\frac{1}{R}\dtot[2]{}{R}(RG_k) + k^2 G_k = - 4 \pi \delta (\vb{R})
-\]
+	\label{helmholtz_green}
+\ee
 donde hemos usado el laplaciano en esféricas. Debemos distinguir dos casos, si $R=0$ entonces la
 anterior resulta 
 \[
 	\lim_{kR \to 0} G_k(R) = \frac{1}{R}
 \]
+es decir que \eqref{helmholtz_green} tiende a la ecuación de Poisson, 
 mientras que de ser cierto $R\neq 0$ en cambio
 \[
 	\dtot[2]{}{R}(RG_k) + k^2 (RG_k) = 0
@@ -104,6 +115,26 @@ y entonces se propone como solución general
 \]
 donde $A, B$ dependerán de las condiciones de contorno y siendo que el primer término del RHS representa
 una onda divergente esférica y el segundo una onda convergente esférica.
+
+Juntado todo se tiene
+\[
+	\begin{cases}
+	G_k(R) = A G_k^+(R) +  B G_k^+(R) \\
+	\\
+	\displaystyle G_k^{\pm}(R) = \frac{\euler^{ \pm i k R}}{R}  \\
+	\\
+	A + B = 1
+	\end{cases}
+\]
+Restaurando el tiempo se tiene
+\[
+	G_k(R)\euler^{- i \omega t } = 
+	A \: \frac{\euler^{ i k R - i \omega t }}{R} + 
+	B \: \frac{\euler^{ - ( i k R - i \omega t )}}{R}
+\]
+
+Para el problema físico habrá que analizar las condiciones de contorno para ver cuál corresponde
+a la situación particular.
 
 Se puede interpretar $G_k$ como el potencial de una carga unitaria que aparece en $\vb{x}=\vb{x}'$ en el
 instante $t=t'$ y luego desaparece (mmm, qué misterio!).
@@ -126,24 +157,56 @@ de modo que tenemos
 \]
 usando lo cual se llega a
 \[
-	G^{\pm}(R,\tau) = \frac{1}{2\pi} \int_{-\infty}^{+\infty} G_k(R) \euler^{-\omega t} d\omega
+	G^{\pm}(R,\tau) = \frac{1}{2\pi} \int_{-\infty}^{+\infty} G_k(R,t') \euler^{-i\omega t} d\omega
 \]
-donde $\tau$ es el tiempo relativo entre los tiempos de observación y fuente ($t'$ ) y $R$ es la distancia 
+donde $\tau$ es el tiempo relativo entre los tiempos de observación y fuente $(t')$ y $R$ es la distancia 
 relativa entre observación y fuente.
+\notamargen{Habría que optar por una notación más consistente, porque la que está es un poco confusa.
+Evidentemente entre la carpeta y las notas de final cambié o ahorré notación.}
 
-En un medio no dispersivo es 
+Entonces
 \[
-	G^{\pm}(R,\tau) = \frac{1}{R} \delta( \tau \mp \frac{R}{c})
+	[\nabla^2 + k^2] G_k(R,t') = - 4 \pi \delta(\vbx - \vbx') \euler^{i \omega t'}
 \]
-y así llegamos a
+donde la función de Green ahora está en función de un tiempo particular $t'$. No es más que
 \[
-	G^+(\vb{x},\vb{x}',t,t') = \frac{1}{|\vb{x} - \vb{x}'|} \delta( t-t' - \frac{1}{c}(\vb{x} - 
-	\vb{x}')) = \frac{ \delta(t' - [t-(1/c)|\vb{x} - \vb{x}'|]) }{|\vb{x} - \vb{x}'|} ,
+	G_k(R,t)^{\pm} = \frac{\euler^{\pm i k R} }{ R }\euler^{i \omega t'}
+\]
+y consecuentemente,
+\[
+	G^{\pm}(R,\tau) = \frac{1}{2\pi} \int_{-\infty}^{+\infty} 
+	 \frac{\euler^{\pm i k R} }{ R }\euler^{i \omega (t'-t)} \: d\omega
+\]
+donde $\tau \equiv t'-t$ es una manera de acortar la notación y reflejar el hecho de que la relación
+entre los puntos primados y sin primar es una relación que no se altera por traslación.
+Una forma más natural, agrupando,
+\[
+	G^{\pm}(R,\tau) = \frac{1}{2\pi} \int_{-\infty}^{+\infty} 
+	 \frac{ \euler^{ \pm i \omega/c R - i \omega \tau } }{ R } \: d\omega =
+	\frac{1}{2\pi} \int_{-\infty}^{+\infty} 
+	 \frac{ \euler^{ - i \omega( \pm R/c - \tau )} }{ R } \: d\omega
+\]
+que no es otra cosa que una forma de expresar la delta de Dirac (ver Apéndice Cuchuffo)
+\[
+	G^{\pm}(R,\tau) = \frac{1}{R} \delta\left( \pm \frac{R}{c} - \tau \right) =
+	\frac{1}{R} \delta\left( \tau \mp \frac{R}{c} \right)
+\]
+donde usamos propiedades de la delta de Dirac. Esta expresión es por supuesto, para
+un medio no dispersivo.
+La forma funcional de la delta indica que la señal tiene un tiempo de propagación finito y
+para ir de un lugar a otro no lo hace instantáneamente.
+
+En la notación expandida es
+\[
+	G^+(\vb{x},\vb{x}',t,t') = 
+	\frac{1}{|\vb{x} - \vb{x}'|} \delta\left( t-t' - \frac{1}{c}(\vb{x} - \vb{x}')\right) 
+	= \frac{ \delta(t' - [t-(1/c)|\vb{x} - \vb{x}'|]) }{|\vb{x} - \vb{x}'|} ,
 \]
 la función de Green retardada
 \[
-	G^-(\vb{x},\vb{x}',t,t') = \frac{1}{|\vb{x} - \vb{x}'|} \delta( t-t' + \frac{1}{c}(\vb{x} - 
-	\vb{x}')) = \frac{ \delta(t' - [t + (1/c)|\vb{x} - \vb{x}'|]) }{|\vb{x} - \vb{x}'|},
+	G^-(\vb{x},\vb{x}',t,t') = 
+	\frac{1}{|\vb{x} - \vb{x}'|} \delta\left( t-t' + \frac{1}{c}(\vb{x} - \vb{x}')\right) 
+	= \frac{ \delta(t' - [t + (1/c)|\vb{x} - \vb{x}'|]) }{|\vb{x} - \vb{x}'|},
 \]
 la función de Green avanzada.
 
