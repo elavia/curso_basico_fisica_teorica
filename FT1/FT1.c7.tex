@@ -2096,6 +2096,126 @@ La idea es moverme a un sistema de referencia donde uno se anula y entonces eval
 \end{ejemplo}
 
 
+\begin{ejemplo}{\bf Rejunte formulación covariante}
+
+Agrupar una tablita con las convenciones y aclarar que estamos usando signatura $+---$,
+aclarar convención de suma de Einstein.
+
+Se puede poner lo de la cuadrivelocidad, el cuadriimpulso, la transformación de Lorentz,
+el cuadrivector de onda, el cuadrivector corriente, las ecuaciones de Maxwell en forma
+covariante.
+
+La fuerza de Lorentz y las ecuaciones de Maxwell satisfacen desde el vamos el principio
+de la relatividad.
+\[
+	\vb{F} = \dtot{\vb{p}}{t} = q \vb{E} + \frac{q}{c} \pv{v}{B}
+\]
+\[
+	\dtot{\mathcal{E}}{t} = q \pe{v}{E}
+\]
+que viene de que para la corriente es $\pe{J}{E}$ el rhs. Entonces
+\[
+	\dtot{p^\a}{\tau} = m \dtot{u^\a}{\tau} = \frac{q}{c} F^{\a\b} u_\b
+\]
+en forma covariante explícita.
+
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 10}
+
+Consideramos un proceso
+\[
+	\pi^+ + n \longrightarrow K^+ + \Lambda^0
+\]
+que no da la misma energía en ambos miembros. Se considera el umbral, esto es, la mínima
+energía para que la reacción se produzca.
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_sr_problema10.jpg}
+
+En el centro de masas se tiene momento total nulo, luego
+\[
+	\vb{p}_{K^+} + \vb{p}_{\Lambda^0} = 0
+\]
+En la siguiente tablilla agrupamos
+
+\begin{center}
+\begin{tabular}{ccc}
+ & Lab. & CM \\
+\hline 
+$\pi^+$ & $(E_0/c,\vb{p}_0)$ & $(m_K c + m_\Lambda c, 0)$ \\
+$n$ & $(m_nc,0)$ &  \\
+\hline
+\end{tabular}
+\end{center}
+
+Se conserva el cuadriimpulso total (antes y después) porque es un sistema aislado.
+Tenemos valores en dos sistemas diferentes; pero hay invariantes en cualquier
+sistema inercial
+\[
+	(p^\mu p_\mu)_\text{Lab}^\text{tot} = (p^\mu p_\mu)_\text{CM}^\text{tot}
+\]
+que implica
+\[
+	\Frac{E_0 + m_n c^2}{c}^2 - p_0^2 = ( m_K c + m_\Lambda c )^2
+\]
+la cual conduce, con un poco de álgebra, a
+\[
+	E_0 = \frac{ ( m_K c^2 + m_\Lambda c^2 )^2 - m_n^2 c^4 - m_\pi^2 c^4 }{ 2 m_n c^2 }
+\]
+que da $E_0 = 898.3$ MeV.
+
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 9 Efecto Compton}
+
+Repasamos el viejo efecto Compton de física 4. Se tienen los protagonistas
+\[
+	E^2 = c^2 p^2 + m^2 c^4 \qquad E_\gamma = c p_\gamma
+\]
+\[
+	p_\gamma^\mu = ( E_\gamma/c, E_\gamma/c \hat{p} )
+\]
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_sr_problema9.jpg}
+
+Es conveniente introducir una tablita
+
+\begin{center}
+\begin{tabular}{ccc}
+ & Lab. antes & Lab. después \\
+\hline 
+$e^-$ 		& $( m_e c, 0)$ 	& $( E_e/c, p_x + p_y )$ \\
+$\gamma$	& $( E_\gamma/c,E_\gamma/c \xver )$ &  $( E_\gamma'/c,E_\gamma'/c [ \cos\vp\xver - \sin\vp\yver] )$ \\
+\hline
+Total & $( m_e c + E_\gamma/c,E_\gamma/c \xver )$ & 
+$( E_e/c + E_\gamma'/c, p_x + p_y + E_\gamma'/c [ \cos\vp\xver - \sin\vp\yver] )$\\
+\end{tabular}
+\end{center}
+
+\notamargen{Ahora estamos en el mismo sistema coordenado y las expresiones
+pueden igualarse tranquilamente.}
+Igualando las expresiones del momento total antes y después se tiene
+\[
+	\begin{cases}
+	\xver) p_x + \frac{E_\gamma'}{c} \cos\vp = \frac{E_\gamma}{c} \\
+	\yver) p_y - \frac{E_\gamma'}{c} \sin\vp = 0 \\
+	$t$) \frac{E_e + E\gamma'}{c} = m_e c + \frac{E_\gamma}{c}
+	\end{cases}
+\]
+y ahora hay que hacer el ingrato álgebra, que se puede dejar para una tarde lluviosa.
+El resultado final
+\[
+	E_\gamma' = \frac{ m_e c^2 }{\left( 1 - \cos\vp + m_e c^2 /E_\gamma \right)}
+\]
+verifica ciertas condiciones de razonabilidad. Con ángulo $\vp=\pi$ se tiene un rebote,
+gran transferencia de energía; en cambio con $\vp=0$ no cambia la energía.
+De cualquier manera para ver algo de efecto necesito fotones muy energéticos.
+
+\end{ejemplo}
+
+
+
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
