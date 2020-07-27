@@ -566,8 +566,37 @@ eléctrico.
 \]
 que es la radiación dipolar eléctrica,  magnética y cuadrupolar eléctrica.
 
+\begin{ejemplo}{\bf Sinopsis de radiación}
+
+De la sinopsis de radiación destaco
+\[
+	A_\mu(\vbx,t) = \frac{1}{c} \int \: \frac{J_\mu(\vbx',t')}{|\vbx-\vbx'|} 
+	\delta\left( t' + \frac{|\vbx-\vbx'|}{c} - t \right) \: d^3x dt'
+\]
+y para carga puntual
+\[
+	\phi(\vbx,t) = e \left| \frac{1}{kR} \right|_\text{ret} \qquad \qquad 
+	\vb{A}(\vbx,t) = \frac{e}{c} \Frac{\vb{u}}{kR}_\text{ret}
+\]
+y campo eléctrico de una partícula cargada
+\[
+	\vb{E}(\vbx,t) = e \left[ \frac{ (\nver -\vb{\b} ) \cdot ( 1 - \beta^2 ) }{ k^2 R^2 } \right]_\text{ret} +
+	\frac{ e }{ c } \left[ \frac{ \nver }{ k^3 R } \times \{ ( \nver - \vb{\b} ) \times \vb{\b} \} \right]_\text{ret}
+\]
+el segundo término es un campo de aceleración, y el corchete $[...]$ es la parte que sobrevive
+a grandes distancias.
+\[
+	\vb{B}(\vbx,t) = \nver \times \vb{E}(\vbx,t).
+\]
+ 
+\end{ejemplo}
+
+
+
 \begin{ejemplo}{\bf Problema 10}
 
+Estamos haciendo la aproximación de que cualquier punto sobre la flecha roja tiene el mismo
+tiempo retardado, ver ilustración debajo.
 \[
 	z(t') = a \cos( \omega t' )
 \]
@@ -584,7 +613,26 @@ luego si $|\vbx|\gg a$ es $ R \sim |\vbx| $ y $ \nver \sim \vbx/|\vbx|$
 \[
 	k = 1 - \nver\cdot\vb{\b}(t_\text{ret})
 \]
+Resultan además
+\[
+	\vb{x}(t') = a \cos(\omega t') \zver \qquad \qquad 
+	\vb{\b}(t') = - \frac{\omega a}{c} \sin(\omega t')\zver
+\]
+\[
+	k = 1 + \frac{a\omega}{c}\sin(\omega t')\sin\theta
+\]
+\[
+	|\nver\times(\nver\times\vb{z})| = \sin\theta
+\]
+y la energía saliente respecto al tiempo 
+\[
+	\dtot{\mathcal{E}}{t} = dP = \frac{c}{4\pi} | R \vb{E}_a |^2 \: d\Omega
+\]
+Poynting da el flujo en tiempo $t$ pero necesitamos respecto a $t'$.
+
 \end{ejemplo}
+
+
 
 \subsection{Radiación dipolar eléctrica y magnética y cuadrupolar eléctrica}
 
