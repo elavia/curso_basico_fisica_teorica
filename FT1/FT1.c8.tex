@@ -223,16 +223,45 @@ se lo llama el tiempo retardado. Es un poco más práctica la nomenclatura
 	G^-(R,t,t') = \frac{ \delta(t' - [ t + (R/c) ]) }{ R } ,
 \]
 
-Entonces una solución particular de (1) (¿uno qué?) es 
+Entonces una solución particular de \eqref{onda_general} es 
 \[
-	\psi^\pm (\vb{x},t) = \int \int G^{\pm}(\vb{x},\vb{x}',t,t') f(\vb{x}',t') d^3x' dt' 
+	\psi^\pm (\vb{x},t) = \int \int G(\vb{x},\vb{x}',t,t') f(\vb{x}',t') d^3x' dt' 
+\]
+donde $G$ es una combinación de $G^+, G^-$, dado que estas última satisfacen también la
+Ec. \eqref{onda_general}.
+Necesitaremos condiciones tipo Cauchy.
+
+Consideraremos una onda incidente de fuentes muy lejanas
+\[
+	\psi_{in}(\vb{x},t) + \int\int G^+ f \: dv' dt
+\]
+con una fuente que radía a partir de cierto tiempo. Esta solución no incluye radiación
+de la fuente luego de encenderse
+\[
+	\psi_{s}(\vb{x},t) + \int\int G^- f \: dv' dt.
+\]
+
+Consideraremos, luego, el problema de una fuene en una cierta región que se enciende en
+un instatne y radía. Es decir, $\psi_{in} = 0$,
+\[
+	\psi(\vb{x},t) = \int\int \frac{\delta(t' - [ t - R/c ] )}{ R } \: dv' dt
+\]
+\[
+	\psi(\vb{x},t) = \int\int \frac{f(\vbx',t - R/c )}{ R } \: dv'
+\]
+que son los potenciales retardados.
+
+Una diferente explicación, de las notas, es que la solución particular de \eqref{onda_general} es
+\[
+	\psi^\pm (\vb{x},t) = \int \int G(\vb{x},\vb{x}',t,t') f(\vb{x}',t') d^3x' dt' 
 \]
 y dos soluciones son 
 \[
-	\psi_{in}(\vb{x},t) + \int\int G^+ f dv' dt \qquad \qquad \psi_{s}(\vb{x},t) + \int\int G^- f dv' dt
+	\psi_{in}(\vb{x},t) + \int\int G^+ f \: dv' dt \qquad \qquad 
+	\psi_{s}(\vb{x},t) + \int\int G^- f \: dv' dt
 \]
 con $f(\vb{x}',t')$ una fuente que es diferente de cero solo en un intervalo $\sim t'$. Entonces $\psi_{in}$ 
-satisface (1) homogénea en $t \to -\infty$. $\psi_{s}$ es la onda en $t \to +\infty$ solución homogénea.
+satisface \eqref{onda_general} homogénea en $t \to -\infty$. $\psi_{s}$ es la onda en $t \to +\infty$ solución homogénea.
 La situación más común es el caso de $\psi_{in}$ con $\psi_{in}=0$ entonces 
 \[
 	\psi (\vb{x},t) = \int_{-\infty}^{+\infty} \int_v' \frac{\delta(t'-[t -(R/c) ]) }{ R } 
@@ -282,10 +311,106 @@ La aproximación consiste en desarrollar
 \[
 	\frac{\euler^{i k |\vb{x}-\vb{x}'| }}{|\vb{x}-\vb{x}'|}
 \]
-y ver condiciones asintóticas. Cuando $\ell = 0$ (el primer término de la sumatoria en $\ell$) y
+y ver condiciones asintóticas. 
+
+\begin{ejemplo}{\bf Desarrollo}
+
+Esto parece que está en el Jackson (chap. 16 1era,2da eds. y chap.9 3era).
+\[
+	\frac{\euler^{i k |\vb{x}-\vb{x}'| }}{|\vb{x}-\vb{x}'|} =
+	i k \sum_{\ell=0} j_\ell(kr_<) h^{(1)}_\ell(kr_>) 
+	\sum_{m=-\ell}^{\ell} Y_{\ell m}^*(\theta',\vp') Y_{\ell m}(\theta,\vp)
+\]
+donde son funciones de Bessel esféricas y de Hankel las siguientes
+\[
+	j_\ell(x) =  \Frac{\pi}{2x}^{1/2} J_{\ell +1/2}(x) \qquad \qquad 
+	h^{(1)}_\ell(x) =  \Frac{\pi}{2x}^{1/2} \left[ J_{\ell +1/2}(x) + i \: N_{\ell +1/2}(x) \right]
+\]
+siendo los primeros integrantes de la expansión
+\[
+	J_0 = \frac{ \sin(x) }{ x }  \qquad 
+	J_1 = \frac{\sin(x)}{x} - \frac{\cos(x)}{x}
+\]
+\[
+	h^{(1)}_0(x) = \frac{ \euler^{ix} }{ ix }  \qquad 
+	h^{(1)}_1(x) = -\frac{ \euler^{ix} }{ ix } \left( 1 + \frac{i}{x} \right)
+\]
+La aproximación más baja resulta en ondas EM centradas en la fuente.
+
+\[
+	\vb{A}(\vbx) = \frac{4\pi}{c} i k 
+	\sum_{\ell=0}^\infty h^{(1)}_\ell(kr) \sum_{m=-\ell}^{\ell} Y_{\ell m}(\theta,\vp)
+	\int_V \vb{J}(\vbx') J_\ell(kr') Y_{\ell m}(\theta',\vp') d^3x' 
+\]
+Consideremos aquí soluciones asintóticas. Definamos $ kr \equiv x$ y $ kr' \equiv x'$,
+si $x \ll 1, \ell$ se tiene
+\[
+	j_ell(x) \approx \frac{x^\ell}{(2\ell+1)!!}\left( 1 - \frac{x^2}{2(2\ell+3)} + ...\right),
+\]
+en cambio para $ x \gg \ell $
+\[
+	h^{(1)}_\ell(x) \approx (-i)^{\ell+1} \frac{\euler^{ix}}{x}
+\]
+con lo cual si hacemos
+\[
+	\vb{B} = \rotorm{A} \qquad \vb{E} = \frac{i}{k}\rotorm{B}
+\]
+y trabajaremos en el orden más bajo posible $(\ell=0)$ y $ k r' \ll 1$ (el tamaño de la antena es siempre
+mucho mayor a la longitud de onda emitida)
+\[
+	\vb{A}^{(0)}(\vbx) = \frac{4\pi}{c} i k 
+	h^{(1)}_0(kr) \frac{1}{\sqrt{4\pi}} \int_V \frac{ \vb{J}(\vbx') }{\sqrt{4\pi}} d^3x' =
+	\frac{ i k }{c} \frac{\euler^{ikr}}{ikr} \int_V \vb{J}(\vbx') \: d^3x'
+\]
+y si tomamos la divergencia de la corriente, tensorialmente, 
+\[
+	\partial_i'(x_j'J_i) = \delta_{ij}J_i + ( \partial_i'J_i ) x'_j
+\]
+y se integra en el volumen,
+\[
+	\int_V \:  J_j + (\Nabla'\cdot\vb{J}) x_j' \: dV = 0,
+\]
+que es nula porque se integra en un volumen que englobe a todas las fuentes.
+Entonces,
+\[
+	\vb{A}^{(0)}(\vbx) = \frac{ i k }{c} \frac{\euler^{ikr}}{ikr} \int_V \: -(\Nabla'\cdot\vb{J}) \vbx' \: d^3x'
+\]
+y será
+\[
+	\vb{A}(\vb{x})^{(0)} = - i k \vb{p} \frac{\euler^{ikx}}{x},
+\]
+una onda esférica saliente.
+Esto corresponde al $A$ que crea un dipolo magnético que oscila armónicamente con el tiempo,
+y faltaría ``pegarle'' la dependencia temporal.
+\[
+	\vb{B} = - i k \Nabla \times \left( \vb{p} \frac{\euler^{ikr}}{r} \right)
+\]
+pero si usamos la identidad ID 1b 
+\[
+	\vb{B}^0 = - i k \left[ 
+	- \vb{p} \times \Nabla( \frac{\euler^{ikr}}{r} )
+	\right]
+\]
+y tomándole el gradiente a la epxresión de la onda esférica (cuenta que he hecho mil veces)
+\[
+	\vb{B}^0 = k^2 (\rver\times\vb{p})  \frac{\euler^{ikr}}{r} \left[ 1 - \frac{1}{ikr} \right].
+\]
+Para que el campo sea de radiación, el vector $\vb{S}$ debe tener flujo no nulo en el infinito.
+Entonces para que el flujo no sea nulo, si los campos van como $1/r$, como el integrando de la integral
+de flujo va como $1/r^2$ y el área aumenta como $r^2$ entonces el flujo tenderá a un valor constante.
+Cerca de las antenas tendremos un campo que cae como $1/r^2$ y que por ello tiene flujo no nulo
+en el infinito.
+
+\end{ejemplo}
+
+
+Cuando $\ell = 0$ (el primer término de la sumatoria en $\ell$) y
 $ kx' \ll 1$ tenemos una antena ineficiente. La longitud de onda $\lambda$ de la radiación es mucho mayor al 
 tamaño del emisor, $ 2\pi x' \ll \lambda$ (longitud de onda larga).
 En cambio tenemos $ 2\pi x \gg \lambda$ que es la condición de campo lejano (siempre la usaremos).
+
+\notamargen{Recordemos que los potenciales retardados $\vb{A},\phi$ usan la medida ({\it gauge}) de Lorentz.
+Además estamos considerando siempre $\lambda$ mucho menores al tamaño de la fuente.}
 
 Por lo tanto,
 \[
@@ -307,10 +432,25 @@ Cerca de la antena es
 	\vb{B}(\vb{x})^{(0)} = i k (\hat{r}\times\vb{p})\frac{1}{r^2}, 
 \]
 pues $kx\ll 1$ y entonces $\exp(ikx) \sim 1$ (campo cercano) de manera que si $\lambda \to \infty$ entonces
-$\vb{B}^{(0)} \sim 0$. El campo \vb{E} cerca de la antena es
+$\vb{B}^{(0)} \sim 0$. 
+\notamargen{Creo que en estas expresiones es $r$ en lugar de $x$.}
+
+El campo \vb{E} cerca de la antena surge de la evaluación de
 \[
-	\vb{E} = \frac{i}{k}\rotorm{B} \qquad \rightarrow \quad 
-	\vb{E}^{(0)} = \frac{3\hat{r}(\hat{r}\cdot\vb{p}) - \vb{p}}{r^3}
+	\vb{E} = \frac{i}{k}\rotorm{B} 
+\]
+que luego de algunas cuentas donde usamos la identidad del rotor de un rotor (ID 2) y
+anular términos
+\[
+	\divem{p}=0 = 0 = (\rver\cdot\Nabla)\vb{p}
+\]
+y ver que
+\[
+	\Nabla\cdot\rver = \rver \left[ \frac{1}{r^2}\dpar{r^2\rver}{r} \right] = \frac{2}{r}
+\]
+da
+\[
+	\vb{E}^{(0)} = \frac{1}{r^3}( \: 3\hat{r}(\hat{r}\cdot\vb{p}) - \vb{p} \:)
 \]
 que es el campo de un dipolo eléctrico. $\vb{E},\vb{B}$ son transversales a $\hat{r}$ y tienen la misma 
 longitud (en unidades CGS).
@@ -320,10 +460,10 @@ La potencia media (en un número entero de períodos) será
 \]
 y entonces
 \[
-	\langle\frac{dP}{d\Omega}\rangle = \langle\vb{S}\rangle\cdot\hat{n}r^2 
+	\vm{ \frac{dP}{d\Omega} } = \langle\vb{S}\rangle\cdot\hat{n}r^2 
 \]
 \[
-	\langle\frac{dP}{d\Omega}\rangle = \frac{c}{8\pi} k^4 p^2 \sin(\theta)^2 
+	\vm{ \frac{dP}{d\Omega} } = \frac{c}{8\pi} k^4 p^2 \sin(\theta)^2 
 \]
 y este cálculo podemos ver de dónde sale 
 \[
@@ -335,7 +475,9 @@ y este cálculo podemos ver de dónde sale
 	\frac{c}{8\pi} \re\{(-p k^2/r \sin(\theta) \hat{\theta})\times(-p k^2/r\sin(\theta)\hat{\phi} \}
 	= \frac{c}{8\pi} p^2 k^4 \sin(\theta)^2 \hat{r}\cdot\hat{r}
 \]
-\notamargen{Tenemos un cálculo auxiliar de esta cuenta pero no sé si suma meterlo acá.}
+\notamargen{Tenemos un cálculo auxiliar de esta cuenta pero no sé si suma meterlo acá.
+Aporto además otra expresión para el valor medio del la potencia por solid angle,
+$c/(8\pi)[r^2\rver \cdot \pv{E}{B^*}]$.}
 
 Luego, la potencia irradiada es máxima en $\theta=\pi/2$ (ver figura)
 
@@ -343,13 +485,17 @@ Luego, la potencia irradiada es máxima en $\theta=\pi/2$ (ver figura)
 	\begin{center}
 	\includegraphics[width=0.4\textwidth]{images/fig_ft1_pot_irrad.pdf}	 
 	\end{center}
-	\caption{}
+	\caption{Gráfico polar de la potencia radiada.}
 \end{figure} 
 
 Entonces, 
 \begin{itemize}
- \item Si $\vb{B}=0$ se da que $\vb{S}=0$, es decir que no hay radiación.
+ \item Si $\vb{B}=0$ se da que $\vb{S}=0$, es decir que no hay radiación. Una configuración
+ que no hace campo magnético, no radía.
  \item Un monopolo no produce campo de radiación por su simetría esférica.
+ 
+ \includegraphics[width=0.4\textwidth]{images/fig_ft1_radiacion_esferica_no.jpg}
+ 
  Una corriente $J\hat{r}$ no produce \vb{B} y se tienen
  \[
 	\vb{B}^0_{rad} = \frac{k^2}{r}( \hat{r} \times \vb{p} ) \euler^{ikr} \qquad \qquad 
@@ -359,7 +505,7 @@ Entonces,
 		\begin{center}
 		\includegraphics[width=0.4\textwidth]{images/fig_ft1_pot_irrad2.pdf}	 
 		\end{center}
-		\caption{}
+		\caption{Estado de polarización del campo de radiación.}
 	\end{figure} 
  \item Para que un campo sea de radiación debe tener flujo \vb{S} no nulo en el infinito.
  Si los campos van como $1/r$ entonces el Poynting va como $1/r^2$ y $dS$ va como $r^2$
@@ -382,18 +528,67 @@ Entonces,
 	\]
 	que es para una fuente con simetría de revolución.
 	\[
-		\langle\dtot{P}{\Omega}\rangle = \frac{ck^6}{128\pi} |\hat{r} \times \vb{Q} |^2, 
+		\vm{ \dtot{P}{\Omega} } = \frac{ck^6}{128\pi} |\hat{r} \times \vb{Q} |^2, 
 	\]
 	donde $\vb{Q}$ es un vector que vale $\hat{n} \cdot \overline{Q}$, o bien indicialmente $n_iQ_{ij}$.
 \end{itemize}
 
 \subsection{Radiación a orden $\ell=1$}
 
+La aproximación siguiente, $\ell=1$, corresponde a
+\[
+	\vb{A}(\vbx) = \frac{4\pi}{c} i k \sum_{m=-1}^{1}
+	h^{(1)}_\ell(kr) Y_{1 m}(\theta,\vp)
+	\int_V \vb{J}(\vbx') j_1(kr') Y_{1 m}^*(\theta',\vp') d^3x' 
+\]
+donde utilizamos
+\[
+	j_1(kr') = \frac{kr'}{3} \qquad 
+	Y_{11} = - \sqrt{ \frac{3}{8\pi} } \: \sin\theta \: \euler^{i \phi} \qquad 
+	Y_{10} = \sqrt{ \frac{3}{4\pi} } \: \cos\theta 
+\]
+\[
+	Y_{1,-1} = (-1)^{1} Y_{11}^* = \sqrt{ \frac{3}{8\pi} } \: \sin\theta \: \euler^{-i \phi} 
+\]
+e introduciéndolo en la cuenta anterior,
+\[
+	\vb{A}(\vbx) = \frac{ i k^2 }{ 2 c } h^{(1)}_1(kr) \left[ 
+	 \int_V \vb{J}(\vbx') r' 2 \left( \sin\theta \: \euler^{-i \phi} \: \sin\theta'\:\euler^{i\phi'} +
+	\cos\theta\cos\theta' \right) \right] d^3x'  
+\]
+pero este término se puede dividir en dos: (1) momento dipolar magnético oscilante y (2) cuadripolo
+eléctrico.
+
+
 \[
 	\vb{A} = \frac{1}{cR} \dot{\vb{p}}(t') + \frac{\dot{\vb{m}}(t')}{cR} \times \hat{n} + 
 	\frac{1}{6c^2R} {\overline{Q}}(t') \cdot \hat{n}
 \]
 que es la radiación dipolar eléctrica,  magnética y cuadrupolar eléctrica.
+
+\begin{ejemplo}{\bf Problema 10}
+
+\[
+	z(t') = a \cos( \omega t' )
+\]
+\includegraphics[width=0.45\textwidth]{images/fig_ft1_antena_probl.jpg}
+
+\[
+	R = | \vbx - \vb{r}(t_\text{ret}) | \qquad 
+	\nver = \frac{ \vbx - \vb{r}(t_\text{ret}) }{| \vbx - \vb{r}(t_\text{ret}) |}
+\]
+luego si $|\vbx|\gg a$ es $ R \sim |\vbx| $ y $ \nver \sim \vbx/|\vbx|$
+\[
+	t'= t_\text{ret} = t - \frac{R(t_\text{ret}))}{c}
+\]
+\[
+	k = 1 - \nver\cdot\vb{\b}(t_\text{ret})
+\]
+\end{ejemplo}
+
+\subsection{Radiación dipolar eléctrica y magnética y cuadrupolar eléctrica}
+
+
 
 \subsection{Ejemplo de antena}
 
