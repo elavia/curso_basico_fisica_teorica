@@ -629,13 +629,173 @@ y la energía saliente respecto al tiempo
 	\dtot{\mathcal{E}}{t} = dP = \frac{c}{4\pi} | R \vb{E}_a |^2 \: d\Omega
 \]
 Poynting da el flujo en tiempo $t$ pero necesitamos respecto a $t'$.
+\[
+	1 = \frac{t}{t'} - \frac{1}{c} \nabla\vb{R} \left( \dtot{\vbx}{t'}(t') \right)
+\]
+donde en el producto escalar el primero es $\nver$ y el segundo $\vb u$. Luego,
+\[
+	\dtot{P}{\Omega}|_{t'} = \frac{ c }{ 4 \pi } \Frac{e}{c}^2 
+	\frac{[ \nver \times {\nver - \vb{\b}}\times\vb{\b}]}{k^5}
+\]
+\[
+	\dtot{P}{\Omega}|_{t'} = \frac{ e^2 }{ 4 \pi c}
+	\frac{ \sin^2\theta \omega^4 a^2 \cos^2(\omega t')}
+	{[ 1 + \omega_0 a/c \sin(\omega t')\cos\theta ]^5}
+\]
+con $\beta = \omega_0 a / c $ y entonces
+\[
+	\dtot{P}{\Omega}|_{t'} = \frac{ e^2 c^2 B^4}{4 \pi a^2}
+	\frac{\sin^2\theta  \cos^2(\omega t')}	{[ 1 + \omega_0 a/c \sin(\omega t')\cos\theta ]^5}
+\]
+y 
+\[
+	\vm{ \dtot{P}{\Omega}|_{t'} }
+\]
+es la integral de la guía [cualquier cosa que eso signifique]. Caso relativista.
 
 \end{ejemplo}
 
-
-
 \subsection{Radiación dipolar eléctrica y magnética y cuadrupolar eléctrica}
 
+Véase la figura para entender la nomenclatura de cosas. Suponemos que $ R \gg a $, donde $a$ es el 
+tamaño de la fuente localizada. Consideramos $ t_\text{ret} = t - |\vb{R} - \vbx|/c$ el tiempo que
+le toma a la radiación ir de $\vbx$ a $\vb{R}$.
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_rad_dipolar_cuadrupolar.jpg}
+
+\[
+	\vb{A}(\vb{R},t) = \frac{1}{c} \int \frac{ \vb{J}(\vb{r},t_\text{ret})}{|\vb{R}-\vb{r}|} \: dV
+\]
+\notamargen{Acá uso $\vb r$ porque estaba así la carpeta pero luego moveré todo a $\vb x$
+vector dado que es mi convención usual.}
+Las aproximaciones de la distancia llevan a
+\[
+	|\vb{R} -\vb r | = \sqrt{ R^2 \left( 1 - 2 \frac{1}{r^2}\pe{r}{R} + \Frac{r}{R}^2 \right) } 
+	\sim \left( 1 - \frac{\pe{r}{R}}{R^2} \right) R = R - \pe{r}{\nver}
+\]
+
+Como el campo eléctrico y magnético son perpendiculares y en módulo iguales sólo me calentaré
+por $\vb A$ y dentro de éste solamente por el campo que dará radiación. Es decir,
+\[
+	\vb{A}(\vb{R},t) = \frac{ 1 }{ c R } \int \vb{J}(\vb r,t') \: dV
+\]
+En la expansión
+\[
+	\Nabla\times\frac{\vb a}{R} = \Nabla\Frac{1}{R} \times\vb a + \frac{1}{R} \rotorm{a}
+\]
+me quedo sólo con el último término ya que el primero da algo que va como $1/R^2$. El que
+sobrevive, será
+\[
+	\rotorm{a}(t') = \Nabla t' \times \dtot{\vb a}{t'}
+\]
+Y como $ t' = t - R/c + \pe{\nver}{r} / c $ su gradiente  será $ \Nabla t' = - \nver/c + \sigma(1/R)$
+pero no los quiero.
+\[
+	\vb{B}_\text{rad} = \rotorm{A} = - \frac{1}{c} \nver \times \vb A
+\]
+
+Estamos en $\lambda$ muy grandes respecto a la dimensión de las fuentes, se hace un Taylor en torno
+a $t_r \equiv t - R/c$
+\[
+	\vb{J}(\vb r,t_\text{ret}) \approx \vb{J}(\vb r,t_r ) + 
+	\left. \dpar{\vb J}{t}\right|_{t_r-t-R/c} - \frac{\pe{\nver}{r}}{c}
+\]
+donde el primer término del rhs es el que generará radiación dipolar eléctrica y como
+\[
+	\left| \dpar{\vb J}{t} \frac{\pe{\nver}{r}}{c} \right| \ll |\vb J|
+\]
+y en el caso armónico con $ \omega a / c \ll 1$ se construye
+\[
+	\vb{A}(\vb{R},t) \approx \frac{ 1 }{ c R } \int \vb{J}(\vb r,t_r) \: dV
+	+ \frac{ 1 }{ c R } \dtot{}{t_r} \int \vb{J}(\vb r,t_r) \frac{\pe{\nver}{r}}{c} \: dV
+\]
+Defino por conveniencia algunas cosas:
+\[
+	\vb M = \frac{1}{2c} \pv{r}{J} \qquad 
+	\pv{\nver}{M} = \frac{1}{2c} \nver\times( \pv{r}{J}) =
+	\frac{1}{2c} \left[ \vb{r}(\nver\cdot\vb J) - \vb{J}(\nver\cdot\vb r)\right]
+\]
+donde el corchete en el rhs es $\alpha$ o bien la reescritura
+\[
+	\pv{\nver}{M} =  \frac{1}{2c} \left[ \vb{r}(\nver\cdot\vb J) + \vb{J}(\nver\cdot\vb r)\right]
+	- \frac{1}{c} \vb{J}(\nver\cdot\vb r)
+\]
+
+Ahora trabajaremos con cargas puntuales y defino $t'= t_r $ de manera que
+\[
+	\int \vb{J}(\vb r,t') \: dV = \dtot{}{t}( \sum e_i \vb{r}_i(t') )
+\]
+y para $\a$ se tiene
+\[
+	\a = \sum_i e_i \left[ \vb{r}_i (\nver\cdot\vb{M}_i) + \vb{\mu}_i(\vb{r}_i\cdot\nver) \right]=
+	\dtot{}{t}\left[ \sum e_i \vb{r}_i( \vb{r}_i\cdot\nver )\right]
+\]
+y ahora tiene la pinta de cuadripolo lo que está dentro del corchete en el extremo del rhs.
+Le puedo agregar algo en la dirección $\nver$ y no cambio el campo,
+\[
+	\a' = \dtot{}{t'} \left[ \sum e_i 3 \vb{r}_i( \vb{r}_i\cdot\nver) - \nver r^2_i \right] \frac{1}{3}
+\]
+y será
+\[
+	\a'= \frac{1}{3} \dtot{}{t'} Q(t')\cdot\nver
+\]
+donde $Q_{ij} = \sum_i e_i( 3 x_jx_k - \delta_{jk}r_i^2)$.
+Tenemos
+\[
+	\vb{A} = \frac{1}{cR} \dot{\vb{p}}(t') + \frac{\dot{\vb{m}}(t')}{cR} \times \hat{n} + 
+	\frac{1}{6c^2R} {\overline{Q}}(t') \cdot \hat{n}
+\]
+Luego, los campos de radiación serán
+\[
+	\vb{B}_\text{rad} = \frac{1}{c^2R}
+	\left[ 
+	\ddot{ \vb{p} } \times \nver + \frac{1}{cR} (\dot{\vb m}(t')\times\nver) \times \nver + 
+	\frac{1}{6c} ( \dddot{Q}(t')\cdot\nver )\times \nver 
+	\right]
+\]
+\[
+	\vb{E}_\text{rad} = \frac{1}{c^2R}
+	\left[ 
+	( \ddot{ \vb{p} } \times \nver ) \times \nver + 
+	\nver \times \ddot{\vb m} +
+	\frac{1}{6c} \{ ( \dddot{Q}(t')\cdot\nver )\times \nver \}\times \nver
+	\right]
+\]
+
+Veamos algunas aplicaciones de esta teoría desarrollada.
+Suponiendo radiación dipolar eléctrica,
+\[
+	\vb{P}(t') = \vb{P}_0 \euler^{ - i \omega t }
+\]
+la aceleración
+\[
+	\ddot{ \vb{P} }(t') = - \omega^2 \vb{P}_0 \euler^{ - i \omega t }
+\]
+de modo que para el campo magnético de radiación se tiene 
+\[
+	\vb{B}_\text{rad} = \frac{\omega^2}{c^2R} \vb{P}_0\times\nver \euler^{i \omega R/c} \euler^{ - i \omega t }
+	\sim - \frac{\omega^2}{c^2} \frac{ \vb{P}_0\times\nver }{R}
+\]
+luego,
+\[
+	\vm{ \dtot{P}{\Omega} } = \frac{ \omega^4 }{ 8 \pi c^3 } P_0^2 \sin^2\theta
+\]
+y la potencia emitida en todo ángulo será
+\[
+	\vm{P} = \frac{ \omega^4 }{ 3 c^3 } P_0^2.
+\]
+
+Para la radiación dipolar magnética, será
+\[
+	\vb{m} = \vb{m}_0 \euler^{ - i \omega t },
+\]
+y las cuentas son las mismas con el reemplazo obvio,
+\[
+	\vm{ \dtot{P}{\Omega} } = \frac{ \omega^4 }{ 8 \pi c^3 } m_0^2 \sin^2\theta,
+\]
+\[
+	\vm{P} = \frac{ \omega^4 }{ 3 c^3 } m_0^2.
+\]
 
 
 \subsection{Ejemplo de antena}
