@@ -559,6 +559,171 @@ e introduciéndolo en la cuenta anterior,
 pero este término se puede dividir en dos: (1) momento dipolar magnético oscilante y (2) cuadripolo
 eléctrico.
 
+\notamargen{Flujo de Poynting no nulo en el $\infty$ caracteriza un campo de radiación, entonces
+tenemos energía que se va y no retorna.}
+
+El corchete (yo junté dos términos que parecían ser iguales -al menos como estaban copiados-) da una cosa
+como
+\begin{multline*}
+	[..] = 2 (\sin\theta\sin\theta'[\cos\vp\cos\vp' + \sin\vp\sin\vp'] + \cos\theta\cos\theta') = \\
+	2 \frac{\pe{x}{x'}}{|\vbx||\vbx'|} = 2 \rver\cdot\frac{\vbx'}{|\vbx'|}, 
+\end{multline*}
+tras lo cual se transforma el integrando
+\[
+	\vb{A}(\vbx) = \frac{ i k^2 }{ c } h^{(1)}_1(kr) \int_V \vb{J}(\vbx') ( \nver \cdot \vbx' ) \: d^3x'
+\]
+y usando la identidad del doble vectorial product ID 2b para el producto escalar en el integrando,
+podemos escribir
+\[
+	\vb{J}(\pe{\nver}{x'}) = \frac{1}{2}
+	\left[ \vb{J} (\pe{\nver}{x'}) + \vbx' (\pe{\nver}{J}) \right]
+	\frac{1}{2}( \pv{x'}{J} ) \times \nver
+\]
+pero recordando el momento dipolar magnético
+\[
+	\pv{m}{\nver} = \frac{1}{2c} \int (\pv{x'}{J}) d^3x \times \nver,
+\]
+podemos descomponer las contribuciones en dos:
+\[
+	\vb{A}^{\ell=1}(\vbx) = \vb{A}^{\ell=1}_m(\vbx) + \vb{A}^{\ell=1}_Q(\vbx),
+\]
+contribuciones magnética y cuadrupolar.
+Considerando esta separación, serán
+\[
+	\vb{A}^{\ell=1}_m(\vbx) = i k^2 h_1^{(1)}(kr) \pv{m}{\nver}, 
+\]
+donde $h_1^{(1)}$ es el campo lejano visto y el campo magnético correspondiente surge de tomarle
+rotor a esta expresión.
+Reciclando cálculos anteriores y quedándonos solamente con aquello que aporta a la radiación
+\[
+	\vb{B}^{\ell=1}_m(\vbx) = k^2 (\pv{\nver}{m}) \times \nver \frac{\euler^{ikr}}{r}
+\]
+Luego, dado que la relación del campo $\vb B$ con el campo eléctrico es a través de un rotor,
+se tiene que $ \rotorm{E}^{\ell=1} \sim \rotorm{A}^{\ell=1} $ y entonces los campos mismos
+son similares si sus divergencias son iguales, i.e. si
+\[
+	\divem{E}^{\ell=1} \sim \divem{A}^{\ell=1}
+\]
+entonces por el teorema de Helmholtz y lo anterior se tiene
+\[
+	\vb{E}^{\ell=1} \sim \vb{A}^{\ell=1}.
+\]
+En efecto, se tiene
+\[
+	\vb{E}^{\ell=1} = i k \vb{A}^{\ell=1} = 
+	- \frac{1}{c}\dpar{\vb A}{t}_m^{\ell=1} - \nabla\phi_m^{\ell=1} 
+\]
+de manera que tiene que ser $\phi_m^{\ell=1} = 0$ en todo el espacio, porque justamente
+la derivada de $\vb A$ es el segundo término.
+
+Las expresiones son iguales a las de un dipolo eléctrico oscilante; podemos concluir que
+\[
+	\vm{\dtot{P}{\Omega}} = \frac{c}{8\pi} k^4 |\vb m|^2 \sin^2\theta
+\]
+siendo la diferencia dada por la polarización.
+Finalmente,
+\[
+	\vb{A}^{\ell=1}_m(\vbx) = i k \pv{m}{\nver}\frac{\euler^{ikr}}{r} 
+	\left( 1 - \frac{1}{ikr} \right). 
+\]
+Como se tiene $\divem{E}=0$ por estar fuera de la fuente debe ser $\divem{A}=0$.
+Entonces se requerirá que el orden 1 cúmplala.
+Usaremos la identidad ID 5 previa reescritura abreviada de $\vb m f(r)$ donde el factor
+$f(r)$ tiene todo lo que acompaña en la expresión de $\vb A$. Entonces
+\[
+	\divem{A}^{\ell=1}_m = - \nver \cdot [ \Nabla f \times \vb m],
+\]
+pero como $\Nabla f$ es proporcional a $\nver$ que es a su vez paralelo a $\rver$ se
+tendrá que el producto escalar indicado es nulo.
+
+La potencia total irradiada es
+\[
+	P = \frac{c k^4}{3} |\vb m|^2.
+\]
+
+Ahora retomamos el término cuadrupolar, que es
+\[
+	\vb{A}^{\ell=1}_Q(\vbx) = \frac{\euler^{ikr}}{2cr} \left( \frac{1}{r} -ik \right)
+	\int \left[ ( \pe{\nver}{x'} ) \vb J + \vbx' ( \pe{\nver}{J} ) \right] d^3x'
+\]
+pero lo trabajaremos con una sola componente para simplificar el análisis,
+\[
+	{A^{\ell=1}_i}_Q(\vbx) = -\frac{ik\euler^{ikr}}{2cr} \left( 1 - \frac{1}{ikr} \right)
+	n_i \int \left[ x_i' \vb J + \vbx' J_i \right] d^3x'
+\]
+y notemos que la divergencia de un tensor de tercer rango da
+\[
+	\partial_k'( x'_i x'_j J_k ) = x'_i J_j + x'_j J_i + x'_i x'_j \Nabla'\cdot \vb{J}
+\]
+la cual si integramos y aplicamos teorema de la divergencia se ve que es nulo.
+\[
+	\int (x'_iJ_j + x'_jJ_i) d^3x = -\int x'_i x'_j \Nabla'\cdot \vb{J} \: d^3x =
+	-i\omega \int x'_i x'_j \rho(\vbx') \: d^3x
+\]
+Luego,
+\[
+	{A_j}_Q^{\ell=1} = - \frac{k^2}{2} \frac{\euler^{ikr}}{r} \left( 1 - \frac{1}{ikr} \right)
+	\int \: x'_j (\pe{\nver}{x'}) \rho(\vbx') \: d^3x'
+\]
+
+Ahora deberíamos hacer $ \vb B = \nabla \times \vb{A}_Q$, pero tendremos en cuenta
+solamente los términos de radiación tirando a la basura el resto. Siempre bajo la
+rule: $ \nabla\times \equiv i k \nver \times $ se tiene la cadena
+\[
+	\nabla \times \vb{A}_Q = i k \nver\times \vb{A}_Q \qquad \qquad 
+	\vb E_Q = \frac{i}{k} \rotorm{B} = \pv{B}{\nver}
+\]
+y vemos que tal como se cumple con la radiación en el vacío se tienen campos $\vb E \perp \vb B$
+y de igual módulo. Entonces
+\[
+	\vb{B}_Q(\vbx) = - \frac{ik^3}{2} \frac{\euler^{ikr}}{r} \nver \times
+	\int \vbx' (\pe{\nver}{x'}) \rho(\vbx') \: d^3x'
+\]
+Recordando la definición del momento cuadrupolar, convertimos $Q_i \equiv n_j Q_{ij}$ en su
+correspondiente expresión vectorial
+\[
+	\nver \times \vb{Q} = 3 \nver \times \int \vbx' (\pe{\nver}{x'}) \rho(\vbx') \: d^3x'
+\]
+Luego, para solamente el campo de radiación se tendrá
+\[
+	\vb{B}_Q^{\ell=1} = - \frac{ik^3}{6} \frac{\euler^{ikr}}{r} \nver \times \vb{Q} \qquad 
+	\qquad \vb E = - \nver \times \vb B
+\]
+
+Calculando el Poynting promedio se llega a
+\[
+	\vm{\vb S} = \frac{c}{8\pi} |\vb B|^2 \nver 
+\]
+y
+\[
+	\vm{ \dtot{P}{\Omega} } = \frac{ck^6}{288\pi} |\nver \times \vb Q|^2
+\]
+
+Caso particular: fuente con eje de simetría de revolución. En este caso podemos definir ejes
+principales para el tensor y recordando su traza nula
+\[
+	Q_{33} \equiv Q_0 \qquad Q_{22} = Q_{11} = - \frac{1}{2}Q_0
+\]
+para un versor $\nver = (n_1, n_2, n_3)$ siendo estos ejes $1,2,3$ ejes principales será
+\[
+	\vb{Q} = (Q_{11}n_1, Q_{22}n_2, Q_{33}n_3)
+\]
+\notamargen{Ojo que acá aparece $Q$ vector además del tensor $Q$.}
+o bien $Q_i = Q_{ij}n_j$ de modo que $\vb{Q} = Q\cdot\nver$ y, luego de un poco de álgebra,
+\[
+	|\nver \times \vb Q|^2 = \Frac{3Q_0}{2} (n_2^2n_3^2 + n_1^2n_3^2)=
+	\Frac{3Q_0}{2} \sin^2\theta \cos^2\theta
+\]
+que es una expresión que no depende de $\vp$ como era de esperar por la simetría de revolución.
+Los versores $n_j$ se expresaron en esféricas (ver apéndice).
+Entonces
+\[
+	\vm{ \dtot{P}{\Omega} } = \frac{ck^6}{128\pi} Q_0^2 \sin^2\theta \cos^2\theta 
+\]
+y hemos hecho una aproximación para orden $\ell=1$. Volvemos a poner el pic que ya aparece
+antes,
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_trebol_4hojas.jpg}
 
 \[
 	\vb{A} = \frac{1}{cR} \dot{\vb{p}}(t') + \frac{\dot{\vb{m}}(t')}{cR} \times \hat{n} + 
@@ -800,6 +965,10 @@ y las cuentas son las mismas con el reemplazo obvio,
 
 \subsection{Ejemplo de antena}
 
+Consideramos un generador de radiofrecuencia (de onda) y ponemos como condición de contorno
+para la corriente un nodo en cada extremo de la antena.
+La parte temporal es siempre $\euler^{i \omega t}$.
+
 Sea una pequeña antena de longitud $d$ (ver figura) tal que 
 \[
 	\vb{J}(\vb{x}') = I \sin( k[d/2 - |z|] ) \delta(x') \delta(y')  \hat{z}
@@ -818,13 +987,15 @@ será
 	\caption{}
 \end{figure} 
 
-Hacemos algunas aproximaciones geométricas de distancia amparadas en la figura de más abajo.
-	\begin{figure}[htb]
-		\begin{center}
-		\includegraphics[width=0.4\textwidth]{images/fig_ft1_antena2.pdf}	 
-		\end{center}
-		\caption{}
-	\end{figure} 
+Hacemos algunas aproximaciones geométricas de distancia amparadas en la figura de más abajo porque
+solo calcularemos para la zona de radiación.
+	
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_antena2.pdf}	 
+	\end{center}
+	\caption{}
+\end{figure} 
 
 Estas aproximaciones son clásicas de los problemas de difracción.
 \[
@@ -855,20 +1026,21 @@ Así, resulta
 Existe condición de contorno que en los extremos la corriente debe ser nula, entonces debe haber nodos
 del seno (en $\pm d/2$) y los $d$ posibles son $ n\lambda/2$.
 \[
-	\vb{A}(\vb{x}) = \hat{z} \frac{2I\euler^{ikx}}{ckx}\left[ \cos( kd/2 \cos(theta) )- 
+	\vb{A}(\vb{x}) = \hat{z} \frac{2I\euler^{ikx}}{ckx}\left[ \cos( kd/2 \cos(\theta) )- 
 		\cos( kd/2 ) \right]\frac{1}{\sin(\theta)^2}
 \]
-entonces 
+y este resultado para el $\vb A$ de la integración sirve para los tres casos que nos interesarán.
+Entonces 
 \[
 	\vb{A}(\vb{x}) = A_z \hat{z} \qquad \qquad \vb{A}(\vb{x}) =  A_z\cos(\theta)\hat{\theta} - 
 		A_z\sin(\theta) ?
 \]
-\notamargen{Falta un vegsor}.
+\notamargen{Falta un vegsor.}
 
 Entonces con $ kx' \ll 1$ (longitud de onda larga, $\lambda \gg d $) tenemos
 \[
 	\left\langle\dtot{P}{\Omega}\right\rangle = \frac{I^2}{2c\pi}\left( \frac{kd}{2} \right)^4 
-		\sin(theta)^2
+		\sin(\theta)^2
 \]
 identificando con $|\vb{p}| = Id^2/(2c)$ y este es el primer término multipolar. El paréntesis es muy
 chico.
@@ -886,9 +1058,9 @@ Las ilustraciones sucesivas de la figura bajo estas líneas dan cuenta de estas 
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.1\textwidth]{images/fig_ft1_antena3.pdf}	 
+	\includegraphics[width=1.0\textwidth]{images/fig_ft1_antena3.jpg}	 
 	\end{center}
-	\caption{}
+	\caption{Los tres casos que consideraremos.}
 \end{figure} 
 
 
