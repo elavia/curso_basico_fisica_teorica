@@ -213,7 +213,7 @@
 	% Entorno para la sección de problemas
 	\newcounter{problemas_count}
 	\newenvironment{problemas}
-	{\vspace{6pt}\small {\bf PROBLEMAS}		
+	{\vspace{6pt}\small {\bf PROBLEMAS}
 	\begin{list}{{\indent}\bf \arabic{section}.\arabic{problemas_count} }{
 	\usecounter{problemas_count}
 	\footnotesize
@@ -227,7 +227,7 @@
 	% Entorno para la sección de notas Finales
 	\newcounter{notas_contador}
 	\newenvironment{notasfinales}
-	{\vspace{6pt}\small {\bf NOTAS}		
+	{\vspace{6pt}\small {\bf NOTAS}
 	\begin{list}{{\indent}\bf \arabic{section}.\arabic{notas_contador} }{
 	\usecounter{notas_contador}
 	\footnotesize
@@ -238,7 +238,7 @@
 	\setlength{\leftmargini}{0pt}
 	}
 	}
-	{\end{list}}		
+	{\end{list}}
 	
 	% Entorno para los ejemplos
 	\newcounter{ejscount}
@@ -256,7 +256,7 @@
 % 	\setlength{\parsep}{0pt}
 	} 
 	\footnotesize\refstepcounter{ejscount}%\label{#2}
-	\item[\hskip \labelsep {\bfseries EJEMPLO \arabic{section}.\arabic{ejscount} #1}]
+	\item[ \hskip \labelsep {\bfseries EJEMPLO \arabic{section}.\arabic{ejscount} #1} ]
 	\mbox{}\\ % Para poder tener en una nueva línea el texto del entorno
 	}
 	{\end{trivlist}}

@@ -1077,6 +1077,203 @@ Estas equivalencias son para campos de radiación nomás,
 	\vb{B}_{rad} = ik \hat{n} \times \vb{A} \qquad \qquad \vb{E}_{rad} = \vb{B}_{rad} \times \hat{n}
 \]
 
+\begin{ejemplo}{\bf Problema 3}
+ 
+Resulta conveniente atacar por el $\vb A$ 
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_antena_problema3.jpg}
+
+Dado el grafiquete es fácil ver que la corriente se debe poder escribir como
+\[
+	\vb{J}(\vbx,t) = \frac{I_0}{a}\delta(r-a)\delta(\cos\theta)\euler^{-i\omega t} \phiver
+\]
+Aproximando campo lejano
+\[
+	\vb{A}(\vbx,t) \approx \frac{I_0}{cra} \int \delta(r-a)\delta(\cos\theta) \euler^{-i\omega (t -|\vbx-\vbx'|/c)}
+\]
+que implica
+\[
+	\euler^{i\omega t'} = \euler^{-i\omega t} \euler^{ikr} \euler^{-i k \nver\cdot\vbx'}
+\]
+Desarrollando los versores se tienen
+\[
+	\nver = \sin\theta\cos\vp \xver + \sin\theta\sin\vp \yver + \cos\theta \zver
+\]
+\[
+	\vbx' = a ( \cos\vp' \xver + \sin\vp' \yver )
+\]
+\[
+	\nver \cdot \vbx' = a \sin\theta \cos(\vp-\vp')
+\]
+Luego, removiendo el approx pero recordando que es campo lejano,
+\[
+	\vb{A}(\vbx,t) =  \frac{I_0a}{cr} \euler^{i (kr-\omega t)} \int_0^{2\pi} 
+	\euler^{-i k a \sin\theta \cos( \vp -\vp' )} \: d\vp' \: \vp'
+\]
+y como es simétrico, para cualquier $\vp'$ vale lo mismo (tomo $\vp=\pi$ ).
+Entonces con ese valor
+\[
+	\vb{A}(\vbx,t) =  \frac{I_0a}{cr} \euler^{i (kr-\omega t)} \int_0^{2\pi} 
+	\euler^{i k a \sin\theta \cos( \vp' )} \: \cos\vp' \: d\vp' \: (-\yver)
+\]
+Utilizando la expresión que define a las funciones cilíndricas de Bessel, será
+\[
+	\vb{A}(\vbx,t) = - \frac{aI_0}{2cr} \euler^{i (kr-\omega t)}
+	\left[ 
+	\frac{2\pi}{i} (-J_1(ka\sin\theta)) + 2\pi i J_1(ka\sin\theta)
+	\right]
+\]
+donde se ha usado la propidad $ J_{-1} = -J_1 $. Finalmente,
+\[
+	\vb{A}(\vbx,t) = - \frac{aI_0}{cr} \euler^{i (kr-\omega t)}
+	\: J_1(ka\sin\theta)) \: 2\pi \: \phiver
+\]
+
+Calculamos el campo magnético a través de la expresión simplificada y será
+\[
+	\vb B_{\text{rad}} = - \frac{1}{c} \nver \times \dot{\vb A} =
+	\frac{2\pi ka I_0}{cr} \euler^{i(kr-\omega t)} \: J_1(ka\sin\theta)) \thetaver
+\]
+Consecuentemente, el campo eléctrico será
+\[
+	\vb E_{\text{rad}} = \vb B_{\text{rad}} \times \nver =
+	-\frac{2\pi ka I_0}{cr} \euler^{i(kr-\omega t)} \: J_1(ka\sin\theta)) \phiver
+\]
+donde recordemos que en $ka=2\pi a/\lambda$ se halla la relación adimensional $\text{diam}/\lambda$
+que nos permite caracterizar el campo lejano.
+El flujo del Poynting será
+\[
+	\vm{\vb S} = \frac{1}{2c} \frac{\pi a^2}{r} k^2I_0^2 J_1(ka\sin\theta)^2 \rver.
+\]
+
+Aproximando $ 2 \pi a \ll \lambda $ se tiene
+\[
+	J_1(ka\sin\theta)) \approx \frac{ka}{2} \sin\theta,
+\]
+que viene de que $J_1(x)\approx x/2$ si el argumento es pequeño, y entonces el campo magnético
+de radiación
+\[
+	\vb B_{\text{rad}} = \frac{k^2}{r} m_0 \euler^{-i\omega t} \euler^{ikr} \thetaver
+\]
+donde hemos definido
+\[
+	m_0 = \frac{1}{c}\pi^2 a I_0, \qquad \sin\theta\thetaver = (\nver\times\vb m)\times\nver
+	\qquad \vb m = m_0\euler^{-i\omega t}\zver
+\]
+con lo cual llegamos a
+\[
+	\vb B_{\text{rad}} = \frac{k^2}{r} \: \euler^{ikr} \: (\nver\times\vb m)\times\nver.
+\]
+
+\end{ejemplo}
+
+\begin{notas}{\bf Características relacionadas con antenas}
+ 
+Tienen importancia la {\bf directividad} que está asociada a los ángulos de intensidad.
+Se define
+\[
+	D = 4\pi r^2 \frac{\vm{S}}{\vm{P}},
+\]
+que mide la desviación respecto de un radiador isotrópico. La ganancia de la antena se mide
+en dB y se define según
+\[
+	\text{Ganancia} = 10 \log_{10}(D) \; \text{dB}
+\]
+
+Se tiene por ejemplo $D=3/2 \sin^2\theta$ que da igual al dipolo eléctrico (se diferencia
+por el estado de polarización). Ver gráfico
+
+\includegraphics[width=0.2\textwidth]{images/fig_ft1_direct_antena_1.jpg}
+
+Este gráfico tiene la simetría de revolución de la fuente.
+Para otros valores [?], con $2\pi a/\lambda = 5\pi$ y, como vemos en la ilustración del
+brillante artista, a medida que sube la frecuencia (y baja la longitud de onda) tenemos
+lóbulos pequeños y surgen secundarios
+ 
+\includegraphics[width=0.2\textwidth]{images/fig_ft1_direct_antena_2.jpg}
+
+Luego es importante la {\bf polarización}. Si la longitud de onda $\lambda$ es muy larga
+tenemos polarización lineal
+
+\includegraphics[width=0.45\textwidth]{images/fig_ft1_polarizacion_antena.jpg}
+
+Finalmente, consideremos la {\bf resistencia de radiación},
+\[
+	\vm{P} = R_\text{rad} \: \frac{I_0^2}{2},
+\]
+que vendría a ser como la resistencia que hace el medio a que nosotros le hagamos transportar
+una onda electromagnética a través de él.
+En
+\[
+	\vm{S} = \frac{1}{2c} \frac{\pi a^2}{r^2} k^2 I_0^2 J_1(ka\sin\theta)^2
+\]
+y
+\[
+	\vm{P} = \frac{I_0^2}{2} \left[ \frac{\pi^2}{c} \Frac{2\pi a}{\lambda} 
+	\int_0^{4\pi a/\lambda} \: J_2(u)\: du \right]
+\]
+identificamos el corchete como una $R_\text{rad}$.
+ 
+\end{notas}
+
+\begin{ejemplo}{\bf Problema 2}
+
+La corriente se escribe
+\[
+	\vb J = I_0 \sin\left( kL /2 - k|z| \right)\delta(x) \delta(y)\euler^{-i \omega t} \zver
+\]
+y usando las aproximaciones de siempre
+\[
+	\vb{A} = \frac{ I_0 L }{ c r } \: \euler^{i(kr-\omega t)} 
+	\left( \frac{ 2 }{ k L\sin^2\theta } \left[ \cos(kL\cos\theta/2) - \cos(kL/2) \right] \right)
+\]
+que se ve como el producto de la solución de un dipolo, el primer factor, y un factor de retardo
+$F(kL/2,\theta)$, que es el factor dentro del paréntesis.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_antena_prob2.jpg}
+
+Téngase presente que para un dipolo con respecto a cierta longitud de onda $\lambda$ vale que
+\[
+	I_0L = - i \omega p \qquad \qquad \int JdV = \int J dS dz = I_0 L
+\]
+y luego como 
+\[
+	\rho v = \rho \dtot{z}{t}dV = \dtot{}{t}(\rho dV), 
+\]
+se tiene, pués $p$ es armónico, que
+\[
+	\dot{p} = - i \omega p
+\]
+
+Esto nos permite escribir entonces
+\[
+	\vb B_{\text{rad}} = i k \nver \times \vb A =
+	i k \frac{I_0L}{cr} \euler^{i(kr-\omega t)} \: F(kL/2,\theta) \: (\nver\times\zver)
+\]
+\[
+	\vb E_{\text{rad}} = \vb B_{\text{rad}} \times \nver =
+	i k \frac{I_0L}{cr} \euler^{i(kr-\omega t)} \: F(kL/2,\theta) \: [(\nver\times\zver)\times \nver]
+\]
+\[
+	\vm{S} = \frac{c}{8\pi} k^2 \Frac{}{}^2 \sin^2\theta F^2(kL/2,\theta)
+\]
+
+La antena es resonancia está caracterizada por $L = n\lambda/2$.
+Luego, hay una condición de contorno de que en el extremo la corriente debe ser nula,
+entonces debe haber nodos del seno lo cual lleva a que las posibles longitudes de
+onda $\lambda$ deben ser múltiplos de $\lambda/2$.
+
+
+
+\end{ejemplo}
+
+
+
+
+
+
+% \includegraphics[width=1.0\textwidth]{images/fig_ft1_antena3.jpg}	
+
 % =================================================================================================
 \section{Campos de una partícula cargada en movimiento}
 % =================================================================================================
