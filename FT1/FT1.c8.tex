@@ -1642,6 +1642,120 @@ Se tiene además
 	\caption{}
 \end{figure} 
 
+\begin{ejemplo}{\bf Problemas 3 y 4}
+
+Para el 3
+\[
+	\vm{\pe{S}{\nver}} = \frac{c}{8\pi}(\cos^2\theta+1)\frac{q a \omega^2}{c^4r^2}
+\]
+de manera que
+\[
+	\vm{P} = \int \dtot{P}{\Omega} d\Omega = \frac{2q^2\omega^4a^2}{3c^3}
+\]
+que ha utilizado la integral
+\[
+	\int_0^\pi (1+\cos\theta) \sin\theta d\theta = \frac{8}{3}.
+\]
+
+Para el problema 4 $B$ no cambia; hay que añadir el $\pi$ y usar superposición.
+Contribuyen cuatro términos al cuadripolo. Se tiene $\omega t \to (\omega t + \pi )$.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 7}
+ 
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_anillo_radiador.jpg} 
+ 
+A partir del problema explicado en la figurita escribo $\vb{p}(t) = q \vbx(t)$ donde
+\[
+	\vbx = a [ \cos(\omega t)\xver + \sin(\omega t) \yver ]
+\]
+y será la física entonces extraíble desde $\text{Re}\{ \vb{p}_\omega \euler^{i\omega t}\}$.
+
+Los elementos de la matriz $Q_{ij}$ son
+\[
+	Q_{xx} = q a^2 ( 3 \cos^2(\omega t) - 1 ) \qquad \qquad 
+	Q_{yy} = q a^2 ( 3 \sin^2(\omega t) - 1 ) \qquad \qquad 
+	Q_{zz} = - q a^2
+\]
+\[
+	Q_{xy} = Q_{yx} = 3 q a^2 \cos(\omega t) \sin(\omega t) \qquad \qquad 
+	Q_{xz} = Q_{yz} = Q_{zx} = Q_{zy} = 0
+\]
+Usando identidades trigonométricas usuales (pasar del cuadrado a uno solo y del producto
+al seno del doble argumento) resulta el tensor separable en dos según
+\[
+	Q = 3 q \frac{a^2}{2} \begin{pmatrix}
+	\cos( 2 \omega t ) & \sin( 2 \omega t ) &  0 \\
+	\sin( 2 \omega t ) & -\cos( 2 \omega t ) &  0 \\
+	0		&	0 	&	0 
+	\end{pmatrix}
+	+ q a^2
+	\begin{pmatrix}
+	\frac{1}{2} & 0 &  0 \\
+	0 & \frac{1}{2} &  0 \\
+	0		&	0 	&	-1
+	\end{pmatrix}
+\]
+y considerando que $ Q = \text{Re}\left\{ Q_{2\omega}\euler^{ i \omega t } \right\}$ será
+\[
+	Q = 3 q \frac{a^2}{2} \begin{pmatrix}
+	1 &  i &  0 \\
+	i & -1 &  0 \\
+	0 &  0 &  0 
+	\end{pmatrix}
+\]
+de modo que 
+\[
+	\vb{A}_\text{dip}(t') = - \frac{i\omega}{cr}\vb{P}_\omega \euler^{-i\omega t'}
+	\qquad \qquad 
+	\vb{A}_\text{cuadrup}(t') = - \frac{2 \omega^2}{3c^2r} Q_{2\omega}\cdot\nver \euler^{-2i\omega t'}
+\]
+donde en esta última expresión, $\nver$ es el versor en coordenadas cartesianas según los ángulos
+esféricos (ver Apéndice-esa cuenta la hicimos en el tomo de MC-).Luego,
+\[
+	Q_{2\omega}\cdot\nver = \frac{3}{2} q a^2 \sin\theta \euler^{i\vp}(\xver + i \yver )
+\]
+y hacemos la cuenta definiéndonos versores polares, ver ilustración, según
+\[
+	\xver = \cos\vp \rhover - \sin\vp \phiver
+	\qquad 
+	\yver = \sin\vp \rhover + \cos\vp \phiver
+\]
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft1_versoretes_polares.jpg} 
+
+\[
+	\nver \times (\xver + i\yver ) = 
+	\rver \times [ ( \cos\vp + i\sin\vp )\rhover + i( \cos\vp + i\sin\vp )\phiver] =
+	\euler^{i\vp}(\cos\theta \phiver - i \thetaver)
+\]
+Finalmente,
+\[
+	\vb{B}_\text{dip} = - \frac{1}{c} \frac{\omega^2}{cr} (\cos\theta \phiver - i \thetaver)
+	q a \euler^{i(kr-\omega t+\vp)}
+\]
+\[
+	\vb{E}_\text{dip} = \frac{\omega^2}{c^2r} (\cos\theta \phiver + i \thetaver)
+	\euler^{i(kr-\omega t+\vp)}
+\]
+y tenemos casos
+\[
+	\begin{cases}
+	\theta = 0 \qquad &\text{ polarización circular } \\
+	\theta = {\pi}/{2} \qquad &\text{ polarización lineal } \\
+	\theta \text{ genérico } \qquad &\text{ polarización elíptica} 
+	\end{cases}
+\]
+que nos llevan a
+\[
+	\vb{B}_\text{cuad} = - \frac{i2}{c} \frac{qa^2\sin\theta \omega^3}{c^3r} (\cos\theta \phiver - i \thetaver)
+	\euler^{2i(kr-\omega t+\vp)}
+\]
+y la polarización tiene los mismos valores que en el caso anterior.
+ 
+\end{ejemplo}
+
 % =================================================================================================
 \section{Frenado magnético}
 % =================================================================================================
@@ -1673,6 +1787,49 @@ En un disco fijo con $\vb{B} = B_0 \euler^{i\omega t}$  habrá $\vb{E} = E(r) \h
 $\pe{J}{E} = \sigma E(r)^2$ entonces se disipará energía por efecto Joule. Se calientan los 
 transformadores en un ejemplo usual de la vida real.
 
+\begin{ejemplo}{\bf Problema 8}
+
+Usaremos o queremos ve la fórmula de Larmor
+\[
+	P = \frac{2q^2}{3c^3} \Frac{d\vb v}{dt}^2
+\]
+
+En una órbita circular la partícula irradia
+
+\includegraphics[width=0.2\textwidth]{images/fig_ft1_orbita_circular_particula.jpg}
+
+Según la segunda ley de Newton,
+\[
+	|\dot{\vb v}| = \frac{v}{r} = \frac{Ze^2}{mR^2}
+\]
+y la potencia
+\[
+	P = \frac{2e^2Z^2e^4}{3c^3m^2R^4} = \dtot{\mathcal{E}}{t} = 
+	- \dtot{}{t}\left( m \frac{v^2}{2} - \frac{Ze^2}{R} \right)=
+	\dtot{}{t}\Frac{Ze^2}{2R},
+\]
+donde pensamos que el $R$ depende del tiempo.
+\[
+	P = - \dtot{\mathcal{E}}{R} \dtot{R}{t} = - \Frac{Ze^2}{2R} \dtot{R}{t} 
+\]
+y reemplazando cada cosa
+\[
+	\int_0^{\Delta t} -\frac{2Ze^4}{3m^2c^3} \: dt = \int_{R_0}^0 \frac{R^2}{2}dR,
+\]
+y entonces
+\[
+	\Delta t = \frac{m^2 c^3 R_0^3}{4Z} = \frac{R_0}{c} \Frac{R_0}{r_0}^2
+\]
+\notamargen{Estamos usando el radio clásico del electrón: $r_0 = e^2/(mc^2)$.}
+Entonces,
+\[
+	c \Delta t \approx \frac{3}{Z} \text{ cm },
+\]
+y vemos que cuando el electrón decae la luz ha recorrido una distancia pequeña.
+Realmente recorre una espiral en la cual va cayendo.
+ 
+\end{ejemplo}
+
 
 \subsection{Esponja electromagnética}
 
@@ -1689,6 +1846,109 @@ La carga se mueve
 
 por el interior hasta llegar a la superficie y alcanzar situación estática $\vb{E}_{II} = 0$ .
 La energía disipada lo hace en forma de calor pero no se radía.
+
+\begin{ejemplo}{\bf Problema 1: dispersión de Thomson}
+
+Tenemos el siguiente esquema con coordenadas. Existe un campo eléctrico $\vb E$ oscilante, que
+hará oscilar al electrón.
+Se puede calcular por potenciales de Lienard-Wiechert
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_proble_thomson1.jpg}
+
+Usaremos la fórmula usual para el $\vb E_\text{rad}$ y el campo magnético de radiación saldrá
+del vectorial y evaluar en $t'$. Tomaremos
+\[
+	t' = t - \frac R c \approx t - \frac r c
+\]
+donde no consideramos coseno del ángulo porque no hay términos de interferencia.
+Tendremos en cuenta polarización lineal y para las ecuaciones de movimiento despreciaremos la
+parte de fuerza que hace el campo magnético, de manera que
+\[
+	m\ddot{x} = -e E_0 \euler^{i(kz-\omega t)} \qquad 
+	m c \dot{\beta} = -e E_0 \euler^{i(kz-\omega t)} = -e E_0 \cos(\omega t)
+\]
+
+No recibe impulso, entonces no se desplaza en $\zver$ como la velocidad es baja hacemos el 
+cálculo no relativista. Luego,
+\[
+	\vb{E}_\text{rad} \approx \frac{e}{c} \frac{\nver \times (\nver \times \dot{\vb{\beta}})}{R}
+\]
+donde $\nver$ es el esférico, de manera que, luego de un rato,
+\[
+	\nver \times (\nver \times \dot{\vb{\beta}}) =
+	-\frac{eE_0}{mc}\cos(\omega t)
+	\left[ 
+	-( 1 - \sin^2\theta \cos^2\vp )\xver + 
+	\sin^2\theta \sin\vp \cos\vp \yver + 
+	\sin\theta \cos\theta \cos\vp \zver
+	\right]
+\]
+y se tiene 
+\[
+	\vm{\pe{S}{\nver}} = \frac{c}{8\pi r^2} \Frac{E_0 e^2}{mc^2}^2( 1 - \sin^2\theta \cos^2\vp )
+\]
+
+Parto de $E_x$, si quiero cp debo sumarle una componente en $\yver$ desfasada en $i$. Luego,
+\[
+	\hat{e} = \frac{\xver + i\yver }{\sqrt{2}}
+\]
+
+\includegraphics[width=0.25\textwidth]{images/fig_ft1_proble_thomson2.jpg}
+ 
+De manera que resultan ambos iguales
+\[
+	\vm{\dtot{P}{\Omega}}_x = \frac{c}{8\pi}\Frac{ e^2 E_0}{ \sqrt{2} m c^2 }^2 
+	( 1 - \sin^2\theta \cos^2\theta ) = \vm{\dtot{P}{\Omega}}_y.
+\]
+
+Superponiendo el campo $E$, no la potencia $P$, i.e. considero un campo $ \vb{E} = 2^{-1/2}
+( E\xver + i E \yver ) $ se tiene 
+\[
+	\vm{\dtot{P}{\Omega}} = \vm{\dtot{P}{\Omega}}_x + \vm{\dtot{P}{\Omega}}_y =
+	\frac{c}{8\pi} \Frac{E_0e^2}{mc^2}^2 \Frac{1+\cos^2\theta}{2}
+\]
+y consecuentemente,
+\[
+	\dtot{\sigma}{\Omega} = \vm{\dtot{P}{\Omega}} / \vm{S}_\text{inc} =
+	\Frac{e^2}{mc^2}^2 \Frac{1+\cos^2\theta}{2}
+\]
+y normalizamos de alguna manera la potencia por ángulo sólido habiendo dividido por 
+$ \vm{S}_\text{inc} = c/(8\pi) E_0^2$.
+
+Si integramos en ángulo sólido resulta
+\[
+	\sigma_T = \frac{8\pi}{3}R^2_e,
+\]
+que es aproximadamente la sombra.
+
+Notemos que para cálculo relativista tendremos un efecto Compton con cambio de longitud de onda
+con lo cual debemos corregir 
+\[
+	\dtot{\sigma}{\Omega}\Frac{K'}{K}
+\]
+y
+\[
+	\frac{K'}{K} = \frac{1}{\displaystyle 1 + \frac{\hbar\omega}{mc^2}(1-\cos\theta)}.
+\]
+
+Si la partícula estuviera ligada a un potencial, deberá figurar en la ecuación de movimiento
+\[
+	m\ddot{x} + m \omega_0^2x = -e E_0 \cos(\omega t)
+\]
+\[
+	x = - \frac{e E_0}{\omega_0^2 - \omega^2} \euler^{i\omega t}
+\]
+de manera que ahora tendremos
+\[
+	\sigma = \frac{8\pi}{3}\Frac{e^2}{mc^2}^2 \frac{\omega^4}{[\omega_0^2 - \omega^2]^2},
+\]
+y con frecuencia baja se recuperea el $\sigma$ de Thomson. Por otra parte si la frecuencia
+es mucho menor, i.e. si $\omega \ll \omega_0$ se tiene el interesante resultado
+\[
+	\sigma = \sigma_T \Frac{\omega}{\omega_0}^4.
+\]
+
+\end{ejemplo}
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
