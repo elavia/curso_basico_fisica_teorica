@@ -1030,37 +1030,52 @@ del seno (en $\pm d/2$) y los $d$ posibles son $ n\lambda/2$.
 		\cos( kd/2 ) \right]\frac{1}{\sin(\theta)^2}
 \]
 y este resultado para el $\vb A$ de la integración sirve para los tres casos que nos interesarán.
-Entonces 
+Vemos que es paralela a la antena
+Entonces, pasando a esféricas
 \[
-	\vb{A}(\vb{x}) = A_z \hat{z} \qquad \qquad \vb{A}(\vb{x}) =  A_z\cos(\theta)\hat{\theta} - 
-		A_z\sin(\theta) ?
+	\vb{A}(\vb{x}) = A_z \hat{z} \qquad \qquad \vb{A}(\vb{x}) =  A_z\cos(\theta)\rver - 
+		A_z\sin(\theta) \thetaver
 \]
-\notamargen{Falta un vegsor.}
+Los campos $\vb E, \vb B$ están en fase, $\vb E \propto \vb B$, son transversales entre sí y con
+la dirección de propagación. Además, van como $ 1 / r $.
+La potencia será
+\[
+	\vm{ \dtot{P}{\Omega} } = r^2 \nver \cdot \vm{ \vb S } =
+	\frac{I^2}{2\pi c} \Frac{\cos( kd/2 \: \cos\theta ) - \cos( kd/2 )}{\sin\theta}^2
+\]
+donde $\nver$ es un versor del punto de observación.
+
 
 Entonces con $ kx' \ll 1$ (longitud de onda larga, $\lambda \gg d $) tenemos
 \[
-	\left\langle\dtot{P}{\Omega}\right\rangle = \frac{I^2}{2c\pi}\left( \frac{kd}{2} \right)^4 
-		\sin(\theta)^2
+	\vm{ \dtot{P}{\Omega} } = \frac{I^2}{2c\pi} \Frac{kd}{2}^4 \sin^2 \theta
 \]
-identificando con $|\vb{p}| = Id^2/(2c)$ y este es el primer término multipolar. El paréntesis es muy
-chico.
-Con media longitud de onda ($kd=\pi$) ($\lambda/2=d$) es
+identificando con $|\vb{p}| = Id^2/(2c)$ y este es el primer término multipolar.
+El paréntesis es muy chico.
+
+Con una antena de media longitud de onda ($kd=\pi$) ($\lambda/2=d$) es
 \[
 	\left\langle\dtot{P}{\Omega}\right\rangle=\frac{I^2}{2c\pi}\frac{\cos(\pi/2 
 	\cos(\theta))^2}{\sin(\theta)^2}
 \]
-y finalmente para una longitud de onda ($\lambda=2$ y $kd=2\pi$) se tiene 
+donde parece que usamos la aproximación del coseno de argumento pequeño,
+\[
+	\cos(x) \approx 1 - x^2.
+\]
+
+Finalmente, para una longitud de onda ($\lambda=2$ y $kd=2\pi$) se tiene 
 \[
 	\left\langle\dtot{P}{\Omega}\right\rangle=\frac{I^2}{2c\pi} \left[ \frac{ 2\cos(\pi/2 
 	\cos(\theta))^2}{\sin(\theta)^2} \right]^2
 \]
-Las ilustraciones sucesivas de la figura bajo estas líneas dan cuenta de estas diferentes longitudes.
+Las ilustraciones sucesivas de la figura \ref{fig_ft1_antena3} dan cuenta de estas diferentes longitudes.
 
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=1.0\textwidth]{images/fig_ft1_antena3.jpg}	 
 	\end{center}
 	\caption{Los tres casos que consideraremos.}
+	\label{fig_ft1_antena3}
 \end{figure} 
 
 
@@ -1076,6 +1091,28 @@ Estas equivalencias son para campos de radiación nomás,
 \[
 	\vb{B}_{rad} = ik \hat{n} \times \vb{A} \qquad \qquad \vb{E}_{rad} = \vb{B}_{rad} \times \hat{n}
 \]
+
+\begin{ejemplo}{\bf Observación sobre la simetría azimutal}
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_antena_sime_azimu.jpg}
+
+\[
+	\vb J = \frac{I}{c} \delta(r-a)\delta(\cos\theta) \phiver 
+\]
+que es la densidad de corriente para un anillo conductor. Luego
+\[
+	\vb A = \frac{Ia}{c} \frac{\euler^{ikr}}{r} \int_0^{2\pi}
+	\euler^{ - i k a \sin\theta \cos\vp' } \: \cos\vp \: d\vp'
+\]
+
+La frecuencia de la corriente es la misma que la frecuencia de la radiación que se emite.
+Como estamos haciendo una aproximación que involucra $ka$ no podemos calcular directamente
+la integral sin realizar un taylor en $ka$.
+Se debe tener $\lambda \gg a$ para que la corriente sea la misma.
+ 
+\end{ejemplo}
+
+
 
 \begin{ejemplo}{\bf Problema 3}
  
@@ -1269,23 +1306,22 @@ onda $\lambda$ deben ser múltiplos de $\lambda/2$.
 
 
 
-
-
-
 % \includegraphics[width=1.0\textwidth]{images/fig_ft1_antena3.jpg}	
 
 % =================================================================================================
-\section{Campos de una partícula cargada en movimiento}
+\section{Campo de una partícula cargada en movimiento}
 % =================================================================================================
 
-Escribimos la densidad de corriente y la densidad de carga según
+Escribimos la densidad de corriente y la densidad de carga para una partícula
+(con la delta de Dirac) según
 \[
 	\vb{J}(\vb{x}',t') = q\vb{v} \delta[ \vb{x}' - \vb{r}(t')]
 \]
 \[
 	\rho(\vb{x}',t') = q \delta[ \vb{x}' - \vb{r}(t')]
 \]
-de manera que 
+de manera que, introduciendo esta información en los potenciales retardados y, sin integrar,
+se obtiene
 \[
 	\vb{A}(\vb{x},t) = \frac{1}{c} \int_{t'}\int_{V'} 
 	\frac{ q\vb{v} \delta[ \vb{x}' - \vb{r}(t')] \delta[ t'-t +R/c] }{|\vb{x} -\vb{x}'|} dV' dt'
@@ -1295,6 +1331,7 @@ de manera que
 	\frac{ q \delta[ \vb{x}' - \vb{r}(t')] \delta[ t'-t +R/c] }{|\vb{x} -\vb{x}'|} dV' dt'
 \]
 donde hemos usado $R\equiv |\vb{x}-\vb{x}'|$ de modo que es $R = R(t')$.
+Luego de integrar en el espacio se obtienen
 \[
 	\vb{A}(\vb{x},t) = \frac{1}{c} \int_v' \frac{ q\vb{v} \delta[ t'-t +R/c] }{|\vb{x} -\vb{r}(t')|} dt' 
 	\Rightarrow \vb{A}(\vb{x},t) = \left. \frac{q}{c} \frac{\vb{v}(t')}
@@ -1309,7 +1346,8 @@ cuyas expresiones son los potenciales de Liènard-Wiechert. Hemos usado en las c
 \[
 	\delta[t' - ( t - R(t')/c )] = \frac{1}{\dtot{}{t'}( t' + R(t')/c )} \delta( t-t')
 \]
-(idea que viene de $\delta f = (1/(df/dx_0)) \delta(x-x_0) $) y que 
+(idea que viene de $\delta f = (1/(df/dx_0)) \delta(x-x_0) $)\footnote{Que es propiedad de
+la delta de Dirac y deberemos escribir de modo más adecuado.} y que 
 \[
 	R = |\vb{x}-\vb{x}'| = \sqrt{ x^2 + x'^2 - 2\pe{x}{x'} } \qquad \dtot{R}{t'} = 
 	\frac{\dot{\vb{x}'}\cdot(\vb{x}-\vb{x}')}{R} = -\frac{\pe{R}{v}}{R} = -\hat{n}\cdot\vb{v}
@@ -1321,12 +1359,24 @@ según la figura que ilustra bajo estas líneas
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_part_car.pdf}	 
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_part_car.pdf}
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_part_carJPG.jpg}
 	\end{center}
 	\caption{}
 \end{figure} 
+\notamargen{Cuando evaluamos a tiempo $t$ donde llega la radiación la partícula se halla en otra
+posición.}
 
-y como los campos serán 
+Recordemos que $t,t'$ son instantes diferentes en un mismo sistema inercial.
+Cuando la partícula está en $\vbx(t')$ emite y llega a $\vbx$ en $t$; momento en el cual 
+$\vbx(t)$ es otro. La picture de la cosa vendría a ser algo como lo que se muestra abajo.
+
+Las fuentes no dependen necesariamente de manera armónica del tiempo.
+
+Es más fácil trabajar con las expresiones integrales antes de integrar en el tiempo.
+
+
+Como los campos serán 
 \[
 	\vb{B} = \rotorm{A} \qquad \vb{E} = -\frac{1}{c}\dpar{\vb{A}}{t} - \Nabla\phi
 \]
@@ -1344,19 +1394,82 @@ de tiempo diferentes en un mismo sistema inercial.
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_part_car2.pdf}	 
+	\includegraphics[width=0.3\textwidth]{images/fig_ft1_campo_part_car2.pdf}
+	\includegraphics[width=0.6\textwidth]{images/fig_ft1_campo_part_car2JPG.jpg}
 	\end{center}
-	\caption{}
+	\caption{El campo se produce en $t'$ y la radiación llega cuando la partícula se halla
+	en el punto 2.}
 \end{figure} 
+
+Ahora sigue un desarrollo un poco monster
+
+\begin{ejemplo}{\bf Desarrollo cálculo campo}
+
+Tenemos 
+\[
+	\vb A = \frac{e}{c} \int \frac{\vb v(t')}{R} \delta \: dt' \qquad \qquad 
+	\phi = e \int \frac{1}{R} \delta \: dt'
+\]
+donde el argumento de la delta es $t'+ R/c -t$. Luego,
+\[
+	\nabla\phi = e \int \left[ \nabla\Frac{1}{R} \delta + \frac{1}{R} \nabla\delta \right] \: dt'
+\]
+Usamos
+\[
+	\nabla\delta = \delta'\nabla(t'+R/c-t) = \frac{\nver}{c}\delta'(t'+R/c-t)
+\]
+lo que nos permite
+\[
+	\nabla\phi = -e \int \frac{\nver}{R^2} \delta \: dt' + 
+	e \int \frac{\nver}{R} \delta' \: dt'
+\]
+\[
+	\frac{1}{c}\dtot{\vb A}{t} = - \frac{e}{c^2} \int \frac{\vb v}{R} \delta' \: dt' 
+\]
+\[
+	\vb E = e \int \left[ \frac{\nver}{R^2} \delta + 
+	\frac{1}{cR}(\vb{\beta} - \nver) \delta' \right] dt' 
+\]
+\[
+	\vb B = \rotorm{A} = e \int (\nver\times\vb{\beta}) 
+	\left[ -\frac{\delta}{R^2} + \frac{\delta'}{cR} \right] dt' 
+\] 
+
+La integral crucial parece ser
+\[
+	\int \frac{\nver}{R^2} \delta \: dt' = 
+	\Frac{ \nver(t')/R^2(t') }{|d/dt'(t'+R/c)|}_{t' = t-R/c} =
+	\Frac{\nver}{KR^2}_{\text{ret}}
+\] 
+donde usamos el colapso de la delta derivada (ver apéndice). 
+\notamargen{Recordemos que $K \equiv \dtot{}{t'}( t' + R(t')/c )$.}
+Expandiendo, resultan
+\[
+	\vb E = e \left[ \frac{\nver - \vb{\beta} }{K^2R^2} + \frac{\nver}{cK} \dtot{}{t'}\Frac{1}{kR}
+	- \frac{1}{cK}  \dtot{}{t'}\Frac{\vb{\beta}}{kR} \right]_{\text{ret}}
+\]
+\[
+	\vb B = e \left[ \frac{ \vb{\beta}\times\nver }{K^2R^2} 
+	+ \frac{1}{cK} \dtot{}{t'}\Frac{\vb{\beta}}{kR}\times\nver \right]_{\text{ret}}
+\]
+\notamargen{Todas estas expresiones habría que chequearlas, doblechequearlas y triplechequearlas.}
+ 
+ 
+\end{ejemplo}
+
 
 Podemos sacar un par de frases importantes ya que 
 \begin{itemize}
- \item Si una partícula se mueve con $\vb{v}$ constante puedo pasar a un frame inercial $S'$ donde es 
- $\vb{v}=0$ y entonces $\vb{B}'=0$ de manera que como $\pe{B}{E}=\pe{B'}{E'}=0$ se tiene $\vb{B}\perp\vb{E}$
- en todo frame inercial.
- \item El $\vb{E}_{rad}$ estará dado por el $\vb{E}_a$.
- \item Toda partícula que está acelerada en un frame inercial debe irradiar ondas EM, entonces una partícula
- recorre una circunferencia (en un campo $\vb{B}$) si aceptamos que lo que irradia es despreciable.
+	\item Se puede ver que $\nver\times\vb E = \vb B$, lo cual vale también para 
+	los campos totales, no solamente para los de radiación, como sabíamos.
+	\item Si una partícula se mueve con $\vb{v}$ constante puedo pasar a un frame 
+	inercial $S'$ donde es $\vb{v}=0$ y entonces $\vb{B}'=0$ de manera que como 
+	$\pe{B}{E}=\pe{B'}{E'}=0$ se tiene $\vb{B}\perp\vb{E}$ en todo frame inercial
+	(se las arregla para satisfacer eso).
+	\item El $\vb{E}_{rad}$ estará dado por el $\vb{E}_a$.
+	\item Toda partícula que está acelerada en un frame inercial debe irradiar ondas
+	EM, entonces una partícula recorre una circunferencia (en un campo $\vb{B}$) si 
+	aceptamos que lo que irradia es despreciable.
 \end{itemize}
 
 Sea ahora una partícula $e$ con $|\vb{v}|$ constante, entonces 
@@ -1371,13 +1484,38 @@ y
 \]
 donde vemos que difieren en 
 \[
-	\frac{1-\beta^2}{(1-\hat{n}\cdot{\vb{\beta}})}
+	\frac{1-\beta^2}{(1-\hat{n}\cdot{\vb{\beta}})}.
 \]
 
+Tenemos entonces que
+\[
+	\vb{E}  = \vb{E}_v  + \vb{E}_a 
+\]
+que es un término de velocidad y uno de aceleración, estando los campos de radiación dados por
+este último.
+Toda partícula que se mueve con velocidad no constante en un sistema inercial debe radiar ondas
+electromagnéticas.
+Una partícula recorre una circunferencia en un campo $\vb B$ uniforme si aceptamos que lo que radía
+es despreciable.
 
-% =================================================================================================
-\section{Campo de una carga en movimiento}
-% =================================================================================================
+\begin{ejemplo}{\bf Partícula con velocidad constante}
+
+Sea una partícula de carga $e$ con velocidad constante, será
+\[
+	\vb{B}(\vbx,t) = e \Frac{\beta\times\nver}{\gamma^2K^3R^2}_\text{ret}
+\]
+mientras que por Biot-Savart se tiene, con $\vb J = \rho \vb v = e \delta(\vbx'-\vbx)\vb v$ ,
+\[
+	\vb{B}_\text{BS} = \frac{e}{c} \frac{\vb v \times \nver }{R^3},
+\]
+que difieren en $\gamma^2K^3$ y dejamos de lado el retardo. La diferencia es despreciable.
+
+Era de esperar que las expresiones difiriesen puesto que Biot-Savart es para corrientes
+estacionarias y una carga con velocidad produce una corriente que no es estacionaria.
+No obstante, si no radía, vemos que la aproximación es buena.
+ 
+\end{ejemplo}
+
 
 El campo de velocidad es 
 \[
@@ -1388,9 +1526,10 @@ referidas las magnitudes a la figura XXXX.
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_carga_mov2.pdf}	 
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_carga_mov2.pdf}
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_carga_mov2JPG.jpg}
 	\end{center}
-	\caption{}
+	\caption{El campo en P me lo define un punto futuro b.}
 \end{figure} 
 
 \[
