@@ -1522,7 +1522,8 @@ El campo de velocidad es
 	\vb{E}_v = e \frac{(\hat{n}-\hat{\beta})}{\gamma^2(1-\hat{n}\cdot\vb{\beta})^3R^2} =
 		e \left[ \frac{\vb{R}-R\vb{\beta}}{\gamma^2(1-\hat{n}\cdot\vb{\beta})^3R^2} \right]
 \]
-referidas las magnitudes a la figura XXXX.
+referidas las magnitudes a la figura \ref{fig_ft1_campo_carga_mov}. 
+El ángulo $\beta$ es el que corresponde al punto $P$.
 
 \begin{figure}[htb]
 	\begin{center}
@@ -1530,77 +1531,133 @@ referidas las magnitudes a la figura XXXX.
 	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_carga_mov2JPG.jpg}
 	\end{center}
 	\caption{El campo en P me lo define un punto futuro b.}
+	\label{fig_ft1_campo_carga_mov}
 \end{figure} 
 
+Desarrollamos en algún momento
+\[
+	r^2 = R^2 + \b^2R^2 - 2R^2\b\cos\theta = R^2(1+\b^2-2\b\cos\theta)
+\]
+que se conecta con
 \[
 	|\vb{E}_v| = e\frac{\sqrt{ R^2 + \beta^2 R^2 - 2R^2 \beta \cos(\theta)}}
 		{\gamma^2( 1 - \vb{R}\cdot\vb{\beta}/R)^3 R^3} =
-		e\frac{\sqrt{ 1 + \beta^2 - 2 \beta \cos(\theta)}}
-		{\gamma^2( 1 - \beta \cos(\theta))^3 R^2}
+		e\frac{ [ \: 1 + \beta^2 - 2 \beta \cos\theta \: ]^{3/2}}
+		{\gamma^2( 1 - \beta \cos\theta )^3 r^2}
 \]
-entonces como $\cos(\theta) = \beta$
+Queremos [?]
+\[
+	\dtot{ |\vb{E}_v| }{\theta}= 0,
+\]
+y ello significa que tiene que ser
+\[
+	3\b^2 ( 1 + \b^2 - 2\b \cos\theta )^{1/2} ( 1 - \beta \cos\theta )^2 
+	\sin\theta (\cos\theta -1) = 0
+\]
+y analizamos factor a factor
+\begin{itemize}
+ \item $\sin\theta (\cos\theta -1) = 0$ implica por un lado $\sin\theta=0$ lo cual
+ es un movimiento hacia adelante $(\theta=0)$ o hacia atrás $(\theta=\pi)$. El
+ otro factor $\cos\theta = \pm 1$ da la misma información.
+ \item $1 - \beta \cos\theta = 0$ implica $ \cos\theta = \b^{-1} > 1 $ y la 
+ desechamos porque no puede ser.
+ \item $1 + \b^2 - 2\b \cos\theta = 0$ corresponde a $|\vb E|=0$ y lleva a
+	\[
+		\frac{1 + \b^2}{2\b} = \cos\theta, 
+	\]
+	de modo que se desecha también.
+ \item $\cos\theta - \b = 0$ es ``la condición''.
+\end{itemize}
+
+Entonces, con esta última condición $\cos(\theta) = \beta$ se tiene
 \[
 	\dtot{ |\vb{E}_v| }{\theta}= 0
 \]
 siendo los extremos $\theta=0,\pi$ que representan un movimiento hacia adelante o hacia atrás.
 \[
-	|\vb{E}_v(\cos(\theta) = \beta)| = \frac{e\gamma}{r^2}
+	|\vb{E}_v(\cos\theta = \beta)| = \frac{e\gamma}{r^2}
 \]
 \[
-	|\vb{E}_v(\cos(\theta) = 1)| = \frac{e (1+\beta^2-2\beta)^2}{R^2(1-\beta^2)^{-1}(1-\beta)^3}
+	|\vb{E}_v(\cos\theta = 1)| = \frac{e (1+\beta^2-2\beta)^2}{R^2(1-\beta^2)^{-1}(1-\beta)^3}
 \]
 \[
-	|\vb{E}_v^{(\theta = 1)}| = \frac{e }{R^2(1-\beta^2)^2 \gamma^2} = \frac{e}{r^2 \gamma^2}
+	|\vb{E}_v{(\cos\theta = 1)}| = \frac{e }{R^2(1-\beta^2)^2 \gamma^2} = \frac{e}{r^2 \gamma^2}
 \]
-puesto que es $r=R(1-\beta)$. Vemos que es similar al campo estático pero con un factor corrector.
+puesto que es $r=R(1-\beta)$. Vemos que, en ambos casos, es similar al campo estático pero con 
+un factor corrector. Hacia adelante y hacia atrás el campo $\vb E$ se ve disminuido en un $1/\gamma^2$.
 
-Campo de aceleración, es
-\[
-	\vb{E}_a = \frac{e}{c} \frac{ \hat{n} \times [ (\hat{n}-\vb{\beta})\times \dot{\vb{\beta}} ]}{K^3 R} 
-		\approx \frac{e}{c} \frac{ \hat{n} \times ( \hat{n} \times \dot{\vb{\beta}})}{K^3 R} 
-		= \frac{e}{c} \frac{}{K^3 R}
-\]
-donde usamos que $v/c \ll 1$ y por ende $ 1 - \hat{n}\cdot\vb{\beta}\approx 1$ entonces es 
-\[
-	\hat{n} \cdot \hat{\beta} \approx \hat{n}
-\]
+\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_carga_movJPG1.jpg}
+
+En el figurin podemos ver que $\cos\theta=\b=R\b/R$ de la trigonometría.
+
+En la Figura \ref{fig_ft1_campo_carga_mov} vemos que la longitud de las flechas es proporcional
+a la intensidad del campo $\vb E$ en un dado punto presente.
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_carga_mov.pdf}	 
+	\includegraphics[width=0.4\textwidth]{images/fig_ft1_campo_carga_mov.pdf}
+	\includegraphics[width=0.3\textwidth]{images/fig_ft1_campo_carga_movJPG2.jpg}
 	\end{center}
-	\caption{}
+	\caption{campo de carga en movimiento}
+	\label{fig_ft1_campo_carga_mov}
 \end{figure}
+
+Ahora consideraremos el campo eléctrico de las aceleraciones (el correspondiente a la radiación)
+El campo de aceleración es
+\[
+	\vb{E}_a = \frac{e}{c} \frac{ \nver \times [ (\nver-\vb{\b})\times \dot{\vb{\b}} ]}{K^3 R} 
+		\approx \frac{e}{c} \frac{ \nver \times ( \nver \times \dot{\vb{\b}})}{K^3 R} 
+% 		= \frac{e}{c} \frac{}{K^3 R}
+\]
+donde usamos que $\b = v/c \ll 1$ y por ende $\nver-\vb{\b} \approx \nver$ y 
+$ K = 1 - \pe{\nver}{\b} \approx 1$ (dos aproximaciones de orden consistente aunque parecen
+no estar de acuerdo una cono otra) entonces es 
+\[
+	\nver \cdot \hat{\beta} \approx \nver
+\]
+
+Queremos ver la radiación de la partícula y al no haber dependencia temporal armónica no tomamos
+el valor medio de manera que
+\[
+	\vb{S} = \frac{e^2}{4\pi c}\nver \left| \frac{\nver \times \dot{\vb{\b}}}{R}\right|^2
+\]
+donde no considero el \texttt{ret} porrque la velocidad es mucho menor a $c$.
+\notamargen{Algunas de estas expresiones en la carpeta estaban evaluadas en \texttt{ret} y acá
+no. Habría que justificar la explicación.}
 
 % =================================================================================================
 \section{Cálculo de potencia irradiada}
 % =================================================================================================
+
+Consideramos una partícula acelerada pero con velocidad no relativista.
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft1_calculo_potencia_radiada.jpg}
 
 Se realiza calculando el vector de Poynting,
 \[
 	\vb{S} = \frac{c}{4\pi} \pv{E}{B} = \frac{c}{4\pi} |\vb{E}_a|^2 \hat{n} =  \frac{e^2}{4\pi c}
 		\hat{n} \left| \frac{\hat{n} \times \dot{\vb{\beta}} }{R} \right|^2
 \]
-si es 
+Luego, siendo $\Omega$ el ángulo sólido subtendido por $d\nver$ desde $t_\text{ret}$ se tiene
 \[
 	dP = \vb{S}\cdot\hat{n} R^2 d\Omega =
 		\frac{e^2}{4\pi c} \left| \hat{n} \times \dot{\vb{\beta}} \right|^2 d\Omega
 \]
-y entonces 
+y entonces la potencia irradiada será
 \[
-	\dtot{P}{\Omega} = \frac{e^2}{4\pi c} \frac{\dot{v}^2}{c^2} \sin(\theta)^2 = 
-		\frac{e^2 \dot{v}^2 }{4\pi c^3} \sin(\theta)^2.
+	\dtot{P}{\Omega} = \frac{e^2}{4\pi c} \frac{\dot{v}^2}{c^2} \sin^2\theta = 
+		\frac{e^2 \dot{v}^2 }{4\pi c^3} \sin^2\theta
 \]
+que depende del ángulo $\theta$  que en el dibujo de arriba es $\alpha$.
 
 Luego, si integramos,
 \[
 	P = \frac{e^2 \dot{v}^2 }{4\pi c^3} \int\int \sin(\theta)^3 d\theta d\phi
+	= \frac{2 e^2 \dot{v}^2 }{3 c^3}
 \]
-y se llega a que 
-\[
-	P = \frac{2 e^2 \dot{v}^2 }{3 c^3}
-\]
-que es la fórmula de Larmor con $v/c \ll 1$. Ahora podemos prescindir de la restricción no relativista
+que es la fórmula de Larmor con $v/c \ll 1$. 
+
+Ahora podemos prescindir de la restricción no relativista
 usando que la $P$ es invariante lorentziano.
 \[
 	P = \frac{2 e^2}{3 c^3 m^2} \left( \dtot{\vb{p}}{t} \dtot{\vb{p}}{t} \right)
@@ -1610,19 +1667,55 @@ y como $p_{\mu}( E/c , -\vb{p} )$ y $p^{\mu}( E/c , \vb{p} )$.
 	-\dtot{p_\mu}{\tau} \dtot{p^\mu}{\tau} = \dtot{\vb{p}}{\tau} \dtot{\vb{p}}{\tau} - 
 		\dtot{}{\tau}(E^2/c^2)
 \]
+donde recordemos que $E^2 = c^2p^2 + m^2c^4$,
 \[
-	\tau = \gamma (t-\beta x_\parallel) \qquad \qquad \dtot{\tau}{t} = \gamma \qquad \Rightarrow \qquad 
-	\dtot{\vb{p}}{\tau} \dtot{\tau}{t}= \gamma \dtot{\vb{p}}{\tau} =  \dtot{\vb{p}}{t}
+	\tau = \gamma (t-\beta x_\parallel) \qquad \qquad 
+	\dtot{\tau}{t} = \gamma \qquad \Rightarrow \qquad 
+	\dtot{\vb{p}}{\tau} \dtot{\tau}{t}= \gamma \dtot{\vb{p}}{\tau} = \dtot{\vb{p}}{t}
 \]
-y luego para una trayectoria rectilínea
+
+Ahora querremos darle forma 3D a la potencia
+\[
+	P = - \frac{2}{3} \frac{ e^2 }{ m^2 c^3 } \dtot{P^\mu}{\tau} \dtot{P_\mu}{\tau} =
+	\frac{2}{3} \frac{e^2\gamma^6}{c} \left[ \vb{\b}^2 - (\vb{\b} \times \dot{\vb{\b}})^2 \right]
+\]
+donde el resultado llega después de una cuenta un poco tediosa.
+Luego,
+\[
+	\vb{S}\cdot\nver|_\text{ret} = 
+	\frac{e^2 c}{4\pi} \left[ \frac{ \nver \times [ (\nver-\vb{\b})\times \dot{\vb{\b}} ]}{K^3 R}
+	\right]_{\text{ret}}^2
+\]
+La potencia irradiada entre $t_1', t_2'$ conociendo su movimiento en dicho intervalo será
+\[
+	E = \int_{t_1=T_1+R(T_1)/c}^{t_2=T_2+R(T_2)/c} \: (\vb{S}\cdot\nver|_\text{ret}) \: K \: dt' =
+	\int_{t_1'= R(T_1)/c}^{t_2'= R(T_2)/c} \: \vb{S}\cdot\nver|_\text{ret} \: K \: dt'
+\]
+donde el segundo miembro ya está evaluado en el tiempo retardado (que es cuando se produce
+el campo).
+\[
+	\dtot{P(t')}{\Omega} = \frac{e^2}{4\pi c} 
+	\frac{ | \nver \times [ (\nver-\vb{\b})\times \dot{\vb{\b}} ] |^2}{ ( 1 - \pe{\nver}{\b} )^5 }.
+\]
+
+Para simplificar, pensemos en una trayectoria rectilínea
 \[
 	\dtot{P}{\Omega} = \frac{e^2}{4\pi c^3} \frac{ a^2 \sin(\theta)^2}{(1-\beta \cos(\theta))^5} 
 \]
+y la integral
 \[
-	P = \frac{2 e^2 a^2 \gamma^6}{3 c^3} \qquad \qquad a = Z_0 \omega^2 \euler^{-i \omega t}
+	P = \frac{e^2 a^2}{2c^3} \int_0^\pi \: \frac{\sin^3\theta}{(1-\b\cos\theta)^3} \: d\theta
 \]
+sale mediante un cambio de variable y resulta
+\[
+	P = \frac{2 e^2 a^2 \gamma^6}{3 c^3} \qquad \qquad a = Z_0 \omega^2 \euler^{-i \omega t},
+\]
+que es un movimiento arbitrario pero en línea recta. Vemos que depende del cuadrado de la
+carga entonces el signo no le importa a la naturaleza.
+
 Según vemos en la figura la distribución angular de potencia es una especie de {\it as de pique} en el cual
 a mayor velocidad los lóbulos se pegan al eje de simetría. Compárese con el caso no relativista.
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.4\textwidth]{images/fig_ft1_frenado3.pdf}	 
@@ -1630,9 +1723,16 @@ a mayor velocidad los lóbulos se pegan al eje de simetría. Compárese con el c
 	\caption{}
 \end{figure} 
 
-Se tiene además 
+Si minimizamos el integrando, igualando su derivada con respecto a $\theta$ a cero se extrae
 \[
-	\theta_{max} \approx \frac{1}{2\gamma}
+	\theta_\text{max} = \acos \left( \frac{1}{2\b} [ \sqrt{ 1 + 15\b^2 } - 1 ] \right)
+\]
+y vemos que crece como la inversa de la velocidad, de modo que será en general el ángulo
+máximo un valor chico. Tomando un límite {\it sucio} con $\b \to 1$ es $\theta_\text{max} \to 0$
+pero ya sabemos que la expresión no vale [?], hay que tomar el límite con rigor, en cuyo 
+caso resulta 
+\[
+	\theta_{max} \approx \frac{1}{2\gamma}.
 \]
 
 \begin{figure}[htb]
