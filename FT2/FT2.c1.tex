@@ -3,8 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -33,6 +33,14 @@
 \chapter{Introducción}
 % =================================================================================================
 
+Este capítulo es una introducción al formalismo.
+Recordemos que el curso se basó fuertemente en el libro de Jon Jun Sakurai [bien escrito?].
+La mecánica cuántica relativista desemboca en la teoría de campos.
+Decir quizás que hay que, de alguna manera, olvidar todo lo anterior de la física clásica (hasta
+nuevo aviso) porque esto conviene pensarlo de otra manera, será más abstracto.
+Los sistemas, que serán muy sencillos, tendrán propiedades muy particulares, que luego se
+conectarán con la física clásica en el límite apropiado.
+La mecánica cuántica relativista añade más información además de corregir la clásica.
 
 % =================================================================================================
 \section{El experimento de Stern-Gerlach}
@@ -45,10 +53,14 @@ El momento magnético del átomo que sale del horno es
 \[
 	\vb{\mu} = \frac{e}{m_e c} \vb{S}
 \]
+donde acá está metido el magnetón de Bohr 
+\[
+	\mu_B = -\frac{ e \hbar }{2 m_e c}.
+\]
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.8\textwidth]{images/teo2_1.pdf}	 
+	\includegraphics[width=0.9\textwidth]{images/teo2_1.pdf}	 
 	\end{center}
 	\caption{}
 \end{figure} 
@@ -58,8 +70,9 @@ La fuerza $f_z$ que le ejerce el campo \vb{B} a estos átomos es
 	f_z \propto - \mu_z
 \]
 de modo que el dispositivo SG mide y filtra por $S_z(\mu_z)$. Si el spín es un ente clásico
-es de esperar un patrón como el sombreado en azul, pero se obtienen dos manchas; con la
-correspondencia mostrada bajo estas líneas
+es de esperar un patrón como el sombreado en azul, pero se obtienen dos manchas; 
+\notamargen{Uso átomos de plata que son neutros eléctricamente así no tengo efecto Hall.}
+con la correspondencia mostrada bajo estas líneas
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.4\textwidth]{images/teo2_2.pdf}	 
@@ -89,9 +102,10 @@ Acá abajo sale $(S_z,-)$ pero para que ello sea posible
 $(S_x,+)$ se debe componer de $(S_z,+)$ y $(S_z,-)$. Pero esto no es posible
 porque al segundo aparato no entró jamás $(S_z,-)$. Se filtró antes.
 
-Los spines en $S_x, S_z$ son incompatibles. Al seleccionar $(S_z,+)$ en el segundo
+Los spines en $S_x, S_z$ son incompatibles entre sí. Al seleccionar $(S_z,+)$ en el segundo
 SG se destruye la información previa sobre $S_z$. No podemos ya garantizar que $S_z$
 sea nula.
+\notamargen{Al medir uno la información cuántica del otro se pierde.}
 El tercer experimento da al traste con la idea de que podamos pensar en spín como un
 ente vectorial en 3D. Mediante una analogía con polarización de luz vemos que es necesario
 meter al spín es un espacio vectorial de dimensión 2 pero con coeficientes complejos.
@@ -102,6 +116,46 @@ meter al spín es un espacio vectorial de dimensión 2 pero con coeficientes com
 	\end{center}
 	\caption{}
 \end{figure} 
+
+Estos esquemas de las últimas figuras operan como polarizadores; permiten separar las
+partículas seleccionando por spin.
+
+\subsection{Polarización de luz}
+
+Consideremos una onda electromagnética en la dirección de $\zver$, polarización en $\xver$,
+\[
+	\vb E = E_0 \xver \euler^{i( kz - \omega t)} \qquad \qquad 
+	\vb E = E_0 \yver \euler^{i( kz - \omega t)}
+\]
+y la  polarización en $\yver$.
+Si incidimos en un cristal birrefringente con luz polarizada
+
+
+se tienen dos estados. Este sistema es similar a lo que se vio previamente. A la salida tengo
+dos estados.
+Lo que entrará será 
+\[
+	\vb E = E_0 ( \xver + \yver ) \euler^{i( kz - \omega t)}
+\]
+y la analogía me lleva a que polarización de luz en $\xver$ y $\yver$ equivalen a $S_z^+$ y $S_z^-$.
+Repetimos los experimentos, pero ahora con luz.
+
+Matemáticamente el filtro en $\xver$ es un ente que lo que hace es proyectar la luz entrante
+en $\xver$.
+
+Los tres casos entonces corresponden a:
+
+{\bf 1}
+
+
+
+No hay efecto neto. Opera como un filtro en $\xver$ del modo $(\vb E\cdot\xver)\xver$
+y lo que sale es $E_0 \xver \euler^{i( kz - \omega t)}$
+
+{\bf 2}
+
+
+{\bf 3}
 
 % =================================================================================================
 \section{Algebra?}
