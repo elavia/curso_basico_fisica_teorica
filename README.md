@@ -30,6 +30,10 @@ que corresponden, respectivamente, a las materias citadas previamente. Posibleme
 hallen entreveradas algunas aplicaciones provenientes de las materias denominadas
 'Estructura de la Materia' que se cursan en la última parte de la carrera.
 
+# Estado actual del curso
+
+[Mecánica Clásica](../MC/MC.Volume.pdf)
+
 # Programas del curso
 
 En general no siempre sucede que las cursadas de las materias abarcan los programas
