@@ -33,8 +33,11 @@ hallen entreveradas algunas aplicaciones provenientes de las materias denominada
 # Estado actual del curso
 
 [Mecánica Clásica](MC/MC.volume.pdf)
+
 [Física Teórica 1](FT1/FT1.volume.pdf)
-[Física Teórica 2](FT2/Ft2.volume.pdf)
+
+[Física Teórica 2](FT2/FT2.volume.pdf)
+
 [Física Teórica 3](FT3/FT3.volume.pdf)
 
 # Programas del curso
