@@ -46,7 +46,7 @@ En general no siempre sucede que las cursadas de las materias abarcan los progra
 oficiales. A continuación se presenta un temario o bien el programa oficial (cuando
 fue posible conseguirlo) de las cuatro asignaturas de las cuales versará el CBFT.
 
-# Mecánica clásica:
+## Mecánica clásica:
     1. Mecánica newtoniana. 
 		Mecánica de la partícula. Leyes de Newton. Masa y Fuerza. 
 		Leyes de Conservación. Sistemas de partículas. Fuerzas de vínculo.
@@ -96,7 +96,7 @@ fue posible conseguirlo) de las cuatro asignaturas de las cuales versará el CBF
 		Descripción de campos mediante principios variacionales.
 		Aplicaciones.
 
-# Electromagnetismo (Física teórica 1):
+## Electromagnetismo (Física teórica 1):
 
 	1. Ecuaciones de Maxwell en vacío en unidades CGS Gaussianas.
 		Campos de gradientes y rotores.
@@ -157,7 +157,7 @@ fue posible conseguirlo) de las cuatro asignaturas de las cuales versará el CBF
 		Dispersión de Rayleigh.
 		Frenado por radiación.
 
-# Mecánica cuántica (Física teórica 2):
+## Mecánica cuántica (Física teórica 2):
 
 	Lo más aproximado a un programa que pude obtener es un cronograma de clases.
 	En general casi todos los cursos siguen fuertemente el libro Modern Quantum 
@@ -189,7 +189,7 @@ fue posible conseguirlo) de las cuatro asignaturas de las cuales versará el CBF
 	14.	Procesos de scattering: Aproximación de Born. Teorema óptico.
 	15.	Formulación lagrangiana: Integral de Dirac, integral de Feynman, propagadores.
 
-# Mecánica estadística (Física teórica 3):
+## Mecánica estadística (Física teórica 3):
 
 	1. Propiedades térmicas de los sistemas macroscópicos.
 		Interacción mecánica y térmica. Procesos reversibles e irreversibles. Sistemas
