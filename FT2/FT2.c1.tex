@@ -313,6 +313,34 @@ El producto interno tiene las siguientes propiedades:
 	\Ket{\tilde{\alpha}} = \frac{1}{\sqrt{\Braket{\alpha|\alpha}}}\Ket{\alpha} $ todo ket no nulo es normalizable
 \end{enumerate}
 
+La primera propiedad busca que podamos darle significado probabilístico.
+
+\begin{ejemplo}{\bf Veamos que el estado de spin $S_x^+$ está normalizado}
+
+Para ello escribimos su expresión en términos de los estados $S_z$ y aplicamos dual conjugado.
+Luego, 
+\[
+	\Braket{ S_x ; + | S_x ; + } =
+	\left( \frac{1}{\sqrt{2}} \Bra{S_z;+} + \frac{1}{\sqrt{2}} \Bra{S_z;-} \right) 
+	\left( \frac{1}{\sqrt{2}} \Ket{S_z;+} + \frac{1}{\sqrt{2}} \Ket{S_z;-} \right) 
+\]
+\[
+	\Braket{S_x,+|S_x,+} =  \frac{1}{\sqrt{2}} \Braket{S_z;+|S_z;+} +
+	\frac{1}{\sqrt{2}} \Braket{S_z;+|S_z;-} +
+	\frac{1}{\sqrt{2}} \Braket{S_z;-|S_z;+} +
+	\frac{1}{\sqrt{2}} \Braket{S_z;-|S_z;-} = 1
+\]
+
+\end{ejemplo}
+
+Recordemos que en la formulación de mecánica cuántica que se utilizó en anteriores cursos, F4,
+se tenían funciones de onda que se pueden ver como una notación relacionada con kets y bras
+a través del producto interno.
+\[
+	\Braket{ \b | \a } = \int d^3x \: \phi^*_\b(\vbx) \: \phi_\a(\vbx) 
+\]
+
+
 \subsection{Operadores}
 
 A cada observable lo representaremos por un operador. Hay operaradores que no vienen de observables.
@@ -331,17 +359,18 @@ y conjuga. Se da que si
 \]
 Se dan 
 \begin{itemize}
- \item $\hat{X}\hat{Y} \neq \hat{Y}\hat{X} \qquad \qquad \text{no conmutativo}$
- \item $\hat{X}(\hat{Y}\hat{Z}) = (\hat{X}\hat{Y})\hat{Z} = \hat{X}\hat{Y}\hat{Z} \qquad \qquad \text{asociativo}$
- \item $(XY)^\dagger = Y^\dagger X^\dagger$
- \item $\hat{0}\Ket{\alpha} = 0 \qquad \forall \Ket{\alpha}$ ; $\hat{0} \equiv$ operador nulo
- \item $\hat{X}( c_1 \Ket{\alpha} + c_2 \Ket{\beta} ) = c_1 \hat{X}\Ket{\alpha} + c_2 \hat{X}\Ket{\beta} $
+	\item $\hat{X}\hat{Y} \neq \hat{Y}\hat{X} \qquad \qquad \text{no conmutativo}$
+	\item $\hat{X}(\hat{Y}\hat{Z}) = (\hat{X}\hat{Y})\hat{Z} = \hat{X}\hat{Y}\hat{Z} \qquad \qquad \text{asociativo}$
+	\item $(XY)^\dagger = Y^\dagger X^\dagger$
+	\item $\hat{0}\Ket{\alpha} = 0 \qquad \forall \Ket{\alpha}$ ; $\hat{0} \equiv$ operador nulo
+	\item $\hat{X}( c_1 \Ket{\alpha} + c_2 \Ket{\beta} ) = c_1 \hat{X}\Ket{\alpha} + c_2 \hat{X}\Ket{\beta} $
 \end{itemize}
-
 de modo que en cuántica los observables se representan mediante operadores hermíticos.
 
-\subsection{sandwichs}
+\subsection{Sandwichs}
 
+Coloquialmente encerrar un operador operando sobre un ket (bra) con un bra (ket).
+Se obtiene un escalar
 \[
 	\Braket{\beta|X|\alpha} = (\Bra{\beta})(X\Ket{\alpha}) = \Braket{\beta|\gamma} =
 	\Braket{\gamma|\beta}^* = (\Braket{\alpha|X|\beta})^*
@@ -349,7 +378,7 @@ de modo que en cuántica los observables se representan mediante operadores herm
 donde usamos que $\Ket{\gamma}$ es un ket y por dual conjugado $\Bra{\gamma} = \Bra{\alpha}\hat{X}^\dagger$ y
 extraemos como conclusión 
 \[
-	\Braket{\beta|X|\alpha} = (\Braket{\alpha|X|\beta})^*
+	\Braket{\beta|X|\alpha} = (\Braket{\alpha|X|\beta})^*,
 \]
 y de manera equivalente
 \[
@@ -363,55 +392,121 @@ El formalismo parece ser consistente. El operador opera sobre un ket/bra y multi
 
 \subsection{Producto externo}
 
+Es un nuevo tipo de producto entre vectores.
 \[
 	\Ket{\beta} \Bra{\alpha} \equiv (\Ket{\beta} )( \Bra{\alpha} )
 \]
 \[
-	( \Ket{\beta} \Bra{\alpha} )\Ket{\gamma} = \Ket{\beta} \Bra{\alpha} \Ket{\gamma} =
-		\Braket{\alpha|\gamma} \Ket{\beta} , 
+	( \Ket{\beta} \Bra{\alpha} )\Ket{\gamma} = 
+	\Ket{\beta} \Bra{\alpha} \Ket{\gamma} =
+	\Braket{\alpha|\gamma} \Ket{\beta} , 
 \]
-de modo que es un operador pues al aplicar sobre un ket obtengo otro ket (notemos que $\Braket{\alpha|\gamma}$
-es un escalar). Podemos pensar en que 
+de modo que es un operador pues al aplicar sobre un ket obtengo otro ket 
+(notemos que $\Braket{\alpha|\gamma}$ es un escalar). Podemos pensar que 
 \[
 	\Lambda_\alpha \equiv \Ket{\alpha}\Bra{\alpha}
 \]
-es el proyector, que actúa rotando un $\Ket{\gamma}$ en la dirección de $\Ket{\beta}$. Notemos 
+es un nuevo operador, el proyector, que actúa rotando un $\Ket{\gamma}$ en 
+la dirección de $\Ket{\beta}$. 
+Notemos 
 \[
-	\Lambda_\alpha^2 = \Ket{\alpha}\Bra{\alpha}\Ket{\alpha}\Bra{\alpha} = \Ket{\alpha}\Bra{\alpha} = \Lambda_\alpha
+	\Lambda_\alpha^2 = \Ket{\alpha}\Bra{\alpha}\Ket{\alpha}\Bra{\alpha} = 
+	\Ket{\alpha}\Bra{\alpha} = \Lambda_\alpha
 \]
-puesto que $\Braket{\alpha|\alpha}=1$. El proyector $\Lambda_\alpha$ sobre un ket $\Ket{\beta}$ selecciona la parte de
-$\Ket{\beta}$ en la dirección de $\Ket{\alpha}$. Nos dice cuanto de $\Ket{\beta}$ está en la dirección de 
-$\Ket{\alpha}$.
+puesto que $\Braket{\alpha|\alpha}=1$, de manera que aplicar dos veces un 
+proyector no cambia nada.
+El proyector $\Lambda_\alpha$ sobre un ket $\Ket{\beta}$ selecciona la parte de
+$\Ket{\beta}$ en la dirección de $\Ket{\alpha}$. Nos dice cuanto de $\Ket{\beta}$ 
+está en la dirección de $\Ket{\alpha}$.
 Luego,
 \[
 	\sum_i^N \; \Lambda_i = \sum_i^N \; \Ket{i}\Bra{i} = \mathbb{1}
 \]
-la suma de todos los proyectores del espacio en el que estamos es la identidad de ese espacio. Decimos que $\Ket{i}$ es 
-un conjunto completo. Se verifica además
+la suma de todos los proyectores del espacio en el que estamos es la identidad de
+ese espacio.
+Decimos que $\{ \Ket{i} \}$ es un conjunto completo. 
+
+\begin{ejemplo}{\bf Traspuesto de un producto externo}
+
+Queremos ver que si $X = \Ket{\beta} \Bra{\alpha}$, entonces $X^\dagger = \Ket{\alpha} \Bra{\beta}$.
+Hacemos operar sobre estados arbitrarios, y sabiendo que valen 
 \[
-	(\Ket{\beta} \Bra{\alpha})^\dagger = \Ket{\alpha} \Bra{\beta}
+	\Braket{a|X|b} = \Braket{b|X^\dagger|a}^* \qquad \qquad \Braket{a|X|b}^* = \Braket{b|X^\dagger|a}
 \]
-Algunas cuentitas de ejemplo en dos dimensiones,
+se tiene, reemplazando la definición de $X$,
 \[
-	\hat{X} = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \qquad \qquad \hat{Y} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+	 \Braket{a|(\Ket{\beta} \Bra{\alpha})|b}^* = \Braket{b|(\Ket{\beta} \Bra{\alpha})^\dagger|a}
 \]
+\[
+	 \Braket{a|\beta}^* \Braket{\alpha|b}^* = \Braket{\beta|a} \Braket{b|\alpha} =
+	 \Braket{b|\alpha}\Braket{\beta|a} = \Braket{b|(\Ket{\beta} \Bra{\alpha})|a}
+\]
+y comparando este último resultado con el de la línea anterior, vemos que se verifica
+\[
+	\Ket{\a} \Bra{\b} = (\Ket{\beta} \Bra{\alpha})^\dagger.
+\]
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejemplo sencillo 2D}
+ 
+Consideramos versores en el plano, vectores columna,
+\[
+	\hat{X} = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \qquad \qquad \hat{Y} = 
+	\begin{pmatrix} 0 \\ 1 \end{pmatrix}
+\]
+que en sus versiones dagueadas pasan a ser vectores fila
 \[
 	\hat{X}^\dagger = ( 1 \; 0 ) \qquad \qquad \hat{Y}^\dagger = ( 0 \; 1  ) 
 \]
+
+Luego, los productos que podemos hacer corresponden a las operaciones matriciales de
+vector por vector, resultando en número o matriz dependiendo del orden
 \[
 	\hat{X}^\dagger\hat{X} = (1 \; 0) \begin{pmatrix} 1 \\ 0 \end{pmatrix} = 1 \qquad 
 	\hat{X}\hat{X}^\dagger = \begin{pmatrix} 1 \\ 0 \end{pmatrix} (1 \; 0) = 
 	\begin{pmatrix} 1 & 0 \\ 0 & 0 \\ \end{pmatrix},
 \]
 donde instamos al lector a que note la diferencia de dimensión en los resultados.
-
-Los kets $\Ket{\alpha}$ {\it viven} en un espacio vectorial de Hilbert con dimensión N, donde N lo dicta el número de 
-posibles estados de cada sistema físico. Una partícula de spín $1/2$ sólo tiene dos estados: up y down.
-Hay otro producto más, que se llama producto tensorial y se representa como 
+En la notación de Dirac estos versores serían $\Ket{x}, \Ket{y}$ y sus correspondientes
+bras. Luego,
 \[
-	\Ket{\alpha} \otimes \Ket{\beta}
+	\Braket{x|x} = \Braket{y|y} = 1, \qquad \qquad \Braket{x|y} = \Braket{y|x} = 0
 \]
-que es un producto entre kets de espacios de Hilbert diferentes.
+y las matrices serían los proyectores
+\[
+	P_x \equiv \Ket{x}\Bra{x}, \qquad \qquad  P_y \equiv \Ket{y}\Bra{y}.
+\]
+
+Para un estado arbitrario $\Ket{\a} = \a_x \Ket{x} + \a_y \Ket{y}$, si uso el proyector
+$P_x$ se tendrá
+\[
+	P_x \Ket{\a} = (\Ket{x}\Bra{x})(\a_x \Ket{x} + \a_y \Ket{y})
+\]
+\[
+	P_x \Ket{\a} = \a_x \Ket{x}\Braket{x | x} + \a_y \Ket{x}\Braket{x |y} =
+	\a_x \Ket{x}.
+\]
+Del mismo modo se obtiene $P_y \Ket{\a} = \a_y \Ket{y}$. Si sumo ambos proyectores obtengo
+la identidad
+\[
+	(P_x + P_y)\Ket{\a} \equiv I \Ket{\a} = \Ket{\a},
+\]
+y vemos que la identidad no hace nada.
+
+\end{ejemplo}
+
+Los kets $\Ket{\alpha}$ {\it viven} en un espacio vectorial de Hilbert con dimensión $N$, donde
+$N$ lo dicta el número de posibles estados de cada sistema físico. 
+Una partícula de spín $1/2$ sólo tiene dos estados: up y down.
+
+Hay otro producto más, entre dos bras o dos kets, que se llama producto tensorial y se representa 
+como 
+\[
+	\Ket{\alpha} \otimes \Ket{\beta} \qquad \qquad \Bra{\alpha} \otimes \Bra{\beta}
+\]
+que es un producto entre kets de espacios de Hilbert diferentes; el resultado no es ni un bra ni
+un ket. Digamos que es una notación.
 \[
 	\Braket{\alpha|\beta}^* \equiv DC\{\ket{\beta}\} DC\{\Bra{\alpha}\}
 \]
