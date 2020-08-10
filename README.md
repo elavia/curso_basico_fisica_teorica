@@ -32,7 +32,7 @@ hallen entreveradas algunas aplicaciones provenientes de las materias denominada
 
 # Estado actual del curso
 
-[Mecánica Clásica](../MC/MC.Volume.pdf)
+[Mecánica Clásica](MC/MC.Volume.pdf)
 
 # Programas del curso
 
