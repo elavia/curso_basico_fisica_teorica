@@ -130,6 +130,7 @@ Consideremos una onda electromagnética en la dirección de $\zver$, polarizaci�
 y la  polarización en $\yver$.
 Si incidimos en un cristal birrefringente con luz polarizada
 
+\includegraphics[width=0.4\textwidth]{images/fig_ft2_birref.jpg}
 
 se tienen dos estados. Este sistema es similar a lo que se vio previamente. A la salida tengo
 dos estados.
@@ -137,7 +138,8 @@ Lo que entrará será
 \[
 	\vb E = E_0 ( \xver + \yver ) \euler^{i( kz - \omega t)}
 \]
-y la analogía me lleva a que polarización de luz en $\xver$ y $\yver$ equivalen a $S_z^+$ y $S_z^-$.
+y la analogía me lleva a que polarización de luz en $\xver$ y $\yver$ equivalen a $S_z^+$ y $S_z^-$,
+respectivamente.
 Repetimos los experimentos, pero ahora con luz.
 
 Matemáticamente el filtro en $\xver$ es un ente que lo que hace es proyectar la luz entrante
@@ -147,26 +149,107 @@ Los tres casos entonces corresponden a:
 
 {\bf 1}
 
-
+\includegraphics[width=0.5\textwidth]{images/fig_ft2_polarizacion_1.jpg}
 
 No hay efecto neto. Opera como un filtro en $\xver$ del modo $(\vb E\cdot\xver)\xver$
 y lo que sale es $E_0 \xver \euler^{i( kz - \omega t)}$
 
 {\bf 2}
 
+En este caso el filtro a $\pi/4$ lo que hace es proyectar en $\xver', \yver'$
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft2_polarizacion_2.jpg}
+
+Se tienen a la salida $E_0(\xver\cdot\xver')\xver$ donde
+\[
+	\xver' = \frac{1}{\sqrt{2}} \xver +  \frac{1}{\sqrt{2}} \yver \qquad \qquad 
+	\yver' = -\frac{1}{\sqrt{2}} \xver +  \frac{1}{\sqrt{2}}, 
+\]
+de manera que $S_x^+$ equivale a $\xver'$ y $S_x^i$ equivale a $\yver'$.
 
 {\bf 3}
+
+Aquí se ve que filtrar dos veces es incompatible con el electromagnetismo.
+A la salida se tiene $E_0(\xver'\cdot\xver)\xver$, de modo que aparece una componente
+que no estaba presente.
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft2_polarizacion_3.jpg}
+
+Entonces
+\[
+	\vb E = E_0 \left( 
+	\frac{1}{\sqrt{2}} \: \xver \cos( (kz-\omega t) ) + \frac{1}{\sqrt{2}} \: \yver \cos( (kz-\omega t) )
+	\right) =
+	E_0 \left( \frac{ \xver \pm i \yver }{\sqrt{2}} \right) \euler^{i(kz-\omega t)}
+\]
+de manera que con un cristal birrefringente que separe izquierda-derecha en luz polarizada
+circular puedeo continuar la equivalencia
+$S_y^+ \equiv \text{right}$ y $S_y^- \equiv \text{left}$ y tenemos seis estados pero son
+solo dos los independientes.
+
+Hacen falta vectores complejos para describir sistemas cuánticos. Ya en este sencillo caso
+de analogía luz-spin vemos que la descripción completa del problema no puede hacerse en
+términos de vectores con coeficientes reales.
+Necesitamos un espacio complejo.
+
+El problema del spin es sencillo porque es discreto y de dos estados.
+
+La amplitud de probabilidad será algo como
+\[
+	A \sim \hat{i} \cdot \hat{j}
+\]
+donde j es el filtro. Luetgo la probabilidad es
+\[
+	P = |A|^2 = (\hat{i} \cdot \hat{j})(\hat{i} \cdot \hat{j})^*.
+\]
+Para operar construiremos un formalismo.
+
+\subsection{El formalismos}
+
+El formalismo para la mecánica cuántica incluirá
+\begin{itemize}
+	\item Estados
+	\item Productos entre estados (propiedades matemáticas)
+	\item Operadores, que llevan a observables
+	\item Postulados de la mecánica cuántica
+\end{itemize}
+
+Para el caso del spin se definen
+\[	
+	S =\frac{1}{2} \qquad \qquad S_z^+, S_z^-
+\]
+y se definen los kets $\Ket{ \: }$ que tendrán toda la información. Inventados por P.A.M. Dirac.
+La base de polarización (estados) será
+\[
+	\Ket{S_z;+} \qquad \qquad \Ket{S_z;-}
+\]
+y entonces $\Ket{S_x;+}$ es una combinación lineal de 1,2 anteriores.
+Así
+\[
+\begin{array}{rr}
+	\Ket{S_x;+} &= \displaystyle \frac{1}{\sqrt{2}} \Ket{S_z;+} + \frac{1}{\sqrt{2}} \Ket{S_z;+} \\
+	& \\
+	\Ket{S_x;-} &=\displaystyle  -\frac{1}{\sqrt{2}} \Ket{S_z;+} + \frac{1}{\sqrt{2}} \Ket{S_z;-} \\
+	& \\
+	\Ket{S_y;+} &=\displaystyle  \frac{1}{\sqrt{2}} \Ket{S_z;+} + \frac{i}{\sqrt{2}} \Ket{S_z;-} \\
+	& \\
+	\Ket{S_y;-} &=\displaystyle  \frac{1}{\sqrt{2}} \Ket{S_z;+} - \frac{i}{\sqrt{2}} \Ket{S_z;-}
+\end{array}
+\]
+aunque probar esto no es ninguna boludez.
+
 
 % =================================================================================================
 \section{Algebra?}
 % =================================================================================================
 
 El ket contiene toda la información cuántica del estado. Da el estado físico del sistema.
+Cumplen las siguientes propiedades
 \begin{itemize}
- \item $\Ket{\alpha} + \Ket{\beta}$ la suma de kets es un ket
- \item $c\Ket{\alpha}= \Ket{\alpha} c$ con $c\in\mathbb{C}$
- \item  $c_1\Ket{\alpha} + c_2\Ket{\beta} = \Ket{\gamma}$ con $c_1,c_2 \in \mathbb{C}$
- \item $c\Ket{\alpha},\Ket{\alpha}$ representan el mismo estado cuántico
+	\item $\Ket{\alpha} + \Ket{\beta}$ la suma de kets es un ket
+	\item $c\Ket{\alpha}= \Ket{\alpha} c$ con $c\in\mathbb{C}$
+	\item $c_1\Ket{\alpha} + c_2\Ket{\beta} = \Ket{\gamma}$ con $c_1,c_2 \in \mathbb{C}$
+	\item $c\Ket{\alpha},\Ket{\alpha}$ representan el mismo estado cuántico
 \end{itemize}
 
 Se define un espacio de {\it Bra} dual al de "kets" al que se va mediante ``dual conjugado''
@@ -176,6 +259,9 @@ Se define un espacio de {\it Bra} dual al de "kets" al que se va mediante ``dual
 \[
 	\Ket{a} + \Ket{b} \leftrightarrow \Bra{a} + \Bra{b} \qquad 
 	c\Ket{a} \leftrightarrow c^*\Bra{a}
+\]
+\[
+	c_a \Ket{a} + c_b \Ket{b} \leftrightarrow c_a^* \Bra{a} + c_b^*\Bra{b}
 \]
 
 Se define también un producto interno según
@@ -206,22 +292,30 @@ y habiendo definido esta base escribimos, por ejemplo
 y del mismo modo
 \[
 	\left( \frac{1}{\sqrt{2}} \Bra{x} + \frac{1}{\sqrt{2}} \Bra{y}  \right)
-	\left( \Ket{x} \right)= \frac{1}{\sqrt{2}}
+	\left( \Ket{x} \right)= \frac{1}{\sqrt{2}}.
+\]
+La trasposición opera como en álgebra, transmutando de ket a bra y viceversa.
+\[
+	\xver' = \frac{1}{\sqrt{2}}\begin{pmatrix}
+	                            1 \\
+	                            0 \\
+	                           \end{pmatrix}
+	                           \qquad \qquad 
+	(\xver')^\dagger = \frac{1}{\sqrt{2}} (1 \; 0) 
 \]
 
-\subsection{Propiedades}
-
+El producto interno tiene las siguientes propiedades:
 \begin{enumerate}
- \item $\Braket{\beta|\alpha} = \Braket{\beta|\alpha}^*$ \text{luego} $ \Braket{\alpha|\alpha} \; \in \mathbb{R}$
- \item $\Braket{\alpha|\alpha} \geq 0$ \text{métrica definida positiva}
- \item $\Braket{\alpha|\beta} = \Braket{\beta|\alpha} = 0 \Leftrightarrow \Ket{\alpha} \perp \Ket{\beta}$
- \item $\Braket{\tilde{\alpha}|\tilde{\alpha}} = 1 \; \text{con} \; 
- \Ket{\tilde{\alpha}} = \frac{1}{\sqrt{\Braket{\alpha|\alpha}}}\Ket{\alpha} $ todo ket no nulo es normalizable
+	\item $\Braket{\beta|\alpha} = \Braket{\beta|\alpha}^*$ \text{luego} $ \Braket{\alpha|\alpha} \; \in \mathbb{R}$
+	\item $\Braket{\alpha|\alpha} \geq 0$ \text{métrica definida positiva}
+	\item $\Braket{\alpha|\beta} = \Braket{\beta|\alpha} = 0 \Leftrightarrow \Ket{\alpha} \perp \Ket{\beta}$
+	\item $\Braket{\tilde{\alpha}|\tilde{\alpha}} = 1 \; \text{con} \; 
+	\Ket{\tilde{\alpha}} = \frac{1}{\sqrt{\Braket{\alpha|\alpha}}}\Ket{\alpha} $ todo ket no nulo es normalizable
 \end{enumerate}
 
 \subsection{Operadores}
 
-A cada observable lo representaremos por un operador. hay operaradores que no vienen de observables.
+A cada observable lo representaremos por un operador. Hay operaradores que no vienen de observables.
 \[
 	\hat{A}\Ket{\alpha} = \Ket{\gamma} \qquad \qquad  \Bra{\alpha} \hat{A} = \Bra{\gamma}
 \]
@@ -265,6 +359,7 @@ y de manera equivalente
 donde usamos que $\Bra{\Gamma}$ es un bra y por dual conjugado $\Ket{\Gamma} = \hat{X}\Ket{\beta}$.
 El formalismo parece ser consistente. El operador opera sobre un ket/bra y multiplica al otro.
 
+\notamargen{Las mediciones se pensarán como proyectar sobre autoestados.}
 
 \subsection{Producto externo}
 
