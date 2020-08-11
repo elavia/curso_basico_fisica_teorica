@@ -219,6 +219,7 @@ Para el caso del spin se definen
 	S =\frac{1}{2} \qquad \qquad S_z^+, S_z^-
 \]
 y se definen los kets $\Ket{ \: }$ que tendrán toda la información. Inventados por P.A.M. Dirac.
+No son otra cosa que vectores con coeficientes complejos.
 La base de polarización (estados) será
 \[
 	\Ket{S_z;+} \qquad \qquad \Ket{S_z;-}
@@ -314,6 +315,7 @@ El producto interno tiene las siguientes propiedades:
 \end{enumerate}
 
 La primera propiedad busca que podamos darle significado probabilístico.
+El producto $\Braket{\a|\a}$ da la norma al cuadrado.
 
 \begin{ejemplo}{\bf Veamos que el estado de spin $S_x^+$ está normalizado}
 
@@ -348,7 +350,9 @@ A cada observable lo representaremos por un operador. Hay operaradores que no vi
 	\hat{A}\Ket{\alpha} = \Ket{\gamma} \qquad \qquad  \Bra{\alpha} \hat{A} = \Bra{\gamma}
 \]
 un operador sobre un ket da otro ket y sobre un bra da otro bra. Notemos que en este último caso opera 
-a izquierda. La transformación entre operadores se da con 
+a izquierda. Por el momento se trabajará con operadores lineales.
+
+La transformación entre operadores se da con 
 \[
 	\hat{X}\Ket{a} \Leftrightarrow \Bra{a}\hat{X}^\dagger
 \]
@@ -357,6 +361,8 @@ y conjuga. Se da que si
 \[
 	\hat{X} = \hat{X}^\dagger \quad \Rightarrow \qquad \hat{X} \;\text{es hermítico}
 \]
+En mecánica cuántica todos los observables serán representados por operadores hermíticos.
+
 Se dan 
 \begin{itemize}
 	\item $\hat{X}\hat{Y} \neq \hat{Y}\hat{X} \qquad \qquad \text{no conmutativo}$
@@ -529,16 +535,26 @@ Es práctico utilizar bases ortonormales,
 \]
 que es la delta de Kronecker.
 
-Así, los kets se definen normalizados.
+Así, los kets se definen normalizados, dado un ket
 \[
-	\Ket{\psi} = a \Ket{1} + b \Ket{2} + c \Ket{3} + d \Ket{4} \qquad\quad |a|^2 + |b|^2 +|c|^2 +|d|^2 = 1
+	\Ket{\phi} =  a \Ket{1} + b \Ket{2} + c \Ket{3}
 \]
-sea $\Ket{\phi} = a \Ket{1} + b \Ket{2}$, $\Bra{\phi} = a^*\Bra{1} + b^* \Bra{2}$ entonces 
+se lo normaliza con
 \[
-	\Braket{\phi|\phi} = (a^*\Bra{1} + b^* \Bra{2})(a \Ket{1} + b \Ket{2}) = 
+	\Ket{\psi} = \frac{1}{\Braket{\phi|\phi}}\:\Ket{\phi}
+\]
+lo que significa que 
+\[
+	\Ket{\psi} = a' \Ket{1} + b' \Ket{2} + c' \Ket{3} \qquad\qquad |a'|^2 + |b'|^2 +|c'|^2 = 1
+\]
+Si tenemos un ket normalizados,  $\Ket{\phi} = a \Ket{1} + b \Ket{2}$ y su bra 
+$\Bra{\phi} = a^*\Bra{1} + b^* \Bra{2}$, entonces 
+\begin{multline*}
+ 	\Braket{\phi|\phi} = (a^*\Bra{1} + b^* \Bra{2})(a \Ket{1} + b \Ket{2}) = \\
 	a^*a \Braket{1|1} + b^*a\Braket{2|1} + a^*b\Braket{1|2} + b^*b\Braket{2|2} =
 	|a|^2 + |b|^2 = 1
-\]
+\end{multline*}
+	
 
 \subsection{Autokets y autovalores}
 
@@ -551,15 +567,15 @@ lo cual lleva al problema espectral
 \[
 	\left(\hat{A} - a'\mathbb{1}\right) \Ket{a'} = 0
 \]
-entonces los operadores tendrán representación matricial, que cambiará según la base utilizada.ñ
+entonces los operadores tendrán representación matricial, que cambiará según la base utilizada.
 Vamos viendo que en general sólo se sabe cómo opera un operador sobre kets. La operación sobre los
 bras la obtenemos usando dual conjugado.
 
 Deducimos entonces que
 \begin{enumerate}
- \item Los autovalores de un operador hermítico son reales y los autokets correspondientes a diferentes
- autovalores son ortogonales.
- \item Los autokets de un operador son base completa del espacio de kets.
+	\item Los autovalores de un operador hermítico son reales y los autokets correspondientes a diferentes
+	autovalores son ortogonales.
+	\item Los autokets de un operador son base completa del espacio de kets.
 \end{enumerate}
 
 Como ejemplo de A citemos
@@ -603,6 +619,9 @@ donde usamos que $a''^* = a''$ y restando
 	(a'-a'')\Braket{a''|a'} = 0 \qquad \Rightarrow \; \Braket{a''|a'} = 0 
 		\quad \text{si} \quad a'\neq a''
 \]
+O sea, hemos probado que los autovectores correspondientes a diferentes autovalores son
+ortogonales.
+
 Si la base es completa entonces es $\sum \Lambda = 1$.
 
 \subsection{Operadores y matrices}
@@ -659,6 +678,11 @@ y seis elementos independientes
 	\end{pmatrix}
 \]
 
+La traza será
+\[
+	\text{ tr }(A) = \sum_{i=1}^N \Braket{ a_i | A | a_i }.
+\]
+
 \subsection{Combinación lineal de autoestados}
 
 Un estado $\Ket{\alpha}$ se puede escribir en función de la base $\Ket{a_i}$ de esta forma 
@@ -675,7 +699,8 @@ y entonces
 
 Para cambiar de base metemos un uno ($\mathbb{1}$) escrito como suma de proyectores,
 \[
-	X\Ket{b_j} = \sum_{i=1}^N \Ket{a_i}\Braket{a_i|X|b_j} = \sum_{i=1}^N C_{ij} \Ket{a_i}
+	X\Ket{b_j} = \mathbb{1} \: X\Ket{b_j} = \sum_{i=1}^N \Ket{a_i}\Braket{a_i|X|b_j} = 
+	\sum_{i=1}^N C_{ij} \Ket{a_i}
 \]
 siendo $C_{ij}$ la matriz del cambio de base.
 Se puede escribir
@@ -684,15 +709,182 @@ Se puede escribir
 \]
 y se ve que $\Braket{a_i|b_j}$ son los elementos de la matriz que cambia de base.
 
+\begin{ejemplo}{\bf Ejercicio 2}
+
+Tenemos la base $\{ \Ket{+}, \Ket{-} \}$, o sea un espacio de Hilbert de dimensión 2. Se considera
+ortonormal de manera que
+\[
+	\Braket{+|+} = \Braket{-|-} = 1 \qquad \Braket{+|-} = 0
+\]
+Luego, se tiene
+\[
+	S_x = \frac{\hbar}{2} (\: \Ket{+}\Bra{-} + \Ket{-}\Bra{+} \:)
+\]
+Los elementos de matriz serán
+\[
+	(S_x)_{11} = \Bra{+} (S_x ) \Ket{+} =
+	 \frac{\hbar}{2} \Bra{+} (\: \Ket{+}\Bra{-} + \Ket{-}\Bra{+} \:) \Ket{+} = 0,
+\]
+dado que ambos miembros dan $\Braket{+|-}$. Asimismo,
+\[
+	S_x \Ket{+} = \frac{\hbar}{2} ( \Ket{+}\Bra{-} + \Ket{-}\Bra{+} ) \Ket{+} = \frac{\hbar}{2}\Ket{-}
+\]
+y 
+\[
+	S_x \Ket{-} = \frac{\hbar}{2}\Ket{+}.
+\]
+
+Matricialmente
+\[
+	S_x = \frac{\hbar}{2} \: \begin{pmatrix}
+	0  &  1 \\
+	1  &  0
+	\end{pmatrix}
+\]
+de manera que
+\[
+	S_x \Ket{+} = \frac{\hbar}{2} \: \begin{pmatrix}
+	0  &  1 \\
+	1  &  0
+	\end{pmatrix}
+	\begin{pmatrix}
+	 1 \\
+	 0
+	\end{pmatrix}
+	=
+	\frac{\hbar}{2} \: 
+	\begin{pmatrix}
+	 0 \\
+	 1
+	\end{pmatrix}.
+\]
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 6}
+ 
+Tenemos un espacio de kets generado por $\{ \Ket{a'} \}$ ortogonales, siendo $A$ hermítico, de
+manera que los $a$ son reales.
+
+i) Queremos probar que $\Pi_{a'} (A - a'\mathbb{1})$ es el operador nulo. Luego, supongamos que 
+\[
+	\Pi_{a'} (A-a'\mathbb{1}) \equiv O
+\]
+y entonces verificará
+\[
+	\Braket{a'|O|a''} = O_{a'a''} = 0.
+\]
+Tomemos
+\[
+	\Pi_{a'} (A-a'\mathbb{1}) \Ket{a''} = \Pi_{a'} A \Ket{a''} - a\mathbb{1} \Ket{a''}
+	= \Pi_{a'} (\Ket{a''} + a' ) \Ket{a''}
+\]
+pero lo que opera sobre el ket es nulo.
+
+Por otra parte, como $(A-a_n\mathbb{1})\Ket{a''}$ se puede escribir
+\[
+	(A-a_{n_2}\mathbb{1})(A-a_{n_1}\mathbb{1})\Ket{a''}( a'' - a_n )
+\]
+y sigue pasadno de modo que al final se obtiene
+\[
+	\Ket{a''} \Pi_{a'} (a'' - a').
+\]
+
+ii) Y ahora, qué significa el siguiente operador
+\[
+	\Pi_{a' \neq a''} \frac{ (A-a''\mathbb{1}) }{ ( a' - a'' ) }
+\]
+Aplicamos a un ket $\Ket{a}$,
+\[
+	\Pi_{a' \neq a''} \frac{ (A-a''\mathbb{1}) }{ ( a' - a'' ) } \Ket{a} = 
+	\Pi_{a' \neq a''} \frac{ ( a - a'' ) }{ ( a' - a'' ) } \Ket{a}
+\]
+y será nulo sí y sólo si $a \neq a''$, de manera que es una construcción de la delta de Kronecker,
+\[
+	\Pi_{a' \neq a''} \frac{ (A-a''\mathbb{1}) }{ ( a' - a'' ) } = \delta_{aa'}\Ket{a'}
+\]
+Es un proyector de todos los elementos en $\Ket{a'}$ lo que siempre da cero para los de la base
+salvo cuando es $a'=a$.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 8}
+
+Consideramos $\vb S\cdot \nver$ donde $\vb S = ( S_x, S_y, S_z )$ o sea un vector de operadores y el
+versor es el usual de esféricas en términos de los ángulos.
+\[
+	\nver = (\sin\b\cos\a, \sin\b\sin\a, \cos\b).
+\]
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 11}
+ 
+Consideremos la matriz $M$ hermítica y la base $\{ \Ket{1}, \Ket{2}, \Ket{3} \}$ que tendrá por ello
+autovalores relaes y autovectores ortogonales.
+\[
+	M = \begin{pmatrix}
+	     0 & 1 & 0 \\
+	     1 & 0 & 1 \\
+	     0 & 1 & 0 
+	    \end{pmatrix}
+\]
+Los autovalores saldrán de
+\[
+	\left| \frac{1}{\sqrt{2}} \begin{pmatrix}
+	                         -\lambda & 1 & 0 \\  
+	                         1 & -\lambda & 1 \\
+	                         0 & 1 & -\lambda 
+	                          \end{pmatrix}
+				\right| = -\lambda(\lambda^2 -1) = 0
+\]
+que dará $\lambda = 0,1,-1$.
+Los autovectores salen de resolver 
+\[
+	\begin{pmatrix}
+	0 & 1/\sqrt{2} & 0 \\
+	1/\sqrt{2} & 0 & 1/\sqrt{2} \\
+	0 & 1/\sqrt{2} & 0 
+	\end{pmatrix}
+	\begin{pmatrix}
+	v_1^{(1)} \\
+	v_2^{(1)} \\
+	v_3^{(1)}
+	\end{pmatrix} = 0
+\]
+y haciendo $v_2^{(1)} =0$ se tiene $v_1^{(1)} =-v_3^{(1)} $ y luego
+\[
+	v^{(1)}  =\frac{1}{\sqrt{2}} \begin{pmatrix}
+	                              1 \\
+	                              0 \\
+	                              -1
+	                             \end{pmatrix}
+\]
+con $\Braket{v^{(1)}|v^{(1)}} =1$ y así siguiendo con los otros vectorcillos, resulta
+\[
+	A = \left[ v^{(1)} v^{(2)} v^{(3)} \right] = 
+	\begin{pmatrix}
+	    0 & 0 & 0 \\
+	    0 & 1 & 0 \\
+	    0 & 0 & -1 
+	\end{pmatrix}
+\]
+ 
+\end{ejemplo}
+
 \subsection{Representación diagonal}
 
 Un operador tiene representación diagonal cuando está representado en la base de sus
 autokets
-\[
-	A = \sum_i^N\sum_j^N \Ket{a_i}\Braket{a_i|A|a_j}\Bra{a_j} =
-		\sum_i^N\sum_j^N a_j\Ket{a_i}\Braket{a_i|a_j}\Bra{a_j} =
+\begin{multline*}
+ 	A = \sum_i^N\sum_j^N \Ket{a_i}\Braket{a_i|A|a_j}\Bra{a_j} =
+		\sum_i^N\sum_j^N a_j\Ket{a_i}\Braket{a_i|a_j}\Bra{a_j} = \\
 		\sum_{i,j}^N \delta_{ij} a_j \Ket{a_i}\Bra{a_j} = \sum_i^N a_i \mathbb{1}
-\]
+\end{multline*}
+% \[
+% 	A = \sum_i^N\sum_j^N \Ket{a_i}\Braket{a_i|A|a_j}\Bra{a_j} =
+% 		\sum_i^N\sum_j^N a_j\Ket{a_i}\Braket{a_i|a_j}\Bra{a_j} =
+% 		\sum_{i,j}^N \delta_{ij} a_j \Ket{a_i}\Bra{a_j} = \sum_i^N a_i \mathbb{1}
+% \]
 \[
 	A = \begin{pmatrix} 
 		a_1 & 0 & ... & 0 \\
