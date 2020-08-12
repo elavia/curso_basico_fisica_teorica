@@ -571,6 +571,8 @@ entonces los operadores tendrán representación matricial, que cambiará según
 Vamos viendo que en general sólo se sabe cómo opera un operador sobre kets. La operación sobre los
 bras la obtenemos usando dual conjugado.
 
+Lo siguiente debiera ser amparado por un título como ``propiedades de operadores hermíticos''.
+
 Deducimos entonces que
 \begin{enumerate}
 	\item Los autovalores de un operador hermítico son reales y los autokets correspondientes a diferentes
@@ -580,11 +582,11 @@ Deducimos entonces que
 
 Como ejemplo de A citemos
 \[
-	a'\Ket{a'} = A\Ket{a'} \quad \text{DC} \quad \Bra{a'} A^{\dagger} = \Bra{a'} A = \Bra{a'}a'^*
+	A\Ket{a'} = a' \Ket{a'} \quad \text{DC} \quad \Bra{a'} A^{\dagger} = \Bra{a'} A = \Bra{a'}a'^*
 \]
 de manera que 
 \[
-	\Braket{a'|A|a'} = ( \Bra{a'} )( A\Ket{|a'} ) = a'
+	\Braket{a'|A|a'} = \Bra{a'} ( A\Ket{a'} ) = a'
 \]
 \[
 	( \Braket{a'|A|a'} )^* = ( \Bra{a'} )( A\Ket{|a'} )^* = ( \Bra{|a'}A^\dagger )( \Ket{a'} )
@@ -592,6 +594,17 @@ de manera que
 \[
 	= \Braket{a'|A|a'} = a' \qquad \Rightarrow \quad a' = a'^*.
 \]
+Me gusta más la otra forma, que es meter otro $a''$ así
+\[
+	\Braket{a''|A|a'} = a' \Braket{a''|a'} \qquad \qquad \Braket{a''|A^\dagger|a'} = a''^* \Braket{a''|a'}
+\]
+de manera que como
+\[
+	(a' - a''^*) \Braket{a''|a'} = 0,
+\]
+si $\Ket{a'}=\Ket{a}$ entonces $a' = a'^*$ y los autovalores son reales. En cambio si $\Ket{a'}\neq\Ket{a''}$ 
+se tiene $a'\neq a''$ entonces  $\Braket{a''|a'} = 0$ y los autoestados del operador son perpendiculares.
+Ya está abajo esto.
 
 Para el caso de B se postula así. Si esto vale entonces 
 \[
@@ -622,7 +635,54 @@ donde usamos que $a''^* = a''$ y restando
 O sea, hemos probado que los autovectores correspondientes a diferentes autovalores son
 ortogonales.
 
-Si la base es completa entonces es $\sum \Lambda = 1$.
+
+\subsection{Combinación lineal de autoestados}
+
+Podemos escribir 
+\[
+	\Braket{a''|a'} = \delta_{a'a''}
+\]
+que es la delta de Kronecker.
+Postulo que forman una base completa, y que un estado $\Ket{\alpha}$ se puede escribir en 
+función de la base $\Ket{a_i}$ de esta forma 
+\[
+	\Ket{\a} = \sum_{a'}  C_{a'} \Ket{a'}.
+\]
+
+Ahora quisiéramos ver quién es el coeficiente $C_{a'}$.
+Para ello multiplicamos por un bra arbitrario
+\[
+	\Braket{a_j|\alpha} = \sum_{i=1}^N C_i \underbrace{\Braket{a_j|a_i}}_{\delta_{ij}} = C_j, 
+\]
+de modo que es
+\[
+	\Ket{\alpha} = \sum_{i=1}^N \Ket{a_i}\Braket{a_i|\alpha} = 
+		\sum_{i=1}^N \Braket{a_i|\alpha} \: \Ket{a_i}
+\]
+o bien, en términos del operador $\Lambda$ [?],
+\[
+	\Ket{\alpha} = \left( \sum_{i=1}^N \Ket{a_i}\Bra{a_i} \right) \Ket{\alpha} 
+\]
+de modo que si la base es completa debe ser
+\[
+	\sum_{i=1}^N \Ket{a_i}\Bra{a_i} \equiv \mathbb{1}.
+\]
+
+Todos estos resultados surgen de suponer que los autoestados son una base completa.
+Es análogo a la proyección de un vector en un sistema coordenado: 
+$\vb V = \sum_i (\vb V\cdot \hat{e}_i ) \hat{e}_i $.
+
+Asimismo, considerando la normalización de estados
+\[
+	\Braket{\a|\a} = 1 =
+	\Bra{\a} \sum_{a'}\Ket{a'} \Braket{a'|\a} = \sum_{a'} \Braket{\a|a'} \Braket{a'|\a}
+\]
+o bien
+\[
+	\Braket{\a|\a} = 1 = \sum_{a'} C_{a'}^* C_{a'} = \sum_{a'} |C_{a'}|^2.
+\]
+
+% Si la base es completa entonces es $\sum \Lambda = 1$.
 
 \subsection{Operadores y matrices}
 
@@ -683,17 +743,6 @@ La traza será
 	\text{ tr }(A) = \sum_{i=1}^N \Braket{ a_i | A | a_i }.
 \]
 
-\subsection{Combinación lineal de autoestados}
-
-Un estado $\Ket{\alpha}$ se puede escribir en función de la base $\Ket{a_i}$ de esta forma 
-\[
-	\Ket{\alpha} = \sum_{i=1}^N \Ket{a_i}\Braket{a_i|\alpha} = 
-		\sum_{i=1}^N (\Braket{a_i|\alpha}) \Ket{a_i}
-\]
-y entonces
-\[
-	\Braket{a_i|\alpha} = \sum_{i=1}^N c_i \underbrace{\Braket{a_j|a_i}}_{\delta_{ij}} = c_j 
-\]
 
 \subsection{Cambio de base}
 
@@ -959,7 +1008,8 @@ luego
 \]
 y por DC se tiene 
 \[
-	\Bra{\alpha} = ( \Braket{\alpha|a_1} \Braket{\alpha|a_2} ... \Braket{\alpha|a_n} )
+	\Bra{\alpha} = ( \; \Braket{\alpha|a_1} \quad \Braket{\alpha|a_2} 
+	\quad ... \quad \Braket{\alpha|a_n} \; )
 \]
 y 
 \[
@@ -967,14 +1017,41 @@ y
 N}\overbrace{\begin{pmatrix} \phantom{1} \\ 	\phantom{1}  \end{pmatrix} }^{N\times 1} = \Box
 \]
 que es un escalar.
+El producto entre otros dos estados arbitrarios
 \[
 	\Braket{\beta|\alpha} = \Braket{\beta|a_i} \Braket{a_i|\alpha} = 
-	\sum_i^N \Bra{\beta} \underbrace{\Ket{a_i} \Braket{a_i}}^{\Lambda_{a_i}} \Ket{\alpha} = \Box 
+	\sum_i^N \Bra{\beta} \underbrace{\Ket{a_i} \Bra{a_i}}^{\Lambda_{a_i}} \Ket{\alpha} = \Box 
 \]
 otra vez un escalar.
+
+Para un operador $X$ se tiene la siguiente representación
+\[
+	X = \sum_i^N \sum_j^N \Ket{a_i} \Braket{a_i|X|a_j} \Bra{a_j} =
+		\sum_i^N \sum_j^N  \Braket{a_i|X|a_j} \Ket{a_i} \Bra{a_j}
+\]
+y esto último es una matriz. Aquí el $\hat{X}$ es una matriz y 
+$\Braket{a_i|\hat{X}|a_j} \equiv X_{ij}$ son sus elementillos (escalares).
+En conclusión,
+\[
+	X = \sum_i^N \sum_j^N X_{ij} \: \Ket{a_i} \Bra{a_j},
+\]
+donde 
+\[
+	\Ket{a_i} \Bra{a_j} = \begin{pmatrix}
+	 0 \\
+	 ... \\
+	 1 \\
+	 ... \\
+	 0
+	\end{pmatrix}
+	(\: 0 .... 1 .... 0 \:).
+\]
+
+Para un operador que actúa sobre un estado, dando otro estado, se tiene
 \[
 	\Braket{a_i|\gamma} = \Braket{a_i|X|\alpha} = \sum_{a_j} \Braket{a_i|X|a_j}\Braket{a_j|\alpha}
 \]
+que es el producto de una matriz por un vector
 \[
 	\begin{pmatrix}
 	 \Braket{a_1|\gamma} \\
@@ -992,12 +1069,29 @@ otra vez un escalar.
 	 ... \\	 
 	\end{pmatrix}
 \]
+
+Para el producto externo será
 \[
-	X = \sum_i^N \sum_j^N \Ket{a_i} \Braket{a_i|X|a_j} \Bra{a_j} =
-		\sum_i^N \sum_j^N  \Braket{a_i|X|a_j} \Ket{a_i} \Bra{a_j}
+	\Ket{\b}\Bra{\a} = \sum_{a',a''} \Ket{a''} \Braket{a''|\b} \Braket{\a|a'} \Bra{a'}
 \]
-y esto último es una matriz. Aquí el $\hat{X}$ es una matriz y $\Braket{a_i|\hat{X}|a_j} \equiv X_{ij}$ son 
-sus elementillos (escalares).
+y este producto de brakets es la versión matricial del operador
+\[
+	\begin{pmatrix}	
+	\Braket{a_1|\b} \Braket{a_1|\a}^* & \Braket{a_1|\b} \Braket{a_2|\a}^* & ... \\
+	\Braket{a_2|\b} \Braket{a_1|\a}^* & \Braket{a_2|\b} \Braket{a_2|\a}^* & ... \\
+	... & ... & 
+	\end{pmatrix}
+\]
+
+En la base en la cual un operador es diagonalizable resulta sencilla su matriz:
+\[
+	A = \sum_{a',a''}  \Ket{a''} \Braket{a''|A|a'} \Bra{a'} = 
+	\sum_{a'}  a' \Ket{a'} \Bra{a'} = \sum_{a'}  a' \Lambda_{a'},
+\]
+en términos del proyector.
+
+Los elementos usados en el formalismo (bras, kets, etc.) pueden pensarse como vectores (fila
+o columna) y matrices.
 
 \section{Sistemas de spín 1/2}
 
