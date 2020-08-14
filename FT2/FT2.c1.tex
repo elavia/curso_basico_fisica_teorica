@@ -204,7 +204,7 @@ donde j es el filtro. Luetgo la probabilidad es
 \]
 Para operar construiremos un formalismo.
 
-\subsection{El formalismos}
+\subsection{El formalismo}
 
 El formalismo para la mecánica cuántica incluirá
 \begin{itemize}
@@ -1426,32 +1426,86 @@ En cambio si $A,B$ son compatibles pero con degeneración en el autoestado $a'$ 
 Al medir A y obtener $a'$ no tengo determinado el estado del sistema (medir A no me da información). 
 Me hallaré en una CL de autoestados correspondientes al autovalor degenerado $a'$. Al medir luego B 
 selecciono uno de los $\Ket{a'b'}$ degenerados, el correspondiente a $b'(j)$ pues B no está degenerado. 
-Puedo volver a medir A pues el autoestado en que ha caído el sistema permanece incólume.
+Puedo volver a medir A pues el autoestado en que ha caído el fsistema permanece incólume.
 
+\subsubsection{Operadores y observables}
+
+Entonces siendo $A$ un operador se dice que es un observable si el operador es hermítico, con lo cual
+sus autovalores serán reales, y si el conjunto de sus autoestados es una base.
+Usando la notación $\Ket{a,i}$ para indicar un autoestado y su degeneración, se tiene una 
+descomposición espectral
+\[
+	A = \sum_{a,i} a \KB{a,i}{a,i}
+\]
+que se puede asociar a una matriz como
+\[
+	\begin{pmatrix}
+	1 & ... &  & & \\
+	... & 2 & & & \\
+	... & & 2 & & \\
+	... & & & 3 &  \\
+	... & & & & 
+	\end{pmatrix}
+\]
+Luego,
+\[
+	A = 1 \KB{1,1}{1,1} + 2 \left( \KB{2,1}{2,1} + \KB{2,2}{2,2}\right) + ...
+\]
+
+El espacio de los operadores es $N$, finito. En el caso de $N \to \infty$ hay que sumar algunas
+restricciones (me pregunto si tiene que ver con alguna regularización para evitar infinitos).
+Se dice que A es normal si verifica $[A,A^\dagger] = 0$.
 
 \subsection{Postulados de la mecánica cuántica}
 
 \begin{enumerate}
- \item El estado de un sistema lo definimos con un ket $\Ket{\alpha} \in \mathcal{H}$ y con $\Braket{\alpha|\alpha}=1$
- \item Asociamos a propiedades físicas (observables) operadores hermíticos $\widehat{A}$ que operan sobre los ketes. 
-	Los autokets $\Ket{a}$ verifican :
-\[
-	\widehat{A}\Ket{a} = a \Ket{a}, 
-\]
-y $\{ \Ket{a} \}$ es base del espacio de kets.
- \item Al medir una cantidad física representada por el observable $\widehat{A}$ obtenemos un autovalor $a'$.
- Luego de medir, el estado del sistema es $\Ket{a'}$.
- \[
-	\Ket{\Psi} \overbrace{\underbrace{\longrightarrow}_{a'}}^{\text{Mido A}} \Ket{\Psi'} =
-	\Ket{a}\Bra{a}\Ket{\Psi} =(\Braket{a|\Psi})\Ket{a}
- \]
- hecho al sistema a un autoestado de $\widehat{A}$. Quizás deba ahora normalizar. $\Braket{\Psi|\Psi}=1$
- El esquema de arriba representa la frase ``proyectar sobre la base de autoestados''.
- \item Las transformaciones espaciales se generan por $\vb{p}$
- \[	
-	[x_i,p_j] = i\hbar\delta_{ij}
- \]
- \item La evolución temporal la realiza $H$ (el hamiltoniano).
+	\item El estado de un sistema lo definimos con un ket $\Ket{\alpha} \in \mathcal{H}$ y
+		con $\Braket{\alpha|\alpha}=1$
+	\item Asociamos a propiedades físicas (observables) operadores hermíticos $\widehat{A}$ 
+		que operan sobre los kets. Los autokets $\Ket{a}$ verifican :
+	\[
+		\widehat{A}\Ket{a} = a \Ket{a}, 
+	\]
+	y $\{ \Ket{a} \}$ es base del espacio de kets. El operador se puede expresar como
+	\[
+		A = \sum_{a,i} a \KB{a,i}{a,i}
+	\]
+	\item Al medir una cantidad física representada por el observable $\widehat{A}$ obtenemos
+	siempre un autovalor $a'$.
+	Luego de medir, el estado del sistema es $\Ket{a}$.
+	Suponiendo un estado $\Ket{\Psi}$, sobre el cual se mide $A$ (obteniéndose $a$), se tendrá que
+	inmediatamente después el estado de $\Ket{\Psi'}$ según
+	\[
+		\Ket{\Psi} \overbrace{\underbrace{\longrightarrow}_{a'}}^{\text{Mido A}} \Ket{\Psi'} =
+		P_a \Ket{\Psi} = \Ket{a}\Braket{a|\Psi} =(\Braket{a|\Psi})\Ket{a}
+	\]
+	Llevé al sistema a un autoestado de $\widehat{A}$. 
+	\notamargen{No confundir la notación para proyector con la de probabilidad.}
+	Ahora quizás deba ahora normalizar, es decir
+	\[
+		\Ket{\Psi'}_\text{norm} = \frac{\Braket{a|\Psi}}{\sqrt{\Braket{\Psi'|\Psi'}}} \: \Ket{a}
+	\]
+	donde $\Braket{\Psi'|\Psi'}=\Braket{\Psi|P_a P_a|\Psi} = \Braket{\Psi|P_a|\Psi}$, siendo la
+	última igualdad porque $P_a$ es un proyector y su cuadrado es él mismo.
+	El esquema de arriba representa la frase ``proyectar sobre la base de autoestados''.
+	
+	Dos posibilidades al medir. Si la probabilidad la nomenclamos como $P(a)$ que es la probabilidad
+	de medir el estado $a$, entonces
+	\begin{itemize}
+	 \item Sin degeneración:
+	 \[
+		P(a) = |\Braket{a|\psi}|^2
+	 \]
+	 \item Con degeneración:
+	 \[
+		P(a) = \sum_{i} |\Braket{a,i|\psi}|^2
+	 \]
+	\end{itemize}
+	\item Las transformaciones espaciales se generan por $\vb{p}$
+	\[	
+		[x_i,p_j] = i\hbar\delta_{ij}
+	\]
+	\item La evolución temporal la realiza $H$ (el hamiltoniano).
 \end{enumerate}
 
 \notamargen{Extrañamente el punto 4 estaba vacío. Raro.}
@@ -1472,6 +1526,102 @@ y la relación de dispersión generalizada
 \[
 	\Braket{(\Delta A)^2} \Braket{(\Delta B)^2} \geq \frac{1}{4}|\Braket{[ A,B ]}|^2
 \]
+
+\begin{ejemplo}{\bf Ejercicio 9 guía 1}
+
+Espacio de spines de dimensión 2. Base $\{ \Ket{+}, \Ket{-} \}$.
+Consideramos un versor angular con ángulos $\a, \b$ según se ilustra aquí abajo.
+
+\includegraphics[width=0.225\textwidth]{images/fig_ft2_ejercicio91.jpg}
+
+Del ejercicio 8 se sabe que
+\[
+	\Ket{\vb S\cdot\nver; +} = \cos(\b/2) \Ket{+} + \sin(\b/2) \euler^{i\a} \Ket{-}
+\]
+Luego, como $ \vb S\cdot\nver \Ket{\vb S\cdot\nver; \pm} = \pm \hbar/2 \Ket{\vb S\cdot\nver; \pm } $ 
+se tiene
+\[
+	P\Frac{\hbar}{2} = |\Braket{S_x;+| \vb S\cdot\nver ; +}|^2
+\]
+donde usando que 
+\[
+	\Ket{S_x;+} = \frac{1}{\sqrt{2}} \left( \Ket{+} + \Ket{-} \right)
+\]
+nos conduce a
+\[
+	P\Frac{\hbar}{2} = \frac{1}{2} | \cos(\b/2) + \sin(\b/2) \euler^{i\a} |^2
+\] 
+y usando $\a=0, \b=\gamma $ resultan en
+\[
+	P\Frac{\hbar}{2} = \frac{1}{2} \left( 1 + \sin\gamma \right).
+\]
+
+En la parte b) se pide hallar $\Delta S_x^2 = \vm{S_x^2}- \vm{S_x}^2 $. Para ello
+usamos los hallazgos del ejercicio 2.
+\[
+	S_x = \frac{\hbar}{2} \left[ \KB{+}{-} + \KB{-}{+} \right]
+\] 
+y luego
+\[
+	S_x^2 = \frac{\hbar^2}{4}\left[ \KB{+}{+} + \KB{-}{-} \right] = 
+	\frac{\hbar^2}{4}\mathbb{1}
+\]
+
+Entonces,
+\[
+	\vm{S_x^2} = [ \cos(\gamma/2) \Bra{+} + \sin(\gamma/2) \Bra{-} ] S_x^2
+	[ \cos(\gamma/2) \Ket{+} + \sin(\gamma/2) \Ket{-} ]
+\]
+Se puede ver que
+\[
+	\vm{S_x} = \frac{\hbar}{2} \sin\gamma,
+\]
+de manera que lo buscado es
+\[
+	(\Delta S_x)^2 = \frac{\hbar^2}{4} \cos^2\gamma.
+\]
+ 
+ 
+\end{ejemplo}
+
+
+\begin{ejemplo}{\bf Ejercicio 10}
+
+Se tiene la situación ilustrada en las figuras bajo estas líneas
+
+\includegraphics[width=0.225\textwidth]{images/fig_ft2_ejercicio10A.jpg}
+
+Por otra parte, la probabilidad será
+\[
+	P\Frac{\hbar}{2}_{\nver} = |\Braket{S_n,+|+}|^2 = \cos^2\Frac{\b}{2}
+\]
+
+\includegraphics[width=0.225\textwidth]{images/fig_ft2_ejercicio10B.jpg}
+
+Consiguientemente,
+\[
+	P\Frac{-\hbar}{2}_{\nver} = |\Braket{-|\vb S\cdot\nver,+}|^2 = \sin^2\Frac{\b}{2}
+\]
+y la intensidad final
+\[
+	I_f = I_0 \: \cos^2\Frac{\b}{2} \: \sin^2\Frac{\b}{2}.
+\]
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 12}
+ 
+Consideramos una base $\{ \Ket{a',b'} \}$ ortonormal de autoestados de $\vb A\cdot \vb B$.
+La idea es que $ [A,B] = C$ si $C\Ket{\Psi} = 0 \forall \Ket{\Psi}$.
+Entonces lo aplicamos a algo
+\[
+	(AB - BA)\Ket{\Psi} = c\Ket{\Psi}
+\]
+\[
+	A\Ket{a'b'} = a' \Ket{a'b'}  \qquad \qquad B\Ket{a'b'} = b' \Ket{a'b'}
+\]
+ 
+\end{ejemplo}
 
 \subsection{Espectro continuo}
 
