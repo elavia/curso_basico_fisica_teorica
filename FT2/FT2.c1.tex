@@ -1093,88 +1093,176 @@ en términos del proyector.
 Los elementos usados en el formalismo (bras, kets, etc.) pueden pensarse como vectores (fila
 o columna) y matrices.
 
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \section{Sistemas de spín 1/2}
 
-Hay dos estados posibles de spin $(\Ket{+}, \Ket{-})$ entonces dimensión del espacio vectorial es 2. De 
-manera que 
+Hay dos estados posibles de spin,
+\[
+	\Ket{S_z ; +} = \Ket{S_z = \hbar/2} \equiv \Ket{+} 
+	\qquad \qquad 
+	\Ket{S_z ; -} = \Ket{S_z = -\hbar/2} \equiv \Ket{-}
+\]
+de manera que la dimensión del espacio vectorial es 2. 
+Entonces, la identidad será 
 \[
 	\mathbb{1} = \Ket{+}\Bra{+} \; + \;  \Ket{-}\Bra{-}
 \]
-\[
-	\Ket{S_z ; +} = \Ket{S_z = \hbar/2} \equiv \Bra{+} 
-\]
-\[
-	\Ket{S_z ; -} = \Ket{S_z = -\hbar/2} \equiv \Bra{-}
-\]
+
 \notamargen{Acá hay que diseñar unos $+,-$ que habiten dentro de los brakets pues estos se ven feo.}
 
-Tenemos operadores de subida y de bajada,
+Luego, en la representación de $S_z$ se tiene
 \[
-	S_+ = \hbar \Ket{+}\Bra{-} \qquad S_- = \hbar \Ket{-}\Bra{+}
+	S_z \ket{+} = \frac{\hbar}{2} \Ket{+} \qquad \qquad 
+	S_z \ket{-} = \frac{\hbar}{2} \Ket{-},
 \]
-que actúan subiendo el spin o dando el ket nulo,
+que viene de que el operador es
+\[
+	S_z = \frac{\hbar}{2} \left( \: \Ket{+}\Bra{+} \: - \: \Ket{-}\Bra{-} \: \right).
+\]
+Luego,
+\[
+	S_+ \equiv \hbar  \Ket{+}\Bra{+}  \qquad 
+	S_- \equiv \hbar  \Ket{-}\Bra{-} 
+\]
+donde $S_- = S_+^\dagger$ son operadores de subida y de bajada.
+que actuarán subiendo/bajando el spin o dando el ket nulo.
+Así,
+\[
+	S_+ \Ket{-} = \hbar \Ket{+} 
+	\qquad \qquad  
+	S_- \Ket{+} = \hbar \Ket{-} 
+	\qquad \qquad 
+	S_+ \Ket{+} = S_- \Ket{-} = 0
+\]
+
+En la representación vectorial serán
+\[
+	\Ket{+} \equiv \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+	\qquad \qquad 
+	\Ket{-} \equiv \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+\]
+de manera que los proyectores
+\[
+	\Lambda_+ = \Ket{+}\Bra{+} =  \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}
+\]
+\[
+	\Lambda_- = \Ket{-}\Bra{-} =  \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}
+\]
+luego
+\[
+	\Lambda_+ + \Lambda_- = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+\]
+
+Los operadores $\pm$ serán
 \[
 	S_+ = \hbar \begin{pmatrix} 1 \\ 0 \end{pmatrix} ( 0 \; 1 ) 
 		= \hbar \begin{pmatrix}  0 & 1 \\ 0 & 0 \end{pmatrix}
+	\qquad \qquad 
+	S_- = \hbar \begin{pmatrix} 0 \\ 1 \end{pmatrix} ( 1 \; 0 ) 
+		= \hbar \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}
 \]
-o bien bajando el spín o dando el ket nulo,
+de modo que
 \[
-	S_- =\hbar \hbar \begin{pmatrix} 0 \\ 1 \end{pmatrix} ( 1 \; 0 ) 
-	 = \hbar \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}
+	S_+ \Ket{-} = \hbar \begin{pmatrix}  0 & 1 \\ 0 & 0 \end{pmatrix}
+	\begin{pmatrix} 0 \\ 1 \end{pmatrix} = 
+	\hbar \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \hbar \Ket{+}.
+\]
+Finalmente,
+\[
+	\Ket{S_x ; \pm} = \frac{1}{\sqrt{2}} \left( \: \Ket{S_x ; +} \pm \Ket{S_x ; -} \: \right).
 \]
 
 \subsection{Cambio de base}
 
-Dados dos conjuntos base ortonormales y completos existe un $\widehat{U}$ unitario tal que 
+Dados dos conjuntos $\{ \Ket{a'} \}, \{ \Ket{b'} \} $ base ortonormales y completos 
+existe un $\widehat{U}$ unitario tal que :
 \[
-	U^+U=UU^+=\mathbb{1} \qquad \Ket{b_i}=U\Ket{a_i}
+	U^+U=UU^+=\mathbb{1} \qquad \text{ con }\qquad \Ket{b_i}=U\Ket{a_i}
 \]
 
 Este operador de cambio de base será 
 \[
 	U = \sum_\ell \Ket{b_\ell}\Bra{a_\ell}
 \]
+y actuando sobre un elemento de la base $a$,
 \[
 	U\Ket{a_i} = \sum_\ell \Ket{b_\ell}\Braket{a_\ell|a_i} = \Ket{b_i}
 \]
-que tiene por función pasar 
+
+Este operador $U$ cumple la función de pasar entre bases
 \[
-	\underbrace{\Ket{a_\ell}}_{\text{vieja base}} \longrightarrow \underbrace{\Ket{b_\ell}}_{\text{nueva base}}
+	\underbrace{\Ket{a_\ell}}_{\text{vieja base}} 
+	\qquad 	\longrightarrow \qquad 
+	\underbrace{\Ket{b_\ell}}_{\text{nueva base}}
 \]
+o bien
+\[
+	\Ket{\text{nueva base}} = U \Ket{\text{vieja base}}.
+\]
+Notemos que
+\[
+	U U^\dagger = \sum_{k,\ell} \Ket{a^k} \Braket{b^k | b^\ell} \Bra{a^\ell} =
+	\sum_{k} \Ket{a^k}\Bra{a^k} = \mathbb{1}
+\]
+donde del segundo al tercer miembro se pasa por la ortogonalidad de la base $b$.
+
+Veamos cómo transforma un ket genérico, usando que
+\[
+	\Braket{ a^k | U | a^\ell } = \Bra{ a^k } \sum_j \Ket{ b^j } \Braket{ a^j | a^\ell } = 
+	\Braket{ a^k | b^\ell }.
+\]
+Un ket arbitrario se escribirá como una combinación lineal de la base $a$, es decir,
+\[
+	\Ket{\a} = \sum_{\a'} \Ket{a'}\Braket{a'|\a}
+\]
+de modo que 
 \[
 	\Braket{b_k|\alpha} = \sum_\ell \Braket{b_k|a_\ell}  \Braket{a_\ell|\alpha}  =
 	\sum_\ell \Braket{a_k|U^+|a_\ell}  \Braket{a_\ell|\alpha} = \Braket{a_k|U^+|\alpha} 
 \]
+e identificamos
+\[
+	 \Braket{b^k|a^\ell} = \Braket{a_k|U^+|a_\ell} 
+\]
+que nos convierte de 
+\[
+	\Ket{\text{nueva base}} = U^\dagger \Ket{\text{vieja base}}.
+\]
+Esta es la relación consistente con la anterior en términos de $U$ [?].
 
-Entonces
+Por otra parte, considerando otro operador $X$
 \[
-	\Ket{\text{nueva base}} = U \Ket{\text{vieja base}}
+	\Braket{b_i | X | b_j} = \sum_{\ell,m} \Braket{b_i|a_\ell}\Braket{a_\ell|X|a_m}\Braket{a_m|b_j },
 \]
+o bien,
 \[
-	\Braket{b_i | x | b_j} = \sum_{\ell,m} \Braket{b_i|a_\ell}\Braket{a_\ell|x|a_m}\Braket{a_m|b_j }
+	\Braket{b_i | X | b_j} = \sum_{\ell,m}\Braket{a_i|U^+|a_\ell}\Braket{a_\ell|X|a_m}\Braket{a_m|U|a_j}
 \]
-\[
-	\Braket{b_i | x | b_j} = \sum_{\ell,m}\Braket{a_i|U^+|a_\ell}\Braket{a_\ell|x|a_m}\Braket{a_m|U|a_j}
-\]
+lo cual implica que
 \[
 	X_{\Ket{b}} = U^+ X_{\Ket{a}} U,
 \]
 que es una transformación de similaridad.
 
+\notamargen{En matrices se puede poner como:
+\[
+	X'_{kl} = U_{km}^\dagger X_{mn} U_{nl}.
+\]}
+
 \subsection{Mediciones y probabilidades}
 
-En mecánica cuántica medir es filtrar. La medición perturba al sistema. Se miden variables dinámicas asociadas a 
-observables.
+En mecánica cuántica medir es filtrar; de todos los autoestados posibles se selecciona uno de ellos. 
+La medición perturba al sistema. Se miden variables dinámicas asociadas a observables.
 Como los autoestados de un observable $\hat{A}$ son una base completa $\{\Ket{a_i}\}$ entonces un sistema se hallará en 
 una combinación lineal de autoestados de $\hat{A}$, o al menos eso puede pensarse.
 
 
 \begin{tabular}{|c|c|c|}
 \hline
-antes de medir & & luego de medir \\
+antes de medir & Medición de $\hat{A}$ & luego de medir \\
 \hline 
 sistema en CL
-de autestados de $\hat{A}$ & Medición de $\hat{A}$ & Salta a un autoestado de $\hat{A}$ \\
+de autestados de $\hat{A}$ &  & Salta a un autoestado de $\hat{A}$ \\
 \hline 
 sistema en 
 autoestado de $\hat{A}$  & & Continúa en autoestado de $\hat{A}$ \\
@@ -1183,16 +1271,35 @@ autoestado de $\hat{A}$  & & Continúa en autoestado de $\hat{A}$ \\
 
 Puede verse pictóricamente la medición así:
 \[
-	\Ket{\alpha} \longrightarrow \Ket{a'}
+	\Ket{\alpha} \qquad \longrightarrow \qquad \Ket{a'}
 \]
-el proceso de medición hace saltar hacia $\Ket{a'}$ siendo el resultado de la medida el autovalor $a'$.
-Luego,
+el proceso de medición hace saltar $\Ket{\a}$ hacia $\Ket{a'}$, siendo el resultado de 
+la medida el autovalor $a'$.
+Antes de medir no puedo saber a qué estado saltará y tampoco en qué estado se hallaba. 
+Si antes de medir se hallaba en un autoestado, continúa manteniéndose allí
 \[
-	\mathrm{Prob}_{\Ket{a'}} \equiv |\Braket{a'|\alpha}|^2
+	\Ket{a'} \qquad \longrightarrow \qquad \Ket{a'}
 \]
 
-Antes de medir no puedo saber a qué estado saltará y tampoco en qué estado se hallaba. Si $P=1$ se halla en
-$\Ket{a'}$ antes de saltar, si $P=0$ no se halla en $\Ket{a'}$ antes de saltar.
+Lo que se puede determinar es la probabilidad de que se halle en cierto autoestado
+$a'$ de acuerdo con 
+\[
+	\mathrm{Prob}_{\Ket{a'}} \equiv |\Braket{a'|\alpha}|^2.
+\]
+
+Si $P=1$ se halla en $\Ket{a'}$ antes de saltar, si $P=0$ no se halla en $\Ket{a'}$ 
+antes de saltar. Este valor de $\mathrm{Prob}$ es mayor igual a cero y se verifica
+\[
+	\sum_{a'} \mathrm{Prob}_{a'} = 1
+\]
+si la probabilidad está correctamente normalizada.
+
+\notamargen{La base que diagonaliza a un operador es la de sus autoestados.}
+
+Notamos que se puede escribir
+\[
+	P = \Braket{a'|\a}\Braket{\a|a'} = \Braket{\a |\Lambda_{a'}| \a}
+\]
 
 \subsection{Valor de expectación}
 
@@ -1211,11 +1318,12 @@ el valor de expectación siempre se refiere a un estado en particular.
 	\Braket{A} = \sum_{a',a''} = a'' \text{Prob}_{\Ket{a''}}
 \]
 Esto último tiene el sentido de una especie de promedio ponderado.
+Hasta repetir el cansancio el experimento el resultado tenderá a este valor de expectación.
 
 
 \subsection{Conmutadores}
 
-Se definen, el conmutador
+Dados dos operadores $A, B$, se definen, el conmutador
 \[
 	[ A, B] \equiv AB - BA,
 \]
@@ -1223,8 +1331,8 @@ y el anticonmutador
 \[
 	\{ A, B \} \equiv AB + BA,
 \]
-y se dice que dos observables conmutan si $[A,B]=0$. Se dice que son compatibles si $[A,B]=0$ y anticompatibles si se 
-da la contrario, $[A,B]\neq 0$.
+y se dice que dos observables conmutan si $[A,B]=0$. Se dice que son compatibles si $[A,B]=0$
+y anticompatibles si se da la contrario, $[A,B]\neq 0$.
 
 TEOREMA:
 
@@ -1243,6 +1351,11 @@ entonces
 	\Braket{a'|B|a''} = 0
 \]
 y $B$ es diagonal en $\{ \Ket{a'}\}$.
+Luego, se ve que escribiendo B en términos de esta base y aplicando sobre un estado de la misma
+\[
+	B \Ket{a''} = \sum \Ket{a'} \Braket{a'|B|a'} \Braket{a'|a''} = \Braket{a''|B|a''} \Ket{a''}
+\]
+por lo tanto la base de $A$ diagonaliza a $B$, pero los autoestados tienen todos sus autovalores diferentes.
 
 Los autoestados son iguales pero no los autovalores; con lo cual se utilizará la notación $\Ket{a',b'}$ donde 
 \[
@@ -1270,6 +1383,9 @@ En este caso no se puede decir que la base de $A$ diagonalice a $B$.\notamargen{
 Los $\ket{a'_i}$ no dan información sobre los bloques correspondientes en la matriz de $B$.
 Necesito un conjunto de operadores que haga romper la degeneración para expresar unívocamente 
 el estado del sistema. Se llama CCOC. Necesito que conmuten entre sí para que las mediciones tengan sentido.
+Un Conjunto Completo de Observables que Conmutan.
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft2_matriz_degenerada1.jpg}
 
 Si no conmutan entonces son incompatibles; la medición de uno hace saltar al sistema a un autoestado del otro y como no 
 son comunes pierde sentido el concepto de medir. No tiene sentido la medición de algo si por el hecho de medir 
@@ -1279,16 +1395,27 @@ Al ser incompatibles sus mediciones de afectan mutuamente.
 Los autovalores de algunos operadores podrán tener degeneración pero una combinación de los autovalores del CCOC, 
 $\Ket{a'b'c'...}$, determina el estado de forma única.
 
-Dado un set CCOC, $\{A,B,C,D\}$, se etiquetarán $\Ket{K'} \equiv \Ket{a'b'c'd'}$ los autoestados.
+Dado un set CCOC, $\{A,B,C,D\}$, se etiquetarán $\Ket{K'} \equiv \Ket{a'b'c'd'}$ los autoestados,
+que es una variable colectiva.
+Se cumplirán
+\[
+	\Braket{K | K'} = \delta_{KK'} = \delta_{aa'} \delta_{bb'} ...
+\]
+\[
+	\sum_{K'} \Ket{K'}\Bra{K'} = \mathbb{1}
+\]
 Las únicas cosas que tiene sentido medir en MC son las variables asociadas a operadores en un CCOC.
 
-Sean $A,B$ compatibles sin degeneración
+Sean $A,B$ compatibles sin degeneración, y consideremos la siguiente notación pictórica donde
+arriba digo qué mido y abajo qué obtengo. Entonces
 \[
 	\Ket{\alpha} \overbrace{\underbrace{\longrightarrow}_{a'}}^{\text{Mido A}} \Ket{a'b'}
 	\overbrace{\underbrace{\longrightarrow}_{b'}}^{\text{Mido B}} \Ket{a'b'} 
 	\overbrace{\underbrace{\longrightarrow}_{a'}}^{\text{Mido A}} \Ket{a'b'}
 \]
-En cambio si $A,B$ son compatibles pero con degeneración 
+Veo que midiendo alternadamente uno y otro no salgo del autoestado $\Ket{K'}$. 
+
+En cambio si $A,B$ son compatibles pero con degeneración en el autoestado $a'$ [?] se tiene
 \[
 	\Ket{\alpha} \overbrace{\underbrace{\longrightarrow}_{a'}}^{\text{Mido A}} 
 		\sum_{i=1}^g C_{a'}^{(i)}\Ket{a'b'(i)} \overbrace{\underbrace{\longrightarrow}_{b'(j)}}^{\text{Mido B}} 
@@ -1296,10 +1423,10 @@ En cambio si $A,B$ son compatibles pero con degeneración
 		C_{a'}^{(j)} \Ket{a'b'(j)}
 \]
 
-Al medir A y obtener $a'$ no tengo determinado el estado del sistema. Me hallaré en una CL de autoestados 
-correspondientes al autovalor degenerado $a'$. Al medir luego B selecciono uno de los $\Ket{a'b'}$ degenerados, el 
-correspondiente a $b'(j)$ pues B no está degenerado. Puedo volver a medir A pues el autoestado en que ha caído el 
-sistema permanece incólume.
+Al medir A y obtener $a'$ no tengo determinado el estado del sistema (medir A no me da información). 
+Me hallaré en una CL de autoestados correspondientes al autovalor degenerado $a'$. Al medir luego B 
+selecciono uno de los $\Ket{a'b'}$ degenerados, el correspondiente a $b'(j)$ pues B no está degenerado. 
+Puedo volver a medir A pues el autoestado en que ha caído el sistema permanece incólume.
 
 
 \subsection{Postulados de la mecánica cuántica}
