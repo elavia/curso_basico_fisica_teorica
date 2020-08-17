@@ -1362,15 +1362,34 @@ Los autoestados son iguales pero no los autovalores; con lo cual se utilizará l
 	A \Ket{a',b'} = a' \Ket{a',b'} \qquad \qquad B \Ket{a',b'} = b' \Ket{a',b'}
 \]
 
+Si dos operadores no conmutan entonces no hay base común para ambos.
+Para ver que se debe cumplir esto supongamos que sí hay base común.
+Entonces, se tendrán
+\[
+	AB \Ket{a',b'} = b' A \Ket{a',b'} =  b' a' \Ket{a',b'}
+\]
+\[
+	BA \Ket{a',b'} = a' B \Ket{a',b'} =  a' b' \Ket{a',b'}
+\]
+y estos dos renglones son iguales puesto que números escalares sí conmutan.
+Luego,
+\[
+	AB \Ket{} = BA \Ket{}
+\]
+y entonces como esto significa que conmutan y partimos de la presunción en contrario,
+con lo cual este absurdo surge de asumir base en común; no la tienen.
+Por ende no los puedo medir con precisión. La medida del segundo afecta a la medición del primero.
+
 \subsection{Degeneración}
 
-Puede darse que haya varios $g$ autoestados correspondientes a un mismo autovalor $a'$; entonces se dice que hay 
-degeneración de orden $g$ para el autoestado $\Ket{a'}$
+Puede darse que haya varios $g$ autoestados correspondientes a un mismo autovalor $a'$; 
+entonces se dice que hay degeneración de orden $g$ para el autoestado $\Ket{a'}$
 \[
 	A\Ket{a'}= a'\Ket{a'} \quad ; i=1,2,...,g
 \]
 y $A$ tendrá una matriz de $m\times n$ bloques. 
-En este caso no se puede decir que la base de $A$ diagonalice a $B$.\notamargen{Mejorar la matriz que está un asco}
+En este caso no se puede decir que la base de $A$ diagonalice a $B$.
+\notamargen{Mejorar la matriz que está un asco}
 \[
 	A = \begin{pmatrix}
 	     a'\mathbb{1} & 0 & & \\
@@ -1512,20 +1531,23 @@ Se dice que A es normal si verifica $[A,A^\dagger] = 0$.
 
 \subsection{Operador de dispersión}
 
+Se define la dispersión del operador $A$ de acuerdo con
 \[
 	\Delta \widehat{A} \equiv \widehat{A} - \Braket{A}\mathbb{1}
 \]
-la dispersión será nula en un autoestados del operador $\widehat{A}$. Luego la dispersión cualitativamente nos dice 
-``qué tan lejos'' del autoestado nos hallamos.
-\[
+la dispersión será nula cuando el sistema se halle en un autoestado del operador $\widehat{A}$. 
+Será no nula en caso contrario, cuando no se halle en un autoestado.
+Luego la dispersión cualitativamente nos dice ``qué tan lejos'' del autoestado nos hallamos.
+\begin{multline*}
 	\Braket{(\Delta A)^2} = \Braket{(\widehat{A} - \Braket{A}\mathbb{1})^2} =
-	\Braket{ A^2 - 2A\Braket{A} + \Braket{A}^2 } = \Braket{A^2} - 2A\Braket{A}^2 + \Braket{A}^2 =
-	\Braket{A^2} - \Braket{A}^2
-\]
+	\Braket{ A^2 - 2A\Braket{A} + \Braket{A}^2 } = \\
+	\Braket{A^2} - 2A\Braket{A}^2 + \Braket{A}^2 = \Braket{A^2} - \Braket{A}^2
+\end{multline*}
 y la relación de dispersión generalizada
 \[
 	\Braket{(\Delta A)^2} \Braket{(\Delta B)^2} \geq \frac{1}{4}|\Braket{[ A,B ]}|^2
 \]
+se probará [?].
 
 \begin{ejemplo}{\bf Ejercicio 9 guía 1}
 
@@ -1589,14 +1611,14 @@ de manera que lo buscado es
 
 Se tiene la situación ilustrada en las figuras bajo estas líneas
 
-\includegraphics[width=0.225\textwidth]{images/fig_ft2_ejercicio10A.jpg}
+\includegraphics[width=0.45\textwidth]{images/fig_ft2_ejercicio10A.jpg}
 
 Por otra parte, la probabilidad será
 \[
 	P\Frac{\hbar}{2}_{\nver} = |\Braket{S_n,+|+}|^2 = \cos^2\Frac{\b}{2}
 \]
 
-\includegraphics[width=0.225\textwidth]{images/fig_ft2_ejercicio10B.jpg}
+\includegraphics[width=0.45\textwidth]{images/fig_ft2_ejercicio10B.jpg}
 
 Consiguientemente,
 \[
@@ -1608,6 +1630,8 @@ y la intensidad final
 \]
  
 \end{ejemplo}
+
+
 
 \begin{ejemplo}{\bf Ejercicio 12}
  
@@ -1625,6 +1649,23 @@ Entonces lo aplicamos a algo
 
 \subsection{Espectro continuo}
 
+Queremos pasar al continuo este formalismo. Pensamos en una única variable $x$, tal que
+\[
+	x \Ket{x'} = x' \Ket{x'}
+\]
+y los kets de la base son los canónicos. En un rango $[a,b]$ descomponemos una función
+$f_N(x)$ en esta base
+\[
+	\Ket{f_N} = f_N(x_1) \Ket{x^{(1)}} + f_N(x_2) \Ket{x^{(2)}} + ...
+	+ f_N(x_N) \Ket{x^{(N)}},
+\]
+o bien
+\[
+	\Ket{f_N} = \sum_{i=1}^N \: f_N(x_i) \Ket{x^{(i)}}
+\]
+y queremos pasar al continuo utilizando $N \to \infty$ y $\Delta x \to 0$ con la constraint
+de que $N\Delta x \to cte.$
+
 Hay observables con espectro de autovalores continuo.
 Nos podemos construir la siguiente tabla para comparar ambos escenarios.
 
@@ -1635,56 +1676,73 @@ Espectro discreto & Espectro continuo \\
   & \\
   $A\Ket{a'}=a'\ket{a'}$ & $Y\Ket{y'}=y'\ket{y'}$ \\
   & \\
-  $\mathbb{1} = \sum_{a' }^N \Ket{a'}\Bra{a'} $ & $\mathbb{1} = \int_{-\infty}^ {\infty} \Ket{y'}\Bra{y'} dy' $ \\
+  $\mathbb{1} = \sum_{a' }^N \Ket{a'}\Bra{a'} $ & $\mathbb{1} = 
+  \int_{-\infty}^ {\infty} \Ket{y'}\Bra{y'} dy' $ \\
   & \\
   $\Braket{a'|a''} = \delta_{a' a''}$ & $\Braket{y'|y''} = \delta(y'-y'')$ \\
   & \\
-  $ \sum_{a' }^N \Braket{a'|a''}\Bra{a''} = \Bra{a'}$ & $ \int_{-\infty}^\infty dy'' \Braket{y'|y''}\Bra{y''} = 
-\Bra{y'}$ \\
+  $ \sum_{a' }^N \Braket{a'|a''}\Bra{a''} = \Bra{a'}$ & 
+  $ \int_{-\infty}^\infty dy'' \Braket{y'|y''}\Bra{y''} = \Bra{y'}$ \\
   & \\
-  $ \sum_{a' }^N \Ket{a'} \Braket{a'|\alpha} =  \Ket{\alpha}$ & $ \int_{-\infty}^\infty dy' \Ket{y'}\Braket{y'|\alpha} 
-= \Ket{\alpha}$ \\
+  $ \sum_{a' }^N \Ket{a'} \Braket{a'|\alpha} = 
+  \Ket{\alpha}$ & $ \int_{-\infty}^\infty dy' \Ket{y'}\Braket{y'|\alpha} = \Ket{\alpha}$ \\
   & \\
-  $ \sum_{a' }^N |\Braket{a'|\alpha}|^2 = 1$ & $ \int_{-\infty}^\infty dy'|\Braket{y'|\alpha}|^2 = 
-1$ \\
-  & \\
-    $ \Braket{\beta | \alpha}  = \sum_{a' }^N \Braket{\beta|a'}\Braket{a'\alpha}$ & $ \Braket{\beta | \alpha}  = 
-\int_{-\infty}^\infty dy' \Braket{\beta|y'}\Braket{y'\alpha}$ \\
+  $ \sum_{a' }^N |\Braket{a'|\alpha}|^2 = 1$ & 
+  $ \int_{-\infty}^\infty dy'|\Braket{y'|\alpha}|^2 = 1$ \\  & \\
+  $ \Braket{\beta | \alpha}  = \sum_{a' }^N \Braket{\beta|a'}\Braket{a'\alpha}$ & 
+  $ \Braket{\beta | \alpha}  = \int_{-\infty}^\infty dy' \Braket{\beta|y'}\Braket{y'\alpha}$ \\
   & \\
 \hline  
 \end{tabular} 
 
-\subsection{La función de onda}
+Debemos notar aquí que la delta correspondiente al caso discreto es la de Kronecker,
+mientras que la del caso continuo es la de Dirac.
 
+\subsection{Midiendo y otras representaciones. Función de onda}
+
+La representación de un cierto estado es
 \[
-	\Ket{\alpha} = \int_{\infty}^\infty dx' \Ket{x'}\Braket{x'|\alpha}
+	\Ket{\alpha} = \int_{\infty}^\infty dx' \Ket{x'}\Braket{x'|\alpha},
+\]
+i.e. combinación lineal de todos los estados $x'$ entre $-\infty$ y $\infty$. No obstante puede
+ser que al medir, la física del instrumento o de la medida nos restringe a una zona
+$x \pm \Delta$, de modo que
+\[
+	\Ket{\alpha} = \int_{x-\Delta}^{x+\Delta} \: dx' \Ket{x'}\Braket{x'|\alpha},
 \]
 donde 
+\notamargen{Acá ya vamos viendo que hay bases de posición, spin, momento, etc.}
 \[
 	\Braket{x'|\alpha}dx'
 \]
-es la densidad de probabilidad y 
+es la densidad de probabilidad de hallar a la partícula entre $(x-\Delta,x+\Delta)$ y 
 \[
 	|\Braket{x'|\alpha}|^2
 \]
-es la amplitud de probabilidad. La densidad de probabilidad, en el formalismo de Schrödinger, es la función de onda
+es la amplitud de probabilidad. 
+En el formalismo de Schrödinger la densidad de probabilidad es la función de onda
 \[
 	\Psi_\alpha(x) = \Braket{x|\alpha}
 \]
 siendo este el vínculo entre la representación de Dirac y la función de onda,
+que nos permite ir de una a otra representación.
 \[
 	\Braket{\beta|\alpha} = \int dx' \Braket{\beta|x'}\Braket{x'|\alpha} = 
 		\int dx' \Psi_\beta^*(x) \Psi_\alpha(x)
 \]
+Para un elemento de matriz se tiene
 \[
-	\Braket{\beta|A|\alpha} = \int \int dx' dx''\Braket{\beta|x''}\Braket{x''|A|x'}\Braket{x'|\alpha}
+	\Braket{\beta|A|\alpha} = 
+	\int \int dx' dx''\Braket{\beta|x''}\Braket{x''|A|x'}\Braket{x'|\alpha}
 \]
 \[
-	\Braket{\beta|A|\alpha} = \int \int dx' dx'' \Psi_\beta^*(x'') \Braket{x''|A|x'} \Psi_\alpha(x')
+	\Braket{\beta|A|\alpha} = 
+	\int \int dx' dx'' \Psi_\beta^*(x'') \Braket{x''|A|x'} \Psi_\alpha(x')
 \]
 y si $A=f(\hat{x})$ entonces $f(\hat{x}) \Ket{x'} = f(x') \Ket{x'}$ y
 \[
-	\Braket{\beta|A|\alpha} = \int \int dx' dx'' \Psi_\beta^*(x'') f(x')\delta(x''-x') \Psi_\alpha(x')
+	\Braket{\beta|A|\alpha} = 
+	\int \int dx' dx'' \Psi_\beta^*(x'') f(x')\delta(x''-x') \Psi_\alpha(x')
 \]
 y entonces 
 \[
@@ -1700,14 +1758,41 @@ En forma análoga tenemos la representación de momento;
 	\Phi_\alpha(p') = \Braket{p'|\alpha}.
 \]
 
+En el anterior curso de física donde se hizo algo de mecánica cuántica (F4) todo
+se llevó a cabo en la representación de posición.
+El formalismo de Dirac permite movernos cómodamente entre cualesquiera de estas
+representaciones.
+
+Para la generalización a 3 dimensiones se usan operadores vectoriales, que no son otra
+cosa que tres operadores escalares.
+\[
+	\vb x \Ket{\vb{x}'} = \vb{x'} \Ket{\vb{x'}},
+\]
+así $y \Ket{\vb{x}'} = y' \Ket{\vb{x}'} = y' \Ket{x',y',z'}$ con
+\[
+	\mathbb{1} = \int_{-\infty}^{\infty} \: d^3x \KB{ \vb{x'} }{ \vb{x'} }
+\]
+y la delta de Dirac es
+\[
+	\Braket{\vb{x''}|\vb{x'}} = \delta^3(\vb{x''} - \vb{x'}) =
+	\delta( x'' - x' )\delta( y'' - y' )\delta( z'' - z' )
+\]
+
+
 \subsection{Operador de traslación}
 
+Este operador realiza una traslación infinitesimal.
 Se le pedirá
 \[
 	\Tau_{(dx')} \Ket{x'} = \Ket{x'+dx'}
 \]
-siendo este requerimiento intuitivamente adecuado para una traslación. Nótese que $dx'$ no es un operador, es el 
-parámetro de la traslación.
+siendo este requerimiento intuitivamente adecuado para una traslación. 
+Nótese que $dx'$ no es un operador, es el parámetro de la traslación.
+
+Sobre un ket genérico será
+\[
+	\Tau_{(dx')} \Ket{\a} = \int d^3x' \: \Ket{x'+dx'} \Braket{x|\a}.
+\]
 
 Cumplirá las propiedades
 \begin{itemize}
@@ -1725,23 +1810,40 @@ Cumplirá las propiedades
  \[
 	\Tau_{(dx')}^{-1} = \Tau_{(-dx'')}
  \]
- \item Límite a $\mathbb{1}$
+ \item Existencia de la identidad, el que no hace nada. Límite a $\mathbb{1}$
  \[
 	\Tau_{(dx')} \to \mathbb{1} \quad \text{si} \quad dx' \to 0
  \]
 \end{itemize}
 
-Se propone un 
+Se propone un\footnote{Es una especie de expansión de Taylor.} 
 \[
 	\Tau_{(dx')} = \mathbb{1} - i \vb{K}\cdot d\vb{x}'
 \]
-con $\vb{K}$ hermítico (notemos que $\tau$ no es hermítico). Comparando con mecánica clásica vemos que \vb{p} origina 
-las traslaciones, entonces identificamos $K$ con $p$.
-\notamargen{Hay que ver el carácter vectorial de estas cosas.}
+con $\vb{K}$ un operador vectorial hermítico (notemos que $\tau$ no es hermítico). 
+Para ver quién es éste operador se considera
+\[
+	\Tau_{(dx')}^\dagger = \mathbb{1} + i \vb{K}\cdot d\vb{x}',
+\]
+y luego, a orden lineal, es $ \Tau_{(dx')} \Tau_{(dx')}^\dagger \approx 1$ y
+\[
+	\Tau_{(dx')} \Tau_{(dx)} = 1 - i \vb{K}\cdot ( d\vb{x}' + d\vb{x} )
+	= \Tau_{(dx' + dx)}
+\]
+
+Comparando con mecánica clásica, y viendo que allí \vb{p} origina las traslaciones, 
+entonces identificamos $\vb K$ con $\vb p$. Se postuló que 
+\[
+	\vb K = \frac{1}{\hbar} \vb p,
+\]
+y se ha visto a posteriori que esto funcionar.
+\notamargen{Hay que ver el carácter vectorial de estas cosas.
+$dx$ es vectorial en realidad, pero no un operador.}
 
 Entonces pedimos que \vb{p} cuántico origine las traslaciones
 \[
-	\vb{K} = \frac{\vb{p}}{\hbar} \qquad \Tau_{(dx')} = \mathbb{1} - \frac{i}{\hbar} \vb{P}\cdot d\vb{x}'
+	\vb{K} = \frac{\vb{p}}{\hbar} \qquad \Tau_{(dx')} = 
+	\mathbb{1} - \frac{i}{\hbar} \vb{P}\cdot d\vb{x}'
 \]
 y así
 \[
@@ -1754,32 +1856,57 @@ Partiendo del conmutador
 \[
 	x \Tau_{(dx')} - \Tau_{(dx')} x = dx \Tau_{(dx')}
 \]
+\notamargen{En la carpeta el conmutador da sin la $\Tau$, así que acá parece
+estar mal.}
 entonces 
 \[
 	[x, \Tau_{(dx')}] = dx\Tau 
 \]
-y con $dx\sim 0$ a orden uno (esto significa que tiramos los términos cuadráticos en $dx$)
+y con $dx\sim 0$ a orden uno (esto significa que tiramos los términos cuadráticos en $dx$).
+Usando la anterior
 \[
-	[ x, p_x ] = i \hbar
+	[x, 1 - i \vb K \cdot d\vb{x'} ] = -i [ x_i, K_j dx_j' ] = 
+	-i [ x_i, K_j ] dx_j' =  dx_j'
 \]
-se llega a la incompatibilidad de posición y momento, generalizando
+de lo cual se deduce que
 \[
-	[ x_i, p_j ] = i \hbar \delta_{ij}
+	\dtot{x_i'}{x_j'} = - i [ x_i , K_j ] = \delta_{ij}
 \]
+lo que conduce a 
+\[
+	[ x_i, p_j ] = i \hbar \:\delta_{ij},
+\]
+% \[
+% 	[ x, p_x ] = i \hbar
+% \]
+que es la incompatibilidad de posición y momento.
+% \[
+% 	[ x_i, p_j ] = i \hbar \delta_{ij}.
+% \]
+
 Pero las traslaciones en diferentes direcciones conmutan
 \[
 	[ \Tau_{(d\vb{x}')}, \Tau_{(d\vb{x}'')} ] = 0  \qquad [ p_i, p_j ] = 0
 \]
+	
+\[
+	\Tau_{(d\vb{x}')} \Ket{\vb{p'}} = 
+	\left( 1 - \frac{i}{\hbar} \vb{P'}\cdot d\vb{x} \right) \Ket{\vb{p'}}
+\]
+donde recordamos que como el operador no es hermítico el autovalor no es 
+necesariamente real.
 
 Sumando infinitas traslaciones infinitesimales tenemos una traslación finita,
 \[
-	\Tau_{(\Delta x')} = \lim_{N\to \infty}\left( 1 - \frac{i}{\hbar}p\frac{\Delta x'}{N}\right)^N 
-		= \euler^{-i/\hbar \: p\Delta x'}
+	\Tau_{(\Delta x')} = \lim_{N\to \infty}
+	\left( 1 - \frac{i}{\hbar}p\frac{\Delta x'}{N}\right)^N =
+	\euler^{-i/\hbar \: p\Delta x'}
 \]
-y entonces 
+que en tres dimensiones será 
 \[
-	\Tau_{(\Delta x')} = \euler^{-i/\hbar\: \vb{p}\cdot\Delta \vb{x}'}
+	\Tau_{(\Delta x')} = \euler^{-i/\hbar\: \vb{p}\cdot\Delta \vb{x}'},
 \]
+donde se hace $ dx' \equiv \Delta x'/N $ para el paso al continuo.
 
 
 \subsection{\vb{p} en la representación \vb{x}}
