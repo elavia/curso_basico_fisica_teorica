@@ -1700,6 +1700,7 @@ mientras que la del caso continuo es la de Dirac.
 
 \subsection{Midiendo y otras representaciones. Función de onda}
 
+El operador que da la posición es $\hat{x}$ de acuerdo con $\hat{x}\Ket{x'} = x'\Ket{x'}$.
 La representación de un cierto estado es
 \[
 	\Ket{\alpha} = \int_{\infty}^\infty dx' \Ket{x'}\Braket{x'|\alpha},
@@ -1726,6 +1727,15 @@ En el formalismo de Schrödinger la densidad de probabilidad es la función de o
 \]
 siendo este el vínculo entre la representación de Dirac y la función de onda,
 que nos permite ir de una a otra representación.
+La probabilidad de hallar al sistema en $\a$ será
+\[
+	| \Psi_\alpha(x) |^2 = \Psi_\alpha(x) \Psi^*_\alpha(x) = | \Braket{x|\alpha} |^2.
+\]
+Asimismo,
+\[
+	\Braket{p|x} = \frac{1}{\sqrt{2 \pi \hbar}} \euler^{i p x / \hbar}.
+\]
+
 \[
 	\Braket{\beta|\alpha} = \int dx' \Braket{\beta|x'}\Braket{x'|\alpha} = 
 		\int dx' \Psi_\beta^*(x) \Psi_\alpha(x)
@@ -1847,7 +1857,8 @@ Entonces pedimos que \vb{p} cuántico origine las traslaciones
 \]
 y así
 \[
-	\Tau_{(dx')}\Ket{p'} = \left( \mathbb{1} - \frac{i}{\hbar} \vb{P}\cdot d\vb{x}' \right)\Ket{p'} =
+	\Tau_{(dx')}\Ket{p'} =
+	\left( \mathbb{1} - \frac{i}{\hbar} \vb{P}\cdot d\vb{x}' \right)\Ket{p'} =
 	\left( 1 - \frac{i}{\hbar} p' dx \right)\Ket{p'}
 \]
 el autovalor no es real, pues $\Tau$ no es hermítico.
@@ -1908,6 +1919,103 @@ que en tres dimensiones será
 \]
 donde se hace $ dx' \equiv \Delta x'/N $ para el paso al continuo.
 
+\begin{ejemplo}{\bf Ejercicio 15}
+
+Las partes a), b), c) están hechas en el libro de Sakurai.
+La dispersión resulta $\vm{(\Delta A)^2} = \vm{A^2} -\vm{A}^2$ lo que es fácil de
+ver haciendo explícitamente la operación para un estado $\psi$.
+Se considera
+\[
+	\Delta A = A - \vm{A}_\psi.
+\]
+
+Si A, B son observables, entonces
+\[
+	\vm{\Delta A^2}_\psi \vm{\Delta B^2}_\psi \geq \frac{1}{4} |\vm{[A,B]}|^2_\psi.
+\]
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 16}
+
+Tenemos $ \vm{\Delta S_x^2 } = \vm{\Delta S_x^2 } - \vm{\Delta S_x }^2 $  con $ \Ket{\psi} = \Ket{+} $
+y escribimos $S_x$ en la base de autoestados
+\[
+	S_x = \frac{\hbar}{2} \left( \KB{+}{-} + \KB{-}{+} \right),
+\]
+\[
+	S_x^2 = \frac{\hbar^2}{4} \left( \KB{+}{+} + \KB{-}{-} \right) = \frac{\hbar^2}{4} \mathbb{1}
+\]
+y como es un Stern-Gerlach en $\xver$ y le mandamos partículas en $\zver$,
+\[
+	\vm{S_x} = \Bra{+} S_x \Ket{+} = 0 \qquad \qquad \vm{S_x^2} = \frac{\hbar^2}{4}
+\]
+y de la misma manera
+\[
+	\vm{S_y} = 0 \qquad \qquad \vm{S_y^2} = \frac{\hbar^2}{4}
+\]
+
+Si queremos ahora probar la relación de incerteza generalizada, será
+\[
+	\frac{1}{4}|\vm{(S_x,S_y)}|^2 = \frac{\hbar^2}{4}|\vm{ S_z }|^2 = \frac{\hbar^4}{16},
+\]
+y luego
+\[
+	\vm{ (\Delta S_x)^2 }_{\Ket{+}} \vm{ (\Delta S_y)^2 }_{\Ket{+}} = 
+	\frac{1}{4} |\vm{[S_x,S_y]}|^2_{\Ket{+}},
+\]
+vemos que se verifica la igualdad en la relación de incerteza.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 15 parte d)}
+
+Se tiene
+\[
+	\Braket{x'|\a} = (2\pi d^2)^{-1/4} \euler^{i \vm{p}x'/\hbar - (x'-\vm{x})^2/(4d^2)}
+\]
+y se pide
+\[
+	\vm{(\Delta x)^2} \vm{(\Delta p)^2} = \frac{\hbar}{2}
+\]
+
+Son los valores medios
+\[
+	\vm{x} = \Braket{\a|x|\a} = 
+	\int_{-\infty}^\infty \: \Braket{\a|x|x'}\Braket{x'|\a} dx' =
+	\int_{-\infty}^\infty \: x' \Braket{\a|x'}\Braket{x'|\a} dx'
+\]
+y
+\begin{multline*}
+	\vm{p} = \Braket{\a|p|\a} = 
+	\int_{-\infty}^\infty \: p' \Braket{\a|p'}\Braket{p'|\a} dp' = \\
+	\int_{-\infty}^\infty \int_{-\infty}^\infty \int_{-\infty}^\infty \: 
+	p' \Braket{\a|x'}\Braket{x'|p'}\Braket{p'|x''}\Braket{x''|\a} dp' dx' dx''
+\end{multline*}
+donde hemos introducido identidades, continuas, en estados de posición.
+Reacomodando las integraciones,
+\[
+	\vm{p} =
+	\int \int dx' dx'' \: \frac{\psi^*(x') \psi(x'')}{2\pi\hbar} 
+	\int dp' \: p' \euler^{i p /\hbar (x' - x'')} 
+\] 
+y haciendo aparecer explícitamente una derivada espacial (ayudados por la exponencial)
+\[
+	\vm{p} =
+	\int \int dx' dx'' \: \frac{\psi^*(x') \psi(x'')}{2\pi\hbar} 
+	\frac{\hbar}{i} \dpar{}{x'} \int dp' \: \euler^{i p /\hbar (x' - x'')}. 
+\]
+Luego, como la expresión de la delta de Dirac es
+\[
+	\delta(x'-x'') = \frac{1}{2\pi\hbar} \int dp' \euler^{i p'/\hbar (x'-x'')}
+\]
+se tiene
+\[
+	\vm{p} = \int \int dx' dx'' \frac{\hbar}{i} \psi^*(x') \psi(x'') \delta(x'-x'') =
+	\int dx' \: \psi^*(x') \left( -i \hbar \dpar{}{x'} \right) \psi(x').
+\]
+
+\end{ejemplo}
 
 \subsection{\vb{p} en la representación \vb{x}}
 
@@ -1970,7 +2078,8 @@ y entonces,
 \]
 que es una ecuación diferencial para $\Braket{x'|p'}$. Luego
 \[
-	\int  \frac{1}{\Braket{x'|p'}} \partial \Braket{x'|p'} = \int \frac{ip'}{\hbar} \partial x'
+	\int  \frac{1}{\Braket{x'|p'}} \partial \Braket{x'|p'} = 
+	\int \frac{ip'}{\hbar} \partial x'
 \]
 \[
 	\log \Braket{x'|p'} = \frac{ip'x'}{\hbar} + Cte.
@@ -1988,10 +2097,52 @@ que es una ecuación diferencial para $\Braket{x'|p'}$. Luego
 	\Braket{x'|p'} = \frac{1}{\sqrt{2\pi\hbar}} \euler^{i p'x'/\hbar}
 \]
 Con este escalar podemos cambiar entre representaciones.
-Usando esto podemos ver que $\Psi_\alpha(x')$ y $\Phi_\alpha(p')$ son transformadas de Fourier la una de la otra.
+Usando esto podemos ver que $\Psi_\alpha(x')$ y $\Phi_\alpha(p')$ son transformadas 
+de Fourier la una de la otra.
 \[
 	 \int_{-\infty}^\infty dp \euler^{iap(x-x')} = \frac{2\pi}{a}\delta(x-x')
 \]
+
+\begin{ejemplo}{\bf Ejercicio 18}
+
+$S_y$ es un operador complejo. Luego
+\[
+	S_y = \frac{\hbar}{2} \begin{pmatrix}
+	                       0 & -i \\
+	                       i & 0
+	                      \end{pmatrix}
+\]
+Luego, dependiendo de la base que se utilice resultará
+\[
+	S_y|_\text{base} = \frac{\hbar}{2} \begin{pmatrix}
+	                       1 & 0 \\
+	                       0 & -1
+	                      \end{pmatrix}
+\]
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 20}
+
+Se define $f(A)$ de modo que si $f(x) = \sum_j c_j x^j$ entonces se toma
+\[
+	f(A) \equiv \sum_{j=0}^\infty \: c_j A^j,
+\]
+luego, si nos hallamos en autoestado de $A$ estaremos entonces en autoestados de $f(A)$.
+
+Si es $A\Ket{a'} = a' \Ket{a'}$, será
+\[
+	A^j\Ket{a'} = A^{j-1}A\Ket{a'} = A^{j-1}a'\Ket{a'} = {a'}^j\Ket{a'}.
+\]
+El elemento de matriz
+\[
+	\Braket{b''|f(A)|b'} =  \sum_{a'} \Braket{b''|f(A)|a'} \Braket{a'|b'} =
+	\sum_{a'} f(a')\Braket{b''|a} \Braket{a'|b'}
+\]
+y los dos últimos brakets son los datos conocidos.
+La parte b) es igual pero para el caso continuo.
+ 
+\end{ejemplo}
 
 \subsection{Corchetes de Poisson versus conmutadores}
 
