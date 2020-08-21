@@ -2019,6 +2019,22 @@ se tiene
 
 \subsection{\vb{p} en la representación \vb{x}}
 
+Parece que la ecuación
+\[
+	[x,\Tau_{(dx')}] = dx',
+\]
+que se escribió anterioremente, no es exacta. La carpeta no da más información al respecto.
+\notamargen{Ahora se entiende el entuerto con la $\Tau$ que sobraba.}
+Se verifica en realidad que
+\[
+	[x,\Tau_{(dx')}] \Ket{x'} = dx' \Tau_{(dx')} \Ket{x'},
+\]
+y usando la equivalencia de $\Tau$ a orden ${dx'}^2$, podemos escribir
+\[
+	\left( 1 - i\frac{P\Delta x'}{\hbar}\right) \Ket{\a} = 
+	\int dx' \: \Tau_{(dx')} \Ket{x'} \Braket{x'|\a}
+\]
+o bien, a primer orden siempre,
 \[
 	\Tau_{(\Delta x)} \Ket{\alpha} = \int dt' \Tau\Ket{x'}\Braket{x'|\alpha} = 
 		\int dt' \Ket{x'+ \Delta x}\Braket{x'|\alpha} = \int dt' \Ket{x'}\Braket{x'-\Delta x|\alpha}
@@ -2031,7 +2047,7 @@ y entonces
 \[
 	-\dpar{}{x'} \Braket{x'|\alpha} \Delta x + \Braket{x'|\alpha}  = \Braket{x'-\Delta x|\alpha}
 \]
-
+de manera que
 \[
 	\Tau\Ket{\alpha} = \int dx' \Ket{x'}\left( \Braket{x'|\alpha} -\dpar{}{x'} \Braket{x'|\alpha} \Delta x \right) =
 	\int dx' \Ket{x'} \Braket{x'|\alpha} - \int dx' \Ket{x'}  \dpar{}{x'} \Braket{x'|\alpha} \Delta x 
@@ -2065,9 +2081,11 @@ de lo que se deduce
 	\hat{p} \equiv - i \hbar \dpar{}{x},
 \]
 que es el resultado más importante de la sección.
+En la representación de $x$, el operador $p$ es proporcional a la derivada.
 
 \subsection{Cambio entre representaciones \vb{x} y \vb{p} }
 
+Supongamos ahora que $\a$ es un autoestado de $p$. Entonces
 \[
 	\Braket{x'|\hat{p}|p'} =  -i\hbar \int dx'  \Braket{x'|x'} \dpar{}{x'} \Braket{x'|p'} =
 	-i\hbar \dpar{}{x'} \Braket{x'|p'}
@@ -2084,24 +2102,45 @@ que es una ecuación diferencial para $\Braket{x'|p'}$. Luego
 \[
 	\log \Braket{x'|p'} = \frac{ip'x'}{\hbar} + Cte.
 \]
+Ahora escribimos la delta e integramos,
 \[
 	\int dp' \Braket{x'|p'} \Braket{p'|x''} = \Braket{x'|x''} = \delta(x-x')
 \]
 \[
 	\int dp' \euler^{ip'/\hbar(x'-x'')} |N|^2 = \delta(x-x')
 \]
+donde usamos la integral del handbook ver Apéndice I X
 \[
 	|N| = \frac{1}{\sqrt{2\pi\hbar}}.
 \]
 \[
 	\Braket{x'|p'} = \frac{1}{\sqrt{2\pi\hbar}} \euler^{i p'x'/\hbar}
 \]
+Entonces, los autoestados de $p$ son ondas libres. Toda esta información la obtuvimos
+de suponer que $p$ es el generador de las traslaciones.
 Con este escalar podemos cambiar entre representaciones.
 Usando esto podemos ver que $\Psi_\alpha(x')$ y $\Phi_\alpha(p')$ son transformadas 
 de Fourier la una de la otra.
 \[
 	 \int_{-\infty}^\infty dp \euler^{iap(x-x')} = \frac{2\pi}{a}\delta(x-x')
 \]
+
+Suponiendo que queremos pasar entre representaciones dado un ket $\Ket{\a}$, tenemos
+\[
+	\psi_\a(x') =  \Braket{a'|\a} \qquad \qquad \Braket{p'|\a} = \phi_a(x')
+\]
+y el cambio siempre implica escribir un ``uno'' apropiadamente,
+\[
+	\Braket{a'|\a} = \int dp' \Braket{x'|p'} \Braket{p'|\a} =
+	\frac{1}{\sqrt{2\pi\hbar}} \int dp' \euler^{i p' x' / \hbar} \phi_\a (p') = \psi_\a(x')
+\]
+y entonces, consecuentemente,
+\[
+	\phi_\a (p') = \frac{1}{\sqrt{2\pi\hbar}} \int dx' \euler^{i p' x' / \hbar}  \psi_\a(x').
+\]
+
+Notemos que la mecánica cuántica que desarrollamos ya sabe que $\phi$ y $\psi$ son
+transformadas de Fourier entre sí, sin utilizar la ecuación de Schrödinger.
 
 \begin{ejemplo}{\bf Ejercicio 18}
 
@@ -2152,8 +2191,11 @@ Hay una equivalencia entre corchetes de Poisson y conmutadores, a saber:
 \]
 o
 \[
-	[A, B]_{\text{classic}} = \sum_i \left( \dpar{A}{q_i} \dpar{B}{p_i} - \dpar{A}{p_i} \dpar{B}{q_i} \right)
+	[A, B]_{\text{classic}} = \sum_i 
+	\left( \dpar{A}{q_i} \dpar{B}{p_i} - \dpar{A}{p_i} \dpar{B}{q_i} \right)
 \]
+
+Esta relación fue planteada por Dirac.
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica

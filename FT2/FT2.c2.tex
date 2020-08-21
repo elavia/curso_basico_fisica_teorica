@@ -3,8 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -33,36 +33,42 @@
 \chapter{Dinámica cuántica}
 % =================================================================================================
 
-Queremos ver la evolución temporal de los kets 
+Queremos ver la evolución temporal de los kets. Para ello utilizaremos cierta convención.
+Un ket dependerá del tiempo lo cual se indicará con 
 \[
 	\Ket{\alpha,t_0,t},
 \]
-notación que refiere al estado $\alpha$ que partió en $t_0$ al tiempo $t$. Pictóricamente
+notación que refiere al estado $\alpha$ que partió en $t_0$ al tiempo $t$. 
+Luego $\Ket{\alpha,t=t_0} \equiv \Ket{\a}$.
+Pictóricamente
 \[
 	\Ket{\alpha,t_0} \underbrace{\longrightarrow}_{\text{evoluciona}} \Ket{\alpha,t_0,t}
 \]
 
 Emplearemos para ello un operador de evolución temporal $U_{(t,t_0)}$ al cual le pediremos
+que realice la evolución según
 \[
 	\Ket{\alpha,t_0,t} = U \Ket{\alpha,t_0}
 \]
-con las propiedades
+Entonces, un elemento de matriz $\Braket{b|U_{(t,t_0)}|a}$ implica la probabilidad (amplitud)
+de que se tenga componente de $b$ en el tiempo $t$ del sistema que estamos considerando.
+El operador de evolución tendrá las propiedades
 
 \begin{itemize}
  \item Unitariedad
  \[
-	\Braket{ \alpha,t_0,t| \alpha,t_0,t} = 1 \forall t
+	\Braket{ \alpha,t_0,t| \alpha,t_0,t} = 1 \qquad \forall t
  \]
  \[
 	\Braket{ \alpha,t_0| U^\dagger U| \alpha,t_0} = 1 \quad \Rightarrow \quad 
 	U^\dagger U = U U^\dagger = \mathbb{1}
  \]
- para conservación de la probabilidad.
+ para conservación de la probabilidad. Tiene que ser unitario.
  \item Linealidad
  \[
 	U(t_2,t_0) = U(t_2,t_1) U(t_1,t_0) \qquad t_2>t_1>t_0
  \]
- \item Límite a $\mathbb{1}$
+ \item Límite a $\mathbb{1}$ (identidad)
  \[
 	U_{(t,t_0)} \to \mathbb{1} \quad \text{si} \quad t\to t_0
  \]
@@ -72,9 +78,9 @@ con las propiedades
  \]
 \end{itemize}
 
-Se propone entonces un 
+Se propone entonces (infinitesimalmente) un 
 \[
-	U_{(t+dt,t)} = \mathbb{1} - i\Omega dt 
+	U_{(t+dt,t)} = \mathbb{1} - i \: \Omega \: dt 
 \]
 con $\Omega$ hermítico. Comparando con clásica vemos que $H$ origina la evolución temporal, entonces
 identificamos $\Omega$ con $H$, del modo $\Omega = H/\hbar$ así que 
@@ -84,20 +90,27 @@ identificamos $\Omega$ con $H$, del modo $\Omega = H/\hbar$ así que
 
 De esta forma 
 \[
-	U_{(t+dt,t_0)} =  U_{(t+dt,t)} U_{(t,t_0)}  = \left( \mathbb{1} - \frac{i}{\hbar} H dt \right) U_{(t,t_0)}
+	U_{(t+dt,t_0)} =  U_{(t+dt,t)} U_{(t,t_0)}  = 
+	\left( \mathbb{1} - \frac{i}{\hbar} H dt \right) U_{(t,t_0)}
 \]
 \[
-	\dpar{U}{t} = \frac{ U_{(t+dt,t_0)} - U_{(t,t_0)} }{dt} = - \frac{i}{\hbar}H U_{(t,t_0)}
+	\dpar{U}{t} = \lim_{dt\to 0} \frac{ U_{(t+dt,t_0)} - U_{(t,t_0)} }{dt} = 
+	- \frac{i}{\hbar}H U_{(t,t_0)}
 \]
 y entonces 
 \[
 	i\hbar\dpar{U}{t} = HU
 \]
 que es la ecuación para $U_{(t,t_0)}$.
+No podemos utilizar los métodos que usamos anteriormente porque en
+$U = N \euler^{i \int dt' \:H(t)/\hbar }$ [depende del tiempo?].
+Supongmos que es $ H \sim \vb S \cdot \vb r (\theta)$, se tiene en
+$t=0$ es $\vb r(t) = \zver$ y en $t = 5 \text{ seg. } $ es $\vb r(t) = \yver$.
+Tenemos
 \[
-	i\hbar\dpar{}{t} U_{(t,t_0)} \Ket{\alpha,t_0} = H U_{(t,t_0)} \Ket{\alpha,t_0}
+	i\hbar\dpar{}{t} U_{(t,t_0)} \Ket{\alpha,t_0} = H U_{(t,t_0)} \Ket{\alpha,t_0},
 \]
-y arribamo a la ecuación de Schrödinger para kets
+que nos conduce a la ecuación de Schrödinger para kets
 \[
 	i\hbar\dpar{}{t} \Ket{\alpha,t_0,t} = H \Ket{\alpha,t_0,t}
 \]
@@ -111,13 +124,11 @@ El concepto se ilustra en la figura siguiente
 	\caption{}
 \end{figure} 
 
+% % =================================================================================================
+% \section{Dinámica cuántica}
+% % =================================================================================================
 
-
-% =================================================================================================
-\section{Dinámica cuántica}
-% =================================================================================================
-
-\subsection{Casos de solución de $U(t,t_o)$}
+\section{Casos sencillos de solución de $U(t,t_o)$}
 
 \begin{itemize}
  \item Supongamos $ H \neq H(t)$, entonces
@@ -140,44 +151,82 @@ El concepto se ilustra en la figura siguiente
 % 		\int_{t_0}^t dt_1 \int_{t_0}^{t_1} dt_2 \int_{t_0}^{t_2} dt_3 ... \int_{t_0}^{t_{n-1}} dt_n 
 % 			H(t_1) H(t_2) ... H(t_n)  
 %  \]
- y esta es la serie de Dyson (del físico Freeman Dyson().)
+y esta es la serie de Dyson (del físico Freeman Dyson().)
+Esta es la solución formal general para el caso 3. 
 \end{itemize}
 
-El problema que suscita es debido a que si $H$ a diferentes tiempos no conmuta no podemos poner la exponencial en serie 
-de potencias. En realidad $\exp({\square})$ tiene sentido sólo si la serie 
+El problema que suscita es debido a que si $H$ a diferentes tiempos no conmuta
+no podemos poner la exponencial en serie de potencias. 
+En realidad $\exp({\square})$ tiene sentido sólo si la serie 
 \[
 	\sum_{n=0}^{\infty}  \frac{1}{n!}\square^n
 \]
-tiene sentido; es decir, si no surgen ambigüedades al tomar la potencia $n$-ésima del operador $\square$.
-\notamargen{El operador $\square$ no se deja poner sombreros, quiere andar con la cabeza descubierta}
+tiene sentido; es decir, si no surgen ambigüedades al tomar la potencia $n$-ésima
+del operador $\square$.
+\notamargen{El operador $\square$ no se deja poner sombreros, 
+quiere andar con la cabeza descubierta}
 
-Para el caso 1 es simplemente 
- \[
+Para el caso 1 (pensamos una especie de serie de Taylor, que es un modo general
+de encarar este tipo de problemas de cosas no bien definidas) es simplemente 
+\[
 	\euler{-i\frac{H}{\hbar}(t-t_0)} = 1 - i\frac{H}{\hbar}(t - t_0) + 
-	\frac{(-i)^2}{2}\left( \frac{H(t-t_0)}{\hbar} \right)^2 + ...
- \]
-pero para el caso 3 es 
- \[
+	\frac{(-i)^2}{2}\left( \frac{H \Delta t }{\hbar} \right)^2 + ... +
+	\frac{(-i)^n}{n!} \Frac{H\Delta t}{\hbar}^n,
+\]
+y por otra parte
+\[
+	i \hbar \dpar{}{t}U(t,t_0) = H - i \frac{H^2}{\hbar^2} \Delta t + ...
+\]
+y término a término coinciden; entonces probamos que la solución vale.
+
+Para el caso 2, donde los hamiltonianos a diferentes tiempos conmutan entre
+sí, es decir $ [ H(t_1), H(t_2) ] = 0 $ la solución es
+\[
+	U(t,t_0) = \euler^{ i/\hbar \int_{t_0}^t \: H(t') \: dt' }
+\]
+
+Esto no es una boludez. Al desarrollar Taylor la exponencial surge un problema
+
+Si no conmutan los operadores no sé cómo armar el cuadrado.
+\[
+	A^2 = A(t)A(t'') \; \text{ o bien } \: A^2 = A(t'')A(t)
+\]
+\[
 	\left( \int H(t') dt' \right)\left( \int H(t'') dt'' \right) \neq 
 	\left( \int H(t'') dt'' \int H(t') dt' \right)
- \]
+\]
 puesto que al operar es 
 \[
 	\int dt' dt'' H(t')H(t'') \neq \int dt' dt'' H(t'') H(t') 
 \]
 pues $[H(t'),H(t'')]\neq 0$.
-En el caso 2 $(\int_{t_0}^t H(t')dt' )^n$ no tiene problemas puesto que está provista la 
-conmutatividad.
+En el caso 2 $(\int_{t_0}^t H(t')dt' )^n$ no tiene problemas puesto que está 
+provista la conmutatividad.
 
 \subsection{Soluciones útiles}
 
-Primeramente conseguimos un $\hat{A}$ tal que $[ A, H ]=0$ y entonces (estoy considerando $ H \neq H(t)$ )
+La solucion que sirve es
+\[
+	\Ket{\a,t_0,t} = U(t,t_0)\Ket{\a}
+\]
+La idea es escribir el $\Ket{\a}$ del sistema y hallar un operador que conmute
+con el hamiltoniano y en cuya base escribo $\Ket{\a}$,
+\[
+	\Ket{\a} = \sum C_{a'} \Ket{a'}
+	\qquad \qquad 
+	H \Ket{\a} = \sum E_{a'} C_{a'} \Ket{a'}
+\]
+y trabajaremos con una solución útil ahora.
+
+Primeramente conseguimos un $\hat{A}$ tal que $[ A, H ]=0$ y entonces (estoy 
+considerando $ H \neq H(t)$ )
 \[
 	\Ket{\alpha} = \sum_{a'} \Ket{a'}\Braket{\alpha'|\alpha},
 \]
 luego 
 \[
-	U(t,t_0)\Ket{\alpha} = \sum_{a'} \euler{-i\frac{\hat{H}}{\hbar}(t-t_0)}\Ket{a'}\Braket{\alpha'|\alpha}
+	U(t,t_0)\Ket{\alpha} = \sum_{a'} \euler^{-i\frac{\hat{H}}{\hbar}(t-t_0)}
+	\: \Ket{a'}\Braket{\alpha'|\alpha}
 \]
 con $\hat{H}$ y $\hat{A}$ conmutan se tiene
 \[
@@ -188,35 +237,51 @@ Entonces operamos con el $H$ para
 \[
 	U(t,t_0) = \sum_{a'} \euler^{-i\frac{E_{a'}}{\hbar}(t-t_0)}\Ket{a'}\Bra{a'}
 \]
-y así 
+y así (quiero saber cómo trabaja en el tiempo $\Ket{\a}$), le aplico el operador
+evolución
 \[
-	U(t,t_0)\Ket{\alpha} = \sum_{a'} \euler^{-i\frac{E_{a'}}{\hbar}(t-t_0)}\Ket{a'}\Braket{a'|\alpha}
+	U(t,t_0)\Ket{\alpha} = \sum_{a'} 
+	\euler^{-i\frac{E_{a'}}{\hbar}(t-t_0)}\Ket{a'}\Braket{a'|\alpha}
 \]
 \[
-	\Ket{\alpha,t_0,t} = \sum_{a'} \Braket{a'|\alpha} \euler{-i\frac{E_{a'}}{\hbar}(t-t_0)} \Ket{a'}
+	\Ket{\alpha,t_0,t} = \sum_{a'} \Braket{a'|\alpha}
+	\euler^{-i\frac{E_{a'}}{\hbar}(t-t_0)} \: \Ket{a'} =
+	\sum_{a''} \sum_{a'} c_{a'} \euler^{-i\frac{E_{a'}}{\hbar}(t-t_0)} \: 
+	\Ket{a''}\Braket{a''|a'}
+\]
+o bien
+\[
+	\Ket{\alpha,t_0,t} = \sum_{a'} 
+	c_{a'} \euler^{-i\frac{E_{a'}}{\hbar}(t-t_0)} \: \Ket{a'},
 \]
 de manera que comparando con 
 \[
 	\Ket{\alpha,t_0} = \sum_{a'} \Braket{a'|\alpha} \Ket{a'}
 \]
-El coeficiente es el mismo pero le hemos sumado una fase $\exp(-iE_{a'}(t-t_0)/\hbar)$ que no es global.
+El coeficiente es el mismo pero le hemos sumado una fase 
+$\exp(-iE_{a'}(t-t_0)/\hbar)$ que no es global.
 
 \subsection{Evolución de valores de expectación}
 
 Recordemos primeramente que los autoestados no evolucionan. Luego 
 \[
-	\Ket{\alpha} = \Ket{a'} \qquad \to \Ket{\alpha,t} = \Ket{a',t} =  
-		\euler^{-i\frac{E_{a'}}{\hbar}(t-t_0)} \Ket{a'}
+	\Ket{\alpha} = \Ket{a'} 
+	\qquad \to \qquad 
+	\Ket{\alpha,t} = \Ket{a',t} =  
+	\euler^{-i\frac{E_{a'}}{\hbar}(t-t_0)} \Ket{a'}
 \]
 
-La fase es global es considerar una autoestado. La podemos descartar (setear igual a uno)
+La fase es global y no tiene sentido físico (no cambia el valor de expectación, por ejemplo)
+Es considerar una autoestado [?]. La podemos descartar (setear igual a uno)
 \[
 	\Braket{a',t|B|a',t} = 
-	\braket{a'|\euler^{i\frac{E_{a'}}{\hbar}(t-t_0)}B\euler^{-i\frac{E_{a'}}{\hbar}(t-t_0)}|a'} = 
-	\braket{a'|B|a'}
+	\braket{a'|\euler^{i\frac{E_{a'}}{\hbar}(t-t_0)}B 
+	\euler^{-i\frac{E_{a'}}{\hbar}(t-t_0)}|a'} = \braket{a'|B|a'}
 \]
 
-El valor de expectacion de un operador respecto a un autoestado no varía.
+El valor de expectación de un operador respecto a un autoestado no varía.
+Se simplifican las fases y en el valor de expectación no me entero de ellas.
+Para un estado que no es necesariamente autoestado
 \[
 	\braket{\alpha,t|B|\alpha,t} =
 	\braket{a''|\sum_{a''} \braket{a''|\alpha}^*\euler^{i\frac{E_{a'}}{\hbar}(t-t_0)} B 
@@ -226,13 +291,17 @@ El valor de expectacion de un operador respecto a un autoestado no varía.
 	\braket{\alpha,t|B|\alpha,t} = \sum_{a',a''} C_{a''}^* C_{a'} 
 	\euler^{i\frac{E_{a''}-E_{a'}}{\hbar}(t-t_0)} \braket{a''|  B |a'}
 \]
-donde 
+donde $(E_{a''}-E_{a'})/\hbar$ es la llamada frecuencia de Bohr y vemos que la fase
+global depende de los índices de las sumatorias; entonces habrá términos de interferencia.
 \[
 	C_{a''}^* = \braket{\alpha,t_0|a''} \qquad C_{a'} = \braket{a'| \alpha,t_0}  
 \]
 
-El valor de expectación de un operador respecto a un estado general tiene una fase no global que produce términos de 
-interferencia.
+El valor de expectación de un operador respecto a un estado general tiene una fase no global 
+que produce términos de interferencia.
+
+Sólo en el caso en que $B$ conmute con $H$ ($B$ diagonal) se dará que la fase no interviene,
+porque pierdo una sumatoria merced a una delta de Kronecker que aparece.
 
 \subsection{Relaciones de conmutación}
 
