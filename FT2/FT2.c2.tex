@@ -305,6 +305,7 @@ porque pierdo una sumatoria merced a una delta de Kronecker que aparece.
 
 \subsection{Relaciones de conmutación}
 
+Algunas propieadades de los conmutadores
 \[
 	[ A + B, C] = [A, C] + [B,C] 
 \]
@@ -314,6 +315,11 @@ porque pierdo una sumatoria merced a una delta de Kronecker que aparece.
 \[
 	[A, B\cdot C] = B[A,C] +  [A,B]C
 \]
+Identidad de Jacobi
+\[
+	[ A, [B,C] ] +  [ B, [C,A] ] + [ C, [A,B] ] = 0.
+\]
+
 \notamargen{Acá no es baca + caballo puesto que no conmutan.}
 \[
 	i\hbar[ A, B]_{\text{classic}} = [A, B]
@@ -403,6 +409,62 @@ pero a $t=t_0$ las representaciones coinciden,
 \[
 	\Ket{\alpha,t_0,t_0}^{(S)} = \Ket{\alpha}^{(H)}
 \]
+
+\begin{ejemplo}{\bf Ejercicio 21}
+
+Punto a)
+\[
+	[x,f(p_x)]_{\text{Poisson}} = \dpar{x}{x} \dpar{F(p_x)}{p_x} - \dpar{x}{p_x} \dpar{F(p_x)}{x}
+	= \dpar{f(p_x)}{p_x}.
+\]
+
+Punto b) donde $x, p_x$ son operadores. Entonces hay que evaluar
+\[
+	[x,\euler^{i p_x a / \hbar} ] ,
+\]
+y como conocemos el conmutador de $x, p_x$ se utiliza una serie de potencias, es decir
+\[
+	[x,f(p_x)] = \sum_n \frac{1}{n!} \dpar[n]{f}{p_x}[x,p_x^n],
+\]
+y
+\[
+	[x,p_x^n] = [x,p_x^n p_x^{n-1}] = p_x [x,p_x^{n-1}] + [x,p_x] p_x^{n-1} =
+	p_x [x,p_x^{n-1}] + i \hbar p_x^{n-1},
+\]
+y aplicando inducción matemática se ve que llegamos a
+\[
+	[x,p_x^n] = i \hbar n p_x^{n-1},
+\]
+de modo que
+\[
+	[x,f(p_x)] = \sum_n \frac{1}{n!} \dpar[n]{f}{p_x} i \hbar n p_x^{n-1} =
+	\sum_n [...] = i \hbar \dpar{f(p_x)}{p_x}
+\]
+puesto que es el desarrollo en serie de la derivada. Finalmente,
+\[
+	[ x, \euler^{i p_x a / \hbar} ] = - a \euler^{ i p_x a / \hbar }.
+\]
+
+Punto c) se tiene que $\euler^{ i p_x a /\hbar} \Ket{x'} $es autoestado de $\hat{x}$, donde
+$ \hat{x} \Ket{x'} = x' \Ket{x}$. Luego, usando el resultado anterior
+\[
+	[ x, \euler^{i p_x a / \hbar} ] \Ket{x'} = - a \euler^{ i p_x a / \hbar } \Ket{x'},
+\]
+de lo cual se deduce, expandiendo, que
+\[
+	\hat{x} \euler^{i p_x a / \hbar} \Ket{x'} = (x'-a) \euler^{i p_x a / \hbar} \Ket{x'},
+\]
+o bien
+\[
+	\hat{x} \Ket{x'} = (x'-a) \Ket{x'},
+\]
+de manera que el operador $\euler^{i p_x a / \hbar}$ es el operador de traslación pués
+\[
+	\euler^{i p_x a / \hbar} \Ket{x'} = \Ket{ x'- a }.
+\]
+ 
+\end{ejemplo}
+
 
 \subsubsection{La ecuación de Heisenberg}
 
@@ -546,6 +608,49 @@ y entonces el teorema de Ehrenfest es
 \]
 los valores de expectación son iguales en ambas representaciones.
 
+\begin{ejemplo}{\bf Ejercicio 24}
+
+Parte a). Integramos
+\[
+	\int dx' \Braket{p'|x'} \Braket{x'|\hat{x}|\a} = 
+	\int dx' \Braket{p'|x'} \Braket{x'|\a} x' =
+	\frac{1}{\sqrt{2\pi\hbar}} \int dx' \euler^{-i p' x' /\hbar } \Braket{x'|\a} x'
+\]
+y expresando en términos de la derivada
+\[
+	 \int dx' \dpar{}{p'}\frac{\euler^{-i p' x' /\hbar }}{\sqrt{2\pi\hbar}} \frac{\hbar}{-i} \Braket{x'|\a}
+\]
+o bien
+\[
+	i \hbar \dpar{}{p'} \left[ \int dx' \Braket{p'|x'} \Braket{x'|\a} \right]
+\]
+Como
+\[
+	\Braket{\b|x|\a} = \int dp' \Braket{\b|p'} i \hbar \dpar{}{p'} \Braket{p'|\a} =
+	\int dp' \psi_\b(p')^* i \hbar \dpar{}{p} \psi_\a(p')
+\]
+se deduce que
+\[
+	x \equiv i \hbar \dpar{}{p}.
+\]
+
+Parte b). El significado físico de $\euler^{i \hat{x} C / \hbar }$ donde $C$ es alguna constante.
+Por la expansión en serie se tiene
+\[
+	\euler^{i \hat{x} C / \hbar } \Ket{x'} = \euler^{i {x} C / \hbar } \Ket{x'}
+\]
+de manera que la itnegración 
+\[
+	\int dx' \euler^{i \hat{x} C / \hbar } \Ket{x'}\Braket{x'|p'} = 
+	\int dx' \Ket{x'} \frac{ \euler^{i \hat{x} ( C + p' )/ \hbar } }{\sqrt{2\pi\hbar}} =
+\]
+o bien
+\[
+	\int dx' \Ket{x'}\Braket{x'|C+p'} = \Ket{C+p'}.
+\]
+
+ 
+\end{ejemplo}
 
 
 % \begin{figure}[htb]

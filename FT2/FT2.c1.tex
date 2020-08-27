@@ -1701,6 +1701,7 @@ mientras que la del caso continuo es la de Dirac.
 \subsection{Midiendo y otras representaciones. Función de onda}
 
 El operador que da la posición es $\hat{x}$ de acuerdo con $\hat{x}\Ket{x'} = x'\Ket{x'}$.
+Se supone que es un conjunto completo.
 La representación de un cierto estado es
 \[
 	\Ket{\alpha} = \int_{\infty}^\infty dx' \Ket{x'}\Braket{x'|\alpha},
@@ -1716,7 +1717,8 @@ donde
 \[
 	\Braket{x'|\alpha}dx'
 \]
-es la densidad de probabilidad de hallar a la partícula entre $(x-\Delta,x+\Delta)$ y 
+es la densidad de probabilidad de hallar a la partícula entre $(x-\Delta,x+\Delta)$ 
+(en un $dx$ en torno de $x'$) y 
 \[
 	|\Braket{x'|\alpha}|^2
 \]
@@ -1811,6 +1813,8 @@ Cumplirá las propiedades
 	\Tau^\dagger\Tau = \Tau \Tau^\dagger = \mathbb{1}
  \]
  para que no varíe la probabilidad ante un cambio de coordenadas.
+ \notamargen{Tenía anotado en relación con la unitariedad el asunto de la
+ conservación de la probabilidad.}
  \item Aditividad:
  \[
 	\Tau_{(dx')}\Tau_{(dx'')} = \Tau_{(dx'+dx'')}
@@ -2085,7 +2089,23 @@ En la representación de $x$, el operador $p$ es proporcional a la derivada.
 
 \subsection{Cambio entre representaciones \vb{x} y \vb{p} }
 
-Supongamos ahora que $\a$ es un autoestado de $p$. Entonces
+Supongamos ahora que $\a$ es un autoestado de $p$. 
+\[
+	\Braket{x'|\hat{p}|\a} = - i \hbar \dpar{}{x'} \Braket{x'|\a},
+\]
+esta es la función de onda. Asimismo,
+\[
+	\Braket{x'|\hat{p}^n|\a} = - ( i \hbar )^n \dpar[n]{}{x'} \Braket{x'|\a}.
+\]
+
+Para dos estados 
+\[
+	\Braket{\a|\hat{p}|\b} = \int dx' \Braket{\a|x'}\Braket{x'|\hat{p}|\b} =
+	\int dx' \psi^*_\a(x') \left( - i \hbar \dpar{}{x'} \right) \psi_\b(x').
+\]
+\notamargen{Esto es un menudeo, meter prosa entre medio.}
+
+Entonces, se puede transformar entre $x$ y $p$
 \[
 	\Braket{x'|\hat{p}|p'} =  -i\hbar \int dx'  \Braket{x'|x'} \dpar{}{x'} \Braket{x'|p'} =
 	-i\hbar \dpar{}{x'} \Braket{x'|p'}
@@ -2195,7 +2215,9 @@ o
 	\left( \dpar{A}{q_i} \dpar{B}{p_i} - \dpar{A}{p_i} \dpar{B}{q_i} \right)
 \]
 
-Esta relación fue planteada por Dirac.
+Esta relación fue planteada por Dirac, quien vio que se podían deducir algunas
+cosas de la mecánica cuántica desde la mecánica clásica pasando de corchetes
+a conmutadores.
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
