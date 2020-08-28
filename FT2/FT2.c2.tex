@@ -78,6 +78,10 @@ El operador de evolución tendrá las propiedades
  \]
 \end{itemize}
 
+Una forma más general de escribir un $U$ unitario es $U = \euler^{i \eta A}$. De aquí se ve más fácil
+que como $ \euler^{i \eta A} \euler^{-i \eta A^\dagger} = 1 $ una transformación unitaria infinitesimal es
+$ U = 1 + i \eta A $ y $ - dt/\hbar = \eta $.
+
 Se propone entonces (infinitesimalmente) un 
 \[
 	U_{(t+dt,t)} = \mathbb{1} - i \: \Omega \: dt 
@@ -87,6 +91,7 @@ identificamos $\Omega$ con $H$, del modo $\Omega = H/\hbar$ así que
 \[
 	U_{(t+dt,t)} = \mathbb{1} - \frac{i}{\hbar} H dt .
 \]
+\notamargen{El hamiltoniano $H$ es un operador ahora.}
 
 De esta forma 
 \[
@@ -339,10 +344,15 @@ a las que podemos sumar
 
 \subsection{La ecuación de Schrödinger}
 
+Habíamos llegado a
 \[
-	i\hbar\dpar{}{t}\Ket{\alpha,t_0,t} = H\Ket{\alpha,t_0,t} \text{con} 
-	\qquad \hat{H} = \frac{\hat{p}^2}{2m} + V(\hat{x}) 
+	i\hbar\dpar{}{t}\Ket{\alpha,t_0,t} = H\Ket{\alpha,t_0,t},
 \]
+donde supusimos que el hamiltoniano no depende del tiempo. Caso típico
+\[
+	\hat{H} = \frac{\hat{p}^2}{2m} + V(\hat{x}) 
+\]
+
 Puedo meter un bra $\Bra{x'}$ que no depende del tiempo y entonces 
 \[
 	i\hbar\dpar{}{t}\braket{x'|\alpha,t_0,t} = \braket{x'|H|\alpha,t_0,t}
@@ -350,11 +360,120 @@ Puedo meter un bra $\Bra{x'}$ que no depende del tiempo y entonces
 \[
 	i\hbar\dpar{}{t}\Psi_\alpha(x',t) = \braket{x'|\frac{p^2}{2m} + V(x)|\alpha,t_0,t}
 \]
+\notamargen{Acá usamos que sabemos cómo operan $p$ y $p^2$.}
 de manera que resulta la ecuación de Schrödinger
 \[
 	i\hbar\dpar{}{t}\Psi_\alpha(x',t) = -\frac{\hbar^2}{2m}\dpar[2]{}{x}\Psi_\alpha(x',t) + 
-	V(x)\Psi_\alpha(x',t)
+	V(x)\Psi_\alpha(x',t).
 \]
+
+Si suponemos que $\Ket{\psi}$ es autoestado de $H$ entonces
+\[
+	\Ket{\psi(t)} = \euler^{-iHt/\hbar} \Ket{\psi(t_0)} = \euler^{-iEt/\hbar} \Ket{\psi(t_0)},
+\]
+y entonces el lhs de la ecuación de Schrödinger pasa a ser $E \Psi_\a(x',t)$.
+Si no fuera autoestado, sino combinación lineal de autoestados, entonces podemos escribir
+\[
+	\Ket{\a,t} =  \euler^{-iHt/\hbar} \Ket{\a,t_0} = 
+	\sum_m \euler^{-iHt/\hbar} \Ket{m}\Braket{m|\a,t_0}.
+\]
+
+\begin{ejemplo}{\bf Ejercicio guía 2}
+
+Parte a)
+\[
+	H = -\frac{e}{mc} \pe{B}{S} = -\frac{eB}{mc} S_z = - \omega S_z
+\]
+donde suponemos que el campo es en $\zver$.
+Entonces
+\[
+	[H,S_z] = 0 \qquad [S_i,S_j] = i \hbar \epsilon_{ijk} S_k
+\]
+como es nulo el conmutador, tienden una base común de autokets. Será $\{ \Ket{+}, \Ket{-} \}$
+y se pueden escribir
+\[
+	S_z \Ket{\pm} = \pm \frac{\hbar}{2}\Ket{\pm} \qquad \qquad 
+	H \Ket{\pm} = -mp \frac{ \omega \hbar }{2} \Ket{\pm}.
+\]
+
+Parte b)
+
+En $t=0$ es 
+\[
+	\Ket{\a} = \frac{1}{\sqrt{2}} ( \Ket{+} + \Ket{-} )
+\]
+de modo que
+\[
+	\Ket{\a,t} = \euler^{ - i H t / \hbar } \Ket{\a} =
+	\frac{1}{\sqrt{2}} \left[ \euler^{ i \omega t / 2 } \Ket{+} + \euler^{ -i \omega t / 2 } \Ket{-} \right] 
+\]
+
+\notamargen{Una fase global sale de todo el ket y muere en el valor absoluto.}
+
+Parte c)
+
+Quiero medir en un instante posterior
+\[
+	P\left(\frac{\hbar}{2}\right)_{\xver} = |\Braket{S_x;+|\a;t}|^2 = 
+	| \frac{1}{2}( \euler^{i \omega t / 2} +  \euler^{-i \omega t / 2} ) |^2 = \cos^2\Frac{\omega t}{2}
+\]
+y consecuentemente
+\[
+	P\left(-\frac{\hbar}{2}\right)_{\yver} = \sin^2\Frac{\omega t}{2}
+\]
+de manera que como hay solamente dos estados posibles la probabilidad suma 1.
+
+Parte d)
+
+Se tiene
+\[
+	\vm{S_x} = \Braket{\a(t) |S| \a(t)}
+\]
+con la expresión para $\Ket{\a(t)}$. Se puede hacer directamente o utilizando la probabilidad, que ya fue
+calculada previamente. La idea es que como
+\[
+	\vm{A} = \sum_a a |\Braket{a|\a}|^2,
+\]
+entonces
+\[
+	\frac{\hbar}{2} \left( \cos^2\Frac{\omega t}{2} + \sin^2\Frac{\omega t}{2} \right)
+\]
+y luego $ \vm{S_x} = \hbar/2 \cos(\omega t)$.
+Para $S_y$ se puede operar con las matrices de Pauli, pués $S_y = \hbar /2 \sigma_y$ con
+\[
+	\begin{pmatrix}
+		0 & -i \\
+		i &  0
+	\end{pmatrix}
+\]
+En general hay que descomponer en autoestados, como $\Ket{+} = ( 1 0 )^t$ y el $\Ket{-} = ( 0 1 )^t$
+de manera que $ \vm{S_x} = \hbar/2 \sin(\omega t) $.
+Por otra parte, como tengo un medio de probabilidad up y down, será $\vb{S_z} = 0$.
+
+Parte e)
+
+Sea $n(t)$ tal que $\vb S \cdot \nver \Ket{\a,t} = \Ket{\a,t}$. Del ejercicio 8 tomamos
+\[
+	\vb S \cdot \nver \Ket{ \vb S\cdot\vb n, +} = \frac{\hbar}{2}\Ket{ \vb S\cdot\vb n, +}
+\]
+y
+\[
+	\Ket{ \vb S\cdot\vb n, +} = \cos\Frac{\b}{2} \Ket{+} + \sen\Frac{\b}{2} \euler^{i\a} \Ket{-}
+\]
+de modo que
+\[
+	\Ket{\a,t} = \frac{\euler^{i\omega t/2}}{\sqrt{2}} \left[ \Ket{+} + \euler^{-i\omega t} \Ket{-} \right]
+	\approx \frac{1}{\sqrt{2}} \left( \Ket{+} + \euler^{-i\omega t} \Ket{-} \right)
+\]
+donde me olvido de la exponencial afuera porque es una fase global y no aporta a la probabilidad.
+Comparamos el resultado final con lo del ejercicio 8 y por inspección obtenemos que
+$\beta = \pi/2$ y $\a = -\omega t$.
+ 
+\end{ejemplo}
+
+
+
+
 
 \subsection{Representación de Heisenberg}
 
