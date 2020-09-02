@@ -338,6 +338,11 @@ a las que podemos sumar
 \[
 	[x,f(p)] = i\hbar\dpar{f}{p} \qquad [p,G(x)] = i\hbar\dpar{G}{x} 
 \]
+El primero se hace de la manera usual; tomando una serie de potencias para $f$.
+Consideremos por ejemplo
+\[
+	[x,p^2] = p[x,p] + [x,p]p = 2 i \hbar p.
+\]
 \[
 	[S_i,S_j] = i\hbar \varepsilon_{ijk}S_k
 \]
@@ -736,7 +741,7 @@ Los coeficientes en Schrödinger y en Heisenberg son
 	C_{a'}^S(t) = ^S\braket{a'|\alpha,t_0,t}^S = ^S\Bra{a'}(U\Ket{\alpha,t_0}) 
 \]	
 \[	
-	C_{a'}^H(t) = ^H\braket{a',t|\alpha,t_0}^H = (^S\Bra{a'}U)\Ket{\alpha,t_0}
+	C_{a'}^H(t) = ^H\braket{a',t|\alpha,t_0}^H = (^S\Bra{a'}U)\Ket{\alpha,t_0}.
 \]
 Entonces en Schrödinger es 
 \[
@@ -757,15 +762,32 @@ Tampoco $a'$ puede depender de la representación porque tiene sentido físico.
 
 \subsection{Teorema de Ehrenfest}
 
-Para una partícula libre, donde $p(t)=p(0)$ es constante de movimiento,
+Para una partícula libre, es $H = p^2 / (2m) $ y
+\[
+	\dtot{P_i}{t} = \frac{1}{i\hbar} [ P_i, H ] = 0,
+\]
+el momento lineal se conserva. Se tiene
+\[
+	\dtot{x_i}{t} =  \frac{1}{i\hbar} [ x_i, H ] =
+	\frac{1}{i\hbar} [ x_i, \frac{p^2_i}{2m} ] = \frac{p}{m}
+\]
+de manera que $p(t)=p(0)$ es constante de movimiento,
 \[
 	x^{(H)} = x(0) + \frac{p(0)}{m}t
 \]
-y se tiene 
+y se tiene (el operador $x$ aumenta con el tiempo en la representación de Heisenberg)
 \[
 	[x(t),x(0)] = -\frac{i\hbar}{m}t
 \]
-que es decir que es un operador que no conmuta a $t$ diferentes
+que es decir que es un operador que no conmuta a $t$ diferentes. La dispersión
+aumenta cuadráticamente en el tiempo
+\[
+	\vm{ (\Delta X_i)^2 }_t \vm{ (\Delta X_i)^2 }_{t=0} \geq \frac{\hbar^2 t^2}{4 m^2}
+\]
+Esto vale para cualquier estado que utilice para calcular los valores medios.
+
+
+Para una partícula sometida a potencial
 \[
 	H = \frac{p^2}{2m} + V(x)
 \]
@@ -777,6 +799,7 @@ de modo que
 \[
 	\dtot{P}{t} = -\dpar{V}{x} \qquad \longrightarrow \quad m \dtot[2]{x}{t} = -\dpar{V}{x} 
 \]
+tenemos una ecuación newtoniana. Entonces,
 \[
 	p = m \dtot{x}{t} \qquad \dtot{p}{t} = m \dtot[2]{x}{t} 
 \]
@@ -785,8 +808,8 @@ donde estamos usando
 	\dpar{A^H}{t} = \frac{1}{i\hbar}[A^H,H]
 \]
 
-Es necesario remarcar que relaciones como $[x,p]=i\hbar$ son para operadores en la picture de Schrödinger, donde los 
-operadores no cambian en el tiempo. Estamos en efecto haciendo $[x(0),p(0)]=i\hbar$
+Es necesario remarcar que relaciones como $[x,p]=i\hbar$ son para operadores en la picture de Schrödinger,
+donde los operadores no cambian en el tiempo. Estamos en efecto haciendo $[x(0),p(0)]=i\hbar$
 \[
 	\Braket{\alpha,t_0|m \dtot[2]{x}{t}|\alpha,t_0} = - \Braket{\alpha,t_0|\dpar{V}{x}|\alpha,t_0}
 \]
@@ -798,6 +821,9 @@ y entonces el teorema de Ehrenfest es
 	m \dpar[2]{}{t} \Braket{x^{(s)}} = - \Braket{ \dpar{V^{(s)}}{x}}
 \]
 los valores de expectación son iguales en ambas representaciones.
+Claramente no podía depender de la representación porque los valores medios son cosas físicas.
+Se ve también que el $\hbar$ desaparece debido a que el centro del paquete se mueve 
+aproximadamente en forma clásica y se toma el valor medio.
 
 \begin{ejemplo}{\bf Ejercicio 24}
 

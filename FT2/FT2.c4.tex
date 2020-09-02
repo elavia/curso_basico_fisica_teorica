@@ -3,8 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -38,7 +38,9 @@ Para el oscilador armónico 1D  el hamiltoniano y energía eran
 \[
 	H = \frac{p^2}{2m} + \frac{m\omega^2 x^2}{2} \qquad E = \hbar \omega \left( n + \frac{1}{2} \right)
 \]
-pero este problema puede resolverse usando un nuevo operador $\hat{a}$
+donde $\omega^2$ es la constante del resorte cuántico.
+Este problema puede resolverse usando un nuevo operador $\hat{a}$ (operadores de aniquilación
+y creación)
 \[
 	\hat{a} = \sqrt{\frac{m\omega}{2\hbar}}\left( x + i\frac{p}{m\omega} \right) \qquad \text{con} \quad 
 	\hat{a}^\dagger = \sqrt{\frac{m\omega}{2\hbar}}\left( x - i\frac{p}{m\omega} \right)
@@ -108,6 +110,15 @@ siendo
 \]
 y entonces de esta forma $\hat{a}^\dagger$ es el operador de creación de cuantos y $\hat{a}$ el de 
 aniquilación.
+Estos operadores permiten ir saltando de niveles de energía y pasar entre estados definidos estos
+por el número de cuantos.
+Nótese que $\hat{a}$ es operador de aniquilación cuando actúa sobre kets; sobre bras los crea.
+
+Del producto interno se tiene
+\[
+	(\Bra{n}a^\dagger)(a\Ket{n}) \geq 0
+\]
+lo cual conduce a $ n \geq 0 $.
 
 \subsection{El estado fundamental $\Braket{0}$}
 
@@ -121,9 +132,11 @@ y desde el postulado para productos internos,
 entonces $n$ cabalga por los naturales.
 Si hacemos 
 \[
-	a\Ket{n} = \sqrt{n} \Ket{n-1}, \qquad  a^2 \Ket{n} = \sqrt{n}\sqrt{n-1} \Ket{n-2} \; ...
+	a\Ket{n} = \sqrt{n} \Ket{n-1}, \quad  
+	a^2 \Ket{n} = \sqrt{n (n-1)} \Ket{n-2} \quad 
+	a a^2 \Ket{n} = \sqrt{n (n-1)(n-2)} \Ket{n-3} \; ...
 \]
-en algún momento se llega a $\Ket{n=0}$, entonces $E_0 = \hbar\omega/2$ y 
+en algún momento (dado que $n\geq 0$) se llega a $\Ket{n=0}$, entonces $E_0 = \hbar\omega/2$ y 
 \[
 	\Ket{0} \equiv \text{El fundamental}
 \]
@@ -137,8 +150,18 @@ Por otra parte, con el $\hat{a}^\dagger$ se puede llegar a cualquier estado
 	a^\dagger \Ket{0} = \sqrt{1} \Ket{1}, \qquad  a^{\dagger 2} \Ket{0} = \sqrt{1}\sqrt{2} \Ket{2} = 
 	\sqrt{1}\sqrt{2}\sqrt{3} \Ket{3}
 \]
+
+\begin{figure}[htb]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{images/fig_ft2_osc_arm1.jpg}	 
+	\end{center}
+	\caption{}
+\end{figure} 
+
+Se tienen todos los valores de energía a partir de uno solo,
 \[
-	\frac{{(a^{\dagger})}^n}{\sqrt{n}!} \Ket{0} = \Ket{n}
+	\frac{{(a^{\dagger})}^n}{\sqrt{n}!} \Ket{0} = \Ket{n} \qquad \qquad 
+	E_n = \hbar \omega \left( n + \frac{1}{2} \right)
 \]
 
 Las matrices de $\hat{a},\hat{a}^\dagger$ sólo tienen una diagonal corrida de elementoss 
@@ -148,19 +171,60 @@ Las matrices de $\hat{a},\hat{a}^\dagger$ sólo tienen una diagonal corrida de e
 \[
 	\Braket{n'|a^\dagger|n} =  \sqrt{n-1} \Braket{n'|n+1} = \sqrt{n-1} \delta_{n',n+1}
 \]
+Es decir, que pictóricamente serían algo como
+\[
+	a^\dagger = \begin{pmatrix}
+	0 & \sqrt{1} & 0 & 0 & ... \\
+	0 & 	0    & \sqrt{2} & 0 & ... \\
+	0 & 	0    & 0 & \sqrt{3} & ... \\
+	0 & ... \\
+	0 & ... & & & \sqrt{n} \\
+	0 & ... & & & 0 
+	\end{pmatrix}
+\]
+y
+\[
+	a = \begin{pmatrix}
+	0 & 0 & & & \\
+	\sqrt{1} & 0 & 0 & & ... \\
+		0    & \sqrt{2} & 0 & & ... \\
+	 	0    & 0 & \sqrt{3} & &... \\
+	 ... \\
+	 ... & & & \sqrt{n} & 0 \\
+	\end{pmatrix}
+\]
+Los elementos de las matrices
+\[
+	\Braket{n'|x|n} = \sqrt{\frac{\hbar}{2m\omega}}
+	(\sqrt{n}\delta_{n',n-1} + \sqrt{n+1}\delta_{n',n+1})
+\]
+\[
+	\Braket{n'|p|n} = i \sqrt{\frac{\hbar}{2m\omega}}
+	(-\sqrt{n}\delta_{n',n-1} + \sqrt{n+1}\delta_{n',n+1})
+\]
+no pueden ser matrices diagonales porque no conmutan con el hamiltoniano.
 
 También puede verse que 
 \[
-	\Braket{n|x|n}= 0 \qquad \Braket{n|p|n}= 0
+	\vm{x} = \Braket{n|x|n}= 0 \qquad \vm{p} = \Braket{n|p|n}= 0,
 \]
-y por ello 
+lo cual difiere de lo que esperaríamos clásicamente. Es más, se tienen también
+\[
+	x^2 = \frac{\hbar}{2 m \omega}( a^2 + a^{\dagger 2} + aa^\dagger + a^\dagger a )
+\]
+y consecuentemente
+\[
+	\Braket{0|x^2|0}= \frac{\hbar}{2 m \omega} \qquad 
+	\Braket{0|p^2|0}= \frac{\hbar m \omega}{2}
+\]
+de manera que resulta
 \[
 	\Braket{(\Delta x)^2}_{\Ket{0}} \Braket{(\Delta p)^2}_{\Ket{0}} = \frac{\hbar^2}{4} 
 \]
 el estado fundamental es el de incerteza mínima.
+Esto es así porque estamos en el fundamental y es un pack gaussiano.
 
-\subsection{Función de onda}
-
+Veamos ahora la forma que tiene la función de onda. A tiempo cero.
 Siendo $\Psi_n(x') = \Braket{x'|n}$ quiero evaluar $\Psi_0(x') = \Braket{x'|0}$ y ver que como 
 \[
 	\Braket{x'|a|0}= 0 
@@ -198,10 +262,27 @@ gaussiano.
 \]
 El estado fundamental tiene incerteza mínima y debe corresponder a un paquete gaussiano.
 
-Notemos que $\hat{a}^\dagger$ crea sobre ket y aniquila sobre bra, mientras que $\hat{a}$ aniquila sobre ket 
-y 
-crea 
-sobre bra,
+Se ven que 
+\[
+	\Braket{x'|1} = \Braket{x'|a^\dagger|0}
+\]
+y lo escribo en función de $x$ y $p$ que sé cómo operan sobre $x'$. Entonces
+\[
+	\Braket{x'|1} = \frac{1}{\sqrt{2}x_0} \left( x' - x_0^2 \dtot{}{x'} \right) \Braket{x'|0}
+\]
+y se puede demostrar que vale
+\[
+	\Braket{x'|n} = \frac{1}{\pi^{1/4} \sqrt{2^n n!}} \frac{1}{x_0^{n+1/2}} 
+	\left( x' - x_0^2 \dtot{}{x'} \right)^n \euler^{-1/2 (x'/x_0)^2}.
+\]
+
+Los operadores $a,a^\dagger$ son útiles para la resolución de problemas discretos.
+En el oscilador armónico las energías son discretas, hasta el infinito, y están
+equiespaciadas $\hbar \omega$.
+
+\notamargen{Esto ya se dijo en otra parte y está descolgado aquí.}
+Notemos que $\hat{a}^\dagger$ crea sobre ket y aniquila sobre bra, mientras que $\hat{a}$ aniquila 
+sobre ket y crea sobre bra,
 \[
 	a^\dagger \Ket{n} = \sqrt{n+1} \Ket{n+1} \Rightarrow \Bra{n} a = \Bra{n+1} \sqrt{n+1}
 \]
@@ -213,7 +294,7 @@ sobre bra,
 
 Consideremos la situación depicted en la figura bajo estas líneas
 
-\begin{figure}[htb]
+\begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=0.6\textwidth]{images/teo2_6.pdf}	 
 	\end{center}
