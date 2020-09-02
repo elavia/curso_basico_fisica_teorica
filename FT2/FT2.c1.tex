@@ -1478,8 +1478,14 @@ Se dice que A es normal si verifica $[A,A^\dagger] = 0$.
 \subsection{Postulados de la mecánica cuántica}
 
 \begin{enumerate}
-	\item El estado de un sistema lo definimos con un ket $\Ket{\alpha} \in \mathcal{H}$ y
+	\item El estado de un sistema, a tiempo fijo, lo definimos con un ket 
+		$\Ket{\alpha} \in \mathcal{H}$ (un vector en un espacio vectorial de Hilbert) y
 		con $\Braket{\alpha|\alpha}=1$
+		\begin{itemize}
+		 \item Dualidad (ir de $\Ket{\quad} \leftrightarrow \Bra{\quad}$)
+		 \item Superposición lineal
+		 \item Productos
+		\end{itemize}
 	\item Asociamos a propiedades físicas (observables) operadores hermíticos $\widehat{A}$ 
 		que operan sobre los kets. Los autokets $\Ket{a}$ verifican :
 	\[
@@ -1524,7 +1530,10 @@ Se dice que A es normal si verifica $[A,A^\dagger] = 0$.
 	\[	
 		[x_i,p_j] = i\hbar\delta_{ij}
 	\]
-	\item La evolución temporal la realiza $H$ (el hamiltoniano).
+	\item La evolución temporal la realiza $H$ (el hamiltoniano), que nos llevará a la
+	ecuación de Schrödinger.
+	\item Rotaciones espaciales $(\vb L,\vb S)$ que son el momento angular y el spin.
+	Pero el spin no tiene un análogo clásico.
 \end{enumerate}
 
 \notamargen{Extrañamente el punto 4 estaba vacío. Raro.}

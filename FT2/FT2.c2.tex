@@ -348,7 +348,7 @@ Habíamos llegado a
 \[
 	i\hbar\dpar{}{t}\Ket{\alpha,t_0,t} = H\Ket{\alpha,t_0,t},
 \]
-donde supusimos que el hamiltoniano no depende del tiempo. Caso típico
+donde supusimos que el hamiltoniano no depende del tiempo, y es el clásico. Caso típico
 \[
 	\hat{H} = \frac{\hat{p}^2}{2m} + V(\hat{x}) 
 \]
@@ -366,6 +366,7 @@ de manera que resulta la ecuación de Schrödinger
 	i\hbar\dpar{}{t}\Psi_\alpha(x',t) = -\frac{\hbar^2}{2m}\dpar[2]{}{x}\Psi_\alpha(x',t) + 
 	V(x)\Psi_\alpha(x',t).
 \]
+Ahora la función de onda depende del tiempo.
 
 Si suponemos que $\Ket{\psi}$ es autoestado de $H$ entonces
 \[
@@ -377,6 +378,10 @@ Si no fuera autoestado, sino combinación lineal de autoestados, entonces podemo
 	\Ket{\a,t} =  \euler^{-iHt/\hbar} \Ket{\a,t_0} = 
 	\sum_m \euler^{-iHt/\hbar} \Ket{m}\Braket{m|\a,t_0}.
 \]
+
+\notamargen{Anoté que en la página de la materia están los postulados en un pdf.
+Notemos que $\vb p = - i \hbar \Nabla $.}
+
 
 \begin{ejemplo}{\bf Ejercicio guía 2}
 
@@ -458,7 +463,7 @@ Sea $n(t)$ tal que $\vb S \cdot \nver \Ket{\a,t} = \Ket{\a,t}$. Del ejercicio 8 
 \]
 y
 \[
-	\Ket{ \vb S\cdot\vb n, +} = \cos\Frac{\b}{2} \Ket{+} + \sen\Frac{\b}{2} \euler^{i\a} \Ket{-}
+	\Ket{ \vb S\cdot\vb n, +} = \cos\Frac{\b}{2} \Ket{+} + \sin\Frac{\b}{2} \euler^{i\a} \Ket{-}
 \]
 de modo que
 \[
@@ -472,13 +477,15 @@ $\beta = \pi/2$ y $\a = -\omega t$.
 \end{ejemplo}
 
 
-
-
-
 \subsection{Representación de Heisenberg}
 
-Los kets y los operadores no tienen sentido físico, pero sí los valores de expectación : toda física podrá modificar 
-los primeros pero debe conservar los valores de expectación. Así tenemos dos representaciones posibles:
+Los kets y los operadores no tienen sentido físico, pero sí los valores de expectación
+\[
+	\vm{A} \equiv \Braket{\a|A|a},
+\]
+puesto que son lo que se mide. Entonces cualquier física podrá modificar los primeros
+pero debe conservar los valores de expectación. 
+Así tenemos dos representaciones posibles:
 
 \begin{center}
 \begin{tabular}{|l|l|}
@@ -498,7 +505,7 @@ $\Ket{a'} \to \Ket{a'} \quad $ & $\Ket{a'} \to U^\dagger \Ket{a'} \quad $ \\
 Así vemos que en Schrödinger los kets evolucionan y los operadores permanecen fijos; al igual que los autoestados.
 En cambio en Heisenberg los kets no evolucionan pero sí lo hacen los operadores y los autoestados.
 
-Deben notars que:
+Deben notarse que:
 \begin{enumerate}
  \item Los productos internos no cambian con el tiempo
  \[
@@ -528,6 +535,40 @@ pero a $t=t_0$ las representaciones coinciden,
 \[
 	\Ket{\alpha,t_0,t_0}^{(S)} = \Ket{\alpha}^{(H)}
 \]
+y se separan a medida que el tiempo transcurre.
+Se tiene
+\[
+	U(t,t_0)  = U(t) = \euler^{i H t / \hbar},
+\]
+donde este $H$ no depende del tiempo.
+
+\begin{ejemplo}{\bf Ejemplito}
+
+Con el operador de traslación sería algo como
+\[
+	\Ket{\a}^{(S)} \to \left[ 1 - \frac{i\vb p d\vb x}{\hbar}\right] \Ket{x}^{(S)}
+\]
+\[
+	\vb X^{(S)} \to \vb X^{(S)}
+\]
+
+Representación de {\t apple} (manzana?)
+\[
+	\Ket{\a}^{(A)} \to \Ket{\a}^{(A)}
+\]
+\[
+	\vb X^{(A)} \to U^\dagger \vb X^{(A)} U =
+	\left[ 1 + \frac{i\vb p d\vb x}{\hbar}\right] X \left[ 1 - \frac{i\vb p d\vb x}{\hbar}\right]
+	= \vb X + d\vb X
+\]
+y para ambas representaciones es 
+\[
+	\vm{\vb X} \to \vm{\vb X} + \vm{d\vb X}
+\]
+ 
+\end{ejemplo}
+
+
 
 \begin{ejemplo}{\bf Ejercicio 21}
 
@@ -587,6 +628,8 @@ de manera que el operador $\euler^{i p_x a / \hbar}$ es el operador de traslaci�
 
 \subsubsection{La ecuación de Heisenberg}
 
+Queremos llegar a una ecuación para trabajar en la representación de Heisenberg.
+
 \[
 	A^H = U^\dagger A^S U \qquad \dpar{A^H}{t} = \dpar{U^\dagger}{t}A^S U + U^\dagger A^S \dpar{U}{t} +
 	U^\dagger A^S \dpar{U}{t}
@@ -602,7 +645,7 @@ de manera que el operador $\euler^{i p_x a / \hbar}$ es el operador de traslaci�
 	\dpar{A^H}{t} = \frac{-1}{i\hbar} U^\dagger H A^S U + \underbrace{U^\dagger\dpar{A^S}{t} U}_{=0} +
 	U^\dagger A^S \frac{1}{i\hbar} H U
 \]
-pues $A^S$ no depende explícitamente del tiempo
+pues $A^S$ no depende explícitamente del tiempo (si )
 \[
 	\dpar{A^H}{t} = -\frac{1}{i\hbar} \left( U^\dagger HUU^\dagger A^SU -U^\dagger A^S U U^\dagger 
 	HU \right) =	\frac{1}{i\hbar}(-HA + AH)
@@ -611,7 +654,8 @@ y llegamos a la ecuación de Heisenberg
 \[
 	\dpar{A^{(H)}}{t} = \frac{1}{i\hbar} [ A^{(H)}, H^{(H)}]
 \]
-si $A^{(H)}$ conmuta con el $H^{(H)}$, entonces $A^{(H)}$ es una cantidad conservada (una constante de movimiento).
+si $A^{(H)}$ conmuta con el $H^{(H)}$, entonces $A^{(H)}$ es una cantidad conservada 
+(una constante de movimiento).
 En ese caso el operador no depende del tiempo y entonces $A^{(H)} = A^{(S)}$.
 
 \subsubsection{Evolución de autoestados}
@@ -623,7 +667,8 @@ aplico un $U^\dagger$ a ambos lados y entonces
 \[
 	U^\dagger A^S UU^\dagger \Ket{a'}^S = a' U^\dagger \Ket{a'}^S
 \]
-los $a'$ no dependen de la representación porque tienen significado físico. Entonces los $\Ket{a'}$ evolucionan
+los $a'$ no dependen de la representación porque tienen significado físico. 
+Entonces los $\Ket{a'}$ evolucionan
 \[
 	A^H (U^\dagger\Ket{a'}^S) = a' (U^\dagger\Ket{a'}^S)
 \]
@@ -646,7 +691,11 @@ De esta forma los autoestados evolucionan al revés
 	i\hbar \dpar{}{t} \Ket{a',t}^H = -H\Ket{a',t}^H
 \]
 
-Podemos ver de otro modo la equivalencia
+Podemos ver de otro modo la equivalencia, usando el proyector para el operador de Schrödinger,
+\[
+	A^S = \sum_{a'} a' \Ket{a'}^S\Bra{a'}^S
+\]
+y entonces $A^H$ será
 \[
 	A^H = U^\dagger \sum_{a'} A^S \Ket{a'}\Bra{a'}U = 
 	\sum_{a'} a'U^\dagger \Ket{a'}\Bra{a'}U
@@ -655,18 +704,38 @@ pero
 \[
 	A^H = \sum_{a'} A^H \Ket{a',t}\Bra{a',t} \equiv \sum_{a'}
 \]
+y luego se tiene que
 \[
-	A^H = \sum_{a'} a' \Ket{a',t}\Bra{a',t} \equiv \sum_{a'} a'(U^\dagger\Ket{a'})(\Bra{a'}U)
+	A^H = \sum_{a'} a' \Ket{a',t}\Bra{a',t} \equiv \sum_{a'} a'(U^\dagger\Ket{a'})(\Bra{a'}U),
 \]
+donde por inspección resulta
 \[
-	\Ket{a',t} = U^\dagger\Ket{a'}^S
+	\Ket{a',t} = U^\dagger\Ket{a'}^S.
 \]
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+	&	Schrödinger 	& Heisenberg \\
+\hline
+& & \\
+$\Ket{\alpha}$ & evolucionan & no evolucionan \\
+& & \\
+$A$ & no evolucionan & evolucionan \\
+& & \\
+$\Ket{a'}$ & no evolucionan & evolucionan \\
+& & \\
+\hline
+\end{tabular}
+\end{center}
 
 \subsubsection{Coeficientes}
 
 Los coeficientes en Schrödinger y en Heisenberg son 
 \[
-	C_{a'}^S(t) = ^S\braket{a'|\alpha,t_0,t}^S = ^S\Bra{a'}(U\Ket{\alpha,t_0}) \qquad 
+	C_{a'}^S(t) = ^S\braket{a'|\alpha,t_0,t}^S = ^S\Bra{a'}(U\Ket{\alpha,t_0}) 
+\]	
+\[	
 	C_{a'}^H(t) = ^H\braket{a',t|\alpha,t_0}^H = (^S\Bra{a'}U)\Ket{\alpha,t_0}
 \]
 Entonces en Schrödinger es 
@@ -680,8 +749,11 @@ mientras que en Heisenberg es
 	\sum_{a'} \overbrace{\braket{a',t|\alpha,t_0}}^{C_{a'}(t)}\Ket{a',t}
 \]
 
-Los coeficientes en las expresiones son iguales como corresponde a todo magnitud que tiene sentido físico, pues 
-$|c_a(t)|^2$ es la probabilidad.
+Los coeficientes en las expresiones son iguales como corresponde a todo magnitud 
+que tiene sentido físico, pues $|c_a(t)|^2$ es la probabilidad.
+El coeficiente es el mismo en ambas representaciones.
+
+Tampoco $a'$ puede depender de la representación porque tiene sentido físico.
 
 \subsection{Teorema de Ehrenfest}
 
