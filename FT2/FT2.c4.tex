@@ -292,20 +292,23 @@ sobre ket y crea sobre bra,
 
 \subsection{Interferencia en experimento de Young}
 
-Consideremos la situación depicted en la figura bajo estas líneas
+Consideremos la situación depicted en la figura bajo estas líneas, que es reminiscente de la del
+experimento de Young aunque la fuente no necesariamente es de luz.
 
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/teo2_6.pdf}	 
+	\includegraphics[width=0.6\textwidth]{images/teo2_6.pdf}
+	\includegraphics[width=0.6\textwidth]{images/fig_ft2_young_analogous.jpg}
 	\end{center}
 	\caption{}
 \end{figure} 
 
-Uso $\hat{H}$ de partículas libres.
+Uso $\hat{H}$ de partículas libres y que $\Ket{\a}$ es el generado por la fuente.
+Suponemos que en $t=0$ al pasar por las aberturas se da
 \[
 	\frac{1}{2} \Ket{\alpha} = \Ket{\alpha_1} = \Ket{\alpha_2}
 \]
-para $t>0$ se tiene 
+y luego para $t>0$ se tiene 
 \[
 	\Ket{\tilde{\alpha_1}} = \euler^{ -i H t /\hbar } \Ket{\alpha_1} =
 		\euler^{ -i E_\alpha t /\hbar } \Ket{\alpha_1}	
@@ -314,7 +317,8 @@ para $t>0$ se tiene
 	\Ket{\tilde{\alpha_2}} = \euler^{ -i E_\alpha t /\hbar } \Ket{\alpha_2}	
 \]
 
-En la pantalla debe verse la interferencia de los dos estados solapados.
+En la pantalla debe verse la interferencia de los dos estados solapados. La diferencia de caminos
+es la que genera la interferencia, y usando que los tiempos son $t_i = d_i/v$ se da
 \[
 	\Ket{\tilde{\alpha}} = \Ket{\tilde{\alpha_1}} + \Ket{\tilde{\alpha_2}} =
 		\euler^{ -i E_\alpha \frac{d_1}{v} /\hbar } \Ket{\alpha_1} +
@@ -322,7 +326,7 @@ En la pantalla debe verse la interferencia de los dos estados solapados.
 \]
 \[
 	\Ket{\tilde{\alpha}} = \frac{1}{2} \euler^{ -i E_\alpha \frac{d_1}{v} /\hbar } 
-		| 1 + \euler^{ -i E_\alpha \frac{d_2-d_1}{v} /\hbar } | \Ket{\alpha_1}
+		\left[ 1 + \euler^{ -i E_\alpha \frac{d_2-d_1}{v} /\hbar } \right] \Ket{\alpha_1}
 \]
 y si definimos
 \[
@@ -330,18 +334,22 @@ y si definimos
 \]
 resulta entonces
 \[
-	\Braket{\tilde{\alpha}|\tilde{\alpha}} = \frac{1}{4}| 1 +  \euler^{ -i E_\alpha \frac{d_2-d_1}{v} 
-/\hbar } |^2 =
+	\Braket{\tilde{\alpha}|\tilde{\alpha}} = 
+	\frac{1}{4}| 1 +  \euler^{ -i E_\alpha \frac{d_2-d_1}{v} /\hbar } |^2 =
 		\frac{1}{4}( (1+\cos\beta)^2 + \sin^2\beta ) =
 			\frac{1}{2} + \frac{1}{2}\cos\left( \beta \right).
 \]
-
+Esto sería la intensidad si de radiación electromagnética se tratase.
 
 Al partir el estado $\Ket{\alpha_1} $ y volver a unirlo en $\Ket{\alpha_1} + \Ket{\alpha_2}$ vemos una 
-intensidad que 
-dependa de la diferencia de camino.
+intensidad que depende de la diferencia de camino.
 
 \subsection{Cambio de cero del potencial}
+
+Consideramos una partícula sometida a potencial externo.
+El potencial es una maquinación matemática conveniente para el concepto más físico de fuerza.
+Es un caso particular de cambio de gauge.
+
 
 En mecánica clásica la física de un problema no se ve afectada por un cambio de gauge.
 Si movemos el cero de potencial, la situación física es la misma.
@@ -356,39 +364,218 @@ Veamos qué sucede en mecánica cuántica.
 	\Ket{\tilde{\alpha},t,t_0} = \euler^{ -i V_0(t-t_0)/2 }\Ket{\alpha,t,t_0}
 \]
 y entonces vemos que $\Ket{\tilde{\alpha},t}$ y $\Ket{\alpha,t}$ difieren en una fase, de manera que los 
-valores de 
-expectación no cambian (con $V_0$ constante).
+valores de expectación (las magnitudes físicas) no cambian (con $V_0$ constante).
+El efecto fue meter una fase.
+
+Si el potencial es tal que $V_0 = V_0(t)$ entonces
+\[
+	\Ket{\tilde{\a},t,t_0} = \euler^{ -i \int_{t_1}^{t_2} V(t) dt } \Ket{\a,t,t_0}.
+\]
+
 
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/teo2_7.pdf}	 
+	\includegraphics[width=0.6\textwidth]{images/teo2_7.pdf}
+	\includegraphics[width=0.6\textwidth]{images/fig_ft2_cero_potential.jpg}
 	\end{center}
 	\caption{}
 \end{figure} 
 
-Este es un experimento ideal (pensado). Dentro de los cilindros hay campo nulo. Se varia el $V$ abriendo y 
-cerrando la 
-llave a la entrada y a la salida.
+Consideremos ahora un experimento ideal (pensado). 
+Dentro de los cilindros hay campo nulo siempre. Se varia el $V$ abriendo y cerrando la 
+llave a la entrada y a la salida; se varía el cero de potencial pero no el campo.
 Se cambia la fase de las partículas inferiores respecto de las superiores, entonces habrá interferencia en 
 $O$.
 
-Clásicamente no hay variación,
+Clásicamente no hay variación, pero cuánticamente
 \[
 	\Delta \text{fase} = -\frac{i}{\hbar}\euler \int _{t_1}^{t_2} V_1(t) - V_2(t) dt = 
 	-\frac{i}{\hbar}\euler \Delta V
 \]
+Notemos que con el límite $\hbar \to 0$ el efecto desaparece [no será el otro límite o hay algo mal?].
 
 Lo que realmente cuenta es la diferencia de potencial $\Delta V$, la cual sí tiene sentido físico porque es 
 independiente de la medida y porque pueden escribirse los campos en función de aquella.
+
+\begin{ejemplo}{\bf Caso gravitatorio}
+ 
+Clásicamente la masa inercial con la gravitatoria se cancelan,
+\[
+	m \ddot{x} = - m \nabla \phi_g
+\]
+y esto lleva a que la aceleración sea $g$, luego la gravedad es algo geométrico porque no depende de la masa.
+Cuánticamente,
+\[
+	\left( -\frac{\hbar^2}{2m}\nabla^2 + m \phi_g \right) \psi = i \hbar \dpar{\psi}{t}
+\]
+la masa no se simplifica. Aún así 
+\[
+	\dtot[2]{}{t} \vm{x} = - g.
+\]
+
+ 
+\end{ejemplo}
+
+
+\begin{ejemplo}{\bf Experimento Colella/Overhauser/Werner}
+
+Esto viene de un artículo de Physical Review Letters.
+Se utilizan partículas neutras: neutrones.
+Consideramos el setup siguiente
+ 
+\includegraphics[width=0.6\textwidth]{images/fig_ft2_colella.jpg} 
+
+La diferencia de altura es $\Delta h = \ell_2 \sin \delta $ pero en la derecha se tiene que
+$\bar{BD}$ está a mayor altura que $\bar{AC}$ que está más baja.
+Luego, la longitud de onda Compton
+\[
+	v = \frac{p}{m} = \frac{1}{m} \frac{2m\hbar}{\lambda} = \frac{\hbar}{m\lambda_c}
+\]
+y entonces
+\[
+	\euler^{ - i/\hbar m g \ell_x \sin \delta \ell_1/v }
+\]
+de manera que
+\[
+	\phi_{ABC} - \phi_{ACD} = \frac{ m^2 g \ell_1 \ell_2 \lambda_c \sin \delta }{\hbar^2}
+\]
+se tiene un fenómeno puramente cuántico (aparece $\hbar$) y depende de la masa.
+  
+\end{ejemplo}
+
+\subsection{Caso del EM y la invariancia de gauge}
+
+Recordemos algunos resultados del electromagnetismo.
 \[
 	E = - \Nabla\phi - \frac{1}{c}\dpar{\vb{A}}{t}
 \]
+Si el cuadrivector de momento es $p^\mu = (E/c, \vb p)$ y el de cuadri potencial es $A^\mu =(\phi,\vb A)$
+se veía que el reemplazo
 \[
-	H = \frac{1}{2m} \left( \vb{p} - \frac{\euler\vb{A}}{c}\right)^2 + \euler\phi 
+	p^\mu \to p^\mu - \frac{e}{c} A^\mu
 \]
+era covariante.
+Luego, el hamiltoniano covariante era
+\be
+	H = \frac{1}{2m} \left( \vb{p} - \frac{\euler\vb{A}}{c}\right)^2 + \euler \phi 
+	\label{ham_cov_em}
+\ee
+
+En el formalismo de Heisenberg
 \[
-	\dtot{H}{t} = \frac{1}{i\hbar}[x_i,H] = \frac{p_i  \euler A_i}{m}
+	\dtot{H}{t} = \frac{1}{i\hbar}[x_i,H] = \frac{p_i - e A_i / c}{m}
 \]
+puesto que $p$ y $A$ no conmutan. Los momentos son justamente $\pi_i = p_i - e/c A_i$.
+Luego,
+\[
+	[ p_i, p_j ] = 0 \qquad 
+	[ \pi_i , \pi_j ] = \frac{i\hbar e}{c} \epsilon_{i l k}B_k
+\]
+
+La invariancia de gauge hace que
+\[
+	\phi \to \phi - \frac{1}{c}\dpar{\Lambda}{t} \qquad \quad 
+	\vb A \to \vb A + \nabla \Lambda
+\]
+que es un cambio que deja los campos $\vb E, \vb B$ invariantes. Si la función $\Lambda \neq \Lambda(\vb x)$
+entonces el cambio es como un cambio de cero del potencial, pues 
+\[
+	\phi \to \phi + \lambda(t) \qquad \vb A \to \vb A.
+\]
+
+La mecánica cuántica incluye la invariancia de gauge de modo que los valroes de expectación, que es lo
+físico, no se alteran.
+El cambio de fase implicado por la transformación de gauge no pasa a los valores de expectación.
+
+Considerando la versión operacional del hamiltoniano \eqref{ham_cov_em} y la ecuación de Schrödinger,
+\[
+	H \Ket{\a,t_0,t} = i \hbar \dpar{}{t} \Ket{\a,t_0,t}
+\]
+Ahora quiero hacer una transformación de gauge para ver si obtengo las mismas mediciones.
+Reemplazando los operadores $p$ y $A$ por los transformados según el cambio de gauge se obtiene
+(luego veremos la justificación, creámoslo por ahora)
+\[
+	\Ket{\tilde{\a},t_0,t} = \euler^{ i e \Lambda(x,t)/(\hbar c)}\Ket{\a,t_0,t} 
+\]
+y a esta fase la denominaresmos $\hat{g}(x,t)$ (un operador?) luego, la transformación de gauge implica
+\[
+	\Braket{\a|x|\a} \to  \Braket{\tilde{\a}|x|\tilde{\a}} = \Braket{\a|g^\dagger x g|\a}
+\]
+y como conmutan,
+\[
+	\Braket{\a|x g^\dagger g|\a} = \Braket{\a|x|\a}
+\]
+donde el último paso es por la unitariedad. Luego, el $x$ no cambia por una transformación de gauge.
+
+Veamos qué le pasa al momento conjugado $\pi$, teniendo en cuenta que el momento lineal mecánico $p$ no varía
+pero sí el potencial $A$, i.e.
+\[
+	\Braket{\a|\pi|\a} \to  \Braket{\tilde{\a}|\tilde{\pi}|\tilde{\a}} =
+	\Braket{\tilde{\a}| p - \frac{e\tilde{A}}{c} |\tilde{\a}}
+\]
+Luego,
+\[
+	\Braket{\tilde{\a}| g^\dagger \left( p - \frac{e {A}}{c} - \frac{e}{c} \nabla\Lambda \right) g |\tilde{\a}}
+\]
+donde hay que recordar que $p$ tiene metida la derivada respecto de $x$ y $A, \Lambda$ son sólo dependientes
+de $x,t$ y conmutan con $g(x,t)$. Se ve que resulta todo el operador $p - e/c A$ y la transformación cumple
+además que $\Braket{\a|\a} =  \Braket{\tilde{\a}|\tilde{\a}} $ de forma que se ha demostrado lo que se
+propusiera antes.
+Tenemos
+\begin{multline}
+	\left[ \frac{1}{2m}\left( p - \frac{e {A}}{c} - \frac{e \nabla\Lambda}{c} \right)^2 +
+	e \: \phi - \frac{e}{c} \dpar{\Lambda}{t} \right] 
+	\euler^{i e \Lambda/ (\hbar c)} \Ket{\a,t_0,t} = \\
+	\euler^{i e \Lambda/ (\hbar c)} 
+	\left( - \frac{e}{c} \dpar{\Lambda}{t} + i \hbar \dpar{}{t} \right) \Ket{\a,t_0,t}
+\end{multline}
+donde se ve que valen varias cosas
+\[
+	g g^\dagger \left( p - \frac{e {A}}{c} - \frac{e \nabla\Lambda}{c} \right) g = 
+	g \left( p - \frac{e {A}}{c}  \right)
+\]
+Con esto debería ser suficiente para confirmar el resultado [confirmarlo].
+La mecánica cuántica es, entonces, invaraitne de gauge al igual que lo que sucedía en mecánica clásica.
+
+\begin{ejemplo}{\bf Experimento de Aharonov y Bohm}
+
+Vemos en la figura que las partículas no interactúan con el campo $\vb B$ y el circulito es un solenoide
+infinito. Hay campo magnético dentro pero es nula afuera. Tengo, no obstante, potencial $\vb A$ en todas
+partes.
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft2_aharonov_bohm.jpg} 
+
+Luego, resulta que hay interferencia en $D$ sin campo $\vb B$ por al diferencia de fases originada por el potencial
+$\vb A$.
+
+La fase es
+\[
+	- \frac{i}{\hbar} \int_{t_1}^{t_2} \left( - \frac{e}{c} \dtot{\vb x}{t} \cdot \vb A\right) dt=
+	\frac{i e}{\hbar c} \int_{x_1}^{x_2} \vb A \cdot d\vb x.
+\]
+Recordemos que el lagrangiano de la situación\footnote{Hay un lagrangiano para cada momento, como para ahora
+que me estoy tomando una copa de vino.} [?]
+\[
+	\Lag = \frac{m}{2} \Dtot{\vb x}{t}^2 + \frac{e}{c} \dtot{\vb x}{t}\cdot\vb A
+\]
+
+Quisiéramos ver cuál es la diferencia de fase entre los dos caminos ABD y ACD, que será
+\[
+	\frac{ie}{\hbar c} \left( \int_{ABD} \vb A\cdot d\vb x - \int_{ACD} \vb A\cdot d\vb x \right) =
+	\frac{ie}{\hbar c} \left( \int_{ABD} \vb A\cdot d\vb x + \int_{DCA} \vb A\cdot d\vb x \right) =
+	\frac{ie}{\hbar c}  \int_{cerrada} \vb A\cdot d\vb x
+\]
+que conduce a
+\[
+	\frac{ie}{\hbar c}  \int_{cerrada} \rotorm{A} \: d\vb S = \frac{ie}{\hbar c} \phi_B \neq 0
+\]
+es decir que hay efecto de interferencia. Notemos que el rotor sigue siendo invariante de gauge [?].
+
+Físicamente el campo $\vb B$ no interactúa con el ahz de partículas, con lo cual parecería una interacción
+del potencial con las partículas.
+ 
+\end{ejemplo}
+
 
 % =================================================================================================
 \section{El propagador}
