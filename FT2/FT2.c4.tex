@@ -547,8 +547,8 @@ Si el potencial es tal que $V_0 = V_0(t)$ entonces
 Consideremos ahora un experimento ideal (pensado). 
 Dentro de los cilindros hay campo nulo siempre. Se varia el $V$ abriendo y cerrando la 
 llave a la entrada y a la salida; se varía el cero de potencial pero no el campo.
-Se cambia la fase de las partículas inferiores respecto de las superiores, entonces habrá interferencia en 
-$O$.
+Se cambia la fase de las partículas inferiores respecto de las superiores, entonces habrá 
+interferencia en $O$.
 
 Clásicamente no hay variación, pero cuánticamente
 \[
@@ -557,8 +557,8 @@ Clásicamente no hay variación, pero cuánticamente
 \]
 Notemos que con el límite $\hbar \to 0$ el efecto desaparece [no será el otro límite o hay algo mal?].
 
-Lo que realmente cuenta es la diferencia de potencial $\Delta V$, la cual sí tiene sentido físico porque es 
-independiente de la medida y porque pueden escribirse los campos en función de aquella.
+Lo que realmente cuenta es la diferencia de potencial $\Delta V$, la cual sí tiene sentido 
+físico porque es independiente de la medida y porque pueden escribirse los campos en función de aquella.
 
 \begin{ejemplo}{\bf Caso gravitatorio}
  
@@ -600,7 +600,8 @@ y entonces
 \]
 de manera que
 \[
-	\phi_{ABC} - \phi_{ACD} = \frac{ m^2 g \ell_1 \ell_2 \lambda_c \sin \delta }{\hbar^2}
+	\phi_{ABC} - \phi_{ACD} = 
+	\frac{ m^2 g \ell_1 \ell_2 \lambda_c \sin \delta }{\hbar^2}
 \]
 se tiene un fenómeno puramente cuántico (aparece $\hbar$) y depende de la masa.
   
@@ -612,8 +613,8 @@ Recordemos algunos resultados del electromagnetismo.
 \[
 	E = - \Nabla\phi - \frac{1}{c}\dpar{\vb{A}}{t}
 \]
-Si el cuadrivector de momento es $p^\mu = (E/c, \vb p)$ y el de cuadri potencial es $A^\mu =(\phi,\vb A)$
-se veía que el reemplazo
+Si el cuadrivector de momento es $p^\mu = (E/c, \vb p)$ y el de cuadri potencial es 
+$A^\mu =(\phi,\vb A)$ se veía que el reemplazo
 \[
 	p^\mu \to p^\mu - \frac{e}{c} A^\mu
 \]
@@ -708,8 +709,8 @@ partes.
 
 \includegraphics[width=0.5\textwidth]{images/fig_ft2_aharonov_bohm.jpg} 
 
-Luego, resulta que hay interferencia en $D$ sin campo $\vb B$ por al diferencia de fases originada por el potencial
-$\vb A$.
+Luego, resulta que hay interferencia en $D$ sin campo $\vb B$ por al diferencia de fases originada 
+por el potencial $\vb A$.
 
 La fase es
 \[
@@ -745,21 +746,31 @@ del potencial con las partículas.
 % =================================================================================================
 
 Físicamente representa la proababilidad de transición entre autoestados por el paso del tiempo,
-$ \Ket{x'}_{t_0} \longrightarrow \Ket{x''}_t$
+$ \Ket{x'}_{t_0} \longrightarrow \Ket{x''}_t$.
+La idea es que si en $t=0$ el estado del sistema es un autoestado $\Ket{x'}$, interesará ver cuál
+es la probabilidad de hallarse en $\Ket{x''}$ en $t$.
+El propagador se define como:
 \[
-	\Braket{x''|\euler^{-iH(t-t_0)/\hbar}|x'} \equiv K(x',t; x, t_0)
+	\Braket{x''|\euler^{-iH(t-t_0)/\hbar}|x'} \equiv K(x',t; x, t_0),
+\]
+pero veamos cómo aparece en el curso de un cálculo.
+Consideremos
+\[
+	\Braket{x''| \alpha,t_0,t} = 
+	\Braket{x''|\euler^{-iH(t-t_0)/\hbar}|\alpha,t_0},
 \]
 \[
-	\Braket{x''| \alpha,t_0,t} = \Braket{x''|\euler^{-iH(t-t_0)/\hbar}|\alpha,t_0} 
+	\Braket{x''| \alpha,t_0,t} = 
+	\int dx' \Braket{x''|\euler^{-iH(t-t_0)/\hbar}|x'}\Braket{x'|\alpha,t_0}.
 \]
+Entonces la función de onda se escribe
 \[
-	\Braket{x''| \alpha,t_0,t} = \int dx' \Braket{x''|\euler^{-iH(t-t_0)/\hbar}|x'}\Braket{x'|\alpha,t_0} 
-\]
-\[
-	\Psi_{\alpha}(x'',t) = \int dx' K(x'',t; x',t) \Psi_{\alpha}(x',t)
+	\Psi_{\alpha}(x'',t) = \int dx' K(x'',t; x',t) \Psi_{\alpha}(x',t).
 \]
 
-Podemos pensar que el propagador lleva la función de onda desde $t_0$ a $t$. Se puede escribir:
+Podemos pensar que el propagador lleva o ``propaga'' la función de onda desde $t_0$ a $t$. 
+% Es como la función de Green.
+Se puede escribir:
 \[
 	K(x',t; x, t_0) = \sum_{a'} \Braket{x''|a'} \Braket{a'|x'} \euler^{-iE_a(t-t_0)/\hbar}
 \]
@@ -783,33 +794,49 @@ y entonces el propagador es una función de Green que satisface
 \]
 con $K(x'',t;x',t_0)=0 $ si $t<0$ que es la condición de contorno.
 
-\subsection{El propagador de la partícula libre}
+\begin{ejemplo}{\bf El propagador de la partícula libre}
 
-\[
-	K(x'',t; x, t_0) = \int dp' \Braket{x''|\euler^{-ip^2(t-t_0)/2m\hbar}|p'} \Braket{p'|x'} 
-\]
-\[
-	= \int dp' \euler^{-ip'^{2}(t-t_0)/2m\hbar} \Braket{x''|p'} \Braket{p'|x'} =
-	\frac{1}{2\pi\hbar} \int dp' \euler^{-ip'^{2}(t-t_0)/2m\hbar} \euler^{-ip'(x'-x'')/\hbar}
-\]
+Escribimos el propagador como integral en el momento de acuerdo con
+\begin{multline*}
+ 	K(x'',t; x, t_0) = \int dp' \Braket{x''|\euler^{-ip^2(t-t_0)/2m\hbar}|p'} \Braket{p'|x'} = \\
+ 	\int dp' \euler^{-ip'^{2}(t-t_0)/2m\hbar} \Braket{x''|p'} \Braket{p'|x'} = \\
+ 	\frac{1}{2\pi\hbar} \int dp' \euler^{-ip'^{2}(t-t_0)/2m\hbar} \euler^{-ip'(x'-x'')/\hbar}
+\end{multline*}
 y entonces el propagador de una partícula libre es
 \[
-	K(x'',t; x, t_0) = \sqrt{ \frac{m}{2\pi\hbar(t-t_0)} } \euler^{i\frac{m(x''-x')^2}{2\hbar(t-t_0)}}
+	K(x'',t; x, t_0) = \sqrt{ \frac{m}{2\pi i\hbar(t-t_0)} } \euler^{i\frac{m(x''-x')^2}{2\hbar(t-t_0)}}
 \]
 
 También se puede escribir el propagador en la representación de Heisenberg,
 \[
-	\Braket{x''|\euler^{-iH(t-t_0)/\hbar}|x'} = \Bra{x''}\euler^{-iHt/\hbar} \euler^{iHt_0/\hbar}\Ket{x'}=
-		\Braket{x'',t|x',t_0}
+	\Braket{x''|\euler^{-iH(t-t_0)/\hbar}|x'} = 
+	\Bra{x''}\euler^{-iHt/\hbar} \euler^{iHt_0/\hbar}\Ket{x'} = \Braket{x'',t|x',t_0}
 \]
+y entonces
 \[
-	K(x'',t;x',t_0) = \Braket{x'',t | x',t_0}.
+	K(x'',t;x',t_0) = \Braket{x'',t | x',t_0},
+\]
+el propagador es la probabilidad de transición de pasar entre puntos $x'$ y $x''$.
+
+El propagador tienq que cumplir la propiedad del operador evolución, esto es la propiedad de composición 
+(como el $U(t,t_0)$), es decir:
+\[
+	K(x'',t; x, t_0) = K(x'',t; x, t_1)K(x'',t_1; x, t_0) \qquad t>t_1>t_0,
+\] 
+lo cual se puede ver explícitamente considerando
+\[
+	\Braket{x''| \euler^{-i H/\hbar ( t - t_1 + t_1 -t_0 )}|x'} =
+	\int dx_1 \Braket{ x''| \euler^{- i H (t-t_1) /\hbar } | x_1 }  
+		\Braket{ x_1| \euler^{- i H (t_1-t_0) /\hbar } | x' }
+\]
+de lo cual vemos
+\[
+	\Braket{x''| \euler^{-i H/\hbar ( t - t_1 + t_1 -t_0 )}|x'} =
+	\Braket{x'',t|x_1,t_1}  \Braket{x_1,t_1|x',t_0}.
 \]
 
-El propagador cumple con la propiedad de composición (como el $U(t,t_0)$), es decir:
-\[
-	K(x'',t; x, t_0) = K(x'',t; x, t_1)K(x'',t_1; x, t_0) \qquad t>t_1>t_0
-\]
+\end{ejemplo}
+
 
 % =================================================================================================
 \section{Integrales de camino de Feynmann}
@@ -819,29 +846,38 @@ Consideramos una partícula yendo de $(x_1,t_1)$ a $(x_N,t_N)$. Dividimos el tie
 \[
 	\delta t = \frac{t_N-t_1}{(N-1)}
 \]
-y queremos ver la amplitud de transición desde el estado 1 al $N$.
-
+y queremos ver la amplitud de transición desde el estado 1 al $N$. Es decir,
+% En mecánica clásica yo iba por un solo camino; el que minimizaba la acción $S$.
+% En mecánica cuántica tengo infinitos caminos que interfieren entre sí.
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/teo2_8.pdf}	 
+	\includegraphics[width=0.5\textwidth]{images/teo2_8.pdf} 
+	\includegraphics[width=0.5\textwidth]{images/fig_ft2_feynmann_path_int.jpg}
 	\end{center}
 	\caption{}
 \end{figure} 
+\begin{multline*}
+	\braket{x_N,t_N|x_1,t_1} = \int dx_{N-1}\int dx_{N-2} \; ... \\
+	... \int dx_2 \Braket{x_N,t_N|x_{N-1},t_{N-1}} ...\Braket{x_2,t_2|x_1,t_1}
+\end{multline*}
 
-\[
-	\braket{x_N,t_N|x_1,t_1} = \int dx_{N-1}\int dx_{N-2} \; ...\int dx_2
-	\Braket{x_N,t_N|x_{N-1},t_{N-1}} ...\Braket{x_2,t_2|x_1,t_1}
-\]
-
-Se puede pensar como que estamos sumando sobre todos los posibles caminos entre $(x_1,t_1)$ y $(x_N,t_N)$ 
-fijos. En mecánica clásica teníamos un solo camino, el que minimizaba la acción $S$
+Se puede pensar como que estamos sumando sobre todos los posibles caminos entre 
+$(x_1,t_1)$ y $(x_N,t_N)$ fijos. 
+En mecánica clásica teníamos un solo camino, el que minimizaba la acción $S$
 \[
 	\delta \int_{t_1}^{t_2} \Lag dt = \delta S = 0
 \]
-pero en cambio en mecánica cuántica todos los caminos aportan. En un libro de Dirac, Feymann lee 
+pero en cambio en mecánica cuántica todos los caminos aportan (e interfieren entre sí). 
+En un libro de Dirac, Feymann lee 
 \[
-	\Braket{x_2,t_2|x_1,t_1} \; \text{corresponde a} \; \euler^{i\int_{t_1}^{t_2}\Lag/\hbar dt}
+	\Braket{x_2,t_2|x_1,t_1} \; \text{corresponde a} \; \euler^{i\int_{t_1}^{t_2}\Lag/\hbar \: dt}
 \]
+y entonces propone
+\[
+	\Braket{x_2,t_2|x_1,t_1} \approx \sum_{\text{caminos}} 
+	\euler^{ i\int_{t_1}^{t_2} \Lag_{\text{clasico}}(x,\dot{x}) /\hbar \: dt}
+\]
+
 Definiremos
 \[
 	S_{(n,n-1)}\equiv \int_{t_{n-1}}^{t_n}\Lag(x,\dot{x}) dt
@@ -850,50 +886,76 @@ Luego para considerar la suma sobre todos los segmentillos a lo largo de un cami
 \[
 	\prod_{n=2}^N \euler^{i/\hbar S(n,n-1)} = \euler^{i/\hbar \prod_{n=2}^N S(n,n-1)} = \euler^{iS(N,1)/\hbar}
 \]
-y hay que considerar TODOS los posibles caminos 
+y hay que considerar TODOS los posibles caminos (cada uno de los cuales aporta un $\euler^{iS/\hbar}$) 
 \[
 	\propto \sum_{caminos} \euler^{i/\hbar S(N,1)} 
 \]
-cuando $\hbar \to 0$ las trayectorias contribuyen con una cantidad que oscila loca y violentamente. Tienden a 
-la cancelación para caminos aledaños. Por el $\hbar \sim 0$ la fase es grande y entonces se cancelan.
-Esto no ocurre cerca del camino (real) que cumple 
+cuando $\hbar \to 0$ las trayectorias contribuyen con una cantidad que oscila loca y violentamente. 
+Tienden a la cancelación para caminos aledaños. Por el $\hbar \sim 0$ la fase es grande y entonces
+se cancelan. Esto no ocurre cerca del camino (real) que cumple 
 \[
 	\delta S(N,1) = 0
 \]
 Para trayectorias cercanas la $\Delta fase$ no es grande y hay interferencia constructiva.
-Para un $\delta t$ infinitesimal es 
+Para un $\delta t$ infinitesimal cualquier trayectoria puede verse como una línea recta y es 
 \[
 	\Braket{x_n,t_n|x_{n-1},t_{n-1}} = N \euler^{iS(n,n-1)/\hbar}
 \]
-\[
-	S(n,n-1) = \int_{t_{n-1}}^{t_n} \left( \frac{m}{2}\dot{x}^2 - V(x)\right) dt \approx
-	\int_{t_{n-1}}^{t_n} \left( \frac{m}{2} \frac{(x_n-x_{n-1})^2}{\delta t^2} - 
-	V\left(\frac{x_n+x_{n-1}}{2}\right)\right)  dt
-\]
-donde la última expresión es a orden 1 (pues $\delta t \sim 0$).
+\begin{multline*}
+	S(n,n-1) = \int_{t_{n-1}}^{t_n} \left( \frac{m}{2}\dot{x}^2 - V(x)\right) dt \\ 
+	\approx \int_{t_{n-1}}^{t_n} \left( \frac{m}{2} \frac{(x_n-x_{n-1})^2}{\delta t^2} - 
+	V\left(\frac{x_n+x_{n-1}}{2}\right)\right)  dt 
+\end{multline*}
+donde la última expresión es a orden 1 en el tiempo y en la posición (pues $\delta t \sim 0$).
 \begin{figure}[htb]
 	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/teo2_9.pdf}
+	\includegraphics[width=0.45\textwidth]{images/teo2_9.pdf}
+	\includegraphics[width=0.45\textwidth]{images/fig_ft2_feynmann_path_int_2.jpg}
 	\end{center}
 	\caption{}
 \end{figure} 
 
 Consideremos, por ejemplo, una partícula libre, entonces $V=0$ de modo que resolviendo 
+se obtiene
 \[
-	\Braket{x_n,t_n|x_{n-1},t_{n-1}} = N \euler^{im(x_n - x_{n-1})/2\hbar\delta t}
+	\Braket{x_n,t_n|x_{n-1},t_{n-1}} = N \euler^{i m (x_n - x_{n-1})^2/2\hbar\delta t},
 \]
-Esto no es otra cosa que el propagador de una partícula libre. Para un $\Delta t$ finito será 
+que no es otra cosa que el propagador de una partícula libre. La normalización $N$ se puede
+evaluar tomando
 \[
-	\Braket{x_n,t_n|x_1,t_1}  = \lim_{N\to\infty} \left(\frac{m}{i2\pi\hbar\delta t}\right)^{(N-1)/2}
-	\int dx_{n-1}\int dx_{n-2} \; ... \int dx_2 \prod_{n=2}^N \euler^{i S(n,n-1)/\hbar}
+	\lim_{\Delta t \to 0} N \euler^{i m (x_n - x_{n-1})^2/2\hbar\delta t} = \delta( x_n - x_{n-1} )
 \]
+y usando el resultado de que
 \[
-	\Braket{x_n,t_n|x_1,t_1}  = \int_{x_1}^{x_n} D[x(t)] \euler^{i \int _{t_1}^{t_n} \Lag(x,\dot{x})/\hbar} dt
+	\lim_{\Delta t \to 0} \sqrt{\frac{m}{2\pi i \hbar \Delta t}}
+	\euler^{ i m y^2/(2\hbar) \delta t} = \delta(y),
+\]
+se obtiene
+\[
+	N = \sqrt{\frac{m}{2\pi i \hbar \Delta t}}.
+\]
+La normalización no depende del potencial $V$ en el lagrangiano.
+
+Veamos cómo se comporta para un $\Delta t$ finito será 
+\begin{multline*}
+	\Braket{x_n,t_n|x_1,t_1}  = 
+	\lim_{N\to\infty} \left(\frac{m}{i2\pi\hbar\delta t}\right)^{(N-1)/2}
+	\int dx_{n-1}\int dx_{n-2} \; ... \\
+	\int dx_2 \prod_{n=2}^N \euler^{i S(n,n-1)/\hbar}
+\end{multline*}
+y defino una integral de medida dada por toda la sucesión de integraciones anidadas
+en la anterior exprsión, nomenclada como $\int_{x_1}^{x_n} D[x(t)]$ de suerte que
+resulta
+\[
+	\Braket{x_n,t_n|x_1,t_1}  = 
+	\int_{x_1}^{x_n} D[x(t)] \euler^{i \int _{t_1}^{t_n} \Lag(x,\dot{x})/\hbar} dt
 \]
 siendo esta última la integral de camino de Feynmann.
+La acción es una fase aquí. Las integrales on los caminos cuánticos y por ello esto tiene
+toda la información del sistema cuántico.
 
-En base a éstas Feynamn desarrolla una formulación equivalente de la mecánica cuántica que utiliza los 
-conceptos de:
+En base a las integrales de camino, Feynamn desarrolla una formulación equivalente de la 
+mecánica cuántica que utiliza los conceptos de:
 \begin{enumerate}
  \item Superposición
  \item Composición de la transición
@@ -902,22 +964,50 @@ conceptos de:
 
 Estas integrales contienen toda la información del sistema cuántico, aunque no sea sencillo extraerla.
 
+\begin{ejemplo}{\bf Integral de camino para partícula libre}
+
+Para una partícula libre la expresión se puede evaluar, 
+\[
+	\lim_{N\to\infty} \left(\frac{m}{i2\pi\hbar\delta t}\right)^{(N-1)/2}
+	\int dx_{n-1}\int dx_{n-2} \; ... 
+	\int dx_2 \prod_{n=2}^N \euler^{ \frac{ i m}{2\hbar} \frac{(x_n - x_{n-1})}{\Delta t} \Delta t}
+\]
+\[
+	\euler^{ \frac{ i m }{2 \hbar \Delta t } } \sum_{j=2}^N \: ( x_j - x_{j-1} )^2
+\]
+\[
+	( x_N - x_{N-1} )^1 + (x_{N-1} - x_{N-2})^2 + ... + ()^2 + ()^2
+\]
+Al final del día esta cuenta da
+\[
+	\lim_{N\to\infty} \left( \frac{ m }{2 \pi i \hbar (N-1) \delta t} \right)^{\frac{1}{2}}
+	\euler^{ i m (x_N - x_{N-1})^2 /( 2(N-1)\hbar \delta t )}
+\]
+donde el límite fue $(N-1)\Delta t \to (t_N -t_1)$.
+ 
+\end{ejemplo}
+
+
 Consideremos un propagador de $(x',0) \to (x',t)$
 \[
 	G(t) = \int dx' K(x',t ; x', 0) = \int dx' \Braket{x'|\euler^{-i Ht/\hbar}|x'}
 \]
+\begin{multline*}
+	G(t) = \sum_{a'} \int dx' \Braket{x'|\euler^{-i Ht/\hbar}|a'}\Braket{a'|x'} = \\
+		\sum_{a'} \euler^{-i E_{a'}t/\hbar} \int dx' \Braket{x'|a'}\Braket{a'|x' } 
+\end{multline*}
 \[
-	G(t) = \sum_{a'} \int dx' \Braket{x'|\euler^{-i Ht/\hbar}|a'}\Braket{a'|x'} =
-		\sum_{a'} \euler^{-i E_{a'}t/\hbar} \int dx' \Braket{x'|a'}\Braket{a'|x' }
-\]
-\[
-	G(t) = \sum_{a'} \euler^{-i E_{a'}t/\hbar} \int dx' |\Braket{x'|a'}|^2 = \sum_{a'} \euler^{-i E_{a'}t/\hbar} 
+	G(t) = \sum_{a'} \euler^{-i E_{a'}t/\hbar} \int dx' |\Braket{x'|a'}|^2 = 
+	\sum_{a'} \euler^{-i E_{a'}t/\hbar} 
 \]
 que es reminiscencia de la función de partición de mecánica estadística. Tomando Laplace-Fourier 
 \[
 	\tilde{G}(E) = -i \int dE \frac{G(t)}{\hbar} \euler^{i E t/\hbar} = \sum_{a'} \frac{1}{E-E_{a'}}
 \]
 y el espectro de autoenergías son los polos de $\tilde{G}(E)$.
+O, dicho de otra manera, los polos de la función $G$ propagador integrada en $x$ y luego de
+haberle hecho Fourier, son la autoenergías.
+
 
 La expresión 
 \[
