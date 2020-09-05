@@ -34,7 +34,12 @@
 \chapter{El oscilador armónico}
 % =================================================================================================
 
-Para el oscilador armónico 1D  el hamiltoniano y energía eran
+Clásicamente la cosa venía de una partícula sometida a un potencial
+\[
+	V(x) = \frac{kx^2}{2} \qquad \qquad \omega = \sqrt{\frac{k}{m}}.
+\]
+
+Para el oscilador armónico cuántico 1D el hamiltoniano y energía son
 \[
 	H = \frac{p^2}{2m} + \frac{m\omega^2 x^2}{2} \qquad E = \hbar \omega \left( n + \frac{1}{2} \right)
 \]
@@ -209,9 +214,10 @@ También puede verse que
 	\vm{x} = \Braket{n|x|n}= 0 \qquad \vm{p} = \Braket{n|p|n}= 0,
 \]
 lo cual difiere de lo que esperaríamos clásicamente. Es más, se tienen también
-\[
+\be
 	x^2 = \frac{\hbar}{2 m \omega}( a^2 + a^{\dagger 2} + aa^\dagger + a^\dagger a )
-\]
+	\label{x2_osc_arm}
+\ee
 y consecuentemente
 \[
 	\Braket{0|x^2|0}= \frac{\hbar}{2 m \omega} \qquad 
@@ -289,6 +295,163 @@ sobre ket y crea sobre bra,
 \[
 	a \Ket{n} = \sqrt{n} \Ket{n-1} \Rightarrow \Bra{n} a^\dagger = \Bra{n-1} \sqrt{n}
 \]
+
+\begin{ejemplo}{\bf Ejercicio 8}
+
+Tiene muchos resultados de la teoría que no repetiré aquí.
+Para evaluar $\Braket{m|\hat{x}|n}$ se lo escribe en términos de $a, a^\dagger$, luego se opera.
+Vemos que $\Braket{m|\hat{x}|n}$ y $\Braket{m|\hat{p}|n}$ no son diagonales en esta base y que
+los elementos diagonales son nulos.
+
+El cálculo de $\Braket{m|\hat{x}^2|n}$ es directo pero engorroso. Se puede ver que usando la
+expresión de $x^2$ en términos de $a, a^\dagger$ dada por la \eqref{x2_osc_arm} se puede ver que
+vale n
+\[
+	\Braket{m|\hat{x}^2|n} = \frac{\hbar }{2 m \omega}
+	\left[ 
+	\sqrt{n(n+1)} \delta_{m,n-2} + \sqrt{(n+1)(n+2)} \delta_{m,n+2} + 2(n+1)\delta_{mn}
+	\right]
+\]
+\[
+	\Braket{m|\hat{p}^2|n} = - \frac{m \hbar \omega }{2}
+	\left[ 
+	-(2n+1) \delta_{mn} + \sqrt{(n+1)(n+2)} \delta_{m,n+2} + \sqrt{n(n-1)}\delta_{m,n-2}
+	\right]
+\]
+
+Entonces tenemos
+\[
+	\Braket{n|\hat{p}^2|n} = \frac{m \hbar \omega }{2} ( 2n + 1 )
+	\qquad 
+	\Braket{n|\hat{x}^2|n} = \frac{\hbar}{2 m \omega} ( 2n + 1 )
+\]
+y con esto se puede verificar el teorema del virial.
+Para autoestados de $H$ se da que 
+\[
+	(\Delta x)^2 = \vm{x^2} - \vm{x}^2, \qquad 
+	(\Delta p)^2 = \vm{p^2} - \vm{p}^2
+\]
+y usando lo obtenido arriba
+\[
+	(\Delta x)^2 (\Delta p)^2 = \frac{\hbar^2}{4}(2n+1)^2 \geq \frac{\hbar^2}{4}
+\]
+y se ve que el signo de igualdad vale para el $n=0$, el fundamental.
+
+La función de onda del fundamental será $\Braket{x'|0}$ y podemos usar que
+\[
+	\Braket{x'|a|0} = \Braket{x'| \left( x + \frac{i}{m\omega} p \right)|0} 
+	\sqrt{\frac{m\omega}{\hbar}} = 0
+\]
+lo que resulta en
+\[
+	x' \Braket{x'| 0} + \frac{\hbar}{m\omega} \dpar{}{x} \Braket{x'|0} = 0,
+\]
+que es una ecuación diferencial para la función de onda 
+cuya solución se puede escribir, definiendo $x_0 \equiv \hbar / (m\omega) $,
+\[
+	\Braket{x|0} = \frac{1}{\hbar^{1/4} \sqrt{x_0}} \euler^{-1/2 (x'/x_0)^2}
+\]
+una gaussiana centrada en el origen.
+
+\includegraphics[width=0.35\textwidth]{images/fig_ft2_osc_arm_gaussiana.jpg}
+
+El siguiente estado lo generamos con el operador de creación,
+\[
+	a^\dagger \Ket{0} = \Ket{1}
+\]
+de manera que en la pic de abajo podemos ver en la primer fila las funciones de
+onda y en la segunda la probabilidad resultante.
+
+\includegraphics[width=0.9\textwidth]{images/fig_ft2_osc_arm_gaussiana_plancha.jpg}
+
+ 
+Veamos ahora la evolución temporal en la representación de Heisenberg. Todos los operadores
+dependen del tiempo, luego
+\[
+	\dtot{p}{t} = -\frac{i}{\hbar}[p,H] = -m \omega^2 x \qquad \qquad 
+	\dtot{x}{t} = -\frac{i}{\hbar}[x,H] = \frac{p}{m}
+\]
+y asimismo,
+\[
+	[p, \frac{p^2}{2m} + \frac{m\omega^2 x^2}{2}] = \frac{m \omega^2}{2} [p,x^2] =
+	\frac{m\omega^2}{2}(-2 i \hbar )
+\]
+
+Es conveniente hacer una transformación canónica $x,p \to a,a^\dagger$, luego
+\[
+	\dtot{a}{t} = - i \omega a \qquad \qquad 
+	\dtot{a^\dagger}{t} =  i \omega a^\dagger
+\]
+siendo el conmutador
+\[
+	[a,H] = \hbar \omega [a,a^\dagger a] = 
+	\hbar\omega ( a^\dagger [ a, a ] + [ a, a^\dagger ] a )
+\]
+con
+\[
+	a(t) = a(0) \euler^{ - i \omega t } \qquad \qquad 
+	a^\dagger(t) = a^\dagger(0) \euler^{ i \omega t }
+\]
+Poniendo $a,a^\dagger$ en términos de $x, p$ con
+\[
+	x(t) + i \frac{p(t)}{m\omega} = 
+	x(0)\euler^{i\omega t} + i \frac{p(0)}{m\omega}\euler^{-i\omega t}
+\]
+\[
+	x(t) - i \frac{p(t)}{m\omega} = 
+	x(0)\euler^{i\omega t} - i \frac{p(0)}{m\omega}\euler^{-i\omega t}
+\]
+y equating ambas
+\[
+	x(t) = x(0)\cos(\omega t) + \frac{p(0)}{m\omega} \sin(\omega t)
+\]
+\[
+	p(t) = - m \omega x(0)\sin(\omega t) + p(0) \cos(\omega t).
+\]
+Esto también se puede calcular con el operador evolución, a través de
+\[
+	x(t) = \euler^{i H / \hbar t} \: x \: \euler^{-i H / \hbar t},
+\]
+aunque es un camino mucho más {\it painful}.
+Facilitamos un poco con el {\bf lema de Baker-Hausdorff} que dice que
+\[
+	\euler^{[iG\lambda]} \hat{A} \euler^{-[iG\lambda]} =
+	\hat{A} + i \lambda [G,A] + \frac{i^2\lambda^2}{2!}[ G, [G,A ] ] + ... +
+	\frac{i^2\lambda^n}{n!} [ G, [ G, [ G, ... [G,A] ] ] ]
+\]
+con $G$ hermítico y $\lambda$ real.
+
+El primer término es $x$ luego se tienen
+\[
+	2) \quad [H, x(0)] = - \frac{ i \hbar p(0) }{ m }
+\]
+\[
+	3) \quad [ H, [ H, x(0) ] ] = [ H, -\frac{i \hbar p(0)}{m} ] =
+	-[H,p(0)]\frac{i\hbar}{m} = \hbar^2 m x(0)
+\]
+\[
+	4) \quad [ H, [ H, [ H,x(0)] ] ] = [ H, -i \hbar^2 x(0) ] = [ H, x(0) ] \hbar^2
+\]
+amasando todo esto se llega a
+\[
+	x(t) = x(0) + \left[ \frac{p(0)}{m} \right] t - \frac{1}{2!}t^2\omega^2 x(0) -
+	\frac{1}{3!} \frac{t^3\omega^2 p(0)}{m} + ...
+\]
+y con un poco de buena vista se pueden identificar en esta serie las expresiones de 
+\[
+	\sin(\omega t) = \sum_{n=0}^\infty \frac{(\omega t)^{2n+1}}{(2n+1)!} (-1)^n
+\]
+\[
+	\cos(\omega t) = \sum_{n=0}^\infty \frac{(\omega t)^{2n}}{(2n)!} (-1)^n
+\]
+ 
+Faltaría ver la evolución de los valores medios $\Braket{n|x(t)|n}=0$ y 
+$\Braket{n|p(t)|n} = 0 $, pero se quedan en cero por ser estacionarios [?].
+Las oscilaciones solamente aparecerán en estados que son combinación lineal de autoestados
+de energía.
+ 
+\end{ejemplo}
+
 
 \subsection{Interferencia en experimento de Young}
 
