@@ -1015,6 +1015,171 @@ La expresión
 \]
 satisface la ecuación de Schrödinger y es una alternativa a la formulación de la cuántica usual.
 
+\begin{ejemplo}{\bf Ejercicio 17}
+
+Se llaman estados coherentes del oscilador armónico a aquellos
+\[
+	\hat{a} \Ket{\lambda} = \lambda \Ket{\lambda},
+\]
+es decir, los autovalores del operador $a$.
+Consideramos
+\[
+	\Ket{\lambda} = \euler^{-|\lambda|^2/2} \euler^{\lambda a^\dagger} \Ket{0}
+\]
+de manera que 
+\[
+	a \Ket{\lambda} = \euler^{-|\lambda|^2/2} a \sum_{k=0}^\infty \Frac{\lambda a^\dagger}{k!}^k \Ket{0}
+\]
+y como $ (a^\dagger)^k \Ket{0} = \sqrt{k!} \Ket{k}$ además de que 
+$ (a^\dagger)^{k-1} \Ket{0} = \sqrt{(k-1)!} \Ket{k-1}$
+entonces se puede ver que finalmente
+\[
+	a \Ket{\lambda} = \euler^{-|\lambda|^2/2} \lambda 
+	\sum_{k=0}^\infty \Frac{\lambda a^\dagger}{K!}^K \Ket{K}
+\]
+o bien
+\[
+	a \Ket{\lambda} = \lambda ( \euler^{-|\lambda|^2/2} \euler^{ \lambda a^\dagger }  \Ket{K})
+\]
+y todo lo entre paréntesis se puede considerar el ket $\Ket{\lambda}$ de manera que
+\notamargen{Corregir porque la potencia $k$ o $K$ no abarca al $k!$ o $K!$.}
+(hemos considerado $ K\equiv k-1$) se ve que
+\[
+	a \Ket{\lambda} = \lambda \Ket{\lambda}
+\]
+es un autoket.
+
+La parte c) requiere
+\[
+	\euler^{- i p \ell / \hbar } \Ket{ 0 }
+\]
+luego
+\[
+	a \euler^{- i p \ell / \hbar } \Ket{ 0 } =
+	a \euler^{ ( a - a^\dagger ) \ell \sqrt{\frac{m\omega}{2\hbar}} } \Ket{ 0 }
+\]
+y como el conmutador para cualquier función de esta diferencia es
+\[
+	[ a, f(a^\dagger -a)] = \dpar{f(a^\dagger -a)}{(a^\dagger -a)}
+\]
+de lo cual se puede deducir que
+\[
+	a \euler^{- i p \ell / \hbar } \Ket{ 0 } =
+	\ell \sqrt{\frac{m\omega}{2\hbar}} \euler^{- i p \ell / \hbar } \Ket{ 0 }.
+\]
+
+La parte b) en cambio 
+\[
+	\Ket{\lambda} = \euler^{- i p \ell / \hbar } \Ket{ 0 }
+\]
+y
+\[
+	\Braket{\psi|x|\psi} = x_0 \qquad \qquad 
+	\Tau (\ell) \Ket{\psi}
+\]
+\[
+	\Braket{ \psi | \Tau^\dagger(\ell) x \Tau (\ell) | \psi } = x_0 + \ell 
+\]
+y considerando una doble integración
+\[
+	\int \int \Braket{\psi|x'}\Braket{ x' | \Tau^\dagger(\ell) x 
+	\Tau (\ell) | x'' }\Braket{x''|\psi} dx' dx''
+\] 
+colapsando la delta en $x''$, se tien
+\[
+	\int dx' (x'+\ell) \Braket{\psi|x'} \Braket{x'|\psi}
+\]
+que se puede dividir para ver que
+\[
+	\Braket{ \psi | x | \psi } + \ell 
+\]
+y entonces el valor medio se desplaza.
+
+En el caso de $p$,
+\[
+	\Braket{ \psi | \Tau^\dagger(\ell) p \Tau (\ell) | \psi } =
+	\Braket{ \psi | \Tau^\dagger(\ell) \Tau (\ell) p | \psi } =
+	\Braket{ \psi | p | \psi }.
+\]
+ 
+\end{ejemplo}
+
+
+\begin{ejemplo}{\bf Ejercicio 19}
+
+Acá consideraremos la evolución de estados coherentes $ a \Ket{\a} = \a \Ket{\a} $.
+Los valros medios del hamiltoniano serán
+\[
+	\vm{H} = \hbar \omega \left( \a^* \a + \frac{1}{2} \right)
+\]
+y se ve que se cumple $ \vm{H} \gg \hbar \omega $ sí y sólo sí $ |\a| \gg 1 $.
+
+Para el operador $p$ se tiene
+\[
+	\vm{p} = \Braket{ \a | \left( \frac{a-a^\dagger}{i} 
+	\sqrt{\frac{\hbar m \omega}{2}} \right) | \a }
+\]
+\[
+	\vm{p} = - i \sqrt{\frac{\hbar m \omega}{2}} (\a - \a^*).
+\]
+
+Para el operador $x$ se tiene
+\[
+	\vm{x} = \sqrt{ \frac{\hbar}{ 2 m \omega } } (\a - \a^*).
+\] 
+
+Luego, para el hamiltoniano se tiene
+\[
+	\frac{1}{2m}\vm{p}^2 + \frac{m\omega^2}{2}\vm{x}^2 = \hbar \omega (\a \a^*)
+\]
+que es aproximadamente $\vm{H}$ si se verifica que $|\a| \gg 1$.
+
+Para la parte b) tenemos
+\[
+	\a = \sum_{n=0}^\infty \Ket{n} \Braket{n|\a}
+\]
+y donde si se usan las expresiones en términos del estado de vacío,
+\[
+	\ket{\a} = \sum_{n=0}^\infty \Ket{n} \frac{\a^n}{\sqrt{n!}} \Braket{0|\a}
+\]
+Luego, procedemos
+\[
+	a \euler^{ i H t } \Ket{\a} = \sum_{n=0}^\infty 
+	\euler^{-i E_n t / \hbar } \sqrt{n} \Ket{n-1} \frac{\a^n}{\sqrt{n!}} \Braket{0|\a}
+\]
+y como
+\[
+	E_n = \hbar \omega ( n + 1/2 )
+\]
+se puede serpara la parte temporal exponencial y resulta
+\[
+	a \euler^{ i H t } \Ket{\a} = 
+	\a \euler^{ - i \omega t } \euler^{ -i H t / \hbar } \Ket{\a}
+\]
+donde 
+\[
+	\ket{ \a } = \sum_{n=1}^\infty \euler^{-iE_{n-1}t/\hbar}\Ket{n-1} 
+	\frac{\a^{n-1}}{\sqrt{(n-1)!}} \Braket{0|\a}
+\]
+y finalmente
+\[
+	\a(t)  = \euler^{-i \omega t} \a(0).
+\]
+
+Entonces, volviendo a los operadores $p$ y $x$ tenemos
+\[
+	\vm{p}(t) = - i \sqrt{\frac{\hbar m \omega}{2}} 
+	\left[ \a(t) - \a^*(t) \right] =
+	\sqrt{\frac{\hbar m \omega}{2}} 2 \text{Im}(\a_0)\sin(\omega t)
+\]
+\[
+	\vm{x}(t) = \sqrt{\frac{\hbar}{ 2 m \omega }} 
+	\left[ \a(t) + \a^*(t) \right] =
+	\sqrt{\frac{\hbar}{2 m \omega }} 2 \text{Re}(\a_0)\cos(\omega t)
+\]
+\end{ejemplo}
+
+
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
