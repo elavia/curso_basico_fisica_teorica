@@ -3,8 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -42,21 +42,31 @@ y
 \[
 	|\vb{v}|^2 = V^t V = (V^t R^t) (R V) \qquad \text{pues} \quad R^tR=RR^t = \mathbb{1}
 \]
-puesto que es una matriz ortogonal. Luego se cumplen 
-\[
-	\text{clausura}	 \qquad (R_1R_2)(R_1R_2)^t = R_1R_2R_2^tR_1^t = \mathbb{1}
+puesto que es una matriz ortogonal.
+Una matriz ortogonal tiene tres parámetros independientes.
+Luego se cumplen 
+\begin{itemize}
+ \item Clausura 
+ \[
+	(R_1R_2)(R_1R_2)^t = R_1R_2R_2^tR_1^t = \mathbb{1}
 \]
-el producto de dos matrices ortogonales es otra matriz ortogonal (aquella que cumple $R^rR=\mathbb{1}$)
+\item El producto de dos matrices ortogonales es otra matriz ortogonal (aquella que cumple $R^rR=\mathbb{1}$).
+Asociatividad
 \[
-	\text{asociatividad} \qquad R_1(R_2R_3) = (R_1R_2)R_3
+	R_1(R_2R_3) = (R_1R_2)R_3
 \]
+\item Existencia de identidad
 \[
-	\exists \; \text{identidad} \qquad R\mathbb{1} = \mathbb{1}R = R
+	R \: \mathbb{1} = \mathbb{1}R = R
 \]
+\item Existencia de inversa
 \[
-	\exists \; \text{inversa} \qquad RR^{-1} = R^{-1}R = \mathbb{1} \qquad \text{con}\; R^{-1}\equiv R^t
+	R \: R^{-1} = R^{-1}R = \mathbb{1} \qquad \text{con}\; R^{-1}\equiv R^t
 \]
+\end{itemize}
+
 Esto define un grupo de matrices ortogonales que realiza rotaciones y se denomina $SO(3)$.
+Las rotaciones son un grupo respecto a la multiplicación.
 
 \subsection{No conmutatividad de las rotaciones clásicas}
 
@@ -85,7 +95,7 @@ Las rotaciones finitas no conmutan. Luego, el grupo de las rotaciones será un g
 
 \begin{figure}[!htb]
 	\begin{center}
-	\includegraphics[width=0.5\textwidth]{images/teo2_10.pdf}
+	\includegraphics[width=0.4\textwidth]{images/teo2_10.pdf}
 	\end{center}
 	\caption{}
 \end{figure} 
@@ -94,21 +104,67 @@ Si reemplazamos $\cos(\epsilon) \approx 1 - \epsilon^2/2$ y $\sin(\epsilon) \app
 Se puede ver que las rotaciones, en torno a ejes diferentes, sólo conmutan a orden uno $(\epsilon)$ de manera 
 que una rotación infinitesimal $d\varphi$ conmuta pero una rotación finita $\varphi$ no lo hace.
 
+En efecto, hasta orden 2 se tienen 
+\[
+	R_z(\epsilon) = \begin{pmatrix}
+	1 - \epsilon^2/2 & - \epsilon  & 0 \\
+	\epsilon & 1 - \epsilon^2/2 & 0 \\
+	0 & 0 & 1
+	\end{pmatrix}
+\]
+\[
+	R_x(\epsilon) = \begin{pmatrix}
+	1 & 0 & 0 \\
+	0 & 1 - \epsilon^2/2 & -\epsilon \\
+	0 & \epsilon & 1 - \epsilon^2/2
+	\end{pmatrix}
+\]
+\[
+	R_y(\epsilon) = \begin{pmatrix}
+	1 - \epsilon^2/2 & 0 & \epsilon \\
+	0 & 1 & 0 \\
+	-\epsilon & 0 & 1 - \epsilon^2/2
+	\end{pmatrix}
+\]
+
+Entonces, se ve que
+\[
+	R_x(\epsilon) R_y(\epsilon) - R_y(\epsilon) R_x(\epsilon) = 
+	\begin{pmatrix}
+	0 & -\epsilon^2  & 0 \\
+	\epsilon^2 & 0 & 0 \\
+	0 & 0 & 0
+	\end{pmatrix}	
+\]
+o bien
+\[
+	[ R_x(\epsilon), R_y(\epsilon) ] =  R_z(\epsilon) - \mathbb{1}
+\]
+
+Como el conmutador es diferente de cero el grupo de las rotaciones es un grupo no abeliano.
+La velocidad angular se define $\d\omega/dt$ de modo que eso justifica que los vectores
+velocidad angular puedan sumarse en mecánica.
+Esto es lo que sucedía en el caso clásico. Veamos ahora qué le pasa a los kets ante rotaciones.
+
 % =================================================================================================
 \section{Rotaciones cuánticas}
 % =================================================================================================
 
-Para las rotaciones cuánticas se pedirá
+Para las rotaciones cuánticas suponemos la existencia de un operador $D_R$ que las realiza, que
+convierte $ \Ket{\a} \to \Ket{\a}_R $ con $ \Ket{\a}_R = D(R) \Ket{\a} $ postulándose una forma del
+tipo 
 \[
 	D(\hat{n},d\phi) = \mathbb{1} - i \frac{\vb{J}\cdot\hat{n}}{\hbar}d\phi,
 \]
-rotación infinitesimal o bien
+para una rotación infinitesimal o bien
 \[
-	D(\hat{n},\theta) = \euler^{-i \vb{J}\cdot\hat{n}/\hbar \theta},
+	D(\hat{n},\theta) = \lim_{N\to\infty} \left( 1 - \frac{i J_z \theta}{\hbar N} \right)^N =
+	\euler^{-i \vb{J}\cdot\hat{n}/\hbar \theta},
 \]
-para rotación finita. Donde $\hat{D}$ es el operador de las rotaciones y $\hat{J}$ es un momento angular 
-general. Se postula de esta forma para que $\hat{D}$ cumpla las mismas propiedades que $R$ y la relación de 
-conmutación
+para rotación finita. 
+$\hat{D}$ es, como se dijo, el operador de las rotaciones y $\hat{J}$ es un momento angular 
+general. Se postula de esta forma para que $\hat{D}$ cumpla las mismas propiedades que $R$ y la 
+misma relación de conmutación (lo cual los hace pertenecer al mismo álgebra)
 \[
 	R_x R_y - R_y R_x = R_z (\epsilon^2) - \mathbb{1}
 \]
@@ -125,11 +181,47 @@ la cual generalizando se llega a
 	[J_i,J_j] = i \hbar \epsilon_{ijk} J_k
 \]
 que son las relaciones de conmutación generales para momento angular $\hat{J}$.
+Esto vale para cualquier rotación, lo cual es más amplio que si es solo $L$, el momento angular.
 
+\begin{ejemplo}{\bf Operador de rotación para partículas de spin 1/2}
+ 
 Para sistemas de spín $1/2$ es 
 \[
 	D(\hat{n},\phi) \equiv \euler^{-i/\hbar \vb{S}\cdot\hat{n} }
+\] 
+El efecto de la rotación se asocia a 
+\[
+	_R\Braket{\a|S_x|\a}_R = \Braket{ \a | \euler^{i S_z \phi /\hbar} 
+	\: S_x \: \euler^{-i S_z \phi /\hbar}  | \a }
 \]
+una cosa que podemos considerar como un operador y los kets fijos en el tiempo.
+La base de autoestados de $S_z$ es 
+\[
+	S_z\Ket{+} = \frac{\hbar}{2}\Ket{+} \qquad \qquad 
+	S_z\Ket{-} = -\frac{\hbar}{2}\Ket{-}
+\]
+los operadores $S_x, S_y, S_z$ tienen sus expresiones usuales y evaluando resulta
+\[
+	D^\dagger \: S_x \: D =
+	\frac{\hbar}{2} 
+	\left[
+	( \KB{+}{-} + \KB{-}{+} ) \cos\phi + i ( \KB{+}{-} - \KB{-}{+}  )\sin \phi 
+	\right]
+\]
+que es como si el vector $S_x$ se transformase como lo haría un vector. En efecto,
+se tiene
+\[
+	S_x \qquad \to \text{rotación} \to \qquad S_x \cos\phi - S_y \sin\phi
+\]
+\[
+	S_y \qquad \to \text{rotación} \to \qquad S_y \cos\phi + S_x \sin\phi
+\]
+pero 
+\[
+	S_z \qquad \to \text{rotación} \to \qquad S_z
+\]
+lo cual se demuestra por conmutación en la expresión del operador.
+ 
 Se puede ver que ante rotaciones cuánticas $D(\hat{n},\phi)$ los valores de expectación transforman como 
 vectores
 \[
@@ -141,7 +233,7 @@ vectores
 \]
 
 En general $\vb{J} = (J_x, J_y, J_z)$ se transforma como vector y entonces $\hat{J}$ es un operador vectorial.
-Para spín $1/2$ es
+Consideremos un estado de un sistema de spín $1/2$,
 \[
 	\Ket{\alpha} = \Braket{+|\alpha}\Ket{+} + \Braket{-|\alpha}\Ket{-}
 \]
@@ -153,7 +245,7 @@ Para spín $1/2$ es
 	D(\hat{z},\phi)\Ket{\alpha} = \Braket{+|\alpha} \euler^{-i\phi/2} \Ket{+} +
 		\euler^{i\phi/2} \Braket{-|\alpha}\Ket{-}
 \]
-Si $\phi=2\pi$ (cosa que debiera dejar al ket incólume) se tiene 
+Haciendo una rotación de $\phi=2\pi$ (cosa que debiera dejar al ket incólume) se tiene 
 \[
 	D(\hat{z},2\pi) \Ket{\alpha} = - \Braket{+|\alpha}\Ket{+} - \Braket{-|\alpha}\Ket{-} = -\Ket{\alpha}
 \]
@@ -161,6 +253,17 @@ Si $\phi=2\pi$ (cosa que debiera dejar al ket incólume) se tiene
 Luego, esto es una muestra del carácter no-clásico del spin; una vuelta completa le cambia el signo al ket 
 pero notemos cuidadosamente que el valor de expectación -- que es algo físico -- no varía. Esto muestra que 
 el ket no puede tener sentido físico.
+
+Se observó en 1975 que el patrón de interferencia se altera con el $-\Ket{\a}$ de manera que tiene 
+importancia ese signo en el ket.
+
+En la picture se esquematiza. Hay necutrones a la izquierda y un campo magnético $\vb B$ delante de la
+parted. Se ve en la interferencia que llega con el signo cambiado; le hacen dar una vuelta completa
+al spin.
+
+\includegraphics[width=0.20\textwidth]{images/fig_ft2_spin12_rotaciones_experimento.jpg}
+
+\end{ejemplo}
 
 \subsection{Angulos de Euler}
 
@@ -172,23 +275,28 @@ lo cual equivale a
 \[
 	R(\alpha,\beta,\gamma) = R_{z'}(\gamma) R_{y'}(\beta) R_{z}(\alpha)
 \]
+\notamargen{Recordemos que en general no se sabe cómo acctúan los operadores sobre un
+estado general sino sobre autoestados.}
 \[
 	\euler^{-i J_{z'}\gamma/\hbar} \euler^{-i J_{y'}\beta/\hbar}  \euler^{-i J_z\alpha/\hbar} 
 	\Ket{\psi}
 \]
 \begin{figure}[!htb]
 	\begin{center}
-	\includegraphics[width=0.5\textwidth]{images/teo2_11.pdf}
+	\includegraphics[width=0.4\textwidth]{images/teo2_11.pdf}
+	\includegraphics[width=0.4\textwidth]{images/fig_ft2_convencion_euler_angles.jpg}
 	\end{center}
 	\caption{Los ángulos de Euler son una caracterización de una rotación general en 3D.}
 \end{figure} 
-Pero desconozco cómo operar en los ejes móviles $z',y'$
+Pero desconozco cómo operar en los ejes móviles $z',y'$ así que buscaré escribir las rotaciones 
+de manera que se pueda hacer la cuenta, refiriéndolas a ejes fijos.
 \[
 	R_{y'}(\beta) = R_{z}(\alpha) R_{y}(\beta) R_{z}^{-1}(\alpha) 
 \]
 \[
 	R_{z'}(\gamma) = R_{y'}(\beta) R_{z}(\gamma) R_{y'}^{-1}(\beta) 
 \]
+siendo estas dos expresiones generales (puede probarse)
 \[
 	R(\alpha,\beta,\gamma) =
 	R_{y'}(\beta) R_{z}(\gamma) \underbrace{R_{y'}^{-1}(\beta)R_{y'}(\beta)}_{\mathbb{1}}R_{z}(\alpha) 
@@ -197,14 +305,14 @@ Pero desconozco cómo operar en los ejes móviles $z',y'$
 	R(\alpha,\beta,\gamma) =
 	R_{z}(\alpha) R_{y}(\beta) R_{z}^{-1}(\alpha) R_{z}(\gamma) R_{z}(\alpha)  
 \]
+donde las que son sobre el mismo eje conmutan y entonces,
 \[
-	R(\alpha,\beta,\gamma) = R_{z}(\alpha) R_{y}(\beta) R_{z}(\gamma)
+	R(\alpha,\beta,\gamma) = R_{z}(\alpha) R_{y}(\beta) R_{z}(\gamma).
 \]
 Rotación equivalente a [1] pero para ejes fijos, puesto que en mecánica cuántica sabemos rotar en torno a 
 ejes fijos.
 
 Los ángulos de Euler son la caracterización de una rotación general en 3D.
-
 Entonces nuestra rotación en 3D cuántica será:
 \[
 	D(\alpha,\beta,\gamma) = D_z(\alpha) D_y(\beta) D_z(\gamma)  =
