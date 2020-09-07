@@ -159,7 +159,7 @@ tipo
 para una rotación infinitesimal o bien
 \[
 	D(\hat{n},\theta) = \lim_{N\to\infty} \left( 1 - \frac{i J_z \theta}{\hbar N} \right)^N =
-	\euler^{-i \vb{J}\cdot\hat{n}/\hbar \theta},
+	\euler^{-i \vb{J}\cdot\hat{n} \theta / \hbar },
 \]
 para rotación finita. 
 $\hat{D}$ es, como se dijo, el operador de las rotaciones y $\hat{J}$ es un momento angular 
@@ -177,9 +177,10 @@ de modo que la cuenta lleva a
 	J_x J_y - J_y J_x = i \hbar J_z
 \]
 la cual generalizando se llega a 
-\[
+\be
 	[J_i,J_j] = i \hbar \epsilon_{ijk} J_k
-\]
+	\label{conmutacion_J}
+\ee
 que son las relaciones de conmutación generales para momento angular $\hat{J}$.
 Esto vale para cualquier rotación, lo cual es más amplio que si es solo $L$, el momento angular.
 
@@ -319,17 +320,24 @@ Entonces nuestra rotación en 3D cuántica será:
 	\euler^{-i J_z\alpha/\hbar} \euler^{-i J_y\beta/\hbar} \euler^{-i J_z\gamma/\hbar}
 \]
 
+La ley de clausura no era tan obvia (el hecho de pedirla) [cuál es?].
+No es una trivialidad como sí podrían serlo las otras tres propiedades.
+
+El hecho de que si $R_1 R_2 = R_3$ se pasaba a los operadores $D$, de acuerdo con $ D(R_1) D(R_2) = D(R_3)$ 
+solamente si los operadores $J$ verificaban la relación de conmutación dada por la Ec. \eqref{conmutacion_J}.
+La información contenida en dicha relación proporciona todo lo necesario acerca del sistema.
+
 \subsection{Autoestados y autovalores de J}
 
 Partimos de 
 \[
 	[J_i, J_j] =  i\hbar \epsilon_{ijR}J_R
 \]
-y
+y tomamos $ J^2 = J^2_x + J^2_y + J^2_z $ aprovechando que 
 \[
-	J^2 = J^2_x + J^2_y + J^2_z, \qquad  [J^2,J] = 0
+	[J^2,J] = 0,
 \]
-siendo la última muy importante y probándose por evaluación directa. Lleva a 
+siendo esto último muy importante y probándose por evaluación directa. Lleva a 
 \[
 	[J^2,J_i^n] = 0 \qquad \text{con} \; i=x,y,z \;\; n\in\mathbb{N}
 \]
@@ -348,7 +356,7 @@ que verifican
 \[
 	[ J_+, J_- ] = 2\hbar J_z \qquad [ J_z, J_\pm]= \pm \hbar J_{\pm} \qquad [J_{\pm}, J^2 ] = 0
 \]
-Entonces se tiene 
+Entonces, queremos ver quiénes son $a, b$. Haciendo operar, se tiene
 \[
 	J^2( J_\pm \Ket{a,b}) = J_\pm J^2 \Ket{a,b} = a J_\pm \Ket{a,b} \longrightarrow 
 		J_\pm \Ket{a,b} = \Box \Ket{a,b}
@@ -366,7 +374,13 @@ Entonces se tiene
 \[
 	J_+\Ket{a,b} = c_+\Ket{a,b+\hbar} \;\qquad\; J_-\Ket{a,b} =  c_- \Ket{a,b-\hbar}
 \]
-sube el $J_z$ en una unidad de $\hbar$ o bien baja el $J_z$ en una unidad de $\hbar$.
+de manera que $J_+$ sube el $J_z$ en una unidad de $\hbar$ y $J_-$ baja el $J_z$ en una unidad de $\hbar$.
+Entonces,
+\[
+	J_\pm \Ket{a,b} = C_\pm \Ket{a,b\pm\hbar}
+\]
+donde $C_\pm$ es una constante de normalización. Para averiguarla tenemos que tomar $(J_+)^* = J_-$.
+Empecemos
 \[
 	J_+J_- = J_x^2 + iJ_yJ_x - iJ_xJ_y + J_y^2 , \qquad J_-J_+ = J_x^2 - iJ_yJ_x + iJ_xJ_y + J_y^2
 \]
@@ -384,15 +398,17 @@ sube el $J_z$ en una unidad de $\hbar$ o bien baja el $J_z$ en una unidad de $\h
 \[
 	(a-b^2)\Braket{a,b|a,b} = |J_+^\dagger\Ket{a,b}|^2 \geq 0, \qquad \Rightarrow a \geq b^2
 \]
-hay cota para $b$.
+Esto significa que hay cota máxima para $b$.
+Como 
 \[
-	J_+ \Ket{a,b_M} = 0
+	J_+ \Ket{a,b_M} = 0,
 \]
-Como no puede seguir subiendo debe dar el ket nulo 
+debe dar el ket nulo puesto que no se puede seguir subiendo. No sé qué le hace al ket la
+siguiente combinación de operadores
 \[
 	J_-J_+ \Ket{a,b_M} = 0
 \]
-pero
+pero se puede evaluar del siguiente modo;
 \[
 	J_-J_+ = J^2_x + J^2_y + i[J_x, J_y]  = J^2 - J^2_z - \hbar J_z
 \]
@@ -428,10 +444,11 @@ Entonces
 	-b_m = b_M  \qquad \Rightarrow \qquad -b_M \leq b \leq b_M
 \]
 
-Luego,
+Luego, para valor $a$ fijo 
 \[
 	\Ket{a,b_m} \longrightarrow \Ket{a,b_M}
 \]
+\notamargen{Puede llegar desde uno a otro con $J_+$.}
 y como $J_+$ sube de a un $\hbar$ será
 \[
 	b_M = b_m + n\hbar
@@ -453,21 +470,26 @@ pero como $b/\hbar = m$
 \[
 	m = (-j,-j+1,-j+2,...,j-1,j) \qquad 2j+1 \text{valores de} \; m
 \]
+esta es la degeneración del estado $L^2$. En resumen
 \[
-	J^2 \Ket{j,m} = j( j+1 )\hbar^2\Ket{j,m} \qquad J_z \Ket{j,m} = m \hbar \Ket{j,m}
+	J^2 \Ket{j,m} = j( j+1 )\hbar^2\Ket{j,m} \qquad J_z \Ket{j,m} = m \hbar \Ket{j,m},
 \]
+todo lo cual salió de la relación de conmutación.
 
 \subsection{La normalización de $J_\pm$}
 
+Nos falta aún la normalización.
 \[
 	J_+\Ket{j,m} = c_+ \Ket{j,m+1} \qquad \qquad J_-^\dagger = J_+
 \]
+Usando la ortonormalidad de los estados se ve que
 \[
 	\Braket{j,m|J_-J_+|j,m} = \Braket{j,m|J_+^\dagger J_+|j,m} = |c_+|^2
 \]
 \[
 	\Braket{j,m|J^2 - J_z^2 - \hbar J_z|j,m} = j(j+1)\hbar^2 - m^2\hbar^2 -\hbar^2 m = |c_+|^2
 \]
+y como puedo fijar la fase en la unidad, se tiene
 \[
 	c_+ = \hbar\sqrt{j(j+1)-m(m+1)} = \hbar \sqrt{(j-m)(j+m+1)}
 \]
@@ -480,19 +502,42 @@ pero como $b/\hbar = m$
 \[
 	c_- = \hbar\sqrt{j(j+1)-m(m-1)} = \hbar \sqrt{(j+m)(j-m+1)}
 \]
+Finalmente, se tienen
 \[
-	J_+ \Ket{j,m} = \hbar \sqrt{(j-m)(j+m+1)}\Ket{j,m+1} \qquad 
-	J_- \Ket{j,m} = \hbar \sqrt{(j+m)(j-m+1)}\Ket{j,m-1}
+	J_+ \Ket{j,m} = \hbar \sqrt{(j-m)(j+m+1)}\Ket{j,m+1}
+\]
+y
+\[
+	J_- \Ket{j,m} = \hbar \sqrt{(j+m)(j-m+1)}\Ket{j,m-1} 
 \]
 
-\subsection{Elementos de matriz de $J^2, J_z, J_+$}
+Se ve que los estados más bajos o más altos se aniquilan
+\[
+	J_- \Ket{j,-j} = 0 \qquad \qquad J_+ \Ket{j,j} = 0
+\]
 
-Asumiendo normalización de $\Ket{j,m}$ se tiene 
+Los elementos de matriz de $J^2, J_z, J_+$ serán, si se asume normalización de $\Ket{j,m}$, 
 \[
 	\Braket{j',m'|J^2|j,m} = j(j+1)\hbar^2 \delta_{jj'} \delta_{m' m}
 \]
 \[
 	\Braket{j',m'|J_z|j,m} = m \hbar \delta_{jj'} \delta_{m' m}
+\]
+
+Y además
+\[
+	\Braket{j',m'|J_\pm|j,m} = \sqrt{(j\mp m)(j \pm m +1)} \hbar \delta_{jj'} \delta_{m',m \pm 1}
+\]
+que no es diagonal, aunque por poco. Los $\Ket{j',m'}$ no son autoestados de $J_\pm$.
+
+En el subespacio angular de $j,m$ vale la completitud
+\[
+	\sum_j \sum_{m=-j}^j \: \KB{j,m}{j,m} = \mathbb{1},
+\]
+pero para especificar bien el estado necesito de ciertos sistemas un número más, mínimamente, que
+es el de la energía
+\[
+	\sum_k \sum_j \sum_{m=-j}^j \: \KB{k,j,m}{k,j,m} = \mathbb{1}.
 \]
 
 \subsection{Elementos de matriz de $\mathcal{D}(R)$}
@@ -502,6 +547,7 @@ Ahora queremos ver cual es la forma de los elementos de matriz de $\mathcal{D}(R
 	\mathcal{D}(R) = \euler^{i \vb{J}\cdot\vec{n}\phi/\hbar}
 \]
 siendo que $\mathcal{D}(R)$ tiene por efecto rotar el sistema físico.
+Cuando $\nver = \zver $ es fácil, pero en caso contrario no sabemos cómo opera.
 Lo primero que hay que notar es que 
 \[
 	\Braket{j',m'|\mathcal{D}(R)|j,m}  \propto \delta_{jj'}
@@ -524,8 +570,13 @@ pero las rotaciones no cambian el $j$, $\mathcal{D}(R)$ conecta estados con la m
 \[
 	\mathcal{D}(R)\Ket{j,m} = \sum_{m'} \mathcal{D}^{(j)}_{m' m}(R) \Ket{j,m'} 
 \]
+donde $\mathcal{D}^{(j)}_{m' m}(R)$ son las funciones de Wigner.
 
-La matriz de $\mathcal{D}(R)$ (no caracterizada por un único $j$) puede ponerse en forma diagonal por bloques:
+La matriz de $\mathcal{D}(R)$ (no caracterizada por un único $j$) puede ponerse en forma diagonal por bloques,
+lo cual surge de considerar la aplicación sobre $ \a \Ket{j,m} + \b \Ket{j,m'} $
+\[
+	\mathcal{D}_{(R)}\Ket{\gamma} = \a \Ket{j_1,m_1} + \b \Ket{j_2,m_2}
+\]
 \[
 \begin{matrix} \qquad j' \quad j'' \quad j''' \end{matrix}
 \]
@@ -537,13 +588,18 @@ La matriz de $\mathcal{D}(R)$ (no caracterizada por un único $j$) puede ponerse
 	\; & & & \vdots
 	\end{pmatrix} \begin{matrix} j' \\ j'' \\ j'''\\ \\ \end{matrix}
 \]
-con cada bloque de $(2j+1)\times(2j+1)$ , pero siendo cada bloque irreducible. Las matrices de rotación con 
-$j$ fijo forman un grupo. $\mathcal{D}_{m'm}^{(j)}(R)$ son los elementillos de la matriz.
+con cada bloque de $(2j_q+1)\times(2j_q+1)$ con $q=1,2,..$, pero siendo cada bloque irreducible. 
+Cada bloque es un grupo; en efecto, las matrices de rotación con $j$ fijo forman un grupo. 
+$\mathcal{D}_{m'm}^{(j)}(R)$ son los elementillos de la matriz.
 \[
 	\Ket{j,m} \underbrace{\longrightarrow}_{\text{Rotación}} \mathcal{D}(R)\Ket{j,m} =
 	 \sum_{m'} \mathcal{D}^{(j)}_{m' m}(R) \Ket{j,m'} 
 \]
-donde el $\mathcal{D}^{(j)}_{m' m}(R)$ es la amplitud de hallar al $\Ket{j,m}$ rotado en $\Ket{j,m'}$
+donde el $\mathcal{D}^{(j)}_{m' m}(R)$ es la amplitud de hallar al $\Ket{j,m}$ rotado en $\Ket{j,m'}$.
+La matriz lo que hace es hacer que varíen las proyecciones del ket sobre la base, pero conservando
+el valor de $j$.
+
+\notamargen{Hay un dibujito pedorro en la carpeta P37.}
 
 \subsection{Forma explícita del operador $\mathcal{D}(R)$}
 
@@ -552,12 +608,14 @@ Los ángulos de Euler permitieron caracterizar la rotación más general. Entonc
 	\mathcal{D}^{(j)}_{m' m} = 
 	\Braket{j,m'|\euler^{-iJ_z\alpha/\hbar} \euler^{-iJ_y\beta/\hbar} \euler^{-iJ_z\gamma/\hbar} |j,m}
 \]
+donde acá sabemos qué es lo que hacen los que están a los lados, porque ya lo calculamos, y
+entonces
 \[
 	\mathcal{D}^{(j)}_{m' m} = \euler^{-i(-m'\alpha + m\gamma)}
 	\underbrace{\Braket{j,m'| \euler^{-iJ_y\beta/\hbar}  |j,m}}_{d_{m'm}^{(j)}}
 \]
 siendo el primer factor una fase.
-En los $d_{m'm}^{(j)}$ está la dificultad de la cuenta.
+En los $d_{m'm}^{(j)}$, que son un subconjunto de las funciones de Wigner, está la dificultad de la cuenta.
 
 % =================================================================================================
 \section{Formalismo de spinores de Pauli}
