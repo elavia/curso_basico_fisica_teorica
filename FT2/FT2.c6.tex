@@ -162,6 +162,27 @@ para una rotación infinitesimal o bien
 	\euler^{-i \vb{J}\cdot\hat{n} \theta / \hbar },
 \]
 para rotación finita. 
+
+Otro modo de ver esto, es considerando 
+\[
+	D_R(\nver,\theta + d\theta) = D_R(\nver,\theta) D_R(\nver,d\theta) 
+	= D_R(\nver,\theta) \left[ \mathbb{1} - \frac{i}{\hbar} d\theta \: \pe{J}{\nver}\right]
+\]
+de modo que
+\[
+	\frac{ D_R(\nver,\theta + d\theta) -D_R(\nver,\theta) }{d\theta} = 
+	\frac{i}{\hbar} \:\pe{J}{\nver} D_R(\nver,\theta) 
+\]
+lo que conduce a
+\[
+	\dpar{}{\theta} D_R(\nver,\theta) = - \frac{i}{\hbar} \:\pe{J}{\nver} \: D_R(\nver,\theta)
+\]
+y, usando la condición de contorno de que $D_R(\nver,0) = \mathbb{1}$ se tiene
+\[
+	D_R(\nver,\theta) = \euler^{-i /\hbar \: \theta (\pe{J}{\nver}) },
+\]
+junto con la relación de conmutación $ [J_i, J_j] = i \hbar \epsilon_{ijk} J_k $.
+
 $\hat{D}$ es, como se dijo, el operador de las rotaciones y $\hat{J}$ es un momento angular 
 general. Se postula de esta forma para que $\hat{D}$ cumpla las mismas propiedades que $R$ y la 
 misma relación de conmutación (lo cual los hace pertenecer al mismo álgebra)
@@ -326,6 +347,129 @@ No es una trivialidad como sí podrían serlo las otras tres propiedades.
 El hecho de que si $R_1 R_2 = R_3$ se pasaba a los operadores $D$, de acuerdo con $ D(R_1) D(R_2) = D(R_3)$ 
 solamente si los operadores $J$ verificaban la relación de conmutación dada por la Ec. \eqref{conmutacion_J}.
 La información contenida en dicha relación proporciona todo lo necesario acerca del sistema.
+
+\begin{ejemplo}{\bf Ejercicio 7}
+ 
+Consideramos 
+\[
+	\Ket{a}_R = \euler^{ - i /\hbar \: S_z \vp } \Ket{\a}
+\]
+y se pide el valor medio $\vm{S_x}_R$ que será
+\[
+	_R\Braket{\a|S_x|\a}_R = \Bra{\a} \euler^{i /\hbar \: S_z \vp } \:
+		S_x \: \euler^{-i /\hbar \: S_z \vp } \Ket{\a}
+\]
+y podemos usar la expresión de $S_x$ de la guía primera con lo cual, operando,
+resulta
+\[
+	\vm{S_x}_R = \frac{\hbar}{2}
+	\Bra{\a}
+	\left( \cos\vp (\KB{+}{-} + \KB{-}{+}) + i \sin\vp (\KB{+}{-} - \KB{-}{+}) \right)
+	\Ket{\a}
+\]
+o bien
+\[
+	\vm{S_x}_R = \vm{S_x} \cos\vp - \vm{S_y} \sin\vp
+\]
+y vemos que el valor medio del estado rotado es proyección de los valores medios
+de los estados no rotados.
+
+La parte b) fija el ángulo de la rotación en $\vp=2\pi$, luego
+\[
+	\Ket{\a}_R = \euler^{-i/\hbar \: 2\pi S_z} \Ket{\a}
+\]
+y, incorporando una constante de normalización $c$, se tiene
+\[
+	\euler^{-i/\hbar \: 2\pi S_z} c ( a \Ket{+} + b \Ket{-} ) =
+	c ( \euler^{-i\pi} a \Ket{+} + \euler^{i\pi} b \Ket{-} ) = - \Ket{\a}
+\]
+y entonces vemos que rotar en $2\pi$ ha hecho aparece un signo menos.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 8}
+
+La parte a) está hecha en el libro de Sakurai.
+La parte b) pide
+\[
+	\euler^{-i/\hbar \: \pe{S}{\nver} \: \phi } =
+	\sum_{n=0}^\infty \: \frac{(-i)^n}{n!} \phi^2 \Frac{1}{2}^n (\vb{\sigma}\cdot\nver)^n
+\]
+donde 
+\[
+	\pe{S}{\nver} = \frac{\hbar}{2} \vb{\sigma}\cdot\nver
+\]
+y uso representación $+ -$. Se tiene
+\[
+	\sum_{n=0}^\infty \: \frac{(-i)^n}{n!} \Frac{\phi}{2}^n (\vb{\sigma}\cdot\nver)^n
+\]
+que con $n=0$ da $\vb{\sigma}\cdot\nver=1$ y con $n=1 $ ya tenemos el producto escalar entre
+$\vb{\sigma}$ y $\nver$. Con $n=2$ es
+\[
+	( \sigma\cdot a )( \sigma\cdot b ) = ab + i \sigma(a\times b)
+\]
+y con $n=3$ es similar a $n=1$ mientras que $n=4$ es similar a $n=2$. Vemos que
+\[
+	\vb{\sigma}\cdot\nver = \begin{cases}
+		1		& \text{ par } \\
+		\boldmath{\sigma}\cdot n & \text{ impar}
+	\end{cases}
+\]
+
+Entonces, la sumatoria puede dividirse en dos
+\[
+	\sum_{n=0}^\infty \: \frac{(-i)^{2n}}{(2n)!} \Frac{\phi}{2}^{2n} +
+	\sum_{n=0}^\infty \: \frac{(-i)^{2n+1}}{(2n+1)!} \Frac{\phi}{2}^n (\vb{\sigma}\cdot\nver)
+\]
+que da
+\be
+	\mathbb{1} \cos\Frac{\phi}{2} - i \: \sin\Frac{\phi}{2} ( \vb{\sigma}\cdot\nver ).
+	\label{expr_rotacion}
+\ee
+
+Finalmente, el operador de rotación en la representación $\Ket{+}, \Ket{-}$ es
+\[
+	D(\nver,\phi) = 
+	\begin{pmatrix}
+	\cos\Frac{\phi}{2} - i \sin\Frac{\phi}{2} n_z	&  -( n_y + i n_x) \sin\Frac{\phi}{2} \\
+			\\
+	( n_y - i n_x) \sin\Frac{\phi}{2} &  \cos\Frac{\phi}{2} + i \sin\Frac{\phi}{2} n_z \\
+	\end{pmatrix}
+\]
+
+La parte d) involucra primeramente una rotación alrededor de $\yver$ en $\beta$ (lo saco
+de $\zver$) y en segundo lugar una rotación alrededor de $\zver$ en $\a$.
+Recordemos que las rotaciones no conmutan.
+
+Entonces, usando las expresiones anteriores de la rotación \eqref{expr_rotacion} resulta
+\[
+	D_R(z,\a) D_R(y,\b) \Ket{+} = 
+	\cos\Frac{\b}{2} \Ket{+} + \euler^{i\a} : \sin\Frac{\b}{2}  \Ket{-}.
+\]
+
+\notamargen{Si roto primero en $\zver$ no lo saco en $z$ y no sirve a los efectos.
+Esto por la no conmutatividad.}
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 2}
+
+La parte a) son cuentas fáciles (de las que le hubieran gustado a Piuselli).
+
+La parte b) implica
+\[
+	U = \frac{ a_0 + i \vb{\sigma}\cdot\vb{a} }{ a_0 - i \vb{\sigma}\cdot\vb{a} }
+	= \frac{ (a_0 + i \vb{\sigma}\cdot\vb{a})^2 }{ a_0^2 + |\vb{a}|^2 }
+\]
+donde hemos multiplicado arriba y abajo por el factor $a_0 + i \vb{\sigma}\cdot\vb{a}$ .
+Entonces, expandiendo el cuadrado 
+\[
+	U = (a_0^2 - |\vb{a}|^2) 
+	\frac{ \mathbb{1} + 2 i a_0 (\vb{\sigma}\cdot\vb{a})}{a_0^2 + |\vb{a}|^2}
+\]
+y las relaciones que se piden salen desde aquí.
+ 
+\end{ejemplo}
 
 \subsection{Autoestados y autovalores de J}
 
