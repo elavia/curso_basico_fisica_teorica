@@ -659,6 +659,7 @@ Se ve que los estados más bajos o más altos se aniquilan
 \[
 	J_- \Ket{j,-j} = 0 \qquad \qquad J_+ \Ket{j,j} = 0
 \]
+\notamargen{Los $J_+, J_-$ no mezclan estados con diferente $j$.}
 
 Los elementos de matriz de $J^2, J_z, J_+$ serán, si se asume normalización de $\Ket{j,m}$, 
 \[
@@ -1028,7 +1029,7 @@ de manera que
 \]
 Este resultado es intuitivamente lógico.
 
-\subsection{Rotaciones en sistemas con $j=1$}
+\subsection{Rotaciones en sistemas con $j=1$}\label{RotacionesJ1}
 
 Queremos hacer la transformación 
 \[
@@ -1145,6 +1146,248 @@ acá lo vemos como operador (es notación), $d_{m'm}^{j=1}(\beta)$ simboliza la 
 \cos(\beta) )
 	\end{pmatrix} \begin{matrix} \Ket{1\;1} \\ \\ \Ket{1\;0} \\ \\ \Ket{1\;-\kern-1mm 1} \end{matrix}
 \]
+
+\begin{ejemplo}{\bf Optativos}
+ 
+Los ejercicios 10,11,12 (matriz densidad) son de carácter optativo. Tengo asociado a Sakurai 3.4.
+Ejercicios 1,20-21 pasan a guía 4.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 13}
+
+Como $J_z\Ket{\psi} = m \hbar \Ket{\psi}$ se sigue que $\Ket{\psi}= \Ket{j,m}$ luego
+\[
+	\vm{J_x}_{\psi} = \vm{J_y}_{\psi} = 0
+\]
+donde cada uno de estos operadores es una combinación lineal de $J_+$ y $J_-$. Luego es 
+$\vm{\vb{J}\cdot\nver}_{\psi}$ lleva a 
+\[
+	\vb{J}\cdot( n_x, n_y, n_z) = \vm{J_x} n_x + \vm{J_y} n_y + \vm{J_z} n_z,
+\]
+de los cuales los dos primeros son nulos mientras que el último es
+\[
+	\vm{\vb{J}\cdot\nver}_{\psi} =
+	\vm{J_z}_{\psi} \cos\b = \Braket{j,m|J_z|j,m}\cos\b  
+\]
+de modo que $\vm{\vb{J}\cdot\nver}_{\psi} = m \hbar \cos\b$.
+
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 14}
+
+Hay que construir matrices $L^2, L_x, L_y, L_z$ y donde los estados posibles son el conjunto
+$\{ \Ket{1,1}, \Ket{1,0}, \Ket{1,-1} \}$ cuya equivalencia con los vectores 3D usuales es la
+dada en la sección \ref{RotacionesJ1} intercambiando el primero con el último.
+Utilizando el orden $\{ \Ket{1,-1}, \Ket{1,1}, \Ket{1,0} \}$ la matriz es
+\[
+	L_y = \frac{\hbar}{2} \begin{pmatrix}
+		0  & i  & 0 \\
+		-i & 0  & i \\
+		0  & -i & 0 
+	      \end{pmatrix}
+\]
+
+Para la parte a) tenemos que usando la base $\{ \Ket{\ell,m_y} \}$ de autoestados de $L^2$ y 
+$L_y$ se tienen
+\[
+	m_y = 0 \qquad \Ket{1,0}_y = 
+	\frac{1}{\sqrt{2}} \left( \Ket{1,-1}_z + \Ket{1,1}_z \right)
+\]
+\[
+	m_y = \hbar \qquad \Ket{1,1}_y = 
+	\frac{1}{\sqrt{2}} \left( \frac{i}{\sqrt{2}} \Ket{1,-1}_z 
+	\Ket{1,0}_z - \frac{i}{\sqrt{2}}  \Ket{1,1}_z \right)
+\]
+\[
+	m_y = -\hbar \qquad \Ket{1,-1}_y = 
+	\frac{1}{\sqrt{2}} \left( -\frac{i}{\sqrt{2}} \Ket{1,-1}_z 
+	\Ket{1,0}_z + \frac{i}{\sqrt{2}}  \Ket{1,1}_z \right)
+\]
+
+La matriz $S_y$ puede diagonalizarse entonces.
+
+La parte b) utiliza el estado
+\[
+	\Ket{\psi} = \frac{1}{\sqrt{2}} \left( \Ket{1,1}_z - \Ket{1,-1}_z \right)
+\]
+y queremos ver las probabilidades $P$ de los diferentes estados, donde $\psi$ estará escrita en
+la base de $L_z$,
+\[
+	P(m_y=0) = |\Braket{1,0|\psi}|^2 =
+	\left| \frac{1}{\sqrt{2}} \left( \Bra{1,-1}_z + \Bra{1,1}_z \right) 
+	\frac{1}{\sqrt{2}} \left( \Ket{1,1}_z - \Ket{1,-1}_z \right) \right|^2 = 0
+\]
+en cambio serán
+\[
+	P(m_y=\bar) = \left| \frac{i}{2\sqrt{2}} + \frac{i}{2\sqrt{2}} \right|^2 = \frac{1}{2}
+	\qquad 
+	P(m_y=-\bar) = \left| \frac{i}{2\sqrt{2}} + \frac{i}{2\sqrt{2}} \right|^2 = \frac{1}{2}
+\]
+de lo cual deducimos que $m_y = 0$ no se puede medir nunca y que los otros valores $m_y=\hbar$ y
+$m_y =-\hbar$ tienen probabilidad $1/2$ cada uno.
+
+La parte c) involucra el siguiente esquemita
+\[
+	L_z \longrightarrow \hbar \Longrightarrow L_y \longrightarrow \text{ ¿? }
+\]
+donde las líneas simples implican un proceso de medición.
+Tenemos 
+\[
+	P(m_z=\hbar) = | \Braket{1,1|\psi} |^2 = \frac{1}{2}
+\]
+y luego de la medición se tiene $\Ket{\psi} = \Ket{1,1}_z$ donde enfatizamos que el ket $\psi$
+es luego de medir.
+
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 15 y 16}
+
+El 15 involucra que el operador rota en $\yver$ el estado
+\[
+	\Ket{j,j} \longrightarrow \text{ rotado } \euler^{-i J_y/\hbar \varepsilon} \Ket{j,j}
+\]
+y tenemos los elementillos de matriz $d^{(j)}_{m'm}$.
+
+Para el 16 conviene utilizar las relaciones
+\[
+	\sum_i \varepsilon_{ijk} \varepsilon_{irs} = \delta_{jr} \delta_{ks} - \delta_{js} \delta_{kr}
+	\qquad \qquad 
+	\sum_i \varepsilon_{ijk} \varepsilon_{ijl} = 2 \delta_{kl}
+\]
+ 
+\end{ejemplo}
+
+\subsection{Teleportación. Tópico para entretener}
+
+Tenemos dos sistemas que serán identificados como Alicia y Roberto (castellanizaciones del típico
+para Alice and Bob) de manera que Alicia está caracterizada por
+\[
+	\Ket{\psi} = \a \Ket{0} + \b \Ket{1}
+\]
+y necesita enviarle información de su estado $\Ket{\psi}$ a Roberto.
+$\Ket{\psi}$ es un ket desconocido, pero si mido afecta al sistema.
+Consideremos dos sistemas compuestos donde la partícula que pertenece a $\mathcal{H}_A$ que está
+representada por el conjunto $\{ \Ket{\phi_i}_A \}$ mientras que la partícula que pertenece a
+$\mathcal{H}_B$ está representada por el conjunto $\{ \Ket{\psi_i}_B \}$
+
+Tomamos el espacio de Hilbert total que corresponde al producto tensorial $\mathcal{H} =
+\mathcal{H}_A \times \mathcal{H}_B $ siendo la base de este espacio 
+$ \{ \Ket{\phi_i}_A \otimes \Ket{\psi_j}_B \} $.
+
+Luego aplicamos a sistemas $S=1/2$ de manera que escribimos explícitamente
+\[
+	\mathcal{H}_A = \{ \Ket{+}_A, \Ket{-}_A \} \qquad \qquad 
+	\mathcal{H}_B = \{ \Ket{+}_B, \Ket{-}_B \}
+\]
+y el espacio de Hilbert total tiene los productos
+\[
+	\mathcal{H} = \{ \Ket{+}_A \otimes \Ket{+}_B, \Ket{+}_A \otimes \Ket{-}_B,
+	\Ket{-}_A \otimes \Ket{+}_B, \Ket{-}_A \otimes \Ket{-}_B \}
+\]
+para los cuales usaremos la notación
+\[
+	\mathcal{H} = \{ \Ket{++}, \Ket{+-},\Ket{-+}, \Ket{--} \}
+\]
+siendo su dimensión de $2\times 2 =4$
+
+\begin{ejemplo}{\bf Propiedades del $\otimes$}
+
+Si $V,W$ son espacios de Hilbert y $\Ket{v} \in V, \Ket{w}  \in W$ se tiene
+\[
+	i) \; z(\Ket{v}\otimes\Ket{w}) = z\Ket{v}\otimes\Ket{w} = \Ket{v}\otimes z \Ket{w}
+\]
+\[
+	ii) \; \Frac{ \Ket{v_1} + \Ket{v_2} }{\sqrt{2}} \otimes \Ket{w} =
+	\frac{1}{\sqrt{2}} \left( \Ket{v_1} \otimes \Ket{w} + 
+	\Ket{v_2} \otimes \Ket{w} \right)
+\]
+Siendo el producto tensorial entre $A$ y $B$ un operador
+\[
+	(A \otimes B)( \Ket{v}_1 + \Ket{w}_2 )  = A \Ket{v}_1 \otimes B \Ket{w}_2
+\]
+\[
+	X_1 \equiv X_1 \otimes \mathbb{1}_2
+\]
+
+\end{ejemplo}
+
+Un estado general de $\mathcal{H}$ puede escribirse como combinación lineal de la base de este
+espacio de acuerdo con
+\[
+	\Ket{\phi_+} = \frac{1}{\sqrt{2}} \left( \Ket{++} + \Ket{--} \right)
+\]
+pero no se puede escribir como $\otimes$.
+Medir en un sistema (la primer partícula) es algo de la forma
+\[
+	P = \KB{+}{+} \otimes \mathbb{1},
+\]
+donde vemos que no hace nada sobre la segunda partícula.
+Si tengo partículas interactuantes y envío una quedándome con la otra, al medir sobre la mía
+estoy seguro que la que mandé estará en el mismo estado.
+
+Llegamos al concepto de {\it estados entrelazados} ({\it entangled states}), que son aquellos que
+no pueden esciribrse como producto tensorial $\otimes$. Algo de la pinta
+\[
+	\frac{1}{\sqrt{2}}( \Ket{+-} + \Ket{++} ) = 
+	\Ket{+} \otimes \frac{\Ket{+} + \Ket{-}}{\sqrt{2}}
+\]
+será un estados no entrelazado. Los estados entrelazados están correlacionados pues medir uno
+afecta al otro.
+
+En la base de $\mathcal{H}$ dada podemos hacer un cambio de base como
+\[
+	\{ \Ket{\phi_+}, \Ket{\phi_-}, \Ket{\psi_+}, \Ket{\psi_-} \}
+\]
+que es la base de Bell, entonces
+\[
+	\Ket{\phi_\pm} = \frac{1}{\sqrt{2}}( \Ket{++} \pm \Ket{--} ) 
+	\qquad \qquad 
+	\Ket{\psi_\pm} = \frac{1}{\sqrt{2}}( \Ket{+-} \pm \Ket{-+} )
+\]
+son cuatro estados entrelazados ortogonales que generan $\mathcal{H}$.
+
+La base son autoestados de $\mathbb{1} \otimes \sigma_z, \sigma_z \otimes \mathbb{1}$ que serán
+respectivamente $\hbar/2,\hbar/2,-\hbar/2,-\hbar/2$ y $\hbar/2,-\hbar/2,+\hbar/2,-\hbar/2$.
+En la base de Bell se tienen
+
+\begin{tabular}{|l|l|l|}
+ & $\mathbb{1} \otimes \sigma_x$ & $\sigma_z \otimes \sigma_z $ \\
+ \hline 
+ $\Ket{\phi}_+$ & $+$ & $+$ \\
+ $\Ket{\phi}_-$ & $+$ & $-$ \\
+ $\Ket{\psi}_+$ & $-$ & $+$ \\
+ $\Ket{\psi}_-$ & $-$ & $-$
+\end{tabular}
+
+Volvemos ahora al asunto de Alicia y Roberto.
+Usamos estados entrelazados. En momento (0) Alica y Roberto juntos con una partícula de spin $1/2$
+y generan el estado entrelazado
+\[
+	\Ket{\psi}_{23} = \frac{1}{\sqrt{2}}
+	\left( \Ket{+}_2\Ket{+}_3 + \Ket{-}_2\Ket{-}_3 \right)
+\]
+
+Suponemos que Alicia se queda con la partícula 2 y Roberto se lleva la partícula 3.
+Conservan el estado entrelazado. Luego, en el momento (1) Alicia le manda el estado
+\[
+	\Ket{\psi}_{123} = \Ket{\psi_1} \otimes \Ket{\psi}_{23}
+\]
+que es un sistema de tres partículas y se puede escribir $ \Ket{\psi}_{123} = 
+\sum \Ket{}_{12} \otimes \Ket{}_{3} $ y luego de un álgebra importante puede llevarse
+a la forma
+\begin{multline*}
+	\Ket{\psi}_{123} = \frac{1}{2}
+	\left[ 
+	\Ket{\phi_+}_{12} \otimes \left( \a \Ket{+}_3 + \b \Ket{-}_3 \right) \: + \right.\\ 
+	\Ket{\phi_-}_{12} \otimes \left( \a \Ket{+}_3 - \b \Ket{-}_3 \right) +
+	\Ket{\psi_+}_{12} \otimes \left( \a \Ket{-}_3 + \b \Ket{+}_3 \right) \: + \\
+	\left. \Ket{\psi_-}_{12} \otimes \left( \a \Ket{-}_3 - \b \Ket{+}_3 \right)
+	\right]
+\end{multline*}
+
+En el momento (2) se mide en la base de Bell el sistema 12 y entonces ... [?]
+\notamargen{Qué pasó con esto, Me cansé?}
 
 % =================================================================================================
 \section{Momento angular orbital}
