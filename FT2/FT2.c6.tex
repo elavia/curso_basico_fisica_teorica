@@ -765,15 +765,86 @@ En los $d_{m'm}^{(j)}$, que son un subconjunto de las funciones de Wigner, está
 \section{Formalismo de spinores de Pauli}
 % =================================================================================================
 
-Apropiado para trabajar con sistemas de spín $1/2$. Estos sistemas son casos particulares de momento angular,
+Apropiado para trabajar con sistemas de spín $1/2$, que es lo más básico para los sistemas con
+momento angular.
+Estos sistemas son casos particulares de momento angular,
 \[
-	j = 1/2 \qquad m=-\frac{1}{2},+\frac{1}{2}
+	j = \frac 1 2 \qquad m=-\frac{1}{2},+\frac{1}{2}
 \]
 y se definen los spinores $\chi_\pm$ como
 \[
-	\Ket{+} \equiv  \begin{pmatrix} 1 \\ 0  \end{pmatrix} \equiv  \chi_+ \qquad \qquad
-	\Ket{-} \equiv  \begin{pmatrix} 0 \\ 1  \end{pmatrix} \equiv  \chi_-
+	\Ket{J_z;+} \equiv \Ket{+} \equiv  
+	\begin{pmatrix} 1 \\ 0  \end{pmatrix} \equiv  \chi_+ 
+	\qquad \qquad
+	\Ket{J_z;-} \equiv \Ket{-} \equiv  
+	\begin{pmatrix} 0 \\ 1  \end{pmatrix} \equiv  \chi_-
 \]
+
+Acá hay una diferencia con lo que hay en la carpeta que lo meto dentro de un entorno de
+ejemplo para trabajarlo más adelante
+
+\begin{ejemplo}{\bf Representación de Pauli}
+
+La representación de Pauli es una forma de escribir los kets. Podría usar otras muchas
+representaciones (incluso un espacio de kets con vectores de tres componentes o más).
+Es la misma física pero con diferente formalismo (que no es físico).
+
+\[
+	J_- \Ket{-} = 0 \qquad \qquad J_+ \Ket{-} = \hbar \Ket{+}
+\]
+\[
+	J_+ \Ket{+} = 0 \qquad \qquad J_- \Ket{+} = \hbar \Ket{-}
+\] 
+y entonces tenemos 
+\[
+	\Ket{+} \equiv \Psi_+ \equiv \begin{pmatrix} 1 \\ 0  \end{pmatrix} 
+	\qquad \qquad
+	\Ket{-} \equiv \Psi_- \equiv \begin{pmatrix} 0 \\ 1  \end{pmatrix}
+\]
+\[
+	\Bra{+} \equiv \Psi_+^\dagger \equiv ( \: 1 \; 0 \: )
+	\qquad \qquad
+	\Bra{-} \equiv \Psi_-^\dagger \equiv ( \: 0 \; 1 \: )
+\]
+Podemos juntar en una esperice de matriz los operadores $J$,
+\[
+	\begin{pmatrix}
+		+ \: + & + \: - \\
+		- \: + & - \: - \\
+	\end{pmatrix}
+\]
+
+Se puede ver que
+\[
+	\Braket{+|J_y|+} = \frac{i}{2}\Braket{+|J_- - J_+|+} = 0
+\]
+\[
+	\Braket{-|J_y|-} = \frac{i}{2}\Braket{-|J_- - J_+|-} = 0
+\]
+mientras que los cruzados
+\[
+	\Braket{+|J_y|-} = \frac{i}{2}\Braket{+|J_- - J_+|-} = -i \frac{\hbar}{2}
+\]
+\[
+	\Braket{-|J_y|+} = \frac{i}{2}\Braket{-|J_- - J_+|+} = i \frac{\hbar}{2}
+\]
+
+Luego, el $J_y$ se puede vincular a una matriz $\sigma_2$ de acuerdo con
+\[
+	J_y = \frac{\hbar}{2} \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} = 
+	\frac{\hbar}{2} \; \sigma_2
+\]
+y construyo un vector de matrices $\vb{\sigma}$ que forma el 
+\[
+	\vb{S} = \frac{\hbar}{2} \vb{\sigma}
+\]
+donde las otras dos matrices aparecen como 
+\[
+	J_x = \frac{\hbar}{2} \; \sigma_1 \qquad \qquad J_z = \frac{\hbar}{2} \; \sigma_3
+\]
+y donde las propiedades de las matrices de Pauli aparecen más abajo.
+\end{ejemplo}
+
 \[
 	\Ket{\alpha} = \begin{pmatrix}   \Braket{+|\alpha} \\ \Braket{-|\alpha}  \end{pmatrix}
 \]
@@ -791,7 +862,8 @@ que es una especie de vector
 \[
 	\vec{\sigma}  =
 	\begin{bmatrix}
-	 \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix},
+	 \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, 
+	 \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix},
 	 \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} 
 	\end{bmatrix}
 \]
@@ -809,21 +881,77 @@ Las matrices de Pauli cumplen las propiedades básicas siguientes
 	[ \sigma_, \sigma_j ] = i2\varepsilon_{ijR}\sigma_R \qquad \{\sigma_, \sigma_j \}= \delta_{ij}
 \]
 \[
-	\sigma_i^n = \begin{cases} \mathbb{1} \quad n \; \text{par} \\ \sigma_i \quad n \; \text{impar} 
-\end{cases}
+	\sigma_i^n = \begin{cases} 
+		\mathbb{1} \quad n \; \text{par} \\ 
+		\sigma_i \quad n \; \text{impar} 
+		\end{cases}
 \]
+Además, 
+\[
+	\text{ det }(\sigma_i) = -1 \qquad \qquad \text{ Traza }(\sigma_i) = 0
+\]
+lo que conduce a
+\[
+	\text{ det }( \euler^{ i a \sigma_i} ) =  \euler^{i a \text{ Traza}(\sigma) } = 1
+\]
+
+Vemos, además, que las matrices pertenecen a SU(2) el grupo de matrices unitarias de
+determinante unitario, y a U(2) el grupo de matrices unitarias con cualquier determinante.
+
+Podemos obtener los estados $S_x, S_y$ que en el análisis cualitativo del experimento de Stern-Gerlach
+dedujimos se trataba de combinaciones lineales de $\Ket{+}, \Ket{-}$
+\[
+	\Ket{S=1/2 ; S_x = 1/2} = \frac{1}{\sqrt{2}}( \Ket{+} + \Ket{-})
+\]
+\[
+	\Ket{S=1/2 ; S_x = -1/2} = \frac{1}{\sqrt{2}}( \Ket{+} - \Ket{-})
+\]
+\[
+	\Ket{S=1/2 ; S_y = 1/2} = \frac{1}{\sqrt{2}}( \Ket{+} + i\Ket{-})
+\]
+\[
+	\Ket{S=1/2 ; S_y = -1/2} = \frac{1}{\sqrt{2}}( \Ket{+} - i\Ket{-})
+\]
+
+Ahora tengo bien definidos los operadores con las matrices. Diagonalizo y listo, obtengo lo de arriba.
+
 \[
 	\Ket{+} \equiv \Ket{j=1/2 , m = 1/2} \qquad \Ket{-} \equiv \Ket{j=1/2 , m = -1/2} 
 \]
-\[
+y también el resultado importante
+\be
 	(\vec{\sigma}\cdot\vb{a})(\vec{\sigma}\cdot\vb{b}) = 
 		(\vb{a}\cdot\vb{b}) + i \vec{\sigma}\cdot(\vb{a}\times\vb{b})
+		\label{producto_sigmas}
+\ee
+Esto nos lleva a 
+\[
+	J_+ = \frac{\hbar}{2}\begin{pmatrix}
+				0 & 2 \\
+				0 & 0 
+	                     \end{pmatrix}
 \]
+de forma que 
+\[
+	J_+ \Ket{-} = \hbar\begin{pmatrix}
+				0 & 1 \\
+				0 & 0 
+	                     \end{pmatrix}
+			\begin{pmatrix}
+				0  \\ 1  
+	                     \end{pmatrix} = \hbar 
+				\begin{pmatrix}
+				1  \\ 0
+	                     \end{pmatrix}  = \hbar \Ket{+},
+\]
+y el círculo se ha cerrado.
 
-\subsection{Aplicación a las rotaciones}
+Este formalismo se puede aplicar a las rotaciones ahora.
 
 \[
-	\mathcal{D}(\hat{n},\phi) = \euler^{-i \vb{J}\cdot\hat{n}\phi/\hbar} = \euler^{-i\vec{\sigma}\cdot\hat{n}\phi/2}
+	\mathcal{D}(\hat{n},\phi) = 
+	\euler^{-i \vb{J}\cdot\hat{n}\phi/\hbar} = 
+	\euler^{-i\vec{\sigma}\cdot\hat{n}\phi/2}
 \]
 pero 
 \[
@@ -832,18 +960,22 @@ pero
 	                                \mathbb{1} \qquad \quad \; n \; \text{par} 
 	                               \end{cases}
 \]
+y escribiendo la serie que implica la exponencial, se tiene
 \[
 	\euler^{-i\vec{\sigma}\cdot\hat{n}\phi/2} = 1 - i\vec{\sigma}\cdot\hat{n} \:\frac{\phi}{2} - 
 	\frac{1}{2!} (\vec{\sigma}\cdot\hat{n})^2\left(\frac{\phi}{2}\right)^2 + 
-	\frac{i}{3!} (\vec{\sigma}\cdot\hat{n})^3\left(\frac{\phi}{2}\right)^3 - ...
+	\frac{i}{3!} (\vec{\sigma}\cdot\hat{n})^3\left(\frac{\phi}{2}\right)^3 - ...,
 \]
+donde identificamos la serie del coseno, y usando ahora el resultado \eqref{producto_sigmas}
+podemos escribir
 \[
 	\mathcal{D}(\hat{n},\phi) = \euler^{-i\vec{\sigma}\cdot\hat{n}\phi/2} =
-	\mathbb{1}\cos\left(\frac{\phi}{2}\right) - i\vec{\sigma}\cdot\hat{n}\sin\left(\frac{\phi}{2}\right)
+	\mathbb{1}\cos\left(\frac{\phi}{2}\right) - i\vec{\sigma}\cdot\hat{n}\sin\left(\frac{\phi}{2}\right),
 \]
-es el operador de rotación para sistemas de spin $1/2$ (donde $\mathbb{1} \in 2\times 2$). Con esta expresión podemos 
-evaluar 
-$d^{j=1/2}_{m'm}(\beta)$
+que zes el operador de rotación para sistemas de spin $1/2$ (donde $\mathbb{1} \in 2\times 2$). 
+\notamargen{Todo esto vale para $J=1/2$.}
+Con esta expresión podemos evaluar $d^{j=1/2}_{m'm}(\beta)$, tomando $\nver = \yver$ en la fórmula
+anterior llegamos a que debe valer
 \[
 	d^{1/2}(\beta) = \begin{pmatrix}
 	     \cos(\beta/2) & -\sin(\beta/2)\\
@@ -870,6 +1002,10 @@ En el caso general el operador de rotación para sistemas de spin $1/2$ lucirá:
 	       \begin{matrix} \Ket{+} \\ \\  \Ket{-} \end{matrix}
 \]
 
+Usar $\Ket{+}=(1; 0)$; etc. es utilizar una representación para hacer cálculos.
+A veces es útil ``bajar'' a una representación pictórica como esta para hacer
+ciertos cálculos y luego abstraerse nuevamente.
+
 \subsection{Ejemplo}
 
 \[
@@ -892,18 +1028,73 @@ de manera que
 \]
 Este resultado es intuitivamente lógico.
 
-
 \subsection{Rotaciones en sistemas con $j=1$}
+
+Queremos hacer la transformación 
+\[
+	\Ket{S_z,+} \longrightarrow \Ket{S_x,+}
+\]
+con una $D(\b)$. Otra maner es hacer una rotación sobre el eje $\yver$ que rote $\zver$ hacia $\xver$
+en $\b=\pi/2$. Entonces se genera la matriz correspondiente $D$
+\[
+	D^{1/2} = \begin{pmatrix}
+	           \cos(\pi/4) & -\sin(\pi/4) \\
+	           \sin(\pi/4) & \cos(\pi/4)
+	          \end{pmatrix} = \frac{1}{\sqrt{2}}
+		\begin{pmatrix}
+	           1 & -1 \\
+	           1 & 1
+	          \end{pmatrix}	          
+\]
+Si le aplico la matriz $D$ al estado $\Ket{S_z;+}$ paso al $\Ket{S_x;+}$. Esto se ve desde 
+\[
+	\frac{1}{\sqrt{2}}\begin{pmatrix}
+	           1 & -1 \\
+	           1 & 1
+	          \end{pmatrix}	 
+		\begin{pmatrix}
+	           1 \\
+	           0 
+	          \end{pmatrix}	 =
+	          \frac{1}{\sqrt{2}}
+		\begin{pmatrix}
+	           1 \\
+	           1 
+	          \end{pmatrix}	 =
+	           \frac{1}{\sqrt{2}}
+	           \left( \Ket{+} + \Ket{-} \right)
+\]
 
 Ahora tenemos 
 \[
 	j=1 \qquad m = -1,0,1
 \]
-recordando $J_y$ en términos de escaleras
+y tendremos
+\[
+	\Ket{1,1} = \begin{pmatrix}
+	 1 \\
+	 0 \\
+	 0
+	\end{pmatrix}
+	\qquad 
+	\Ket{1,0} = \begin{pmatrix}
+	 0 \\
+	 1 \\
+	 0
+	\end{pmatrix}
+	\qquad 
+	\Ket{1,-1} = \begin{pmatrix}
+	 0 \\
+	 0 \\
+	 1
+	\end{pmatrix}
+\]
+y recordando la expresión de $J_y$ en términos de escaleras
 \[
 	J_y = \frac{J_+ - J_i}{2i}
 \]
-de modo que 
+y sabiendo cómo operan los $J_+$ y $J_-$ sobre la base anterior es posible
+llenar la matriz de acuerdo con
 \[
 	\begin{matrix} \quad \Ket{1\;1} \quad \Ket{1\;0} \quad \Ket{1\;-\kern-1mm 1} \end{matrix}
 \]
@@ -915,6 +1106,8 @@ de modo que
 	                              \end{pmatrix} 
 	     \begin{matrix}  \Ket{1\;1} \\ \Ket{1\;0} \\ \Ket{1\;-\kern-1mm 1} \end{matrix}
 \]
+
+Ahora se quiere obtener $\euler^{-i J_y \beta/\hbar}$, y podemos empezar con $J_y/\hbar$
 \[
 	\euler^{-i\frac{J_y}{\hbar}\beta} = 1 + -\frac{J_y}{\hbar}\beta + 
 		(-i)^2\left(\frac{J_y}{\hbar}\beta\right)^2\frac{1}{2!} + 
@@ -925,12 +1118,15 @@ de modo que
 		\frac{1}{2!} \left(\frac{J_y}{\hbar}\beta\right)^2 -
 		\frac{i}{3!}\left(\frac{J_y}{\hbar}\beta\right)^3 + ...
 \]
+Después de probar los primeros elementos se ve la recurrencia y se llega a 
 \[
 	\left( \frac{J_y}{\hbar} \right)^n = \begin{cases}
 	                                      \left( \frac{J_y}{\hbar} \right) \quad n \; \text{impar} \\
 	                                      \left( \frac{J_y}{\hbar} \right)^2 \quad n \; \text{par}
 	                                     \end{cases}
 \]
+Sumando y restando un término conveniente se puede ve que la expresión equivale
+a
 \[
 	\euler^{-i\frac{J_y}{\hbar}\beta} = 1 -  \left( \frac{J_y}{\hbar} \right)^2 (1-\cos(\beta)) -
 	i \left( \frac{J_y}{\hbar} \right) \sin(\beta)  = d^{j=1}(\beta)
