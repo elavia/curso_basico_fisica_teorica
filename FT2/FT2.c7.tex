@@ -3,8 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -30,8 +30,13 @@
 \begin{document}
 
 % =================================================================================================
-\chapter{Armónicos esféricos como matrices de rotación}
+\chapter{Suma de momentos angulares}
 % =================================================================================================
+
+% =================================================================================================
+\section{Armónicos esféricos como matrices de rotación}
+% =================================================================================================
+
 Se pueden hallar autoestados de dirección $\Ket{\hat{n}}$ rotando el $\Ket{\hat{z}}$,
 \[
 	\hat{n} = \mathcal{D}(R) \Ket{\hat{z}}
@@ -76,22 +81,91 @@ La $\Psi$ tiene la misma simetría que el potencial.
 \section{Suma de momentos angulares}
 % =================================================================================================
 
-\subsection{Dos momentos de spín $1/2$}
-
-Sean dos estados de spín $1/2$
+Sea un estado con valor $J$ máximo, entonces
 \[
-	\vb{S} = \vb{S}_1 + \vb{S}_2 \equiv \vb{S}_1 \otimes \mathbb{1}_2 + \mathbb{1}_1\otimes \vb{S}_2
+	J_z \Ket{j,j} = j\hbar \Ket{j,j} \qquad \qquad 
+	J^2 \Ket{j,j} = j (j+1) \hbar^2 \Ket{j,j}
 \]
-en cada espacio valen las relaciones usuales de conmutación 
+
+Y se ve que si $j$ es muy grande, $J_z = j\hbar$ y $|j| = \sqrt{j(j+1)} \hbar$ están muy cerca.
+Casi todo el $|j|$ está en $\zver$.
+
+
+Clásicamente con $j\to\infty$ veremos que $J_x, J_y$ son casi nulos y es casi todo $J_z$.
+El problema es que dada la incerteza en $J_x, J_y$ no puedo sumar todos los momentos $J_x + J_y + J_z $.
+Este desconocimiento no es tan terrible por la cuantización de los momentos. En mecánica clásica un
+desconocimiento de esta índole traería consecuencias desastrosas.
+
+Es importante sumar momentos angulares para hacer cuentas como $\vb J = \vb L + \vb S$, o en ciertos 
+cálculos de física nuclear.
+
+\notamargen{Dos momentos de spín $1/2$}
+
+Sean dos estados de spín $1/2$, donde es $S=1/2$ y definimos
+\[
+	\vb{S} = \vb{S}_1 + \vb{S}_2 \equiv 
+	\vb{S}_1 \otimes \mathbb{1}_2 + \mathbb{1}_1\otimes \vb{S}_2,
+\]
+donde la identidad implica no realizar cambios sobre un estado particular.
+En cada espacio valen las relaciones usuales de conmutación 
 \[
 	[ S_{1/2i},S_{1/2j}] = i\hbar\epsilon_{ijk}S_{1/2k}, \qquad  [S_{1i},S_{2j}] = 0
 \]
 donde el último indica que operadores de espacios diferentes conmutan.
 
-Un estado general es 
+Clasificaremos los autoestados como $\Ket{s_1,m_1}, \Ket{s_2,m_2}$ de modo que
+\[
+	S_1^2 \Ket{s_1,m_1} = s_1 ( s_1 + 1 ) \hbar^2 \Ket{s_1,m_1} \qquad 
+	{S_2}_z \Ket{s_2,m_2} = m_2 \hbar \Ket{s_2,m_2}
+\]
+
+Un estado general se puede escribir según 
 \[
 	\Ket{S_1,m_1} \otimes \Ket{S_2,m_2} \equiv \Ket{S_1, S_2;m_1,m_2}
 \]
+dándose que $S_1^2, S_2^2, S_{1z}, S_{2z}$ conmutan entre sí. Por ello podemos acoplar los 
+cuatro índices como se hizo arriba. 
+\notamargen{Explicarlo mejor.}
+
+Dado que estamos en el caso de spin $1/2$ tenemos cuatro estados posibles 
+\be
+	\Ket{++} \qquad \Ket{+-} \qquad \Ket{-+} \qquad \Ket{--}
+	\label{base1}
+\ee
+
+Esto no nos da información del spin suma de las dos partículas, sino del spin de cada una 
+de ellas. Si se quiere saber $S^2 = S_1^2 + S_2^2, S_z=S_{1z} + S_{2z}$ otro examen tiene que
+ser hecho.
+Nótese que $ [S^2, S_{2z}] \neq 0  $ puesto que $ (S_1+S_2)^2 = S_1^2 + S_2^2 + 2 \pe{S_1}{S_2}$.
+
+Se puede elegir otro COCC como $S_1^2, S_2^2, S^2, S_z$ base inteligente para clasificar la
+suma de los momentos. Así tendremos $\Ket{S_1, S_2 ; S, m}$ donde el tercero y cuarto están
+asociados a $S^2$ y $S_z$, respectivamente. Entonces
+\[
+	S^2\Ket{S_1, S_2 ; S, m} = s(s+1)\hbar^2 \Ket{S_1, S_2 ; S, m} 
+\]
+\[
+	S_z \Ket{S_1, S_2 ; S, m} = m \hbar \Ket{S_1, S_2 ; S, m}
+\]
+
+Combinando dos estados de spin $1/2$ surgen
+\begin{multline}
+	\{ \Ket{1/2,1/2,1,1} , \;  \Ket{1/2,1/2,1,0}, \: \Ket{1/2,1/2,1,-1} \}
+	\qquad \text{ triplete } [s=1]
+	\\
+	\{ \Ket{1/2,1/2,0,0} \}
+	\qquad \text{ singlete } [s=1/2]
+	\label{base2}
+\end{multline}
+
+Tenemos escritos los estados en dos bases \eqref{base1} y \eqref{base2}, siendo la primera muy
+sencilla pero menos útil que la segunda. Tratemos de pasar entre bases. Vemos que
+\[
+	\Ket{++} = \Ket{S_1=1/2, S_2=1/2, m_1=1/2, m_2=1/2},
+\]
+desde lo cual podemos ve algo por inspección.
+[sigue acá info entretejida con lo anterior]
+
 Hay cuatro estados
 \[
 	\begin{matrix} S_1 \quad S_2 \quad\quad m_1 \quad m_2 \end{matrix}
@@ -109,8 +183,8 @@ Hay cuatro estados
 \]
 que corresponden a los operadores $S_ 1^2, S_2^2, S_{1z}, S_{2z}$ que conmutan (son un CCOC).
 
-Podemos elegir otras base de operadores que comutan que será: $S_ 1^2, S_2^2, S, S_{z}$, de modo que el estado 
-general será
+Podemos elegir otras base de operadores que comutan que será: $S_ 1^2, S_2^2, S, S_{z}$, de modo
+que el estado general será
 \[
 	\Ket{S_1, S_2;S,m}
 \]
@@ -159,32 +233,32 @@ Podemos hallar a ojo que
 % 	\cdot \Ket{++} = \Ket{1,1} \qquad \cdot \Ket{--} = \Ket{1,-1}
 % \]
 \begin{itemize}
- \item $\Ket{++} = \Ket{1,1}$
+ \item $\Ket{++} = \Ket{1/2, 1/2; 1, 1} \equiv \Ket{1,1}$
  \item $\Ket{--} = \Ket{1,-1}$
 \end{itemize}
-
-de manera que la única forma de tener $m=1$ es con los dos spines up y la única forma de tener $m=-1$ es con 
-los dos spines down.
+porque acoplamos máximos de cada partícula lo que dará el máximo o mínimo en la suma; 
+la única forma de tener $m=1$ es con los dos spines up y la única forma de tener $m=-1$ 
+es con los dos spines down.
 
 Se hallan los otros con el operador de bajada
 \[
 	S_- \equiv S_{1-} + S_{2-}
 \]
 y si descompongo $S_-$ en $S_{1-}$ y $S_{2-}$ para operar en $\Braket{s,m}$ se tiene 
-\[
-	S_- \Ket{++} = S_{1-}\Ket{++} + S_{2-}\Ket{++} = S_{1-}\otimes\mathbb{1}_2\Ket{++} +
-	\mathbb{1}_1\otimes S_{2-}\Ket{++} = \hbar\Ket{-+} + \hbar\Ket{+-}
-\]
+\begin{multline*}
+	S_- \Ket{++} = S_{1-}\Ket{++} + S_{2-}\Ket{++} = \\
+	S_{1-}\otimes\mathbb{1}_2\Ket{++} + \mathbb{1}_1\otimes S_{2-}\Ket{++} = 
+	\hbar\Ket{-+} + \hbar\Ket{+-} 
+\end{multline*}
 y ahora si opero con $S_-$,
 \[
 	S_-\Ket{11} = \sqrt{2} \hbar \Ket{10}
 \]
 \begin{itemize}
-	\item $\Ket{10} = \frac{1}{\sqrt{2}}( \Ket{-+} + Ket{+-} ) $
+	\item $\Ket{10} = \frac{1}{\sqrt{2}}( \Ket{-+} + \Ket{+-} ) $
 \end{itemize}
 
-
-Luego
+Luego, queda por hallar $\Ket{00}$, que será algo como 
 \[
 	\Ket{00} = a \Ket{+-} + b\Ket{-+}
 \]
@@ -196,8 +270,13 @@ y puedo usar ortonormalidad
 	\item $\displaystyle \Ket{00} = \frac{1}{\sqrt{2}}( \Ket{+-} - \Ket{-+} ) $
 \end{itemize}
 
+Se puede ver entonces que son simétricos los miembros del triplete y antisimétricos los del
+singlete porque al intercambiar $+$ con $-$ en las expresiones cambian los valores o no cambian:
+ahí está la simetría.
+Usualmente interesa la matriz del cambio de base y sus coeficientes (los de Clebsh-Gordan).
 
-\section{Teoría formal de suma de momentos angulares}
+
+\subsection{Teoría formal de suma de momentos angulares}
 
 Sea de sumar dos momentos angulares $J_1, J_2$. Las relaciones de conmutación son
 \[
@@ -206,12 +285,13 @@ Sea de sumar dos momentos angulares $J_1, J_2$. Las relaciones de conmutación s
 	[J_{1k},J_{2l}] = 0
 \]
 \[
-	\vb{J} = \vb{J}_1 \otimes \mathbb{1}_2 + \mathbb{1}_1\otimes \vb{J}_2 \equiv \vb{J}_1 + \vb{J}_2
+	\vb{J} = \vb{J}_1 \otimes \mathbb{1}_2 + \mathbb{1}_1\otimes \vb{J}_2 
+	\equiv \vb{J}_1 + \vb{J}_2
 \]
 \[
 	[J_i, J_j] = i\hbar\epsilon_{ijk}J_k
 \]
-
+donde en el último renglón cada $J$ actúa en el espacio en donde {\it vive}.
 El momento total \vb{J} cumple que 
 \[
 	J^2 =  J_1^2 + J_2^2 + 2J_1J_2 \qquad 
@@ -239,6 +319,8 @@ base desacoplada & base acoplada \\
 \hline
 \end{tabular}
 \end{center}
+\notamargen{Tenía anotado que en la base acoplada se suele
+abreviar no expresando los dos índices comunes $j_1,j_2$ en el ket.}
 
 Se puede pasar de una base a otra con una identidad $\mathbb{1}$ apropiada
 \[
@@ -247,39 +329,45 @@ Se puede pasar de una base a otra con una identidad $\mathbb{1}$ apropiada
 \[
 	1. \; \Ket{j_1,j_2;j,m} = \sum_{m_1,m_2} C_{m_1m_2}^j \Ket{j_1,j_2;m_1,m_2}
 \]
-con $-j_1 \leq m_1 \leq j_1$ y  $-j_2 \leq m_2 \leq j_2$
+con la restricción de que $-j_1 \leq m_1 \leq j_1$ y $-j_2 \leq m_2 \leq j_2$.
+Los $C_{m_1 m_2}^j$ son los coeficientes de Clebsh-Gordan. 
+Los coeficientes inversos son paridos desde 
 \[
 	\Ket{j_1,j_2;m_1,m_2} = \sum_{j,m} \Ket{j_1,j_2;j,m}\Braket{j_1,j_2;j,m|j_1,j_2;m_1,m_2}
 \]
 \[
 	2. \; \Ket{j_1,j_2;m_1,m_2} = \sum_{j,m} C_{m_1m_2}^{j*}\Ket{j_1,j_2;j,m}
 \]
-con $-j \leq m \leq j$ y con $j\to\infty$.
-
-Donde los $C_{m_1 m_2}^j$ son los coeficientes de Clebsh-Gordan. En 2 la $\sum$ sería en $j\to\infty$, pero veamos la 
-relacion que hace algunos $C_{m_1 m_2}^j=0$. Ante todo abreviaremos suprimiendo los índices $j_1,j_2$ con lo cual 
+con $-j \leq m \leq j$ y con $j\to\infty$, porque la sumatoria en $j$ es infinita, aunque se verá
+que muchos son nulos.
+En 2 la $\sum$ sería en $j\to\infty$, pero veamos la relacion que hace algunos $C_{m_1 m_2}^j=0$. 
+Ante todo abreviaremos suprimiendo los índices $j_1,j_2$ con lo cual 
 \[
 	C_{m_1m_2}^{j} = \Braket{m_1,m_2|j,m}
 \]
-
-\subsection{Restricciones para la no nulidad de los coeficientes}
-
+A partir de
 \[
 	(J_{z} - J_{1z} - J_{2z})\Ket{j,m} = (m\hbar - J_{1z} - J_{2z})\Ket{j,m} = 0
 \]
+se ve que
 \[
-	\Braket{m_1,m_2|(J_{z} - J_{1z} - J_{2z})|j,m}= 0 \qquad \qquad 
-	\hbar(m-m_1-m_2)\Braket{m_1,m_2|j,m} = 0
+	\Braket{m_1,m_2|(J_{z} - J_{1z} - J_{2z})|j,m}= 0, 
 \]
-entonces
 \[
-	\Braket{m_1,m_2| j,m} \neq 0 \iff m = m_1 + m_2
+	\hbar(m-m_1-m_2)\Braket{m_1,m_2|j,m} = \hbar(m-m_1-m_2) C^j_{m_1 m_2} = 0
 \]
+entonces para que $C^j_{m_1 m_2}$ sea no nulo se necesita $m = m_1 + m_2$.
+Esta condición restringe los coeficientes un poco.
+% \[
+% 	\Braket{m_1,m_2| j,m} \neq 0 \iff m = m_1 + m_2
+% \]
 
 A su vez, en la suma de $J_1$ y $J_2$ resultan los $j$ acotados por una desigualdad triangular 
 \[
 	|j_1 - j_2| \leq j \leq j_1 + j_2
 \]
+Notemos que para $j_1 \to 2 j_1 + 1, j_2 \to 2j_2 + 1$; luego tendemos combinaciones por 
+$(2 j_1 + 1)(2 j_2 + 1)$ en la base desacoplada.
 
 Asimismo los $C_{m_1 m_2}^j$ se toman reales, entonces 
 \[
@@ -291,34 +379,108 @@ y juntando todo se tiene
 \]
 o lo que es equivalente
 \[
-	\Braket{j,m|m_1,m_2} \iff |j_1 - j_2| \leq j \leq j_1 + j_2
+	\Braket{j,m|m_1,m_2} \iff |j_1 - j_2| \leq j \leq j_1 + j_2.
 \]
 
-Ambas bases tienen la misma dimensión
+En la base desacoplada, la restricción limita el no llegar al infinito.
+Ambas bases tienen la misma dimensión si sumamos entre los límites dados
 \[
-	\sum = (2j_1 + 1)(2j_2 + 1)
+	\sum_{j=|j_1-j_2|}^{ j_1 + j_2 } \: 2j+1 = (2j_1 + 1)(2j_2 + 1).
 \]
 
-Recordemos que cada $j$ tiene $2j+1$ estados posibles (los $m$ correspondientes a cada $j$) ($|m|\leq j$). Si 
-sumamos $j_1=1, j_2=3/2$ tendremos 
+Recordemos que cada $j$ tiene $2j+1$ estados posibles (los $m$ correspondientes a 
+cada $j$) ($|m|\leq j$). 
+
+Esta es una demostración más o menos deficiente. Podemos volver al ejemplo de 
+$j_1 = 1/2$ y $j_2=1/2$ considerando
+\[
+	\text{ j } \; \frac{1}{2} \otimes \frac{1}{2} = 1 \oplus 0 
+\]
+\[
+	\text{ dim } \; {2} \otimes {2} = 3 \oplus 1
+\]
+
+Cualesquiera cosas que cumplan el álgebra del momento angular permiten hacer una
+analogía es un espacio símil.
+\notamargen{Esto es un claim muy importante de group theory.}
+
+\begin{ejemplo}{\bf Partículas}
+
+Sean dos partículas con $j_1=2$ y $j_2=1$ que tendrán 5 y 3 estados posibles. El número total
+de estados posibles será quince. Veamos todas las combinaciones posibles en la base
+$(m_1,m_2)$ que se pueden agrupar en la tabla siguiente
+
+\begin{center}
+\begin{tabular}{cccccccc}
+$m$ & $3$ & $2$ & $1$ & $0$ & $-1$ & $-2$ & $-3$ \\
+\hline
+$(m_1,m_2)$ & $(2,1)$ & $(1,1)$ & $(0,1)$ & $(-1,1)$ & $(2,1)$ &  & \\
+$(m_1,m_2)$ &  & $(2,0)$ & $(1,0)$ & $(0,0)$ & $(-1,0)$ & $(-2,0)$ &  \\
+$(m_1,m_2)$ &  &  & $(2,-1)$ & $(1,-1)$ & $(0,-1)$ & $(-1,-1)$ & $(-2,-1)$ \\
+\hline
+\end{tabular}
+\end{center}
+
+Luego, se tienen
+\begin{eqnarray*}
+	m = 3,2,1,0,-1,-2,-3 \qquad  & j=3 \qquad & \text{ 7 estados (septete)} \\
+	m = 2,1,0,-1,-2 \qquad  & j=2 \qquad & \text{ 5 estados (quintuplete)} \\
+	m = 1,0,-1 \qquad  & j=1 \qquad & \text{ 3 estados (triplete)} 
+\end{eqnarray*}
+
+Esto nos da los valores de $j$ que podemos alcanzar; pero no nos dice que los estados son ellos todos.
+Así, $\Ket{j=3,m=2}$ se forma como combinación lineal de $(1,1)$ y $(2,0)$.
+Me he construido de esta forma los multipletes $j=3, j=2, j=1$ y se puede generalizar.
+Estuvimos haciendo
+\[
+	\text{ j } \; 2 \otimes 1 = 3 \oplus 2 \oplus 1 
+\]
+\[
+	\text{ dim } \; {5} \otimes {3} = 7 \oplus 5 \oplus 3
+\]
+
+Queremos calcular los coeficientes de Clebsh-Gordan
+\be
+	\Ket{j_1,j_2;j, m} = \sum_{m_2=-j_2}^{j_2}\sum_{m_1=-j_1}^{j_1}
+	\Ket{j_1,j_2; m_1, m_2} \: C_{m, m_2}^j
+	\label{clebsh_gordan}
+\ee
+sumatorias sujeta a $m_1+m_2=m$.
+
+Consideremos un caso sencillos: $j_1=1$ y $j_2 =3/2$ de modo que $j=5/2, 3/2, 1/2$.
+Si sumamos $j_1=1, j_2=3/2$ tendremos 
 \[
 	\text{dim} =  2 \oplus 4 \oplus 6 = 3 \otimes 4 = 12
 \]
+
+Para hacer la cuenta \eqref{clebsh_gordan} tengo 12 coeficientes muchos de los cuales
+serán nulos. Miramos de qué forma podemos llegar a $m_1 + m_2 = 3/2$, por ejemplo si
+es que queremos formar el estado $\Ket{1, 3/2 ; 5/2, 3/2}$. Entonces, como
 \[
-	j = 1/2, 3/2, 5/2 \qquad m_1 = -1,0,1
+	j_1 = 1 \to \left\{ 1,0,-1 \right\} \qquad 
+	j_2 = \frac 3 2 \to \left\{ \frac{3}{2},\frac{1}{2}, -\frac{1}{2}, -\frac{3}{2} \right\}
 \]
+obtengo $3/2$ con $(0,3/2)$ y $(1,1/2)$ de manera que tendremos
 \[
-	j = -5/2,-3/2,-1/2,1/2, 3/2, 5/2 \qquad m_2 = -3/2,-1/2,1/2,3/2
+	C_{0 \: 3/2}^{5/2} \Ket{1 , 3/2 ; 0, 3/2} +
+	C_{1 \: 1/2}^{5/2} \Ket{1 , 3/2 ; 1, 1/2}
 \]
 
-Podemos ver a ojo que 
+Como tenemos libertad de elegir fase para los coeficientes, elegimos que la matriz sea real
+y como es unitaria por ser un cambio de base, será ortogonal.
+El $\Ket{1,3/2;5/2,5/2}$ solo lo puedo alcanzar con los vectores paralelos sumados entre sí.
+El coeficiente de Clebsh-Gordan del más alto vale uno porque es el único. A partir de este
+puedo usar operadores de subida y de bajada para construirme los faltantes.\
+
+Por ortonormalidad se tiene
 \[
-	\Ket{j=5/2,m=5/2} = \Ket{m_1=1,m_2=3/2}
+	\Braket{ j_1, j_2 ; m_1', m_2' } = \delta_{m_1' m_1}  \delta_{m_2' m_2}
 \]
 \[
-	\Ket{j=5/2,m=-5/2} = \Ket{m_1=-1,m_2=-3/2}
+	\sum_{j,m} \KB{ j_1, j_2 ; j, m }{ j_1, j_2 ; j, m }
 \]
-luego con el $J_=, J_-$ podemos construirnos los siguientes (utilizando ortonormalidad)
+pero esta condición es fea y no la usaremos.
+Es más conveniente esta otra
 \[
 	\Braket{j',m'|j,m} = \delta_{j'j}\delta_{m'm}
 \]
@@ -330,8 +492,7 @@ luego con el $J_=, J_-$ podemos construirnos los siguientes (utilizando ortonorm
 \]
 siendo esto último la ortonormalidad.
 
-\subsection{Relación de recurrencia}
-
+Nos podemos construir a partir de uno con una recurrencia. Partimos de
 \[
 	J_\pm \ket{j,m} = ( J_{1\pm} + J_{2\pm} ) \sum_{m_1',m_2'} \Ket{m_1',m_2'}\Braket{m_1',m_2'|j,m}
 \]
@@ -339,12 +500,33 @@ siendo esto último la ortonormalidad.
 	\sqrt{(j\mp m)(j\pm m + 1)} \ket{j,m\pm 1} = \sum_{m_1',m_2'}\Braket{m_1',m_2'|j,m}  
 	( J_{1\pm}\Ket{m_1',m_2'} + J_{2\pm}\Ket{m_1',m_2'} ) 
 \]
-y metiendo un bra $\Bra{m_1,m_2}$ se llega a la relación de recurrencia
+y multiplicando por un bra $\Bra{m_1,m_2}$ la expresión anterior, se llega a la relación de recurrencia
 \begin{multline*}
-	\sqrt{(j\mp m)(j\pm m + 1)} \Braket{m_1,m_2|j,m\pm 1} =
+	\sqrt{(j\mp m)(j\pm m + 1)} \Braket{m_1,m_2|j,m\pm 1} = \\
 	\sqrt{(j_1 \mp m_1 + 1 )(j_1 \pm m_1)} \Braket{m_1 \mp 1 ,m_2|j,m}  + \\
 	\sqrt{(j_2 \mp m_2 + 1 )(j_2 \pm m_2)}  \Braket{m_1,m_2 \mp 1| j,m } 
 \end{multline*}
+que nos dice que necesito conocer dos coeficientes para conocer otro.
+ 
+\end{ejemplo}
+% \[
+% 	j = 1/2, 3/2, 5/2 \qquad m_1 = -1,0,1
+% \]
+% \[
+% 	j = -5/2,-3/2,-1/2,1/2, 3/2, 5/2 \qquad m_2 = -3/2,-1/2,1/2,3/2
+% \]
+% 
+% Podemos ver a ojo que 
+% \[
+% 	\Ket{j=5/2,m=5/2} = \Ket{m_1=1,m_2=3/2}
+% \]
+% \[
+% 	\Ket{j=5/2,m=-5/2} = \Ket{m_1=-1,m_2=-3/2}
+% \]
+% luego con el $J_=, J_-$ podemos construirnos los siguientes (utilizando ortonormalidad)
+
+
+
 
 
 \subsection{Suma de \vb{L} y \vb{S}}
