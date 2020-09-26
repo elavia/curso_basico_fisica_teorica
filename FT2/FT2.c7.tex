@@ -529,90 +529,210 @@ que nos dice que necesito conocer dos coeficientes para conocer otro.
 \section{Coeficientes de Clebsh-Gordan}
 
 Habíamos probado ciertas condiciones parda los coeficientes de Clebsh-Gordan
-
+\[
+	\Ket{j_1,j_2;j,m} = \sum_{m_1,m_2} C_{m_1 m_2}^{j} \: \Ket{ j_1 j_2 m_1 m_2 }
+\]
+con $m_1 + m_2 = m$ y donde $j$ verifica $ j_1 + j_2 \geq j \geq | j_1 - j_2 |$.
 
 Veamos un caso de sumar $\vb L + \vb S$ (momento angular más spin) en el caso de spin $1/2$.
 Identificamos entonces $j_1 = \ell, m_1 = m_\ell, j_2 = 2 = 1/2$ y $m_2 = m_s = \pm 1/2$ 
 Esto nos lleva a
-
+\[
+	|\ell - \frac 1 2 | \leq j \leq \ell + \frac 1 2
+\]
+y
+\[
+	j = \ell \pm \frac{1}{2} \quad \ell > 0 \qquad \qquad j = \frac 1 2 \quad \ell = 0
+\]
 
 La expresión de [1] nos dice simplemente que sumando spin más momento angular se tiene $\ell+1/2$ 
 o $\ell - 1/2$ si están simétricos o antisimétricos. Veamos los coeficientes de Clebsh-Gordan que
 no serán nulos,
 Tendremos dos estados
-
-
-
+\begin{multline*}
+	\Ket{\ell + \frac 1 2, m } =
+	\Braket{ m - \frac 1 2 \; \frac 1 2 | \ell + \frac 1 2 \; m } 
+	\Ket{ m - \frac 1 2, \frac 1 2 } \\
+	+
+	\Braket{ m - \frac 1 2 \; -\frac 1 2 | \ell + \frac 1 2 \; m }
+	\Ket{ m + \frac 1 2, -\frac 1 2 }
+\end{multline*}
+donde el braket del primer término es A y el del segundo es B.
+\begin{multline*}
+	\Ket{\ell - \frac 1 2, m } =
+	\Braket{ m - \frac 1 2 \; \frac 1 2 | \ell - \frac 1 2 \; m } 
+	\Ket{ m - \frac 1 2, \frac 1 2 } \\
+	+
+	\Braket{ m + \frac 1 2 \; -\frac 1 2 | \ell - \frac 1 2 \; m }
+	\Ket{ m + \frac 1 2, -\frac 1 2 }
+\end{multline*}
+donde el braket del primer término es C y el del segundo es D.
 \notamargen{Tiramos $j_1, j_2$ para simplificar la notación.}
-
-
-de donde se ve que no nulos serán $ m = m_1 + m_2 = m_\ell \pm 1/2 $ y  $m_1 = m \pm 1/2$.
+Además se ve que no nulos serán $ m = m_1 + m_2 = m_\ell \pm 1/2 $ y  $m_1 = m \pm 1/2$.
 Dado el caso que estamos tratando, $S$ solo tiene dos valores que dan $ m = m_1 + m_2 $. Los
 coeficientes de Clebsh-Gordan vinculan los estados con $j = \ell \pm 1/2$ y $m$. Podemos poner
 todo en una matriz
-
-
+\[
+	\ell - \frac{1}{2} \quad m \qquad \ell + \frac{1}{2} \quad m
+\]
+\notamargen{Acá hay que armar alguna cosa customizada para poner sobre los bordes de la matriz
+la equivalencia de filas columnas (yo me entiendo).}
+\[
+	\begin{matrix} 
+	m + \frac 1 2 & -\frac 1 2 \\
+	\\
+	m - \frac 1 2 & \frac 1 2
+	\end{matrix}
+	\begin{pmatrix}
+		\; D & B \; \\
+		\\
+		\; C & A \;
+	\end{pmatrix} 
+	\equiv
+	\begin{pmatrix}
+		\cos\a & \sin\a \\
+		\\
+		-\sin\a & \cos\a
+	\end{pmatrix}
+\]
 
 Por convención se toma coeficiente de $\sin\alpha > 0$. La equivalencia ha llegado a una matriz
 ortogonal por la realidad de sus coeficientes. Calcularemos algún coeficiente
-
+\[
+	\cos \a = \Braket{ m - \frac 1 2, \frac 1 2 | \ell + \frac 1 2, m }.
+\]
 
 Hay un modelo gráfico para la recurrencia. Podemos graficar ahora
 
+\includegraphics[width=0.40\textwidth]{images/fig_ft2_recurrencia_1.jpg}
+\includegraphics[width=0.40\textwidth]{images/fig_ft2_recurrencia_2.jpg}
 
 En nuestro caso el triángulo d recurrencia no conecta hacia arriba porque para spin solo tengo
 $+ 1/2$ o $-1/2$, con lo cual no tengo el trío sino un dúo de coeficientes.
 Trabajando encontramos que
-
+\[
+	\Braket{ m - \frac 1 2, \frac 1 2 | \ell + \frac 1 2, m } =
+	\sqrt{\frac{ ( \ell + m + 1 / 2 ) }{ \ell + m + 3 / 2 }} \:
+	\Braket{ m + \frac 1 2, \frac 1 2 | \ell + \frac 1 2, m + \frac 1 2 }
+\]
 
 Esta relación puede aplicarse hasta $m+1/2 \to \ell$. Entonces llegamos a
-
-
+\[
+	\Braket{ m - \frac 1 2, \frac 1 2 | \ell + \frac 1 2, m } =
+	\sqrt{\frac{ ( \ell + m + 1 / 2 ) }{ 2 \ell + 1 }} \:
+	\Braket{ \ell, \frac 1 2 | \ell + \frac 1 2, \ell + \frac 1 2 }
+\]
 
 Llegamos a los máximos valores (todo en $\zver$ el momento angular, todo en $\zver$ el spin $S$)
 con lo cual debe dar el máximo y entonces el coeficiente debe dar uno $\Braket{\ell,1/2| \ell+1/2,\ell+1/2} = 1$.
 Identificamos
-
+\[
+	\sqrt{\frac{ ( \ell + m + 1 / 2 ) }{ 2 \ell + 1 }} \equiv \cos\a
+	\qquad \qquad 
+	\sqrt{\frac{ ( \ell - m + 1 / 2 ) }{ 2 \ell + 1 }} \equiv \sin\a
+\]
 
 donde siempre podemos fijar inicialmente la fase para que sea real.
 Es útil en el acoplamiento spin-órbita. Allí teníamos
-
-
+\[
+	\pe{L}{S} = \frac{1}{2} ( J^2 - L^2 - S^2 )
+\]
+\[
+	\pe{L}{S} \Ket{\ell,s, j, m} = 
+	\frac{\hbar^2}{2} \left[ 
+	j(j+1) - \ell(\ell+1) - s(s+1)
+	\right] =
+	\begin{cases}
+		\frac{\ell \hbar^2}{2} \quad j = \ell + \frac{1}{2} \\
+		\\
+		-\frac{ ( 1 + \ell ) \hbar^2}{2} \quad j = \ell - \frac{1}{2}
+	\end{cases}
+\]
 
 Sea una cosa con $\ell=1, s=1/2$ lo que significa  $ 1 \otimes 1/2 = 3/2 \oplus 1/2$ o en términos
 de dimensiones $ 3 \otimes 2 = 4 \oplus 2 $.
 Escribo un estado en términos de la base mostrada
-
+\[
+	\Ket{ \frac 3 2 , \frac 3 2 } = \Ket{ 1 , \frac 1 2 }
+\]
+\[
+	\Ket{ \frac 3 2 , \frac 1 2 } = 
+	\sqrt{\frac{1}{3}} \: \Ket{ 1 , -\frac 1 2 } + \sqrt{\frac{2}{3}} \: \Ket{ 0 , \frac 1 2 }
+\]
 
 \notamargen{El término $\pe{L}{S}$ aparece en el lagrangiano de interacción nuclear.}
 
 \subsection{Uso de la tabla de Clebsh-Gordan}
+
+
+\includegraphics[width=0.60\textwidth]{images/fig_ft2_clebsh_gordan_table.jpg}
 
 El primero y el final siempre valen uno porque acoplan estados máximos o mínimos.
 
 
 El $\sqrt{2/3}$ acopla $j=3/2, M=1/2, m_1=0, m_2 =1/2$. Consideremos un ejemplo $2 \times 3/2$ lo cual 
 corresponde a $j=7/2, 5/2, 3/2, 1/2$.
-
-
+\[
+	\Ket{\frac 7 2 , \frac 3 2} = \sqrt{\frac{2}{7}} \Ket{0,\frac 3 2} +
+	\sqrt{\frac{4}{7}} \Ket{0,\frac 1 2} + \sqrt{\frac{1}{7}} \Ket{2,-\frac 1 2}
+\]
 Miro en la tabla $2\times 3$.
+\notamargen{Es buena pensar qué CL general produce el $\Ket{7/2,3/2}$.}
 
 Queremos ver cuándo un operador cumple propiedades vectoriales. En mecánica clásica teníamos la transformación
 ante rotacionaes $V_i \to \sum_j R_{ij} V_j$ de modo que como $\Ket{\a} \to D(R)\Ket{\a}$ entonces
-
+\[
+	\Braket{\a|\mathcal{O}|\a} \to \Braket{\a | D^\dagger(R) \mathcal{O} D(R)|\a} 
+	\qquad \qquad [\mathcal{O},J] =0
+\]
 
 Supongamos una rotación infinitesimal, se escribe el $D(R) = \mathbb{1} - i \epsilon \vb J \cdot \nver / \hbar$
-
-
+\[
+	D^\dagger \mathcal{O} D = \left( 1 + \frac{i\epsilon \vb J \cdot \nver}{\hbar}\right) 
+	\mathcal{O} \left( 1 - \frac{i\epsilon \vb J \cdot \nver}{\hbar}\right) =  \mathcal{O}
+	+ \frac{i\epsilon}{\hbar} [\mathcal{O},\vb J \cdot \nver] + \mathcal{O}(\epsilon^2)
+\]
+\notamargen{Qué mal elegido justo que usamos orden $\mathcal{O}$ y un operador $\mathcal{O}$.}
 
 Al tomar valor medio resultará $\mathcal{O}$. Un operador vectorial en mecánica cuántica quedará definido
 al hacer el traspaso
-
-
-donde
-
-
+\[
+	\Braket{\a|V_i|\a} \to \Braket{\a| D^\dagger V_i D |\a} \equiv \sum_j R_j \Braket{\a|V_j|\a}
+\]
+\[
+	D^\dagger V_i D = \sum_j R_j V_j
+\]
+que es un operador vectorial, donde
+\[
+	V_i + \frac{\epsilon}{i\hbar} [V_i, \vb J \cdot \nver ] = \sum_j R_j V_j
+\]
+\[
+	\begin{pmatrix}
+		1 	&	-\epsilon	&	0 \\
+		\epsilon &	1	&	0 \\
+		0 	&	0	&	1 
+	\end{pmatrix}
+	\begin{pmatrix}
+		V_x \\
+		V_y \\
+		V_z
+	\end{pmatrix}
+\]
+\[
+	V_x + \frac{\epsilon}{i\hbar} [ V_x, J_z ] = V_x - \epsilon V_y
+\]
+\[
+	V_y + \frac{\epsilon}{i\hbar} [ V_y, J_z ] = V_y + \epsilon V_x
+\]
+\[
+	V_z + \frac{\epsilon}{i\hbar} [ V_z, J_z ] = V_z
+\]
 Entonces, un operador es un operador vectorial cuando verifica que
+\[
+	[V_i, J_j] = i \hbar \epsilon_{ijk} V_k \qquad 
+	[J_i, J_j] = i \hbar \epsilon_{ijk} J_k
+\]
+y vemos que $J$ es una especie de patrón de operadores vectoriales.
 
 \subsection{Suma de \vb{L} y \vb{S}}
 
@@ -728,12 +848,13 @@ Un tensor esférico de rango $k$ se transforma como
 	\mathcal{D}(R) T_{q'}^{(k)} \mathcal{D}(R)^\dagger = 
 	\sum_{q=-k}^k \: \mathcal{D}(R)_{qq'}^{(k)} T_{q'}^{(k)}  \qquad (2)
 \]
-Tendremos 
+Tendremos un tensor esférico de rango 0 ($\ell=0$), un escalar, que denotaremos
 \[
-	T^{(0)}_0 \quad \text{(escalar) tensor esférico de rango 0 ($\ell=0$)}
+	s = T^{(0)}_0, 
 \]
+un tensor esférico de rango 1 ($\ell=1$), vector,
 \[
-	(T^{(1)}_1,T^{(1)}_0,T^{(1)}_{-1}) \quad \text{(vector) tensor esférico de rango 1 ($\ell=1$)}
+	(T^{(1)}_1,T^{(1)}_0,T^{(1)}_{-1})
 \]
 
 En muchos casos se puede escribir un tensor esférico como armónico esférico 
@@ -763,6 +884,7 @@ relaciones de conmutación para tensores.
 	[J_{\pm},T_q^{(k)}] = \hbar \sqrt{(k\mp 1)(k\pm q + 1)} T_{q\pm 1}^{(k)}
 \]
 
+Cualquier vector lo puedo escribir como combinación lineal de la base $T_1^{(0)}, T_{\pm 1}^{(1)}$.
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
