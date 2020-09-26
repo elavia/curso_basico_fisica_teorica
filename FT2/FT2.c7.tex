@@ -526,8 +526,93 @@ que nos dice que necesito conocer dos coeficientes para conocer otro.
 % luego con el $J_=, J_-$ podemos construirnos los siguientes (utilizando ortonormalidad)
 
 
+\section{Coeficientes de Clebsh-Gordan}
+
+Habíamos probado ciertas condiciones parda los coeficientes de Clebsh-Gordan
 
 
+Veamos un caso de sumar $\vb L + \vb S$ (momento angular más spin) en el caso de spin $1/2$.
+Identificamos entonces $j_1 = \ell, m_1 = m_\ell, j_2 = 2 = 1/2$ y $m_2 = m_s = \pm 1/2$ 
+Esto nos lleva a
+
+
+La expresión de [1] nos dice simplemente que sumando spin más momento angular se tiene $\ell+1/2$ 
+o $\ell - 1/2$ si están simétricos o antisimétricos. Veamos los coeficientes de Clebsh-Gordan que
+no serán nulos,
+Tendremos dos estados
+
+
+
+\notamargen{Tiramos $j_1, j_2$ para simplificar la notación.}
+
+
+de donde se ve que no nulos serán $ m = m_1 + m_2 = m_\ell \pm 1/2 $ y  $m_1 = m \pm 1/2$.
+Dado el caso que estamos tratando, $S$ solo tiene dos valores que dan $ m = m_1 + m_2 $. Los
+coeficientes de Clebsh-Gordan vinculan los estados con $j = \ell \pm 1/2$ y $m$. Podemos poner
+todo en una matriz
+
+
+
+Por convención se toma coeficiente de $\sin\alpha > 0$. La equivalencia ha llegado a una matriz
+ortogonal por la realidad de sus coeficientes. Calcularemos algún coeficiente
+
+
+Hay un modelo gráfico para la recurrencia. Podemos graficar ahora
+
+
+En nuestro caso el triángulo d recurrencia no conecta hacia arriba porque para spin solo tengo
+$+ 1/2$ o $-1/2$, con lo cual no tengo el trío sino un dúo de coeficientes.
+Trabajando encontramos que
+
+
+Esta relación puede aplicarse hasta $m+1/2 \to \ell$. Entonces llegamos a
+
+
+
+Llegamos a los máximos valores (todo en $\zver$ el momento angular, todo en $\zver$ el spin $S$)
+con lo cual debe dar el máximo y entonces el coeficiente debe dar uno $\Braket{\ell,1/2| \ell+1/2,\ell+1/2} = 1$.
+Identificamos
+
+
+donde siempre podemos fijar inicialmente la fase para que sea real.
+Es útil en el acoplamiento spin-órbita. Allí teníamos
+
+
+
+Sea una cosa con $\ell=1, s=1/2$ lo que significa  $ 1 \otimes 1/2 = 3/2 \oplus 1/2$ o en términos
+de dimensiones $ 3 \otimes 2 = 4 \oplus 2 $.
+Escribo un estado en términos de la base mostrada
+
+
+\notamargen{El término $\pe{L}{S}$ aparece en el lagrangiano de interacción nuclear.}
+
+\subsection{Uso de la tabla de Clebsh-Gordan}
+
+El primero y el final siempre valen uno porque acoplan estados máximos o mínimos.
+
+
+El $\sqrt{2/3}$ acopla $j=3/2, M=1/2, m_1=0, m_2 =1/2$. Consideremos un ejemplo $2 \times 3/2$ lo cual 
+corresponde a $j=7/2, 5/2, 3/2, 1/2$.
+
+
+Miro en la tabla $2\times 3$.
+
+Queremos ver cuándo un operador cumple propiedades vectoriales. En mecánica clásica teníamos la transformación
+ante rotacionaes $V_i \to \sum_j R_{ij} V_j$ de modo que como $\Ket{\a} \to D(R)\Ket{\a}$ entonces
+
+
+Supongamos una rotación infinitesimal, se escribe el $D(R) = \mathbb{1} - i \epsilon \vb J \cdot \nver / \hbar$
+
+
+
+Al tomar valor medio resultará $\mathcal{O}$. Un operador vectorial en mecánica cuántica quedará definido
+al hacer el traspaso
+
+
+donde
+
+
+Entonces, un operador es un operador vectorial cuando verifica que
 
 \subsection{Suma de \vb{L} y \vb{S}}
 
@@ -606,19 +691,23 @@ infinitesimal en $\hat{z}$ y ver que vale.
 
 \section{Operadores tensoriales}
 
-En mecánica clásica 
+En mecánica clásica, un tensor transforma de la manera
 \[
 	T_{ij} = R_{ii'} R_{jj'} T_{i' j'}
 \]
 que es un tensor de rango dos. Esto es un \underline{tensor cartesiano}. Su problema es que \underline{no es 
-irreducible}, entonces puede descomponerse en objetos que transforman diferente ante rotaciones. Sea la díada 
-$U_iV_j$, tensor de rango dos, que puede escribirse como 
+irreducible}, entonces puede descomponerse en objetos que transforman diferente ante rotaciones.
+Convendrá pasar de tensores escritos en bases cartesianas a bases esféricas.
+Sea la díada $U_iV_j$, tensor de rango dos, que puede escribirse como 
 \[
 	UV = \frac{1}{3}\vb{U}\cdot\vb{V}\delta_{ij} + \frac{1}{2}\left( U_iV_j - U_jV_i \right) +
 	\left[ \frac{1}{2}\left( U_iV_j + U_jV_i \right) - \frac{1}{3}\vb{U}\cdot\vb{V}\delta_{ij}\right]
 \]
-Hemos reducido el tensor cartesiano en tensores irreducibles. Podemos asociar esta descomposición con las 
-multiplicidades de objetos con momento angular $\ell=0, \ell=1, \ell=2$
+que son términos de dimensión 1, 3, 5; un escalar, una matriz antisimétrica con traza nula y un término
+de traza no nula.
+Hemos reducido el tensor cartesiano en tensores irreducibles ante rotaciones. 
+Podemos asociar esta descomposición con las multiplicidades de objetos con momento angular 
+$\ell=0, \ell=1, \ell=2$. Es decir que,
 \[
 	\text{escalar} \longrightarrow \ell=0 \; \text{singlete (un elemento independiente) }
 \]
@@ -634,9 +723,10 @@ Se define
 \[
 	T^{(k)}_q \qquad \text{tensor esférico de rango $k$ y número magnético $q$}
 \]
-Un tensor esférico transforma como 
+Un tensor esférico de rango $k$ se transforma como 
 \[
-	\mathcal{D}(R) T_{q'}^{(k)} \mathcal{D}(R)^\dagger = \mathcal{D}(R) T_{q'}^{(k)}  \qquad (2)
+	\mathcal{D}(R) T_{q'}^{(k)} \mathcal{D}(R)^\dagger = 
+	\sum_{q=-k}^k \: \mathcal{D}(R)_{qq'}^{(k)} T_{q'}^{(k)}  \qquad (2)
 \]
 Tendremos 
 \[
