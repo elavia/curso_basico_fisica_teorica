@@ -340,6 +340,8 @@ Los coeficientes inversos son paridos desde
 \]
 con $-j \leq m \leq j$ y con $j\to\infty$, porque la sumatoria en $j$ es infinita, aunque se verá
 que muchos son nulos.
+\notamargen{En la página 51 de la carpeta bajo ``caso general de suma de J'' tengo anotadas algunas
+expresiones de resumen de la práctica que deberían repetir esto.}
 En 2 la $\sum$ sería en $j\to\infty$, pero veamos la relacion que hace algunos $C_{m_1 m_2}^j=0$. 
 Ante todo abreviaremos suprimiendo los índices $j_1,j_2$ con lo cual 
 \[
@@ -733,6 +735,119 @@ Entonces, un operador es un operador vectorial cuando verifica que
 	[J_i, J_j] = i \hbar \epsilon_{ijk} J_k
 \]
 y vemos que $J$ es una especie de patrón de operadores vectoriales.
+
+\begin{ejemplo}{\bf Ejercicio 1}
+ 
+Consideremos $s=1/2, \ell=1$ con $\Ket{\ell,s,m_\ell,m_s}$ sujetos a $|\ell-s| \leq j \leq \ell + s$.
+Tenemos que elegir $1,1/2$ para formar el $3/2$ lo que implica que $ j \leq 3/2$ y $m_{\text{max}}=3/2$.
+\[
+	\Ket{3/2, 3/2} = \Ket{1,1/2,1,1/2}
+\]
+Usemos $J_- = L_- + S_-$
+\[
+	J_- \Ket{3/2, 3/2} = \hbar \sqrt{3} \Ket{3/2,1/2}
+\]
+y
+\[
+	L_- S_- \Ket{1,1/2,1,1/2} = \hbar ( \sqrt{2} \Ket{1,1/2,0,1/2} + 1/\sqrt{3} \Ket{1,1/2,1,-1/2} )
+\]
+y luego
+\[
+	\Ket{3/2, 1/2} = \sqrt{2/3} \Ket{1,1/2,0,1/2} + 1/\sqrt{3} \Ket{1,1/2,1,-1/2}
+\]
+
+Usamos la tabla para hallar los otros coeficientes
+\[
+	\Ket{3/2, -1/2} = \sqrt{2/3} \Ket{1,1/2,0,-1/2} + 1/\sqrt{3} \Ket{1,1/2,-1,1/2}
+	\qquad 
+	\Ket{3/2, -3/2} = 1 \Ket{1,1/2,-1,-1/2}
+\]
+
+Faltan dos estados, y sale caminando mirando la tabla o completando por ortogonalidad que es el
+\[
+	\Ket{1/2, 1/2} = \sqrt{2/3} \Ket{1,1/2,-1,1/2} - \sqrt{1/3} \Ket{1,1/2,0,1/2}
+\]
+(este es lo mismo que multiplicarlo todo por $-1$) y
+\[
+	\vm{L_z} = 2/3 \hbar \qquad \vm{S_z} = -\hbar/6 \qquad \vm{J_z} = \hbar/2
+\]
+ 
+\end{ejemplo}
+
+
+\begin{ejemplo}{\bf Ejercicio 6}
+ 
+Tenemos dos partículas de spin $1/2$ 
+
+Parte a)
+\[
+	\text{ Sujeto A } \longrightarrow (S_{1x}, S_{1y}, S_{1z})
+\]
+\[
+	\text{ Sujeto B } \longrightarrow (S_{2x}, S_{2y}, S_{2z})
+\] 
+y el nulo es
+\[
+	\Ket{0,0} = \frac{1}{\sqrt{2}} ( \Ket{ 1/2, 1/2 ; 1/2, -1/2 } - \Ket{ 1/2, 1/2 ; -1/2, 1/2 })
+\]
+
+La probabilidad de $S_{1z} = \hbar/2$ es $1/2$, lo cual se ve a ojo.
+Pero la otra probabilidad no es tan fácil. Conviene escribir $S_x$ en combinación lineal de
+autoestados de $S_z$
+\[
+	\Ket{1/2, 1/2, 1/2, -1/2} = \frac{1}{\sqrt{2}}
+	( \Ket{ 1/2, 1/2, m_x = 1/2, -1/2 } + \Ket{ 1/2, 1/2, m_x = -1/2, -1/2 } )
+\]
+\[
+	\Ket{1/2, 1/2, -1/2, 1/2} = \frac{1}{\sqrt{2}}
+	( \Ket{ 1/2, 1/2, m_x = 1/2, 1/2 } - \Ket{ 1/2, 1/2, m_x = -1/2, 1/2 } )
+\]
+\[
+	\Ket{ 1/2 1/2 } \otimes \Ket{ 1/2 -1/2 }
+\]
+
+Son los cuatro ortogonales (este es el problema)
+\begin{multline*}
+	\Ket{ 0  0 } = \frac{1}{2}
+	\left( \Ket{ 1/2, 1/2, m_x = 1/2, -1/2 } +
+	\Ket{ 1/2, 1/2, m_x = -1/2, -1/2 } + \right. \\
+	\left. \Ket{ 1/2, 1/2, m_x = 1/2, 1/2 } -
+	\Ket{ 1/2, 1/2, m_x = -1/2, 1/2 }
+	\right) 
+\end{multline*}
+y
+\[
+	P( S_x = \hbar/2 ) = \frac{1}{2}.
+\]
+
+Para la parte b) consideramos
+\[
+	\Ket{ 0 0 } = \frac{1}{\sqrt{2}} 
+	( \Ket{1/2, 1/2 ; 1/2, -1/2} - \Ket{1/2, 1/2 ; -1/2, 1/2} )
+\]
+y como $B$ mide $S_{2z} = \hbar/2$ se tiene
+\[
+	\Ket{\Psi}_{\text{DM}} = \Ket{1/2, 1/2 ; -1/2, 1/2}
+\]
+pero $A$ mide $-\hbar/2$ de tal manera que $P(S_{1z}=-\hbar/2)=1$ puesto que $A$ seguro
+mide $-\hbar/2$.
+
+Si las partículas fueron separadas la medición de $B$ afecta el resultado de $A$.
+Si $B$ mide $S_{2z}=\hbar/2$ entonces ahora $A$ mide con certeza $-\hbar/2$.
+
+Luego, dos caminos
+\[
+	\Ket{00} 
+	\begin{cases}
+	P=1/2 \quad \Ket{1/2, 1/2 ; 1/2, -1/2} \quad \text{ mide $A$ } -\frac{\hbar}{2} \text{ con } \; P=1 \\
+	P=1/2 \quad \Ket{1/2, 1/2 ; -1/2, 1/2} \quad \text{ mide $A$ } \frac{\hbar}{2} \text{ con } \; P=1
+	\end{cases}
+\]
+
+No se viola nada. Hay una correlación entre los estados; pero no se transmite información
+y por ello no violamos la relatividad.
+
+\end{ejemplo}
 
 \subsection{Suma de \vb{L} y \vb{S}}
 
