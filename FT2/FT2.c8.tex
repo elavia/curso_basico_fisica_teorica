@@ -33,21 +33,23 @@
 \chapter{Teorema de Wigner-Eckart}
 % =================================================================================================
 
-
-
+Este teorema facilita el cálculo de elementos de matriz de un tensor.
+Un operador cualquiera puede descomponerse tensorialmente.
 Es importante para el cálculo de transiciones evaluar elementos de matriz de operadores tensoriales.
+Si determino qué coeficientes son nulos entonces eso significa que no hay probabilidad entre ellos.
+
 Los elementos matriciales de operadores tensoriales respecto de autoestados de momento satisfacen 
 \[
 	\Braket{\alpha',j',m'|T^{(k)}_q|\alpha,j,m} =  \Braket{j k; m q | j k; j' m'}
 	\frac{\Braket{\alpha' j'|T^{(k)}|\alpha j}}{(2j+1)}
 \]
 un coeficiente que no depende de $q,m,m'$. El coeficiente que aparece primero es el coeficiente de 
-Clebsh-Goran dde sumar momentos $jk$ con $m_1=m, m_2=q, m+q=m'$ .
+Clebsh-Goran de sumar momentos $jk$ con $m_1=m, m_2=q, m+q=m'$ .
 
 La regla de selección se construye 
 \[
 	\Braket{\alpha',j',m'|[J_z, T^{(k)}_q] - \hbar q T^{(k)}_q |\alpha,j,m} = 
-	\Braket{|J_z T^{(k)}_q - T^{(k)}_q J_z - \hbar q T^{(k)}_q|}
+	\Braket{|J_z T^{(k)}_q - T^{(k)}_q J_z - \hbar q T^{(k)}_q|} = 0
 \]
 \[
 	\Braket{\alpha',j',m'|0|\alpha,j,m} = 
@@ -59,19 +61,35 @@ La regla de selección se construye
 \[
 	\text{si} \; m' \neq m+q \longrightarrow \Braket{\alpha',j',m'|T^{(k)}_q|\alpha,j,m} = 0
 \]
+Este coeficientes será nulo si $m' = m+q$ pués $T_q^{(k)}\Ket{\a,j,m} \propto \Ket{\a,j,m+q}$
 
-Una idea de la demostración del teorema
-\[
-	\Braket{\alpha',j',m'|[J_\pm ,T^{(k)}_q]|\alpha,j,m} = \hbar\sqrt{(k\mp q)(k\pm q + 1)} 
-	\Braket{\alpha',j',m'|T^{(k)}_{q\pm 1}|\alpha,j,m}
-\]
+El teorema nos dice que
+\be
+	\Braket{\alpha',j',m'|T^{(k)}_q|\alpha,j,m} =  \Braket{j, k; m, q | j, k; j', m'}
+	\frac{\Braket{\alpha', j'|T^{(k)}|\alpha, j}}{(2j+1)}
+	\label{resultado_teorema_wigner}
+\ee
+donde el valor de este último coeficiente es independiente de la componente $q$ y de $m, m'$.
+Estos elementos de matriz tienen reglas de selección parecidas a las de los coeficientes de
+Clebsh-Gordan.
+En efecto, la expresión \eqref{resultado_teorema_wigner} será nula salvo cuando $m'= m+q, 
+|j-k| \leq j' \leq j + k$. Veamos cómo demostrar dicha expresión.
+
+Una idea de la demostración del teorema parte de que 
+\begin{multline*}
+	\Braket{\alpha',j',m'|[J_\pm ,T^{(k)}_q]|\alpha,j,m} = \\
+	\hbar\sqrt{(k\mp q)(k\pm q + 1)} 
+	\Braket{\alpha',j',m'|T^{(k)}_{q\pm 1}|\alpha,j,m} 
+\end{multline*}
+que se descompone a 
 \begin{multline*}
 	\sqrt{(j'\pm m')(j'\mp m' + 1)} \Braket{\alpha',j',m'\pm 1|T^{(k)}_q|\alpha,j,m} - \\
 	\sqrt{(j'\mp m')(j'\pm m' + 1)} \Braket{\alpha',j',m'|T^{(k)}_q|\alpha,j,m \pm 1} = \\
-	\sqrt{(k\mp q)(k\pm q + 1)}  \Braket{\alpha',j',m'|T^{(k)}_{q\pm 1}|\alpha,j,m}
+	\sqrt{(k\mp q)(k\pm q + 1)}  \Braket{\alpha',j',m'|T^{(k)}_{q\pm 1}|\alpha,j,m}.
 \end{multline*}
 
-Es la misma relación de recurrencia que la de los coeficientes de Clebsh-Gordan, si reemplazamos
+Pero ésta es la misma relación de recurrencia vista para los coeficientes de Clebsh-Gordan, 
+si reemplazamos
 \[
 	m'=m \quad j=j_1 \quad m=m_1 \qquad j'=j \quad k=j_2 \quad q=m_2
 \]
@@ -85,56 +103,87 @@ Como ambas relaciones son lineales, sus resultados serán proporcionales. Se pue
 	\Braket{ j_1, k ; m, q \pm 1 | j, k ; j', m'} \propto 
 	\Braket{\alpha',j',m'|T^{(k)}_{q\pm 1}|\alpha,j,m}
 \]
-Logramos la igualdad metiendo una constante independiente de $m',q,m$.
+Logramos la igualdad metiendo una constante $C(j,j',k)$ independiente de $m',q,m$ de tal manera
+que
+\begin{multline*}
+	\Braket{\alpha',j',m'|T^{(k)}_{q\pm 1}|\alpha,j,m}
+	\Braket{ j_1, j_2 ; m_1, m_2 \pm 1 | j_1, j_2 ; j, m} = \\
+	\Braket{ j_1, k ; m, q \pm 1 | j, k ; j', m'} \: C(j,j',k).
+\end{multline*}
 
-\subsection{Reglas de selección}
-
-Como se tiene a $\Braket{|T_q^{(k)}|}$ proporcional a los coeficientes de Clebsh-Gordan, serán válidas las 
-mismas reglas de selección 
+Asimismo, como se tiene a $\Braket{|T_q^{(k)}|}$ proporcional a los coeficientes de Clebsh-Gordan, 
+serán válidas las mismas reglas de selección 
 \[
-	m' = m + q \qquad |j-k| \leq j' \leq j+k
+	m' = m + q \qquad |j-k| \leq j' \leq j+k.
 \]
 
-\section{Ejemplos de elementos matriciales de tensores}
+\begin{ejemplo}{\bf Ejemplo del teorema para escalares y vectores}
 
-Sea un escalar (tensor de rango cero)
+Sea un escalar (número), o bien un tensor de rango cero $S=T_0^{(0)}$, entonces
 \[
-	\Braket{\alpha' j' m' |T_0^{(0)}| \alpha j m} \propto \Braket{j 0 ; m 0 |j 0 ; j' m'} =
-	\delta_{j'j}\delta_{m'm} 
+	\Braket{\alpha', j', m' |T_0^{(0)}| \alpha, j, m} \propto 
+	\Braket{j, 0 ; m, 0 |j, 0 ; j', m'} = \delta_{j'j}\delta_{m'm} 
 \]
+que es el coeficiente de Clebsh-Gordan de sumar $j+0=j$, salvo que $j=j'$ es nulo,
+por lo cual aparece $\delta_{j'j}$; pero $m+0 = m = m'$ y entonces
 \[
-	q=0 \; k=0 \quad m+q=m' \rightarrow m=m'
+	\Braket{\alpha', j', m' |T_0^{(0)}| \alpha, j, m} =
+	\delta_{j'j}\delta_{m'm}  \frac{\Braket{\a',j'|S|\a,j}}{\sqrt{2j+1}}
 \]
+se ve que el $S$ no conecta estados con $m,j$ diferentes. La transición es independiente de
+$m$ lo cual puede mostrarse así
+% \[
+% 	q=0 \; k=0 \quad m+q=m' \rightarrow m=m'
+% \]
+% \[
+% 	|j-0| \leq j' \leq j+0 \rightarrow j=j'
+% \]
+% No varían $j,m$ en los estados No conecta estados con $j,m$ diferentes un escalar.
 \[
-	|j-0| \leq j' \leq j+0 \rightarrow j=j'
+	(j=5,m=5) \to (j=5,m=5) \equiv (j=5,m=4) \to (j=5,m=4).
 \]
-No varían $j,m$ en los estados No conecta estados con $j,m$ diferentes un escalar.
 
-Sea un vector (tensor de rango uno):
+Sea ahora un vector (tensor de rango uno):
 \[
-	\Braket{\alpha' j' m'|T_q^{(1)}| \alpha j m} \propto \Braket{j 1;m q|j 1;j' m'}
+	\Braket{\alpha', j', m'|T_q^{(1)}| \alpha, j, m} 
+	\propto \Braket{j, 1 ; m , q | j, 1 ; j', m'}
+\]
+Como $k=1$ se tienen $q=1,0,-1$, lo cual conduce a que
+\[
+	|j-1| \leq j' \leq j+1 \quad -1\leq j'-j \leq 1 
+	\qquad \rightarrow  \qquad 
+	j-j'=\begin{cases} 1 \\ 0 \\ -1 \end{cases}
 \]
 \[
-	q=1,0,-1 \; k=1 \quad m+\{1,0,-1\}=m' \rightarrow m-m' =\begin{cases} 1 \\ 0 \\ -1 \end{cases}
+	m + \{1,0,-1\} = m' \qquad \rightarrow \qquad 
+	m - m' =\begin{cases} 1 \\ 0 \\ -1 \end{cases}
 \]
-\[
-	|j-1| \leq j' \leq j+1 \quad -1\leq j'-j \leq 1\rightarrow j-j'=\begin{cases} 1 \\ 0 \\ -1 \end{cases}
-\]
-Conecta estados que están separados por un $j$ y un $m$.
 
-\subsection{Teorema de proyección}
+Entonces, el vector conectará estados con $j-j' = \pm 1, 0$. No produce transiciones entre
+$j$ y $j'$ alejados en más de una unidad. Para $m$ tendré lo mismo.
+La constante que completa la proporcionalidad será la misma para varios coeficientes.
+Esto tiene suma importancia en la conexión de estados $j=0+1=1$.
+
+\end{ejemplo}
+
+\section{Teorema de proyección}
 
 Consideremos lo que sucede en el teorema de Wigner-Eckart si $j=j'$ y se lo aplicamos a un operador vectorial 
 $T_q^{(k=1)} \equiv V_q$
 \[
-	\Braket{\alpha'j m'|V_q|\alpha j m} = 
-	\frac{\Braket{\alpha' j m|\vb{J}\cdot\vb{V}|\alpha j m}}{\hbar^2j(j+1)}\Braket{j m'|J_q|j m}
+	\Braket{\alpha', j, m'|V_q|\alpha, j, m} = 
+	\frac{\Braket{\alpha', j, m|\vb{J}\cdot\vb{V}|\alpha, j, m}}{\hbar^2j(j+1)}\Braket{j, m'|J_q|j, m}.
 \]
 
-Como caso especial, si $\alpha' =\alpha$ estoy en un subespcaio donde coinciden los números cuánticos, se 
-tiene
+Como caso especial, si $\alpha' =\alpha$ estoy en un subespacio donde coinciden los números cuánticos
+salvo $m$. Allí vale que 
 \[
-	\vb{V} = \frac{\Braket{\vb{J}\cdot\vb{V}}}{\hbar^2j(j+1)} \vb{J}
+	\vb{V}_{\a,j} = \frac{ \Braket{\vb{J}\cdot\vb{V}}_{\a,j} }{\hbar^2j(j+1)} \vb{J},
+\]
+donde los subíndices $\a,j$ implican respecto a quien estoy tomando valor medio. Esto vale para cualquier
+vector en el mismo subespacio,
+\[
+	\vb{V} = \frac{\Braket{\vb{J}\cdot\vb{V}}}{\hbar^2j(j+1)} \vb{J}.
 \]
 
 \subsection{Aplicación del teorema de proyección}
@@ -164,6 +213,8 @@ de proyección.
 	\vb{J}\cdot\vb{S} = S^2 + \frac{1}{2}( J^2 - L^2 - S^2 )
 \]
 Entonces tengo todo expresado en función de $J_z$ que sí forma parte de mi CCOC.
+
+% \includegraphics[width=0.25\textwidth]{images/teo2_12.pdf}
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")

@@ -959,10 +959,11 @@ Se define
 	T^{(k)}_q \qquad \text{tensor esférico de rango $k$ y número magnético $q$}
 \]
 Un tensor esférico de rango $k$ se transforma como 
-\[
+\be
 	\mathcal{D}(R) T_{q'}^{(k)} \mathcal{D}(R)^\dagger = 
-	\sum_{q=-k}^k \: \mathcal{D}(R)_{qq'}^{(k)} T_{q'}^{(k)}  \qquad (2)
-\]
+	\sum_{q=-k}^k \: \mathcal{D}(R)_{qq'}^{(k)} T_{q'}^{(k)} 
+	\label{regla_transf_tensor_esferico}
+\ee
 Tendremos un tensor esférico de rango 0 ($\ell=0$), un escalar, que denotaremos
 \[
 	s = T^{(0)}_0, 
@@ -992,12 +993,13 @@ En muchos casos se puede escribir un tensor esférico como armónico esférico
 	Y_1^{\pm 1} = \mp \sqrt{\frac{3}{4\pi}} \frac{n_x \pm i n_y}{\sqrt{2}} \quad \longrightarrow
 	T_{\pm 1}^{(1)} = \mp \sqrt{\frac{3}{4\pi}} \frac{V_x \pm i V_y}{\sqrt{2}}
 \]
-Calculando en (2), cosa que podemos hacer para, por ejemplo, una rotación infinitesimal, llegamos a las 
-relaciones de conmutación para tensores.
+Calculando en \eqref{regla_transf_tensor_esferico}, con una $\mathcal{D}(R)$ del tipo de una rotación 
+infinitesimal, llegamos a las relaciones de conmutación para tensores.
 \[
 	[ J_z, T_q^{(k)} ] = \hbar q T_q^{(k)} \qquad 
-	[J_{\pm},T_q^{(k)}] = \hbar \sqrt{(k\mp 1)(k\pm q + 1)} T_{q\pm 1}^{(k)}
+	[J_{\pm},T_q^{(k)}] = \hbar \sqrt{(k \mp q)(k\pm q + 1)} T_{q\pm 1}^{(k)}
 \]
+donde vemos que el tensor le suma $q$ unidades de $\hbar$.
 
 Cualquier vector lo puedo escribir como combinación lineal de la base $T_1^{(0)}, T_{\pm 1}^{(1)}$.
 
