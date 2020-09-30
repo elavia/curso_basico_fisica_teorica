@@ -275,17 +275,126 @@ Entonces tengo todo expresado en función de $J_z$ que sí forma parte de mi CCO
 
 \includegraphics[width=0.5\textwidth]{images/fig_ft2_H_proy.jpg}
 
-\begin{ejemplo}{\bf Ejercicio}
+\begin{ejemplo}{\bf Ejercicio 9}
+
+Para un vector en $\mathbb{R}^3$, rotación en $\yver$ es
+\[
+	M \equiv \begin{pmatrix}
+	\cos \b & 0 & \sin \b \\
+	0 & 1 & 0 \\
+	-\sin \b & 0 & \sin \b \\
+	\end{pmatrix}
+\]
+Luego, 
+\[
+	M \begin{pmatrix}
+	   V_x \\
+	   V_y \\
+	   V_z
+	  \end{pmatrix} =
+		\begin{pmatrix}
+		\cos \b V_x + \sin \b V_z \\
+		V_y \\
+		-\sin \b V_x +  \cos \b V_z \\
+		\end{pmatrix}
+	  \begin{pmatrix}
+	   V_x' \\
+	   V_y' \\
+	   V_z'
+	  \end{pmatrix}
+\]
+Los vectores transforman $ V_i' = R_{ij} V_j $
+\[
+	V_z' = \sum_{q'} d_{qq'}^{(1)} V_{q'}^{(1)} 
+	\qquad 
+	V_q^{(1)} = \sum_{q'} d_{qq'}^{(1)} V_{q'}^{(1)} 
+\]
+y
+\[
+	V_z = V_0^1, \qquad V_0' = \sum_{q'} d_{0q'} V_{q'}
+\]
+donde
+\[
+	d_{0q'} = \left(
+	\frac{\sin\b}{\sqrt{2}}, \cos\b, - \frac{1}{\sqrt{2}}\sin\b \right)
+\]
+y entonces tendremos para $V_0'$
+\[
+	V_0' = \left(
+	\frac{\sin\b}{\sqrt{2}}, \cos\b, - \frac{1}{\sqrt{2}}\sin\b \right)
+	\begin{pmatrix}
+	V_1^1 \\
+	V_0^1 \\
+	V_{-1}^1
+	\end{pmatrix}
+\]
+y
+\[
+	V_0' = \frac{1}{\sqrt{2}} \sin\b [ V_1^1 - V_{-1}] + \cos\b V_0^1
+\]
+\[
+	V_{\pm 1}' = \mp \Frac{ V_x \pm i V_y }{\sqrt{2}} V_0 =
+	- \sin\b V_x + \cos\b V_0'
+\]
+Los otros pueden hacerse en forma similar.
  
 \end{ejemplo}
 
-\begin{ejemplo}{\bf Ejercicio}
+
+\begin{ejemplo}{\bf Ejercicio 10}
+ 
+Teorema de Wigner-Eckart, sistema con momento angular 
+$\{ \Ket{\a,j,m} \} \Leftrightarrow \{ H, J^2, J_z \} $  y sea $T_q^k$ un tensor esférico.
+
+\[
+	\Braket{ \a', j', m' | T_q^k | \a, j, m } = 
+	\Braket{j,k,m,q|j,k,j',m'} 
+	\frac{1}{\sqrt{2j+1}} 
+	\Braket{\a',j'||T||\a,j}
+\]
+Sabemos que los coeficientes de Clebsh-Gordan no nulos serán $ m' = m + q $ tales que
+$ |j-k| \leq j' \leq j + k $.
+Tengo (1) que no sé que es y 
+\[
+	\Braket{ n', \ell', m' |\frac{1}{\sqrt{2}}(x+iy)| n, \ell, m }
+\]
+y lo quiero llevar a algo en que pueda aplicar W-E, entonces
+\[
+	(-1) \Braket{ n', \ell', m' | T_1^1 | n, \ell, m} = 
+	(-1) \Braket{ \ell, 1, m, 1 | \ell, 1, \ell', m+1 } cte.
+\]
+y los que sobreviven son estos: con $\ell=0$ hacia $\ell'=1$ se tiene
+\[
+	(-1) cte \Braket{ 0, 1, 0, 1 | 0, 1, 1, 1 } 
+\]
+ 
+Pero para (2) 
+\[
+	\Braket{m',\ell',m'|z|m,\ell,m} = (T_0')
+	\Braket{n',\ell',m'|T_0'|n,\ell,m} \neq 0
+\]
+si $|\ell-1|\leq \ell' \leq \ell +1 $ y $ m = m' $.
  
 \end{ejemplo}
 
 
-\begin{ejemplo}{\bf Ejercicio}
- 
+\begin{ejemplo}{\bf Ejercicio 11}
+
+Conviene escribir lo que está en el sandwich como combinación lineal de los tensores esféricos.
+\[
+	V_0^1 = z 
+	\qquad 
+	V_1^1 = - \frac{(x+iy)}{\sqrt{2}} 
+	\qquad 
+	V_{-1}^1 = \frac{(x+iy)}{\sqrt{2}} 
+\]
+\[
+	T_2^2 = V_1^1 V_1^1 = \frac{1}{2}( x^2 - y^2 + 2 i x y )
+\]
+\[
+	T_{-2}^2 = V_{-1}^1 V_{-1}^1 = \frac{1}{2}( x^2 - y^2 - 2 i x y )
+\]
+
 \end{ejemplo}
 
 
