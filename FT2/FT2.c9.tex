@@ -3,8 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -34,6 +34,11 @@
 \chapter{Simetrías en mecánica cuántica}
 % =================================================================================================
 
+Las simetrías son las que originan las fuerzas, en algún sentido. Desde el punto de vista actual las
+fuerzas (interacciones) tienen su origen en simetrías básicas que cumplen los constituyentes de la
+materia.
+Esta caracteerística de las simetrías es amén del hecho de su utilidad para resolver problemas.
+
 En mecánica clásica tenemos el teorema de Noether 
 \[
 	\dpar{\Lag}{q_i} = 0 \quad \to \quad \dtot{}{t}\left( \dpar{\Lag}{\dot{q}_i} \right) = 
@@ -45,8 +50,8 @@ Y $\Ham, \Lag$ no cambian con la transformación $q_i \longrightarrow q_i + \del
 	\dtot{}{t}\left( p_i \right) = 0 \quad \rightarrow \quad \partial p_i = cte. 
 \]
 
-En mecánica cuántica definiremos un operador unitario $\$$ asociado a traslación/rotación. Pensemos en una 
-transformación infinitesimal dada por $\$$
+En mecánica cuántica definiremos un operador unitario $\$$ asociado a traslación/rotación. 
+Pensemos en una transformación infinitesimal dada por $\$$
 \[
 	\mathbb{\$} = \mathbb{1} - i\frac{\varepsilon}{\hbar}G \qquad G \equiv \text{generador hermítico (de 
 la transf.)}
@@ -54,23 +59,52 @@ la transf.)}
 
 Sea el H invariante frente a $\$$, entonces 
 \[
-	S^\dagger HS = H \quad  \rightarrow \quad [H,\$] = 0 \quad \rightarrow [H,G]=0 \rightarrow
-	\dtot{G}{t} = 0 \rightarrow G \;\text{es cte. de movimiento}
+	S^\dagger HS = H \quad  \rightarrow \quad [H,\$] = 0 
 \]
+Luego,
+\[	
+	[H,G]=0 \rightarrow \dtot{G}{t} = 0 \rightarrow G \;\text{es cte. de movimiento}
+\]
+es decir que el generador de la transformación es una constante.
+Esto significa que el autovalor asociado no varía con el tiempo. Es algún {\it deja vu} del teorema
+de Noether de la mecánica clásica.
 
-Esto significa que el autovalor no varía con el tiempo, Como $[H,G]=0$ se tiene (si no hay degeneración)
+Sea $H\Ket{n} = E_n \Ket{n}$, luego como $[H,G]=0$ se tiene 
 \[
 	G\Ket{n} = k\Ket{n} \qquad \text{pués} \qquad H(G\Ket{n}) = E_n(k\Ket{n})
 \]
-invariancia frente a traslaciones $G=\vb{p}$ e invariancia frente a rotaciones $G=\vb{J}$.
+de modo que tienen la misma base de autoestados. Si no hay degeneración
+\[
+	G\ket{n} = k(\text{fase}) \Ket{n}
+\]
+mientras que si hay degeneración $G\Ket{n}\neq \Ket{n}$.
+Invariancia frente a traslaciones $G=\vb{p}$ e invariancia frente a rotaciones $G=\vb{J}$ [?].
 
-\subsection{Simetría de paridad}
+\subsection{Transformaciones discretas}
 
+Durante algún tiempo se consideraron solo tres transformaciones discretas; P(paridad), C(carga) y
+T(inversión temporal).
+Toda interacción debería verificar estas tres simetrías. Se vio en los 50's que la fuerza débil
+no cumple, en forma separada, CPT pero que las maneras de no cumplirla es tal que se conserva
+CPT como un todo (siempre se deja de cumplir de igual manera).
+
+{\bf  Simetría de paridad}
+
+Es la reflexión especular.
 Transforma un RHS en LHS. Es decir que hace 
 \[
 	\vb{x} \longrightarrow - \vb{x}
 \]
-y solicitaremos un operador unitario llamado paridad que verifique 
+con una matriz asociada
+\[
+	R = \begin{pmatrix}
+	 -1 & 0 & 0 \\
+	 0 & -1 & 0 \\
+	 0 & 0 & -1
+	\end{pmatrix}
+\]
+
+En mecánica cuántica solicitaremos un operador unitario llamado paridad que verifique 
 \[
 	\Ket{\alpha} \longrightarrow \Pi\Ket{\alpha} = \Ket{\alpha'}
 \]
@@ -98,13 +132,16 @@ anticonmuta con \vb{x}. Debido a ello
 	\Pi\Ket{\vb{x}'} = \Ket{-\vb{x}'} \qquad \Pi^2 \equiv \mathbb{1}
 \]
 lo cual dice que los autovalores son $\pm 1$ y $\Pi$ es unitario y hermítico.
-Como $\hat{\Pi}$ no depende del tiempo 
+Como $\hat{\Pi}$ no depende del tiempo (lo aplico a $\vb P$)
+\notamargen{No veo el vínculo de que no variando con el tiempo se aplique a \vb{p}.}
 \[
 	\Pi^\dagger\vb{p}\Pi = \Pi^\dagger\dtot{\vb{x}}{t}\Pi = \dtot{}{t}(\Pi^\dagger\vb{p}\Pi) = 
 	\dtot{-\vb{x}}{t} \rightarrow \{\vb{p},\Pi\}= 0
 \]
 y vemos que anticonmuta con \vb{p}.
-\vb{x}, \vb{p} son operadores impares. En cambio $\vb{L}=\vb{x}\times\vb{p}$ es un operador par, entonces 
+Se ve que \vb{x}, \vb{p} son operadores impares. 
+
+En cambio, el pseudovector $\vb{L}=\vb{x}\times\vb{p}$ es un operador par, entonces 
 \[
 	[\vb{L},\Pi] = 0 \qquad [\vb{J},\Pi] = 0
 \]
@@ -118,10 +155,15 @@ Que conmuta con \vb{J} puede verse de pedirle que
 \[
 	[\Pi,\mathcal{D}(R)] = 0 \longrightarrow [\Pi,\vb{J}] = 0 ,
 \]
-cosa que vale en mecánica clásica, entonces 
+donde $\mathcal{D}(R) = \exp{ - i \vb J \cdot \nver \phi / \hbar}$, puesto que esta cosa vale en 
+mecánica clásica, donde se tenía
 \[
-	R^{\text{(paridad)}}R^{\text{(rotación)}} = R^{\text{(rotación)}} R^{\text{(paridad)}}
+	R^{\text{(paridad)}}R^{\text{(rotación)}} = R^{\text{(rotación)}} R^{\text{(paridad)}},
 \]
+y por ello se le pide que lo mismo valga en mecánica cuántica.
+Esto nos dice que $\vb J$ es un operador par (un pseudovector).
+
+Veamos cómo actúa sobre vectores y sobre escalares (productos internos),
 \[
 	\Pi^\dagger \Box \Pi =  \begin{cases} +{\Box} \quad \text{par}\quad\text{vector axial( 
 	pseudovector)}\\  -\Box \quad \text{impar} \quad \text{vector polar} \end{cases}
@@ -130,14 +172,14 @@ cosa que vale en mecánica clásica, entonces
 	\Pi^\dagger \Box \Pi =  \begin{cases} +\Box \quad \text{par}\quad\text{escalar}\\
 	-\Box \quad \text{impar} \quad \text{pseudoescalar} \end{cases}
 \]
+
+Así, por ejemplo, para $\vb{S}\cdot\vb{x}$ pseudoescalar se tiene
 \[
 	\Pi^\dagger \vb{S}\cdot\vb{x} \Pi = \Pi^\dagger \vb{S}\Pi \cdot\Pi^\dagger\vb{x} \Pi =
-	\vb{S}\cdot(-\vb{x}) = -\vb{S}\cdot\vb{x}
+	\vb{S}\cdot(-\vb{x}) = -\vb{S}\cdot\vb{x}.
 \]
-y $\vb{S}\cdot\vb{x}$ es un pseudoescalar.
 
-\subsection{Función de onda bajo paridad}
-
+Veamos ahora qué sucede con la función de onda bajo paridad.
 \[
 	\Psi_\alpha(x') = \Braket{x'|\alpha} = \Braket{x'|\Pi|\alpha} = \Braket{x'|\alpha'} = 
 	\Braket{-x'|\alpha}
@@ -147,7 +189,8 @@ y entonces la función de onda de un estado al que se le aplicó paridad será
 	\Psi_{\alpha'}(x') = \Psi_\alpha(-x')
 \]
 
-Sea $\Ket{\alpha}$ autoestado de paridad, entonces 
+Sea $\Ket{\alpha}$ autoestado de paridad, entonces considerando que $ [ H, \Pi] = 0 $ y no hay
+degeneración (como en el caso del oscilador armónico),
 \[
 	\Pi\Ket{\alpha} = \pm \Ket{\alpha}
 \]
@@ -161,21 +204,86 @@ los autovalores serán $\pm 1$
 	\end{cases}
 \]
 no toda función de onda tiene paridad bien definida.
+No hay que confundir la paridad de la función de onda con la del operador.
+Un hamiltoniano que se conmute con $\Pi$ tendrá una descomposición en una parte par y en una impar.
 
+Consideremos ahora problemas con simetrías radial, y queremos ver qué hace el operador paridad allí.
+El cambio de paridad 
 \[
-	\vb{x} \to -\vb{x} \longrightarrow \left( r\to r, \theta \to \pi-\theta, \phi \to \phi+\pi \right)
+	\vb{x} \to -\vb{x} 
 \]
+involucra
 \[
-	\Braket{x'|\alpha,\ell,m} = R_\alpha(r) Y_\ell^m(\theta,\phi) \rightarrow \text{con}\vb{x} \; \to 
-	-\vb{x} \; \text{será}
+	\left( r\to r, \theta \to \pi-\theta, \phi \to \phi+\pi \right).
 \]
+Entonces para
+\[
+	\Braket{x'|\alpha,\ell,m} = R_\alpha(r) Y_\ell^m(\theta,\phi), 
+\]
+con el cambio $ \vb{x} \; \to -\vb{x} $ será
 \[
 	Y_\ell^m(\pi-\theta,\phi+\pi) = (-1)^\ell Y_\ell^m(\theta,\phi)
 \]
+entonces
 \[
 	\Pi\Ket{\alpha,\ell,m} =  (-1)^\ell \Ket{\alpha,\ell,m}
 \]
+donde $\ell$ define la paridad y $(-1)^\ell$ es el autovalor de paridad.
+Si $[H,\Pi] = 0$ y no hay degeneración
+\[
+	H \Ket{\a} = E_{\a} \Ket{\a} \qquad \qquad \Pi \Ket{\a} = \pm \Ket{\a}
+\]
+
+Para la partícula libre es $H = p^2/(2m)$ y $[H,\Pi] = 0$ pero lo feo es que siendo $\Ket{\vb p'}$ autoestado
+de $H$, no es autoestado de $\Pi$,
+\[
+	\Pi \Ket{\vb p'} = \Ket{-\vb p'}.
+\]
+Esto surge por la degeneración de que $\Ket{\vb p'}, \Ket{-\vb p'}$ tienen la misma energía.
+Luego, tengo que utilizar la {\it manganeta} habitual
+\[
+	\Ket{S} = \frac{1}{\sqrt{2}} \left( \: \Ket{\vb p'} + \Ket{-\vb p'} \: \right)
+\]
+y
+\[
+	\Ket{A} = \frac{1}{\sqrt{2}} \left( \: \Ket{\vb p'} - \Ket{-\vb p'} \: \right)
+\]
+que verifican
+\[
+	\Pi \Ket{S} = +1 \Ket{S} \qquad \qquad \Pi \Ket{A} = -1 \Ket{A}.
+\]
+
 Como $[\vb{L},\hat{\Pi}]=0$ un autoestado de \vb{L} es autoestado de $\hat{\Pi}$ .
+
+\begin{ejemplo}{\bf De paridad}
+
+Sean $\Ket{\a}, \Ket{\b}$ autoestados cumpliendo que
+\[
+	\Pi \Ket{\a} = \varepsilon_\a \Ket{\a} \qquad \qquad 
+	\Pi \Ket{\b} = \varepsilon_\b \Ket{\b}
+\]
+donde $\varepsilon_{\a,\b} = \pm 1$
+Luego $ \Braket{\a|\vb X|\b} = 0 $ si $\varepsilon_\a = \varepsilon_\a$
+\[
+	\Braket{ \b | \pi^2 \vb X \pi^2 | \a } = - \varepsilon_\a \varepsilon_\b 
+	\Braket{ \b | \vb X | \a } = \Braket{ \b | \vb X | \a}
+\]
+entonces se tienen que 
+\[
+	\begin{cases}
+		\varepsilon_\a = - \varepsilon_\b \qquad \text{ el elemento no será nulo.} \\
+		\varepsilon_\a \neq - \varepsilon_\b \qquad \text{ el elemento es nulo.}
+	\end{cases}
+\]
+Entonces
+\[
+	\Braket{\a|\vb X|\a} = 0.
+\]
+La utilidad de esto es que dada la paridad podemos descartar probabilidades. 
+Dos cosas pares no pueden interactuar con una impar y así.
+ 
+\end{ejemplo}
+
 
 \subsection{Teorema}
 
