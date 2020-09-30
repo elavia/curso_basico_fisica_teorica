@@ -923,6 +923,43 @@ y calculando la expresión anterior (1) llegamos a que debe valer
 que es la manera de transformar de un operador vectorial. Podemos probar un caso simple de una rotación 
 infinitesimal en $\hat{z}$ y ver que vale.
 
+\begin{ejemplo}{\bf Fragmento de teoría en la práctica}
+
+Tal vez este cacho corresponda al capítulo siguiente. No lo sé a esta altura.
+
+\[
+	U_{\pm 1}^1 = \mp \frac{ U_x \pm i U_y }{\sqrt{2}}, \qquad U_0^1 = U_z
+\]
+\[
+	V_{\pm 1}^1 = \mp \frac{ V_x \pm i V_y }{\sqrt{2}}, \qquad V_0^1 = V_z
+\]
+y quiero construirme tensores con estos elementos.
+El primero sale directo [?] 
+\[
+	T_ 2^2 = U_1^1 V_1^1, \qquad k=2,1,0
+\]
+y 
+\[
+	T_1^2 = \Box  U_0^1 V_1^1 + \Box  U_1^1 V_0^1
+\]
+y merced a la tabla de coeficientes de Clebsh-Gordan
+\[
+	T_1^2 = \frac{1}{\sqrt{2}} \left( U_0^1 V_1^1 +  U_1^1 V_0^1 \right)
+\]
+Será también
+\[
+	T_0^2 = \Box  U_0^1 V_0^1 + \Box  U_{-1}^1 V_1^1 + \Box U_1^1 V_{-1}^1
+\]
+\[
+	T_0^2 = \sqrt{\frac{2}{3}} U_0^1 V_0^1 + \sqrt{\frac{1}{6}} U_{-1}^1 V_1^1 + 
+	\sqrt{\frac{1}{6}} U_1^1 V_{-1}^1
+\]
+finalmente $T_{-2}^2 = U_{-1}^1 V_{-1}^1$ y los otros los podemos construir fácilmente.
+
+ 
+\end{ejemplo}
+
+
 
 \section{Operadores tensoriales}
 
@@ -958,6 +995,7 @@ Se define
 \[
 	T^{(k)}_q \qquad \text{tensor esférico de rango $k$ y número magnético $q$}
 \]
+donde $-k \leq q \leq k$ y son $(2k+1)$ objetos.
 Un tensor esférico de rango $k$ se transforma como 
 \be
 	\mathcal{D}(R) T_{q'}^{(k)} \mathcal{D}(R)^\dagger = 
