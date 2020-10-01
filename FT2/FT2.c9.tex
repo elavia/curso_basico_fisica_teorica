@@ -372,22 +372,32 @@ y como es $\Braket{x''|\vb{x}|x'} = x' \delta(x' -x'')$
 \section{Inversión temporal (reversión de movimiento)}
 
 
-En mecánica clásica sería {\it pasar la película hacia atrás}
+Es simplemente el reemplazo
 \[
 	t \longrightarrow -t
 \]
+que en mecánica clásica sería como {\it pasar la película hacia atrás}. Los sistemas que verifican
+esta simetrías son aquellos para los cuales no es distinguible la evolución hacia atrás o hacia adelante.
+En mecánica clásica los sistemas no disipativos cumplen estas condiciones; en lo referente a ir y volver
+partiendo y terminando en un mismo punto con iguales condiciones.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft2_temporal_1.jpg}
+
+Esto surge del carácter de las ecuaciones de Newton. 
 En sistemas sin fuerzas disipativas se tiene 
 \[
 	m \ddot{x} = - \dtot{}{x} V(x)
 \]
-siendo $x(t)$ y $x(-t)$ soluciones de $\vb{F} = m\vb{a}$ pues si $t\to-t$ se tiene
+siendo $x(t)$ y $x(-t)$ soluciones de $\vb{F} = m\vb{a}$ puesto que si $t\to-t$ se tiene
 \[
 	m \ddot{x} = - \dtot{}{x} V(x)
 \]
 dado que 
 \[
-	\dtot[2]{x(t)}{t} = \dtot[2]{x(-t)}{t}
+	\dtot[2]{x(t)}{t} = \dtot[2]{x(-t)}{t}.
 \]
+En un sistema disipativo existe una pérdida de energía en ir y venir por lo cual no acabamos en la
+misma situación.
 
 En mecánica cuántica tendremos 
 \[
@@ -398,9 +408,10 @@ y si hacemos el cambio $t\to -t$
 	i \hbar \dpar{\Psi(x,-t)}{t} = -i \hbar \dpar{\Psi(x,t)}{t}  = 
 	- \left( -\frac{\hbar^2\nabla^2}{2m} + V \right)\Psi(x,t)
 \]
-se ve que $\Psi(x,-t)$ no es solución de Schrödinger. 
+se ve que $\Psi(x,-t)$ no es solución de Schrödinger. La ecuación de Schrödinger no se queda
+inamovible ante tal cambio.
 
-Pero notemos que $\Psi^*(x,-t)$ cumple la ecuación de Schrödinger
+Pero notemos que $\Psi^*(x,-t)$ sí cumple la ecuación de Schrödinger
 \[
 	i \hbar \dpar{\Psi^*(x,-t)}{t} = -i \hbar \dpar{\Psi^*(x,t)}{t} 
 \]
@@ -409,61 +420,94 @@ Entonces necesitamos un operador que respete esta característica.
 Necesitaré el producto interno conjugado 
 \[
 	\Psi_\alpha(x') = \Braket{x'|\alpha} \qquad
-	\Psi^*_\alpha(x') = \Braket{x'|\alpha}^* = \Braket{\alpha|x'}
+	\Psi^*_\alpha(x') = \Braket{x'|\alpha}^* = \Braket{\alpha|x'}.
 \]
-El operador involucrado no será unitario 
+Se necesitará un operador $\hat{\Theta}$, y veremos que no puede ser unitario.
+Dados dos estados
 \[
 	\Ket{\tilde{\alpha}} = \hat{\Theta}\Ket{\alpha} \qquad 
-	\Ket{\tilde{\beta}} = \hat{\Theta}\Ket{\beta}
+	\Ket{\tilde{\beta}} = \hat{\Theta}\Ket{\beta},
 \]
-Si $\hat{\Theta}$ unitario se conserva el producto interno 
+si el operador era unitario se tenía que se conservaba el producto interno 
 \[
 	\Braket{\hat{\beta}|\hat{\alpha}} = 
 	\Braket{\beta|\hat{\Theta}^\dagger\hat{\Theta}|\alpha} =
 	\Braket{\beta|\mathbb{1}|\alpha} = \Braket{\beta|\alpha}
 \]
+y no obtengo un producto interno conjugado.
 
-Pediremos antiunitariedad y antilinealidad al operador $\hat{\Theta}$
-\[
+Pediremos antiunitariedad y antilinealidad al operador $\hat{\Theta}$, es decir
+\begin{itemize}
+ \item Antiunitariedad 
+ \[
 	\Braket{\hat{\beta}|\hat{\alpha}} = \Braket{{\beta}|{\alpha}}^*
 \]
+ \item Antilinealidad
 \[
 	\hat{\Theta}[ C_\alpha\Ket{\alpha} + C_\beta\Ket{\beta}] = 
 	C_\alpha^*\hat{\Theta}\Ket{\alpha} + C_\beta^*\hat{\Theta}\Ket{\beta}
 \]
-siendo lo primero la antiunitariedad y lo segunda la antilinealidad.
+\end{itemize}
 
 Todo operador antiunitario y antilineal puede escribirse como producto 
 \[
 	\Theta = U K
 \]
-donde $U$ es unitario y $K$ la conjugación compleja. $K$ no cambia los autoestados, porque en base canónica 
+donde $U$ es unitario y $K$ la conjugación compleja, que opera
+\[
+	K c \Ket{\a} = c^* K \Ket{\a}.
+\]
+Queremos ver qué hace $K$ y para ello consideramos un $\Ket{\a}$ tal que
+\[
+	\Ket{\a} = \sum_{a'} \Ket{a'} \Braket{ a' | \a } \qquad 
+	K \Ket{\a} = \sum_{a'}  \Braket{ a' | \a }^* K\Ket{a'}
+\]
+donde vemos que en el segundo término no hace nada; $K$ sobre un autoket no cambia nada, pués
+$\Ket{\a}$ es un autoestado en la base canónica. La expresión del operador $K$ dependerá de la
+base sobre la cual trabaje.
+
+Para ver que un operador es antiunitario simplemente deberíamos chequear si cumple las propiedades
+1 y 2. Así
+\[
+	UK ( c_\a \Ket{\a} + c_\b \Ket{\b} ) = 
+	c_\a^* U K \Ket{\a} + c_\b^* U K \Ket{\b}
+\]
+y vemos que $UK$ es antilineal.
+
+\notamargen{Los operadores antiunitarios actúan de forma misteriosa sobre un bra.}
+
+\begin{ejemplo}{\bf Descolgado}
+$K$ no cambia los autoestados, porque en base canónica 
 un autoestado tiene un solo elemento (1) que no es nulo.
-\[
-	K(C\Ket{\alpha}) = CK\Ket{\alpha} = C^*K(\sum_{a'} \Ket{a'}\Braket{a'|\alpha}) =
+\begin{multline*}
+	K(C\Ket{\alpha}) = CK\Ket{\alpha} = C^*K(\sum_{a'} \Ket{a'}\Braket{a'|\alpha}) = \\
 	C^* (\sum_{a'} \Braket{a'|\alpha}^* K \Ket{a'}) =
-	C^* (\sum_{a'} \Braket{a'|\alpha}^* \Ket{a'}) 
-\]
+	C^* (\sum_{a'} \Braket{a'|\alpha}^* \Ket{a'})  
+\end{multline*}
 
-Veamos que $UK$ es antiunitario 
+\end{ejemplo}
+
+Veamos que $UK$ es antiunitario. Tenemos dos estados 
 \[
-	\Ket{\hat{\alpha}} = UK \Ket{\alpha} = \sum_{a'} \Braket{a'|\alpha}^* U\Ket{a'} \qquad \qquad
-	\Ket{\hat{\beta}} = UK \Ket{\beta} = \sum_{a''} \Braket{a''|\beta}^* U\Ket{a''}
+	\Ket{\hat{\alpha}} = UK \Ket{\alpha} = \sum_{a'} \Braket{a'|\alpha}^* U\Ket{a'} \qquad 
+	\Ket{\hat{\beta}} = UK \Ket{\beta} = \sum_{a''} \Braket{a''|\beta}^* U\Ket{a''},
 \]
-
+y sobre este último tomo dual conjugado, lo cual puede verse como un {\it trick} para no reverla 
+cómo opera $K$ sobre un bra,
 \[
 	\Bra{\hat{\beta}} = \sum_{a''} \Braket{a''|\beta} \Bra{a''}U^\dagger
 \]
-entonces
+entonces, desarrollando
 \[
 	\Braket{\hat{\beta}|\hat{\alpha}} = \sum_{a''} \Braket{a''|\beta} \Bra{a''}U^\dagger
-	\sum_{a'} \Braket{a'|\alpha}^* U\Ket{a'}
+	\sum_{a'} \Braket{a'|\alpha}^* U\Ket{a'},
 \]
-\[
+se tiene
+\begin{multline*}
 	\sum_{a',a''} \Braket{a''|\beta} \Braket{a'|\alpha}^* \Bra{a''}U^\dagger U\Ket{a'} =
-	\sum_{a'} \Braket{a'|\beta} \Braket{a'|\alpha}^* =  \sum_{a'} \Braket{\beta|a'}^* \Braket{a'|\alpha}^*
-	= \Braket{\beta|\alpha}^*
-\]
+	\sum_{a'} \Braket{a'|\beta} \Braket{a'|\alpha}^* = \\
+	\sum_{a'} \Braket{\beta|a'}^* \Braket{a'|\alpha}^* = \Braket{\beta|\alpha}^*
+\end{multline*}
 y entonces UK es antinunitario.
 
 Notemos que no se define $\hat{\Theta}^\dagger$ actuando sobre bras. La demostración anterior esperó a 
@@ -475,18 +519,21 @@ Usaremos la notación
 \[
 	\Ket{\tilde{\alpha}} = \hat{\Theta} \Ket{\alpha}
 \]
-donde hay que tener en cuenta 
+donde $\Ket{\tilde{\alpha}}$ es el estado reversión temproal. Es de esperar que si $\Pi \Ket{\vb x} = 
+\Ket{-\vb x}$ entonces $ \Theta \Ket{\vb p} = \Ket{-\vb p}$, pero veremos lo que sucede en los valores
+de expectación.
+hay que tener en cuenta 
 \[
 	\Theta^\dagger \Theta = \mathbb{1}
 \]
 pues $\Theta^\dagger$ no está definido.
 
-Sería razonable esperar que 
+Entonces, viendo valores de expectación, sería razonable esperar que 
 \[
 	\Braket{\hat{\alpha}|\vb{p}|\hat{\alpha}} = - \Braket{{\alpha}|\vb{p}|{\alpha}}\qquad 
 	\Braket{\hat{\alpha}|\vb{x}|\hat{\alpha}} = \Braket{{\alpha}|\vb{x}|{\alpha}}\qquad 
 \]
-Sea $\hat{\mathbb{O}}$ un operador hermítico 
+Veamos qué sucede para operadores hermíticos como $\hat{\mathbb{O}}$. Siendo
 \[
 	\Braket{\alpha|\mathbb{O}|\alpha} = \Braket{\alpha|\gamma}
 \]
@@ -501,7 +548,10 @@ Luego metemos un $\Theta^{-1}\Theta = 1$
 	\Braket{\hat{\alpha}|\Theta\mathbb{O}\Theta^{-1}|\hat{\alpha}} = \Braket{\alpha|\mathbb{O}|\alpha}
 \]
 
-Notamos que no se aplica $\Theta$ sobre bra alguno y tenemos $\Theta$ no unitario. Entonces requeriremos 
+Notamos que no se aplica $\Theta$ sobre bra alguno y tenemos $\Theta$ no unitario. 
+\notamargen{Chequear que esto esté claro, porque en la carpeta tengo otra versión de esta cuenta.}
+
+Entonces requeriremos 
 \[
 	\Theta \hat{p} \Theta^{-1} = -\hat{p} \qquad \Theta \hat{j} \Theta^{-1} = -\hat{j}
 \]
@@ -522,8 +572,11 @@ y $\vb{x}$ operador par.
 Los operadores pares conmutan con $\Theta$,
 \[
 	\Theta \Ket{\vb{x}'} =  \Ket{\vb{x}'} \qquad \qquad
-	\Theta \Ket{\vb{p}'} =  \Ket{-\vb{p}'} 
+	\Theta \Ket{\vb{p}'} =  \Ket{-\vb{p}'} ,
 \]
+y entonces tendrán base en común.
+
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.6\textwidth]{images/teo2_18.pdf}
@@ -531,23 +584,42 @@ Los operadores pares conmutan con $\Theta$,
 	\caption{}
 \end{figure} 
 
-Hamiltoniano ante reversión de movimiento. Veamos la reversión de un sistema en estado $\Ket{\alpha}$
+Cualquier hamiltoniano razonable
+\[
+	H = \frac{p^2}{2m} + V(\vb x)
+\]
+es par y conmutará con $\Theta$. Consideramos que $ V(\vb x)$ se puede poner en serie de potencias
+respecto de $\vb x$ y asimismo $ [ H, \Theta ] = 0 $.
+Veamos ahora la continuidad para $\Ket{\a} = \int d^3x' \Ket{x'}\Braket{x'|\a}$ que se convierte en
+\[
+	\Theta \Ket{\a} = \int d^3x' \Braket{x'|\a}^*  \Theta\Ket{x'} = 
+	\int d^3x' \Ket{x'} \Braket{x'|\a}^* 
+\]
+donde el braket último dentro de la integral es $\psi^*_{\a}(x')$.
+
+
+
+Pero físicamente, ¿qué significa que $H, \Theta$ conmuten? Veamos el hamiltoniano ante reversión de 
+movimiento, considerando para ello la reversión de un sistema en estado $\Ket{\alpha}$, si su evolución
+un $\delta t$ está dada por
 \[
 	\Ket{\alpha, t=\delta t} = \left( \mathbb{1} - i\frac{\delta t}{\hbar} H \right) \Ket{\alpha}
 \]
 Si el hamiltoniano es invariante ante reversión temporal debería ser lo mismo 
 \[
-	\underbrace{U \Theta}_{+\delta t} \Ket{\alpha} = \underbrace{\Theta U}_{-\delta t} \Ket{\alpha}
+	\underbrace{U \Theta}_{+\delta t} \Ket{\alpha} = \underbrace{\Theta U}_{-\delta t} \Ket{\alpha},
 \]
-es decir que estamos pidiendo que se obtenga el mismo estado 
+es decir que estamos pidiendo que se obtenga el mismo estado.
+
 \begin{itemize}
  \item Si revertimos el movimiento y evolucionamos $\delta t$.
  \item Si evolucionamos hacia atrás $-\delta t$ y revertimos el movimiento.
 \end{itemize}
 \begin{figure}[htb]
-	\begin{center}
+% 	\begin{center}
 	\includegraphics[width=0.6\textwidth]{images/teo2_19.pdf}
-	\end{center}
+	\includegraphics[width=0.6\textwidth]{images/fig_ft2_temporal_2.jpg}
+% 	\end{center}
 	\caption{}
 \end{figure} 
 Veamos que vale lo anterior, pensando que si vale se tiene 
@@ -568,14 +640,18 @@ Veamos que vale lo anterior, pensando que si vale se tiene
 
 Si $\Theta$ era unitario teníamos la relación de anticonmutación $\{ H, \Theta \}=0$ 
 lo cual lleva a absurdos.
-Si $\{ H,\Theta \} = 0$
+Si $\{ H,\Theta \} = 0$ tendríamos
 \[
 	\Theta^{-1} \frac{p^2}{2m} \Theta = - \frac{p^2}{2m} < 0
-	\text{partícula libre con energía negativa} \; \text{H debe ser par frente a $\Theta$}
 \]
+partícula libre con energía negativa. Justificaría así energías negativas hasta el infinito
+y pierde significado el concepto de ``piso'' del estado fundamental.
+Por ello $H$ debe ser par frente a $\Theta$.
 
 \subsection{Función de onda}
 
+\notamargen{Esto es lo que antes metí como ``la continuidad''. Claramente hay que consolidar
+las dos cosas.}
 Sea en $t=0$ un sistema en el estado $\Ket{\alpha}$
 \[
 	\Ket{\alpha} = \int dx' \Braket{x'|\alpha} \Ket{x'} 
@@ -591,24 +667,27 @@ Esto era lo que {\it vimos} en la ecuación de Schrödinger.
 
 \subsection{Reversión de movimiento sobre \vb{J}}
 
-
-$\Theta \Ket{\vb{J}}$ no tiene sentido porque $J_x,J_y,J_z$ no conmutan entre ellos.
+Veamos qué hace $\Theta$ sobre autoestados de momento angular. No se puede decir que
+$\Theta \Ket{\vb{J}} = \Ket{-\vb J}$ puesto que carece de sentido al no conmutar $J_x,J_y,J_z$ entre ellos.
+El $\vb J$ no tiene expresión en términos de numeritos $j_x, j_y, j_z$.
 Analizaremos $\Ket{\ell,m}$
 \[
 	Y_\ell^m(\theta,\phi) \longrightarrow\Theta\longrightarrow Y_\ell^m(\theta,\phi)^* =
 	Y_\ell^{-m}(\theta,\phi)(-1)^m
 \]
 \[
-	\Theta{\ell,m} \equiv (-1)^m {\ell,-m}
+	\Theta \Ket{\ell,m} \equiv (-1)^m \Ket{\ell,-m}
 \]
 
 Lo que hace $\Theta$ es invertir la componente de $\hat{z}$ y alterar la fase. Se ve que 
 \[
 	\Theta^2 = \mathbb{1}
 \]
+con $j$ par.
 
 \subsection{Reversión para sistemas de spin $1/2$}
 
+\notamargen{Esto vale para los casos de spin entero, donde se trabaja con $Y_\ell^m$.}
 Sea un estado general up de spin $\Ket{\hat{n};+}$, que se obtiene con dos rotaciones 
 \[
 	\hat{S}\cdot\hat{n} \Ket{\hat{n};+} = \frac{\hbar}{2} \Ket{\hat{n};+}
@@ -648,25 +727,61 @@ y como
 \[
 	\Theta^2 = -\mathbb{1}
 \]
-\[
-	\Theta^2 ( c_+\Ket{+} + c_-\Ket{-}) = \Theta ( c_+^*\eta_+\Ket{-} + c_-^*\eta_-\Ket{+}) =
-	-c_+\eta^*\eta \Ket{+} - c_-\eta^*\eta \Ket{-} = -( c_+\Ket{+} + c_-\Ket{-})
-\]
+\begin{multline*}
+	\Theta^2 ( c_+\Ket{+} + c_-\Ket{-}) = \Theta ( c_+^*\eta_+\Ket{-} + c_-^*\eta_-\Ket{+}) = \\
+	-c_+\eta^*\eta \Ket{+} - c_-\eta^*\eta \Ket{-} = -( c_+\Ket{+} + c_-\Ket{-}) 
+\end{multline*}
 luego
 \[
 	\Theta\Ket{j,m} = i^{2m} \Ket{j,-m} = (-1)^m \Ket{j,-m}
 \]
 para todo $j$ entero o semientero.
 
+\begin{ejemplo}{\bf Para casos de spin 1/2}
+
+Esto es muy parecido a lo anterior, pero copio acá porque difieren en cosas. Consolidar más adelante.
+Se tienen
+\[
+	\Theta J = - J \Theta, \qquad \Theta\Ket{\pm}  = \eta_{\pm} K \Ket{\mp}
+\]
+donde $\eta$ es la fase y recordemos que $K$ no hace nada. 
+Un estado genérico $\Ket{\a} = c_+ \Ket{+} + c_- \Ket{-}$ cumple
+\[
+	\begin{cases}
+		\Ket{-} = \euler^{ - i \pi S_y / \hbar } K \Ket{+} \\
+		\euler^{ - i \pi S_y / \hbar } \Ket{-} = - \Ket{+} \text{ Vuelta en $2\pi$ que altera el signo} 
+	\end{cases}
+\]
+Combinando este sistemita llegamos a una expresión para $\Theta$
+\[
+	\Theta = \eta \euler^{ - i \pi S_y / \hbar } K,
+\]
+donde esto vale solo para casos de spin $1/2$. Entonces
+\[
+	\Theta\Ket{\a} = c_+^* \eta \Ket{+} + c_-^* \eta \Ket{-}
+\]
+y
+\[
+	\Theta^2 \Ket{\a} = -c_+ \Ket{+} - c_- \Ket{-}
+\]
+o bien $\Theta^2 = - \mathbb{1}$. Se puede escribir entonces
+\[
+	\Theta\Ket{j,m} = i^{2m} \Ket{j,-m} .
+\]
+\end{ejemplo}
+
+
 \subsection{Teorema}
 
 Sea $H$ invariante ante $\Theta$ y los $\Ket{n}$ no degenerados, entonces la autofunción de energía puede 
 hacerse real tomando una fase apropiada.
+Recordemos que $[H,\Theta]=0$.
 
 Demostración 
 \[
 	H\Theta\Ket{n} = \Theta H \Ket{n} = E_n \Theta \Ket{n} \longrightarrow \Theta \Ket{n} = \delta\Ket{n}
 \]
+donde la fase $\delta$ puede hacerse uno (luego se hará)
 \[
 	\Psi_n = \Braket{\vb{x}|n} \longrightarrow \Psi_{\tilde{n}} = \Braket{\vb{x}|\tilde{n}} =
 	\Braket{n|\vb{x}} = \Psi_n (\vb{x})^*
@@ -679,12 +794,34 @@ sea $\delta = 1 $ entonces
 \[
 	\Psi_n^* = \Psi_n \quad \longrightarrow \quad \Psi_n(\vb{x}) \in \mathbb{R} 
 \]
+Esto vale cuando no hay degeneración; cuando la halla deja de valer y pueden aparecer componentes
+imaginarias en la función de onda.
 
 Si le aplico al sistema transformaciones dadas por operadores que conmutan con el H no lo sacamos del 
 autoestado en que se encuentra con el paso del tiempo.
 En ese sistema solo será razonable medir variables representadas por esos operadores; puesto que de lo 
 contrario estamos alterando el sistema y nos es imposible saber donde ha quedado.
 
+\begin{ejemplo}{\bf Fermiones}
+
+Consideremos un sistema de $m$ fermiones cuyo estado se describe con $[H,\Theta]=0$. Entonces
+$ H\Ket{n} = E_n \Ket{n}$ y $ H( \Theta \Ket{n} ) = E_n ( \Theta \Ket{n} ) $ donde suponemos que $\Theta\Ket{n}$
+y $\Ket{n}$ representan el mismo estado físico y son iguales salvo una fase.
+Es decir,
+\[
+	\Theta \Ket{n} = \euler^{i \delta} \Ket{n}
+\]
+luego
+\[
+	\Theta^2 \Ket{n} = \euler^{-i \delta} \Theta \Ket{n} = \Ket{n}.
+\]
+Si j es impar, número impar de fermiones, los estados $\Theta \Ket{n}$ y $\Ket{n}$ son estados distintos,
+aunque con la misma energía. Hay degeneración.
+Puedo romper esa degeneración aplicando un campo magnético $\vb B$. Allí surgirá que se puede ver, visualmente,
+observada la diferencia entre ir hacia $t$ e ir hacia $-t$.
+\notamargen{¿Qué se habrá querido decir con esto?}
+ 
+\end{ejemplo}
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
