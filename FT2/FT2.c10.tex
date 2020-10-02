@@ -3,8 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -33,92 +33,99 @@
 \chapter{Métodos perturbativos}
 % =================================================================================================
 
-Se basan en 
+Se basan en un hamiltoniano
 \[
-	H = H_0 + \lambda V \qquad \lambda \ll 1 \; \text{$\lambda$ es un parámetro para controlar
-	la perturbación}
+	H = H_0 + \lambda V \qquad \lambda \ll 1, 
 \]
-con $ H_0\Ket{n^{(0)}} = E_n^{(0)}\Ket{n^{(0)}}$ (el problema sin perturbar)
+donde $\lambda$ es un parámetro para controlar la perturbación y donde
 \[
+	H_0\Ket{n^{(0)}} = E_n^{(0)}\Ket{n^{(0)}}
+\]
+es el problema sin perturbar.
+\notamargen{En la carpeta la notación es un poco diferente. Se dice que el espectro es discreto
+y que no hay degeneración. Se cumple la normalización usual y la delta de kronecker.}
+\be
 	H \Ket{n(\lambda)} = E_n(\lambda) \Ket{n(\lambda)}
-\]
+	\label{problema_exacto}
+\ee
 que sería la solución exacta.
-Como esto es hartocomplicado podemos desarrollar en serie 
+Como estamos pensando que $H, E_n(\lambda)$ tienen expresión complicada podemos desarrollar en serie 
+perturbativa cada autoestado $n$ según
 \[
-	E_n(\lambda) \approx E_n^0 + \lambda E_n^1 + \lambda^2 E_n^2 
+	E_n(\lambda) = E_n^0 + \lambda E_n^1 + \lambda^2 E_n^2  + ...
 \]
 \[
-	\Ket{n(\lambda)} \approx \Ket{0_n} + \lambda \Ket{1_n} + \lambda^2  \Ket{2_n}
+	\Ket{n(\lambda)} = \Ket{0_n} + \lambda \Ket{1_n} + \lambda^2  \Ket{2_n} + ...
 \]
-siendo $n$ autoestado correspondiente y $(0),(1),(2)$ los órdenes del desarrollo perturbativo.
-Luego,
+siendo $(0),(1),(2)$ los órdenes del desarrollo perturbativo.
+Luego, usando estas expresiones en el problema original \eqref{problema_exacto}, se obtiene
 \[
 	\left( H_0 + \lambda V \right)\left[ \sum_{i=0}^{\infty} \lambda^i\Ket{i_n} \right] =
-	\left(\sum_{j=0}^{\infty} \lambda^j E_n^{(j)}\right)\left(\sum_{i=0}^{\infty} \lambda^i\Ket{i_n}\right)
+	\left(\sum_{j=0}^{\infty} \lambda^j E_n^{(j)}\right) 
+	\left(\sum_{i=0}^{\infty} \lambda^i\Ket{i_n}\right)
 \]
+o bien
 \[
 	\sum_{i=0}^\infty H_0 \lambda^i \Ket{i_n} + \lambda V \lambda^i \Ket{i_n} =
-	\sum_{i,j} \lambda^j E_n^j \lambda^i \Ket{i_n}
+	\sum_{i,j} \lambda^j E_n^j \lambda^i \Ket{i_n}.
 \]
-y aproximando los primeros términos 
-\[
+Aproximando los primeros términos 
+\begin{multline*}
 	H_0\Ket{0_n} + H_0\lambda\Ket{1_n} + H_0\lambda^2\Ket{2_n} + V\lambda\Ket{0_n} +
-	V\lambda^2\Ket{1_n}+... =
-\]
-\[
-	E_n^0\Ket{0_n} + E_n^0\lambda\Ket{1_n} + E_n^0\lambda^2\Ket{2_n} +
-	E_n^1\lambda\Ket{0_n} + E_n^1\lambda^2\Ket{1_n} + E_n^1\lambda^3\Ket{2_n} + 
-	E_n^2\lambda^2\Ket{0_n}
-\]
-ahora igualamos orden a orden y resulta 
-\[
-	\lambda^0 .... H_0\Ket{0_n}  = E_n^0\Ket{0_n}
-\]
-\[
-	\lambda^1 .... H_0\Ket{1_n} + V\Ket{0_n} = 
-	E_n^0\Ket{1_n} + E_n^1\Ket{0_n} 
-\]
-\[
-	\lambda^2 .... H_0\Ket{2_n} + V\Ket{1_n} =
-	E_n^0\Ket{2_n} + E_n^2\Ket{0_n} + E_n^1\Ket{1_n}
-\]
+	V\lambda^2\Ket{1_n}+... = \\
+	E_n^0\Ket{0_n} + E_n^0\lambda\Ket{1_n} + E_n^0\lambda^2\Ket{2_n} + E_n^1\lambda\Ket{0_n} + \\ 
+	E_n^1\lambda^2\Ket{1_n} + E_n^1\lambda^3\Ket{2_n} + E_n^2\lambda^2\Ket{0_n} + ...
+\end{multline*}
+e igualando orden a orden resultan
+\begin{eqnarray*}
+ 	\lambda^0 & \quad & H_0\Ket{0_n}  = E_n^0\Ket{0_n} \\
+ 	\lambda^1 & \quad & H_0\Ket{1_n} + V\Ket{0_n} = E_n^0\Ket{1_n} + E_n^1\Ket{0_n}  \\
+ 	\lambda^2 & \quad & H_0\Ket{2_n} + V\Ket{1_n} = E_n^0\Ket{2_n} + E_n^2\Ket{0_n} + E_n^1\Ket{1_n} \\
+ 	... & \quad & ...
+\end{eqnarray*}
+\notamargen{En la carpeta se escriben los órdenes más piolas y eso deja ver la forma del término
+i-ésimo.}
 
-Pediremos una normalización a cada orden y considerando $ \Braket{0_n|n(\lambda)} \in \mathbb{R}$
+Pediremos una normalización a cada orden $\Braket{n(\lambda)|n(\lambda)}=1$ y considerando 
+$\Braket{0_n|n(\lambda)} \in \mathbb{R}$.
+Este no es el único modo de hacerlo, en efecto John Jun lo hace de otra manera.
 \[
 	\left( \Bra{0_n} + \lambda\Bra{1_n} + \lambda^2\Bra{2_n} \right)
 	\left( \Ket{0_n} + \lambda\Ket{1_n} + \lambda^2\Ket{2_n} \right) =
 \]
 \[
-\begin{aligned}
- \Braket{0_n|0_n} +& \lambda\Braket{1_n|0_n} +& \lambda^2 \Braket{2_n|0_n} &  & & \\
- & \lambda\Braket{0_n|1_n} +& \lambda^2\Braket{1_n|1_n} +& \lambda^3\Braket{2_n|1_n}& & \\
- & & \lambda^2\Braket{0_n|2_n} +& \lambda^3\Braket{1_n|2_n} +& \lambda^4\Braket{2_n|2_n} & \\
- \hline \\
- \lambda^0 \quad & \lambda^1 \quad & \lambda^2 \quad & \lambda^3 \quad & &
-\end{aligned}
+\begin{array}{ccccc}
+ 	\Braket{0_n|0_n}\; +& \lambda\Braket{1_n|0_n}\; +& \lambda^2 \Braket{2_n|0_n}\; \phantom{+}& \phantom{+}& \\
+	\; & \lambda\Braket{0_n|1_n}\; +& \lambda^2\Braket{1_n|1_n}\; +& \lambda^3\Braket{2_n|1_n}\; \phantom{+}& \\
+	\; & \; & \lambda^2\Braket{0_n|2_n}\; +& \lambda^3\Braket{1_n|2_n}\; +& \lambda^4\Braket{2_n|2_n}  \\
+	\hline \\
+	\lambda^0 \quad & \lambda^1 \quad & \lambda^2 \quad & \lambda^3 \quad & \lambda^4
+\end{array}
 \]
+de lo cual se extraen; para el orden cero
 \[
-	\Braket{0_n|0_n} = 1
+	\Braket{0_n|0_n} = 1,
 \]
+para el orden uno
 \[
 	\Braket{0_n|0_n} + \Braket{1_n|0_n} + \Braket{0_n|1_n} = 1 \longrightarrow 
 	\Braket{1_n|0_n} = -\Braket{0_n|1_n}
 \]
+y para el orden dos
 \[
 	\Braket{0_n|0_n} + \Braket{1_n|0_n} + \Braket{0_n|1_n} + \Braket{2_n|0_n} + \Braket{1_n|1_n} +
 	\Braket{0_n|2_n} = 1
 \]
+o bien
 \[
-	\ldots \qquad \ldots \qquad \ldots
+	\Braket{0_n|2_n} = \Braket{2_n|0_n} = -\frac{1}{2} \Braket{1_n|1_n}.
 \]
-
 En un mismo autoestado $(n)$ los órdenes diferentes $(i)$ no son necesariamente ortogonales.
 
-\section{Resolución}
-
+Resolvamos ahora nuevamente todos los órdenes.
 A orden cero será 
 \[
-	(H_0 - E_n^0) \Ket{0_n} = 0 \qquad \text{y se define} \qquad \Ket{0_n} \equiv \Ket{\varphi_nq} 
+	(H_0 - E_n^0) \Ket{0_n} = 0 \qquad \text{y se define} \qquad \Ket{0_n} \equiv \Ket{\vp_n} 
 \]
 y $\Ket{0_n}$ es dato porque es el estado no perturbado.
 A orden uno tenemos 
@@ -130,14 +137,14 @@ A orden uno tenemos
 \]
 y la energía hasta orden uno es 
 \[
-	E_n = E_n^0 + \lambda \Braket{\varphi_n |V| \varphi_n }
+	E_n = E_n^0 + \lambda \Braket{\varphi_n |V| \varphi_n }.
 \]
 
 Veamos el autoestado a orden uno. Podemos poner (no hay degeneración)
 \[
-	\Ket{1_n} = \sum_p (\Braket{\varphi_p|1_n})\Ket{\varphi_p}
+	\Ket{1_n} = \sum_p (\Braket{\varphi_p|1_n})\Ket{\varphi_p},
 \]
-y sea $p\neq n$
+donde $\vp_p$ son los autoestados del hamiltoniano sin perturbar, y sea $p\neq n$
 \[
 	\Braket{\varphi_p | H_0 - E_n^0 | 1_n } +  \Braket{\varphi_p | V - E_n^1 | 0_n } = 0
 \]
@@ -146,18 +153,24 @@ y sea $p\neq n$
 	E_n^1 \Braket{\varphi_p | 0_n } = 0
 \]
 lo que significa que a un mismo orden (cero) diferentes autoestados son ortogonales.
+Entonces
 \[
-	\Braket{\varphi_p|1_n} = \frac{\Braket{\varphi_p|V|\varphi_n}}{E_n^0 - E_p^0}
+	\Braket{\varphi_p|1_n} = \frac{\Braket{\varphi_p|V|\varphi_n}}{E_n^0 - E_p^0},
 \]
+donde claramente el denominador no debiera ser muy pequeño porque de lo contrario la
+perturbación sería brutísima.
 Sea $p=n$ entonces 
 \[
 	\Braket{\varphi_n|1_n} = \Braket{0_n|1_n} = 0 
 \]
 ya lo vimos antes, en la normalización
 \[
-	\Ket{n(\lambda)} = \Ket{0_n} + \sum_{p\neq n} \frac{\Braket{\varphi_p|V|\varphi_n}}{E_n^0 - E_p^0} \Ket{\varphi_p}
+	\Ket{n(\lambda)} = \Ket{0_n} + \sum_{p\neq n} 
+	\frac{\Braket{\varphi_p|V|\varphi_n}}{E_n^0 - E_p^0} \Ket{\varphi_p}
 \]
-autoestado hasta orden uno. A orden dos tenemos 
+autoestado hasta orden uno.
+
+Veamos ahora qué sucede a orden dos. Se tiene
 \[
 	(H_0 - E_n^0)\Ket{2_n} + (V - E_n^1)\Ket{1_n}- E_n^2\Ket{0_n} = 0
 \]
@@ -227,11 +240,11 @@ Sea $p=n$
 	-\frac{1}{2}\Braket{1_n|1_n} = -\frac{1}{2} \sum_{k\neq n} 
 	\frac{|\Braket{\varphi_k|V|\varphi_n}|^2}{( E_n^0 - E_k^0 )^2} = \Braket{0_n|2_n}
 \]
-\[
-	\Ket{2n} = \sum_{p\neq n} -\frac{V_{nn}V_{pn}}{(E_p^0 - E_n^0)^2} \Ket{\varphi_p} +
-	\sum_{p\neq n}\sum_{k\neq n} \frac{V_{pk}V_{kn}}{(E_n^0 - E_p^0)(E_n^0 - E_k^0)} \Ket{\varphi_p} -
-		\frac{1}{2}\sum_p\sum_{k\neq n} \frac{|V_{kn}|^2}{(E_n^0 - E_k^0)^2}\Ket{\varphi_p} 
-\]
+\begin{multline*}
+	\Ket{2n} = \sum_{p\neq n} -\frac{V_{nn}V_{pn}}{(E_p^0 - E_n^0)^2} \Ket{\varphi_p} + 
+	\sum_{p\neq n}\sum_{k\neq n} \frac{V_{pk}V_{kn}}{(E_n^0 - E_p^0)(E_n^0 - E_k^0)} \Ket{\varphi_p} -\\
+		\frac{1}{2}\sum_p\sum_{k\neq n} \frac{|V_{kn}|^2}{(E_n^0 - E_k^0)^2}\Ket{\varphi_p}  
+\end{multline*}
 y el autoestado hasta orden dos
 \[
 	\Ket{n(\lambda)} = \Ket{0_n} + \sum_{p\neq n} \frac{V_{pn}}{\Delta E_{np}^0} \Ket{2_n} + \Ket{2_n} 
@@ -242,12 +255,94 @@ con la energía hasta orden dos
 		\frac{|\Braket{\varphi_p|V|\varphi_n}|^2}{( E_n^0 - E_p^0 )}
 \]
 
+\begin{ejemplo}{\bf Oscilador armónico perturbado}
+
+Consideremos el hamiltoniano de un oscilador armónico perturbado
+\[
+	H_0 = \frac{p^2}{2m} + \frac{m\omega^2x^2}{2}
+	\qquad
+	V_{\text{pert}} = \frac{1}{2} \epsilon m \omega^2 x^2 
+	\quad 
+	\epsilon \ll 1
+\]
+\[
+	H = H_0 + V_{\text{pert}} = \frac{p^2}{2m} + (1+\epsilon)\frac{m\omega^2x^2}{2}
+\]
+
+Conozco la solución del $H_0$, que es
+\[
+	E_n^0 = \left( n + \frac 1 2 \right) \hbar\omega
+\]
+y si $\omega \to \omega' = \omega\sqrt{1+\epsilon}$ será
+\[
+	E_n^0 = \left( n + \frac 1 2 \right) \hbar\omega\sqrt{1+\epsilon} =
+	\left( n + \frac 1 2 \right) \hbar\omega
+	\left[ 1 + \frac{\epsilon}{2} - \frac{\epsilon^2}{8} + ... \right]
+\]
+Definiendo $\Ket{\vp_n}\equiv \Ket{n}$ puedo escribir fácilmente el potencial $V$ en
+términos de los operadores $a,a^\dagger$ de manera que
+\[
+	V = \frac{1}{4} \epsilon \hbar \omega ( a^\dagger + a )^2 =
+	\frac{1}{4} \epsilon \hbar \omega ( a^{\dagger 2} + a^2 + 2 a^\dagger a + 1 ),
+\]
+y usando la expresión de dichos operadores y sus condiciones de normalización (ver el lugar
+apropiado) solo pueden esar relacionados estados que difieran en dos cuantos (los $a^{\dagger 2}, a^2$)
+luego los que no serán nulos son
+\[
+	\Braket{n+2|a^{\dagger 2}|n} = \sqrt{(n+1)(n+2)} 
+	\qquad 
+	\Braket{n-2|a^{2}|n} = \sqrt{n(n-1)} 
+\]
+\[
+	\Braket{n|a^{\dagger}a|n} = n
+	\qquad
+	\Braket{n|n} = 1
+\]
+ 
+Reemplazando estos resultados 
+\[
+	\Braket{n+2|V|n} = \frac{1}{4} \epsilon \sqrt{(n+1)(n+2)}  \hbar \omega
+	\qquad 
+	\Braket{n-2|V|n} = \frac{1}{4} \epsilon \sqrt{n(n-1)}  \hbar \omega
+\] 
+\[
+	\Braket{n|V|n} = \frac{1}{2} \epsilon \left( n + \frac{1}{2}\right)  \hbar \omega
+\]
+ 
+Ahora vigilemos orden por orden las contribuciones 
+\begin{eqnarray*}
+ 	\epsilon^0 & \quad & \epsilon_n^0 =  \left( n + \frac{1}{2}\right)  \hbar \omega\\
+ 	\epsilon^1 & \quad & \epsilon_n^1 = \Braket{n|V|n} =
+ 	\frac{1}{2} \epsilon \left( n + \frac{1}{2}\right)  \hbar \omega \\
+ 	\epsilon^2 & \quad & \epsilon_n^2 = \sum_{p\neq n} \frac{|\Braket{p|V|n}|^2}{(E_n^0 - E_p^0)}\\
+ 	& \quad & \text{ Pero sólo hay dos términos: } p=n+2, n-2 \\
+ 	& \quad & \epsilon_n^2 = \frac{|\Braket{n+2|V|n}|^2}{(E_n^0 - E_{n+2}^0)} + 
+				\frac{|\Braket{n-2|V|n}|^2}{(E_n^0 - E_{n-2}^0)}
+\end{eqnarray*}
+
+Finalmente, reemplazando por lo que ya sabemos se obtiene
+\[
+	\epsilon_n^2 = - \frac{1}{8} \epsilon^2 \hbar \omega \left( n + \frac{1}{2}\right) .
+\]
+ 
+\end{ejemplo}
+
+
 \subsection{Caso degenerado}
 
-Sea que hay degeneración de orden $g$ en el autoestado $N$( a orden cero)
+Sea que hay degeneración de orden $g$ en el autoestado $N$( a orden cero).
+Para tratarla ampliaremos la notación
 \[
 	H_0 \Ket{\varphi_n^k} = E_N^0 \Ket{\varphi_N^k} \qquad k=1,2,...,g
 \]
+\notamargen{Creo que debiera ser $N$ en el lhs.}
+Podremos esperar que la perturbación {\it rompa} la degeneración cambiando las energías.
+Para esto necesitaré diagonalizar el potencial $V$.
+
+Pictóricamente:
+
+\includegraphics[width=0.15\textwidth]{images/fig_ft2_degeneracion_1.jpg}
+
 Suponemos existe combinación lineal 
 \[
 	\Ket{0_N^j} = \sum_k a_k^j \Ket{\varphi_N^k}
@@ -273,18 +368,30 @@ para escribir un estado degenerado en función de los otros.
 \]
 Esto último es una ecuación de autovalores y autovectores de la forma:
 \[
-	(\mathbb{V} - E_N^{1 j} \mathbb{1})\vb{a} = 0 \qquad \mathrm{det}(\mathbb{V} - E_N^{1 j} \mathbb{1})=0
+	(\mathbb{V} - E_N^{1 j} \mathbb{1})\vb{a} =
+	0 \qquad \mathrm{det}(\mathbb{V} - E_N^{1 j} \mathbb{1})=0
 \]
-nos dará los corrimientos de la energía a primer orden  y los autoestados $\Ket{1_n^j}$ serán los 
-autovectores del problema.
+que permite diagonalizar la matriz de $V$ en la base $\Ket{\vp_n^k}$. Sus autovalores serán las
+correcciones $ a_k^j E_N^{1 j} $ de primer orden a la energía. 
+\[
+	\Braket{0_n^i|V|0_n^j} = E_N^{1 j} \delta_{ij}
+\]
+Los autoestados $\Ket{1_n^j}$ serán los autovectores del problema.
+
+Hemos roto la degeneración de los estados que estaban degenerados.
+Una vez diagonalizado el $V$ estamos en un problema no degenerado; podemos pasar a orden segundo.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft2_degeneracion_2.jpg}
 
 \section{Efecto Stark}
 
-Sea un átomo de H con $\Ket{n,\ell,m}$ sin spín y con $n=2$. Será 
+Sea un átomo de H con $\Ket{n,\ell,m}$ sin spín y con $n=2$. 
+Las soluciones son $\Ket{n,\ell,m}$ con
 \[
 	0 \leq \ell < n \qquad -\ell \leq m\leq \ell \qquad \ell=0,1 \quad m=-1,0,1
 \]
-Tengo cuatro estados 
+
+Supongamos $n=2$ con $ E = - e^2 /(8a_0) $, lo cual me lleva a cuatro estados 
 \[
 	\begin{cases}
 	 \Ket{200} \\
@@ -294,10 +401,47 @@ Tengo cuatro estados
 	\end{cases}
 \]
 todos con la misma energía $\epsilon_2$.
-Metemos un campo eléctrico en $\hat{z}$ y entonces $V=-ez|\vb{E}|$. Luego 
+Consideremos un campo eléctrico en $\hat{z}$ y entonces $V=-ez|\vb{E}|$. 
+Luego el potencial se representará por una matriz de $4\times 4$. Sus elementos
+serán
 \[
 	\Braket{n\ell'm'|V|n\ell m} = -e|\vb{E}|\Braket{n\ell'm'|z|n\ell m}
 \]
+y para evaluarlos usaremos ideas de simetría.
+
+\begin{ejemplo}{\bf refurbished}
+
+Uso un entorno de ejemplo porque la carpeta tiene otra notación y explica más.
+\[
+	n=2 \to \begin{cases}
+	 \ell=0 \qquad 2s \quad & m=0 \; ( 1 \text{ estado}) \\
+	 \ell=1 \qquad 2p \quad & m=-1,0,1 \; ( 3 \text{ estados}) 
+	\end{cases}
+\]
+Entonces, las ideas de simetría me llevan a que como son $2s, 2p$ pares
+\[
+	\Braket{2s|V|2s} = \Braket{2p|V|2p} = 0
+\]
+y esto son diez elementos nulos. Pero la paridad no nos autoriza a anular $\Braket{2s|V|2p}$.
+Como $V \propto z$ y $z \propto T_{q=0}^{k=1}$ sabiendo que
+\[
+	\Braket{\a',j',m'|T_{q}^{k}|\a, j, m} \propto 
+	\Braket{j,k;m,q|j,k;j',m'}
+\]
+con $m+q=m'$,
+lo cual garantiza el teorema de Wigner-Eckart, surge que el único componente no nulo es
+\[
+	\Braket{2,0,0|V|2,1,0} = 3 e a_0 |E| = \gamma |E|
+\]
+siendo nulos
+\[
+	\Braket{2,0,0|V|2,1,\pm 1} = 0
+\]
+La matriz en la base considerada será [sigue fuera].
+ 
+\end{ejemplo}
+
+
 $\hat{z}$ es impar ante paridad y entonces vincula estados de paridad diferente,
 y entonces 
 \[
@@ -323,24 +467,32 @@ Se tendrá
 	   0 & 0 & \gamma|\vb{E}| & 0
 	  \end{pmatrix}
 \]
-Puedo diagonalizar y obtengo 
+No se podrá romper la degeneración de los estados superiores, todos con cero,
+en el subbloque superior de $2\times 2$.
+No obstante, se puede diagonalizar considerando estas combinaciones
+\[
+	\Ket{A} = \frac{1}{\sqrt{2}} \left( \Ket{2,1,0} + \Ket{2,0,0} \right)
+	\qquad
+	\Ket{B} = \frac{1}{\sqrt{2}} \left( \Ket{2,1,0} - \Ket{2,0,0} \right)
+\]
+y obtener una matriz
 \[
 	V = \begin{pmatrix}
 	   0 & 0 & 0 & 0 \\
 	   0 & 0 & 0 & 0 \\
 	   0 & 0 & \gamma|\vb{E}| & 0 \\	   
 	   0 & 0 & 0 & \gamma|\vb{E}| 
-	  \end{pmatrix}
+	  \end{pmatrix}.
 \]
 
 En este caso no se rompe la degeneración por completo.
+A orden uno aún tenemos dos estados degenerados
 
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/teo2_20.pdf}
-	\end{center}
-	\caption{}
-\end{figure} 
+	\includegraphics[width=0.5\textwidth]{images/teo2_20.pdf}
+	\includegraphics[width=0.5\textwidth]{images/fig_ft2_degeneracion_3.jpg}
+
+Se ha roto parcialmente la degeneración pero si quisiéramos pasar a orden 2 debiéramos
+seguir trabajando.
 
 \subsection{Corrimiento de la energía a orden 2 (con degeneración)}
 

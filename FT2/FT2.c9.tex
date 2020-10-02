@@ -79,6 +79,11 @@ de modo que tienen la misma base de autoestados. Si no hay degeneración
 \]
 mientras que si hay degeneración $G\Ket{n}\neq \Ket{n}$.
 Invariancia frente a traslaciones $G=\vb{p}$ e invariancia frente a rotaciones $G=\vb{J}$ [?].
+Acá tal vez quise poner invariancia frente a traslaciones, $\vb p$ constante y frente a rotaciones
+$\vb J$ constante.
+
+Hay degeneraciones, por ejemplo con $[H,J^2]=0$ entonces $[H,J_z]$ lleva a degeneración $2j+1$
+para $\Ket{n,\ell,m}$.
 
 \subsection{Transformaciones discretas}
 
@@ -155,7 +160,7 @@ Que conmuta con \vb{J} puede verse de pedirle que
 \[
 	[\Pi,\mathcal{D}(R)] = 0 \longrightarrow [\Pi,\vb{J}] = 0 ,
 \]
-donde $\mathcal{D}(R) = \exp{ - i \vb J \cdot \nver \phi / \hbar}$, puesto que esta cosa vale en 
+donde $\mathcal{D}(R) = \exp(- i \vb J \cdot \nver \phi / \hbar)$, puesto que esta cosa vale en 
 mecánica clásica, donde se tenía
 \[
 	R^{\text{(paridad)}}R^{\text{(rotación)}} = R^{\text{(rotación)}} R^{\text{(paridad)}},
@@ -186,7 +191,7 @@ Veamos ahora qué sucede con la función de onda bajo paridad.
 \]
 y entonces la función de onda de un estado al que se le aplicó paridad será 
 \[
-	\Psi_{\alpha'}(x') = \Psi_\alpha(-x')
+	\Psi_{\alpha'}(x') = \Psi_\alpha(-x').
 \]
 
 Sea $\Ket{\alpha}$ autoestado de paridad, entonces considerando que $ [ H, \Pi] = 0 $ y no hay
@@ -327,6 +332,12 @@ al autovalor $p'2/2m$
 \]
 y $\Ket{p'}$ no es autoestado de $\Pi$.
 
+Para un oscilador armónico será
+\[
+	H = \frac{p^2}{2m} - \frac{m \omega^2 x^2}{2}, \qquad [H,\Pi] = 0
+\]
+y los estados tienen paridad definida, no son degenerados. Luego, $\Ket{n}$ tendrán paridad $(-1)^n$.
+
 \subsection{Reglas de selección de paridad $\Pi$}
 
 Sean $\Ket{\alpha}, \Ket{\beta}$ autoestados de paridad 
@@ -352,14 +363,15 @@ Si el operador $\Box$ es par (como $\vb{L}, \vb{S}$) entonces $\varepsilon_\alph
 \varepsilon_\beta=1$ o bien $\varepsilon_\alpha=-1,\varepsilon_\beta=-1$.
 
 \begin{itemize}
- \item Operadores impares solo conectan estados de paridad opuesta
- \item Operadores pares solo conectan estados de la misma paridad 
+ \item Operadores impares solo conectan estados de paridad opuesta.
+ \item Operadores pares solo conectan estados de la misma paridad.
 \end{itemize}
 
+Partiendo desde 
 \[
-	\Braket{\beta|\vb{x}|\alpha} = 0 
+	\Braket{\beta|\vb{x}|\alpha} = 0, 
 \]
-entonces
+entonces tenemos
 \[
 	\int\int dx'dx''\Braket{\beta|x''}\Braket{x''|\vb{x}|x'}\Braket{x'|\alpha}= 0
 \]
@@ -369,8 +381,107 @@ y como es $\Braket{x''|\vb{x}|x'} = x' \delta(x' -x'')$
 	\int_{-\infty}^{+\infty} dx'\Psi_\beta^*(x') x' \Psi_\alpha (x')
 \]
 
-\section{Inversión temporal (reversión de movimiento)}
+\begin{ejemplo}{\bf Ejercicio 2}
+ 
+Sea $\Tau_{\vb j}$ traslación y $\mathcal{D}(\nver,\phi)$. Habría que probar, parece que
+\[
+	a) \; [ \Tau_{\vb j}, \Tau_{\vb j'}] = 0
+\]
+\[
+	b) \; [ \mathcal{D}(\nver',\phi), \mathcal{D}(\nver,\phi) ] \neq 0
+\]
+\[
+	c) \; [\Tau_{\vb j}, \Pi] \neq 0
+\]
+\[
+	d) \; [\mathcal{D}(\nver,\phi), \Pi] = 0
+\]
+Esto podría hacerse empleando background de anteriores capítulos.
+ 
+\end{ejemplo}
 
+\begin{ejemplo}{\bf Ejercicio 4}
+ 
+Se tiene
+\[
+	Y_\ell^{j=\ell \pm 1/2,m} = \frac{1}{\sqrt{2\ell+1}} 
+	\begin{pmatrix}
+		\pm \sqrt{\ell \pm m + 1/2 } & Y_\ell^{m-1/2}(\theta,\varphi) \\
+		\\
+		\pm \sqrt{\ell \mp m + 1/2 } & Y_\ell^{m+1/2}(\theta,\varphi)
+	\end{pmatrix}
+\]
+El problema es una combinación de s=1/2 sumado a un potencial esféricamente simétrico; es
+decir espacios del tipo $\Braket{\theta,\varphi|\ell,m} \otimes \Ket{\text{spin}}$.
+Los estados de spin son los de siempre $\Ket{+}, \Ket{-}$ y se tiene $\vb J = \vb L + \vb S$
+con $|\ell-s| \leq j \leq |\ell+s|$.
+
+La parte a) es sencillamente
+\[
+	Y_{\ell=0}^{j=1/2,m=1/2} = \begin{pmatrix}
+	                        Y_0^0\\
+	                        \\
+	                        0
+	                       \end{pmatrix} = \frac{1}{\sqrt{4\pi}}
+	                       \begin{pmatrix}
+	                        1 \\
+	                        \\
+	                        0
+	                       \end{pmatrix}
+\]
+
+La parte b) involucra obtener $( \pe{\sigma}{x} ) Y_{\ell=0}^{j=1/2,m=1/2}$ en términos
+de $Y_\ell^{j,m}$.
+El producto escalar de $\vb \sigma$ se pone en función de armónicos esféricos, lo cual será
+\[
+	\pe{\sigma}{x} = r ( \sin\theta\cos\vp \:\sigma_x + \sin\theta\sin\vp \:\sigma_y +
+	\cos\vp \:\sigma_z )
+\]
+y entonces
+\[
+	\pe{\sigma}{x} \: Y_{\ell=0}^{j=1/2,m=1/2} =
+	\frac{r}{\sqrt{4\pi}}
+	\left( 
+	\begin{bmatrix}
+	 0 \\
+	 \cos\theta\sin\vp
+	\end{bmatrix} +
+	\begin{bmatrix}
+	 0 \\
+	 i\sin\theta\sin\vp
+	\end{bmatrix} +
+	\begin{bmatrix}
+	 \cos\vp \\
+	 0
+	\end{bmatrix}
+	\right)
+\]
+lo cual se puede, usando la tablita de armónicos esféricos, llevar a la forma
+\[
+	\frac{r}{\sqrt{4\pi}} 
+	\begin{pmatrix}
+	 \cos\theta \\
+	 \sin\theta\euler^{i\vp}
+	\end{pmatrix} =
+	\frac{r}{\sqrt{4\pi}} 
+	\begin{pmatrix}
+	 Y_1^0(\vp,\theta) \sqrt{4\pi/3} \\
+	 Y_1^1(\vp,\theta) \sqrt{8\pi/3}
+	\end{pmatrix} =
+	- r Y_{\ell=1}^{j=1/2,m=1/2}.
+\]
+
+La parte c) empezamos con $\ell=0$ finalizando con $\ell=1$. El $\pe{s}{x} = \hbar  \pe{\sigma}{x}$ 
+no varía ante rotaciones por ser un escalar. 
+Entonces por qué varió $\ell$, la resppuesta es porque $\pe{s}{x}$ es un pseudoescalar y la transformación
+es de paridad. La paridad del estado final es impar.
+
+ 
+\end{ejemplo}
+
+
+
+\section{Inversión temporal (reversión de movimiento)}
 
 Es simplemente el reemplazo
 \[
