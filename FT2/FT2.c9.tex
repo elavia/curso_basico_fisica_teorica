@@ -848,6 +848,11 @@ luego
 \]
 para todo $j$ entero o semientero.
 
+El dibujito apareció en la práctica asociado a este tema: la idea es que cambia la proyección de
+$\zver$ en $-\zver$ al invertir el tiempo.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft2_extra_practica_desconocido.jpg}
+
 \begin{ejemplo}{\bf Para casos de spin 1/2}
 
 Esto es muy parecido a lo anterior, pero copio acá porque difieren en cosas. Consolidar más adelante.
@@ -879,6 +884,114 @@ o bien $\Theta^2 = - \mathbb{1}$. Se puede escribir entonces
 \[
 	\Theta\Ket{j,m} = i^{2m} \Ket{j,-m} .
 \]
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 7}
+
+$H$ no degenerado, invariante frente a inversión temporal
+
+Parte a) 
+Se tiene $ \Theta H \Ket{n} = E_n \Ket{n} $ y entonces
+\[
+	H \Theta \Ket{n} = E_n \Theta \Ket{n}
+\]
+por conmutatividad. Luego $\Theta \Ket{n} $ es autoestado del $H$, de lo cual, dado que no hay degeneración
+\[
+	\Theta \euler^{i\a} \Ket{n} = \Theta \Ket{n}
+\]
+donde $\a$ es una fase arbitraria. Del primer punto y del segundo se obtiene la igualadad
+\[
+	\Braket{\vbx | n } = \euler^{-i\a} \Braket{n|\vbx}
+\]
+y con $\a=0$ obtenemos $\Braket{\vbx | n } = \Braket{n|\vbx}$.
+Entonces, siempre puedo elegir la función de onda para que sea real, lo cual se logra con $\a=0$.
+
+Parte b) 
+Tengo $A \euler^{ i \pe{p}{x} / \hbar }$ y esto no puedo hacerlo real, y no viola lo que aseverábamos en la parte a)
+porque es perteneciente a un hamiltoniano degenerado.
+No viola invariancia de inversión temporal. El $h$ considerado es, por ejemplo, el de una partícula libre.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 9}
+
+La idea es considerar $\Theta \mathcal{D}_{(R)} \Ket{j,m}$. La rotación se puede escribir como serie
+\[
+	= \euler^{ i \vb J \cdot \nver \phi / \hbar } = 
+	\sum_{k=0}^\infty \frac{1}{k!} \Frac{-i \vb J \cdot \nver \phi}{\hbar}^k
+\]
+Consideraremos $\Theta \mathcal{D}_{(R)} \Theta^{-1} \Theta $ en lugar de $ \Theta \mathcal{D}_{(R)}$.
+Veamos unos pocos términos
+\begin{eqnarray*}
+ k=0 \quad	& \Theta \mathbb{1} \Theta^{-1} \\
+ k=1 \quad	& \Theta \Frac{-i \vb J \cdot \nver \phi}{\hbar} \Theta^{-1} = - i \Frac{\vb J \cdot \nver \phi}{\hbar} \\
+ k=2 \quad	& \Theta \Frac{-i \vb J \cdot \nver \phi}{\hbar} \Theta^{-1} \Theta \Frac{-i \vb J \cdot \nver \phi}{\hbar} \Theta^{-1} =
+ \Frac{-i \vb J \cdot \nver \phi}{\hbar}^2
+\end{eqnarray*}
+y vemos que no se altera nada, entonces
+\[
+	\Theta \mathcal{D}_{(R)} \Theta^{-1} = \mathcal{D}_{(R)}
+\]
+de manera que $ [\Theta, \mathcal{D}_{(R)} ] = 0 $, es decir que conmutan.
+Entonces,
+\[
+	\Theta \mathcal{D}_{(R)} \Ket{j,m} = \mathcal{D}_{(R)} \Theta \Ket{j,m} = 
+	\mathcal{D}_{(R)} i^{2m} \Ket{j,-m}
+\]
+y
+\[
+	\mathcal{D}_{m' m}^{(j)*}(R) = (-1)^{m-m'} \mathcal{D}_{-m', -m}^{j}(R),
+\]
+donde 
+\[
+	\mathcal{D}_{m' m}^{(j)*}(R) = \Braket{ j, m | \euler^{ i \vb J \cdot \nver \phi / \hbar } | j, m' }.
+\]
+La idea es forzar la aparición de $\Theta$ en la anterior ecuación y tratar de probar lo previo.
+Multiplicando y dividiendo por $i^{2m'}$, y luego insertando un uno apropiado, se tiene
+\[
+\begin{aligned}
+	\Braket{ j, m | \euler^{ i \vb J \cdot \nver \phi / \hbar } i^{2m'} \Theta | j, -m' } =
+	\Braket{ j, m | \Theta \euler^{ i \vb J \cdot \nver \phi / \hbar } (-i)^{2m'} | j, m' } = \\
+	\sum_{m''}\Braket{ j, m | \Theta | j, m'' }
+	\Braket{ j, m'' | \euler^{ i \vb J \cdot \nver \phi / \hbar } (-i)^{2m'} | j, m' } = \\
+	\Braket{ j, m | \sum_{m''} (-i)^{2m''} | j, m'' }
+	\Braket{ j, m'' | \euler^{ -i \vb J \cdot \nver \phi / \hbar } (-i)^{2m'} | j, m' } = \\
+	i^{-2m} (-i)^{2m'} \Braket{ j, -m | \euler^{ -i \vb J \cdot \nver \phi / \hbar }  | j, m' } =
+	(-1)^{m-m'} \mathcal{D}_{-m', -m}^{j}(R).
+\end{aligned}
+\]
+y esto era lo que se intentaba probar.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 10}
+
+Parte a) Por ser no degenerado el problema se tiene $\Theta\Ket{n} = \euler^{i\a} \Ket{n}$. Luego
+\[
+	\vm{vb L} = \Braket{n|\vb L| n} = - \Braket{n'|\vb L|n'} = - \Braket{n'|\euler^{-i\a} \vb L \euler^{i\a} |n'}
+\]
+donde $\Ket{n'}$ es el inverso temporal de $\Ket{n}$.
+De ello deducimos que $ \vm{vb L} = - \vm{vb L} $ que lleva a $\vm{vb L} =0$.
+
+Parte b)
+Tenemos $ \sum_\ell \sum_m F_{\ell m}(r) Y_\ell^m (\theta,\vp)$. Usando inversión temporal hay que ver las
+restricciones que resultan sobre $F_{\ell m}$. Para ello consideramos
+\[
+	\Braket{\vbx | n'} = \sum_\ell \sum_m F_{\ell m}^*(r) Y_\ell^{m*} (\theta,\vp) =
+	\euler^{i\a} \: \sum_\ell \sum_m F_{\ell m} (r) Y_\ell^m (\theta,\vp)
+\]
+de modo que 
+\[
+	\sum_\ell \sum_m F_{\ell m}^*(r) (-1)^m Y_\ell^m (\theta,\vp) =
+	\euler^{i\a} \sum_\ell \sum_m F_{\ell m} (r) Y_\ell^m (\theta,\vp)
+\]
+pero como los $Y_\ell^m (\theta,\vp)$ son ortogonales se ve que 
+$ F^*_{\ell,-m}(r)(-1)^m = \euler^{i\a} F_{\ell n}(r) $ donde $\a$ es independiente de $\ell,m$. Luego, con $\a=0,2\pi$
+se tiene
+\[
+	F^*_{\ell,-m}(r)(-1)^m = F_{\ell,m}(r) .
+\]
+
 \end{ejemplo}
 
 
