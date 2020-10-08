@@ -496,27 +496,67 @@ seguir trabajando.
 
 \subsection{Corrimiento de la energía a orden 2 (con degeneración)}
 
-Sea que a orden uno se rompe toda la degeneración 
+Partimos de la suposición de que a orden uno se ha roto toda la degeneración (en el efecto
+Stark, como se acaba de ver, no sucedía esto). Hemos trabajado hasta el primer orden y
+ahora veremos el segundo.
 \[
-	(H_0 - E_N^0) \Ket{2_N^j} + (V - E_N^{1 j}) \Ket{1_N^j} - E_N^{2 j} \Ket{0_N^j} = 0
+	\lambda^2 \qquad \qquad (H_0 - E_N^0) \Ket{2_N^j} + (V - E_N^{1 j}) 
+	\Ket{1_N^j} - E_N^{2 j} \Ket{0_N^j} = 0
 \]
-Entonces la corrección a segundo orden de la energía será:
+Entonces, haciendo producto escalar, obtenemos la corrección a segundo orden de la energía 
 \[
 	\Braket{0_N^j | H_0 - E_N^0 | 2_N^j} + \Braket{ 0_N^j | V - E_N^{1 j} | 1_N^j} = E_N^{2 j}
 \]
+es decir
 \[
 	\Braket{ 0_N^j | V | 1_N^j} = E_N^{2 j}
 \]
-pues $\Braket{0_N^j|0_N^j}= 0$ pero 
+pues $\Braket{0_N^j|0_N^j}= 0$.
+El asunto es que no conocemos la expresión de los $\Ket{1_N^j}$. Se sabe que $ H_0 \Ket{\vp_n^j} = 
+E_n^0 \Ket{\vp_n^j}$ y luego 
+\[
+	\Ket{1_N^j} = \sum_{ i \text{ posibles para cada } k } b_k^i \Ket{\vp_k^i}.
+\]
+Entonces podemos escribir, por conveniencia,
 \[
 	\Ket{1_N^j} = \sum_{k,i\neq 1} b_k^i \Ket{\varphi_k^i} + \sum_i b_N^i \Ket{\varphi_N^i}
 \]
+y como se tiene $\Braket{0_N^j|1_N^j} = 0$ esto nos lleva a 
 \[
-	\Braket{0_N^j|1_N^j} = 0 = \sum_{k,i\neq 1} b_k^i \braket{0_N^j|0_K^i} + 
-		\sum_i b_N^i \braket{0_N^j|0_N^i}
+	\sum_{k,i\neq 1} b_k^i \braket{0_N^j|0_K^i} + 
+		\sum_i b_N^i \braket{0_N^j|0_N^i} = 0,
 \]
-falta desarrollo ... [info en mis originaales]
-
+de lo cual surge $ b_n^j = 0 $ para siga valiendo que el escalar es nulo. Hemos pedido la nulidad
+del braket anterior por condiciones de normalización.
+Para el braket 
+\[
+	\Bra{0_n^j | V } \left( \sum_{k,i\neq 1} b_k^i \Ket{\varphi_k^i} + 
+	\sum_i b_N^i \Ket{\varphi_N^i} \right)
+\]
+y de aquí resulta que no me interesarán los $b_n^i$ porque $ \Braket{0_n^j|V|0_n^i} $ con $ i \neq j $ será
+\[
+	\Braket{0_n^j|V|0_n^i} = V_i \delta_{ij} = 0 
+\]
+y de ello vemos que se anula el aporte. Solamente nos interesarán entonces los $b_k^i$.
+Trabajemos con lo que resta así
+\[
+	\Braket{\vp_p^\ell | (H_0 - E_n^0) | 1_n^j } = 
+	- \Braket{ \vp_p^\ell | V - \epsilon_{1n}^j | 0_n^j  } \qquad p \neq n
+\]
+y desde
+\[
+	\Bra{ \vp_p^\ell | (H_0 - E_n^0) } \left( \sum_{k \neq n} b_k^i \Ket{\vp_k^i} + 
+	\sum_{i \neq j} b_n^i \Ket{ 0_n^i} \right)
+\]
+\[
+	( E_n^0 - E_p^0 ) \sum_{k \neq n} b_k^i \Braket{\vp_p^\ell | \vp_k^i } =
+	- \Braket{\vp_n^{(i)} | V | 0_n^{(j)} } 
+\]
+que conduce directamente a 
+\[
+	b_p^{(i)} = \frac{\Braket{ \vp_n^{(i)} | V | 0_n^{(j)} } }{E_n^0 - E_p^0}
+\]
+Finalmente, a segundo orden el valor de la energía resulta
 \[
 	E_N^{2j} = \sum_{p\neq N} \frac{|\Braket{0_N^j|V|0_p^i}|^2}{E_N^0 - E_p^0}
 \]
@@ -524,8 +564,12 @@ donde $N$ es un estado degenerado y la suma es entre los $i$ posibles.
 
 \section{Estructura fina del átomo de hidrógeno}
 
-La solución tradicional del átomo de H usa el potencial coulombiano. Esto desemboca en las funciones 
-$\Ket{n,\ell,m}$, sin embargo la introducción de ajuste como {\it perturbaciones} rompe algo la degeneración.
+La solución tradicional del átomo de hidrógeno usa el potencial coulombiano, lo cual es una
+sobresimplificación. 
+Esto desemboca en las funciones $\Ket{n,\ell,m}$, que tiene una degeneración muy grande.
+Sin embargo la introducción de ajustes en la forma de {\it perturbaciones} permite romper algo 
+la degeneración.
+Algunas expresiones familiares eran
 \[
 	H_0=\frac{p^2}{2m} - \frac{e^2}{r} \qquad E_n = -\frac{\alpha^2m_e^2c^2}{2n^2} \qquad 
 	a_0 = \hbar^2/(m_ec^2)
@@ -533,8 +577,12 @@ $\Ket{n,\ell,m}$, sin embargo la introducción de ajuste como {\it perturbacione
 \[
 	v/c = p/(mc) = \alpha = \frac{e^2}{\hbar c} \approx 1/137
 \]
-donde $a_0$ es el radio de Bohr, $\alpha$ es la constante de estructura fina .
-Tenemos 
+donde $a_0$ es el radio de Bohr, $\alpha$ es la constante de estructura fina.
+\notamargen{Las correcciones al átomo de hidrógeneo son del orden de $\a^2$ (finas) y son por ende
+muy pequeñas.}
+
+Agrupemos o clasifiquemos las correcciones. Tenemos :
+
 a) Corrección cinemática (relativista)
 \[	
 	E = c \sqrt{p^2 + m_e^2c^2} = m_ec^2\sqrt{1 + p^2/(m_e^2c^2)} \approx 
