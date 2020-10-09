@@ -584,19 +584,28 @@ muy pequeñas.}
 Agrupemos o clasifiquemos las correcciones. Tenemos :
 
 a) Corrección cinemática (relativista)
-\[	
-	E = c \sqrt{p^2 + m_e^2c^2} = m_ec^2\sqrt{1 + p^2/(m_e^2c^2)} \approx 
-	m_ec^2 \left( 1 + \frac{1}{2}\frac{p^2}{m_e^2c^2} + \frac{3}{8}\frac{p^4}{m_e^4c^4} \right)
-\]
+\begin{multline*}
+	E = c \sqrt{p^2 + m_e^2c^2} = m_ec^2\sqrt{1 + p^2/(m_e^2c^2)} \approx \\
+	m_ec^2 \left( 1 + \frac{1}{2}\frac{p^2}{m_e^2c^2} + \frac{3}{8}\frac{p^4}{m_e^4c^4} \right) 
+\end{multline*}
 \[
 	E \approx m_ec^2 + \frac{p^2}{2m_e} + \frac{3p^4}{8m_e^3c^2}
 \]
 y esta corrección va como $W_{mv}/H_0 \sim \alpha^2$.
 
 b) Acoplamiento spín-órbita
-Se puede pensar considerando un $e^-$ en reposo con un protón orbitando que genera un $\vb{B}_{eff}$
+Se puede pensar considerando un $e^-$ en reposo con un protón orbitando que genera un $\vb{B}_\text{eff}$
 \[
-	W_{so} = \frac{e^2}{2m_e^2c^2} \frac{\vb{L}\cdot\vb{S}}{R^3} = -\vb{\mu}\cdot\vb{B}_{eff}
+	\vb{B}_\text{eff} = - \frac{1}{c} \pv{v}{E} \qquad \qquad 
+	\vb{\mu}_s = \frac{e\vb S}{2 m_e c}
+\]
+y dado que el campo eléctrico será
+\[
+	\vb E = - \frac{1}{e} \nabla( V(r) ) = \frac{1}{r^3} \vb r
+\]
+se tiene para el acoplamiento $-\vb{\mu}_s \cdot \vb{B}_\text{eff} $
+\[
+	W_{so} = \frac{e^2}{2m_e^2c^2} \frac{\vb{L}\cdot\vb{S}}{R^3} = -\vb{\mu}\cdot\vb{B}_\text{eff}
 \]
 y la corrección va como $W_{mv}/H_0 \approx \alpha^2$.
 
@@ -604,20 +613,39 @@ c) Término de Darwin o de contacto
 \[
 	W_D = \frac{\hbar^2}{8m_e^2c^2} \nabla^2 V(r)
 \]
-que va como  $W_{D}/H_0 \approx \alpha^2$.
+que afectará a estados $s$ que tienen función de onda en el origen. Este término intenta considerar la
+extensión de la distribución de carga del electrón como distribución espacial que no es un punto.
+Entonces el potencial se verá como
+\[
+	\int_{p \sim \lambda_c } d^3\rho f(\rho) V(\vbx + \vb{p} )
+\]
+\[
+	V(\vbx + \vb{p} ) = V(r) + \#_1 \nabla V \cdot \vb p + \#_2 \nabla^2 V(r) p^2 + ...
+\]
+Este cálculo se puede hacer bien con al utilización de la ecuación de Dirac y tomando el límite de baja
+velocidad en la ecuacion relativista.
+Es una corrección del orden $W_{D}/H_0 \approx \alpha^2$.
 
 Hay otras correcciones hiperfinas que provienen del spín del electrón y del spín del protón. Pero van como 
 $\alpha^2/2000$.
-Si consideramos el sistema con 
+
+Consideramos el sistema con $ n = 2, \ell=0, 1 $ que representan los estados $2s$ y $2p$ se tienen 
+$ m_\ell = 1,0,-1 \quad m_s=1/2,-1/2 $ y
 \[
-	n=2 \; \ell=0,1 \quad m_\ell = 1,0,-1 \quad m_s=1/2,-1/2
+	4 \otimes 2_{\text{ spin }p } \otimes 2_{\text{ spin }e } = 16,
 \]
-serán ocho estados $\Braket{n,\ell,m_\ell,m_s}$ (base completa).
+es decir una matriz de $16 \times 16$.
+Serán ocho estados $\Braket{n,\ell,m_\ell,m_s}$ (base completa).
 \[
 	W = \underbrace{W_{mv}}_{\sim p^4} + \underbrace{W_{so}}_{\sim \vb{L}\cdot\vb{S}} + 
 	\underbrace{W_D}_{\sim |\vb{r}|}
 \]
-y W es par ante $\Pi$ y sólo habrá elementos de matriz $\neq 0$ que sean de la misma paridad.
+y esta corrección $W$ es par ante $\Pi$ y como
+\[
+	W_{mv} \sim p^4, \quad W_{so} \sim \pe{L}{S}, \quad W_D \sim |\vb x|
+\]
+habrá estados que no se pueden conectar: no hay vínculo entre $\ell=0$ y $\ell=1$.
+Sólo habrá elementos de matriz $\neq 0$ que sean de la misma paridad, se tiene algo como
 \[
 	\begin{matrix}
 	2s & \qquad 2p \\	 
@@ -636,6 +664,102 @@ y W es par ante $\Pi$ y sólo habrá elementos de matriz $\neq 0$ que sean de la
 $\Ket{2s}$ es par ($\ell=0$) y $\Ket{2p}$ es impar ($\ell=1$) y entonces $\Ket{2s}, \Ket{2p}$
 no están conectados.
 
+En cada subespacio serán diagonales $W_{mv} \sim \mathbb{1} \#_1 $ diagonal en la base (porque no 
+le interesa el spin), $ W_D \sim \mathbb{1} \#_2 $ diagonal en la base y $W_{so}$ no será diagonal
+porque está degenerado.
+
+Calculemos algunos elementos de matriz ahora.
+\[
+	\Braket{2s |W_{mn}| 2s} = - \Braket{2s | \frac{p^4}{8 m^3_e c^2 } | 2s}, \qquad 
+	H_0 = \frac{p^2}{2 m } + V(r)
+\]
+donde $p^4 =  4 m_e^2 ( H_0 - V(r) )^2 $ con $ V = - e/r $.
+Por otra parte,
+\[
+	\Braket{|W_{mv}|} = - \frac{1}{2 m_e c^2}
+	\left[ E_n^2 + 2 E_n e^2 \vm{1/R} + e^4 \vm{1/R^2} \right]
+\]
+Aquí, desarrollo el $p^4$ en un término que no dependde de spin-up o spin-down.
+Los términos de matriz necesitan integrarse como
+\[
+	\vm{1/R^q} = \int \: dr \: d\Omega \: \frac{1}{r^q} \vp_{n\ell m}^*\vp_{n\ell m} =
+	\int dr r^{2-q} |R_{n\ell m}|^2,
+\]
+donde ha hemos hecho la integral en ángulo sólido. Veamos unos números
+\[
+	\Braket{W_{mv}}_{2s} = -\frac{13}{128} \a^4 m_e c^2 
+	\qquad \qquad 
+	\Braket{W_{mv}}_{2p} = -\frac{7}{384} \a^4 m_e c^2 .
+\]
+
+El término de contacto supone un cálculo más sencillo
+\[
+	\Braket{n,\ell,m|W_D|n,\ell,m} = \frac{\hbar^2 4 \pi e^2}{8 m_ e^2 c^2} 
+	| \vp_{n\ell m}(r=0)|^2,
+\]
+luego, la única función de onda en $r=0$ es la $\ell=0$ y entonces
+\[
+	\Braket{W_D}_{2s} = \frac{1}{16} \a^4 m_e c^2
+	\qquad \qquad 
+	\Braket{W_D}_{2p} = 0
+\]
+
+Para el caso spín-órbita se tienen los conmutadores
+\[
+	[\pe{L}{S}, \vb L] \neq 0 \qquad \qquad [\pe{L}{S}, \vb S] \neq 0
+\]
+pero $[\pe{L}{S}, J^2]=0$ si $\vb J = \vb L + \vb S$.
+El cambio de base $\Ket{\ell,m_\ell,s, m_s} \to \Ket{j,\ell,s,m}$  hace que se diagonalice 
+automáticamente la matriz
+\[
+	\Braket{\ell,s,j,m|\pe{L}{S}|\ell,s,j,m}  = 
+	\begin{cases}
+	 \displaystyle  \frac{\ell \hbar^2}{2} & j = \ell + \frac 1 2 \\
+	 \\
+	 \displaystyle  \frac{\ell \hbar^2}{2} & j = \ell + \frac 1 2 
+	\end{cases}
+\]
+para el caso spin $1/2$. Se tiene lo siguiente para los estados 
+\begin{eqnarray*}
+ &2s_{1/2} = 0 + \frac{1}{2} \longrightarrow & 0 \quad \text{ Corrección nula }\\
+ &2p_{1/2} \longrightarrow & -\hbar^2 \quad \text{ Corrección negativa } \\
+ &2p_{3/2}  \longrightarrow & \frac{\hbar^2}{2}
+ \end{eqnarray*}
+
+ En el subgrupo de $6\times 6$ tenemos una diferencia entre los estados $2p_{1/2}$ y $2p_{3/2}$
+ \[
+	\Braket{W_{so}}_{2s_{1/2}} = 0
+	\qquad 
+	\Braket{W_{so}}_{2p_{1/2}} = - \frac{1}{48} \a^4 m_e c^2
+	\qquad 
+	\Braket{W_{so}}_{2p_{3/2}} = \frac{1}{96} \a^4 m_e c^2
+ \]
+ 
+Haciendo el cálculo de las contribuciones para cada lado se tienen
+\begin{eqnarray*}
+ 2s_{1/2} & \a^4 m_e c^2 \left( -\frac{13}{128} + \frac{1}{16} + 0 \right) = 
+	-\frac{5}{128} \a^4 m_e c^2 \\
+ 2p_{1/2}  & \a^4 m_e c^2 \left( -\frac{7}{384} + 0 - \frac{1}{48}  \right) = 
+ -\frac{5}{128} \a^4 m_e c^2 \\
+ 2p_{3/2} & -\frac{1}{128} \a^4 m_e c^2
+ \end{eqnarray*}
+ 
+ En todos los casos hay una disminución de la energía en todos los estados.
+ Podemos representarla en el siguiente diagramita pictórico
+ 
+ \includegraphics[width=0.8\textwidth]{images/fig_ft2_atomo_hidrogeno.jpg}
+
+ Si hacemos el cálculo de las correcciones hiperfinas vemos que se está de acuerdo con la experiencia.
+ Se necesita aquí mecánica cuántica relativista.
+ Entonces, cabe preguntarse porqué son iguales las dos primeras correcciones. Em mecánica cuántica
+ relativista se ve que $ [ H, J ] = 0 $ solamente, es decir que no conmuta ni con L ni con S.
+ Se puede ver que no importan los valores de $\ell,s$ para las energías, importa solo la variación
+ de $j$. Desde la ecuación de Dirac se ve que 
+ \[
+	E = \frac{ m c^2 }{ \left[ 1 + \a/(n - (j+1/2) + \sqrt{(j+1/2)^2 - \a^2 }) \right]^{1/2} },
+ \]
+ o bien que claramente $E = E(n,j)$.
+ 
 De manera que hay ocho estados $\Ket{n=2,\ell,m_\ell,s,m_s}$ que al calcular esta perturbación $W$
 resultan 
 \begin{figure}[htb]
@@ -645,12 +769,8 @@ resultan
 	\caption{}
 \end{figure} 
 
-El cálculo para las correcciones hiperfinas no condice la experiencia. Se necesita aquí mecánica cuántica 
-relativista. Los dos primeros niveles tienen la misma $\Delta E$ porque en MCR se ve que 
-\[
-	E = E(n,j) 
-\]
-es decir que no depende directamente de $\ell,s$.
+\notamargen{Los dos primeros niveles tienen la misma $\Delta E$ porque en MCR e ve que 
+$ E = E(n,j) $, es decir que no depende directamente de $\ell,s$.}
 
 Un sketch de los métodos perturbativos
 \[
@@ -678,10 +798,10 @@ Un sketch de los métodos perturbativos
 		\end{pmatrix}
 \]
 
-En $H$ tenenmos un bloque de energías degeneradas y se diagonalizará el bloque 
+En $H$ tenemos un bloque de energías degeneradas y se diagonalizará el bloque 
 correspondiente en la matriz del potencial perturbativo $V$.
 
-\includegraphics[width=0.9\textwidth]{images/fig_ft2_atomo_hidrogeno.jpg}
+
 
 
 
