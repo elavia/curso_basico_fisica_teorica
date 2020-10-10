@@ -383,6 +383,191 @@ Una vez diagonalizado el $V$ estamos en un problema no degenerado; podemos pasar
 
 \includegraphics[width=0.4\textwidth]{images/fig_ft2_degeneracion_2.jpg}
 
+\begin{ejemplo}{\bf Ejercicio 1}
+
+Consideraremos un oscilador armónico con un hamiltoniano
+\[
+	H = \frac{p^2}{2m} + \frac{m \omega^2 x^2}{2} + b x
+\]
+donde el potencial extra es el término $V = bx$ y donde usaremos la siguiente notación
+\[
+	\Ket{0^{(0)}} = \Ket{0} 
+	\qquad 
+	E_0^{(0)} = \frac{\hbar \omega}{2}
+	\qquad 
+	E_n = \hbar \omega \left( n + \frac{1}{2} \right)
+\]
+
+Parte a)
+Tenemos la energía escrita como
+\[
+	E_0 = E_0^{(0)} + V_{00} + \sum_{k\neq 0} \frac{|V_{0k}|^2}{ E_0^{(0)} - E_k^{(0)}} + ...
+\]
+Entonces, el primer orden
+\[
+	V_{00} = \Braket{ 0 | bx | 0} = 0,
+\]
+puede verse por paridad, por ejemplo.
+El segundo orden
+\[
+	V_{0k} = b\Braket{0|x|k^{(0)}} =
+	b \sqrt{\frac{\hbar}{2 m \omega}} ( \sqrt{k+1} \delta_{0,k+1} + \sqrt{k} \delta_{0,k-1} )
+\]
+y la energía a orden dos
+\[
+	E_0^{2} = -\frac{b^2}{2 m \omega^2},
+\]
+de manera que la energía del fundamental hasta orden dos será
+\[
+	E_0 \approx \frac{\hbar \omega}{2} -\frac{b^2}{2 m \omega^2}.
+\]
+
+Parte b)
+En el hamiltoniano
+\[
+	H = \frac{p^2}{2m} + \frac{m \omega^2 }{2} \left( x^2 + \frac{ 2 b x }{m \omega^2} \right)
+\]
+entonces completando cuadrados
+\[
+	H = \frac{p^2}{2m} + \frac{m \omega^2 }{2} \left( x + \frac{ b }{m \omega^2} \right)^2 
+	- \frac{b^2}{2 m \omega^2},
+\]
+se pueden reescribir el hamiltoniano y las energías como
+\[
+	E_n = \hbar \omega \left( n + \frac{1}{2} \right) - \frac{b^2}{2 m \omega^2}
+\]
+de modo que es 
+\[
+	E_0 = \frac{\hbar \omega}{2} -\frac{b^2}{2 m \omega^2}.
+\]
+
+Para el caso degenerado tenemos 
+\[
+	 \sum_{k\neq 0} \frac{|V_{0k}|^2}{ E_0^{(0)} - E_k^{(0)}}
+\]
+donde el denominador tiende a cero, y para solventarlo haremos que el numerador sea cero, lo cual
+equivale a diagonalizar la matriz.
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft2_diagonalizacion.jpg}
+
+Entonces
+\[
+	V \Ket{n^{(0)}} = E^{(0)}_n \Ket{ n^{(0)} }
+\]
+con energías $E_1 = E^{(0)} + E^{(1)}_+$ y $E_2 = E^{(0)} + E^{(1)}_-$.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 3}
+
+Consideramos ahora un hamiltoniano separable
+\[
+	H_0 = \frac{p_x^2}{2m} + \frac{p_y^2}{2m} + \frac{ m \omega^2}{2}( x^2 + y^2 )
+\]
+ 
+Parte a)
+La energía se expresa como
+\[
+	E_{n_x n_y} = \hbar \omega ( n_x + n_y + 1 )
+\]
+y entonces los estados de menor energía serán $n_x=n_y=0$, $n_x=1,n_y=0$ y $n_x=0,n_y=1$ que conducen
+a energías $E_{00} = \hbar \omega$ y $E_{01} = E_{10} = 2 \hbar \omega $ de donde vemos que hay
+degeneración de orden dos.
+
+Parte b)
+Tenemos una perturbación de la forma $ V = \delta m \omega^2 x y $ donde $\delta \ll 1$.
+A orden cero $ E_{00} \to \Ket{0 0} = \Ket{0 0^{(0)}}$ mientras que a orden uno 
+\[
+	E^{(1)} = V_{00} = \Braket{0 0^{(0)}| \delta m \omega^2 x y|0 0^{(0)}} =
+	 \delta m \omega^2 \: _x\Braket{|x|}_x \: _y\Braket{|y|}_y = 0
+\]
+y se ve que son nulos porque no existen elementos diagonales. Luego, $E_{00} = \hbar\omega$ a
+orden uno.
+
+Los niveles $E_{01}$ y $E_{10}$ son degenerados; entonces diagonalizaremos $V$ en este subespacio 
+para la hallar la corrección a orden cero en los estados y a orden uno en las energías.
+\[
+	\Braket{10|V|10} = \Braket{01|V|01} = 0
+\]
+\[
+	\Braket{10|V|01} = \frac{\hbar\omega\delta}{2} = \Braket{01|V|10}
+\]
+Entonces es una matriz simétrica (orden $01$ $10$)
+\[
+	V = \begin{pmatrix}
+		0 & \frac{\hbar\delta\omega}{2} \\
+		\\
+		\frac{\hbar\delta\omega}{2} & 0
+	    \end{pmatrix}
+\]
+y vemos que es proporcional a $\sigma_x$ [really?]. Diagonalizando resultará en 
+$ E_{pm} = \pm \frac{\hbar\omega\delta}{2}$ con
+\[
+	\Ket{\pm} = \frac{1}{\sqrt{2}} \left( \Ket{0,1} + \Ket{1,0} \right)
+\]
+y podemos construirnos la tablita
+\begin{eqnarray*}
+	E_{00} = & E_{00}^{(0)} = \hbar \omega \\
+	&\\
+	E_{01} = & E_{01}^{(0)} + \displaystyle \frac{\hbar \delta \omega}{2} = 
+	\hbar \omega \left( 2 + \frac{\delta}{2} \right) \\
+	&\\
+	E_{10} = & E_{10}^{(0)} - \displaystyle  \frac{\hbar \delta \omega}{2} = 
+	\hbar \omega \left( 2 - \frac{\delta}{2} \right)
+\end{eqnarray*}
+Entonces, se tienen $E_{00}$ corresponde a un estado a orden cero dado por $\Ket{ 0 0 }$, mietrnas
+que $E^+_{10}$ se corresponde a un estado a orden cero de $1/\sqrt{2}( \Ket{0,1} + \Ket{1,0})$
+mientras que $E^-_{01}$ se corresponde a un estado a orden cero de $1/\sqrt{2}( \Ket{0,1} - \Ket{1,0})$
+porque ahora los estados están como combinación lineal de $\pm$.
+
+Parte c)
+Consideramos ahora un hamiltoniano no separable
+\[
+	H = \frac{p_x^2}{2m} + \frac{p_y^2}{2m} + \frac{ m \omega^2}{2}( x^2 + y^2 ) 
+	+ \delta m \omega^2 x y. 
+\]
+Se puede resolver exactamente con un cambio de variables
+\[
+	X = \frac{x+y}{\sqrt{2}} \qquad \qquad Y = \frac{x-y}{\sqrt{2}}
+\]
+\[
+	P_x = \frac{ p_x + p_y }{\sqrt{2}} \qquad \qquad P_y = \frac{ p_x - p_y }{\sqrt{2}}
+\]
+
+Amasando se llega a
+\[
+	H = \frac{p_x^2}{2m} + \frac{p_y^2}{2m} + \frac{ m \omega^2}{2}( 1 + \delta ) X^2  
+	\frac{ m \omega^2}{2}( 1 - \delta ) Y^2
+\]
+con
+\[
+	E_{00} = \hbar \omega_x \left( n_x + \frac 1 2 \right) +
+	\hbar \omega_y \left( n_y + \frac 1 2 \right)
+\]
+de donde a orden cero es $E_{00} = \hbar \omega$ y luego [a orden $1$ o para $n>0$?]
+\[
+	\frac{\hbar}{2} \left[ \omega ( 1 + \delta )^{1/2} + \omega ( 1 - \delta )^{1/2} \right]
+	\approx \hbar \omega \left( 1 - \frac {\delta^2} 4 \right).
+\]
+
+A primer oden en $\delta$, parda la solución exacta
+\begin{eqnarray*}
+	E_{00} \approx & \hbar \omega \\
+	E_{10} = & \hbar \omega_x \frac{3}{2}  + \hbar \omega_y \frac{1}{2} \\
+	E_{01} = & \hbar \omega_x \frac{1}{2} + \hbar \omega_y \frac{3}{2}
+\end{eqnarray*}
+vemos que se recuperarían las energías halladas por perturbaciones (podemos hacer las cuentas nosotros [quiénes?])
+
+
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 6}
+ 
+Es bastante {\it hard}; hay que consultarlo. Al diagonalizar, la degeneración no se va. 
+ 
+\end{ejemplo}
+
+
 \section{Efecto Stark}
 
 Sea un átomo de H con $\Ket{n,\ell,m}$ sin spín y con $n=2$. 
