@@ -36,12 +36,21 @@
 \chapter{Picture de interacción y perturbación dependiente del tiempo}
 % =================================================================================================
 
-Puédense escribir perturbaciones dependientes del tiempo 
+Estudiaremos perturbaciones dependientes del tiempo 
 \[
-	H = H_0 + V(t)
+	H = H_0 + V(t), \qquad H_0 \Ket{n} = E_n \Ket{n}
 \]
-con $\Ket{n}$ no dependiente del tiempo. Se estudiarán transiciones entre autoestados del $H_0$ (que son 
-estacionarios). Un autoestado permanece en el tiemo como tal pero con fase oscilante
+donde, no obstante, $\Ket{n}$ no dependiente del tiempo. 
+La idea es que hasta $t=0$ no hay potencial $V$ y luego al {\it encenderse} el potencial el estado pasará
+a otro
+\[
+	\Ket{i} \longrightarrow \Ket{j}.
+\]
+
+Se estudiarán transiciones entre autoestados del mismo hamiltoniano $H_0$ (que son estacionarios). 
+Un autoestado permanece en el tiempo como tal pero con fase oscilante (como veremos).
+\notamargen{Esta deduccióne está diferente de la carpeta, confío en que sea una versión depurada.
+Se la analizará en la próxima fase.}
 \[
 	\Ket{\alpha,t_0,t}_s = \euler^{-iH/\hbar(t-t_0)}\Ket{\alpha,t_0}_s
 \]
@@ -58,9 +67,9 @@ estacionarios). Un autoestado permanece en el tiemo como tal pero con fase oscil
 	\euler^{iH_0/\hbar t}\Ket{\alpha,t_0,t}_s =
 	\sum_n  \underbrace{\euler^{-iV(t)/\hbar \: t} \Braket{n|\alpha,t_0}}_{C_n(t)} \ket{n} = \Ket{\alpha,t_0,t}_I	
 \]
-es decir 
+es decir que se escriben los kets como
 \[
-	 \Ket{\alpha,t_0,t}_I = \euler^{iH_0/\hbar t}\Ket{\alpha,t_0,t}_s
+	 \Ket{\alpha,t_0,t}_I = \euler^{iH_0/\hbar t}\Ket{\alpha,t_0,t}_s.
 \]
 Aquí se puede pensar que 
 \begin{itemize}
@@ -68,8 +77,9 @@ Aquí se puede pensar que
  \item $\euler^{-iE_n^0 t/\hbar}$ evoluciona por $H_0$
 \end{itemize}
 
-Esto introduce la {\it picture} de interacción de Dirac; en la cual los estados evolucionan con $V(t)$.
-
+Esto introduce la {\it picture} (o representación) de Dirac, también llamada ``de interacción'', en la 
+cual los estados evolucionan con $V(t)$.
+La siguiente tabla compara con las anteriores [atrasarla porque lo de los operadores aparece después]
 \begin{center}
 \begin{tabular}{|c|ccc|}
 \hline 
@@ -103,17 +113,19 @@ $\Ket{a'}$ &  &  &  \\
 \[
 	i\hbar \dpar{}{t} \Ket{\alpha,t_0,t}_I = V(t) \Ket{\alpha,t_0,t}_I,
 \]
-que es la ecuación de evolución de los kets.
-Pediremos asimismo que 
+que es la ecuación de evolución de los kets, y es equivalente a la ecuación de Schrödinger.
+
+La definición debe verificar asimismo que 
 \[
-	_s\Braket{\; A_s \;}_s = _I\Braket{\; A_I \;}_I
+	_s\Braket{\; A_s \;}_s = _I\Braket{\; A_I \;}_I,
 \]
-\[
-	_I\Braket{\alpha,t_0,t|A_I|\alpha,t_0,t}_I =
-	_s\Braket{\alpha,t_0,t|\euler^{-iH_0t/\hbar}A_I\euler^{iH_0t/\hbar}|\alpha,t_0,t}_s=
-	_s\Braket{\alpha,t_0,t|A_s|\alpha,t_0,t}_s =
-\]
-Y los operadores evolucionan según 
+lo cual conduce a
+\begin{multline*}
+	_I\Braket{\alpha,t_0,t|A_I|\alpha,t_0,t}_I = \\
+	_s\Braket{\alpha,t_0,t|\euler^{-iH_0t/\hbar}A_I\euler^{iH_0t/\hbar}|\alpha,t_0,t}_s = 
+	_s\Braket{\alpha,t_0,t|A_s|\alpha,t_0,t}_s,
+\end{multline*}
+o bien a que los operadores evolucionan según 
 \[
 	A_I = \euler^{iH_0t/\hbar}A_s\euler^{-iH_0t/\hbar}
 \]
@@ -132,8 +144,10 @@ Los kets base permanecen fijos, porque así lo hacen en Schrödinger, en realida
 \[
 	\Ket{n,t_0,t}_I = \euler^{iE_0t/\hbar} \ket{n,t_0,t}_s
 \]
+\notamargen{En la carpeta está primero lo de los kets base y luego la ecuación de movimiento 
+que acá aparece inmediatamente debajo de la tabla. Aquí habrá que reordenar material.}
 
-\subsection{Evolución de los coeficientes}
+Finalmente, resta ver qué le sucede a los coeficientes.
 
 \[
 	\Ket{\alpha,t_0,t}_I = \sum_n \Ket{n}\Braket{n|\alpha,t_0,t}_I = \sum_n C_n(t) \Ket{n}
@@ -163,20 +177,25 @@ con $\Ket{n},\ket{m}$ autoestados de $H_0$, le pego un $\Bra{n}$ a la ecuación 
 donde $V_{nm}(t) \equiv \Braket{n|V(t)|m}$ y $\omega_{nm} \equiv (E_n-E_m)/\hbar$.
 Esta es la ecuación que cumplen los coeficientes, donde $|C_n(t)|^2$ es la probabilidad de hallar al sistema 
 en el autoestado $\Ket{n}$.
-Es decir
+Resolver esto puede ser muy difícil, salvo en los casos en que es tan fácil que no nos
+sirve de nada \footnote{Esto es un patrón que se observa a menudo en física teórica.}.
+Esto puede ponerse en forma matricial como
 \[
 	i\hbar \begin{pmatrix}
 	\dot{c}_1 \\ \dot{c}_2 \\ ... \\ \dot{c}_N \\
 	\end{pmatrix} 
 	=
 	\begin{pmatrix}
-	V_{11} & V_{12}\euler^{i\omega_{12}} & ... \\ V_{21}\euler^{i\omega_{21}} & V_{22} & ... \\ ... \\ ... \\
+	V_{11} & V_{12}\euler^{i\omega_{12}} & ... \\ 
+	V_{21}\euler^{i\omega_{21}} & V_{22} & ... \\ 
+	... \\ 
+	... \\
 	\end{pmatrix}
 	\begin{pmatrix}
 	c_1 \\ c_2 \\ ... \\ c_N \\
-	\end{pmatrix} 
+	\end{pmatrix} .
 \]
-que puede ser de difícil solución.
+
 
 \subsection{Método perturbativo (dependiente del tiempo)}
 
@@ -187,40 +206,58 @@ Pensaremos en una serie perturbativa
 
 El evolucionador temporal en la picture de interacción cumple 
 \[
-	\Ket{\alpha,t_0,t} = U_I(t,t_0)\Ket{\alpha,t_0}_I
+	\Ket{\alpha,t_0,t} = U_I(t,t_0)\Ket{\alpha,t_0}_I, \qquad t > t_0
 \]
 que viene de  
 \[
 	i\hbar \dtot{}{t} U_I(t,t_0) = V_I(t) U_I(t,t_0)
 \]
-con $U(t_0,t_0)=\mathbb{1}$ la cual resolviendo nos hace llegar a 
+con $U_I(t_0,t_0)=\mathbb{1}$, la cual resolviendo nos hace llegar a 
 \[
-	U_I(t,t_0) = \mathbb{1} - \frac{i}{\hbar}\int_{t_0}^{t} V_I(t')U_I(t',t_0) dt'
+	U_I(t,t_0) = \mathbb{1} - \frac{i}{\hbar}\int_{t_0}^{t} V_I(t')U_I(t',t_0) dt'.
 \]
-y esto lleva a la serie de Dyson:
+
+Esta ecuación debe proporcionarnos la forma de hallar $U_I$. Se puede usar una iteración sencilla
+\[
+	U_I(t,t_0) = \mathbb{1} - \frac{i}{\hbar} \int_{t_0}^t \: V_I(t') \left[ 
+	\mathbb{1} - \frac{i}{\hbar} \int_{t_0}^t \: V_I(t'') U_I(t'',t_0) dt''
+	\right] \: dt',
+\]
+\[
+	U_I(t,t_0) = \mathbb{1} - \frac{i}{\hbar} \int_{t_0}^t \: V_I(t') \left[ 
+	\mathbb{1} - \frac{i}{\hbar} \int_{t_0}^t \: V_I(t'') \left(
+	\mathbb{1} - \frac{i}{\hbar} \int_{t_0}^t \: V_I(t''') \left\{ ... \right\} dt''
+	\right) dt''
+	\right] \: dt',
+\]
+y esto lleva a la serie de Dyson, casi una expresión formal,
 \begin{multline*}
 	U_I(t,t_0) = \mathbb{1} - \frac{i}{\hbar}\int V_I(t') dt' + \left( -\frac{i}{\hbar} \right)^2\int_{t_0}^t 
 	V_I(t') \int_{t_0}^{t'}V_I(t'')dt'' + ...\\ + \left( -\frac{i}{\hbar} \right)^n 
 	\int_{t_0}^t dt'\int_{t_0}^{t'}dt''\int_{t_0}^{t''}dt''' ... \int_{t_0}^{t^{n-1}}dt^{n} V_I(t') 
 	V_I(t'')...V_I(t^n)	
 \end{multline*}
+que es una especie de exponencial $ \euler^{T[-i/\hbar \int V(t) dt ]}$.
 
-
+La serie de Dyson puede verse como un desarrollo perturbativo.
 
 \subsection{Transiciones entre autoestados del hamiltoniano $H_0$}
+
+Veamos el detalle de las transiciones en el formalismo de Dirac.
 \[
 	\Ket{i,t_0=0,t}_I = U_I(t,0) \Ket{i} = \sum_n \Ket{n}\Braket{n|U_I(t)|i}
 \]
 y como se viera oportunamente
 \[
-	\Ket{i,t}_I = \sum_n C_n(t)\Ket{n} = \sum_n \left( \Braket{n|U_I(t)|i} \right) \Ket{n}
+	\Ket{i,t}_I = \sum_n C_n(t)\Ket{n} = \sum_n \left( \Braket{n|U_I(t)|i} \right) \Ket{n}.
 \]
 La amplitud de transición será 
 \[
 	C_n(t) = \Braket{n|U_I(t)|i}
 \]
 con $\Ket{i},\Ket{n}$ autoestados de $H_0$.
-Sea $\tilde{C}_n(t)=\Braket{n|U_s(t)|i}$ y busquemos una expresión 
+Sea $\tilde{C}_n(t)=\Braket{n|U_s(t)|i}$, donde vemos que $\tilde{C}_n(t)$ y $C_n(t)$ difieren en
+una fase, y busquemos una expresión 
 \[
 	\Ket{\alpha, t_0, t}_I = \euler^{iH_0t/\hbar} \Ket{\alpha, t_0, t}_s
 \]
@@ -243,13 +280,21 @@ y notemos que $\hat{U}$ no obedece la ley de transformación de operadores.
 	C_n(t) = \euler^{-i/\hbar[E_n^{(0)} t - E_i^{(0)} t_0]} \Braket{n| U_S(t,t_0) |i} =
 		\euler^{-i/\hbar[E_n^{(0)} t - E_i^{(0)} t_0]} \tilde{C}_n(t)
 \]
+lo que lleva a 
 \[
-	\Rightarrow |C_n(t)|^2 = |\tilde{C}_n(t)|^2.
+	|C_n(t)|^2 = |\tilde{C}_n(t)|^2.
 \]
+Para transiciones entre autoestados de $H_0$ los coeficientes dan la misma probabilidad 
+(evaluados con el evolucionador de Dirac que con el de Schrödinger).
+Debe notarse que esto se cumple siempre y cuando la transición sea entre autoestados del
+hamiltoniano y la fase resulte así global.
 
-Para transiciones entre autoestados de $H_0$ los coeficientes dan la misma probabilidad (evaluados con el 
-evolucionador de Dirac que con el de Schrödinger).
-Vamos a las transiciones a los tres 
+
+Veamos las transiciones 
+\[
+	\Braket{ n | U_I(t,t_0)| i }
+\]
+a los diferentes órdenes en la perturbación
 \begin{itemize}
  \item orden 0
  \[
@@ -257,7 +302,7 @@ Vamos a las transiciones a los tres
  \]
  \item orden 1
  \[
- 	C_n^{(1)}(t) = -\frac{i}{\hbar} \int_{t_0}^t \euler^{i\omega_{ni}} V_{ni}(t') dt' \qquad \qquad 
+ 	C_n^{(1)}(t) = -\frac{i}{\hbar} \int_{t_0}^t \euler^{i\omega_{ni} t'} V_{ni}(t') dt' \qquad \qquad 
  	V_{ni} \equiv \Braket{n|V(t)|i}
  \]
  \item orden 2
@@ -266,40 +311,64 @@ Vamos a las transiciones a los tres
  	\euler^{it'/\hbar(E_n-E_m)} V_{nm}(t') \euler^{it''/\hbar(E_m-E_i)} V_{mi}(t'')
  \]
 \end{itemize}
-y entonces la probabilidad de ir desde $|ket{i}\to \Ket{i}$, hasta orden dos, sería
+y entonces la probabilidad de ir desde $\ket{i} \to \Ket{n}$ con $i\neq n$, hasta orden dos, sería
 \[
-	P^{(2)}_{i\to n} = |C_n^{(0)}(t)+C_n^{(1)}(t)+C_n^{(2)}(t)|^2
+	P^{(2)}_{i\to n} = |C_n^{(0)}(t)+C_n^{(1)}(t)+C_n^{(2)}(t)|^2 =
+	| C_n^{(1)}(t) + C_n^{(2)}(t) |^2
 \]
+donde debe notarse que hay interferencia entre los diversos términos.
 
 \subsection{Ejemplo: potencial constante encendido abruptamente}
 
-Notemos que $V\neq V(t)$. Dependerá de cualquier otra cosa.
+Sea un potencial que prendemos y apagamos luego, pero constante. Es decir
 \[
-	C^0_n(t) = 0
+	V(t) = \begin{cases}
+	0 	& t < 0  \\
+	V(r,p,s,L,...) & t \geq 0
+	\end{cases}
 \]
+donde $V \neq V(t)$, pero puede depender de cualquier otra cosa. La figurilla más abajo
+ilustra este {\it escalón}.
+
+\includegraphics[width=0.45\textwidth]{images/teo2_22.pdf}
+
+A orden cero no vemos cambio pues
 \[
-	C^1_n(t) = -\frac{i}{\hbar} \int_0?^t \euler^{i/\hbar(E_n - E_i)t'} V_{ni} dt'=
+	C^0_n(t) = 0.
+\]
+A orden uno es 
+\[
+	C^1_n(t) = -\frac{i}{\hbar} \int_0^t \euler^{i/\hbar(E_n - E_i)t'} V_{ni} \: dt'=
 	\frac{V_{ni}}{(E_n - E_i)}(1-\euler^{i\omega_{ni}t})
 \]
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.45\textwidth]{images/teo2_22.pdf}
-	\includegraphics[width=0.45\textwidth]{images/fig_ft2_potencial_abrupto.jpg}
-	\end{center}
-	\caption{}
-\end{figure} 
+donde debemos notar que si esto revienta porque $E_n \sim E_i$ entonces la teoría de
+perturbaciones no puede usarse aquí.
+
+Evaluando la probabilidad se tiene	
 \[
-	|C^1_n(t)|^2 = \frac{4|V_{ni}|^2}{| E_n - E_i|^2}\sin^2\left(\frac{(E_n - E_i)t}{2\hbar}\right) 
+	|C^1_n(t)|^2 = 
+	\frac{4|V_{ni}|^2}{| E_n - E_i|^2}\sin^2\left(\frac{(E_n - E_i)t}{2\hbar}\right).
 \]
-Es máxima la probabilidad cuando $\Delta E\to 0$. En ese caso las transiciones son a estados de la misma 
-energía. A tiempo largo la probabilidad es no nula para aquellos estados 
+
+	\includegraphics[width=0.45\textwidth]{images/fig_ft2_potencial_abrupto.jpg}
+
+Es máxima la probabilidad cuando $\Delta E\to 0$. 
+En ese caso las transiciones son a estados de la misma energía. 
+El gráfico de arriba es a un dado $t$ fijo. A medida que el tiempo transcurre el gráfico
+tiende a una delta de Dirac.
+
+A tiempo largo la probabilidad es no nula para aquellos estados 
 \[
 	t \sim \frac{2\pi}{|\omega_{ni}|}
 \]
-Hay probababilidad de transición $\Ket{i} \to \Ket{n}$ apreciable con $\Delta E \sim 0$.
 
-\section{Scattering: orden 1}
+Hay probababilidad de transición $\Ket{i} \to \Ket{n}$ apreciable donde $\omega = \frac{2\pi}{t}
+= \frac{\Delta E}{\hbar}$ dado que $\Delta t \Delta E \sim \hbar $. O bien, $\Delta E \sim 0$.
 
+\section{Scattering}
+
+Podemos pensarlo como el caso de un potencial que se prende y apaga, representando éste el objeto
+contra el cual se hace scattering.
 
 \includegraphics[width=0.6\textwidth]{images/fig_ft2_scattering_intro.jpg}
 
@@ -307,33 +376,62 @@ Este último ejemplo puede aplicarse a colisiones elásticas. Prendemos y apagam
 masacote al cual impactamos. De entrada ha partículas libres y de salida (lejos de $V$) partículas libres.
 Entonces $ E_n - E_c \sim 0$ y consideraremos lo que sucede a tiempos largos. Interesará la probabilidad 
 total de transicionear a estados de energía similares a $E_i$. Por ello se considera 
-\[
-	\sum_{\substack{n \\ E_n\sim E_i}} |C^1_n(t)|^2 \longrightarrow \int dE_n \rho(E_n) |C^1_n(t)|^2
-\]
-donde el integrando es el número de estados dentro de un intervalo de energías $(E,E+dE)$.
+\be
+	\sum_{\substack{n \\ E_n\sim E_i}} |C^1_n(t)|^2 
+	\longrightarrow 
+	\int \: \rho(E_n) \: |C^1_n(t)|^2 \: dE_n
+	\label{scattering_integral}
+\ee
+donde el integrando es el número de estados dentro de un intervalo de energías $(E,E+dE)$ a los cuales
+se puede transicionar. Esta erá la probabilidad de transición.
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.6\textwidth]{images/teo2_23.pdf}
 	\end{center}
 	\caption{}
 \end{figure} 
-En tiempos muy largos la expresión [1] tiende a una delta de Dirac y se integra fácil,
-\[
-	\lim  \int dE\rho(E_n) |C^1_n(t)|^2 = \left.\left(\frac{2\pi}{\hbar}\right)
-		|\bar{V}_{ni}|^2 \rho(E_n)\right|_{E_n\sim E_i}
-\]
 
-La probabilidad de transición es proporcional a $t$. Se suele definir una tasa de transición (probabilidad de 
-transición por unidad de tiempo)
+A primer orden la probabilidad será algo como
+\[
+	\lim_{t\to\infty} \; \int \: \rho(E_n) \: \frac{4|V_{ni}|^2}{| E_n - E_i|^2}
+	\sin^2\left(\frac{(E_n - E_i)t}{2\hbar}\right) \: dE_n,
+\]
+puesto que estamos considerando lo que sucede a tiempos muy largos.
+En esos casos, como la probabilidad tiende a una delta de Dirac, 
+\[
+	\lim_{t\to\infty} \frac{1}{| E_n - E_i|^2}
+	\sin^2\left(\frac{(E_n - E_i)t}{2\hbar}\right) = \frac{\pi t}{2\hbar} \delta(E_n - E_i),
+\]
+la integración es fácil y se obtiene
+\[
+	\lim_{t\to\infty} \; \int \: \rho(E_n) |C^1_n(t)|^2 \: dE = 
+	\left.\left(\frac{2\pi}{\hbar}\right) \rho(E_n) |\bar{V}_{ni}|^2 \: t \: \right|_{E_n\sim E_i}
+\]
+donde $\bar{V}_{ni}$ es un potencial promedio. La probabilidad de transición es proporcional a $t$. 
+
+Se suele definir una tasa de transición (probabilidad de transición por unidad de tiempo)
 \[
 	\dtot{}{t}\left( \sum_{\substack{n \\ E_n\sim E_i}} |C_n^{(1)}|^2 \right) =
 	\left(\frac{2\pi}{\hbar}\right)	|\bar{V}_{ni}|^2 \rho(E_n) = \omega_{i\to n}^{(1)}
 \]
-que es la regla de oro de Fermi.
+que es la regla de oro de Fermi, y sirve para calcular cualquier transición entre estados
+para potenciales que no dependen del tiempo.
+
+[reacomodar]
+La energía al final se mide con cierto error $\Delta E$ de modo que se obtendrá $E \pm \Delta E$ y 
+deberá sumar [no sé bien qué se quiere decir acá]
+\[
+	\sum_n | C_n(t) |^2 \quad (E_n \sim E \pm \Delta E)
+\]
+Pero si no es discreto necesitaré integrar (la integral \eqref{scattering_integral})
 
 \section{El método variacional}
 
-Se puede usar para aproximar la energía del estado fundamental (el estado de energía mínima)
+Se puede usar para aproximar la energía del estado fundamental (el estado de energía mínima).
+No conocemos $\Ket{n}$ ni $E_n$, pero $ H \Ket{n} = E_n \Ket{n}$ donde $\{ \Ket{n} \}$ es
+una base.
+Evaluamos
 \[
 	\Braket{\psi|H|\psi} = \sum_{n,m}\Braket{\psi|n}\Braket{n|H|m}\Braket{m|\psi} =
 		\sum_{n,m} E_n \Braket{\psi|n}\Braket{n|m}\Braket{m|\psi} 
@@ -352,6 +450,155 @@ para arribar a
 \[
 	\frac{\Braket{\psi_n|H|\psi_n}}{\Braket{\psi_n|\psi_n}} \geq E_0.
 \]
+donde $E_0$ es la energía más baja. Esto no parece ser muy iluminador que digamos.
+Se considera que $\psi$ es tal que 
+\[
+	\Braket{x|\psi} = \psi(x)_{|x|\to\infty} \to 0
+\]
+lo que significa que la función de onda es {\it well behaved} (bien comportada).
+
+\begin{ejemplo}{\bf Ejercicio 10}
+
+A partir de $ \Braket{x|\psi} = \euler^{-\b|x|}$ se tiene, intercalando la completitud,
+\[
+	\Braket{\psi|\psi} = 
+	\int_{-\infty}^\infty \: \Braket{\psi | x'}\Braket{x' | \psi} \: dx' = 
+	2 \int_{-\infty}^\infty \: \euler^{- 2 \b |x| } \: dx = \frac{1}{\b}
+\]
+y del mismo modo
+\begin{multline*}
+	\Braket{\psi|H|\psi} = \Braket{\psi| \frac{p^2}{2 m} + \frac{m \omega^2 x^2 }{2} |\psi} = \\
+	- \Frac{\hbar^2}{2m} \int_{-\infty}^\infty \: 
+	\dtot[2]{}{x}\left( \Braket{\psi|x} \right)\Braket{x'|\psi} \: dx' +
+	\frac{m\omega^2}{2} \int_{-\infty}^\infty \: \Braket{\psi|x^2|x'} \Braket{x'|\psi} \: dx',
+\end{multline*}
+para finalmente
+\[
+	\Braket{\psi|H|\psi} = - \Frac{\hbar^2}{2m} \int_{-\infty}^\infty \: 
+	\dtot[2]{}{x}\left( \euler^{- \b |x| } \right) \euler^{- \b |x| } \: dx' +
+	\frac{m\omega^2}{2} \int_{-\infty}^\infty \: \euler^{- 2 \b |x| } x^2 \: dx'
+\]
+
+Trabajaremos por partes esta cosa. Una integral con la doble derivada se convierte en
+\[
+	\int_{-\infty}^\infty \: u \dtot[2]{u}{x} \: dx = 
+	\left. u \: \dtot{u}{x} \right|_{-\infty}^\infty - \int_{-\infty}^\infty \: \Dtot{u}{x}^2 \: dx
+\]
+donde el primer término es nulo porque la función de onda es bien comportada.
+Con este enfoque resulta
+\[
+	\Braket{\psi|H|\psi} = - \frac{\hbar^2 \b}{2m} + \frac{m\omega^2}{4\b^3},
+\]
+y entonces \notamargen{Typo seguro.}
+\[
+	\mathcal{E}(\psi) = \b \left( - \frac{\hbar^2 \b}{2m} + \frac{m\omega^2}{4\b} \right) \geq E_0 
+\]
+y entonces desde
+\[
+	\left. \dpar{\mathcal E}{\b}\right|_{\b_{\text{min}}} = 0
+\]
+
+El único parámetro libre es $\b$; entonces se calcula el $\beta$ que hace minimo esta cosa y ya está
+resuelto.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 11}
+
+Tenemos la siguiente ecuación:
+\[
+	\dtot[2]{\psi}{x} + (\lambda -|x|)\psi = 0,
+\]
+con $\psi \to 0$ si $|x|\to\infty$. Se tiene
+\[
+	\begin{cases}
+	 C(\a - |x|) & |x|\leq \a \\
+	 0 & |x| > \a
+	\end{cases}
+\]
+
+Para el hamiltoniano en cuestión es
+\[
+	\left[ \right] \Ket{\psi} = \mathcal E \Ket{\psi},
+\]
+que conduce a la ecuación
+\[
+	- \frac{\hbar^2}{2m} \dtot[2]{\psi}{x} + V(x)\psi = \mathcal E  \psi
+\]
+la cual reescribimos como
+\[
+	\dtot[2]{\psi}{x} + 
+	\left[ \frac{2m}{\hbar^2} \mathcal E - \frac{2m}{\hbar^2} V(x) \right] \psi  = 0
+\]
+e identificamos a ojo que
+\[
+	V(x) = \frac{\hbar^2}{2m}|x|, \qquad \lambda = \frac{2m\mathcal E}{\hbar^2}
+\]
+de manera que habría que minimizar $\lambda$ haciendo mínimo $\mathcal E$ respecto de $\a$.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 7}
+
+Estamos en el átomo de hidrógeno. Es decir $\Ket{n,\ell,m}$ donde $n \in \mathbb N$, $\ell < n$
+y $-\ell \leq m \leq \ell$.
+
+Tendremos
+\begin{eqnarray*}
+ n=1 \qquad & \Ket{1 0 0 } \\
+ n=2 \qquad & \Ket{211}, \Ket{210}, \Ket{21-1}, \Ket{200}
+\end{eqnarray*}
+donde los primeros tres del orden dos son $\Ket{2p} = \Ket{21m}$ y el último es $\Ket{2s}$.
+La perturbación requerirá una matriz de $5\times5$ y habrá que diagonalizar $E_2^{(1)}$, que
+es el bloque inferior (ver iluscración).
+La perturbación es algo del tipo $V = - e E z $
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft2_ejercicio7A.jpg}
+
+Tenemos
+\[
+	\Braket{2 \ell m|-eEz|2\ell' m'} = -e E \Braket{2\ell m|z|2\ell' m'}
+\]
+y como el operador paridad cumple $\Pi z \Pi^{-1} = -z$ se da
+\[
+	\Pi \Ket{n\ell m} = (-1)^\ell \Ket{n\ell m}
+\]
+lo cual no es otra cosa que usar reglas de selección. Luego,
+\[
+	\Braket{2\ell m|-z|2\ell' m'} = (-1)^{\ell+\ell'} \Braket{2\ell m|z|2\ell' m'}
+\]
+y si $\ell+\ell'=L$ entonces el braket es nulo y sobreviven $\ell\neq \ell'$ de modo que
+$\Braket{21m|z|200}$ es el que permanece.
+
+Por Wigner-Eckart $z=T_0^1$ de modo que
+\[
+	\Braket{\a' j' m'|T_q^k|\a j m} = И \Braket{j k m q|j k j' m'}
+\]
+donde $И$ es una constante. Entonces
+\[
+	\Braket{21m|T_0^1|200} = И \Braket{0100 | 011m }
+\]
+desde lo cual sobreviven $\Braket{0100|011m}$ si $m=0$.
+
+Entonces se tiene lo que ilustra la imagen
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft2_ejercicio7B.jpg}
+
+y como es una matriz de Pauli su diagonalización es un juego de niños. Se tienen
+\[
+	\Ket{v_1} = \frac{1}{\sqrt{2}} \left( \Ket{200} + \Ket{210} \right)
+	\qquad \qquad 
+	\Ket{v_2} = \frac{1}{\sqrt{2}} \left( \Ket{200} - \Ket{210} \right)
+\]
+
+Si se cambia de base y se escribe el potencial $V$ en la base $\{ \Ket{100}, \Ket{v_1}, 
+\Ket{v_2}, \Ket{211}, \Ket{21-1} \}$ se tiene
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft2_ejercicio7C.jpg}
+
+que es una matriz diagonal por bloques. 
+ 
+\end{ejemplo}
 
 \subsection{Scattering a orden dos y OFPT}
 
