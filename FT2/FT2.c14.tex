@@ -602,55 +602,106 @@ que es una matriz diagonal por bloques.
 
 \subsection{Scattering a orden dos y OFPT}
 
-Continuando con el orden dos de scattering por un $V\neq V(t)$ se tiene:
+Para el coeficiente a orden 1 teníamos la regla de oro de Fermi.
+El coeficiente a orden dos es
+\[
+	C_n^{(2)} = \Frac{-i}{\hbar}^2 \sum_{m \neq i} V_{nm} V_{mi}
+	\int_0^t \: dt' \: \euler^{ i \omega_{nm} t'} 
+	\int_0^{t'} \: dt'' \: \euler^{ i \omega_{ni} t''}
+\]
+donde la integral más interna se aproxima como
+\[
+	\frac{i}{\omega_{mi}} \left[ 1 - \euler^{ i t' \omega_{mi} } \right]
+\]
+y eso nos permite considerar el siguiente límite
+\[
+	\lim_{t \to \infty} C_n^{(2)} = 
+	\frac{i}{\hbar} \: \sum_{m \neq i} \: \frac{V_{nm} V_{mi}}{E_n - E_i}
+	\int_0^t \: dt' \: ( \euler^{ i \omega_{ni} t'} - \euler^{ i \omega_{nm} t'} ),
+\]
+de manera que a orden dos es
 \[
 	\omega_{i\to n}^{(2)} = \frac{2\pi}{\hbar}\left. \left| \overline{ V_{ni} + \sum_{m\neq i} 
-	\frac{V_{nm}V_{mi}}{(E_i-E_m)}} \right|^2 \rho(E_n) \right|_{E_n\sim E_i}
+	\frac{V_{nm}V_{mi}}{(E_i-E_m)}} \right|^2 \rho(E_n) \right|_{E_n\sim E_i}.
 \]
 
 Para obtener los siguientes términos dentro del $\bar{||^2}$ podemos emplear un ardid gráfico conocido como 
-{\it Old Fashioned Perturbation Theory}
+{\it Old Fashioned Perturbation Theory}, que no es más que un artilugio diagramático mnemotécnico.
 
-\begin{figure}[!thb]
-	\begin{center}
-	\includegraphics[width=1.0\textwidth]{images/teo2_24.pdf}
-	\end{center}
-	\caption{}
-\end{figure} 
+Consideramos un caso como el scattering de una zona donde existe un potencial al que bombardeamos con
+partículas en estados $\Ket{i}$ y que salen partículas con estados $\Ket{n}$ de la misma energía.
+Ver figura inicial en Fig siguiente.
 
+\includegraphics[width=1.0\textwidth]{images/teo2_24.pdf}
 
-Fíjese que en los estados intermedios estados virtuales $\Ket{m},\Ket{j}$ no se conserva la energía. Son 
-propagadores.
+Luego, el estado $\Ket{m}$ es un pseudoestado virtual que no conserva la energía y es un artificio surgido
+del cálculo (ver figura intermedia). El segmento entre los vértices es un {\it propagador} y de alguna manera
+podemos hacernos la idea de que transporta la perturbación entre vértices. Cada uno de los vértices es
+un elemento de matriz.
 
+\includegraphics[width=0.6\textwidth]{images/fig_ft2_tre_ordenes_perturbativos.jpg}
 
-\subsection{Perturbación armónica}
+Podríamos avanzar con este grafismo y especular con lo que sucede a tercer orden. Este término será sumar
+sobre todos los caminos posibles
+\[
+	\sum_{m,j \neq i, m \neq j} V_{nj} \frac{1}{E_j - E_m} 
+	V_{jm} \frac{1}{E_m - E_i} V_{mi}.
+\]
 
-Sea un potencial armónico y hermítico 
+Estos diagramas son los que llevan el nombre de OFPT. Es importante notar que implica que entre los
+estados intermedios estados virtuales $\Ket{m},\Ket{j}$ no se conserva la energía; son propagadores.
+La energía se conserva solo en el inicial y el final. Si la energía se conservase reventarían los
+denominadores.
+
+Consideremos ahora una perturbación armónica dada en términos de un potencial escrito de forma
+hermítica
 \[
 	V(t) = \mathbb{V} \euler^{i\omega t} + \mathbb{V}^\dagger \euler^{-i\omega t},
 		\qquad \mathbb{V}\neq \mathbb{V}(t)
 \]
-quiero ver probabilidad de transición a orden uno,
+Encendemos este potencial y queremos pasar de estados $\Ket{i} \to \Ket{n}$ viendo su probabilidad de 
+transición a orden uno,
 \[
-	C_n(t)^1 = -\frac{i}{\hbar} \int_0^t ( V_{ni}\euler^{i\omega t'}+ V_{ni}^\dagger \euler^{-i\omega t'} )
-		\euler^{i\omega_{ni}t'}dt'
+	C_n^{(1)}(t) = -\frac{i}{\hbar} 
+	\int_0^t ( V_{ni}\euler^{i\omega t'}+ V_{ni}^\dagger \euler^{-i\omega t'} )
+	\euler^{i\omega_{ni}t'}dt'
 \]
+donde la diferencia con un potencial constante es el primer término del paréntesis [?]. Entonces,
 \[
-	C_n(t)^1 = -\frac{i}{\hbar} \left[ V_{ni} \int_0^t \euler^{i(\omega +\omega_{ni})t'} dt' + 
+	C_n^{(1)}(t) = -\frac{i}{\hbar} \left[ V_{ni} \int_0^t \euler^{i(\omega +\omega_{ni})t'} dt' + 
 		V_{ni}^\dagger \int_0^t \euler^{i(-\omega +\omega_{ni})t'} dt' \right]
 \]
 \[
-	C_n(t)^1 = -\frac{i}{\hbar} \left[ V_{ni} \frac{\euler^{i(\omega +\omega_{ni})t} -1}{i( \omega +\omega_{ni} )}
-		+ V_{ni}^\dagger \frac{\euler^{i(-\omega +\omega_{ni})t} - 1}{i(-\omega +\omega_{ni})} \right]
+	C_n^{(1)}(t) = -\frac{i}{\hbar} \left[ V_{ni} 
+	\frac{\euler^{i(\omega +\omega_{ni})t} -1}{i( \omega +\omega_{ni} )}
+	+ V_{ni}^\dagger \frac{\euler^{i(-\omega +\omega_{ni})t} - 1}{i(-\omega +\omega_{ni})} \right]
 \]
 \[
-	C_n(t)^1 = \frac{V_{ni}}{\hbar} \frac{1-\euler^{i(\omega +\omega_{ni})t}}{( \omega +\omega_{ni} )}
-		+ \frac{V_{ni}^\dagger}{\hbar} \frac{1-\euler^{i(-\omega +\omega_{ni})t}}{(-\omega +\omega_{ni})}
+	C_n^{(1)}(t) = \frac{V_{ni}}{\hbar} \frac{1-\euler^{i(\omega +\omega_{ni})t}}{( \omega +\omega_{ni} )}
+	+ \frac{V_{ni}^\dagger}{\hbar} \frac{1-\euler^{i(-\omega +\omega_{ni})t}}{(-\omega +\omega_{ni})}
 \]
+donde se ve que el primer término es similar a $\delta(\omega_{ni} +\omega)$ y el segundo a
+$\delta(\omega_{ni} - \omega)$ de suerte que
 \[
-	\lim_{t\to\infty} C_n(t)^1 = \frac{1}{\hbar}\left[ V_{ni}\delta(\omega_{ni}+\omega) 
+	\lim_{t\to\infty} C_n^{(1)}(t) = \frac{1}{\hbar}\left[ V_{ni}\delta(\omega_{ni}+\omega) 
 		+ V_{ni}^\dagger \delta(\omega_{ni}-\omega) \right]
 \]
+Esto representa $E_n = E_i - \hbar \omega$ en el primer término y $E_n = E_i + \hbar \omega$ en el segundo
+que pueden asociarse a la emisión de un cuanto de energía en la interacción o a la absorción, respectivamente.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft2_perturbativos_1a.jpg}
+\includegraphics[width=0.4\textwidth]{images/fig_ft2_perturbativos_1b.jpg}
+
+Entonces todo el término representa la probabilidad de emitir o absorber fotones.
+Veamos el ejemplo de emisión o absorción que ocurre en un átomo.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft2_perturbativos_2a.jpg}
+\includegraphics[width=0.4\textwidth]{images/fig_ft2_perturbativos_2b.jpg}
+
+Los $V,V^\dagger$ se puede asociar como que aniquilan o crean fotones.
+Otro asunto es que al descomponer un campo EM en Fourier tengo las frecuencias $\omega$ separadas
+y debería sumar entre todas las frecuencias, pero se ve que no es necesario y la única que debo
+considerar es [4] (número dentro de la figura!).
 
 Luego será nulo sólo si 
 \[
@@ -662,8 +713,6 @@ Luego será nulo sólo si
 		\frac{E_n - E_i}{\hbar} = \omega \quad E_n = E_i + \hbar\omega
 \]
 
-\includegraphics[width=0.6\textwidth]{images/fig_ft2_tre_ordenes_perturbativos.jpg}
-
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=1.0\textwidth]{images/teo2_25.pdf}
@@ -671,12 +720,10 @@ Luego será nulo sólo si
 	\caption{}
 \end{figure} 
 
-Luego,
-\[
-	\lim_{t\to\infty} C_n(t)^1
-\]
-representa la probababilidad de emitir o absorber fotones en una interacción. Se puede asociar que $V$ crea 
-fotones y $V^\dagger$ destruye fotones. Para un átomo se tiene 
+Luego, $ \lim_{t\to\infty} C_n^{(1)}(t) $ representa la probababilidad de emitir o absorber 
+fotones en una interacción. Se puede asociar que $V$ crea fotones y $V^\dagger$ destruye fotones. 
+Para un átomo se tiene 
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=1.0\textwidth]{images/teo2_26.pdf}
@@ -684,35 +731,63 @@ fotones y $V^\dagger$ destruye fotones. Para un átomo se tiene
 	\caption{}
 \end{figure} 
 
-
-Acá la sucesión de pictures como están en la carpeta:
-
-\includegraphics[width=0.4\textwidth]{images/fig_ft2_perturbativos_1a.jpg}
-\includegraphics[width=0.4\textwidth]{images/fig_ft2_perturbativos_1b.jpg}
-
-\includegraphics[width=0.4\textwidth]{images/fig_ft2_perturbativos_2a.jpg}
-\includegraphics[width=0.4\textwidth]{images/fig_ft2_perturbativos_2b.jpg}
+En teoría de perturbaciones de dos partículas vemos que a orden $n$ se intercambian $n$ fotones.
 
 \includegraphics[width=0.4\textwidth]{images/fig_ft2_perturbativos_3a.jpg}
 \includegraphics[width=0.4\textwidth]{images/fig_ft2_perturbativos_3b.jpg}
 
-
-
-\section{Despoblamiento de estados iniciales}
-
-Queremos ver con cual $v$ se despoblan los $\Ket{i}$. Para elllo me construyo un potencial {\it suave}
+En el gráfico de la izquierda a primer orden los impulsos están determinados mientras que a orden
+dos, en el gráfico de la derecha, no sabemos el impulso $q$ y debiéramos integrar pero la integral
+da infinito
 \[
-	\lim_{\eta\to 0} V(t) = \euler^{\eta t} \mathbb{V}, \qquad  \mathbb{V} \text{cte.}
+	\lim_{\Lambda \to \infty} \int_{-\Lambda}^\Lambda \: dq.
 \]
-donde $\eta$ es un parámetro regularizador.
+Feymann desarrolló una ``renormalización'' que tapa estos infinitos considerando que hay que usar
+una serie perturbativa para la carga $e$ en los vértices.
 
-Previa a la picture del desdoblamiento de estados iniciales estaban estas
+Todo este formalismo permite la aparición de partículas y antipartículas. Aquí $\Delta t = t_2 - t_1$ es
+tan chico que 
+\[
+	\Delta t \Delta E \sim \hbar
+\]
 
 \includegraphics[width=0.4\textwidth]{images/fig_ft2_desdoblamiento_1a.jpg}
+
+La joda es que la ``cosa de abajo'' 
+
 \includegraphics[width=0.4\textwidth]{images/fig_ft2_desdoblamiento_1b.jpg}
 
+es equivalente pero podemos sumarlo para obtener
+
 \includegraphics[width=0.4\textwidth]{images/fig_ft2_desdoblamiento_2a.jpg}
-\includegraphics[width=0.4\textwidth]{images/fig_ft2_desdoblamiento_2b.jpg}
+
+que es ocurrencia de Feynmann, pero el propagador es un fotón virtual y puede tener masa.
+
+Este formalismo se puede aplicar directamente también al electromagnetismo. Sea una corriente $j^\mu(x,t)$
+que genera un potencial $A^\mu$; se puede calcular con un ``propagador''
+\[
+	A^\mu(x',t') = \int dx dt \: G^\mu(x,t ; x', t') j^\mu(x,t)
+\]
+donde la función de Green oficia de propagador para llevar la interacción de $x',t'$ a $x,t$.
+Luego, $j_{2\mu}(x',t') A^\mu(x',t')$ es proporcional a la fuerza entre corrientes.
+\[
+	\int dx dt \: j_{2\mu}(x,t) G^\mu_\nu(x,t ; x', t') j^\nu_1(x,t)
+\]
+
+Podemos pensar en un diagramita donde a primer orden se intercambia un fotón
+
+\includegraphics[width=0.3\textwidth]{images/fig_ft2_desdoblamiento_2b.jpg}
+
+\subsection{Despoblamiento de estados iniciales}
+
+Suponemos que pasamos entre estados $\Ket{i} \to \Ket{i}$ (número de estados).
+Queremos ver con qué velocidad $v$ se despoblan los $\Ket{i}$. 
+Para elllo me construyo un potencial {\it suave}
+\[
+	\lim_{\eta\to 0} V(t) = \euler^{\eta t} \mathbb{V}, \qquad  \mathbb{V} \; \text{ cte.}
+\]
+donde $\eta$ es un parámetro regularizador, cuyo fin es regularizar divergencias que
+puedan aparecer en el denominador.
 
 \begin{figure}[htb]
 	\begin{center}
@@ -721,21 +796,26 @@ Previa a la picture del desdoblamiento de estados iniciales estaban estas
 	\end{center}
 	\caption{}
 \end{figure} 
+
+Partamos de $ \Ket{i} \to \Ket{n} $
 \[
-	C_n(t)^1 = \lim_{t\to\infty} -\frac{i}{\hbar} 
-		\int_{t_0}^t V_{ni} \euler^{\eta t'} \euler^{i\omega_{ni} t'} dt'
+	C_n^{(1)}(t) = \lim_{t\to\infty} -\frac{i}{\hbar} 
+	\int_{t_0}^t V_{ni} \euler^{\eta t'} \euler^{i\omega_{ni} t'} dt' =
+	-\frac{i}{\hbar} V_{ni} 
+	\frac{\euler^{\eta t} \euler^{i\omega_{ni} t} }{\eta+i\omega_{ni}}
 \]
+y consecuentemente
 \[
-	C_n(t)^1 = -\frac{i}{\hbar} V_{ni} \frac{\euler^{\eta t} \euler^{i\omega_{ni} t} }{\eta+i\omega_{ni}}
-	\qquad \qquad 
- 	|C_n(t)^1|^2 = \frac{|V_{ni}|^2}{\hbar^2} \frac{\euler^{2\eta t} }{\eta^2 + \omega_{ni}^2 }
+ 	|C_n^{(1)}(t)|^2 = \frac{|V_{ni}|^2}{\hbar^2} 
+ 	\frac{\euler^{2\eta t} }{\eta^2 + \omega_{ni}^2 }.
 \]
+La variación temporal será
 \[
-	\dtot{}{t}|C_n(t)^1|^2 = 2 \eta \frac{|V_{ni}|^2}{\hbar^2} \frac{\euler^{2\eta t} }{\eta^2 + \omega_{ni}^2 }
+	\dtot{}{t}|C_n^{(1)}(t)|^2 = 2 \eta \frac{|V_{ni}|^2}{\hbar^2} \frac{\euler^{2\eta t} }{\eta^2 + \omega_{ni}^2 }
 \]
 y tomando el límite $\eta \to 0$ 
 \[
-	\lim_{\eta\to 0} \dtot{}{t}|C_n(t)^1|^2 = 2 \frac{|V_{ni}|^2}{\hbar^2} 
+	\lim_{\eta\to 0} \dtot{}{t}|C_n^{(1)}(t)|^2 = 2 \frac{|V_{ni}|^2}{\hbar^2} 
 			\frac{\eta }{\eta^2 + \omega_{ni}^2 } = \begin{cases}
 	                    0 \quad \text{si}\;\; \omega_{ni}^2 \neq 0 \\
 	                    \infty \quad \text{si}\;\; \omega_{ni}^2 = 0
@@ -743,8 +823,92 @@ y tomando el límite $\eta \to 0$
 \]
 y llegamos a la regla de oro de Fermi,
 \[
-	\dtot{}{t}|C_n(t)^1|^2 = 2 \frac{|V_{ni}|^2}{\hbar^2} \delta(\omega_{ni}) \pi
+	\dtot{}{t}|C_n^{(1)}(t)|^2 = 2 \frac{|V_{ni}|^2}{\hbar^2} \delta(\omega_{ni}) \pi.
 \]
+
+Veamos ahora qué sucede cuando $n=i$. Se tienen $C_i^{(0)}(t) = 1$ y [?]
+\[
+	C_i^{(0)}(t) = - \frac{i}{\hbar} \lim_{t_0 \to -\infty}
+	\int_{t_0}^t \: V_{ii} \euler^{\eta t '} dt' = -\frac{ i }{\hbar \eta } V_{ii}\euler^{\eta t}
+\]
+\[
+	C_i^{(2)}(t) = \Frac{-i}{\hbar}^2 \sum_m |V_mi|^2 \lim_{t_0\to\infty}
+	\int_{t_0}^t \: dt' \: \euler^{i \omega_{im} t' + \eta t' }
+	\frac{\euler^{i \omega_{mi} t' + \eta t' }}{ i ( \omega_{mi} - i \eta ) }
+\]
+mientras que si dividimos la sumatoria en $m$ se tiene ahora
+\[
+	= \left( -\frac{i}{\hbar} \right)^2 \frac{|V_{ii}|^2 \euler^{2\eta t}}{2\eta^2}
+	- \frac{i}{\hbar} \sum_{m\neq i} \frac{|V_{mi}|^2 \euler^{2 \eta t}}{ 2 \eta ( E_i - E_n + i \hbar \eta ) }
+\]
+
+Hasta orden dos tenemos
+\[
+	C_i(t) = C_i^{(0)}(t) + C_i^{(1)}(t) + C_i^{(2)}(t)
+\]
+y
+\[
+	\frac{1}{C_i(t)} \dtot{C_i(t)}{t} = 
+	\frac{ 
+	-\frac{i}{\hbar} V_{ii} 
+	+ \left( -\frac{i}{\hbar} \right)^2 \frac{|V_{ii}|^2 \euler^{\eta t}}{\eta}
+	- \frac{i}{\hbar} \sum_{m\neq i} \frac{|V_{mi}|^2 \euler^{2 \eta t}}{E_i - E_n + i \hbar \eta }
+	}
+	{
+	1 - \frac{i}{\hbar \eta} V_{ii} \euler^{\eta t} + C_i^{(2)}(t)
+	}
+\]
+\notamargen{Acá usamos un Taylor para dividir por $1+e$ y así multiplicar por $1-e$... Taylor, pelotudo.}
+pero no necesito poner el $C_i^{(2)}(t)$ puesto que al hacer el cociente me generarán términos
+cúbicos que tiraré; por ello no lo considero.
+Haciendo la cuenta a segundo orden en teoría de perturbaciones de $\eta \to 0$ obtenemos un
+límite finito. Tendiendo
+\[
+	\frac{1}{C_i(t)} \dtot{C_i(t)}{t} = -\frac{i}{\hbar}
+	\left[ 
+	V_{ii} + \sum_{m\neq i} \frac{|V|^2}{E_i - E_n + i \hbar \eta }
+	\right] = -\frac{i}{\hbar} \Delta_i
+\]
+que implica la ecuación diferencial 
+\[
+	\dtot{C_i(t)}{t} = - \frac{i}{\hbar} \Delta_i C_i(t)
+\]
+cuya solución es por supuesto $ C_i(t) = \euler^{- i \Delta_t t / \hbar } $.
+Ahora se tiene que la evolución temporal lleva 
+\[
+	\Ket{i} \longrightarrow C_i(t) \euler^{-i E_i t /\hbar} \ket{i} = 
+	\euler^{i (E_i -\Delta i) t / \hbar } \Ket{i}
+\]
+mientras que a primer orden $ E_i \to E_i + V_{ii}$.
+
+Analicemos el término
+\[
+	\frac{1}{E_i - E_n + i \hbar \eta}
+\]
+teniendo en cuenta que en análisis complejo se sulen separar 
+\[
+	\lim_{\epsilon \to 0 } \frac{1}{x + i  \epsilon} = P_p\left[ \frac{1}{x}\right] - i \pi \delta(x)
+\]
+y luego, la
+\[
+	\sum_{m\neq i} \frac{|V|^2}{E_i - E_n + i \hbar \eta }
+\]
+se descompondrá en una parte real y en una imaginaria, donde esta última representará la difusión con
+el tiempo que cobrará importancia si $ E_i = E_n $ y entonces
+\[
+	C_i^{(2)}(t) = \euler^{- i/\hbar \mathfrak{Re}(\Delta_i) t  + 1/\hbar \mathfrak{Im}(\Delta_i) t}
+\]
+
+Se suelen definir el ancho de decaimiento
+\[
+	\frac{\Gamma_i}{\hbar} = - \frac{2}{\hbar}\mathfrak{Im}(\Delta_i)
+\]
+de modo que
+\[
+	|C_i^{(2)}(t)|^2 = \euler^{ - \Gamma_r t /\hbar} = \euler^{ - t/\tau_i}
+\]
+donde $\tau_i = \hbar / \Gamma_i$. La componente compleja da el decaimiento, como en electromagnetismo,
+y también da información de la variación del número de estados $\Ket{i}$
 
 \subsection{Scattering sección eficaz}
 
