@@ -38,7 +38,7 @@
 
 Estudiaremos perturbaciones dependientes del tiempo 
 \[
-	H = H_0 + V(t), \qquad H_0 \Ket{n} = E_n \Ket{n}
+	H = H_0 + V(t), \qquad H_0 \Ket{n} = E_n \Ket{n} \; (\text{ datos})
 \]
 donde, no obstante, $\Ket{n}$ no dependiente del tiempo. 
 La idea es que hasta $t=0$ no hay potencial $V$ y luego al {\it encenderse} el potencial el estado pasará
@@ -49,8 +49,10 @@ a otro
 
 Se estudiarán transiciones entre autoestados del mismo hamiltoniano $H_0$ (que son estacionarios). 
 Un autoestado permanece en el tiempo como tal pero con fase oscilante (como veremos).
-\notamargen{Esta deduccióne está diferente de la carpeta, confío en que sea una versión depurada.
-Se la analizará en la próxima fase.}
+\notamargen{Esta deducción está diferente de la carpeta, confío en que sea una versión depurada.
+Se la analizará en la próxima fase. En la página 75 y 76 en la práctica hay un resumen de toda
+la formulación.}
+Usamos una representación de interacción y definimos
 \[
 	\Ket{\alpha,t_0,t}_s = \euler^{-iH/\hbar(t-t_0)}\Ket{\alpha,t_0}_s
 \]
@@ -171,14 +173,16 @@ con $\Ket{n},\ket{m}$ autoestados de $H_0$, le pego un $\Bra{n}$ a la ecuación 
 \[
 	i\hbar \dpar{}{t}C_n(t) = \sum_m C_m(t) \Braket{n|V_s|m} \euler^{it(E_n-E_m)/\hbar}
 \]
-\[
+\be
 	i\hbar \dpar{}{t}C_n(t) = \sum_m C_m(t) V_{nm}(t) \euler^{i\omega_{nm}t}
-\]
+	\label{solu_sistema}
+\ee
 donde $V_{nm}(t) \equiv \Braket{n|V(t)|m}$ y $\omega_{nm} \equiv (E_n-E_m)/\hbar$.
 Esta es la ecuación que cumplen los coeficientes, donde $|C_n(t)|^2$ es la probabilidad de hallar al sistema 
 en el autoestado $\Ket{n}$.
 Resolver esto puede ser muy difícil, salvo en los casos en que es tan fácil que no nos
 sirve de nada \footnote{Esto es un patrón que se observa a menudo en física teórica.}.
+En efecto, la \eqref{soluc_sistema} es un sistema de ecuaciones diferenciales acopladas.
 Esto puede ponerse en forma matricial como
 \[
 	i\hbar \begin{pmatrix}
@@ -317,6 +321,60 @@ y entonces la probabilidad de ir desde $\ket{i} \to \Ket{n}$ con $i\neq n$, hast
 	| C_n^{(1)}(t) + C_n^{(2)}(t) |^2
 \]
 donde debe notarse que hay interferencia entre los diversos términos.
+
+\begin{ejemplo}{\bf Sobre observación en práctica}
+
+Había anotado como conclusión en el resumen dado en la práctica que a primer orden solo hay transiciones
+entre estados consecutivos. A segundo orden solo hay transiciones hasta el segundo consecutivo (esto se
+ve claro en los diagramas de Feynmann).
+Luego, aclaré que esto no es cierto en general y que hay que mirar el potencial $V(t)$.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 12}
+
+Consideramos el siguiente
+\[
+	H = H_0 + F_0 x \cos (\omega t), \qquad \qquad 
+	H_0 \Ket{n} = \hbar \omega \left( n + \frac 1 2 \right), \Ket{i} = \Ket{0}
+\]
+con $\Braket{n|V(t)|0} = F_0 \cos(\omega t) \Braket{n|x|0}$. Escribimos $x$ en función de $a,a^\dagger$
+con lo cual solamente sobrevive $n=1$
+\[
+	\Braket{1|V(t)|0} = F_0  \cos(\omega t) \sqrt{ \frac{\hbar}{2 m \omega_0 } }
+\]
+
+Tenemos $C_0^{(0)}(t)=1$ y $C_1^{(0)}(t)=0$ que significa que no hay transición cuando estamos en un
+autoestado de $H$.
+Luego, $C_0^{(1)}(t)=0$ y para 
+\[
+	C_1^{(1)}(t) = - \frac{i}{\hbar} \int_{t_0}^t \: \euler^{i (E_1 - E_0) t' / \hbar } \:
+	\sqrt{ \frac{\hbar}{2 m \omega_0 } } \: F_0 \cos(\omega t') \: dt'
+\]
+y esto da algo.
+Escribo
+\[
+	\Ket{\psi(t)}_I \approx ( C_0^{(0)} + C_0^{(1)}  ) \Ket{0} + ( C_1^{(0)} + C_1^{(1)} ) \Ket{1}
+	= \Ket{0} + C_1^{(0)}(t) \Ket{1}
+\]
+Este estado no está normalizado porque es una aproximación a orden dado donde no se han tirado los
+subsiguientes términos, lo cual está bien porque es una aproximación. Si normalizase otra vez quedo
+con un problema diferente. Piden calcular $\vm{x}$.
+\[
+	\vm{x} = _I\Braket{\psi(t)| \euler^{i H_0 t/\hbar} x \euler^{-i H_0 t/\hbar} |\psi(t)}_I
+	= \Braket{\psi(t)| U_I^+ \euler^{i H_0 t/\hbar} x \euler^{-i H_0 t/\hbar} U_I |0}
+\]
+Resulta
+\[
+	C_1^{0} = \frac{i F_0 }{\sqrt{ 2 \hbar m \omega_0 } (\omega - \omega_0)}
+\]
+y si $\omega - \omega_0$ es cercano a cero me alejo demasiado de la normalización del estado y entonces
+en realidad no tiene mucho sentido el método perturbativo.
+Vale con coeficientes pequeños: si los coeficientes son grandes estaré tirando una cosa de norma grande
+y no tiene sentido.
+
+\end{ejemplo}
+
 
 \subsection{Ejemplo: potencial constante encendido abruptamente}
 
