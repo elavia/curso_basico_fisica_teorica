@@ -968,26 +968,50 @@ de modo que
 donde $\tau_i = \hbar / \Gamma_i$. La componente compleja da el decaimiento, como en electromagnetismo,
 y también da información de la variación del número de estados $\Ket{i}$
 
-\subsection{Scattering sección eficaz}
+\section{Scattering sección eficaz}
 
-$\Ket{k},\Ket{k}'$ son autoestados de momento (partículas libres),
+Emplearemos teoría de perturbaciones para hacer este cálculo; aunque este no fue el enfoque histórico original.
+Consideraremos el siguiente esquema:
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft2_scattering_section.jpg}
+
+\notamargen{Este tema está muy bien desarrollado en el libro de Sakurai.}
+El potencial trabaja en una zona limitada al origen y destino de las partículas bombardeantes consideramos que
+son partículas libres.
+
+En el caso más sencillo el potencial es de manera definido como para que las bombardeantes no le transfieren
+impulso $\vb k$. Tendremos conservación de la energía.
+Entonces, $\Ket{k},\Ket{k}'$ son autoestados de momento (partículas libres), y consideramos
 \[
-	|\vb{k}| = |\vb{k}'| 
+	|\vb{k}| = |\vb{k}'|, 
 \]
-se conserva la energía. Consideraremos la aproximación más baja (aproximación de Born).
+de que se conserva la energía. 
+
+Consideraremos la aproximación al orden más bajo (aproximación de Born).
+La picture es 
+\[
+	\Ket{\vb k} \longrightarrow \Ket{\vb k'}
+\]
+\[
+	\omega_{\Ket{\vb k} \longrightarrow \Ket{\vb k'}} =
+	\int \frac{2\pi}{\hbar} \delta( E_f - E_i ) |\Braket{\vb k'|V|\vb k}|^2 \rho(E_f) dE_f
+\]
+
 \begin{figure}[htb]
 	\begin{center}
 	\includegraphics[width=0.5\textwidth]{images/teo2_28.pdf}
-	\includegraphics[width=0.5\textwidth]{images/fig_ft2_scattering_section.jpg}
+	
 	\end{center}
 	\caption{}
 \end{figure} 
 
+Querríamos calcular en 3E y con extensión infinita la densidad de estados con energía entre $E +dE$.
 \[
 	\omega = \int \frac{2\pi}{\hbar}  \delta(E'-E) |\Braket{\vb{k}'|V|\vb{k}}|^2 \rho(E') dE'
 \]
-queremos calcular la densidad de estados de energía entre $(E,E+dE)$. Pensamos en una partícula libre en una 
-caja $1D$ de longitud $L$.
+queremos calcular la densidad de estados de energía entre $(E,E+dE)$. 
+Simplificamos pensando en $1D$. Pensamos en una partícula libre en una caja $1D$ de longitud $L$, que
+luego haremos tender a infinito.
 \[
 	N \euler^{i k_x x /\hbar}, \qquad \text{con} \;\; k_x = \frac{2\pi}{L}n_x
 \]
@@ -999,6 +1023,9 @@ con $L\to\pm\infty$ son $n_x,k_x$ continuas.
 \[
 	dk_x = \frac{2\pi}{L} dn_x \quad \longrightarrow \quad  dn_x = \frac{L}{2\pi} dk_x 
 \]
+Esta relación me dice el número de estados que hay por entero. 
+\notamargen{Tenía anotado algo como que ``tomaré parte imaginaria''.}
+En realidad habría que escribir $dk$ en $dE$.
 \[
 	E = \frac{\hbar^2k^2}{2m} = \frac{\hbar^2}{2m} \left( \frac{2\pi}{L}\right)^2 n^2 \quad 
 	\longrightarrow \quad n^2 = \frac{L^2}{(2\pi)^2}k^2
@@ -1011,8 +1038,9 @@ con $L\to\pm\infty$ son $n_x,k_x$ continuas.
 \]
 donde $n^2\:dn\:d\Omega$ es la densidad de estados de energía $(E,E+dE)$ en $d\Omega$
 \[
-	n^2 \: dn \: d\Omega = \rho(E') dE'
+	n^2 \: dn \: d\Omega = \rho(E') dE'.
 \]
+Esta última cantidad es invariante relativista (lorentziana).
 
 Con esto sale la integral obteniéndose
 \[
@@ -1020,39 +1048,108 @@ Con esto sale la integral obteniéndose
 	\frac{L^3}{(2\pi)^2} \frac{m}{\hbar^3} \left|\Braket{\vb{k}'|V|\vb{k}}\right|^2 k'd\Omega
 \]
 
+Pasando a 3D se tiene
+\[
+	n^2 = n_x^2 + n_y^2 + n_z^2
+\]
+asociado a $k^2, k_x^2, k_y^2, k_z^2$. Podemos ponerlo en un gráfico 3D. Si hacemos tender $L \to \infty$
+se aproximan los puntos y pasamos a tener una especie de membrana continua.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft2_scattering_section_2.jpg}
+
 Esta es la probabilidad de transición entre los impulsos $\vb{k}$, $\vb{k}'$. Es el número de partículas en 
-la unidad de tiempo por unidad de área 
+la unidad de tiempo por unidad de área (ángulo sólido).
+Definiremos la sección eficaz como:
 \[
 	\text{seccion eficaz} \equiv \dtot{\sigma}{\Omega}d\Omega =
 	\frac{\text{\# de part en $d\Omega$ en la unidad de t}}
 	{\text{\# de part incidentes en la unidad de t por unidad de área}}
 \]
 
+Para nuestra mecánica cuántica
+\[
+	\dtot{\sigma}{\Omega}d\Omega \equiv \frac{\omega_{k \to k'}}{\text{ flujo }}
+\]
+donde el flujo está relacionado con la expresión vista en física moderna, si
+\[
+	\Psi = \frac{ \euler^{ i \pe{k}{x} } }{ \sqrt{ L^3 } } \qquad \qquad 
+	| \vb j | =  \left| \frac{\hbar}{m} \mathfrak{Im}( \Psi^* \nabla \Psi ) \right|
+\]
+donde este $|\vb j| = \hbar k $ m$^{-1}$L$^{-3}$ (cálculo con los dedos) pués flujo es velocidad sobre volumen.
+
+Faltaría hallar quién es el elemento de matriz involucrado. Pensemos en un $V(\vb x)$ como caso particular.
 Un elemento de matriz $\Braket{k'|V|k}$ será 
 \[
 	\Braket{\vb{k}'|V|\vb{k}} = \int dx'\Braket{\vb{k}'|\vb{x}'} \Braket{\vb{x}'|V|\vb{k}} =
 	\int d\vb{x}' \frac{1}{L^3} \euler^{i (\vb{k}-\vb{k}')\cdot \vb{x}} \; V(\vb{x}'),
 \]
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.5\textwidth]{images/teo2_31.pdf}
-	\end{center}
-	\caption{}
-\end{figure} 
-la transformada de Fourier del potencial es, amén de constantes, la amplitud a primer orden 
+con lo cual terminaríamos resolviendo una transformada de Fourier.
+La transformada de Fourier del potencial es, amén de constantes, la amplitud a primer orden 
 \[
 	|\vb{k} - \vb{k}'| = 2k\sin(\theta/2) \qquad \text{con} \; k=k' 
 \]
 Entonces para cualquier potencial esféricamente simétrico se puede hacer la integral 
 \[
 	\dtot{\sigma}{\Omega} =
-	\left|\left( \frac{2m}{4\pi\hbar}\right)^2 \int d^3x'\;V(x)\euler^{i(\vb{x}-\vb{x}')\cdot\vb{x}'}\right|^2
+	\left|\left( \frac{2m}{4\pi\hbar}\right)^2 \int d^3x'\;V(x) \euler^{i(\vb{k}-\vb{k}')\cdot\vb{x}'}\right|^2
 \]
 y expresamos todo en función de $q=q(\theta)$
 \[
 	\dtot{\sigma}{\Omega} =
-	\left| -\frac{2m}{\hbar^2} \frac{1}{q} \int_0^\infty rV(r)\sin(q) dr \right|^2
+	\left| -\frac{2m}{\hbar^2} \frac{1}{q} \int_0^\infty rV(r)\sin(q) dr \right|^2.
 \]
+
+Este resultado es a primer orden (Born) y la dependencia de la sección eficaz está relacionada con el término
+a primer orden del potencial.
+
+Para el potencial de Coulomb diverge por el alcance infinito de éste. Por ello se suele utilizar otro tipo de
+potenciales, como el de Yukawa,
+\[
+	V(r) = \frac{V_0}{r} \euler^{-\mu r} \qquad \qquad r \gg \frac{1}{\mu} \quad V \to 0
+\]
+este tiene la gracia de morirse más rápidamente que el de Coulomb. Definamos
+\[
+	\mathcal{F}_{kk'} = \Frac{2m}{4\pi\hbar^2}^2 \int d^3x \: V(x) \: \euler^{i(\vb{k}-\vb{k}')\cdot\vb{x}'}
+\]
+Se puede ver que 
+\[
+	\mathcal{F}_{kk'} = \mathcal{F}(\theta),
+\]
+que responde al esquema de abajo.
+\includegraphics[width=0.5\textwidth]{images/teo2_31.pdf}	
+Luego, como $\vb q = \vb{k} - \vb{k}'$
+\[
+	q = | \vb{k} - \vb{k}' | = 2 \: k \: \sin\left( \theta / 2 \right) \equiv q_r
+\]
+donde $\vb q$ es el desvío entre los momentos. Luego puedo realizar la integral fácilmente para
+cualquier potencial simétricamente esférico.
+\be
+	 \mathcal{F}(\theta) = - \frac{2 m }{\hbar^2} \frac{1}{q}
+	 \int_0^\infty \: r \: V(r) \: \sin( q_r ) \: dr 
+	 \label{f_theta}
+\ee
+\be
+	 \mathcal{F}(\theta) = - \frac{2 m V_0 }{ \hbar^2 } \frac{1}{q^2 + \mu^2}
+	 \label{f_theta_2}
+\ee
+\notamargen{Esto es un mix.}
+Nótese que metiendo $V(r)$ Coulomb aquí la integración \eqref{f_theta} no está bien definida.
+En \eqref{f_theta_2} podemos tomar el límite que equivale a poner $V(r) = e^2/r$ (Coulomb), entonces
+\[
+	\mu \to 0, V_0 = e^2, \qquad \to \qquad 
+	\mathcal{F}(\theta) \to - \frac{2 m e^2 }{ \hbar^2 } \frac{1}{ q^2 }
+\]
+Luego, la sección eficaz de Rutherford será
+\[
+	\dtot{\sigma}{\Omega} = \frac{ 2 m^2 e^4 }{ \hbar^4 } \frac{1}{ 16 k^4 \sin^4 (\theta / 2 ) }
+\]
+donde hemos detener en cuenta que la aproximación vale para un centro dispersor que no se mueve, mientras
+todo el impulso cambia en las partículas bombardeantes. No vale si las masas son iguales.
+Rutherford obtuvo este resultado en términos de energía
+\[
+	\dtot{\sigma}{\Omega} =  \frac{ e^4 }{ 16 E^2 \sin^4 (\theta / 2 ) }
+\]
+Este cálculo da lo mismo que en mecánica clásica de casualidad.
 
 Utilizando un potencial de Yukawa primero y tomando el límite para llegar al de Coulomb tenemos la sección 
 eficaz de Rutherford 
@@ -1062,10 +1159,54 @@ eficaz de Rutherford
 
 hay que tomar el potencial de Yukawa y luego el límite porque el de Coulomb diverge de entrada
 
-	\includegraphics[width=0.5\textwidth]{images/fig_ft2_scattering_section_2.jpg}
+\subsection{Scattering con una distribución de cargas}
+
+Ahora consideramos interacción no con un núcleo sino con una distribución normalizada
+\[
+	\int \: \rho(\vb x') \: d^3x' = 1
+\]
+y entonces
+\[
+	\frac{e^2}{r} \longrightarrow e^2 \int \frac{\rho(x')}{|\vb x - \vb x'|} d^3x'
+\]
+
+Ahora la sección eficaz dependerá de la distribución de cargas de forma que
+\[
+	\frac{ 2 m }{ 4 \pi \hbar^2 } e^2 \int d^3x \int d^3x' 
+	\frac{ \rho(\vbx') \euler^{ i \pe{q}{x} } }{|\vbx - \vbx'|} = \dtot{\sigma}{\Omega}
+\]
+tomando el cambio de variables $\vb x \to \vb x + \vb x'$ será
+\[
+	\dtot{\sigma}{\Omega} = \frac{2 m e^2}{ 4 \pi \hbar^2} \left[ \int d^3x' \rho(\vbx') \euler^{i \pe{q}{x'}} \right] 
+	\int d^3x \frac{\euler^{i \pe{q}{x}}}{r} = \frac{ 2 m e^2 }{\hbar^2 q^2} F(q)
+\]
+\notamargen{Es $4\pi/q^2$ es transformada de Fourier.}
+donde $F(q)$ es el factor de forma (entre corchetes) y pudimos separar la sección eficaz en dos transformadas
+de Fourier.
+Luego,
+\[
+	\left. \dtot{\sigma}{\Omega} \right|_{\text{dist. carga}} = 
+	\left. \dtot{\sigma}{\Omega} \right|_{\text{dist. carga}} |F(q)|^2
+\]
+el factor de forma nos da idea de la distribución de carga.
+
+Podríamos pensar diagramáticamente la interacción como
 	
 	\includegraphics[width=0.5\textwidth]{images/fig_ft2_scattering_section_3.jpg}
-		
+	
+donde el fotón tiene un impulso $q$ que es el que se intercambia con el blanco.
+Podemos establecer un criterio de ``resolución'' como en óptica.
+\begin{eqnarray*}
+1 \text{eV} & 10^{-8} \; \text{ m}  \\
+1 \text{KeV} & 10^{-11} \; \text{ m}  \\
+1 \text{MeV} & 10^{-14} \; \text{ m}  \sim 10 \text{ Fermi } \\
+1 \text{GeV} & 10^{-17} \; \text{ m}  
+\end{eqnarray*}
+
+La energía de lo incidente permite resolver detalles de la estructura atómica.
+Entonces, para estudiar partículas con estructura del orden de $10^{-18}$ m ($e^-$, quarks)
+necesitamos impactar con energías del orden de GeV (de ahí la necesidad de aceleradores de puta madre).
+
 	\includegraphics[width=0.5\textwidth]{images/fig_ft2_scattering_section_p1.jpg}
 	
 	\includegraphics[width=0.5\textwidth]{images/fig_ft2_scattering_section_p2.jpg}
