@@ -35,8 +35,23 @@
 
 Más apropiado sería partículas indistinguibles. Si en algún punto del espacio se solapan las funciones de 
 onda (interfieren) de dos partículas del mismo tipo cosa de que tengan misma masa, carga, etc. (dos 
-electrones por ejemplo) no podemos distinguir cual es cual. Sean dos estados $\Ket{k'},\Ket{k''}$ con $k^{(i)}$ 
-índice colectivo. En la zona de interferencia es 
+electrones por ejemplo) no podemos distinguir cual es cual. 
+
+Una tal situación se ilustra en la figura debajo; las dos situaciones son indistinguibles
+
+\includegraphics[width=0.65\textwidth]{images/fig_ft2_identical_particles.jpg}
+
+Sean dos estados $\Ket{k'},\Ket{k''}$ con $k^{(i)}$ índice colectivo. 
+Si las tengo en una zona común tendré como estado total a $\Ket{k'} \otimes \Ket{k''} $
+pero si las partículas son del mismo tipo, 
+\[
+	\Ket{k'} \otimes \Ket{k''} \qquad \Ket{k''} \otimes \Ket{k'},
+\]
+representan el mismo sistema cuántico y son ortogonales. No se pueden distinguir estos estados.
+\notamargen{No sé si reescribí esta sección diferente a la carpeta porque lo mejoré o si es
+equivalente. Se verá en su momento.}
+
+En la zona de interferencia es 
 \[
 	\Ket{k'}_1 \otimes \Ket{k'}_2 \quad \text{o} \quad \Ket{k''}_1 \otimes \Ket{k''}_2
 \]
@@ -49,31 +64,34 @@ donde ambos estados son ortogonales y los subíndices numéricos identifican a l
 	\caption{}
 \end{figure} 
 
-	\includegraphics[width=0.65\textwidth]{images/fig_ft2_identical_particles.jpg}
+	
 
 Entonces un estado general será
 \[
 	\Ket{K} = c_1 \Ket{k'}_1 \otimes \Ket{k''}_2 + c_2 \Ket{k''}_1 \otimes \Ket{k'}_2
 \]
 con $|c_1|^2 +|c_2|^2= 1$. 
-Esta es la ``degeneración de intercambio''.
+Esta es la ``degeneración de intercambio'', y la reventaremos con un postulado extra que le
+añadiremos a la mecánica cuántica.
 
-\subsection{Permutación}
-
-Definimos este operador como 
+Definiremos un operador permutación $P$ que intercambia kets en un producto tensorial.
+Es decir que opera según 
 \[
 	P_{12}( \Ket{k'}_1\otimes \Ket{k''}_2 ) = \Ket{k''}_1\otimes \Ket{k'}_2
 \]
+y además satisface las siguientes propiedades
 \[
 	P_{12} = P_{21} \qquad P_{12}^2 = \mathbb{1} \qquad P_{12}^\dagger = P_{12} \qquad 
 	P_{12}P_{12}^\dagger = 1 \qquad \text{autovalores:} \; \pm 1
 \]
+
 Su función es la de intercambiar etiquetas, no el orden de las partículas.
 Sean operadores $\hat{A}_1,\hat{A}_2$ que actúan sobre las partículas 1,2; es decir 
 \[
 	\hat{A}_1 \equiv \hat{A}_1\otimes\mathbb{1}_2, \qquad 
 	\hat{A}_2 \equiv \mathbb{1}_1\otimes\hat{A}_2
 \]
+Veamos qué sucede sobre autoestados y operadores
 \[
 	\hat{A}_1 \Ket{a'} \Ket{a''} = a' \Ket{a'} \Ket{a''} \qquad 
 	\hat{A}_2 \Ket{a'} \Ket{a''} = a'' \Ket{a'} \Ket{a''} 
@@ -92,17 +110,25 @@ y
 \[
 	P_{12}\hat{A}_1P_{12}^{-1} = \hat{A}_2, \qquad P_{21} A_1 - A_2 P_{12} = 0
 \]
+\notamargen{La idea que tenía en la carpeta era la siguiente: si el operador es
+simétrico, entonces conmuta con el operador de permutación $P$, no sé si quise
+decir eso en las notas de final.}
+
 
 Luego $\hat{A}$ es simétrico si $[\hat{P}_{12},\hat{A}_{12}]=0$. Sea $[\hat{P}_{12},\hat{H}]=0$ entonces es 
 $P_{12}$ constante de movimiento y 
 \[
 	P_{12} \Ket{\alpha} = \pm \Ket{\alpha}
 \]
-Sea 
+
+Un operador que cumple lo de arriba es el hamiltoniano.
+Para dos partículas será 
 \[
 	H = \frac{p_1^2}{2m_1} + \frac{p_2^2}{2m_2} + v(|x_1 - x_2|) + V_e(\vb{x}_1)+ V_e(\vb{x}_2)
 \]
-donde si las partículas son idénticas es $m_1=m_2\equiv m$ y defino dos estados
+donde si las partículas son idénticas se puede hacer $m_1=m_2\equiv m$ y veo que se cumple que
+$ [ H, P_{12} ] = 0 $ y $ P_{12} \Ket{\a} = \pm \Ket{\a} $
+Defino ahora dos estados, simétrico y antisimétrico
 \[
 	\Ket{k' k''}_s = \frac{1}{\sqrt{2}}\left( \Ket{k'}_1\Ket{k''}_2 + \Ket{k''}_1\Ket{k'}_2 \right) \qquad 
 	\Ket{k' k''}_a = \frac{1}{\sqrt{2}}\left( \Ket{k'}_1\Ket{k''}_2 - \Ket{k''}_1\Ket{k'}_2 \right)
@@ -121,8 +147,9 @@ Puedo introducir operadores de simetrización y antisimetrización
 \]
 que verifican 
 \[
-	S^2 = S, \quad  A^2= A, \quad SA=AS=0, \quad [S,A] = 0
+	S^2 = S, \quad  A^2= A, \quad SA=AS=0, \quad [S,A] = 0,
 \]
+es decir que no son otra cosa que proyectores, 
 \[
 	\hat{S}_{12} (c_1\Ket{k'}\Ket{k''} + c_2\Ket{k''}\Ket{k'} ) = \frac{1}{\sqrt{2}}(c_1+c_2)
 	(\Ket{k'}\Ket{k''} + \Ket{k''}\Ket{k'} )
@@ -142,7 +169,8 @@ pués tenemos
 \[
 	[P_{ij},P_{k\ell}] \neq 0 \quad \text{en general}
 \]
-Las permutaciones para tres partículas pueden descomponerse 
+Las permutaciones para tres partículas pueden descomponerse en permutaciones de a dos,
+como por ejemplo
 \[
 	P_{123} = P_{12}P_{13} 
 \]
@@ -152,7 +180,7 @@ Las permutaciones para tres partículas pueden descomponerse
 
 Con tres partículas hay $3!$ estados; uno totalmente simétrico $\Ket{\phantom{k}}_s$, uno totalmente antisimétrico 
 $\Ket{\phantom{k}}_a$ y cuatro sin simetría definida.
-En estados simétricos serán 
+Los estados con simetría definida serán 
 \begin{align*}
 	\Ket{k'k''k'''}_{s/a} = \frac{1}{\sqrt{6}}&\left( \Ket{k'k''k'''} +  \Ket{k''k'''k'} + \Ket{k'''k'k''}\right. \\
 	& \left. \pm \Ket{k''k'k'''} \pm \Ket{k'k'''k''} \pm \Ket{k'''k''k'} \right)
@@ -184,11 +212,22 @@ Postulamos que toda partícula es de uno de dos tipos de acuerdo a su simetría
 \end{tabular}
 \end{center}
 
+\begin{center}
+\begin{tabular}{lll}
+Función de onda & Estadística & Spin \\
+\hline \\
+Simétrica & Bosones $P_{ij}\Ket{ N \text{ bosones}} = 
++ \Ket{ N \text{ bosones}} $ & Entero\\
+Antisimétrica & Fermiones $P_{ij}\Ket{ N \text{ fermiones}} = 
+- \Ket{ N \text{ fermiones}} $ & Semi-entero
+\end{tabular}
+\end{center}
+
 En la naturaleza no ocurren simetrías mixtas.
 
-\subsection{Principio de exclusión de Pauli}
+% \subsection{Principio de exclusión de Pauli}
 
-Para fermiones supongamos sistema de dos partículas idénticas 
+Para fermiones, suponiendo un sistema de dos partículas idénticas, es
 \[
 	\Ket{ \Psi }_a = \frac{1}{\sqrt{2}}( \Ket{k'}_1\Ket{k''}_2 - \Ket{k''}_1\Ket{k'}_2)
 \]
@@ -196,24 +235,33 @@ y entonces si $k'=k''$ se tiene que
 \[
 	\Ket{ \Psi }_a = 0.
 \]
+de manera que no es posible tener dos fermiones con iguales números cuánticos.
+Esto es el principio de exclusión de Pauli. 
+Por el contrario los bosones sí pueden tener iguales números cuánticos.
 
-No es posible tener dos fermiones con iguales números cuánticos. Por el contrario los bosones sí pueden tener 
-iguales números cuánticos.
+\notamargen{En la carpeta hay un ejemplo que no entiendo en la p81 donde la moraleja
+es que el hamiltoniano no tiene modo de vincular estados de bosones con estados de
+fermiones. Habría que ver de entenderlo y juzgar luego si aporta introducirlo aquí.}
+
 
 \subsection{Sistema de dos electrones de spin $1/2$}
 
-Sistema de dos electrones de spin $1/2$. Son fermiones. Sea que $[H,S]=0$  con $S = S_1 + S_2$. Se tendrá 
+Sistema de dos electrones de spin $1/2$, que son fermiones. Sea que el hamiltoniano
+no depende del spin total y por ello $[H,S]=0$  con $S = S_1 + S_2$. Se tendrá 
 \[
-	\Ket{\Psi}^{sist} = \Ket{\Psi}^{spa} \otimes \Ket{\Psi}^{spin}
+	\Ket{\Psi}^{sist} = \Ket{\Psi}^{spa} \otimes \Ket{\Psi}^{spin},
 \]
-Como $\Ket{\Psi}^{sist}$ es simétrica tendremos 
+pero como $\Ket{\Psi}^{sist}$ tiene que ser antisimétrica tendremos 
 \[
 	P_{12} \Ket{\Psi}^{sist} = - \Ket{\Psi}^{sist} 
 \]
+que, según la separación anterior, implica que 
 \[
 	P_{12} \Ket{\Psi}^{sist} = P_{12} \Ket{\Psi}^{spa} \otimes P_{12}\Ket{\Psi}^{spin} 
 \]
 
+No obstante, aún antes de saber lo de la parte espacial ya tengo información de la
+parte de spin.
 Para dos electrones con spin $1/2$ se tiene $j_1+j_2$ entonces $ 0 \leq j \leq 1 $ de modo que $|m_1|\leq j_1$ y
 $|m_2|\leq j_2$ entonces $0 \leq S \leq 1$ y $|m_{s_1}|\leq s_1$ y $|m_{s_2}|\leq s_1$.
 \[
@@ -230,6 +278,22 @@ $|m_2|\leq j_2$ entonces $0 \leq S \leq 1$ y $|m_{s_1}|\leq s_1$ y $|m_{s_2}|\le
 	\end{aligned}
 	\right\} \; \text{singlete} \; s=0 \qquad \text{Estados antisimétricos}
 \]
+
+Además se tiene $ [P_{12}, S_\pm] = 0 $ y obtengo los del triplete con la bajada y subida $S_\pm$,
+de modo que todos están relacionados.
+Luego, $ P_{12} \ket{\Psi}^{spin} $ será simétrico $S=1$ o antisimétrico $S=0$ y esto es 
+independiente del hamiltoniano $H$ y viene de que pudimos separar parte espacial y spin.
+
+Ahora bien, como simétrico por antisimétrico en $S\otimes A$ es antisimétrico
+\[
+	P_{12} \Ket{\Psi}_{sist} =
+	P_{12}^{spa} \Ket{\Psi}_{spa} \otimes P_{12}^{spi} \Ket{\Psi}_{spin}
+\]
+y se tienen en cada caso $A \otimes S$ en $S=1$ o bien $S \otimes A$ en $S=0$ será
+en el primer caso $\Ket{\Psi}_{spa}$ antisimétrica con $(-1)^\ell$ y $\ell$ impar 
+y en el segundo caso $\Ket{\Psi}_{spa}$ simétrica con $(-1)^\ell$ y $\ell$ par. 
+
+
 Entonces
 \begin{gather*}
 	\begin{aligned}
@@ -238,11 +302,10 @@ Entonces
 	\end{aligned}	
 \end{gather*}	
 
-Vistos desde el CM de los electrones
-\[
-	P_{12} = \Pi
-\]
-y entonces
+Vistos desde el centro de masa dos electrones verifican que $ P_{12} = \Pi $ 
+(el operador $P_{12}$ es paridad) y entonces
+\notamargen{Dos electrones solo pueden acoplarse a impulso total par $\vb J = \vb L + \vb S$.
+Acá hay un mix de explicaciones, evidentemente carpeta no coincidía con las notas.}
 \[
 	P_{12}\Ket{n\ell m} = (-1)^\ell \Ket{n\ell m}
 \]

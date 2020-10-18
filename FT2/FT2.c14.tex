@@ -1207,12 +1207,186 @@ La energía de lo incidente permite resolver detalles de la estructura atómica.
 Entonces, para estudiar partículas con estructura del orden de $10^{-18}$ m ($e^-$, quarks)
 necesitamos impactar con energías del orden de GeV (de ahí la necesidad de aceleradores de puta madre).
 
-	\includegraphics[width=0.5\textwidth]{images/fig_ft2_scattering_section_p1.jpg}
-	
-	\includegraphics[width=0.5\textwidth]{images/fig_ft2_scattering_section_p2.jpg}
-	
-	\includegraphics[width=0.5\textwidth]{images/fig_ft2_scattering_section_p3.jpg}
 
+\begin{ejemplo}{\bf Ejercicio 16}
+ 
+Parte a) 
+Se tiene la situación siguiente
+\[
+	E_1 < E_2 \qquad \qquad 
+	H_0 = E_1 \KB{1}{1} + E_2 \KB{2}{2}, \quad V_{11} = V_{22} = 0
+\]
+y además $V_{12} = V_{21}^* = \gamma \euler^{ i \omega t }$ con $\gamma \in \mathbb{R}$,
+de manera que hay posibilidad de que transicione $\Ket{1} \to \Ket{2}$ dado
+que $C_1(0)=1$ y $C_2(0)=0$.
+
+Las probabilidades de transición serán $|C_i(t)|^2$ con $i=1,2$. 
+El sistema (que será de $2\times 2$) para los coeficientes
+\[
+	i \hbar \begin{pmatrix}
+	 \dot{C}_1 \\
+	 \dot{C}_2 
+	\end{pmatrix} = \begin{pmatrix}
+	 V_{11} & V_{12} \euler^{ i \omega_{12} t } \\
+	 V_{21} \euler^{i \omega_{21} t} & V_{22} 
+	\end{pmatrix} \begin{pmatrix}
+	 {C}_1 \\
+	 {C}_2 
+	\end{pmatrix} 
+\]
+\notamargen{En la carpeta tenía un sistema de tamaño genérico, aunque es un
+caso de 2 por 2 aquí. No sé qué conviene más a esta altura.}
+desde donde extraemos dos ecuaciones diferenciales acopladas
+\[
+	i \hbar \dtot{C_k}{t} = \sum_{n=1}^2
+	V_{kn}(t) \: \euler^{ i \omega_{kn} t } \: C_n
+\]
+donde son 
+\[
+	\omega_{12} = \frac{E_1 - E_2}{\hbar}
+	\qquad 
+	-\omega_{12} = \omega_{21} = \frac{E_2 - E_1}{\hbar}
+\]
+tras lo cual se pueden escribir
+\[
+	i \hbar \dot{C}_1 = \gamma \euler^{i\Delta\omega t} C_2 
+	\qquad 
+	i \hbar \dot{C}_2 = \gamma \euler^{-i\Delta\omega t} C_1
+\]
+donde se ha definido $ \omega - \omega_{21} \equiv \Delta\omega$
+y para la derivada segunda,
+\[
+	i \hbar \ddot{C}_1 = i \gamma \Delta\omega \euler^{i\Delta\omega t} C_2 +
+	\gamma \euler^{i\Delta\omega t} \dot{C}_2
+\]
+Reemplazando $C_2, \dot{C}_2$ en función de $C_1, \dot{C}_1$ llegamos a
+\[
+	\ddot{C}_1 - i \Delta\omega \dot{C}_1 + \frac{\gamma^2}{\hbar^2} C_1 = 0,
+\]
+para la cual se propone una solución del tipo $C_1(t) = \euler^{\Gamma t}$
+que resulta ser 
+\[
+	\Gamma =  i \frac{\Delta\omega}{2} \pm i 
+	\sqrt{ \frac{\Delta\omega^2}{4} + \frac{\gamma^2}{\hbar^2} }
+	= i \left( \frac{\Delta\omega}{2} \pm k \right)
+\]
+donde hemos definido $ k = \sqrt{ \Delta\omega^2 / 4 + \gamma^2 / \hbar^2 }$,
+de modo que la solución general es
+\[
+	C_1(t) = A \euler^{ i (\Delta\omega/2 + k ) t  } + B \euler^{ i (\Delta\omega/2 - k ) t}
+\]
+en la cual faltaría $C_2$ para la información de las condiciones iniciales.
+Para $C_2$ se tiene
+\[
+	C_2(t) = \frac{i\hbar}{\gamma} \euler^{-i\Delta \omega t}
+	\left[ 
+	i (\Delta\omega/2 + k ) A \euler^{ i (\Delta\omega/2 + k ) t  } + 
+	i (\Delta\omega/2 - k ) B \euler^{ i (\Delta\omega/2 - k ) t}
+	\right]
+\]
+desde la cual podemos obtener finalmente, usando $C_1(0) = 1$ y $C_2(0) = 0$ con 
+$A+B=1$ de manera que 
+\[
+	A = \frac{1}{2} - \frac{\Delta\omega}{4k}
+	\qquad 
+	B = \frac{1}{2} + \frac{\Delta\omega}{4k}
+\]
+que da las soluciones
+\[
+	C_1^{(1)}(t) = \euler^{ i \Delta\omega t / 2}
+	\left[ \cos( k t ) - \frac{i \Delta\omega }{ 2 k } \sin( k t ) \right]
+\]
+\[
+	C_2^{(1)}(t) = - \frac{i\gamma}{\hbar k} \euler^{-i \Delta\omega t / 2} \sin( kt )
+\]
+con el $k$ anteriormente definido, 
+que da las probabilidades
+\[
+	|C_2^{(1)}(t)|^2 = \frac{\gamma^2}{\hbar^2 k^2} \sin^2( k t ),
+	\qquad 
+	|C_1^{(1)}(t)|^2 = 1 - |C_2^{(1)}(t)|^2
+\]
+y este es el cálculo exacto [qué significará esto].
+
+La parte b) implica 
+\[
+	 C_1^{(1)}(t) = i \delta_{ni} - \frac{i}{\hbar}
+	 \int_0^t dt' V_{ni}(t') \euler^{ i \omega_{ni} t'}
+	 \qquad \qquad 
+	 C_1^{(1)}(t) = 1
+\]
+\[
+	C_2^{(1)}(t) = - \frac{i}{\hbar}
+	 \int_0^t dt' V_{21}(t') \euler^{ i \omega_{21} t'} =
+	 - \frac{i}{\hbar}
+	 \int_0^t dt' \gamma \euler^{ - i \Delta\omega t'}
+\]
+y esta integral es
+\[
+	C_2^{(1)}(t) = \frac{\gamma}{\hbar\Delta\omega}
+	[ \euler^{-i\Delta\omega} - 1 ]
+\]
+
+
+Entonces, calculando el valor absoluto al cuadrado se tiene 
+\[
+	|C_2^{(1)}(t)|^2 = \frac{2\gamma^2}{\hbar^2\Delta\omega^2}
+	[ 1 - \cos(\Delta\omega t) ]
+\]
+donde lo último corresponde a una aproximación a orden uno de $\gamma$.
+
+Veamos qué sucede en la expresión exacta, que tiene $\gamma$ a orden dos
+(al cuadrado).
+Tomando $ k \approx \Delta\omega/2$ con $\gamma \ll 1$ se tiene
+\[
+	|C_2(t)|^2 \approx \frac{4\gamma^2}{\hbar^2\Delta\omega^2}
+	\sin^2\Frac{\Delta\omega t}{2}
+\]
+y expresando el seno en términos del coseno (quizás llamada a apéndice)
+\[
+	|C_2(t)|^2 = \frac{2\gamma^2}{\hbar^2\Delta\omega^2}
+	[ 1 - \cos^2(\Delta \omega t)]
+\]
+por lo tanto a primer orden en $\gamma$ ambos coinciden. Siempre esto es válido
+si $\Delta\omega \neq 0$, es decir que no me hallo en condiciones de
+resonancia.
+A $t$ fijo si hay resonancia tendremos un gráfico para 
+$ 4 / (\Delta\omega^2 )\sin^2(\Delta\omega t/ 2)$
+que es de la pinta del gráfico de abajo
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft2_scattering_section_p1.jpg}
+
+Si $\Delta \omega \to 0$ entonces
+\[
+	\lim_{\Delta \omega \to 0} \: \frac{\gamma^2}{\hbar^2}
+	\frac{\sin^2(\Delta\omega/2 t)}{ (\Delta\omega)^2 / 4} =
+	\frac{\gamma^2 t^2}{\hbar^2} = |C_2(t)|^2
+\]
+
+Volviendo ahora a la solución exacta tendremos 
+\[
+	|C_2(t)|^2 = \frac{\gamma^2}{\hbar^2 k^2}\sin^2( k t ) , 
+	\qquad 
+	k = \sqrt{ \frac{\Delta\omega^2}{4} + \frac{\gamma^2}{\hbar^2} } 
+	= \frac{\gamma}{\hbar}
+\]
+que corresponde al caso resonante. Luego
+\[
+	|C_2(t)|^2 = \frac{\gamma^2}{\hbar^2 k^2}\sin^2\Frac{\gamma t}{\hbar} 
+\]
+y entonces $ |C_1(t)|^2 = 1 - |C_2(t)|^2 $.
+Podemos graficar 
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft2_scattering_section_p2.jpg}
+	
+Vemos que está involucrado un $\Delta\omega = (E_2 - E_1)/\hbar$ de tal manera
+que $\hbar\omega = E_2 - E_1$ es la energía que se absorbe o se libera para
+pasar de estado. Ver grafiquete de abajo.
+	
+\includegraphics[width=0.5\textwidth]{images/fig_ft2_scattering_section_p3.jpg}
+
+
+\end{ejemplo}
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
