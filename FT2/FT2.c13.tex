@@ -436,6 +436,148 @@ Esta separación de los niveles en $\pm J$ se debe al carácter de fermión de l
 
 \includegraphics[width=0.4\textwidth]{images/fig_ft2_extra_identical2.jpg}
 
+\begin{ejemplo}{\bf Ejercicio 1}
+
+Para la parte a) considera el conjunto $ \{ \Ket{0,-}, \Ket{0,+}, \Ket{1,-}, \Ket{1,+}, ... \} $
+que son los $N$ primeros.
+Entonces
+\[
+	E = \sum_{n=0}^{[N/2]-1} \: 2 \hbar \omega \left( n + \frac 1 2 \right) + 
+	\hbar \omega \left( \left[ \frac{n}{2} \right] + \frac 1 2 \right)_{\text{ N impar }}
+\]
+
+Para la parte b) considero $N=2$ y $ \Ket{0,-} \otimes \Ket{0,+} $ y para ser la función de onda
+necesitaré que sea antisimétrica porque son fermiones.
+Entonces
+\[
+	\Ket{\Psi} = \frac{1}{\sqrt{2}}( \Ket{0,-} \otimes \Ket{0,+} - \Ket{0,+} \otimes \Ket{0,-} )
+\]
+y
+\[
+	A_{12} ( \Ket{0,-} \otimes \Ket{0,+} ) = \Ket{\Psi}
+\]
+
+El hamiltoniano será
+\[
+	H = \frac{p_1^2}{2m} + \frac{p_2^2}{2m} + \frac{1}{2} m \omega^2 x_1^2
+	+  \frac{1}{2} m \omega^2 x_2^2
+\]
+y entonces
+\[
+	\Braket{\Psi|H|\Psi} = \frac{1}{2}
+	\left( 
+	\Bra{0,-} \otimes \Bra{0,+} - \Bra{0,+} \otimes \Bra{0,-}
+	\right) H \left( 
+	\Ket{0,-} \otimes \Ket{0,+} - \Ket{0,+} \otimes \Ket{0,-}
+	\right),
+\]
+pero com el $H$ no toca los spines entonces serán nulos el primero y el cuarto. Luego
+\[
+	\Braket{\Psi|H|\Psi} = \frac{1}{2}
+	\left(
+	\Bra{0,-} \Bra{0,+} H \Ket{0,-}\Ket{0,+} + 
+	\Bra{0,+} \Bra{0,-} H \Ket{0,+} \Ket{0,-}
+	\right)
+\]
+y como el $H=H_1+H_2$ cuentas más o menos {\it straighforward} llevan a 
+\[
+	\Braket{\Psi|H|\Psi} = \hbar \omega.
+\]
+\notamargen{En la carpeta hay una recarga extra sobre la notación de indicar con un 1 o 2 si
+es la primer o segunda partícula; creo que es innecesario, sabemos que el orden de los ket y bra
+en esta escritura {\it matters}.}
+
+Ahora queremos calcular el $J^2$ para ello escribamos el estado según
+\[
+	\Ket{\Psi} = \frac{1}{\sqrt{2}}
+	\left( 
+	\Ket{0}_1 \otimes \Ket{-}_1 \otimes \Ket{0}_2 \otimes \Ket{+}_2 -
+	\Ket{0}_1 \otimes \Ket{+}_1 \otimes \Ket{0}_2 \otimes \Ket{-}_2
+	\right)
+\]
+y reacomodando un poco,
+\[
+	\Ket{\Psi} = \frac{1}{\sqrt{2}}
+	\left( 
+	\Ket{0}_1 \otimes \Ket{0}_2 \otimes 
+	\left[ \Ket{-}_1  \Ket{+}_2 - \Ket{+}_1 \Ket{-}_2 \right] \right)
+\]
+y el spin total es nulo, entonces no tenemos dirección privilegiada.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 2}
+
+Son dos partículas de spin $3/2$. Por teoría de suma de momentos angulares popdría tener
+$3,2,1,0$
+
+\[
+	\Ket{j, m} = \sum_{m_1,m_2} \: \Ket{j_1,j_2,m_1,m_2} \Braket{j_1,j_2,m_1,m_2|j,m}
+\]
+y cuando le aplicamos la permutación
+\begin{multline*}
+	P_{12} \Ket{j, m} = \sum_{m_1,m_2} \: \Ket{j_2,j_1,m_2,m_1} \Braket{j_1,j_2,m_1,m_2|j,m} = \\
+	\sum_{m_1,m_2} \: \Ket{j_1,j_2,m_1,m_2} \Braket{j_1,j_2,m_2,m_1|j,m}
+\end{multline*}
+vemos que el coeficientes no cambia pero que, puedo sin pérdida de generalidad intercambiar las
+letras (son mudas).
+
+Para que sea una función de ferminiones válida necesitaré
+\[
+	\Braket{j_1,j_2,m_2,m_1|j,m} = - \Braket{j_1,j_2,m_1,m_2|j,m} = (-1)^{j_1+j_2-J} \Braket{}
+\]
+donde lo último viene de propiedades de los coeficientes.
+Luego será $(-1)^{j_1+j_2-J} = -1$ y $3-J$ es natural par.
+La simetrización implicará que se acople solamente a spin 2 y spin 0.
+
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 3}
+ 
+Es similar a este. 
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 4}
+ 
+Misma cuenta, pero para bosones. Llegaremos a $\ell_1 + \ell_2 - L $  para $N$ pares y $2\ell - L$
+para $N$ impares.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio 5}
+
+Vemos solamente la parte b). La base en la cual estamos trabajando es
+\[
+	\{  \Ket{-1,-1,-1}, \Ket{-1,-1,0}, \Ket{-1,-1,1}, ..., \Ket{1,1,1} \}
+\]
+y tiene dimensión 27. Estos componentes serán simétricos frente al intercambio de dos partículas.
+Por ejemplo para $\Ket{-1,-1,-1}, \Ket{0,0,0}, \Ket{1,1,1}$ es
+\[
+	\frac{1}{\sqrt{3}} \left( \Ket{-1,-1,0} + \Ket{-1,0,-1} + \Ket{0,-1,-1}  \right)
+\]
+donde los últimos dos los incluyo para que al intercambiar 1,2 no se altere nada y lo mismo al
+intercambiar 2,3.
+En general, para los estados que tienen dos repetidos será
+\[
+	\frac{1}{\sqrt{3}} \left( \Ket{b,b,b} + \Ket{b,a,b} + \Ket{a,b,b}  \right)
+\]
+que para $a=-1,0,1, b=-1,0,1$ con $a\neq b$ serán seis estados.
+
+Ahora restará cubrir los estados que tienen los tres números distintos, 
+\[
+	\frac{1}{\sqrt{6}} \left( 
+	\Ket{-1,0,1} + \Ket{0,-1,1} + \Ket{1,0,-1} +
+	\Ket{1,-1,0} + \Ket{0,1,-1} + \Ket{-1,1,0}
+	\right)
+\]
+y vemos que hay que sumar todos los estaods que tienen una vez cada número.
+Ahora tendremos en total $1+3+6$ estados que son simétricos. Los restantes 17 son o bien
+antisimétricos o sin simetría definida.
+
+
+\end{ejemplo}
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
