@@ -316,63 +316,91 @@ Acá hay un mix de explicaciones, evidentemente carpeta no coincidía con las no
 Necesitaré $\ell$ par con $s=0$ entonces $\ell+s=j$ par. En cambio, si $\ell$ impar con $s=1$ entonces 
 $\ell+s=j$ par. Dos electrones sólo se acoplan a momento total $j$ par.
 
-Sean los siguientes estados 
+Podemos poner los siguientes estados 
 \[
 	\Ket{ \Psi }_{sa} = \frac{1}{\sqrt{2}}( \Ket{k'}\Ket{k''} \pm \Ket{k''}\Ket{k'})
 \]
+
+Teniendo una relación $A\Ket{a_i} = a_i \Ket{a_i}$ para un operador $A$, 
+un autoestado con una partícula con autovalor $a_1$ y otra con $a_2$ se escribe
 \[
-	\Ket{ \Psi_F }_{sa} = \frac{1}{\sqrt{2}}( \Ket{a'}\Ket{a''} \pm \Ket{a''}\Ket{a'})
+	\Ket{ \Psi_F }_{sa} = \frac{1}{\sqrt{2}}( \Ket{a'}\Ket{a''} \pm \Ket{a''}\Ket{a'}),
 \]
-y la probabilidad será
-\[
-	\text{Prob}\; = |_{sa}\Braket{\Psi|\Psi}_{sa}|^2 = 
+donde habrá que simetrizar o antisimetrizar si las partículas son bosones o fermiones,
+respectivamente. Usando $ \text{Prob}_{(a_1,a_2)} = | _{S/A}\Braket{\Psi_f|\Psi}_{S/A} |^2 $,
+la probabilidad será
+\begin{multline*}
+	\text{Prob}\; = |_{sa}\Braket{\Psi|\Psi}_{sa}|^2 =  \\
 	\left|\frac{1}{2}(_1\Bra{a'}_2\Bra{a''} \pm _1\Bra{a''}_2\Bra{a'})(\Ket{k'}_1\Ket{k''}_2 \pm 
 	\Ket{k''}_1\Ket{k'}_2)\right|^2 =
-\]
+\end{multline*}
+\begin{multline*}
+ 	= \frac{1}{4}\left| \Bra{a'}\Bra{a''}\Ket{k'}\Ket{k''} \pm \Bra{a''}\Bra{a'}\Ket{k'}\Ket{k''} 
+	\right. \pm \\
+	\left. \Bra{a'}\Bra{a''}\Ket{k''}\Ket{k'} \pm \Bra{a''}\Bra{a'}\Ket{k''}_1\Ket{k'} \right|^2 \\
+	= \frac{1}{4}\left| 2\Braket{a'|k'}\Braket{a''|k''} \pm 2\Braket{a''|k'}\Braket{a'|k''}\right|^2, 
+\end{multline*}
+que se puede escribir como
 \[
-	= \frac{1}{4}\left| \Bra{a'}\Bra{a''}\Ket{k'}\Ket{k''} \pm \Bra{a''}\Bra{a'}\Ket{k'}\Ket{k''} 
-	\pm \Bra{a'}\Bra{a''}\Ket{k''}\Ket{k'} \pm \Bra{a''}\Bra{a'}\Ket{k''}_1\Ket{k'} \right|^2
-\]
-\[
-	= \frac{1}{4}\left| 2\Braket{a'|k'}\Braket{a''|k''} \pm 2\Braket{a''|k'}\Braket{a'|k''}\right|^2
-\]
-\[
-	= \left| \underbrace{\Braket{a'|k'}\Braket{a''|k''}}_{\text{término directo}} \pm 
+	\text{Prob}\; = \left| \underbrace{\Braket{a'|k'}\Braket{a''|k''}}_{\text{término directo}} \pm 
 	\underbrace{\Braket{a''|k'}\Braket{a'|k''}}_\text{término de intercambio}\right|^2
 \]
+donde hemos marcado un término directo y uno de intercambio, asociado con la probabilidad de que una
+partícula pase al estado de la otra. El signo $+$ es para bosón y el signo $-$ para fermión. El término 
+directo asocia entonces $k_1 \to a_1$ y $k_2 \to a_2$ mientras que el de intercambio $k_1 \to a_2$ y 
+$k_2 \to a_1$.
+
+Al explicitar la cuenta con el módulo al cuadrado obtenemos la interferencia (de sentido cuántico) que
+aparece porque son indistinguibles las partículas
 \begin{multline*}
 	\text{Prob}\; = |_{sa}\Braket{\Psi|\Psi}_{sa}|^2 = \left| \Braket{a'|k'}\Braket{a''|k''} \right|^2 + 
-	\left|\Braket{a''|k'}\Braket{a'|k''}\right|^2 \\
+	\left|\Braket{a''|k'}\Braket{a'|k''}\right|^2  \\
 	\pm 2\mathcal{Re}\left(\underbrace{ \Braket{a'|k'}\Braket{a'|k''}^*\Braket{a''|k''}\Braket{a''|k'}^* 
 	}_\text{Interferencia}\right)
 \end{multline*}
 
 Vemos que aparece una interferencia que será importante solamente si hay solapamiento. En el caso de no 
-solaparse o con partículas clásicas solo el primer término es de importancia.
+solaparse o con partículas clásicas sólo el primer término es de importancia.
 
-\includegraphics[width=0.4\textwidth]{images/fig_ft2_extra_identical.jpg}
+Esto puede aplicarse al caso ilustrativo de la ``teleportación''.
+Consideremos el ejemplo de medición de electrones en lugares apartados, como
+
+\includegraphics[width=0.6\textwidth]{images/fig_ft2_extra_identical.jpg}
+
+En Buenos Aires tenemos $\psi_1 = \Braket{\vbx | k_1} \neq 0 $ y $\psi_2 = \Braket{\vbx | k_2} = 0 $
+mientras que en Oslo $\psi_1 = 0 $ y $\psi_2 \neq 0 $ lo que significa que el electrón de Oslo en $\psi_2$
+no lo puedo hallar en Buenos Aires.
+Luego, $\Braket{\vbx|a_1}\neq 0 $ y $\Braket{\vbx|a_2} = 0 $ siendo la primera la variable dinámica asociada
+al detector en Buenos Aires.
 
 
 \section{El átomo de helio}
 
+Posee dos protones, dos neutrones y dos electrones. La figura bajo estas líneas ilustra el sistema
+coordenado
 
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.4\textwidth]{images/teo2_30.pdf}
-	\end{center}
-	\caption{}
-\end{figure} 
+\includegraphics[width=0.4\textwidth]{images/teo2_30.pdf}
+
+El hamiltoniano se puede escribir 
 \[
 	H = \frac{p_1}{2m} + \frac{p_2}{2m} - \frac{2e^2}{r_1} -  \frac{2e^2}{r_2} + \frac{e^2}{r_{12}}
 \]
-y si el último término es $\sim 0$ decimos que en ese caso $H$ está desacoplado 
+y si el último término es $\sim 0$ decimos que en ese caso $H$ está desacoplado y tenemos una
+función de onda del tipo
 \[
-	\Psi = \Psi_1 \otimes \Psi_2
+	\Psi = \Psi_1 \otimes \Psi_2.
 \]
+Dado que se verifica
 \[
-	[\vb{H},\vb{S}] = 0 \qquad \vb{S} = \vb{S}_1 + \vb{S}_2 = \begin{cases} 0 \\ 1 \end{cases}
+	[\vb{H},\vb{S}] = 0 
+	\qquad 
+	\vb{S} = \vb{S}_1 + \vb{S}_2 = 
+	\begin{cases} 
+	0 \\ 
+	1 
+	\end{cases}
 \]
-S es constante de movimiento y para la $\Ket{\psi_{spin}}$ se tiene 
+se da que $S$ es constante de movimiento y para la $\Ket{\psi_{spin}}$ se tiene 
 \[
 	S=0 \qquad \frac{1}{\sqrt{2}}( \Ket{ \uparrow\downarrow }-\Ket{ \downarrow\uparrow}) \quad \text{singlete}
 \]
@@ -383,12 +411,15 @@ S es constante de movimiento y para la $\Ket{\psi_{spin}}$ se tiene
 	& \frac{1}{\sqrt{2}}( \Ket{ \uparrow\downarrow }+\Ket{ \downarrow\uparrow} )
 	\end{aligned} \quad \text{triplete}
 \]
-Sea $ e^-_1 \Ket{100}$ y $e^-_2 \Ket{n\ell m}$
+Sea un electrón  en el estado fundamental $ \Ket{100}$ y otro en algún estado excitado $ \Ket{n\ell m}$,
+se tendrán
 \[
 	\Ket{\Psi}_{He} = \frac{1}{\sqrt{2}}\left(  \Ket{100}\Ket{n\ell m} \pm  \Ket{n\ell m}\Ket{100}
 	\right) \Ket{\Psi_{spin}}
 \]
-de modo que con $S=0$ será
+donde el signo $+$ es para $S=0$ y el signo $-$ para $S=1$ y vemos que $\Ket{\Psi_{spin}}$ tiene simetría
+bien definida.
+Así, con $S=0$, será
 \[
 	\Ket{\Psi}_{He} = \frac{1}{\sqrt{2}}\left( \Ket{100}\Ket{n\ell m} + \Ket{n\ell m}\Ket{100}\right) 
 	\frac{1}{\sqrt{2}}( \Ket{ \uparrow\downarrow }-\Ket{ \downarrow\uparrow})
@@ -400,10 +431,12 @@ y en cambio con $S=1$
 	                   \Ket{\uparrow \uparrow} \\
 			   \Ket{\downarrow \downarrow } \\
 			   \frac{1}{\sqrt{2}}( \Ket{ \uparrow\downarrow }+\Ket{ \downarrow\uparrow} )
-	                  \end{cases}
+	                  \end{cases} .
 \]
+\notamargen{Lo que uno simetriza o antisimetriza son las partículas idénticas.}
 
-Podemos pensar en teoria de perturbaciones ahora y calcular 
+Ahora introduzcamos la interacción con el término $e^2/r_{12}$. Consideremos, en teoria de perturbaciones,
+que 
 \[
 	E_{He} = E_{100} + E_{n\ell m} + \Delta E
 \]
@@ -412,18 +445,41 @@ donde
 	\Delta E = \Braket{\Psi|\frac{e}{r_{12}}|\Psi}
 \]
 y el término en el {\it sandwich} lo considero una perturbación.
-\[
+Haciendo la cuenta explícitamente
+\begin{multline*}
 	\Delta E = \Bra{\Psi^{spin}}^\dagger \frac{1}{2}\left(\Bra{100}\Bra{n\ell m} \pm \Bra{n\ell m}\Bra{100}
-	\right) \frac{e}{r_{12}} \left(\Ket{100}\Ket{n\ell m} \pm \Ket{n\ell m}\Ket{100}\right)\Ket{\Psi^{spin}}
-\]
+	\right) \frac{e}{r_{12}} \times \\
+	\left(\Ket{100}\Ket{n\ell m} \pm \Ket{n\ell m}\Ket{100}\right)\Ket{\Psi^{spin}}
+\end{multline*}
 \[
 	\Delta E = \Bra{100}\Bra{n\ell m}\frac{e}{r_{12}}\Ket{100}\Ket{n\ell m} \pm  
 	\Bra{n\ell m}\Bra{100}\frac{e}{r_{12}}\Ket{100}\Ket{n\ell m}
 \]
-que se puede escribir más resumidamente como
+donde vemos que el operador es invariante antes $1 \to 2, 2 \to 1$ pués $|\vbx_1 - \vbx_2| = |\vbx_2 - \vbx_1| 
+\equiv r_{12}$ y que escribiremos más resumidamente como
 \[
-	\Delta E = I \pm J
+	\Delta E = I \pm J.
 \]
+
+Para calcular necesitaremos integrar metiendo una identidad
+\[
+	\int d^2x_1 d^2x_2 \: \Bra{100}\Bra{n\ell m}\frac{e}{r_{12}} \left[ 
+	\Ket{x_1}\Ket{x_2} \Bra{x_1}\Bra{x_2}
+	\right] \Ket{100}\Ket{n\ell m}
+\]
+tras lo cual, luego de un amasaje veríamos que
+\[
+	I = \int d^2x_1 d^2x_2 \: \frac{e}{r_{12}} \:
+	|\Psi_{100}(x_1)|^2 |\Psi_{n\ell m}(x_2)|^2
+\]
+\[
+	J = \int d^2x_1 d^2x_2 \: \frac{e}{r_{12}} \: 
+	\Psi_{100}(x_1) \Psi_{n\ell m}(x_2) \Psi_{100}(x_2)^* \Psi_{n\ell m}(x_1)^*
+\]
+
+En un diagrama ilustrativo sería algo como
+
+\includegraphics[width=0.8\textwidth]{images/fig_ft2_extra_identical2.jpg}
 
 \begin{figure}[htb]
 	\begin{center}
@@ -432,9 +488,12 @@ que se puede escribir más resumidamente como
 	\caption{}
 \end{figure} 
 
+Vemos un efecto debido al spin de las partículas que no está en el hamiltoniano (puesto que
+el $H$ no depende del $\vb S$).
 Esta separación de los niveles en $\pm J$ se debe al carácter de fermión de las partículas.
+Es una consecuencia de la simetría de la función de onda.
 
-\includegraphics[width=0.4\textwidth]{images/fig_ft2_extra_identical2.jpg}
+
 
 \begin{ejemplo}{\bf Ejercicio 1}
 

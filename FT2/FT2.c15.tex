@@ -33,24 +33,46 @@
 \chapter{Introducción a la mecánica cuántica relativista}
 % =================================================================================================
 
-Consideremos una partícula libre por el momento 
+Serán útiles los siguientes cuadrivectores de la relatividad especial
 \[
-	H = \frac{p^2}{2m} \quad E =  i\hbar \dpar{}{t} \quad \vb{p} = - i\hbar \Nabla
-\]
-en relatividad la primera expresión no sirve pero la segunda y la tercera sí.
-\[
-	P_\mu = i \hbar \partial_\mu = i \hbar \dpar{}{x^\mu}
-\]
-\[
-	p^\mu = (E/c, \vb{p}) \qquad p_\mu = (E/c, -\vb{p}) \qquad x^\mu = (ct, \vb{x})
+	p^\mu = (E/c, \vb{p}) \qquad p_\mu = (E/c, -\vb{p}) 
+	\qquad x_\mu = (ct, -\vbx ) \qquad x^\mu = (ct, \vb{x})
 \]
 \[
 	\dpar{}{x^\mu} = \left( \frac{1}{c}\dpar{}{t} , \Nabla \right) \equiv \partial_\mu
 	\qquad \dpar{}{x_\mu} = \left( \frac{1}{c}\dpar{}{t} , -\Nabla \right) \equiv \partial^\mu
 \]
-y Schrödinger para la partícula libre es
-\be \label{schro_freepart}
+y las contracciones
+\[
+	p^\mu p_\mu  = \frac{E^2}{c^2} - p^2 = m^2 c^2 
+	\qquad 
+	x^\mu x_\mu  = c^2 t^2 - x^2 
+\]
+donde la última igualdad en la primera contracción es para una única partícula libre, que es lo que
+consideramos por el momento.
+
+De lo que sabemos en mecánica cuántica tenemos 
+\be
+	H = \frac{p^2}{2m} 
+	\label{ham_libre_clasico}
+\ee
+\be
+	E =  i\hbar \dpar{}{t} \quad \vb{p} = - i\hbar \Nabla
+	\label{em_relativ}
+\ee
+La cuántica es de por sí covariante (susceptible de escribirse en términos de cuadrivectores)
+y vemos que la siguiente ecuación
+\[
+	P_\mu = i \hbar \partial_\mu = i \hbar \dpar{}{x^\mu}
+\]
+condensa las dos en \eqref{em_relativ}.
+Veremos luego que en relatividad la expresión \eqref{ham_libre_clasico} no sirve y tendremos que
+usar \eqref{em_relativ}.
+
+Paritmos de la ecuación de Schrödinger para la partícula libre, que es
+\be 
 	i \hbar \dpar{\psi}{t} = - \frac{\hbar^2}{2m} \nabla^2 \psi
+	\label{schro_freepart}
 \ee
 y entonces podemos hacer la cuenta 
 \[
@@ -76,9 +98,16 @@ la cual se puede reescribir como
 	\dpar{ (\psi^* \psi) }{t} +  
 	\Nabla \cdot \left( \frac{\hbar}{2mi} [\psi^* \Nabla \psi - \psi \Nabla \psi^*] \right) = 0
 \]
-que es una analogía de la conservación de la carga en electrodinámica. Recordemos que la conservación de la carga era
+que es una analogía de la conservación de la carga en electrodinámica. 
+Recordemos que la conservación de la carga era
 $ \partial_t \rho + \nabla \cdot \vb{J} = 0$.
-Tenemos entonces una especie de conservación de la probabilidad. Note que $\psi^* \psi = |\psi|^2 \geq 0$
+Entonces, la ecuación de Schrödinger se puede interpretar como una especie de conservación de la probabilidad
+en el tiempo. Notemos que $\psi^* \psi = |\psi|^2 \geq 0$.
+Todo esto parece bastante razonable y es parte del fundamento de las hipótesis básicas de la
+mecáncia cuántica.
+
+Tratando de llevar la \eqref{ham_libre_clasico} a algo relativista podemos pensar en las expresiones
+correspondientes, que son
 \[
 	E^2 = c^2 p^2 + m^2 c^4
 \]
@@ -86,25 +115,29 @@ Tenemos entonces una especie de conservación de la probabilidad. Note que $\psi
 	E = \sqrt{ c^2 p^2 + m^2 c^4 } = H \qquad \text{con} \; H\psi = E\psi
 \]
 
-Pero esto se pone muy complicado debido a la raíz
-
-\subsection{La ecuación de Klein-Gordon}
-
-Conserva el cuadrado para no complicar demasiado los reemplazos. Entonces 
+Pero esto se pone muy complicado debido a la raíz. Para evitarla se puede considerar directamente
+el cuadrado.
+Entonces,
 \[
 	H^2 = E^2 = c^2p^2 + m^2c^4
 \]
-\be \label{ec_kg}
+lo cual nos lleva a la ecuación
+\be 
 	-\hbar \dpar[2]{\psi}{t} = - \hbar^2c^2 \Nabla^2\psi + m^2 c^4 \psi
+	\label{ec_kg}
 \ee
+que es la llamada ecuación de Klein-Gordon.
+En términos de las contracciones de cuadrivectores 
 \[
-	p^\mu p_\mu = m^2c^2 \qquad -\partial_\mu\partial^\mu \psi = \frac{m^2c^2}{\hbar^2}\psi
+	p^\mu p_\mu = m^2c^2 \qquad -\partial_\mu\partial^\mu \psi = \frac{m^2c^2}{\hbar^2}\psi,
 \]
-siendo el operador $\Box^2 \equiv \partial_\mu\partial^\mu$ el dalembertiano.
+donde el operador $\Box^2 \equiv \partial_\mu\partial^\mu$ es el dalembertiano, se puede poner
+como
 \[
-	\left( \Box^2 + \frac{m^2c^2}{\hbar^2} \right) \psi = 0
+	\left( \Box^2 + \frac{m^2c^2}{\hbar^2} \right) \psi = 0.
 \]
-y procediendo de modo ídem al caso anterior,
+Ahora, procediendo de modo ídem al caso anterior, para construirme una corriente coservada
+se tienen
 \[
 	\psi^* \cdot \eqref{ec_kg} = - \hbar^2 \psi^* \partial_t^2 \psi =
 	- \hbar^2 c^2 \psi^* \nabla^2 \psi + m^2 c^4 \psi^*\psi
