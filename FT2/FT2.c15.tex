@@ -158,34 +158,55 @@ y restando ambas ecuaciones tenemos
 
 El problema es que no puede asegurarse que esta $\rho \equiv i/c^2[ \psi^* \partial_t \psi -  \psi \partial_t 
 \psi^* ]$ sea definida positiva, lo cual sería necesario para seguir una coherencia.
+
+Soluciones tipo onda plana de la anterior ecuación serían
 \[
-	\psi = N \euler^{ i/\hbar(\pe{p}{x} - Et)}
+	\psi = N \euler^{ i/\hbar(\pe{p}{x} - Et)},
 \]
+cuya derivada temporal es
 \[
-	\partial_t \psi = -N \frac{iE}{\hbar} \euler^{ i/\hbar(\pe{p}{x} - Et)}
+	\partial_t \psi = -N \frac{iE}{\hbar} \euler^{ i/\hbar(\pe{p}{x} - Et)},
 \]
-\[
+lo cual conduce a la densidad
+\begin{multline*}
 	\rho = \frac{i}{c^2}\left( N^*\euler^{ -i/\hbar(\pe{p}{x} - Et)}(-N)
-	\frac{iE}{\hbar} \euler^{ i/\hbar(\pe{p}{x} - Et)} - 
-	N \euler^{ i/\hbar(\pe{p}{x} - Et)}N^*\frac{E}{\hbar} \euler^{ i/\hbar(\pe{p}{x} - Et)}\euler^{i\pi/2}
-	\right)
-\]
+	\frac{iE}{\hbar} \euler^{ i/\hbar(\pe{p}{x} - Et)} - \right. \\ 
+	\left. N \euler^{ i/\hbar(\pe{p}{x} - Et)}N^*\frac{E}{\hbar} 
+	\euler^{ i/\hbar(\pe{p}{x} - Et)}\euler^{i\pi/2}
+	\right) 
+\end{multline*}
+o bien
 \[
-	\rho = -\frac{i}{c^2}\left( 2|N|^2 \frac{iE}{\hbar} \right) < 0 \quad \text{si} \quad E > 0
+	\rho = -\frac{i}{c^2}\left( 2|N|^2 \frac{iE}{\hbar} \right) < 0 
+	\qquad \text{si} \quad E > 0
 \]
 para una onda plana.
 Necesito considerar $E<0$ pues $E=\pm\sqrt{c^2p^2+m^2c^4}$ y la base debe ser completa.
+Las energías negativas no son un problema, pero lo que sí es un problema es
+\[
+	\rho = \frac{2E}{\hbar c^2} \Psi \Psi^*
+\]
+donde $ \Psi \Psi^* \geq 0 $ lo cual lleva a densidad de probabilidad negativa y esto es
+difícil de aceptar proque matemáticamente es incoherente.
+Además si hay energías negativas, nunca puede alcanzarse un estado fundamental y la materia
+sería inestable.
 
-La densidad $\rho$ es positiva si tuviese $E<0$ pero esto causa el problema de tener materia inestable, pues nunca se 
-alcanza el fundamental. Acá muere en este atolladero la ecuación de Klein-Gordon.
+La densidad $\rho$ es positiva si tuviese $E<0$ pero esto causa el problema de tener materia
+inestable, pues nunca se alcanza el fundamental. 
+Acá muere, en este atolladero, la ecuación de Klein-Gordon.
 
 \subsection{La ecuación de Dirac}
 
-Dirac parte de pedir una ecuación lineal en el impulso \vb{p}
+Dirac retoma la densidad negativa y por medio de un trick matemático partiendo de 
 \[
-	H = c \vb{\alpha} \cdot \vb{p} + \beta m c^2
+	H \Psi = i \hbar \dpar{\Psi}{t}
 \]
-usando $H\psi = E\psi$ y $H^2 = E^2 = c^2p^2 + ,m^2 c^4$ y con $\beta,\vb{\alpha},\vb{p}$ operadores.
+con $H^2 = E^2 = c^2p^2 + m^2c^4$ pide una ecuación lineal en el impulso \vb{p} con lo cual
+\[
+	H = c \: \vb{\alpha} \cdot \vb{p} + \beta m c^2
+\]
+usando $H\psi = E\psi$ y con $\beta,\vb{\alpha},\vb{p}$ operadores (de modo que será cuidadoso
+con la no conmutatividad). Así
 \[
 	H^2 = (c \vb{\alpha} \cdot \vb{p} + \beta m c^2)(c \vb{\alpha} \cdot \vb{p} + \beta m c^2)
 \]
@@ -194,12 +215,13 @@ usando $H\psi = E\psi$ y $H^2 = E^2 = c^2p^2 + ,m^2 c^4$ y con $\beta,\vb{\alpha
 	\beta m c^3 \alpha_i p_i + \beta^2 m^2 c^4
 \]
 \[
-	H^2 = c^2 \alpha_i \alpha_\ell p_i  p_\ell + c^3 m p_i \underbrace{( \alpha_i \beta + \beta \alpha_i )}_{=0}
-	+ \beta^2 m^2 c^4
+	H^2 = c^2 \alpha_i \alpha_\ell p_i  p_\ell + c^3 m p_i 
+	\underbrace{( \alpha_i \beta + \beta \alpha_i )}_{=0} + \beta^2 m^2 c^4
 \]
 \[
 	H^2 = 
-	c^2 \underbrace{\left( \frac{\alpha_i \alpha_\ell + \alpha_\ell\alpha_i}{2} \right)}_{\delta_{i\ell}}
+	c^2 \underbrace{\left( \frac{\alpha_i \alpha_\ell +
+	\alpha_\ell\alpha_i}{2} \right)}_{\delta_{i\ell}}
 	p_i p_\ell + m^2 c^4 \underbrace{\beta^2 }_{ = 1 }
 \]
 \[
@@ -207,7 +229,10 @@ usando $H\psi = E\psi$ y $H^2 = E^2 = c^2p^2 + ,m^2 c^4$ y con $\beta,\vb{\alpha
 	\alpha_i \beta + \beta \alpha_i= 0 \qquad
 	\beta^2 = 1
 \]
-Como se ve, estos no pueden ser simples escalares. Dirac pide 
+Como se ve, estos no pueden ser simples escalares. 
+Intentamos buscar los requisitos para que la ecuación converja al resultado relativista de
+la energía $E^2$. 
+Para ello, Dirac pide 
 \begin{itemize}
  \item $\vb{\alpha},\beta$ hermíticos
  \item $\beta^2=1 \; \alpha^2=1$ autovalores $\pm 1$
@@ -224,28 +249,41 @@ Como se ve, estos no pueden ser simples escalares. Dirac pide
 	\vb{\alpha} = \begin{pmatrix} 0 & \vec{\sigma} \\ \vec{\sigma} & 0 \\ \end{pmatrix} \qquad 
 	\beta = \begin{pmatrix} \mathbb{1} & 0 \\ 0 & -\mathbb{1} \\ \end{pmatrix}
  \]
- donde cada elemento de la matriz es de $2\times2$.
+ donde cada elemento de la matriz es de $2\times2$ porque $\sigma$ son las matrices de Pauli.
 \end{itemize}
 
-Entonces
+Por alguna oscura razón no alcanza solamente con las matrices de Pauli, entonces se prueba con las
+matrices anteriores $\alpha$ y $\beta$, que son de $4\times 4$. La función de onda será vectorial
+ahora.
+Entonces,
 \[
-	H \vec{\psi} = i \hbar \dpar{\vec{\psi}}{t}, \qquad H \in 4\times 4, \vec{\psi} \in 4\times 1, \qquad
-	\vec{\psi} = \begin{pmatrix} \psi_1 \\ \psi_2 \\ \psi_3 \\ \psi_4 \end{pmatrix}
+	H \vec{\psi} = i \hbar \dpar{\vec{\psi}}{t}, 
+	\qquad H \in 4\times 4, \vec{\psi} \in 4\times 1, \qquad
+	\vec{\psi} = \begin{pmatrix} 
+			\psi_1 \\
+			\psi_2 \\
+			\psi_3 \\
+			\psi_4
+		\end{pmatrix}
 \]
+y así podemos llegar a una ecuación válida relativísticamente hablando
 \be \label{ec_dirac}
 	i \hbar \dpar{\psi}{t} = -i \hbar c \sum_k \alpha_k \dpar{\psi}{x_k} + m c^2 \beta \psi
 \ee
+Tomándole daga y haciendo la evaluación de la densidad,
 \[
-	-i \hbar \dpar{\psi^\dagger}{t} = i \hbar c \sum_k \dpar{\psi^\dagger}{x_k}\alpha_k + m c^2\psi\alpha_k\beta
+	-i \hbar \dpar{\psi^\dagger}{t} = i \hbar c \sum_k \dpar{\psi^\dagger}{x_k}\alpha_k + 
+	m c^2\psi\alpha_k\beta
 \]
 \[
 	\psi^\dagger\cdot\eqref{ec_dirac} - \eqref{ec_dirac}^\dagger\cdot \psi \rightarrow 
 	i\hbar \dpar{}{t}(\psi^\dagger psi) = -i\hbar c \sum_k \dpar{}{x_k}(\psi^\dagger \alpha_k \psi)
 \]
 \[
-	\dpar{}{t}(\psi^\dagger psi) + c \sum_k \dpar{}{x_k}(\psi^\dagger \alpha_k \psi) = 0
+	\dpar{}{t}(\psi^\dagger \psi) + c \sum_k \dpar{}{x_k}(\psi^\dagger \alpha_k \psi) = 0
 \]
-Y si $\rho \equiv \psi^\dagger\psi$ ahora tenemos una densidad de proababilidad como requiere la naturaleza.
+Y si $\rho \equiv \psi^\dagger\psi$ ahora tenemos una densidad de probabilidad como requiere la naturaleza.
+Todo esto es para la partícula libre.
 
 \subsection{Ejemplo: partícula libre quieta}
 
@@ -258,18 +296,34 @@ Sea una partícula libre en reposo,
 \]
 \[
 	i \hbar \dpar{}{t} \begin{pmatrix} \psi_1 \\ \psi_2 \\ \psi_3 \\ \psi_4  \end{pmatrix} =
-	\begin{pmatrix} mc^2 & 0 & 0 & 0 \\ 0 & mc^2 & 0 & 0 \\ 0 & 0 & -mc^2 & 0 \\ 0 & 0 & 0 & -mc^2 \end{pmatrix}
-	\begin{pmatrix} \psi_1 \\ \psi_2 \\ \psi_3 \\ \psi_4  \end{pmatrix}
+	\begin{pmatrix}
+	mc^2 & 0 & 0 & 0 \\ 
+	0 & mc^2 & 0 & 0 \\ 
+	0 & 0 & -mc^2 & 0 \\ 
+	0 & 0 & 0 & -mc^2 
+	\end{pmatrix}
+	\begin{pmatrix}
+	\psi_1 \\ 
+	\psi_2 \\ 
+	\psi_3 \\ 
+	\psi_4  
+	\end{pmatrix}
 \]
 Tenemos cuatro ecuaciones, dos con energía positiva y dos con energía negativa
 \[
 	i \hbar \dpar{\psi_i}{t} = mc^2 \psi_i \qquad i \hbar \dpar{\psi_i}{t} = -mc^2 \psi_i
 \]
+donde hemos de remarcar que no nos hemos desecho de las energías negativas,
 \[
 	\psi_1 = \euler^{-imc^2t/\hbar}\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0  \end{pmatrix} \qquad 
 	\psi_3 = \euler^{imc^2t/\hbar}\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0  \end{pmatrix}
 \]
-Como aún tenemos degeneración de orden dos, necesitaremos un operadore que conmute con el $H$
+\[
+	\psi_2 = \euler^{-imc^2t/\hbar}\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0  \end{pmatrix} \qquad 
+	\psi_4 = \euler^{imc^2t/\hbar}\begin{pmatrix} 0 \\ 0 \\ 0 \\ 1  \end{pmatrix}
+\]
+Como aún tenemos degeneración de orden dos, necesitaremos un operador que conmute con el 
+hamiltoniano $H$ para discriminar entre estados. Se define
 \[
 	\vec{\Sigma} = \begin{pmatrix} \vec{\sigma} & 0 \\ 0 & \vec{\sigma} \\ \end{pmatrix} \qquad 
 	[H,\vec{\Sigma}] = 0
@@ -286,16 +340,46 @@ Podemos identificar
 \[
 	\vec{S} = \frac{\hbar}{2} \vec{\Sigma}
 \]
+de modo que tenemos dos estados para energía positiva $ E > 0 $ que son $ S_z = \pm \hbar/2 $ y
+dos estados con energía negativa $ E < 0 $ con $S_z = \pm \hbar / 2 $; es decir un total de cuatro
+combinaciones diferentes.
+
+Luego, si $p \neq 0$ entonces
 \[
-	\text{si} \; p \neq 0  \Rightarrow [H, \vb{\Sigma}] = 2ic \vb{\alpha} \times \vb{p}
+	[H, \vb{\Sigma}] = 2 i c \: \vb{\alpha} \times \vb{p}
 \]
+y como $\vb L = \vbx \times \vb p $ se tiene
+\[
+	[ H, \vb L] = - i \hbar c \: \vb{\alpha} \times \vb{p}
+\]
+pero, utilizando el $\vb S$ previamente definido,
+\[
+	[ H, \vb L + \frac{\hbar}{2}\vb{\Sigma} ] =  0.
+\]
+Esta ecuación da el spin correcto, el factor giromagnético de Landé, etc. Todo ello metido en la misma
+desde el vamos.
 
 \subsection{Energías negativas}
 
-Como $E = \pm  \sqrt{ c^2 p^2 + m^2 c^4 } $ hay $E<0$ y además un {\it gap} de ancho $2mc^2$ entre ellas.
+Veamos ahora el asunto de las energías negativas.
+
+Como 
+\[
+	E = \pm  \sqrt{ c^2 p^2 + m^2 c^4 }
+\]
+hay $E<0$ y además un {\it gap} de ancho $2mc^2$ entre ellas. Veamos la ilustración aqui abajo.
+
+\includegraphics[width=0.5\textwidth]{images/fig_ft2_energias_negativas_1.jpg}
+
+El problema es que dado que la materia es estable, en este caso buscaría su grado de estabilidad mayor,
+decaer a energía menor, y no tendría límite puesto que siempre puede ir a un nivel de energía menor; pero
+nunca quedaría estable.
 Las $E<0$ harían que la materia jamás alcance un estado fundamental y por ende jamás se estabilice.
-Dirac piensa que los estados de $E<0$ están todos llenos. No decaen más electrones allí dentro. Es el mar de 
-Dirac. Iluminando ese vacío se lo puede excitar.
+Dirac piensa que los estados de $E<0$ están todos llenos. No decaen más electrones allí dentro. 
+Este vacío lleno se llamó {\it mar de Dirac}. Iluminando ese vacío se lo puede excitar.
+
+\includegraphics[width=0.4\textwidth]{images/fig_ft2_energias_negativas_2.jpg}
+\includegraphics[width=0.6\textwidth]{images/teo2_14.pdf}
 
 \begin{figure}[htb]
 	\begin{center}
@@ -305,24 +389,186 @@ Dirac. Iluminando ese vacío se lo puede excitar.
 \end{figure} 
 
 Podemos hacer saltar a la zona positiva una carga $(-e)$ dejando un huevo positivo (equivalente a una carga 
-$+e$). Es una creación e pares $\gamma \to e^-e^+$, sin embargo el proceso inverso $ e^-e^+ \to \gamma$ de 
+$+e$). Es una creación de pares $\gamma \to e^-e^+$, sin embargo el proceso inverso $ e^-e^+ \to \gamma$ de 
 aniquilación de pares ocurre prontamente.
-Se observó experimentalmente.
 
-\begin{figure}[htb]
-	\begin{center}
-	\includegraphics[width=0.6\textwidth]{images/teo2_14.pdf}
-	\end{center}
-	\caption{}
-\end{figure} 
-
-Fotos extra para el asunto de las energías negativas a continuación:
-
-\includegraphics[width=0.6\textwidth]{images/fig_ft2_energias_negativas_1.jpg}
-
-\includegraphics[width=0.6\textwidth]{images/fig_ft2_energias_negativas_2.jpg}
+El agujero se llena rápidamente con un electrón de $ E > 0 $ en un proceso de aniquilación de pares.
 
 \includegraphics[width=0.6\textwidth]{images/fig_ft2_energias_negativas_3.jpg}
+
+
+Se observó experimentalmente.
+Sin embargo, esto es para fermiones únicamente.
+Los bosones no obedecen principio de exclusión entonces no esperaríamos formar materia estable con bosones.
+Feynman interpreta energías negativas como partículas yendo hacia atrás en el tiempo.
+
+
+\begin{ejemplo}{\bf Ejercicio surtido 1}
+ 
+Consideramos tres fermiones en un pozo de potencial 1D de longitud L. Son fermiones imaginarios sin spin.
+\[
+	V = \begin{cases}
+	     0      & 0 \geq x \geq L \\
+	     \infty & \text{Otro lugar }
+	    \end{cases}
+\]
+Cada partícula se describe con un número $n$ de energía
+\[
+	\Ket{\vp_n(x)} = \sqrt{ \frac{2}{L} } \sin\Frac{n\pi x}{L} \qquad 
+	E_n = \frac{\pi^2\hbar^2}{2 m L^2} n^2 
+\]
+y como los fermiones no tienen que estar en un mismo nivel de energía, tendremos para el nivel
+fundamental posibilidades como
+\[
+	E_0 = \frac{\pi^2\hbar^2}{2 m L^2} ( 1^2 + 2^2 + 3^2 )
+\]
+de manera que 
+\[
+	\Ket{\Psi} = \frac{1}{\sqrt{N!}} \sum_{\a} \mathcal{E}_\a P_\a \Ket{\Psi} =
+	\frac{1}{\sqrt{N!}}
+	\begin{pmatrix}
+	\Ket{1;\vp_1} & \Ket{1;\vp_2} & \Ket{1;\vp_3} \\
+	\Ket{2;\vp_1} & \Ket{2;\vp_2} & \Ket{2;\vp_3} \\
+	\Ket{3;\vp_1} & \Ket{3;\vp_2} & \Ket{3;\vp_3} 
+	\end{pmatrix}
+\]
+que es el determinante de Slater (una fila por partícula) y donde 
+\[
+	\mathcal{E}_\a = \begin{cases}
+	 1  & \a \; \text{par} \\
+	 -1 & \a \; \text{impar} 
+	\end{cases}
+\]
+Entonces,
+\begin{multline*}
+	\Ket{\Psi} = \frac{1}{\sqrt{ 3! }} 
+	\left[ 
+	\Ket{ 1, \vp_1 ; 2 \vp_2, 3 \vp_3} + \Ket{ 1, \vp_3 ; 2 \vp_1, 3 \vp_2} + 
+	\Ket{ 1, \vp_2 ; 2 \vp_3, 3 \vp_1}  \right. \\
+	\left. - \Ket{ 1, \vp_3 ; 2 \vp_2, 3 \vp_1} - \Ket{ 1, \vp_1 ; 2 \vp_3, 3 \vp_2} -
+	\Ket{ 1, \vp_2 ; 2 \vp_1, 3 \vp_3}
+	\right] 
+\end{multline*}
+donde el signo menos es por número de permutaciones impar (anticíclico) y el signo más por un número
+par de permutaciones (cíclico).
+
+Ahora supongamos que las partículas son electrones, en lugar de fermiones. Sea $s=1/2$,
+\[
+	\Ket{\vp + } = \sqrt{\frac{2}{L}} \: \sin\Frac{n \pi x}{L} \begin{pmatrix}
+	                                                            1 \\
+	                                                            0
+	                                                           \end{pmatrix}
+\]
+\[
+	\Ket{\vp - } = \sqrt{\frac{2}{L}} \: \sin\Frac{n \pi x}{L} \begin{pmatrix}
+	                                                            0 \\
+	                                                            1
+	                                                           \end{pmatrix}
+\] 
+
+\includegraphics[width=0.6\textwidth]{images/fig_ft2_ubicacion_niveles.jpg}
+
+Luego, para la izquierda
+\[
+	\Ket{\Psi_A} =
+	\frac{1}{\sqrt{N!}}
+	\begin{pmatrix}
+	\Ket{1;\vp_1 +} & \Ket{1;\vp_1 -} & \Ket{1;\vp_2 +} \\
+	\Ket{2;\vp_1 +} & \Ket{2;\vp_1 -} & \Ket{2;\vp_2 +} \\
+	\Ket{3;\vp_1 +} & \Ket{3;\vp_1 -} & \Ket{3;\vp_2 +} 
+	\end{pmatrix}
+\]
+y para la derecha
+\[
+	\Ket{\Psi_A} =
+	\frac{1}{\sqrt{N!}}
+	\begin{pmatrix}
+	\Ket{1;\vp_1 +} & \Ket{1;\vp_1 -} & \Ket{1;\vp_2 -} \\
+	\Ket{2;\vp_1 +} & \Ket{2;\vp_1 -} & \Ket{2;\vp_2 -} \\
+	\Ket{3;\vp_1 +} & \Ket{3;\vp_1 -} & \Ket{3;\vp_2 -} 
+	\end{pmatrix}
+\]
+donde hay que aclarar que aquí no hemos factorizado.
+
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejercicio surtido 2}
+
+Sean dos orbitales espaciales ortonormales y los estados de spin siguientes
+$\Ket{\vp}, \Ket{\xi}$ ortonormales y $\Ket{+}, \Ket{-}$.
+En la parte a) tenemos dos electrones $\Ket{\vp +}, \Ket{\xi -}$ y hay que calcular la probabilidad de
+hallar $\rho_{11}(\vbx,\vbx') d^3x d^3x'$ pero como son dos electrones el sistema se
+hallará en un autoestado antisimétrico.
+\[
+	\Ket{\Psi_A} = \frac{1}{\sqrt{2}}
+	\begin{pmatrix}
+		\Ket{1 \vp +} & \Ket{1 \xi -} \\
+		\Ket{2 \vp +} & \Ket{2 \xi -}
+	\end{pmatrix}
+\]
+\[
+	\Ket{\Psi_A} = \frac{1}{\sqrt{2}}
+	\left(  \Ket{1 \vp +} \Ket{2 \xi -} - \Ket{1 \xi -}\Ket{2 \vp +}
+	\right)
+\]
+y la densidad de probabilidad es
+\[
+	\rho = | \Braket{ \vbx \vbx' | \Psi_A } |^2 = \Psi^*_A(\vbx,\vbx') \Psi_A(\vbx,\vbx')
+\]
+que descomponiendo en términos es algo como
+\begin{multline*}
+ \frac{1}{2} \left[ \Bra{1 \vp^*(\vbx) + } \Braket{ 2 \xi^*(\vbx') - | 1 \vp(\vbx) + } 
+ \Ket{ 2 \xi(\vbx') - }  \right. + \\
+ \left. \Bra{1 \xi^*(\vbx)} \Bra{-} \Bra{2 \vp^*(\vbx')} \Braket{ + | 1 \xi(\vbx) } \Ket{-}
+	\Ket{2 \vp(\vbx') + } + 0 \right]
+\end{multline*}
+que resulta
+\[
+	\frac{1}{2} \left[
+	| \vp(\vbx) |^2 | \xi(\vbx') |^2 + | \vp(\vbx') |^2 | \xi(\vbx) |^2 + 0 
+	\right] 
+\]
+donde la ortogonalidad de los spines hace nulo el término de interferencia.
+
+En la parte b) hay que calcular
+\[
+	\rho_I(\vbx) d^3x = \int_{-\infty}^\infty d^3x \rho_{II}(\vbx,\vbx') =
+	\frac{1}{2}( |\vp(\vbx)|^2 + |\xi(\vbx)|^2).
+\]
+obteniéndose el último término por ortonormalización.
+
+Para la parte c) si no son ortogonales las funciones siguen valiendo, porque los términos que
+hemos matado lo hemos hecho merced a ortogonalidad de spin.
+
+La parte d) ahora suponemos que los electrones con estado de spin
+\[
+	\Ket{\Psi_A} = \frac{1}{\sqrt{2}}
+	\begin{pmatrix}
+		\Ket{1 \vp +} & \Ket{1 \xi +} \\
+		\Ket{2 \vp +} & \Ket{2 \xi +}
+	\end{pmatrix}
+\]
+\[
+	\Ket{\Psi_A} = \frac{1}{\sqrt{2}}
+	\left(  \Ket{1 \vp +} \Ket{2 \xi +} - \Ket{1 \xi +}\Ket{2 \vp +}
+	\right)
+\]
+y consecuentemente
+\[
+	\rho_{II}(x,x')d^3xd^3x' = \frac{1}{2}
+	\left[ 
+	| \vp(\vbx) |^2 | \xi(\vbx') |^2 + | \vp(\vbx') |^2 | \xi(\vbx) |^2
+	- 2 \mathfrak{Re}( \vp(\vbx)\vp(\vbx')^*\xi(\vbx)^*\xi(\vbx')  )
+	\right]
+\]
+tendremos los dos términos anteriores más el de interferencia, que no se anula ahora.
+Luego, al integrar por ortogonalidad se nula la interferencia y $\rho_I(\vbx)$ da lo
+mismo que antes.
+
+\end{ejemplo}
+
+
+
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
