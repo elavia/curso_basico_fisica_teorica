@@ -3,8 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -33,6 +33,50 @@
 \chapter{Básicos de termodinámica}
 % =================================================================================================
 
+El que un cuerpo sea, a efectos termodinámicos, macroscópico o no dependerá de la relación entre las 
+distancias características entre los componentes y el tamaño total teniendo en cuenta el potencial que 
+hace interactuar a las partículas.
+Así, por ejemplo, una galaxia no es un cuerpo macroscópico mientras que un barril de cerveza sí lo es.
+
+El equilibrio termodinámica se da cuando macroscópicamente nada pasa en el sistema, aunque microscópicamente
+siempre está sucediendo algo.
+
+Una pared rígida y adiabática implica que no puedo interactuar con él; en cambio una pared rígida implica
+solamente que no puedo interactuar por medios mecánicos [explicar].
+
+El concepto de estado conlleva el desinterés por la manera en que llego a ese estado. Una variable 
+termodinámica no puede depender de cómo el sistema llega a ese estados; por ello esa variable $F$ es un
+diferencial exacto, es decir que
+\[
+	\oint dF = 0 \qquad \text{ y } \qquad F(b)-F(a) = \int_a^b dF
+\]
+implica que $F$ es variable de estado.
+
+El gas ideal es tal que las partículas no interactúan entre sí. Es una aproximación de gases diluídos que
+funciona bien a baja densidad.
+Podemos expandir una expresión en términos de la densidad, lo cual se conoce como ecuación del virial.
+
+Se busca hallar los coeficientes de dicha expansión a cada orden
+\[
+	p = \frac{nRT}{V}\left( 1 + \frac{n}{V} B(T) + \Frac{n}{V}^2 C(T) + ... \right)
+\]
+donde $B,C,...$ son los coeficientes del virial.
+Van der Waals, según veremos después, es una primera corrección al gas ideal.
+
+Se tiene el potencial de Lenard-Jones, que es de la forma $V \sim (x^{-12} - x^{-6} ) $
+
+
+En la ecuación de estado del gas ideal se tiene que todo el volumen es accesible todo el tiempo (el gas
+puede ocupar todo el volumen).
+
+Partículas no interactuantes (no tienen volumen)
+
+En la expresión de Van der Waals,
+\[
+	p = \frac{nRT}{V - nb} - a \Frac{n}{V}^2
+\]
+el denominador del primer término tiene en cuenta el carozo, mientras que el segundo término tiene en
+cuenta la disminución de presión (que es un efecto de las colas).
 
 % =================================================================================================
 \section{Energía y entropía}

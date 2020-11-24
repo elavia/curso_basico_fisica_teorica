@@ -3,8 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -59,11 +59,11 @@ Definimos un operador de densidad,
 \notamargen{Promedio en el ensamble de la interferencia cuántica entre $\phi_m$ y $\phi_n$. $p_k$ es la probabilidad
 del estado $k$.}
 \[
-	\rho_{mn} \equiv \sum_{k=1}^\mathcal{N} p_k a_m^k (a_n^k)^*
+	\rho_{mn} \equiv \sum_{k=1}^{\mathcal{N}} p_k a_m^k (a_n^k)^*
 \]
 el cual proviene de 
 \[
-	\hat{\rho}_{mn} = \sum_{k=1}^\mathcal{N} p_k \Ket{\Psi^k}\Bra{\Psi^k}
+	\hat{\rho}_{mn} = \sum_{k=1}^{\mathcal{N}} p_k \Ket{\Psi^k}\Bra{\Psi^k}
 \]
 \notamargen{¿Y los índices $mn$ capo?}
 
@@ -75,8 +75,8 @@ un teorema de Liouville cuántico.
  
 Sea el valor medio de $ \hat{G} $
 \[
-	\braket{G}_{ENS} = \sum_{k=1}^\mathcal{N} p_k \braket{G}_k = 
-	\sum_{k=1}^\mathcal{N} p_k \braket{\Psi^k|\hat{G}|\Psi^k}_k = 
+	\braket{G}_{ENS} = \sum_{k=1}^{\mathcal{N}} p_k \braket{G}_k = 
+	\sum_{k=1}^{\mathcal{N}} p_k \braket{\Psi^k|\hat{G}|\Psi^k}_k = 
 	\sum_k p_k \int \sum_i a_i^{k*}\phi_i^* \hat{G}\sum_j a_j^k\phi_j dx
 \]
 \[
@@ -99,13 +99,13 @@ Ahora, si el conjunto $\{ \phi_n \}$ fuesen autoestados de $\hat{G}$ entonces
 
 La matriz densidad $\hat{\rho}$ se define de modo que sus elementos $\rho_{ij}$ resultan 
 \[
-	\braket{\phi_i|\hat{\rho}|\phi_j} = \sum_{k=1}^\mathcal{N} p_k \braket{\phi_i|\Psi^k} \braket{\Psi^k|\phi_j} =
-	\sum_{k=1}^\mathcal{N} p_k \int dx \phi^*_i \sum_l a_l^k \phi_l \int dx' \phi_j \sum_m a_m^{k*} \phi_m^*
+	\braket{\phi_i|\hat{\rho}|\phi_j} = \sum_{k=1}^{\mathcal{N}} p_k \braket{\phi_i|\Psi^k} \braket{\Psi^k|\phi_j} =
+	\sum_{k=1}^{\mathcal{N}} p_k \int dx \phi^*_i \sum_l a_l^k \phi_l \int dx' \phi_j \sum_m a_m^{k*} \phi_m^*
 \]
 \[
 	\braket{\phi_i|\hat{\rho}|\phi_j} = 
-	\sum_{k=1}^\mathcal{N} p_k \sum_l \sum_m a_l^k a_m^{k*} \int dx \phi^*_i \phi_l \int dx' \phi_j \phi_m^* =
-	\sum_{k=1}^\mathcal{N} p_k \sum_l \sum_m a_l^k a_m^{k*} \delta_{il}\delta_{jm}
+	\sum_{k=1}^{\mathcal{N}} p_k \sum_l \sum_m a_l^k a_m^{k*} \int dx \phi^*_i \phi_l \int dx' \phi_j \phi_m^* =
+	\sum_{k=1}^{\mathcal{N}} p_k \sum_l \sum_m a_l^k a_m^{k*} \delta_{il}\delta_{jm}
 \]
 \[
 	\rho_{ij} = \sum_k p_k a_i^k a_j^{k*}
@@ -120,7 +120,7 @@ En la práctica los ensambles serán mezcla, una superposición de estados puros
 que 
 \notamargen{Es muy difícil preparar un ensamble puro.}
 \[
-	\hat{\rho} = \sum_{k=1}^\mathcal{N} p_k \Ket{\Psi^k}\Bra{\Psi^k} \qquad p_k \geq 0 \quad \sum_k p_k = 1 
+	\hat{\rho} = \sum_{k=1}^{\mathcal{N}} p_k \Ket{\Psi^k}\Bra{\Psi^k} \qquad p_k \geq 0 \quad \sum_k p_k = 1 
 \]
 donde $p_k$ serán las {\it abundancias relativas} de los estados puros $\Psi^k$.
 
@@ -173,8 +173,8 @@ Se tiene que $ \hat{\rho} $ es diagonal para un operador $\hat{G}$ tal que utili
 
 Querremos que esto valga para cualquier base entonces necesitaremos que las fases sean números aleatorios:
 \[
-	\rho_{ij} = \sum_k^\mathcal{N} p_k a_i^{k*} a_j^k = 
-	\sum_k^\mathcal{N} p_k | a_i^k | | a_j^k |\euler^{i( \theta_i^k - \theta_j^k )}
+	\rho_{ij} = \sum_k^{\mathcal{N}} p_k a_i^{k*} a_j^k = 
+	\sum_k^{\mathcal{N}} p_k | a_i^k | | a_j^k |\euler^{i( \theta_i^k - \theta_j^k )}
 \]
 y asi además son equiprobables (microcanónico) los estados base accesibles,
 \[
@@ -182,7 +182,7 @@ y asi además son equiprobables (microcanónico) los estados base accesibles,
 \]
 y asimismo pedimos que para cada miembro del ensamble la amplitud sea la misma, se tiene 
 \[
-	\rho_{ij} = | a_i | | a_j | \frac{1}{\mathcal{N}} \sum_k^\mathcal{N} \euler^{i( \theta_i^k - \theta_j^k )}
+	\rho_{ij} = | a_i | | a_j | \frac{1}{\mathcal{N}} \sum_k^{\mathcal{N}} \euler^{i( \theta_i^k - \theta_j^k )}
 	= | a_i | | a_j | \delta_{ij}
 \]
 donde se han usado fases al azar, de modo que 
@@ -218,7 +218,7 @@ y al final del día
 	\Omega = 1 \text{ ensamble puro } \qquad \qquad S = k\log \Omega = 0
 \]
 \[
-	\rho_{mn} = \frac{1}{\mathcal{N}} \sum_k^\mathcal{N} a_m^{k*} a_m^k = a_m a_n^* 
+	\rho_{mn} = \frac{1}{\mathcal{N}} \sum_k^{\mathcal{N}} a_m^{k*} a_m^k = a_m a_n^* 
 \]
 si es la misma $\Psi \forall k$ el sistema se halla en una combinación lineal de $\phi_n$, o bien
 \[
