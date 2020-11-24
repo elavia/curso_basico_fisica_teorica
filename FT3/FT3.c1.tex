@@ -65,6 +65,7 @@ Van der Waals, según veremos después, es una primera corrección al gas ideal.
 
 Se tiene el potencial de Lenard-Jones, que es de la forma $V \sim (x^{-12} - x^{-6} ) $
 
+fig p1
 
 En la ecuación de estado del gas ideal se tiene que todo el volumen es accesible todo el tiempo (el gas
 puede ocupar todo el volumen).
@@ -78,18 +79,78 @@ En la expresión de Van der Waals,
 el denominador del primer término tiene en cuenta el carozo, mientras que el segundo término tiene en
 cuenta la disminución de presión (que es un efecto de las colas).
 
+Al introducir la pared, a su derecha no hay partículas. Una del costado percibe el desbalance porque
+desde el lado de la pared no hay partículas que le hagan fuerza.
+
+fig p2 1
+
+El desbalance hace que se frenen (es decir que tiendan a chocar menos contra la pared) y sientan por
+ello menor presión (fuerza neta hacia adentro).
+
+Las leyes de la termodinámica contienen toda la información.
+
 % =================================================================================================
 \section{Energía y entropía}
 % =================================================================================================
 
-Una de las formulaciones de la 2da ley es definir la entropía. Surge de:
+Consideremos en primer lugar la energía; la aditividad de la energía.
+
+Al seperar un sistema construyo una pared
+
+fig p2 2
+
+y si la energía era $E = E_1 + E_2 + H_{12}$ paso a considerar, al separarlos, que $E= E_1 + E_2$.
+¿Bajo qué condición se da que $H_{12} \sim 0$ ? Para ello considero el potencial segundo
+
+fig p2 3
+
+La $E \geq V_0(\rho V)n_p$ el rango del potencial aceptará $1,2,...,i$ capas de vecinos. La primer capa
+tendrá 6 vecinos. Si el potencial es gravitatorio interactúa con todos los vecinos, si su alcance es corto
+interactuará con un número $i$ chico.
+
+fig p2 4 y 5
+
+El volumen de la interfase asociada al rango de interacción es $V'$. Entonces $ E_1 + E_2 $ con 
+$H_{12} = V_0 \rho V n_p $.
+
+Luego, si el rango de interacción es finito, entonces $H_{12} \sim 0$ y la energía es aditiva.
+Si el rango de interacción no decae rápidamente entonces $H_{12} \neq 0$.
+Se puede decir entonces que
 \[
-	\frac{Q_1}{Q_2} = -\frac{T_1}{T_2} \qquad \Rightarrow \frac{Q_1}{Q_2} + \frac{T_1}{T_2} = 0 \;
-	\text{reversible}
+	E = E_1 + E_2 \qquad \Longleftrightarrow \qquad  \text{ El rango de la interacción es pequeño }
 \]
+
+La energía no es aditiva para sistemas coulombianos puros, gravitatorios o sistemas muy pequeños
+porque allí el tamaño del sisistema es del orden de la interacción y no tiene sentido dividirlo.
+
+El trabajo se puede escribir en general como
 \[
-	\int \frac{dQ}{T} \leq 0 \qquad \text{desigualdad de Clausius}
+	dW = p dV - J dL - \sigma dA - \vb{E}\cdot d\vb{P}
+\]
+\notamargen{$dW$ es un diferencial inexacto salvo en los casos en que el trabajo es adiabático.}
+y además
+\[
+	\sum_{j} \mu_j dN_j \leftarrow \text{ Flujo de materia }
+\]
+La segunda ley de la termodinámica se enuncia en el siglo XVIII en el medio de la revolución industrial.
+Aplicada a máquinas de vapor.
+
+Una de las formulaciones de la 2da ley es definir la entropía. 
+Surge de una escala de temperatura absoluta que emana desde
+\[
+	\frac{Q_1}{Q_2} = -\frac{T_1}{T_2} 
+	\qquad \Rightarrow \qquad 
+	\frac{Q_1}{Q_2} + \frac{T_1}{T_2} = 0 \quad
+	\text{ reversible}
+\]
+que desemboca en la desigualdad de Clausius
+\[
+	\int \frac{dQ}{T} \leq 0.
 \] 
+De esto deducimos que $dQ/T$ es una diferencial exacta en el caso de sistemas reversibles.
+
+\notamargen{$S$ será aditiva cuando $E$ sea aditiva.}
+
 Proceso reversible en un sistema aislado
 \[
 	S_{A\to B} = \int_A^B dS = 0
@@ -122,7 +183,7 @@ En reversibles
 \]
 mientras que en irreversibles
 \[
-	dU = ddQ_I - pdV +\mu dN, \quad \text{pero} \quad dQ_I < TdS 
+	dU = dQ_I - pdV +\mu dN, \quad \text{pero} \quad dQ_I < TdS 
 \]
 y entonces
 \[
@@ -134,14 +195,22 @@ y entonces
 % 	\end{center}
 % 	\caption{}
 % \end{figure} 
-Si $S$ es homogénea, se tiene
+La entropía da un criterio para el equilibrio en sistemas aislados; el equilibrio es
+equivalente al máximo de entropía.
+
+
+\subsection{Funciones extensivas y homogéneas}
+
+La entropía es extensiva y aditiva. 
+Si $S$ es homogénea de primer orden de $U,V,N_j$ se tiene
 \[
 	S = S(\lambda U, \lambda X, \{\lambda N_i\}) = \lambda S( U, X, \{ N_i\})
 \]
 y además si \notamargen{En un sistema $PVT$ $Y=-p$.}
 \[
-	TdS = dU - YdX - \mu_i dN_i
+	TdS = dU - YdX - \mu_i dN_i,
 \]
+donde $Y$ es una fuerza generalizada y $dX$ un desplazamiento generalizado,
 \[
 	\dtot{S}{\lambda} = S = \dpar{S}{\lambda U}\dtot{\lambda U}{\lambda} +
 	\dpar{S}{\lambda X}\dtot{\lambda X}{\lambda} +
@@ -164,8 +233,59 @@ y arribamos a la ecuación fundamental
 \]
 o bien
 \[
-	U = TS + YX + \sum_i \mu_i N_i
+	U = TS + YX + \sum_i \mu_i N_i.
 \]
+
+\begin{ejemplo}{\bf Los mínimos de potencial y el equilibrio}
+
+Considerando $W_{\text{libre}}$ un trabajo diferente del volumétrico, podemos poner
+\[
+	\Delta W = \int p dV + \Delta W_{\text{libre}}
+\]
+y $\Delta U$ se comporta como un reservorio donde guardo trabajo; de allí el concepto de potencial.
+En un sistema con entropía constante $S$ tengo otro concepto de equilibrio
+\[
+	(\Delta H)_{{S,V,N}\text{rev}} = -  \Delta W_{\text{libre}}
+\]
+de modo que
+\[
+	(\Delta H)_{{S,V,N}} < -  \Delta W_{\text{libre}}
+\]
+Puedo pasar entre funciones de estado con la transformada de Legendre. Se puede demostrar que
+transforma diferenciales exactas en diferenciales exactas y funciones homogéneas en
+funciones homogéneas.
+\[
+	(\Delta H)_{S,N,Y} \geq 0 \quad 
+	\text{ Es mínimo en el equilibrio, $H$ es la entalpía }
+\]
+\[
+	(\Delta A)_{T,V,N} \geq 0 \quad 
+	\text{ Es mínimo en el equilibrio, $A$ es la energía libre de Helmholtz }
+\]
+EL potencial $A$ es más {\it usable} que $H$ porque $T,V,N$ constantes son experimentalmente
+más logrables.
+\[
+	(\Delta G)_{T,P,N} \geq 0 \quad 
+	\text{ Es mínimo en el equilibrio, $G$ es la energía libre de Gibbs }
+\]
+
+Podemos resumir estos hechos, interesantes, en el siguiente cuadro
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+$S$ & máximo & sistema aislado \\
+$E$ & mínimo & $S,V,N$ \\
+$H$ & mínimo & $S,P,N$ \\
+$A$ & mínimo & $T,V,N$ \\
+$G$ & mínimo & $T,P,N$ \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\end{ejemplo}
+
 
 La primera ley (en sistemas reversibles) era 
 \[
