@@ -370,6 +370,122 @@ energética
 \]
 
 % =================================================================================================
+\section{Introducción a algunas ideas}
+% =================================================================================================
+
+Lo que sigue parece ser un enfoque de la termodinámica, más formal, siguiendo el libro de H.B. Callen (que
+es un libro recomendado)
+
+Consideramos esto como un sistema macroscópico; de la mecánica podemos ver que se moverá en modos
+normales.
+
+\includegraphics[width=0.80\textwidth]{images/1606329005.jpg}
+
+Consideramos: 1) variables ocultas, 2) variables mecánicas y 3) variables eléctricas.
+En una descripción promedio 1) no lo percibo, pero 2) sí porque incluye cambios en volumen y 3) lo veré
+porque varía el momento dipolar eléctrico.
+No puedo medir estos modos pero sí verlos macroscópicamente.
+
+Las variables ocultas estarán asociadas a una energía interna
+\[
+	W = \Delta K + \Delta P_0
+\]
+\[
+	W + q = \Delta K + \Delta P_0 + \Delta U
+\]
+donde $q$ está asociado a los grados de libertad ocultos. En termodinámica, no trataremos de las formas de 
+energía macroscópicas (cinética y potencial). Considero el cuerpo fijo en el centro de masas, etc. y me
+preocupo solamente de la energía interna
+\[
+	W + Q = \Delta U
+\]
+de modo que entonces, considerando $\delta W$ un diferencial inexacto se puede escribir
+\[
+	\delta W = - p dV + J d\ell + \sigma dA + E dP
+	+ H dM + \phi de + \sum_{i} \: \mu_i dN_i
+\]
+El primer término es el trabajo mecánico, el segundo y tercero son el trabajo de longitud y de superficie,
+respectivamente, que multiplican un diferencial de longitud y área por la tensión lineal $J$ y la tensión
+superficial $\sigma$. Luego el cuarto y quinto términos son los trabajos de variación del momento dipolar
+y magnético, mientras que el sexto es el trabajo asociado a la electrostática y finalmente la sumatoria
+contempla el trabajo para variar el número de partículas de una especie siendo $\mu_i$ el potencial químico
+asociado a la especie $i$-ésima.
+
+El trabajo siempre es producto de una variable extensiva por una intensiva (son conjugadas una de otra).
+En general
+\[
+	\delta W = Y dX
+\]
+donde $Y$ es una fuerza generalizada (intensiva) y $dX$ es un desplazamiento generalizado (extensivo).
+
+Se puede construir la termodinámica sobre los hombros de cuatro postulados.
+\begin{enumerate}
+ \item Se postula la existencia de estados de equilibrio caracterizados por 
+ \[
+	U, V, N_1, ..., N_r \qquad \text{ ($r$ especies) }
+ \]
+ \item Existe una función llamada entropía $S$ con
+ \[
+	S = S(U, V, N_1, ..., N_r)
+ \]
+ definida para los estados de equilibrio. Los valores que toman los parámetros extensivos en
+ ausencia de ligaduras internas son aquellos que maximizan la entropía.
+ \item La entropía es aditiva, continua y diferenciable y además es una función creciente de la
+ energía interna
+ \[
+	\dpare{S}{U}{V,N} > 0,
+ \]
+ de aquí saldrá el hecho de que $T > 0$ (las temperaturas serán definidas positivas).
+ Entonces, en un sistema compuesto
+ 
+\includegraphics[width=0.30\textwidth]{images/1606329014.jpg}
+ 
+ se tiene 
+ \[
+	S = S_1 + S_2 \qquad \qquad S = S_1(U_1,V_1,\mu_1) + S_2(U_2,V_2,\mu_2)
+ \]
+ de modo que si se retira la ligadura interna el sistema se equilibrará variando las entropías $S_1,S_2$
+ maximizando $S$. Las variables $U_i,V_i,\mu_i$ se acomodan para hacer $S$ máxima.
+ \item Cuando la entropía sea nula se tiene
+ \[
+	\dpare{S}{U}{V,N} = 0,
+ \]
+ lo cual es equivalente al tercer principio.
+\end{enumerate}
+
+Como consecuencia de la aditividad se tiene
+\[
+	S(\lambda U, \lambda V, \lambda N_1, ..., \lambda N_r ) =
+	\lambda S(U,V,N_1,...,N_r),
+\]
+es decir que $S$ es homogénea de grado 1, lo cual sobreviene de haberle pedido por postulado dicha
+característica. Se puede pasar de $S(U,V,N)$ a $U(S,V,N)$ que es la ecuación fundamental.
+Luego, obtengo todo lo demás utilizando los postulados.
+
+La energía en $U(T,V,N)$ no es fundamental porque no involucra cantidades extensivas; la definición
+de $S$ anterior involucra cantidades extensivas, no intensivas.
+Una variación a primer orden de $U$ resulta en
+\[
+	dU = \dpare{U}{S}{V,N} \: dS + \dpare{U}{V}{S,N} \: dV + \dpare{U}{N}{S,V} \: dN
+\]
+donde las derivadas parciales son, respectivamente, $T,-p$ y $\mu$ (consideramos una única especie).
+
+Estas derivadas parciales serán intensivas. Regularán el intercambio de cantidades extensivas.
+La temperatura $T$ está asociada al intercambio de entropía respecto a cierta variación de energía.
+Entonces,
+\[
+	dU = TdS - p dV + \mu dN
+\]
+y solo para estados de equilibrio se tiene $dU = \delta Q + \delta W$ donde $\delta Q = T dS$ (recordemos
+que $S$ está definida para estados de equilibrio).
+
+\begin{ejemplo}{\bf Problema}
+ 
+\end{ejemplo}
+
+
+
+% =================================================================================================
 \section{Gas de Van der Waals}
 % =================================================================================================
 
