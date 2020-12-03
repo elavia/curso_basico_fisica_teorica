@@ -315,12 +315,30 @@ alcanzando el máximo ya no puede disminuir la entropía.
 \section{Transformadas de Legendre de las funciones termodinámicas}
 % =================================================================================================
 
+Un poco oscura la teoría en la carpeta. Se habla de una ecuación fundamental que aquí sería
+$f(x,y,z)$
+
+En la carpeta se tiene $Y=Y(D)$ (altura y pendiente) que no es ecuación fundamental y $\Psi = \Psi(D)$
+(ordenada y pendiente) que sí lo es. Ver figurines bajo estas líneas,
+
+\includegraphics[width=0.90\textwidth]{images/1606329032.jpg}
+
+y se dice que se conoce la ecuación de la recta tangente,
+donde 
+\[
+	D = \frac{Y - \Psi}{x} = \frac{dY}{dx}
+\]
+\[
+	\Psi = Y - Dx = y - \dtot{y}{x} x,
+\]
+donde $\Psi$ es la transformada de Legendre de $Y$.
+
 \[
 	f(x,y,z) \qquad \text{con pendientes} \quad \dpar{f}{x},\dpar{f}{y},\dpar{f}{z}
 \]
 entonces 
 \[
-	\varphi(f_x,y,z) = f(x,y,z) - \left. x \dpar{f(x,y,z)}{x}\right|_{y,z}
+	\varphi(f_x,y,z) = f(x,y,z) - x \: \dpare{f(x,y,z)}{x}{{y,z}}
 \]
 es la transformada de Legendre respecto de $x$, mientras que 
 \[
@@ -339,9 +357,12 @@ Para el caso de la energía
 	U=U(S,V,N) \qquad \qquad dU = TdS - pdV + \mu dN
 \]
 y entonces
+\notamargen{En la carpeta la energía libre de Helmholtz es $F$.}
 \[
 	A = U - \left. S\dpar{U}{S}\right|_{V,N} = U - ST \qquad \Rightarrow \qquad  A=A(T,V,N)
 \]
+y para este caso vemos que $U(T,V,N)$ no es fundamental pero en cambio $A(T,V,N)$ sí es fundamental.
+Otros potenciales termodinámicos (faltaría el gran potencial?) son
 \[
 	H = U - \left. V\dpar{U}{V}\right|_{S,N} = U + pV \qquad \Rightarrow \qquad  H=H(S,p,N)
 \]
@@ -356,8 +377,9 @@ y entonces
 	dA \leq -SdT - pdV + \mu dN 
 \]
 entonces $A$ mínimo es equilibrio a $T,V,N$ constantes.
+\notamargen{El gran potencial es $\Omega = U - TS - \mu N$ y se tiene $\Omega = \Omega(T,V,\mu)$}.
 
-La idea de las transformadasd de Legendre es pasar la dependencia de cierto juego de variables a otro
+La idea de las transformadas de Legendre es pasar la dependencia de cierto juego de variables a otro
 que podría ser más apropiado par el sistema en cuestión.
 
 Sistema aislado en equilibrio, entonces se tendrá $S$ máxima y como $S(U,V,N)$ y considero fluctuación
@@ -480,6 +502,115 @@ y solo para estados de equilibrio se tiene $dU = \delta Q + \delta W$ donde $\de
 que $S$ está definida para estados de equilibrio).
 
 \begin{ejemplo}{\bf Problema}
+
+Partimos de la expresión siguiente para la entropía 
+\[
+	S = \Frac{R^2}{v_0 \theta }^{\frac{1}{3}} (NVU)^{\frac{1}{3}}
+\]
+y consideramos un bloque con dos compartimientos y las siguientes características
+\begin{center}
+\begin{tabular}{lll}
+ 	& A & B \\
+Vol 	& 9$\cdot 10^{-6}$ m$^3$ & 4$\cdot 10^{-6}$ m$^3$\\
+$N$ 	& 3 moles & 2 moles \\
+$U$ 	& $U_A$ & $U_B$
+\end{tabular}
+\end{center}
+con $U_A+ U_B = 80$ Joules. Consideraremos paredes impermeables (no hay $\mu$), rígidas (no $V$) 
+y adiabáticas (no $Q$).
+Se pueden escribir entonces $V_B = 4/9 V_A =\lambda_V V_A$ y $N_B = 2/3 N_A = \lambda_N N_A$ y
+además $U_B = U - U_A$, luego la suma de entropías resulta
+\[
+	S = S_A + S_B = \Frac{R^2}{ v_0 \theta }^{\frac 1 3 } (N_A V_A U_A)^{\frac 1 3}
+	\left( 1 + ( \lambda \lambda_N \lambda_V )^{\frac 1 3} \right)
+\]
+o bien
+\[
+	S =  \Frac{R^2}{ v_0 \theta }^{\frac 1 3 } (N_A V_A )^{\frac 1 3}
+	\left( U_A^{\frac 1 3} + \frac{2}{3} ( U - U_A )^{\frac 1 3} \right)
+\]
+
+\includegraphics[width=0.90\textwidth]{images/1606329021.jpg}
+ 
+La ecuación fundamental es $U=U(S,V,N)$ donde $U$ es homogénea de grado uno, de manera que tendreamos
+ecuaciones de estado $T=T(S,V,N), P=P(S,V,N)$ y $\mu=\mu(S,V,N)$ y la energía es
+\[
+	U = \dpare{U}{S}{V,N} S + \dpare{U}{V}{S,N} V + \dpare{U}{N}{V,S} N
+\]
+y al conocer las tres ecuaciones de estado, conozco las derivadas y conozco la ecuación fundamental.
+
+La ecuación de Gibbs-Duhem relaciona las variaciones de los parámetros intensivos. Es
+\[
+	S dT - V dP + \sum_{j} \: N_j d\mu_j = 0,
+\]
+de manera que puedo conocer dos ecuaciones de estado y con Gibbs-Duhem obtener la ecuación fundamental.
+Esto permite que conociendo las ecuaciones de estados y la relación de Gibbs-Duhem pueda llegar a la
+ecuación fundamental (a menos de una constante).
+Sea, por ejemplo, la ecuación de estado
+\[
+	p V = NRT
+\]
+y
+\[
+	U(T,V,N) \to U\left( \dpar{U}{S}, V, N \right)
+\]
+e involucra integración y entonces queda una constante libre.
+Para un gas ideal monoatómico se tiene $pV = NRT$ y $U = 3/2 NRT$, supongamos que se quiere hallar la
+ecuación fundamental.
+Podemos llegar fácilmente a $S(U,V,N)$ con variables extensivas: $U, V, N$
+\[
+	dS = \dpare{S}{U}{V,N} dU + \dpare{S}{V}{N,U} dV + \dpare{S}{N}{V,U} dN
+\]
+donde cada una de las derivadas parciales es $1/T, P/T$ y $\mu/T$ respectivamente.
+La expresión para la entropía $S$, en lugar de la diferencial de entropía, reemplazará $dU$ por $U$, $dV$
+por $V$ y $dN$ por $N$. 
+Entonces, tengo dos ecuaciones de estado
+\[
+	\frac{P}{T} = \frac{NR}{V} = \dpare{S}{V}{N,U} \qquad \qquad 
+	\frac{1}{T} = \frac{3}{2} \: \frac{NR}{U} = \dpare{S}{U}{V,N}
+\]
+que para un mol adoptan la forma
+\[
+	\frac{P}{T} = \frac{NR}{V} = \frac{R}{v}  \qquad \qquad 
+	\frac{1}{T} = \frac{3}{2} \: \frac{NR}{U} =  \frac{3}{2} \: \frac{NR}{\mu}
+\]
+donde $v = V/N$ y $\mu = U/N$.
+
+Por la homogeneidad se tiene que de $S(U,V,N)$ paso a $NS(U/N,V/N,1)$ (con un ligero abuso de notación) y
+entonces
+\[
+	d \Frac{\mu}{T} = \mu d\Frac{1}{T} + v d\Frac{P}{T},
+\]
+luego 
+\[
+	s = \frac{\mu}{T} + \frac{PV}{T} + \frac{\mu N}{T}
+\]
+de modo que diferencialmente
+\[
+	ds = \frac{dU}{T} + U d\Frac{P}{T} + \frac{P}{T}dV + N d\Frac{\mu}{T} + \frac{\mu}{T} dN
+\]
+utilizando la expresión para $dU$ obtenemos una expresión para $dS$ que lleva a
+\[
+	 U d\Frac{1}{T} + V d\Frac{P}{T} + N d\Frac{\mu}{T} = 0,
+\]
+y luego a 
+\[
+	d\Frac{\mu}{T} = \mu d\Frac{1}{T} + v d\Frac{P}{T} = 
+	-\frac{3}{2} \frac{R}{\mu} d\mu + \frac{R}{v} dv =
+	- \frac{3}{2} d( \log \mu) - R d( \log v )
+\]
+que conduce a
+\[
+	\frac{\mu}{T} = -  \frac{3}{2} R \log \Frac{\mu}{\mu_0} 
+	- R \log \Frac{v}{v_0} + \frac{ \mu }{ T_0 }
+\]
+donde la última es una constante de integración.
+
+Esto nos posibilita llegar una expresión para la entropía $S$, que es como sigue:
+\[
+	S = \frac{N}{N_0} S_0 + N R \log \left[ \Frac{U}{U_0}^{\frac{3}{2}} 
+	\Frac{V}{V_0} \Frac{N}{N_0}^{-\frac{5}{2}} \right]
+\]
  
 \end{ejemplo}
 
