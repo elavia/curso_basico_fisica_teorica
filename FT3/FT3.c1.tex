@@ -41,8 +41,8 @@ Así, por ejemplo, una galaxia no es un cuerpo macroscópico mientras que un bar
 El equilibrio termodinámica se da cuando macroscópicamente nada pasa en el sistema, aunque microscópicamente
 siempre está sucediendo algo.
 
-Una pared rígida y adiabática implica que no puedo interactuar con él; en cambio una pared rígida implica
-solamente que no puedo interactuar por medios mecánicos [explicar].
+Una pared rígida y adiabática (en ausencia de campos) implica que no puedo interactuar con él; en cambio una 
+pared rígida implica solamente que no puedo interactuar por medios mecánicos [explicar].
 
 El concepto de estado conlleva el desinterés por la manera en que llego a ese estado. Una variable 
 termodinámica no puede depender de cómo el sistema llega a ese estados; por ello esa variable $F$ es un
@@ -148,6 +148,8 @@ que desemboca en la desigualdad de Clausius
 	\int \frac{dQ}{T} \leq 0.
 \] 
 De esto deducimos que $dQ/T$ es una diferencial exacta en el caso de sistemas reversibles.
+En este caso el $Q$ a veces se pone como $Q_R$ de {\it calor reversible}.
+No obstante, no hay que olvidar que la máquina reversible es una idealización.
 
 \notamargen{$S$ será aditiva cuando $E$ sea aditiva.}
 
@@ -198,6 +200,9 @@ y entonces
 La entropía da un criterio para el equilibrio en sistemas aislados; el equilibrio es
 equivalente al máximo de entropía.
 
+Un sistema aislado está definido por una pared rígida y adiabática. Allí la entropía se maximiza,
+y $\Delta S >0$ genera la {\it flecha del tiempo}.
+La mecánica no nos provee el sentido del transcurso del tiempo, esto lo hace la termodinámica.
 
 \subsection{Funciones extensivas y homogéneas}
 
@@ -378,9 +383,12 @@ Otros potenciales termodinámicos (faltaría el gran potencial?) son
 \]
 entonces $A$ mínimo es equilibrio a $T,V,N$ constantes.
 \notamargen{El gran potencial es $\Omega = U - TS - \mu N$ y se tiene $\Omega = \Omega(T,V,\mu)$}.
+Los potenciales termodinámicos son útiles porque se minimizan en el equilibrio, bajo ciertas condiciones
+particulares.
 
 La idea de las transformadas de Legendre es pasar la dependencia de cierto juego de variables a otro
-que podría ser más apropiado par el sistema en cuestión.
+que podría ser más apropiado par el sistema en cuestión. La transformada de Legendre conserva el 
+carácter de diferencial exacto y de función homogénea.
 
 Sistema aislado en equilibrio, entonces se tendrá $S$ máxima y como $S(U,V,N)$ y considero fluctuación
 energética
@@ -614,11 +622,165 @@ Esto nos posibilita llegar una expresión para la entropía $S$, que es como sig
  
 \end{ejemplo}
 
+\subsection{Funciones respuesta}
 
+Es la variación de ciertos parámetros del sistema al varios otros parámetros.
+Son las cosas que se miden en el laboratorio.
+
+La respuesta térmica, general, es
+\[
+	C = \dtot{Q}{T} 
+\]
+que se especializa de acuerdo a las variables que se mantienen fijas. Así
+\[
+	C_{VN} = \dpare{U}{T}{V,N}
+\]
+se ve que para gas ideal es $C_P = C_V + R$.
+
+La respuesta mecánica es una derivada normalizada del volumen, así tenemos
+\[
+	\kappa_{T,\{ N_j \}} = - \frac{1}{V} \dpare{V}{P}{T,\{ N_j \}} \qquad 
+	\text{ Compresibilidad isotérmica }
+\]
+\[
+	\kappa_{S,\{ N_j \}} = - \frac{1}{V} \dpare{V}{P}{S,\{ N_j \}} \qquad 
+	\text{ Compresibilidad adiabática }
+\]
+\[
+	\alpha_{P,\{ N_j \}} = - \frac{1}{V} \dpare{V}{T}{P,\{ N_j \}} \qquad 
+	\text{ expandibilidad térmica }
+\]
+\subsection{Equilibrio}
+
+Vemos una iluscración aquí abajo
+
+\includegraphics[width=0.50\textwidth]{images/1606329041.jpg}
+
+donde tenemos un pistón sin masa que se mueve sin rozamiento y además es permeable.
+Ese tabique puede servir como modelo de interfase entre sistemas. La pared externa
+es rígida, impermeable y adiabática.
+
+Si la energía $U$ es aditiva, ya puedo aplicar termodinámica. Como el sistema es
+aditiva, entonces la entropía $S$ será aditiva. Todo proceso posible espontáneo
+hace que
+\[
+	\Delta S \geq 0,
+\]
+es decir que la entropía crezca o se mantenga. El equilibrio se alcanzará cuando
+todo proceso que se me ocurra haga que $\Delta S \leq 0$. Al pedir explícitamente
+esa condición llego a
+\[
+	T_A = T_B \qquad  p_A = p_B \qquad \mu_A = \mu_B
+\]
+lo cual supone ausencia de reacciones químicas.
+
+
+\subsection{Estabilidad térmica}
+
+Hacemos una variación $\delta U$  de energía en una pequeña sección del sistema.
+Consideraré la varaición en $\delta S$ en torno al equilibrio.
+Como la temperatura del equilibrio es $T_A = T_B$ el $\delta S$ a primer orden
+es nulo. La estabilidad exige que
+\[
+	c_V > 0
+\]
+lo que implica que si agrego calor sube la temperatura y al haber gradiente de
+temperatura se vuelve al equilibrio.
+Si fuera $c_V < 0$ el gradiente es para el otro lado y se formaría un sumidero
+de calor, es decir un colapso térmico. Recordemos que el calor fluye de las 
+temperaturas altas a las bajas.
+
+Los sistemas en equilibrio se las arreglan para volver al equilibrio ante un
+cambio (principio de LeChatellier).
+
+Para la estabilidad mecánica se tiene
+\[
+	\kappa_T > 0
+\]
+puesto que al aumentar el volumen disminuye la presión y entonces se vuelve al
+equilibrio. En este caso el otro signo, $\kappa_T < 0$ haría formarse un
+sumidero de materia.
+
+Para la estabilidad química 
+\[
+	\dpar{\mu}{N} > 0.
+\]
+
+Un dado estado de equilibrio será tal que maximice o minimice ciertas funciones
+y además presente signos determinados en ciertos parámetros.
+Estos signos generan ciertas curvaturas en las gráficas de las funciones de los
+potenciales termodinámicos. Vemos que, según la forma de los gráficos de los
+potenciales, tendremos procesos posibles o imposibles.
+
+\subsection{Transiciones de fase}
+
+La masa se mantiene constante. Vemos que como p,T se mantienen constantes entonces
+
+\includegraphics[width=0.50\textwidth]{images/1606329049.jpg}
+
+la energía de Gibbs nos dará información porque es la conveniente.
+La ecuación de Clayperon,
+\[
+	\dpare{p}{T}{\Delta g=0} = \frac{\Delta h}{T \Delta v}
+\]
+que da la variación de la presión de vapor en el equilibrio.
+
+En la región de coexistencia, y considerando el proceso de condensación se forman
+gotas en el seno del vapor
+
+\includegraphics[width=0.50\textwidth]{images/1606329052.jpg}
+
+Ahora tendré una gota de líquido en le seno del líquido. La superficie límite entre las fases
+no es un tabique, es una esfera.
+\notamargen{
+En sistemas pequenos no puedo considerar las interfases como tabiques sino que tengo que
+tener en cuenta la tensión superficial.
+}
+Hay trabajo de volumen y de área. El desbalance de fuerzas se debe a la forma de la interfase;
+surge la tensión superficial
+
+\includegraphics[width=0.50\textwidth]{images/1606329057.jpg}
+
+\[
+	U = \frac{4 \pi r^3 }{3} u_\infty + 4 \pi \sigma r^2
+\]
+donde $u_\infty$ es la energía específica del sistema infinito, el segundo término es un término
+asociado a meter la pared esférica (da el efecto de superficie y es un término que no estaría
+si no hubiera curvatura). Es decir que los dos términos son: energía de una gota de líquido
+sin límites y energía de meter una pared que lo contiene.
+
+Como todo ocurre en el equilibrio se tiene $\delta G=0$, pués $G$ es constante en el equilibrio:
+\[
+	g_2 - g_1 = \frac{2 \sigma}{\rho r},
+\]
+donde $g_i$ es el Gibbs específico.
+
+\includegraphics[width=0.50\textwidth]{images/1606329061.jpg}
+
+Si se forma una gota con $r > r_{\text{eq}}$ entonces el sistema se condensa, en cambio si
+se forma una gota con $r < r_{\text{eq}}$ entonces el sistema se evapora.
+Las primeras gotas se forman por fluctuaciones de la masa.
 
 % =================================================================================================
 \section{Gas de Van der Waals}
 % =================================================================================================
+
+En las isotermas de Van der Waals hay una crítica con $T_c, p_c$
+
+\includegraphics[width=0.50\textwidth]{images/1606329065.jpg}
+
+La curva que sube y baja, una isoterma de Van der Waals, es imposible porque se violan los signos 
+de las fuciones respuesta; no es estable mecánicamente.
+
+Al sacar la parte imposible nos queda el siguiente esqeuma:
+
+\includegraphics[width=0.50\textwidth]{images/1606329069.jpg}
+
+La construcción usada es la llamada ``construcción de Maxwell''. Las soluciones monofásicas son muy
+inestables.
+No son mínimos. El sistema puede tomar ese camino (no viola condiciones de estabilidad) pero ante
+cualquier perturbación se regresa al equilibrio.
+
 
 Van der Waals incorpora la interacción molecular. \notamargen{Esta subsección tiene cinco gráficos}
 \[
@@ -656,18 +818,17 @@ y el último paréntesis es el primer coeficiente del virial.
 
 Un potencial intermolecular está compuesto de una zona repulsiva (carozo duro) y una atractiva (cola)
 \[
-	V_{eff} = V-b \qquad (\mathrm{menor volumen por el carozo})
+	V_{eff} = V-b \qquad (\text{menor volumen por el carozo})
 \]
 \[
-	p = \frac{RT}{V-b} - \left(\frac{a}{V}\right)^2 \qquad (\mathrm{menor presión por la atractividad})
+	p = \frac{RT}{V-b} - \left(\frac{a}{V}\right)^2 \qquad (\text{menor presión por la atractividad})
 \]
 y entonces, por mol de sustancia,
 \[
 	\left( p +\frac{a^2}{V^2} \right)(V- b)= RT
 \]
-
-$b$ corrige el volumen que es ahora menor porque las partículas ocupan espacio. $a$ corrige la presión dado que la 
-atracción tiende a formar pares bajando la presión sobre las paredes.
+donde $b$ corrige el volumen que es ahora menor porque las partículas ocupan espacio. 
+$a$ corrige la presión dado que la atracción tiende a formar pares bajando la presión sobre las paredes.
 
 Las funciones respuesta tienen signo errado dentro de la zona del rulo\notamargen{Recordemos que
 \[ -\frac{1}{v}\dpar{v}{p}=\kappa_T > 0\]}
