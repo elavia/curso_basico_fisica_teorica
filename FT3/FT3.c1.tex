@@ -386,9 +386,91 @@ entonces $A$ mínimo es equilibrio a $T,V,N$ constantes.
 Los potenciales termodinámicos son útiles porque se minimizan en el equilibrio, bajo ciertas condiciones
 particulares.
 
+Igualando derivadas parciales en las expresiones de los potenciales puede verse que 
+\[
+	\dpare{S}{V}{T,N} = \dpare{P}{T}{V,N}
+\]
+
 La idea de las transformadas de Legendre es pasar la dependencia de cierto juego de variables a otro
 que podría ser más apropiado par el sistema en cuestión. La transformada de Legendre conserva el 
 carácter de diferencial exacto y de función homogénea.
+
+
+En un sistema caracterizado por la entropía (aislado), en el equilibrio tendremos
+entropía máxima y como $S=S(U,V,N)$ se tendrá pictóricamente que 
+
+\includegraphics[width=0.30\textwidth]{images/1606329075.jpg}
+
+en términos de $S$ se tiene un máximo, por ende $\delta S=0$ con $\delta S^2 < 0$
+mientras que para la energía $U$ es un mínimo y consecuentemente 
+$\delta U=0$ con $\delta U^2 > 0$.
+
+Esto tiene aplicación en sistemas aislados. Sea ahora un sistema caracterizado 
+
+\includegraphics[width=0.30\textwidth]{images/1606329081.jpg}
+
+En la parte izquierda $S$ está fluctuando de modo que la entropía no está bien
+definida, porque hay intercambio de calor. Si considero a los dos entonces lo
+tendré aislado.
+Ahora está aislado: 
+
+\includegraphics[width=0.30\textwidth]{images/1606329087.jpg}
+
+y entonces se puede introducir un principio extremal,
+\[
+	dU^t = d(U+U^f) = 0 \qquad 
+	d^2 U^t = d^2(U + U^f) > 0
+\]
+de manera que consideramos el sistema en el equilibrio aunque la entropía esté
+fluctuando, luego como $d^2U^f \sim 0$ se tiene $d^2U > 0$ y
+\[
+	dU^t = dU + T^f dS^f = dU - T^f dS
+\]
+y como está en equilibrio la temperatura es
+\[
+	dU^t = d(U-TS)= 0 
+\]
+y lo del paréntesis no es otra cosa que $F=U-TS$ de modo que se tiene $dF=0$,
+o sea que he podido escribir el sistema total en función de variables del 
+sistema que conozco.
+A consecuencia de lo anterior $d^F >0$ dado que $\delta(TS)$ a orden dos será 
+nula porque $TS$ debe ser lineal en $S$ pues $T$ es constante.
+
+La idea intuitiva es que: en la fuente se anula porque justamente al ser un
+reservorio no puede perder energía. En este caso $T$ es constante,
+\[
+	\dpare{U}{S}{V,N} = T
+\]
+y $U$ es lineal en $S$ entonces $\delta U^2= 0$.
+
+A modo de resumen 
+
+\includegraphics[width=0.60\textwidth]{images/1606329091.jpg}
+
+Podemos pensar que $F$ lleva el formalismo de tener un sistema aislado y $U$
+mínima.
+Sea ahora un sistema conecado a fuentes de presión y de temperatura,
+
+\includegraphics[width=0.40\textwidth]{images/1606329098.jpg}
+
+\[
+	dU^t = dU + dU^{f_T} + dU^{f_p} =
+	dU - TdS + pdV = d( U - TS + pV ) = 0
+\] 
+y lo de adentro del paréntesis es la energía libre de Gibbs. Se tiene $dG=0$ y
+$d^2G > 0$.
+
+Sea ahora un sistema aislado al que se le sacó energía
+
+\includegraphics[width=0.60\textwidth]{images/1606329102.jpg}
+
+y el trabajo que le voy a poder extraer será
+\[
+	\delta W_T = - dU^t = - dF
+\]
+no le puedo ``sacar'' toda la energía interna, sino solo la disponible.
+Para un sistema aislado la energía que le puedo extraer es la energía interna $U$.
+
 
 Sistema aislado en equilibrio, entonces se tendrá $S$ máxima y como $S(U,V,N)$ y considero fluctuación
 energética
@@ -648,8 +730,106 @@ La respuesta mecánica es una derivada normalizada del volumen, así tenemos
 \]
 \[
 	\alpha_{P,\{ N_j \}} = - \frac{1}{V} \dpare{V}{T}{P,\{ N_j \}} \qquad 
-	\text{ expandibilidad térmica }
+	\text{ expandibilidad (o dilatación) térmica }
 \]
+
+Se suelen expresar todas las derivasas en términos de cantidades específicas, que 
+son equivalentes a las anteriores porque corresponde a multiplicar y dividir por 
+$N$; así $v = V/N$ y $s = S/N$ son el volumen específico y la entropía especicia,
+respectivamente.
+
+Dado que $dg = - s dT - v dP$, si utilizamos las expresiones anteriores 
+\[
+	-s = \dpare{g}{T}{p} \quad \longrightarrow \quad \dpar[2]{g}{T}
+\]
+y
+\[
+	-v = \dpare{g}{p}{T} \quad \longrightarrow \quad \dparcru[2]{g}{T}{p}
+\]
+y vemos que las funciones respuesta son derivadas segundas de la energía libre de
+Gibbs.
+Para (\partial T / \partial P )|_{V,N} conviene usar Gibbs, por estar $T,P$.
+Tengamos en cuenta que serán independientes las derivadas segundas, las cruzadas
+son iguales.
+
+Para obtener las derivadas parciales hay un método muy automático basado en 
+jacobianos,
+\[
+	\dpar{(u,v,...,w)}{(x,y,...,z)} =
+	\begin{pmatrix}
+	 \dpar{u}{x} & \dpar{u}{y} & ... & \dpar{u}{z} \\
+	 \dpar{v}{x} & \dpar{v}{y} & ... & ... \\
+	 .. & & \\
+	 \dpar{w}{x} & \dpar{w}{y} & ... & \dpar{w}{z} 
+	\end{pmatrix},
+\]
+donde u,v,...,w son funciones y x,y,...,z son variables.
+Así, por ejemplo
+\[
+	\dpare{u}{x}{y,z} = \dpar{(u,y,z)}{(x,y,z)}
+\]
+que lleva a un determinante
+\[
+	\begin{pmatrix}
+	 \dpar{u}{x} & \dpar{u}{y} & \dpar{u}{z} \\
+	 0 & 1 & 0 \\
+	 0 & 0 & 1 
+	\end{pmatrix}
+\]
+\[
+	\dpar{(u,v,w)}{(x,y,z)} = -\dpar{(v,u,w)}{(x,y,z)}
+\]
+Se tiene la regla de la cadena
+\[
+	\dpar{(u,v,w)}{(x,y,z)} = 
+	\dpar{(u,v,w)}{(r,s,t)} \dpar{(r,s,t)}{(x,y,z)}
+\]
+\[
+	\dpar{(u,v,w)}{(x,y,z)} = \frac{1}{ \dpar{(x,y,z)}{(u,v,w)} }
+\]
+
+Veamos algún caso
+\[
+	\dpare{T}{p}{S} = \dpar{(T,s)}{(P,S)} = 
+	\dpar{(TS)}{(p,T)} \dpar{(pT)}{(pS)} =
+	\dpar{(TS)}{(pT)} \frac{1}{\dpar{(pS)}{(pT)}}
+\]
+y usando que $dg = -sdT + vdp$ donde cada una es una derivada parcial de
+la energía de Gibbs específica se tiene que las derivadas segundas serán
+iguales, i.e.
+\[
+	- \dpare{S}{p}{T} = \dpare{v}{T}{p}
+\]
+Entonces, 
+\[
+	- \dpar{(ST)}{(pT)} = - \dpare{S}{p}{T} = \dpare{v}{T}{p}
+\]
+mientras que la 
+\[
+	\dpar{(pS)}{(pT)} = \dpare{S}{T}{p}
+\]
+\[
+	\dpare{T}{p}{S} = \frac{ v \alpha }{ C_P / T }.
+\]
+
+Cuando aparezcan derivadas parciales con $\mu$ conviene utilizar Gibbs-Duhem,
+\[
+	d\mu = -s dT + v dp,
+\]
+y $dg = d\mu$. Entonces,
+\[
+	\dpare{\mu}{V}{S,N} = - s \dpare{T}{V}{S,N} + v \dpare{p}{V}{S,N}
+\]
+de manera que con 
+\[
+	C_V = T \dpare{S}{T}{V}
+\]
+podemos llegar a 
+\[
+	C_p - C_V = \frac{ v \alpha^2 T }{ \kappa_T }.
+\]
+
+
 \subsection{Equilibrio}
 
 Vemos una iluscración aquí abajo
@@ -711,6 +891,12 @@ y además presente signos determinados en ciertos parámetros.
 Estos signos generan ciertas curvaturas en las gráficas de las funciones de los
 potenciales termodinámicos. Vemos que, según la forma de los gráficos de los
 potenciales, tendremos procesos posibles o imposibles.
+
+
+\begin{ejemplo}{\bf Problema 8}
+ 
+\end{ejemplo}
+
 
 \subsection{Transiciones de fase}
 
