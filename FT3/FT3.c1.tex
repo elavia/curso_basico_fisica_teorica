@@ -895,6 +895,49 @@ potenciales, tendremos procesos posibles o imposibles.
 
 \begin{ejemplo}{\bf Problema 8}
  
+Caracterizar gas ideal, 
+\[
+	U(V,T) = U(T) \qquad \qquad H(P,T) = H(T)
+\]
+y entonces se pide hallar la ecuación de estado.
+Se tiene $(\partial U / \partial V)|_T = 0$ donde enfatizamos que el vínculo 
+es temperatura $T$ constante.
+Luego,
+\[
+	dU = T dS - p dV
+\]
+y expresando el $ dS = (\partial S / \partial T)|_V dT +
+(\partial S / \partial V)|_T dV $ y entonces el diferencial de energía,
+\[
+	dU = T \dpare{S}{T}{V} dT + 
+	\left( T \dpare{S}{V}{T} - p \right) dV
+\]
+y el paréntesis es $ (\partial U / \partial V)|_T = 0 $ puesto que 
+$ p = T (\partial S / \partial V)|_T $ de manera que 
+\[
+	dU = T \dpare{S}{T}{V} dT = C_V dT .
+\]
+
+El diferencial de energía libre es 
+\[
+	dF = - s dT - p dV,
+\]
+de lo cual deducimos
+\[
+	s = -\dpare{S}{V}{T} \qquad  p = - \dpare{p}{T}{V} dT
+\]
+y se tiene $ p = T (\partial p / \partial T)|_V $ de modo que 
+\[
+	\frac{1}{T} dT = \frac{1}{p} dp
+\]
+conduce a $d(\log T) = d( \log p)$ de lo cual surge $p = K(V) T$.
+Utilizando un argumento parecido con la entalpía deberíamos arribar a
+\[
+	V = K_2(p) T
+\]
+y entonces $pV = K_3 T$.
+ 
+ 
 \end{ejemplo}
 
 
@@ -1013,8 +1056,14 @@ y entonces, por mol de sustancia,
 \[
 	\left( p +\frac{a^2}{V^2} \right)(V- b)= RT
 \]
-donde $b$ corrige el volumen que es ahora menor porque las partículas ocupan espacio. 
-$a$ corrige la presión dado que la atracción tiende a formar pares bajando la presión sobre las paredes.
+donde $b$ corrige el volumen que es ahora menor porque las partículas ocupan espacio
+(volumen no nulo de las partículas), mientras que $a$ corrige la presión dado que la
+atracción tiende a formar pares bajando la presión sobre las paredes (no atracción de
+las partículas en las cercanías de las paredes).
+
+La ecuación no reconoce la existencia de dos fases, la zona de coexistencia.
+allí se usa una construcción de Maxwell para hallar la corrección.
+
 
 Las funciones respuesta tienen signo errado dentro de la zona del rulo\notamargen{Recordemos que
 \[ -\frac{1}{v}\dpar{v}{p}=\kappa_T > 0\]}
@@ -1046,6 +1095,13 @@ y si se invierten puntos para tener un recorrido según las flechas se llega a
 	\int_C^D - \int_E^D = \int_F^E - \int_F^G 
 \]
 
+Las condiciones de estabilidad fijan los signos de las funciones respuesta.
+No solo la cantidad de soluciones (tres) está errada sino que está incorrecta
+la curvatura.
+Se puede reconstruir la curva de Van der Waals mediante análisis numérico manteniendo
+constante la densidad de la sustancia, pero esto era un caso muy especial.
+
+
 Áreas inguales determinan entonces los puntos C y G de forma que se corrige Van Der Waals para dar curvaturas
 correctas. En la región de coexistencia hemos trocado
 \[
@@ -1054,12 +1110,128 @@ correctas. En la región de coexistencia hemos trocado
 lo cual da $\kappa_T \to \infty$ en lugar del $\kappa_T < 0$ (que es incorrecto).
 
 
+\section{Elementos de probabilidad y estadística}
+
+La permutación es un ordenamiento de $N$ objetos tomados de $R$ en $R$,
+\[
+	P = \frac{N!}{(N-R)!}
+\]
+si los tomamos de $N$ en $N$, grupos de todos los objetos, se tiene:
+\[
+	P = N!
+\]
+Aquí sí importa el orden, o sea que $abc \neq bac$.
+
+La combinación es un ordenamiento donde no importa el orden, entonces $abc = bac$;
+dos conjuntos son distintos solamente si tienen algún elemento diferente.
+\[
+	C_R^N = \frac{N!}{(N-R)!R!}
+\]
+donde el $R!$ en el denominador es para eliminar las permutaciones en el mismo
+grupo.
+
+Veamos la noción de probabilidad. $S$ es un conjunto de posibles resultados, el
+espacio muestral, y $A$ es un evento en $S$, entonces
+\[
+	P(A) \equiv \text{ Probabilidad }
+\]
+es la cuantificación del nivel de expectación de la ocurrencia de uno de los posibles
+resultados de un experimento.
+
+Se verifican entonces
+\[
+	P(\text{vacío}) = 0 \qquad P(S) = 1
+\]
+\[
+	P(A \cap B ) \equiv \text{ Ambos ocurren}
+	\qquad \qquad 
+	P(A union B ) \equiv \text{ Ocurre alguno}
+\]
+\[
+	P( A \cup B) = P(A) + P(B) - P(A \cap B)
+\]
+Si se tiene $ A \cap B = 0$ entonces $A$ y $B$ son mutuamente excluyentes.
+Si los eventos A,B son independientes entonces la ocurrencia de uno no significa
+nada para la ocurrencia del otro.
+\[
+	P(A) + P(B) - P(A\cap B) < P(A) + P(B) 
+\]
+y finalmente la probabilidad condicional $P(B|A)$, que es la probabilidad de
+que ocurra A si ocurrió B,
+\[
+	P\Frac{B}{A} = \frac{P(A\cap B)}{P(B)}
+\]
+
+Cuando hablamos de resultado de un experimento, queremos decir que no tenemos 
+información de cómo se comportará el sistema; es decir que no hay un hamiltoniano.
+Las funciones de probabilidad cumplirán
+\begin{itemize}
+ \item $f(x) \geq 0$
+ \item $\sum_i f(x_i) = 1$
+\end{itemize}
+
+En la práctica no conocemos $f(x_i)$, lo que realmente conocemos algunos 
+momentos de la distribución,
+\[
+	\langle x^N \rangle = \sum_i x^N_i f(x_i) 
+\]
+La desviación estandard $\sigma_x$ da el ancho de la distribución, y se tiene
+$\sigma_x = \sqrt{\vm{x^2} - \vm{x}^2 }$.
+
+Considerando dos variables estocásticas $X,Y$ tales que 
+$X(S)=(x_1,x_2,...,x_n)$ y $Y(S)=(y_1,y_2,...)$
+se tendrá:
+\begin{enumerate}
+ \item $ f(x,y) \geq 0 $
+ \item $ \int \int f(x,y) \: dx dy = 1 $
+ \item $ f_x(x) = \int f(x,y) dy $ (reducción)
+\end{enumerate}
 
 
+Una variable estocástica es el resultado de un experimento
+\[
+	\text{Cov}(X,Y) = \vm{XY} - \vm{X} \vm{Y}
+\]
 
+\subsection{Distribución binomial}
 
+Las realizaciones son equivalentes a experimentos.
+Considerando dos resultados $+1,-1$ con probabilidad $1/2$ para cada uno (con monedas
+serán cara y seca)\footnote{Una moneda cargada no tendrá probabilidad 1/2, se pierde
+la simetría allí.}
+\[
+	p + q = 1
+\]
+siendo $p$ de cara y $q$ de seca. 
+Con $N$ experimentos será $N=n+m$ donde $n$ y $m$ equivalen a $1$ y $-1$ respectivamente.
+Quiero ver cómo es la distribución en una caminata (al azar, o de borracho) de
+$N$ pasos
+\[
+	P = \frac{N!}{n! m!} p^n q^m
+\]
+con $m = N-n$.
 
+La binomial está normalizada de por sí.
+\[
+	\vm{n} = \sum_{n=0}^N \: n P_N(n) \qquad \qquad 
+	\sum_{n=0}^N \: P_N(n) = ( p + q )^N = 1
+\]
+Veamos un momento de la distribución:
+\[
+	\vm{n} = p N \qquad \qquad  \vm{n^2} = (p N)^2 + N p q
+\]
 
+\subsection{Distribución normal}
+
+Consideraremos $N$ grande, $pN$ grande de modo que puedo aproximar 
+\[
+	n! \sim \sqrt{2\pi n} \Frac{n}{e}^n
+\]
+que es llamada la aproximación de Stirling.
+El máximo de la función es proporcional al máximo del logaritmo de la función.
+Tiene un máximo en $n = \vm{N} = N_p$.
+
+Desarrollaré en torno al máximo.
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
