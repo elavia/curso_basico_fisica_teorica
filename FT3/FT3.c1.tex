@@ -1233,6 +1233,156 @@ Tiene un máximo en $n = \vm{N} = N_p$.
 
 Desarrollaré en torno al máximo.
 
+Nos lleva a la función normal de Gauss, que tiene solo dos momentos (están en su
+expresión). Vale cada vez que $N p \: q \gg 1$.
+
+\subsection{Caminata al azar}
+
+Se considera un paso de tamaño fijo, caso simétrico. Entonces es $p=q=1/2$ de manera que $q=1-p$
+y donde $n_1$ son pasos asociados a $p$ y $n_2$ son pasos asociados a $q$.
+
+Como $N$ es grande, entonces puedo usar la distribución normal y entonces $-N \leq m \leq N$.
+Luego, $ \vm{m} = 0 $ por simetría ($p$ y $q$ son intercambiables)
+\[
+	P_N(m) = \Frac{2}{\pi N}^{1/2} \euler^{- m^2/(2N)}
+\]
+
+Ahora tengamos en cuenta la longitud de los pasos, $x = m \ell$ con $\Delta x \gg \ell$ de modo que
+la anterior pasa a ser
+\[
+	P_N(m) = \Frac{1}{2 \pi N \ell^2 }^{1/2} \euler^{- 1/(2N) (x/\ell)^2}
+\]
+
+A medida que pasa el tiempo, por la difusión, se {\it achancha} pero conserva el pico
+
+\includegraphics[width=0.40\textwidth]{images/1606329120.jpg}
+
+y
+\[
+	P_N(x,t) \Delta x = \Frac{1}{2 \pi^{1/2}} \euler^{-x^2/4}
+\]
+
+Esto no es una dinámica, es una descripción probabilística (estocástica).
+Comenzamos con binomial y pasamos una normal con $Npq \gg 1$.
+
+\subsection{Teorema central del limite}
+
+Dada una variable aleatoria $X$ con densidad de probabilidad $f_x(X)$; si $Y$ es tal que 
+\[
+	Y_N = \frac{X_1 + X_2 + ... }{ N }
+\]
+\[
+	f_y( Y_N - \vm{X} ) = \sqrt{\frac{N}{2\pi}} \frac{1}{\sigma} 
+		\euler^{ -N \Frac{ Y_N - \vm{x}^2 }{2\sigma^2} }
+\]
+es una distribución normal si $\sigma < \infty $.
+
+En general lo que se mide es una superposición, por ello es tan frecuente la normal.
+
+\section{Markov. Una introducción}
+
+Consideramos una variable estocástica $Y$ y entonces $P(Y_1,t)$ es la densidad de probabilidad
+de que la variable estocástica $Y$ valga $Y_1$ a tiempo $t$.
+
+Por otra parte, $P_2(Y_1;t_1;Y_2;t_2)$ densidad conjunta de que $Y$ tome $Y_1$ a $t_2$ e $Y_2$ a $t_2$
+quiero ver alguna correlación temporal en el tiempo de que se tomen valores $Y_1, Y_2$ (se tiene
+$P_n \geq 0$).
+
+La reducción mediante integración es promediar en la variable que consideremos irrelevante.
+
+La historia del proceso será importante; $Y_1,t_1 \to Y_2,t_2 \to Y_3,t_3 $ interesa el
+camino por el cual se llega al punto final (o sea, hay efectos de memoria)
+\[
+	P_1(y_1,t_1) P_{11}(y_1,t_1|y_2,t_2) = P_2(y_1,t_1;y_2,t_2)
+\]
+donde $P_{11}$ es la probabilidad de estar en $y_2$ a $t_2$ habiendo estado en $y_1$ a $t_1$.
+Relación entre probabilidades.
+
+Una simplificación es el {\it proceso de Markov} el paso final solo depende del paso inmediato
+anterior. Este proceso quedará definido como
+\begin{itemize}
+	\item $ P_1(y_1,t_1) $
+	\item $ P_{11}(y_1,t_1|y_2,t_2) $
+\end{itemize}
+
+Ecuación de Chapman-Kolmogorov. Hay que sumar todos los posibles caminos entre $1 \to 2 \to 3$,
+entonces un proceso 
+\[
+	P_{k_1}(y_1,t_1;y_2,t_2;...;y_{n-1},t_{n-1}|y_n,t_n) \to P_{11}(y_{n-1},t_{n-1}|y_n,t_n)
+\]
+
+\includegraphics[width=0.30\textwidth]{images/1606329125.jpg}
+
+Esto es la probabilidad de estas en $y_n,t_n$ habiendo estado en $y_1,t_1;y_2,t_2;...;y_{n-1},t_{n-1}$
+lo que lleva a la probabilidad de transición $P_{11}$.
+
+
+\begin{ejemplo}{\bf Problema 11}
+
+Trabajo con $N$ constante (masa constante),
+\[
+	f = K(T) \: x
+\]
+es una ecuación de estado (vincula variables intensivas con extensivas); en este caso $f$ es intensiva
+y $x$ es extensiva, que son $p$ y $V$.
+
+Tenemos, la energía libre de Helmholtz (transformada de Legendre de la $U$)
+\[
+	A = U -S T
+\]
+\[
+	dA = - S dT + f dX
+\]
+a $T$ fijo entonces $dA = f dX$ entonces integrando
+\[
+	\int dA = \int f dx = K(T) \frac{x^2}{2}
+\]
+y tenemos,
+\[
+	A(x,T) = K(T) \frac{x^2}{2} + A(0,T)
+\]
+una reminiscencia de la ley de Hooke.
+
+Para la entropía es 
+\[
+	S = - \dpare{A}{T}{N,x} = - \dtot{K(T)}{T} \frac{x^2}{2} + \dtot{A(0,T)}{T}
+\]
+donde son $A \sim x^2$ y $S \sim -x^2$ y el último término es $S(0,T)$.
+Entonces,
+\[
+	U = A + S T = U(0,T) + \frac{1}{2}\left( K(T) - T \dtot{K}{T} \right) x^2
+\]
+
+En un proceso isotérmico es $\Delta A = K(T) x^2/2$ asociado con la máxima energía que  puedo
+almacenar.
+En un proceso adiabático es $\Delta S = 0 = dK(T)/dT$ de modo que $\Delta U = 1/2 K x^2$.
+Con este material encaramos el problema siguiente.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 12}
+
+\includegraphics[width=0.30\textwidth]{images/1606329132.jpg}
+
+\includegraphics[width=0.30\textwidth]{images/1606329139.jpg}
+ 
+\end{ejemplo}
+
+
+\begin{ejemplo}{\bf Problema 1}
+
+\includegraphics[width=0.30\textwidth]{images/1606329144.jpg}
+
+\includegraphics[width=0.30\textwidth]{images/1606329147.jpg}
+
+\includegraphics[width=0.50\textwidth]{images/1606329152.jpg}
+
+\includegraphics[width=0.50\textwidth]{images/1606329155.jpg}
+ 
+\end{ejemplo}
+
+
+
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
