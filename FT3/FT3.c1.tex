@@ -1362,23 +1362,196 @@ Con este material encaramos el problema siguiente.
 
 \begin{ejemplo}{\bf Problema 12}
 
+Consideramos
+\[
+	\frac A M = \frac{1}{2} K x^2
+\]
+donde las unidades de $x$ son de $\ell/\text{masa}$ y representa un resorte sano.
+El resorte se ``ablanda'' tiene un $k$ efectivo más pequeño.
+Un resorte roto
+\[
+	\frac A M = \frac{1}{2} h( x- x_0 )^2 + k_2, \qquad k > h
+\]
+
+Entonces $f(x,T)$ es tal que 
+\[
+	dA = -s dT + f dx + \mu dM,
+\]
+con $F= f/M$ y donde 
+\[
+	f = \dpare{A}{x}{T,M} \qquad \begin{cases}
+	                              K M x \qquad \text{ sano } \\
+	                              h M (x-x_0) \qquad \text{ roto }
+	                             \end{cases}
+\]
+El potencial químico estará relacionado con meter mayor masa al resorte.
+Será
+\[
+	\mu = \dpare{A}{M}{T,\ell} = \begin{cases}
+	                              - K \frac{x^2}{2} \qquad \text{ sano } \\
+	                              - \frac h 2 M ( x^2 - x_0^2 ) + k \qquad \text{ roto }
+	                             \end{cases}
+\]
+y luego habría que verificar que $\mu = A/M - F x$.
+Para determinar la rotura (cambio del régimen {\it sano} a {\it roto}).
+Para sistemas de un componente sabemos que
+\[
+	\mu = \frac{G}{M}, 
+	\quad G = U - TS + pV, 
+	\quad U(S,V,N) = ST - VP + \mu N
+\]
+de lo cual se deduce que $G=\mu N$ (sistema de un componente). Luego,
+\[
+	\mu_S = - \frac{Kx^2}{2} = - \frac{F^2}{2K}
+\]
+\[
+	\mu_R = - \frac{h}{2}( x^2 - x_0^2 ) + k = 
+	-\frac{1}{2}\left[ (F+h x_0)^2 - hx_0 - 2k \right]
+\]
+puesto que $F=h(x-x_0)$. La moraleja es tener a los potenciales termodinámicos en las variables
+apropiadas: las energías libres dan los extremos correctos con las variables que requieren la
+minimización. Así, por ejemplo,
+\[
+	G = G(T,P,N) \quad \longrightarrow \quad \Delta G(T,P,N)  0 \text{ en el equilibrio}
+\]
+\notamargen{NO copié el signo!}
+
 \includegraphics[width=0.30\textwidth]{images/1606329132.jpg}
 
+Tengo un sistema de dos fases, sana y rota. Aquí es $G = G(T,F,N)$.
+El sistema elige la fase sana o rota de acuerdo a cómo es mínima a una fuerza dada.
+En la zona 1 elige fase sana y $G$ es la mínima, mientras que en la zona 2 elige la
+fase rota y $G$ es la mínima.
+Existe una $F_c$ crítica en la cual está la transición de fase.
+Hay una discontinuidad de la derivada, la función tiene un punto {\it picoso}.
+Es una transición de primer orden; la función $G$ no es de clase $C^1$.
+
 \includegraphics[width=0.30\textwidth]{images/1606329139.jpg}
+
+Se tiene $ d\mu = - s dT - x dF$ con
+\[
+	\dpare{\mu}{F}{T} = -x \qquad \qquad  \dpare{\mu}{F}{T} = 
+\]
+la transición está forzada por la función $F$, de modo que el salto lo tendré en la
+variable asociada puesto que la primer derivada vincula una variable con su asociada.
+
+Si el empalme es suave entonces no hay cambio cualitativo. Estamos hablando de transiciones
+de orden mayor a uno. Se tendrá que la derivada es continua.
  
 \end{ejemplo}
 
 
-\begin{ejemplo}{\bf Problema 1}
+\begin{ejemplo}{\bf Problema 1. Tema probabilidad y estadística}
+
+Tenemos cinco personas,
+\[
+	5 \quad 4 \quad 3 \quad 2 \quad 1
+\]
+donde cada número refleja cuántos pueden acomodarse en cada ``slot''. Si dos quieren
+sacarse juntos entonces $4!2$ donde el $2$ refleja la permutacón.
+Si se ubican al azar, la probabilidad de dos de estar pegados serán
+\[
+	P= \frac{2 4!}{5!} = \frac{2}{5}
+\]
+donde esto supone que hay equiprobabilidad; todos los sucesos son igualmente posibles y no 
+hay restricciones o vínculos.
+\[
+	P(JA) = \frac{\# JA}{N} \qquad \text{ con $N\to\infty$ }
+\]
+
+El espacio muestral es el que contiene todos los resultados posibles ($5!=120$ puntos)
 
 \includegraphics[width=0.30\textwidth]{images/1606329144.jpg}
 
+de modo que con $\#S = 120, \#JA = 24! = 48$ y si asumo equiprobabilidad vale que 
+\[
+	P(JA) = \frac{\# JA}{S}.
+\]
+Si no hay equiprobabilidad hay casos que nunca ocurrirán y habría que descartarlos.
+Son dos enfoques; equiprobabilidad o empírico más vínculos
+
 \includegraphics[width=0.30\textwidth]{images/1606329147.jpg}
 
-\includegraphics[width=0.50\textwidth]{images/1606329152.jpg}
+En este caso tenemos $P(S)=1$ lo que significa que cualquier evento pertenece a $S$.
+Luego,  $P(\null)=0$ la probabilidad de obtener nada es nula.
+\[
+	P(A\cup B) = P(A) + P(B) - P(A\cap B)
+\]
+donde el último término saca porque sino estaíiamos sumando dos veces.
+Con $A\cup B$ pertenece a $A$ o pertenece a $B$.
+Si A, B son excluyentes si $A\cup B = 0$ de modo que $P(A\cup B)=0$. Si tengo $A_1,A_2,...,A_N$
+excluyentes, entonces
+\[
+	\sum_{i=1}^N \; P(A_i) = 1
+\]
+y entonces $\{A_i\}$ es una partición del espacio muestral (se cubre todo el espacio muestral).
+\[
+	P(A\cap B) = P(A) P(B)
+\]
+sí y sólo si $A,B$ son independientes.
+\[
+	P(B|A) = P(A\cap B)/P(B)
+\]
+es la probabilidad de que ocurra $A$ sabiendo que ocurrió $B$.
+
+\includegraphics[width=0.25\textwidth]{images/1606329152.jpg}
+
+Si sé que ocurrió el suceso $B$ estoy en los puntos colorados, luego ocurrirá $A$ si tendría alguno
+de los que están en $A\cap B$.
+
+En este caso se tienen $P(A)=1/5$ y $P(B)=1/2$. Luego $P(A\cap B)=1/10$ y 
+$P(B|A) = P(A\cap B)/P(B)= P(A)$ porque $A$ y $B$ son independientes.
 
 \includegraphics[width=0.50\textwidth]{images/1606329155.jpg}
- 
+
+Aquí ya no son independientes. Tenemos $M A_1 N_1 Z A_2 N_2 A_3 $ que son $7!$ con $A,N$ distinguibles.
+pero en realidad $N,A$ son intercambiables. Para extraer $N_1N_2$ pongo que aparezca
+\[
+	N_1 N_2 \sim N_2 N_1
+\]
+con $7!/2!$ y luego $7!/(2!3!)$ (le saco las dos $A$ repetidas). Para $A_1 A_2 A_3$ son cinco 
+combinaciones posibles.
+
+Con dados podemos enumerar
+\[
+	\frac{6}{1} \frac{6}{1} \frac{6}{1} \frac{}{5}  \frac{}{5} 
+	 \frac{}{5}  \frac{}{5}  \frac{}{5}  \frac{}{5}  \frac{}{5}
+	 \qquad \qquad  \frac{}{10}  \frac{}{9}  \frac{}{8}
+\]
+y si ubico tres ``seis'' se tiene 
+\[
+	\# A = \frac{ 5^7 10 9 8 }{3 2 1} = 5^7 C_7^{10} = 5^7 \frac{10!}{7!}\frac{1}{3!}
+\]
+Si $\# S = 6^{10}$ entonces
+\[
+	P(A) = \frac{ 5^7 C_7^{10} }{ 6^{10} }
+\]
+asumiendo equiprobabilidad.
+Otro modo es hacer
+\[
+	\Frac{1}{6}\Frac{1}{6}\Frac{1}{6}\Frac{5}{6}^7 = \frac{5^7}{6^{10}}
+\]
+y le tengo que restar la degeneración.
+
+Para cuatro jugadores y 15 manos se tienen
+\[
+	\Frac{\dagger}{1} \Frac{}{39} \Frac{}{38}
+\]
+y quiero ver cuanteas configuraciones tienen $\dagger$ para un jugador. Será
+\[
+	P(A) = \frac{39 38 /2 }{40 39 38/3} = \frac{ C_{37}^{39} }{ C_{40}^{37} }
+\]
+y además por la normalización es $ P(A) + P(\bar{A}) = 1$ donde $\bar{A}$ es el complemento de $A$
+(asociada a la probabilidad de que no se dé $A$). Entonces
+\[
+	P(\bar A) =  \frac{ C_{40}^{37} - C_{37}^{39} }{ C_{40}^{37} }
+\]
+y como cada mano es independiente
+\[
+	P(A) = \Frac{ C_{40}^{37} - C_{37}^{39} }{ C_{40}^{37} }^{15}
+\]
+que es la probabilidad de todas las manos.
+
 \end{ejemplo}
 
 
