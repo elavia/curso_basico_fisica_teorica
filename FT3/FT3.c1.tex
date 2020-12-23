@@ -1164,19 +1164,59 @@ que ocurra A si ocurrió B,
 
 Cuando hablamos de resultado de un experimento, queremos decir que no tenemos 
 información de cómo se comportará el sistema; es decir que no hay un hamiltoniano.
+
+Entonces tenemos la densidad de probabilidad
+\[
+	P_X(x) = \sum_{i=1}^n \ p_i \delta(x - x_i)
+\]
+donde $X$ es la variable estocástica y $x$ es el valor que puede tomar dicha variable.
+En el caso de una moneda, esos valores son solamente dos: cara o ceca ¿cómo se
+escribe {\it seca}?.
+La distribución de probabilidad será
+\[
+	F_X (x) = \int_\infty^x \: P_X(x') dx'
+\]
+(recordemos que la delta de Dirac integrada da una Heaviside).
+Luego, $P(x)dx$ es la probabilidad de hallar $x$ dentro de $[x,x+dx]$ mientras que
+$F(x)$ es la probabilidad de medir $x'\leq x$.
+
 Las funciones de probabilidad cumplirán
 \begin{itemize}
  \item $f(x) \geq 0$
  \item $\sum_i f(x_i) = 1$
 \end{itemize}
 
+Si conocemos $P_X(x)$ ya tenemos toda la información.
 En la práctica no conocemos $f(x_i)$, lo que realmente conocemos algunos 
 momentos de la distribución,
 \[
-	\langle x^N \rangle = \sum_i x^N_i f(x_i) 
+	\langle x^N \rangle = \sum_i x^N_i f(x_i) =
+	\int_{-\infty}^\infty \: x^n P(x) dx
 \]
 La desviación estandard $\sigma_x$ da el ancho de la distribución, y se tiene
 $\sigma_x = \sqrt{\vm{x^2} - \vm{x}^2 }$.
+La varianza $\vm{x^2} - \vm{x}^2$ da el ancho de la distribución.
+Hay momentos de subsiguiente orden con oscura interpretación.
+\notamargen{Mezcla de notaciones aquí.}
+Si conozco todos los momentos entonces conozco $P_X(x)$.
+
+La función característica es un fourier de la densidad,
+\[
+	f_X(x) = \vm{\euler^{ikx}} = \int dx \euler^{ikx} P(x) = 
+	\sum_{n=0}^\infty \frac{(ix)^n}{n!} \vm{x^n}
+\]
+y puede usarse para obtener los momentos asociados a la distribución.
+Derivándola obtendré
+\[
+	\dpar[n]{f(x)}{k^n} = (-i)^n \vm{ x^n }
+\]
+
+Esto se extiende a más de una variable como
+\begin{itemize}
+ \item $F_{X_1,X_2,...,X_N}(x_1,x_2,...,x_N)$ que es la probabilidad de que
+ cada una de las $X_i \leq x_i$ (o que esté dentro?)
+ \item $P_{X_1,X_2,...,X_N}(x_1,x_2,...,x_N) dx_1 dx_2 ... dx_N$
+\end{itemize}
 
 Considerando dos variables estocásticas $X,Y$ tales que 
 $X(S)=(x_1,x_2,...,x_n)$ y $Y(S)=(y_1,y_2,...)$
@@ -1187,6 +1227,23 @@ se tendrá:
  \item $ f_x(x) = \int f(x,y) dy $ (reducción)
 \end{enumerate}
 
+O bien que los momentos
+\[
+	\vm{x^m y^n} = \int_{-\infty}^\infty dx \: dy \: x^m \: y^n \: P_{X,Y}(x,y)
+\]
+y la covarianza
+\[
+	\text{Cov}(x,y) = \vm{ (x - \vm{x}) (y - \vm{y})}
+\]
+donde la correlación es
+\[
+	\text{Corr} \equiv \frac{\text{Cov}}{\sigma_x \sigma_y }.
+\]
+La expresión para la covarianza define la manera en que ambos están relacionados
+punto a punto. Si son siempre mayores que cero ambos, será la covarianza positiva
+también y dice que se comportan parecido. La correlación nula implica que no están
+correlacionados para nada sus valores mientras que un valor -1 implica una
+anticorrelación.
 
 Una variable estocástica es el resultado de un experimento
 \[
