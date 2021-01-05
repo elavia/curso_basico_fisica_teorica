@@ -43,15 +43,20 @@ dinámica determinista\footnote{No tengo información para predecir nada.})
 que puede tomar valores $y_1, y_2,...$\notamargen{Las $P$ son densidades
 de probabilidad, cuando el espacio muestral sea continuo.}
 \[
-	P_1(y_1,t) \equiv \text{Prob. de tomar $y_1$ en $t$ (1 paso)}
+	P_1(y_1,t) \equiv \text{Prob. de tomar $y_1$ en tiempo $t$ (1 paso)}
 \]
 \[
-	P_2(y_1,t_1;y_2,t_2) \equiv \text{Prob. conjunto de tomar $y_1$ en $t_1$ y $y_2$ en $t_2$}
+	P_2(y_1,t_1;y_2,t_2) \equiv \text{Prob. de tomar $y_1$ en $t_1$ y $y_2$ en $t_2$ (conjunta)}
+\]
+Para $N$ pasos es
+\[
+	P_N(y_1,t_1;y_2,t_2; ...; y_N,t_N) 
 \]
 \[
 	P_{1/1}(y_1,t_1 | y_2, t_2) \equiv \text{Prob. condicional de tomar $y_2$ en $t_2$ habiendo 
 	tomado $y_1$ en $t_1$ (certeza de $y_1$) }
 \]
+\notamargen{Es importante que la condicional implica que se sabe algo con certeza.}
 
 Abreviaremos obviando el tiempo. Además se tiene 
 \[
@@ -62,18 +67,23 @@ $y_1, y_2$ del subconjunto de los que parten de $y_1$.
 
 Además
 \[
-	P_2(y_1;y_2) = P_1(y_1) P_{1/1}(y_1|y_2)
+	P_2(y_1;y_2) = P_1(y_1) P_{1/1}(y_1|y_2),
 \]
-cumpliéndose lo siguiente
+que es el caso de $P(B)P(B/A)=P(A)$, cumpliéndose lo siguiente
 \begin{itemize}
- \item $ \int P_1(y_1) dy_1 = 1 \qquad  \text{normalización} $ 
- \item $ \int P_{1/1}(y_1|y_2) dy_2 = 1 \qquad \text{normalización} $ 
- \item $ \int P_2(y_1;y_2) dy_1 = \int P_1(y_1) P_{1/1}(y_1|y_2) dy_1 =  P_1(y_2) \qquad \text{reducción} $
+	\item $ \int P_1(y_1) dy_1 = 1 \qquad  \text{normalización} $ 
+	\item $ \int P_{1/1}(y_1|y_2) dy_2 = 1 \qquad \text{normalización} $ 
+	\item $ \int P_2(y_1;y_2) dy_1 = \int P_1(y_1) P_{1/1}(y_1|y_2) dy_1 =  P_1(y_2) 
+	\qquad \text{reducción} $
 \end{itemize}
 La integral de normalización implica sumar todos los caminos de $(y_1,t_1)$ a $(y_2,t_2)$.
 
 La reducción se puede definir en general para $N$ pasos y $N-1$.
 Cuando la densidad de probabilidad es invariante ante una traslación temporal se dice que es estacionaria.
+En ese caso se da que
+\[
+	P_N(y_1,t_1;y_2,t_2; ...; y_N,t_N) = P_N(y_1,t_1+\tau;y_2,t_2+\tau; ...; y_N,t_N+\tau) 
+\]
 
 \subsubsection{Ejemplito numérico}
 
@@ -98,6 +108,15 @@ Se define por
 \[
 	P_{3/1}(y_1,y_2,y_3|y_4) \underbrace{\rightarrow}_{\text{Markov}} \; P_{1/1}(y_3|y_4)
 \]
+luego, conociendo
+\[
+	\begin{cases}
+	P_1 ( y, t )  \\
+	P_{1/1}( y_{n-1}, t_{n-1} | y_n t_n )
+	\end{cases}
+\]
+ya conozco todo lo que necesito.
+
 
 Se puede demostrar una ecuación de Chapman-Kolmogorov
 \[
@@ -214,12 +233,14 @@ una ecuación de onda para la probabilidad (?)
 
 Espacio muestral discreto $Y=\{ y_1, y_2, y_3,...,y_\ell \}$ de dimensión $L$ y donde
 medimos el tiempo en pasos.
+Se tiene una ecuación de evolución dada por
 \[
-	P_1(y_j,1) = \sum_i^L P_1(y_i,0) P_{1/1}(y_i,0|y_j,1)
+	P_1(y_j,s+1) = \sum_i^L P_1(y_i,s) P_{1/1}(y_i,s|y_j,s+1),
 \]
-donde la información sobre las transiciones se introduce en
+que es la probabilidad de llegar a un estado específico desde todos los otros posibles y
+donde la información sobre las transiciones se introduce en la matriz $Q$ tal que 
 \[
-	Q : Q_{ij} \equiv P_{1/1}(y_i,0|y_j,1)
+	Q_{ij} \equiv P_{1/1}(y_i,0|y_j,1),
 \]
 que es la matriz estocástica.
 Se verifica
@@ -235,13 +256,13 @@ la suma de las filas es 1 entonces la matriz se llama estocástica}
 \[
 	P_j(1) = P_i(0) Q_{ij} \quad \text{Asumimos convención de Einstein}
 \]
+\notamargen{La matriz $Q$ tiene probabilidades de transición fijas en el tiempo,
+de modo que $Q$ es independiente del tiempo.}
 \[
 	\vec{P(s)} = \vec{P(s-1)}Q = \vec{P(s-2)} Q Q = ... = \vec{P(0)}Q^s
 \] 
 y decimos que $Q$ es estocástica regular si existe $k : [Q^k]_{ij} > 0 \forall i,j$.
 
-\notamargen{La matriz $Q$ tiene probabilidades de transición fijas en el tiempo,
-de modo que $Q$ es independiente del tiempo.}
 
 Si $Q$ es estocástica regular entonces existe $s : Q^{s+1} = Q^s \equiv T$ y por lo tanto
 \[
@@ -263,17 +284,18 @@ Si $n>s$
 	\overbrace{\vec{P}^\beta}^{1\times L} \overbrace{Q}^{L\times L}
 	\quad \rightarrow \quad  0 = (Q-\lambda_\beta \mathbb{1}) \vec{P}^\beta
 \]
+y tenemos autovalores a izquierda
 \[
 	\lambda_\alpha \chi_j^\alpha = \chi_{1i}^\alpha Q_{ij} \qquad \vec{\chi} = (,,,)
 \]
-donde los índices $j,1i$ refieren a columnas y
+donde los índices $j,1i$ refieren a columnas y autovalores a derecha
 \[
 	\lambda_\beta \psi_{i1}^\beta = Q_{ij} \psi_{j1}^\beta \qquad \vec{\chi} = 
-\begin{pmatrix}
-                                                                            \\
-                                                                            \\
-                                                                            
-                                                                           \end{pmatrix}
+									\begin{pmatrix}
+									\\
+                                                                        \\
+                                                                        
+                                                                        \end{pmatrix}
 \]
 donde los índices $i1,j1$ refieren a filas.
 
@@ -319,7 +341,7 @@ y $\lambda_\beta=1$ autovalor de
 	\end{pmatrix}
 \]
 
-\section{Solución general a través de descomposición espectral}
+\subsection{Solución general a través de descomposición espectral}
 
 \[
 	\lambda_\alpha \chi_i^\alpha = \sum_j \chi_j^\alpha Q_{ij} 
@@ -336,7 +358,7 @@ y entonces
 \[
 	Q_{\ell i} = \sum_\alpha \lambda_\alpha \psi_\ell^\alpha \chi_i^\alpha
 \]
-es una descomposición espectral.
+es una descomposición espectral, análoga a la de mecánica cuántica $\mathbb{1} = \sum_i \Ket{i}\Bra{i}$.
 De esta forma 
 \[
 	Q_{\ell i}^s = \sum_\alpha \lambda_\alpha^s \psi_\ell^\alpha \chi_i^\alpha
@@ -347,7 +369,8 @@ por ortogonalidad de $( \vec{\chi}, \vec{\psi} )$.
 	Q_{\ell i}^s = \lambda_1^s \psi_\ell^1 \chi_i^1 + 
 	\sum_{\alpha=2} \lambda_\alpha^s \psi_\ell^\alpha \chi_i^\alpha
 \]
-Y si $s \to \infty$ entonces $\lambda_1 = 1$ y $\psi^1 = (1,1,...,1)^t$ de modo que 
+Y si $s \to \infty$ entonces $\lambda_1 = 1$ y $\psi^1 = (1,1,...,1)^t$, mientras que
+$\lambda^s_{\a}$ tiende a cero puesto que $ |\lambda_i| \leq 1$, de modo que 
 \[
 	\lim_{s\to \infty} Q^s_{\ell i} = \overbrace{\psi_\ell^1}^{L\times 1} 
 	\overbrace{\chi_\ell^1}^{L\times 1} = \begin{bmatrix}
@@ -363,7 +386,7 @@ Y si $s \to \infty$ entonces $\lambda_1 = 1$ y $\psi^1 = (1,1,...,1)^t$ de modo 
 \]
 \notamargen{Todas las filas son iguales.}
 \[
-	\lim_{s\to \infty} Q^s_{\ell i} = T_{\ell i} = \chi_i^1 \forall \ell
+	\lim_{s\to \infty} Q^s_{\ell i} = T_{\ell i} = \chi_i^1 \quad \forall \ell
 \]
 entonces
 \[
@@ -377,7 +400,7 @@ entonces
 
 Luego $T$ tiene como filas al autovector que cumple
 \[
-	\vec{\chi} = \vec{chi} Q \qquad \text{El punto fijo de $Q$}
+	\vec{\chi} = \vec{\chi} Q \qquad \text{El punto fijo de $Q$}
 \]
 Por otro lado
 \[

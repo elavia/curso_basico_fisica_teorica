@@ -1250,23 +1250,36 @@ Una variable estocástica es el resultado de un experimento
 	\text{Cov}(X,Y) = \vm{XY} - \vm{X} \vm{Y}
 \]
 
+\begin{ejemplo}{\bf Minimal}
+
+Considerando $x,y=x^2$ se ve que
+\[
+	\text{Cov}(x,y) =  \vm{x^3} - \vm{x}\vm{x^2}
+\]
+y esto es nulo si $P(x)=P(-x)$.
+ 
+\end{ejemplo}
+
+
 \subsection{Distribución binomial}
 
-Las realizaciones son equivalentes a experimentos.
-Considerando dos resultados $+1,-1$ con probabilidad $1/2$ para cada uno (con monedas
-serán cara y seca)\footnote{Una moneda cargada no tendrá probabilidad 1/2, se pierde
+Las realizaciones son equivalentes a experimentos. $N$ pruebas independientes, cada una
+de las cuales puede tener dos resultados $+1,-1$ con probabilidad $1/2$ para cada uno 
+(con monedas serán cara y seca)\footnote{Una moneda cargada no tendrá probabilidad 1/2, se pierde
 la simetría allí.}
 \[
 	p + q = 1
 \]
 siendo $p$ de cara y $q$ de seca. 
+Es para sucesos binarios.
+
 Con $N$ experimentos será $N=n+m$ donde $n$ y $m$ equivalen a $1$ y $-1$ respectivamente.
 Quiero ver cómo es la distribución en una caminata (al azar, o de borracho) de
 $N$ pasos
 \[
-	P = \frac{N!}{n! m!} p^n q^m
+	P_N(n) = \frac{N!}{n! m!} \: p^n q^m,
 \]
-con $m = N-n$.
+que es la probabilidad de hacer $N$ pruebas y tener $n$ que salieron bien, donde $m = N-n$.
 
 La binomial está normalizada de por sí.
 \[
@@ -1277,6 +1290,24 @@ Veamos un momento de la distribución:
 \[
 	\vm{n} = p N \qquad \qquad  \vm{n^2} = (p N)^2 + N p q
 \]
+
+La desviación estandard es
+\[
+	\sigma_N = \sqrt{\frac{q}{p} \frac{1}{N}}, \qquad \sigma_N = \sqrt{\text{var}}.
+\]
+
+Sea un gas que llena un contenedor; partículas en una dada celda (ocupada o vacía) [esto es
+para binomial o Poisson?]
+
+\subsection{Distribución de Poisson}
+
+Es para muchos eventos con probabilidad muy pequeña.
+\[
+	P(n) = \frac{a^n \euler^{-a}}{n!},
+\]
+donde si $N\to\infty$ y $p\to 0$ se da $pN \to a$.
+
+Para un gas ideal en un contenedor grande se tiene una forma tipo Poisson.
 
 \subsection{Distribución normal}
 
@@ -1359,8 +1390,11 @@ Una simplificación es el {\it proceso de Markov} el paso final solo depende del
 anterior. Este proceso quedará definido como
 \begin{itemize}
 	\item $ P_1(y_1,t_1) $
-	\item $ P_{11}(y_1,t_1|y_2,t_2) $
+	\item $ P_{12}(y_1,t_1|y_2,t_2) $ (decía $P_{11}$ pero creo que es así como pongo)
 \end{itemize}
+Markov se caracteriza por procesos de memoria corta; solo importa dónde estaba un paso antes.
+El segundo item anterior sería la probabilidad condicional de estar en $y_2$ si a tiempo $t_1$ estaba
+en $y_1$.
 
 Ecuación de Chapman-Kolmogorov. Hay que sumar todos los posibles caminos entre $1 \to 2 \to 3$,
 entonces un proceso 
@@ -1373,6 +1407,87 @@ entonces un proceso
 Esto es la probabilidad de estas en $y_n,t_n$ habiendo estado en $y_1,t_1;y_2,t_2;...;y_{n-1},t_{n-1}$
 lo que lleva a la probabilidad de transición $P_{11}$.
 
+Sean algunos casos:
+
+La idea es que tomo una pelota al azar de un contenedor y la metemos en el otro.
+Parto del estado con una pelota en A y tres en B.
+Tengo una matriz de estados
+\[
+	\begin{pmatrix}
+		0 & 1 & 0 & 0 & 0 \\
+		1/4 & 0 & 3/4 & 0 & 0 \\
+		0 & 1/2 & 0 & 1/2 & 0 \\
+		0 & 1 & 3/4 & 0 & 1/4 \\
+		0 & 1 & 0 & 1 & 0
+	\end{pmatrix} = Q
+\]
+que es la matriz de probabilidades de transición. Las filas señalan estados iniciales y
+las columnas estados finales.
+
+Sean los días de la semana que serán: ``lindos'' (L), ``nublados'' (N) o ``lluviosos'' (Y).
+Un día L será N o Y con probabilidad un medio; los N serán N con probabilidad 1/2 y L y Y con
+idéntica probabilidad 1/4 (en total la probabilidad está normalizada). Para los días Y será
+con probabilidad 1/2 Y y con idéntica probabilidad 1/4 L y N. Así construimos
+\[
+	Q = \begin{pmatrix}
+		1/2 & 1/4 & 1/4 \\
+		1/2 & 0 & 1/2 \\
+		1/4 & 1/4 & 1/2
+	\end{pmatrix} 
+\]
+donde las filas y columnas se asocian con N,L,Y en ese orden.
+
+\includegraphics[width=0.30\textwidth]{images/1606329199.jpg}
+
+Si me interesa ver cómo estará pasado mañana, dos pasos, entonces
+\[
+	P_{\text{NY}} = P_{\text{NN}} P_{\text{NY}} +
+			P_{\text{NL}} P_{\text{LY}} +
+			P_{\text{NY}} P_{\text{YY}}
+\]
+es una contracción, una {\it chain rule}, 
+\[
+	P_{13} = P_{11} P_{13} + P_{12} P_{23} + P_{13} P_{23}
+\]
+en general
+\[
+	Q_{ij}^{(2)} = \sum_{k=1}^r \ p_{ik} p_{kj}
+\]
+
+Si $Q$ es la matriz de transición y $(Q^n)_{ij}$ la probababilidad de hallarse en $j$ habiendo
+partido de $i$ luego de $n$ transiciones.
+La joda es que $Q^n$ se estabiliza; es deci que $Q^1, Q^2, Q^3, ..., Q^n$ tiende a un valor;
+o dicho de otro modo que a partir de un cierto número de pasos se hace independiente de la
+historia pasada; el sistema es independiente del punto inicial.
+Son las llamadas {\it cadenas de Markov regulares}.
+
+A tiempos muy grandes es independiente del punto de partida; i.e. no tienen memoria.
+
+Consideremos un vector inicial
+\[
+	\vb{\mu} = \begin{pmatrix}
+		\mu_N \\
+		\mu_L \\
+		\mu_Y
+	\end{pmatrix}
+\]
+donde en el ejemplo del día nublado inicial sería $\mu = (1,0,0)$. La evolución de la probabilidad
+inicial es
+\be
+	\vb{\mu}^s = \vb{\mu} Q^s
+	\label{markov_evol}
+\ee
+si es absorbente si $p_{ii} = 1$. Una cadena de Markov es absorbente si tiene algún estado absorbente
+y si puedo caer en él desde cualquier otro estado.
+
+La forma general de $Q$ para cadenas absorbentes es como se ve
+
+\includegraphics[width=0.30\textwidth]{images/1606329205.jpg}
+
+Cadena de Markov ergódica es aquella en la cual se puede acceder a cualquier $s_j$ desde cualquier $s_i$.
+Ergódico entonces no es absorbente.
+Si $Q$ es regular, entonces existe $m$ tal que $(Q^m)_{ij} > 0$, donde $m$ será muy grande.
+Toda matriz regular es ergódica pero no vale la vuelta. La evolución la da la ecuación \eqref{markov_evol}
 
 \begin{ejemplo}{\bf Problema 11}
 
