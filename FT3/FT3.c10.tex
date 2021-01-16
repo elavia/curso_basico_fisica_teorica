@@ -425,8 +425,95 @@ entonces resulta que
 es lo que hay que buscar.
 La moraleja es que $\vec{P}$ de equilibrio es el punto fijo de $Q$.
 
+\notamargen{Los siguientes problemas aparecían en la página 14 de la carpeta, tal vez correspondan
+a algún capítulo inicial más que aquí.}
 
+\begin{ejemplo}{\bf Problema 4}
+ 
+\includegraphics[width=0.30\textwidth]{images/1606329215.jpg}
 
+Se elige una bocha, y se cambia de urna. Las bochas se eligen completamente al azar; no sé de qué 
+tarro las voy a tomar.
+La idea es que evolucionamos de $n' \to n$, entonces
+\[
+	T_{nn' } = \frac{n}{N} \delta_{n+1,n'} + \left[ 1 - \frac{n'}{N} \right] \delta_{n-1,n'}
+\]
+que interpreta al primer término como el vaciamiento de A y al segundo como el llenado de A.
+
+Definiendo $y \equiv N_A$ queremos ver las psobiels transiciones
+
+\includegraphics[width=0.90\textwidth]{images/1610808616.jpg}
+
+No me precoupan las diferentes combinaciones de cada estado. No pienso en variaciones microscópicas.
+\[
+	T_{10} = 1 \qquad \qquad T_{01} = \frac 1 N \qquad \qquad 
+	T_{21} = \frac {N-1} N \qquad \qquad T_{12} = \frac 2 N
+\]
+Entonces,
+\[
+	P(n,s+1) = \sum_{m=0}^N \: P(m,0) Q_{mn}^s = \sum_{m=0}^N \: P(m,s) Q_{mn}
+\]
+\[
+	P(n,s+1) = \sum_{m=0}^N \: P(m,s) 
+	\left( \frac{m}{N} \delta_{n,m-1} + \left[ 1 - \frac{m}{N} \right] \delta_{n,m+1} \right)
+\]
+\[
+	P(n,s+1) = \frac{n+1}{N} P(n+1,s) + \left[ 1 - \frac{n-1}{N} \right] P(n-1,s)
+\]
+para $1 \leq n \leq n-1$. Como $P(0,s+1) = 1/N P(1,s)$ y $P(N,s+1)=1/N P(N-1,s)$ si tomamos esta
+podemos ver que satisface la ecuación última.
+A tiempos muy grandes esperaríamos $P(n)=(m/n) 1/2^N$ y se puede ver reemplazando y viendo que se
+plancha la evolución temporal.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 6}
+
+Una bola de cada una y se intercambian
+
+\includegraphics[width=0.90\textwidth]{images/1606329219.jpg}
+
+La matriz de transición sería algo como
+\[
+	\begin{pmatrix}
+	 0 	&	1	&	0	\\
+	 1/8 	&	1/2	&	3/8	\\
+	 0 	&	1/2	&	1/2	
+	\end{pmatrix}
+\]
+y los autovalores $\lambda_i = 1, 1/4, -1/4$ para $i=1,2,3$.
+Los autovalores a derecha
+\[
+	\psi_1 = (1,1,1) \qquad 
+	\psi_1 = (2,-1/2,1) \qquad 
+	\psi_1 = (1,-1/4,1/6) 
+\]
+y los autovalores a izquierda
+\[
+	\chi_1 = ( 1/15, 8/15, 6/15 ) \qquad
+	\chi_2 = ( -1/2, -1, -3/2 ) \qquad 
+	\chi_3 = ( 7/6, -4/6, -7/6 ) 
+\]
+Se tienen además
+\[
+	P^{(3)} = P(0) Q^3
+\]
+donde $Q^3$ será
+\[
+	Q^3 = \sum_{i=1}^3 \; \lambda_i^3  \psi_i \chi_i
+\]
+sujeta a las condiciones iniciales
+\[
+	P(0) = \begin{cases}
+	 (1,0,0) \\
+	 (0,0,1) \\
+	 (0,1,0)
+	\end{cases}.
+\]
+
+\notamargen{El sistema está en equilibrio cuando olvidó el punto desde el cual partió.}
+
+\end{ejemplo}
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica

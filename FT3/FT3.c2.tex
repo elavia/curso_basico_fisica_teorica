@@ -33,6 +33,107 @@
 \chapter{Conjuntos estadísticos}
 % =================================================================================================
 
+
+\section{Mecánica estadística. Boltzmann y teoría cinética}
+
+Estaremos pensando en un hamiltoniano para muchas partículas (dinámica real)
+\[
+	H = \sum_i \frac{p^2}{2m} + \sum_{i < j} v_{ij}(|v_i-v_j|) + \sum_i U_i
+\]
+
+Sistema diluido. Las colisiones a un tiempo fijo son entre dos partículas; no entre más.
+También lo garantiza esto la forma del potencial que se esfuma rápidamente a gran distancia.
+Los procesos colisionales se definirán en base a $\sigma$, la sección eficaz, que no es otra cosa
+que una probabilidad de transición.
+
+\includegraphics[scale=0.5]{images/1606329227.jpg}
+
+Con normalización
+\[
+	N = \int \int f(r,p,t) d^3r d^3p
+\]
+donde se integra en el espacio de fases.
+El gas ideal es la aproximación más baja; el $\sigma = 0$ porque no colisiona.
+Consideremos un flujo libre
+\[
+	(r,p) \to ( r + v \delta t, p + F \delta t )
+\]
+En ausencia de colisiones, $f$ se consderva. Pero si hay colisiones tiene que variar
+
+\includegraphics[scale=0.5]{images/1606329231.jpg}
+\includegraphics[scale=0.5]{images/1606329234.jpg}
+
+
+En cada celda pueden convivir diferencias de momentos muy grnades entre partículas.
+En el primer pic cuando paso dde aquí a aquçi si alguna partícula chocca, se modifica el $p$ de modo
+que no llega a B. Posiciones cercanas y momentos (?) diferentes darán colisiones. 
+En el segundo pic, estas colisionan: mismo espacio de configuración pero momento desigual
+
+\includegraphics[scale=0.5]{images/1606329237.jpg}
+\includegraphics[scale=0.5]{images/1606329239.jpg}
+
+Tenemos colisiones directas (asociadas a las que despueblan la celda) y colisiones inversas (asociadas
+a las que pueblan la celda). La pérdida o ganancia se refiere a un salto en $\vb{p}$.
+Finalmente, se tiene la ecuación de Boltzmann
+\[
+	\dpare{f}{t}{\text{coll}} = \int \int ( f' f'_1 - f f_1) V \sigma(V) d^2v_1 d\Omega.
+\]
+
+\section{Teorema H}
+
+Si $H$ es constante en el tiempo entonces $f$ será constante. Se considera $H \equiv \int d^3v f \log (f)$
+\[
+	\dtot{H}{t} \leq 0,
+\]
+y esto define una flecha del tiempo.
+Entonces como $H$ es siempre no positiva, $H$ será acotada y entonces se llega al mínimo y se queda ahí.
+Pero esto es incompatible con el teorema de Poincaré, por ejemplo. Luego se vio que en realidad $H$ fluctúa.
+
+Las ecuaciones de la mecánica (sistemas aislados no disipativos) son invertibles temporalmente.
+El teorema H de Boltzmann parece ser violado si miramos en una escala de tiempo que no nos muestra
+la \textit{picture} completa.
+
+\includegraphics[scale=0.5]{images/1606329246.jpg}
+
+Por el camino azul parece violar el tema de minimizar $H$ en el avance temporal.
+
+\section{Ensamble}
+
+Un ensamble es un conjunto de puntos en el espacio $\Gamma$.
+Consideramos una condición de un sistema con $U,V,N$ entonces tendrá ciertos valores de $p,q$ (que
+evolucionan en el tiempo como el hamiltoniano predice). Dará una cierta $\rho(p,t)$.
+Tenemos el teorema de Liouville
+\[
+	\dpar{\rho}{t} + \sum_i \left[ \dpar{\rho}{p_i} \dot{p}_i + 
+	\dpar{\rho}{q_i} \dot{q}_i \right] = 0
+\]
+y entonces la condición
+\[
+	\dtot{\rho}{t} = 0,
+\]
+nos habla de un {\it fluido} incompresible.
+Entonces, la densidad de puntos en el espacio $\Gamma$ no varía. Los volúmenes se conservan; es una
+consecuencia de los volúmenes aislados. No se crean ni aniquilan puntos.
+
+\includegraphics[scale=0.5]{images/1606329250.jpg}
+
+Según ilustra la picture se conserva el número de puntos en la transformación.
+
+La jerarquía BBGKY son unas ecuaciones acopladas que dan la evolución de las funciones de distribución
+en función de las otras.
+
+El ensmable microcanónico corresponde a $U,V,N$ fijos con paredes perfectamente reflectantes.
+La condición sobre $U$ es que hay un mapeo de $\Gamma$ a $\mu$ que define un número de ocupación,
+pero en esa transformación se pierde información microscópica; se pierde datos porque de un punto en
+$\Gamma$ paso a unas celdas en $ \mu $.
+
+Quiero exrtremar el número de ocupación y, con aproximación de Stirling mediante, se llega a
+\[
+	\tilde{f} = C \euler^{-\beta \epsilon},
+\]
+una distribución normal para la distribución más probable. Una distribución \textit{chancha} no nos da mucha
+información mientras que una \textit{picuda}, en cambio, sí.
+
 La cantidad
 \[
 	\rho(\{ \vec{q}_i, \vec{p}_i\},t) d^{3N}qd^{3N}p
