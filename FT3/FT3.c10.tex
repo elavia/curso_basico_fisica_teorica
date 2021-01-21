@@ -298,6 +298,8 @@ donde los índices $j,1i$ refieren a columnas y autovalores a derecha
                                                                         \end{pmatrix}
 \]
 donde los índices $i1,j1$ refieren a filas.
+Parece que el hecho de que $Q$ sea no simétrica impalica que tiene autovalores a izquierda
+y derecha.
 
 
 Y entonces deducimos que 
@@ -309,8 +311,11 @@ Y entonces deducimos que
 
 Sabemos que 
 \[
-	P(m,s) = \sum_n P(n,0) Q^s_{nm} \qquad \rightarrow \text{con $s=1$}
+	P(m,s) = \sum_n P(n,0) Q^s_{nm},
 \]
+\notamargen{En algún momento tuvimos que decir que esto es sumar sobre todos los caminos de
+llegar al punto final.}
+y con $s=1$
 \[
 	P(m,1) = \sum_n P(n,0) Q_{nm}
 \]
@@ -359,6 +364,7 @@ y entonces
 	Q_{\ell i} = \sum_\alpha \lambda_\alpha \psi_\ell^\alpha \chi_i^\alpha
 \]
 es una descomposición espectral, análoga a la de mecánica cuántica $\mathbb{1} = \sum_i \Ket{i}\Bra{i}$.
+Esto sería la clausura, que sume uno. Y la completitud ortogonalidad sería $\chi_i \psi_j = \delta_{ij}$.
 De esta forma 
 \[
 	Q_{\ell i}^s = \sum_\alpha \lambda_\alpha^s \psi_\ell^\alpha \chi_i^\alpha
@@ -409,6 +415,13 @@ Por otro lado
 
 La probabilidad de un estado $i$ final, una vez dentro del régimen estacionario, no depende del estado
 $\ell$ desde el cual partimos.
+Tenía anotado algo como que haciendo el límite $s \to \infty$ se puede escribir
+\[
+	P(n,s) = \sum_{m=1}^N \: P(m,0) \psi_1(n) = \psi_1(n)
+\]
+y el $\psi_1(n)$ no depende desde donde partí (luego de muchos pasos) y entonces el autovector que
+podemos interpretar como probabilidad es el $\psi_1(n)$ porque está asociado a que es una
+tendencia asintótica.
 
 La solución de equilibrio claramente es
 \[
@@ -514,6 +527,214 @@ sujeta a las condiciones iniciales
 \notamargen{El sistema está en equilibrio cuando olvidó el punto desde el cual partió.}
 
 \end{ejemplo}
+
+
+\begin{ejemplo}{\bf Problema 7}
+
+La picture ilustra el problema
+
+\includegraphics[scale=0.5]{images/1606329257.jpg}
+
+que lleva a la matriz
+\[
+	Q = \begin{pmatrix}
+		1/3 & 2/3 & 0 \\
+		4/9 & 1/9 & 4/9 \\
+		26/27 & 0 & 1/27 
+	    \end{pmatrix}
+\]
+y los lugares que quedan nulos son de cosas que no están vinculadas.
+
+Equilibrio significa que si llegarremos aun tiempo donde las probabilidades no dependen de
+cuál fue el punto inicial. A ojo vemos que en un paso no se pueden conectar todos los
+estados; pero en dos pasos sí se pueden conectar. Entonces existe $ \lambda = 1 $ tal que
+\[
+	\psi_1 = \begin{pmatrix}
+	          1 \\
+	          1 \\
+	          1
+	         \end{pmatrix}
+	\qquad 
+	\chi_1 = ( \: 52/109, 39/109, 18/109 \:)
+\]
+y es asintóticamente
+\[
+	P(n) = ( \: 52/109, 39/109, 18/109 \:)
+\]
+\[
+	P(n_0,0) = (0,1,0)
+\]
+\[
+	P(n,s=2) = \sum_{n_0=1}^3 \: P(n_0,0) Q_{n_0 n}^2 
+\]
+
+Si las bacterias mueren tengo que agregar un estado ``0'' absorbente: una vez que caigo no
+puedo salir y entonces el estado asintótico será el de la muerte total (es nula la cantidad
+de bacterias).
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 8}
+
+Metemos el tiempo en lugar de la cantidad de pasos, entonces convertimos
+\[
+	P(n,s) \longrightarrow P(n,t)
+\]
+lo que dará origen a la ecuación maestras, donde $P(n,t)$ es claramente la probabilidad de estar en
+un estado $n$ a tiempo $t$.
+Tendremos
+\be
+	\dpar{P(n,t)}{t} = \sum_{m=1}^N \: 
+	P(n,t) \omega_{mn}(t) - P(n,t) \omega_{nm}(t)
+	maestra_prob_8
+\ee
+donde le primer término son las ganancias (probabilidad de estados que llegan a $n$) y el segundo las
+pérdidas (probabilidad de estados que se van de $n$).
+
+La $\omega_{mn}$ tendrá una forma que se modelará desde el sistema mismo. La función generatriz $F$
+(que nos darán los distintos momentos de la distribución)
+permite la resolución más sencilla de estos problemas.
+\[
+	F(z,t) = \sum_n \: P(n,t) z^n \qquad \qquad F(1,t)=1
+\]
+Desde 
+\[
+	\dpare{F}{z}{z=1} = \vm{n}_t
+\]
+obtengo los momentos por derivación.
+
+Entonces se puede poner la caminata aleatoria simétrica
+
+\includegraphics[scale=0.5]{images/1606329264.jpg}
+
+como
+\[
+	\dot{p}_n = p_{n+1} + p_{n-1} - 2 p_n, \qquad -\infty < n < \infty 
+\]
+y se puede escribir la \eqref{maestra_prob_8} como una ecuación para $ \Gamma$
+\[
+	\dot{p}_n = \frac{1}{2} p_{n+1} + \frac{1}{2} p_{n-1} - p_n, \qquad -\infty < n < \infty 
+\]
+con el tiempo reescalado. Ahora necesito una ecuación para $F$,
+\[
+	\sum_{n=-\infty}^\infty \: z^n \dpar{P_n}{t} = 
+	\sum_{n=-\infty}^\infty \: z^n p_{n+1} + z^n p_{n-1} - 2 z^n p_{n}
+\]
+luego
+\[
+	\dpar{F(z,t)}{t} = \sum_{n'} \frac{z^{n'}}{z} p_{n'} + 
+	z^{n'} p_{n'} - 2 \: z^{n'} p_{n'}
+\]
+de lo cual finalmente resulta
+\[
+	\dpar{F(z,t)}{t} = \left[ \sum_n z^n p_n \right]\left( \frac{1}{z} + z - 2  \right)
+	= F \frac{(z-1)^2}{z}
+\]
+donde el factor del final no depende del tiempo $t$. Entonces
+\[
+	F(z,t) = F(z,0) \euler^{ \frac{(z-1)^2}{z} t }
+\]
+y con $F(1,t)=1=F(z,0)$ se tiene $F(z,t) = \euler^{ \frac{(z-1)^2}{z} t }$.
+
+Con esto salen los momentos derivando simplemente. Asimismo podemos identificar direcctaamnte
+a mano
+\[
+	F(z,t) = \sum_n \: P(n,t) z^n
+\]
+donde los $P$ serán las probabilidades entregadas sin sacrificio al poner la exponencial en
+términos de la serie.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Ejemplo ilustrativo de la práctica}
+
+Consideramos una población de bacterias con las siguientes características
+\[
+	\text{Prob. de morir en } (t,t+dt) \qquad \omega_{n n-1}(t)\Delta t = d_n(t)\Delta t
+\]
+\[
+	\text{Prob. de nacer en } (t,t+dt) \qquad \omega_{n n+1}(t)\Delta t = b_n(t)\Delta t
+\]
+\[
+	\text{Prob. de que no ocurra nada en } (t,t+dt) \qquad ( 1 - [ b_{n}(t) + d_n (t) ] ) \Delta t 
+\]
+
+Además, consideraremos $\Delta t$ tan chico que no ocurren dos eventos simultáneos. Una sola
+transición. La ecuación maestra implica ganancia y pérdida.
+\[
+	\dpar{P(n,t)}{t} = b_{n-1}(t) P(n-1,t) +
+	d_{n+1}(t) P(n+1,t) - ( b_{n}(t) + d_{n}(t) ) P(n,t)
+\]
+Suponemos procesos lineales de nacimiento y muerte, que no dependen del tiempo.
+\[
+	b_n(t) = \beta n \qquad d_n(t) = \gamma n
+\]
+donde $\beta,\gamma$ son probabilidades por unidad de bacterias.
+\[
+	\dpar{P(n,t)}{t} = \beta (n-1) P(n-1,t) +
+	\gamma (n+1) P(n+1,t) - (\beta n + \gamma n ) P(n,t)
+\]
+Si la ecuación anterior da $P(n=-1) \neq 0$ estamos ante un absurdo físico que deberá interpretarse.
+En general debo poner un vínculo para respetar la física
+\[
+	F(z,t) = \sum_{n=-\infty}^\infty \: z^n P(n,t)
+\]
+que es que sumo desde menos infinito pero en realidad no aporta porque la ecuación está acotada 
+naturalmente; $n=0$. No tengo manera de poblar estados con $n < 0$.
+de la cual {\it amasando} podemos llegar a
+\[
+	\dpar{F(z,t)}{t} = (z-1)(\beta z - \gamma) \dpar{F(z,t)}{z}
+\]
+la cual a su vez puede resolverse por un método de las características.
+\[
+	\dpar{F(z,t)}{t} + g(z) \dpar{F(z,t)}{z} + h(z) F(z,t) = 0
+\]
+
+Con este tipo de ecuación podemos pensar en
+\[
+	F(z,t) = \euler^{-\int^t h(z)/g(z) dz} \phi( z, t),
+\]
+con lo cual llegamos a
+\[
+	\dpar{\phi(z,t)}{t} + g(z) \dpar{\phi(z,t)}{z} = 0 
+	\qquad dt = \frac{dz}{g(z)}
+\]
+y genero las curfvas de niveles constantes de $ \phi $ de modo que $\phi$ será constante si me muevo
+en $dz, dt= dz/g(z)$.
+Entonces como se tiene
+\[
+	\int^z \frac{d(z')}{g(t)} - t = c_1
+\]
+esto nos conduce a 
+\[
+	\phi(z,t) = ºphi \euler^{ \frac{dz}{g(z)-t}}
+\]
+y
+\[
+	F(z,t) = \euler^{\int^t h(t)/g(z)} \phi( \euler^{\int^z dz/g(z) -t}).
+\]
+Volviendo al problema original, tendremos
+\[
+	F(z,t) = \Frac{ \beta(z-1) \euler^{(\beta - \gamma)t} }{\beta z - \gamma}^m
+\]
+Mediante condiciones iniciales puedo decir algo de $F$.
+Si a $t=0$ hay $m$ bacterias entonces $P(m,0) = \delta_{nm}$
+\[
+	F\Frac{\beta(z-1)}{\beta z - \gamma} = z^m \quad \to \quad 
+	F(\mu) = \Frac{\gamma \mu - \beta}{\beta(\mu -\beta)}^m
+\]
+donde hemos redefinido $\mu \equiv \beta z - \gamma$, y finalmente
+\[
+	F(z,t) = \Frac{ \gamma(z-1) \euler^{(\beta - \gamma)t} - \beta z + \gamma }
+	{\beta(z-1) \euler^{(\beta - \gamma)t} - \beta z + \gamma}^m
+\]
+de manera que
+\[
+	\vm{n(t)} = \dpare{F}{z}{z=1} = m \euler^{(\beta-\gamma)t}.
+\]
+ 
+\end{ejemplo}
+
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
