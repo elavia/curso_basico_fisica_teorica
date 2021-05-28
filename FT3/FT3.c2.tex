@@ -79,6 +79,43 @@ Finalmente, se tiene la ecuación de Boltzmann
 	\dpare{f}{t}{\text{coll}} = \int \int ( f' f'_1 - f f_1) V \sigma(V) d^2v_1 d\Omega.
 \]
 
+{\bf suelto}
+
+El equilibrio corresponde a 
+\[
+	f_0(p_1) f_1(p_2) = f_0(p_1') f_1(p_2')
+\]
+que proviene de pedir $df/dt = 0$.
+Considero, antes y después de la colisión, que estoy fuera del rango de interacción.
+La distribución de Maxwell-Boltzmann (solución de equilibrio de la ecuación de Boltzmann).
+
+\subsection{Ensamble gibbsiano}
+
+Dada una condición macroscópica ($U,V,N$) puedo construirme todos los estados compatibles con esa condición.
+Tendré una densidad de estos estados en $\Gamma$.
+Paredes reflectantes al 100\% implican conservación de la energía
+
+Desde $\Gamma \to \mu$ (espacio de celdas discreto; un grano grueso)
+\[
+	\sum_i n_i = N
+\]
+de manera que un punto en $\Gamma$ va a una $f$ en $\mu$, y $f$ en $\mu$ va a un volumen en $\Gamma$
+(muchos puntos en $\Gamma$). De manera que la $f$ con mayor volumen será la más probable.
+
+
+Considero partículas distinguibles, y así se llega a
+\[
+	f_i \propto C \euler^{ - \beta \varepsilon_i }
+\]
+
+\includegraphics[scale=0.5]{images/1606329273.jpg}
+
+\notamargen{Lo que cuenta es el ancho de la campana (figura).}
+
+
+Queremos encontrar el extremo de $\Omega(n)$. Con $N\to\infty$ en Boltzmann la distribución MB es la dominante
+(independientemente del hamiltoniano). La $\sigma$ es nula.
+
 \section{Teorema H}
 
 Si $H$ es constante en el tiempo entonces $f$ será constante. Se considera $H \equiv \int d^3v f \log (f)$
@@ -300,6 +337,13 @@ La trayectoria individual de casi cualquier punto en el $\Omega$ pasa, con el ti
 puntos permitidos del espacio $\mathbb{\Gamma}$. Si esperamos lo suficiente, todos los microestados posibles
 son visitados.
 
+Considerando un $H$ independiente del tiempo. Coinciden los promedios:
+\begin{itemize}
+ \item Seguir cada trayectoria, resolviendo las ecuaciones de movimiento hasta tiempo infinito.
+ \item Calcular valor medio en el espacio $\Gamma$
+\end{itemize}
+
+
 \subsection{Observaciones sobre el microcanónico}
 
 \[
@@ -418,6 +462,245 @@ Si fuesen todas no nulas entonces
 \[
 	\left< \Ham \right>  = 3 N k T.
 \]
+
+{\bf Suelto para reprocesar}
+
+Ensambles calcula valores medios sumando sobre todos los
+\[
+	N \to  \infty, \quad V \to \infty \qquad \frac V N = v
+\]
+
+Para un sistema aislado, equiprobabilidad a priori, $\rho=$ cte es solución si ajusta a $P,V,T$
+\[
+	S(U,V) = k \log T(U)
+\]
+donde supondremos que $U$ es aditiva. Como $E=E_1 + E_2$ el volumen en el espacio de fases
+\[
+	\Gamma(U) = \sum_{i j} \Gamma_1(E_1)\Gamma_2(E - E_1)
+\]
+de dos sistemas separados y luego reunidos.
+En el equilibrio $T_1=T_2$
+
+Además el crecimiento de la entropía en el sistema aislado. Expansión libre: $q$ crece entonces 
+$\Gamma$ crece.
+
+Pero por Liouville $V_\Gamma$ no varía de modo que la evolución en el espacio de fases hará que
+ciertos estados sean inalcanzables ({\it mixing}).
+
+Tenemos la paradoja de Gibbs porque hemos estado considerando partículas indistinguibles; entonces
+al considerar la indistinguibilidad debemos sumar menos (es decir que hay que dividir por un
+factor). Sin embargo, la indistinguibilidad es un concepto no clásico.
+Es $ \Delta S > 0 $ con distinguibles y $ \Delta S = 0 $ si son distinguibles.
+Esta corrección por distinguibilidad no tiene fundamento clásico.
+
+Boltzmaniones: partículas en las cuales uso todas las herramientas clásicas y al final solo
+corregimos con un factor $1/N!$ por indistinguibilidad.
+
+
+\subsection{Fenómenos de transporte}
+
+Un gas clásico verifica
+\[
+	\frac{\hbar}{\sqrt{2 m k T}} \Frac{N}{V}^{1/3} \sim 0.0004 \ll 1
+\]
+donde el primer factor es la longitud de onda de DeBroglie de modo que es un ratio 
+del tipo $\lambda / \ell$ porque el segundo término es la inversa del volumen por
+partícula elevado a la un tercio.
+
+Entonces
+\[
+	f(\vb{x}, \vb{p}, t ) d^3x d^3p 
+\]
+es el número de partículas que se hallan entre $\vb{x}, \vb{x} + d \vb{x}$ y con 
+$(\vb{p}, \vb{p} + d \vb{p} )$ en un tiempo $t$.
+
+\includegraphics[scale=0.5]{images/1606329279.jpg}
+
+
+Hay un número grande de partículas en cada celda. Es un diferencial no matemático (un {\it cachito})
+puesto que no tenderá a cero.
+
+\begin{ejemplo}{\bf Problema 3}
+
+Se consider un gas clásico de $N$ partículas
+\[
+	\int \int f(\vb{x}, \vb{p}, t ) d^3x d^3p = N \qquad \qquad 
+	\int f(\vb{x}, \vb{p},t) d^3p = n
+\]
+y asociamos a una partícula una $\alpha(\vb{x}, \vb{v}, t)$ donde ($\alpha$) serán cantidades extensivas.
+
+El flujo de $\alpha$ se ilustra así
+ 
+\includegraphics[scale=0.5]{images/1606329282.jpg}
+
+de modo que
+\[
+	\vm{\alpha}(\vb{x},t) = \frac{\int \alpha(\vb{x},\vb{p}, t) f(\vb{x},\vb{p},t) d^3p}
+	{\int f(\vb{x}, \vb{p},t) d^3p} =
+	\frac{1}{n} \int \alpha(\vb{x},\vb{p}, t) f(\vb{x},\vb{p},t) d^3p
+\]
+Y entonces,
+\[
+	\hat{j} \cdot \int d^v \alpha(\vb{v}-\vb{u}_0) f(\vb{x},\vb{p},t) =
+	\hat{j} \cdot \vm{ \vb{v}-\vb{u}_0 \cdot \alpha } n(\vbx,t),
+\]
+de manea que el flujo de $\alpha$ es todo lo que multiplica a la dirección $\hat{j}$.
+
+Recordemos la consideración usual microscópica para el flujo ilustrada a continuación:
+
+\includegraphics[scale=0.5]{images/1606329287.jpg}
+
+{\bf Densidad de corriente}
+
+Será la carga por unidad de tiempo en una superficie
+\[
+	\phi_e = n(\vb{x},t) \cdot \vm{\hat{j}\cdot \vb{v}_q}
+\]
+o bien 
+\[
+	\vec{\phi}_e =  n(\vb{x},t) \vm{\vb{v}_q}
+\]
+luego será $\phi_e = n q \vm{ \hat{j} \cdot \vb{v} }$
+
+{\bf Flujo térmico (calor)}
+\[
+	Q = n(\vb{x},t) \vm{ 1/2 m v^2 \vb{v} }
+\]
+donde $ \alpha = 1/2 m v^2 $ es la densidad de energía cinética (asociada a temperatura)
+
+{\bf $P_{ij}$ flujo de momento}
+
+\[
+	\alpha(\vbx, \vb{v}, t) = m ( \vm{v}_i - \vm{v_i} )
+\]
+\[
+	P_{ij} = m \vm{  (\vm{v}_i - \vm{v_i}) v_j } n
+\]
+y se ve que el flujo de momento es claramente un tensor.
+
+Sea la distribución $f(\vbx, \vbv, t )$ y entonces quiero llegar al equilibrio y ver que ya no
+depende del tiempo. La ecuación que define la evolución temporal de $f$ es la ecuación de
+Boltzmann.
+
+Si no hay colisiones debe valer
+\[
+	\vbp_i \to \vbp_i + \vb{F} \delta t \qquad 
+	\vbx_i \to \vbx_i + \vbv \delta t
+\]
+pero el número de partículas se mantiene constante
+\[
+	f(\vbx,\vbp, t) d^3x d^3p = f(\vbx',\vbp', t') d^3x' d^3p'
+\]
+y con sistema hamiltoniano es $ d^3x d^3p = d^3x' d^3p'$.
+Lo que estamos diciendo es que por colisiones hay partículas que chocan y va a parar a otro $\delta V$
+y hay otras que chocan y por ello vienen a parar a este $\delta V$; hay ganancia y pérdida.
+Entonces,
+\[
+	f(\vbx,\vbp, t) = f(\vbx + \vbv \delta t,\vbp + \vb{F} \delta t, t + \delta t)
+\]
+
+Si $\delta t=0$ se tiene $df/dt=0$ de lo cual deducimos
+\[
+	\left( \dpar{}{t} + \frac{\vbp}{m} \nabla_x + \vb{F}\Nabla_p \right) f(\vbx,\vbp,t) = 
+	\begin{cases}
+	 0 \quad \text{ No hay colisiones}\\
+	 \dpar{f}{t} \quad \text{ Hay colisiones}\\
+	\end{cases}
+\]
+\[
+	\dpar{f}{t} dt = (G-P) dt
+\]
+donde $P \delta t d^3x d^3p$ es el número de colisiones en $(t,t+\delta t)$ en las cuales una de las
+partículas inicialmente estaba en las cercanías de $(\vbx,\vbp)$ y luego se va a otro lado.
+Asimismo, $G \delta t d^3x d^3p$ es el número de colisiones en $(t,t+\delta t)$ en las cuales una de las
+partículas termina en $(\vbx,\vbp)$ habiéndose hallado en otro lugar antes.
+Consideramos un gas diluído; colisiones binarias (se desprecian eventos de tres partículas).
+
+\[
+	P \delta t d^3x d^3p_1 = \delta t d^3x d^3p_1 \int d^3 p_2 dP_{12\to 1'2'} F(\vbx,\vbp_1,\vbp_2,t)
+\]
+(que es una probabilidad conjunta) como las partículas chocan, entran en el mismo $\delta x$.
+El término $dP$ es la matriz de transición de momentos $1,2 \to 1',2'$
+
+\[
+	G \delta t d^3x d^3p_1 = \delta t d^3x d^3p_1 \int d^3 p_2 dP_{1'2'\to 12} F(\vbx,\vbp_1',\vbp_2',t)
+\]
+y entonces
+\[
+	P = \int d^3p_2 d^3p_1' d^3p_2' \delta^4(p_i-p_f) |T_{fi}|^2 F(\vbx,\vbp_1,\vbp_2,t)
+\]
+donde hay deltas para la conservación de la energía y el momento.
+
+
+Hay una hipótesis de caos molecular; no hay correlación entre posiciones y momento
+\[
+	f(\vbx,\vbp_1,\vbp_2,t) = f(\vbx,\vbp_1,t) f(\vbx,\vbp_2,t) 
+\]
+de suerte que
+\[
+	\left( \dpar{}{t} + \frac{\vbp}{m} \nabla_x + \vb{F}\Nabla_p \right) f(\vbx,\vbp,t) =
+	\int d^3p_2 d^3p_1' d^3p_2' \delta^4(p_i-p_f) |T_{fi}|^2 (f_2' f_1' -  f_1 f_2)
+\]
+
+Supongamos que no hay fuerzas externas, $\vb{F}=0$ de modo que $ f(\vbx,\vbp,t)\to f(\vbp)$ en el equilibrio.
+Luego, en el equilibrio
+\[
+	\left.\dpar{f}{t}\right|_\text{col} = 0 \qquad \longrightarrow \qquad  f_2' f_1' =  f_1 f_2
+\]
+aunque se puede demostrar que vale también la vuelta (es decir que es un ``sí y sólo sí'').
+Cualquier distribución de equilibrio satisfará la condición anterior. Hay una forma general de 
+función de equilibrio que tiene la forma
+\[
+	f_\text{eq}(\vbp) = C \euler^{- A(\vbp - \vbp_0)^2}
+\]
+
+Para calcular las constatnes se evalúan la presión que se ejerce sobre una pared del sistema termodinámico
+usando el flujo de momento lineal
+
+
+\includegraphics[scale=0.5]{images/1606329297.jpg}
+
+Será
+\[
+	P = \int d^p 2 p_x v_x f_\text{eq}(\vbp)
+\]
+dado que la presión se relaciona con el flujo de momento.
+
+Así llegamos a la función de Maxwell-Boltzmann
+\[
+	f_\text{eq}(\vbp) = \frac{ n }{( 2 \pi m k T )^{3/2}} \euler^{- (\vbp - \vbp_0)^2 / (2mkT)},
+\]
+que es la solución estacionaria de la ecuación de transporte de Boltzmann.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 4}
+ 
+\[
+	\dpar{f}{t} + \frac{\vbp}{m} \dpar{f}{\vbx} + \frac{\vb{F}}{m}\dpar{f}{\vb{u}} =
+	\left.\dpar{f}{t}\right|_\text{col} = 0,
+\] 
+en el campo gravitatorio terrestre, donde $\vb{F} = - m g z$ y entonces
+\[
+	\hat{z} v_x \dpar{f}{z} - g \hat{z} v_x \dpar{f}{v_z} = 0
+\]
+de modo que planteo 
+\[
+	f = \frac{ n(z) }{( 2 \pi m k T )^{3/2}} \euler^{- (\vbp - \vbp_0)^2 / (2mkT)}
+\]
+entonces, reemplazando, resulta en
+\[
+	\dtot{n(z)}{z} = - g \frac{m}{kT} n(z)
+\]
+y
+\[
+	n(z) = n_0 \euler^{-\beta m z g}.
+\]
+ 
+ 
+\end{ejemplo}
+
+
 
 \subsection{Gas ideal (microcanónico)}
 
