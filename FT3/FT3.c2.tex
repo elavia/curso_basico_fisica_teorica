@@ -89,6 +89,206 @@ que proviene de pedir $df/dt = 0$.
 Considero, antes y después de la colisión, que estoy fuera del rango de interacción.
 La distribución de Maxwell-Boltzmann (solución de equilibrio de la ecuación de Boltzmann).
 
+\subsection{Teoría cinética}
+
+La ecuación de transporte de Boltzmann
+\[
+	\left( \dpar{}{t} + \frac{\vbp}{m} \nabla_x + \vb{F}\Nabla_p \right) f(\vbx,\vbp,t) =
+	\dpare{f}{t}{\text{coll}} 
+\]
+que vale para una situación estacionaria, donde no hay fuerzas externas $f(\vbx,\vbp,t) \to f(\vbp) $ 
+(que satisface el miembro derecho nulo de la anterior) y es homogéneo (¿?).
+Esta es la ecuación para la función de distribución.
+Esto conduce a
+\[
+	f_0(\vbp) = \frac{ n }{( 2 \pi m k T )^{3/2}} \euler^{- (\vbp - \vbp_0)^2 / (2mkT)},
+\]
+que es la distribución de Maxwell-Boltzmann y en función de la velocidad,
+\[
+	f_0(\vbv) = n \Frac{ m }{2 \pi k T }^{3/2} \euler^{- m (\vbv - \vbv_0)^2 / (2kT)},
+\]
+
+Pero los ejercicios en general tienden campos externos. Los resuelvo con una perturbación
+\[
+	f = f_0 + f_1
+\]
+donde $f_0$ es MB y la otra es algo. Se requiere entonces la función de distribución de la perturbación,
+que se hará considerando que $f_1 \ll f_0$
+\[
+	\left( \dpar{}{t} + \frac{\vbp}{m} \nabla_x + \vb{F}\Nabla_p \right) (f_0+f_1) =
+	\dpare{f}{t}{\text{coll}} \approx -\frac{f_1}{\tau}
+\]
+donde $\tau$ es un tiempo característico medio entre colisiones.
+Además se usará la hipótesis de equilibrio local la aforma de la distribución es siempre la de Boltzmann
+en todo punto pero cambiand de punto a apunto $n, T, \vm{\vbv}$ que son funciones de $\vbx$ y, eventualmente,
+del tiempo.
+
+Sin embargo, pensaremos que estas variaciones serán suaves y relacionadas en el tiempo con el $\tau$.
+Las variaciones de $f_1$ serán muy pequeñas. A igual orden, podemos pensar que
+\[
+	\left( \dpar{}{t} + \frac{\vbp}{m} \nabla_x + \vb{F}\Nabla_p \right) f_0 \approx -\frac{f_1}{\tau}
+\]
+con 
+\[
+	\dpare{f}{t}{\text{coll}}  = 0
+\]
+
+\begin{ejemplo}{\bf Problema 5}
+
+Tenemos la situación ilustrada en la figura debajo
+
+\includegraphics[scale=0.5]{images/1606329328.jpg}
+
+donde se tiene
+\[
+	u_x(z) = \frac{u_x}{L} z
+\]
+con $\vm{v_x} = u_x(z)$.
+
+A un plano dado la parte inferior retrasa a la parte de arriba. Para mantener el perfil hay que meter
+energía que se va en el rozamiento.
+La fuerza experimental por el fluido superior en la unidad de tiempo
+\[
+	f_\text{fricción} = - \mu \dpar{u_x}{z}
+\]
+donde $\mu$ es la constante de viscosidad.
+
+Hay intercambio de partículas es a ritmo constante por el supuesto flujo laminar
+
+\includegraphics[scale=0.5]{images/1606329331.jpg}
+
+lo que no está balanceado es el flujo de momentos; eso es lo que genera el frenado.
+La cantidad transportada es $ m (v_x - u_x)$ donde la primera es la velocidad de las partículas, y
+el flujo efectivo será $n (v_z - u_z )$
+\[
+	f_\text{fricción} = m n ( v_x - u_x ) (v_z - u_z )
+\]
+donde $u_x, u_z$ son velocidades medias. Entonces
+\[
+	P_{zx} = m n \vm{ (v_x - u_x) v_z }
+\]
+donde $\vm{u_z}=0$ pues no hay flujo neto en la dirección $\hat{z}$. Es el flujo en $\hat{z}$ de vector
+$\vbp$ en $\hat{x}$.
+
+\[
+	f = f_0 ( v_x - u_x(z), v_y,m v_z ) + f_1
+\]
+y pensando en el estacionario y sin fuerzas externas
+\[
+	\frac{\vbp}{m} \nabla_x f = \dpare{f}{t}{\text{coll}}
+\]
+\[
+	v_z \dpar{f_0}{z} = - \frac{f_1}{\tau} = - v_z \dpar{f_0}{U_x}(U_x,U_y,U_z) \dpar{U_x}{z}
+\]
+con $U_x = v_x - u_x(z)$ y $u_j=v_j$ para $j=y,z$.
+De manera que ahora es
+\[
+	f = f_0 + \tau v_z \dpar{f_0}{U_x} \dpar{U_x}{z}
+\]
+y debo estimar
+\[
+	P_{zx} = m n \vm{U_zU_z}_{f_0+f_1}
+\]
+pero $\vm{U_xU_z}_{f_0} = 0$ por la simetría de la distribución de MB.
+\[
+	P_{zx} = n m \tau \int d^3 U \: U^2_z U_x \dpar{f_0}{U_x} \dpar{U_x}{z} =
+	- n \tau m^2 \beta \dpar{U_x}{z} \vm{ U_z^2 U^2_x}_{f_0}
+\]
+\[
+	\vm{ v_z^2 }_{f_0} = \frac{ k T }{m} = \frac{1}{\beta m} \qquad 
+	P_{zx} = - n \tau m^2 \beta \dpar{U_x}{z} \frac{1}{\beta^2 m^2 }
+\]
+\[
+	P_{zx} = - \frac{n \tau}{\beta} \dpar{U_x}{z}
+\]
+donde el factor que está pegado a la derivada es la viscosidad $\eta$ de manera que
+\[
+	\eta = n \tau k T.
+\]
+
+La otra parte pide calcular una conductividad
+
+\includegraphics[scale=0.5]{images/1606329338.jpg}
+
+y quiero ver el flujo de calor (flujo de energía cinética)
+\[
+	\bar{Q} = n \frac{m}{2} \vm{ \vbv v^2 }
+\]
+forzamos la existencia de un gradiente de temperatura y llegamos a la misma ecuación
+\[
+	\left( \dpar{}{t} + \frac{\vbp}{m} \nabla_x + \vb{F}\Nabla_p \right) f_0 = - \frac{f_1}{\tau}
+\]
+y con 
+\[
+	f_1 = - \tau v_x \dpar{f_0}{z}
+\]
+es
+\[
+	f_0 = n(z)\Frac{ m \beta(z) }{ 2 \pi }^{3/2} \euler^{ - \beta(z)/2 m ( \vbv - \vm{\vbv})^2}
+\]
+donde la velocidad media es nula por estar en reposo.
+
+Usando regla de la cadena,
+\[
+	f_1 = - \frac{\tau}{n} \dtot{n}{z} f_0 v_z - \tau v_z \dpar{f_0}{\beta} \dpar{\beta}{z}
+\]
+y queremos ver si las derivadas $\partial n/\partial z$ y $\partial \beta / \partial z$ están relacionadas.
+Como estoy en equilibrio y no hay movimiento neto,
+\[
+	\vm{v_z}_{f_0+f_1} = 0 \quad \to \quad \vm{v_z}_{f_1} = 0
+\]
+y $\int f_1 v_z d^3v = 0$ donde se puede amasar para llegar a
+\[
+	\dtot{n}{z} = - k \beta h \dtot{T}{z},
+\]
+luego
+\[
+	f_1 = \frac{\tau}{T} \dtot{T}{z} \left[ f_0 + \frac{1}{kT}\dpar{f_0}{\beta} \right] v_z
+\] 
+y
+\[
+	Q_z = \frac{1}{2} n m ( \vm{ v^2_x v_z } + \vm{ v^2_y v_z } + \vm{ v_z^3 } )
+\]
+\[
+	Q_z = \frac{\tau}{T} \dtot{T}{z} \frac{ n m }{2} \left( 1 + \frac{1}{kT}\dpar{}{\beta} \right)
+	\int d^3v ( v_x^2 v_z^2 + v_y^2 v_z^2 + v_z^4 ) f_0
+\]
+donde la integral debería dar $ 5 /m^2 (kT)^2$, entonces
+\[
+	Q_z = - \frac{5}{2}  \tau n k^2 T  \dtot{T}{z} \equiv \kappa \dtot{T}{z}
+\]
+y podemos considerar el cociente
+\[
+	\frac{\kappa}{\eta} = \frac{ 5/2 \tau n T k^2 }{ n \tau \kappa T } = \frac{5}{2}k
+\]
+
+La aproximación consiste en poner $f=f_0 +f_1$ y 
+\[
+	\dpare{f}{t}{\text{col}} \sim - \frac{f_1}{\tau}
+\]
+que es la aproximación de tiempo de relajación.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 6}
+
+Estimar densidad de corriente. Los electrones no sienten el campo de los iones.
+Planteamos la ecuación 
+\[
+	\dpar{f}{t} + \vbv \nabla_x f_0 + \frac{\vb{F}}{m}\nabla_p f_0 = -\frac{f_1}{\tau}
+\]
+con $\vb{E}=E\zver$ y $\vb{F}=-eE\zver$ de manera que $f_1 = - e E 2 \beta v_z f_0$
+y el flujo que interesará calcular será $J_z = - n e \vm{ v_z } $.
+
+\notamargen{Puede ser que no haga falta ir a $\tau$ si puedo tener algo que rompe 
+la simetría de traslación; entonces meto $f_0(\vbx,\vbp)$.}
+
+\end{ejemplo}
+
+
+
+
+
 \subsection{Ensamble gibbsiano}
 
 Dada una condición macroscópica ($U,V,N$) puedo construirme todos los estados compatibles con esa condición.
