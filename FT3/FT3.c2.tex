@@ -782,18 +782,26 @@ de forma que resultará
 y esta $S$ sí está libre de paradoja de Gibbs.
 
 % =================================================================================================
-\section{Canónico}
+\section{Ensamble canónico}
 % =================================================================================================
+
+
 
 Consideramos un microcanónico con 
 \[
 	E = E_1 + E_2, \qquad N = N_1 + N_2, \qquad V = V_1 + V_2 
 \]
 donde $N_i, V_i$ están fijos y $E_i$ varían de acuerdo a
-\notamargen{Imagen del microcanónico...}
 \[
 	E = E_1 + E_2
 \]
+
+\includegraphics[scale=0.5]{images/1606329302.jpg}
+
+La idea es que el sistema 2 es tan grande como se quiera y el sistema 1 es pequeño pero macroscópico;
+entonces el primero actúa como un baño térmico. La temperatura $T$ estará fija por dicha razón, o sea
+que será un problema isotérmico.
+
 
 Consideramos un microcanónico 
 \[
@@ -820,6 +828,7 @@ en $\mathbb{\Gamma}$, luego:
 	\# \text{ config '1' } = \frac{ \# \text{ config '1+2'} }{ \# \text{ config '2'} } \approx 
 	\euler^{-\frac{E_1}{kT}} = C \int \euler^{-\Ham/kT} d^3p d^3q
 \]
+y se integra para toda energía
 \[
 	Q_N(V,T) = \frac{1}{h^{3N}N!}\int \euler^{-\Ham/kT} d^3p d^3q
 \]
@@ -1105,6 +1114,34 @@ y como
 	<\Ham^2> - <\Ham>^2 = kT^2C_V +  \left[\left. \dpar{U}{N} \right|_{T,V}\right]^2 <(\Delta N)^2>
 \]
 siendo $ kT^2C_V $ fluctuación del canónico y $(\Delta N)^2 = <N^2> - <N>^2 $
+
+Si se considera la densidad
+\[
+	< h^2 > - < h >^2 = kT^2 \frac{k T^2 C_V}{N}, 
+\]
+y con $ N \to \infty $ estas fluctuaciones de energía se van a cero.
+
+Para un problema de estas características puedo elegir canónico o microcanónico; los ensambles son
+indistinguibles de modo que son equivalentes. En cambio, si $N$ es grande no son equivalentes.
+
+\includegraphics[scale=0.5]{images/1606329307.jpg} 
+\includegraphics[scale=0.5]{images/1606329311.jpg}
+
+Los de la izquierda son hiperplanos en $\Gamma$ (satisface Liouville); las colisiones internas (derecha)
+generan movimiento en cada hiperplano que representa un volumen en $\Gamma$.
+La densidad de estados $\rho$ decae exponencialmente. Tenemos dos fenómenos contrarios:
+el decaimiento de $\rho$ y el crecimiento del número de estados a una energía
+
+\includegraphics[scale=0.5]{images/1606329317.jpg}
+
+Consideremos dipolos en campo magnético
+
+\includegraphics[scale=0.5]{images/1606329322.jpg}
+
+La simetría de los dipolos up y down nos da la forma simétrica de la entropía $S$
+
+Para las temperaturas tengo $T<0$ lo cual no puede medirse. No puedo medir con un termómetro; que
+tiene un espectro continuo acotado.
 
 
 \subsection{Gas ideal}
