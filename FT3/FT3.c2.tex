@@ -1189,6 +1189,40 @@ y finalmente
 \section{El gran canónico}
 % =================================================================================================
 
+La desventaja del microcanónico es la de tener que calcular todos los estados accesibles.
+El canónino es un subconjunto del microcanónico.
+
+\includegraphics[scale=0.5]{images/1606329345.jpg} 
+La caja es un microcanónico, el rojo es un canónico donde está fija la temperatura $T$ y el
+conjuntillo más interno es una pared porosa que lo limita.
+
+El $1/N!$ corrige la indistinguibilidad de las partículas -es el factor de buen conteo de Boltzmann-.
+Se define la fugacidad $ z \equiv \euler^{ \beta \mu } $.
+
+Para un sistema con un número de partículas determinadas puedo utilizar el GC que será más sencillo
+que el MC o el C. La densidad o el número medio de partículas es algo que fijo desde fuera; el número
+de partículas fluctuará y querremos calcular dicha fluctuación (que se hace en la próxima
+subsección).
+
+Todos los ensambles son equivalentes si $N \to \infty$. De lo contrario, con $N$ no infinito
+tendríamos tres termodinámicas diferentes dadas por el microcanónico, el canónico y el gran canónico.
+Cuando calculamos la fluctuación de energía surge una parte asociada a la variación del número de
+partículas. $\partial p / \partial v = 0$ ocurre en particular en la región de coexistencia.
+
+Se asume que el sistema satisface
+\begin{itemize}
+ \item Potencial tipo carozo duro + cola finita. Dado un volumen $V$ existe $N$ máximo.
+ \item \[
+	A(N,V) = - \frac{V}{\beta} f(\nu)
+ \]
+ escalea con el volumen.
+ \item Como $f(\nu)$ satisface $ \partial p / \partial v \leq 0$ entonces ...
+\end{itemize}
+
+Se obtiene una función de potencial GC $\Xi$ que debe ser un polinomio en $N$ de grado 
+$N_0(V) = a V$ para $V$ grande.
+
+
 \[
 	Q_N (V,T) =  \frac{1}{h^{3N}N!} \int d^{3N_1}p_1 d^{3N_2}p_2  \sum_{N_1=0}^N \frac{N!}{N_1! N_2!}
 	\int d^{3N_1}q_1 d^{3N_2}q_2 \euler^{-\beta [\Ham_1 + \Ham_2 ]}
@@ -1458,6 +1492,8 @@ Sea $X$ extensiva mecánica,
 	S = k \log \Gamma (E,X) \qquad dU = TdS + Y dX, \; \frac{dS}{k} = \beta dU + \xi dX
 \]
 \notamargen{Donde $\beta Y = \xi $}
+Consideramos un sistema en equilibrio donde fluctúan $E$ y $X$ (sistema en contacto con reservorios)
+
 Refiriéndo al estado $ \nu $
 \[
 	P_\nu = \frac{ \euler^{-\beta E_\nu - \xi X_\nu } }{ \sum_\nu \euler^{-\beta E_\nu - \xi X_\nu } } =
@@ -1490,7 +1526,7 @@ Es una transformada de Legendre que toma $\log \Theta$ y la lleva a una función
 \[
 	d\Lag = k \beta dE + k \beta Y dX = dS = \frac{1}{T}dE + \frac{Y}{T} dX 
 \]
-entonces $\Lag$ es la entropía $S$.
+entonces $\Lag$ es la entropía $S$ (parecida al H de Boltzmann[?]).
 \[
 	\Lag = -k \sum_\nu P_\nu \log P_\nu 
 \]
@@ -1503,6 +1539,16 @@ y entonces
 \[
 	\Lag = k \log( \Gamma ) \equiv S.
 \]
+
+La entropía de Gibbs se reduce a la entropía de Boltzmann cuando los estados son equiprobables.
+
+\begin{itemize}
+ \item Microcanónico: requiere que ``cuente'' todos los estados.
+ \item Canónico: me quito de encima la condición sobre la $E$.
+ \item Gran canónico: me sacao de encima la condición sobre el número de partículas.
+\end{itemize}
+
+Pero las fluctuaciones de $E$ y $N$ van a cero con $N \to \infty$ y son equivalentes.
 
 
 \subsection{Observación promedios}
