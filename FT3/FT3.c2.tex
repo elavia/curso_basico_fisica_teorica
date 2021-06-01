@@ -511,11 +511,69 @@ Pero en termodinámica el equilibrio era con $T_1=T_2$ donde
 	\frac{1}{T} \equiv \dpare{S}{E}{N,V},
 \]
 de manera que podemos plantear la siguiente equivlaencia
-\[
+\be
 	S = k \log \Gamma(E,N,V),
-\]
+	\label{boltzmann_relation}
+\ee
 que es la relación de Boltzmann.
 
+Esto vincula la mecánica estadística con la termodinámica. Nos lleva a la tercera ley de la termodinámica.
+Entonces si $S = 0$ se tiene $\Gamma=1$ un único estado microscópico. En caso contrario, si $S$ es
+grande tenemos un sistema más desordenado, $\Gamma$ grande, tendrá muchos estados microscópicos
+asociados.
+
+En el formalismo del microcanónico nos interesará en principio la función de partición microcanónica
+$Z_{\mu C} = \Gamma (E,N,V)$ dado el vínculo en \eqref{boltzmann_relation} se tienen
+\[
+	\dpare{S}{E}{N,V} = \frac{1}{T} \qquad \qquad \dpare{S}{V}{E,V} = \frac{P}{T}
+\]
+
+Lo que sería bueno es saber cómo calcular $\Gamma$
+\[
+	\Gamma(E) = \sum_{\mu-\text{estados}} 1 \qquad P_{\mu(E)} = \frac{1}{\Gamma(E)}
+\]
+donde el ``1'' es la densidad unitaria por la equiprobabilidad.
+En el continuo, un microestado es un punto en el espacio $6N$ dimensional $\Gamma$.
+Así pensado, debo tener en cuenta una función densidad en $\mathbb{\Gamma}$ donde:
+\[
+	f(p,q) d^{3N}q d^{3N}p
+\]
+es el número de puntos del ensamble contenidos en un elemento de volumen $d\Gamma = d^{3N}q d^{3N}p $.
+
+Parece lógico suponer que si tenemos un observable macroscópico vlaga que 
+\[
+	\vm{\text{obs}} =
+	\frac{\int f( p, q) \; \text{obs} \; d^{3N}p d^{3N}q}{\int f(p,q) d^{3N}p d^{3N}q } 
+\]
+el observable visto en la macroscopía es un valor medio.
+
+Para un microcanónico
+\[
+	f(p,q) = \begin{cases}
+			\text{constante} \quad &\text{El } H \text{ verifica }   E+\Delta > H > E \\
+			0                \quad &\text{En otro caso}
+	         \end{cases}
+\]
+donde $\Delta \lll E$. Luego, se tiene
+\[
+	\Gamma(E) = \frac{\text{Volumen del ensamble en $\mathbb{ \Gamma}$}}{\text{Volumen que ocupa el microestado}}
+\]
+y
+\[
+	\Gamma(E) = \frac{1}{h^{3N}} \int_{E < H < E+\Delta} \kern-2em 1 \; d^{3N}p d^{3N}q \qquad 
+	\Sigma(E) = \frac{1}{h^{3N}} \int_{H < E } \kern-0.5em 1 \; d^{3N}p d^{3N}q
+\]
+donde $h^{3N}$ es la constante de Planck de adimensionalización y representando un volumen mínimo
+dada la incertidumbre. Las dos cantidades mostradas difieren en un término que va como $\log(N)$ y
+que muere en el límite termodinámico
+\[
+	\frac{\log(N)}{N} \to 0 \qquad \text{ si } \qquad  N \to \infty
+\]
+
+Es más cómodo calcular $\Sigma(E)$ que $\Gamma(E)$.
+\[
+	\Gamma(E) = \Sigma(E+\Delta) - \Sigma(E)
+\]
 
 % =================================================================================================
 \section{Microcanónico}
@@ -552,7 +610,7 @@ donde el $\vb{p}$ de una partícula es
 \notamargen{El cociente es $\vb{P}/N$.}
 y la energía por partícula
 \[
-	<e> = \frac{\int f(\vb{p}) \; \vb{p}^2/ (2m) \; d^3p d^3q}{\int f(\vb{p}) d^3p d^3q } = 
+	<e> = \vm{e} = \frac{\int f(\vb{p}) \; \vb{p}^2/ (2m) \; d^3p d^3q}{\int f(\vb{p}) d^3p d^3q } = 
 	\frac{1}{n} \int f(\vb{p}) \frac{ \vb{p}^2 }{ 2m } \; d^3p
 \]
 
@@ -1005,9 +1063,12 @@ ir al orden uno
 
 \subsection{Gas ideal (microcanónico)}
 
+Esto es parte del problema 1 de la serie 4. Mixeo con este contenido.
+El hamiltoniano que se considera es:
 \[
 	\Ham =  \sum_i^{N} \frac{p^2_i}{2m}
 \]
+y como $ 2 m E = \sum_i^N \: p_i^2 $ se puede pensar en una hiperesfera de radio $\sqrt{2mE}$.
 \[
 	\Sigma(E) = \frac{1}{h^{3N}} \int_{\Ham < E} d^3p_1 ... d^3p_N d^3q_1 ... d^3q_N = 
 	\left( \frac{V}{h^{3N}} \right)^N \int_{\Ham < E} d^3p_1 ... d^3p_N
@@ -1015,14 +1076,40 @@ ir al orden uno
 donde la integral en $\{ q_i\}$ es inmediata porque no están los mismos en los límites y donde el
 límite de integración $\Ham < E$ implica la condición 
 \[
-	p_1^2 + p_2^2 + ... + p_N^2 < ( \sqrt{2mE} )^2
+	p_1^2 + p_2^2 + ... + p_N^2 < ( \sqrt{2mE} )^2.
 \]
-\notamargen{Es una especie de radio $2mE$.}
+Se ve que $\Sigma(E) $ será el volumen de la hiperesfera mientras que $\Gamma(E)$ sería su
+superficie.
+
+Se puede ver que 
+\[
+	\Sigma(E) = C_{3N} \Frac{V}{h^3}^N \Omega_{3N}( R = \sqrt{2mE} )
+\]
+donde $ \Omega $ es el volumen de la esfera $3N-$dimensional con radio $\sqrt{2mE}$.
+Usamos para ello la fórmula del apéndice ALGO.
+
+Volviendo al problema, tenemos
 \[
 	\Sigma(E) = C_{3N} \left[ \frac{V}{h^3} (2mE)^{3/2}\right]^N
 \]
+donde $C_{3N}= \pi^{3/2} / (3 N/2)! $.
 
-Luego,
+Luego, tomando logaritmo resulta
+\[
+	\log \Sigma(E) = \log C_{3N} + N \log \frac{V}{h^3} + \frac{3N}{2} \log (2mE)
+\]
+y si se usa la aproximación de Stirling en el primer término (que contiene un logaritmo) 
+se debería llegar, amasando un poco, a
+\notamargen{Stirling: \[ \log(N!) = N\log N - N \]}
+
+\[
+	S(E,V) = N k \log \left[ V \Frac{4 \pi m E}{3 h^2 N}^{3/2} \right] + \frac{3}{2} Nk
+\]
+\[
+	E(S,V) = \Frac{3h^2}{4\pi m} \frac{N}{V^{2/3}} \euler^{ 2/3(S/(Nk) -1 )}
+\]
+
+Consigno aquí abajo lo que tenía previamente (hay que consolidar)
 \[
 	S = k \log \left\{ C\left( \frac{V}{h^3}(2mE)^{3/2}\right)^N \right\}
 \]
@@ -1030,22 +1117,46 @@ Luego,
 	S = k \log C + N k \log \left[ \frac{V}{h^3}(2mE)^{3/2}\right]
 \]
 \notamargen{$ k\log C \approx -3/2 Nk \log 3N/2 $}
+
+Calculando la temperatura desde aquí resulta en
 \[
 	\left. \dpar{S}{E} \right|_{V,N} = \frac{1}{T} \qquad \Rightarrow \qquad \frac{1}{T} = Nk\frac{3}{2}\frac{1}{E}
 \]
 y entonces
 \[
-	E = \frac{3}{2} NkT \qquad \text{gas ideal}
+	E = \frac{3}{2} NkT,
 \]
+que es la energía del gas ideal.
+Entonces desde la mecánica estadística hemos llegado a la termodinámica. Recordemos que
 \notamargen{Vemos que la termodinámica es bastante insensible a las aproximaciones.}
+se tiene también
+\[
+	P = - \dpare{E}{V}{N,S} = \frac{2E}{3V} \qquad \qquad PV = NkT
+\]
+que conduce a lo mismo (lo cual sabemos de la infancia termodinámica).
+
+El asunto es que la entropía $S$ a la cual hemos llegado no es aditiva. Esto, creo, sería la paradoja de Gibbs.
 
 \subsection{Paradoja de Gibbs}
+
+Tengo el sistemita de dos contenedores cada uno con $N_i, V_i$ ($i=1,2$) donde $N=N_1+N_2$ y $V=V_1+V_2$.
+Si retiro el tabique se tiene $S_T > S_1 + S_2$ porque inicialmente estaban en equilibrio.
+Quitar la pared es una operación mental si los gases son idénticos (o al menos eso podemos pensar).
+
+Gibbs dice que hemos contado mal la $\Gamma(E)$ y plantea que considerando a manopla una
+\[
+	\Sigma'(E) = \frac{\Sigma(E)}{N!}
+\]
+porque las partículas son indistinguibles, reduciendo el número de microestados, se resuelve el tema y se
+tiene una función $S$ aditiva.
+El tema es que uno utiliza razonamientos clásicos con distinguibilidad entonces llegamos a un resultado
+clásico.
 
 \[
 	S \propto Nk\log(V) + Nk \log (E^{3/2})
 \]
 Supongamos dos gases idénticos con la misma $\rho$ y $T$
-\notamargen{Quitar la pared es una operación mental si los gases son idénticos (o al menos eso podemos pensar).}
+
 
 \[
 	\Delta S = Nk \log V + Nk \log (E^{3/2}) - N_1k \log V_1 - N_2k \log (E_1^{3/2})
@@ -1082,11 +1193,27 @@ de forma que resultará
 \]
 y esta $S$ sí está libre de paradoja de Gibbs.
 
+\begin{ejemplo}{\bf Problema 3}
+
+Considero $v = \lambda^3 $ con 
+\[
+	\lambda = \frac{\hbar}{\sqrt{2 m k T}}
+\]
+se toma distinguibilidad pero se puede hacer considerando indistinguibilidad.
+ 
+\includegraphics[scale=0.5]{images/1606329374.jpg} 
+
+La cantidad de celdas es $n = N / \lambda^3$ y es un gas diluído $ N \ll n $ de manera en que
+$\Gamma$ es el número de estados posibles del sistema, o bien el número de maneras de ubicar
+$N$ partículas en $n$ celdas.
+ 
+\end{ejemplo}
+
+
+
 % =================================================================================================
 \section{Ensamble canónico}
 % =================================================================================================
-
-
 
 Consideramos un microcanónico con 
 \[
@@ -1100,8 +1227,8 @@ donde $N_i, V_i$ están fijos y $E_i$ varían de acuerdo a
 \includegraphics[scale=0.5]{images/1606329302.jpg}
 
 La idea es que el sistema 2 es tan grande como se quiera y el sistema 1 es pequeño pero macroscópico;
-entonces el primero actúa como un baño térmico. La temperatura $T$ estará fija por dicha razón, o sea
-que será un problema isotérmico.
+entonces el primero actúa como un baño térmico, un reservorio de calor que le fijará la temperatura $T$.
+O sea que será un problema isotérmico.
 
 
 Consideramos un microcanónico 
@@ -1135,13 +1262,27 @@ y se integra para toda energía
 \]
 \notamargen{$1/N!$ es el factor de buen conteo.}
 
-La función de partición es el volumen ocupado en $\mathbb{\Gamma}$.
+Los microestados no son equiprobables, hay una distribución de probabilidad, que normalizada es
+\[
+	P_{\mu-\text{estado}} = \frac{ \euler^{-\beta E_{\mu e}} }{ \displaystyle \sum_{\mu e} \euler^{-\beta E_{\mu e}} }
+\]
+
+La función de partición es el volumen ocupado en $\mathbb{\Gamma}$. En el caso discreto es
+\[
+	Z_c(N) = Q_N(V,T) = \sum_{\mu e} \frac{1}{N!} \euler^{-\beta E_{\mu e}}
+\]
+mientras que en el continuo es la expresión de arriba.
+
+
 El vínculo con la termodinámica viene de
 \[
 	Q_N(V,T) = \euler^{-\beta A}
 \]
 \[
-	A = -kT\log [Q_N(V,T)]
+	A = -kT\log [Q_N(V,T)] \qquad \qquad A = U - TS
+\]
+\[
+	P = -\dpare{A}{V}{T} \qquad \qquad S = -\dpare{A}{T}{V}
 \]
 donde $A=A(T,V,N)$ es la energía libre de Helmholtz. Podemos ver que se deduce esto de 
 \[
