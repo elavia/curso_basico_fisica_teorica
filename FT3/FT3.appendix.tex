@@ -1,0 +1,68 @@
+	\documentclass[10pt,oneside]{CBFT_book}
+	% Algunos paquetes
+	\usepackage{amssymb}
+	\usepackage{amsmath}
+	\usepackage{graphicx}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
+	\usepackage{lipsum}
+
+	\usepackage{natbib}
+	\setcitestyle{square}
+
+	\usepackage{polyglossia}
+	\setdefaultlanguage{spanish}
+
+
+	\usepackage{CBFT.estilo} % Cargo la hoja de estilo
+
+	% Tipografías
+	% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+	% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+	% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+	%===================================================================
+	%	DOCUMENTO PROPIAMENTE DICHO
+	%===================================================================
+
+\begin{document}
+ 
+ 
+\appendix
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\chapter{Volumen de esfera n-dimensional}\label{App.volumen_esfera}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\[
+	\Omega_n (R) = \int_{x_1^2 + x_2^2 + ... + x_N^2 = R^2 } \kern-2em dx_1 dx_2 ... dx_N = c_n R^N
+\]
+y la integral es
+\[
+	\int_{-\infty}^{\infty} dx_1 ... \int_{-\infty}^{\infty} dx_N \euler^{-(x_1^2 + x_2^2 + ... + x_N^2)} =
+	\left( \int_{-\infty}^{\infty} \euler^{-x^2} dx \right)^n = (\sqrt{\pi})^N
+\]
+pero en esféricas
+\[
+	\left( \int_{0}^{\infty} \dtot{\Omega_n}{R} \euler^{-R^2} dR \right)^n =
+	n C_n \int_{0}^{\infty} R^{-1} \euler^{-R^2} dR = 
+	n C_n \int_{0}^{\infty} t^{n/2-1} \euler^{-t} dt 
+\]
+\[
+	= \frac{1}{2} C_n n \Gamma(n/2) = \pi^{1/2},
+\]
+donde es la $\Gamma$ de los matemáticos que cumple ciertas cosas
+\[
+	\begin{cases}
+		\Gamma(n) &= \int_{0}^{\infty} t^{n-1} \euler^{-t} dt\\
+		\Gamma(n+1) &= n \Gamma(n) \\
+		\Gamma(n+1) &= n! \qquad n \in \mathbb{N} 
+	\end{cases}
+\]
+Luego
+\[
+	C_n = \frac{ \pi^{n/2} }{ \Gamma(n/2 + 1) }
+\]
+
+%  
+\end{document}
