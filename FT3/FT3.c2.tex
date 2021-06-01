@@ -444,6 +444,78 @@ El conjunto $\{ \tilde{n}_i\}$ que extrema $\Omega \left( \{ n_i \} \right)$ es 
 \]
 Estaremos pensando que cuando $N \to \infty$ la mayor parte de los microestados van a una distribución $f_{MB}$
 
+{\bf Conceptos}
+
+La idea  es que tendremos $N$ encerradas en $V$ con $N \sim 10^23$ y será $N \to \infty$ y $V \to \infty$ (esto
+es el llamado límite termodinámico).
+Con estos límites extensivos (son proporcionales al tamaño) o intensivos (son independientes de $N,V$ )
+
+Un macroestado es del punto de vista termodinámico. Especificamos unas pocas variables ($N,V,E,T$)
+Un microestado es una especificación de seis grados de libertad $(3 N_q, 3 N_p)$ y claramente un macroestado
+es compatible con muchos microestados.
+
+Un ensamble, en la visión de Gibbs, es el conjunto de microestados compatibles con un dado macro estado.
+
+\begin{itemize}
+ \item Microcanónico: usado para analizar sistemas aislados. Con $E,V,N$ fijos.
+ \item Canónico: usado para analizar sistemas en equilibrio con un baño térmico. Con $V,N,T$ fijos.
+ \item Gran canónico: usado para analizar sistemas que además intercambian partículas. Con $\mu,V,T$ fijos.
+\end{itemize}
+
+En el límite termodinámico los tres ensambles son equivalentes.
+
+La cantidad de micro estados compatibles con el macroestado NVE fijo se denota
+\[
+	\text{\#} \mu\text{-estados con un M-estado } \equiv \Gamma(N,V,E)
+\]
+
+Confiamos en un postulado de equiprobabilidad a priori: todos los microestados son igualmente probables
+(microscópicamente hablando)
+
+\subsection{Visión [de statistical mechanics - Pathria]}
+
+Sean dos sistemas en equilibrio. Llegan al equilibrio en algún momento
+
+
+\includegraphics[scale=0.5]{images/1606329365.jpg}
+
+La energía total $ E_T = E_1 + E_2 $ es una constante y el número de estados
+\[
+	\Gamma(E) =  \Gamma_1(E_1) \Gamma_2(E_2) = \Gamma_1(E_1) \Gamma_2(E_T-E_1).
+\]
+En el equilibrio, ¿Cuánto valen $E_1$ y $E_2$? Para esto se asume un postulado:
+
+El equilibrio se da cuando el sistema llega al macroestado más probable. Este macroestado será el que
+tenga mayor cantidad de microestados.
+
+Entonces, el sistema llegará a $E_1,E_2$ tales que $\Gamma_2(E_T-E_1)$ sea máxima. Buscamos esa
+condición de maximización,
+\[
+	\dpare{\Gamma_1(E_1)}{E_1}{E_1=\bar{E}_1} \Gamma_2(E_1) = 
+	\Gamma_1(E_1) \dpare{\Gamma_2(E_2)}{E_2}{E_2=\bar{E}_2} 
+\]
+\[
+	\dpar{\log \Gamma_1(E_1)}{E_1} = \dpar{\log \Gamma_2(E_2)}{E_2}
+\]
+y definiendo 
+\[
+	\beta = \dpare{\log \Gamma(E,N,V)}{E}{E=\bar{E}} 
+\]
+se tiene que la condición de equilibrio es
+\[
+	\beta_1 = \beta_2.
+\]
+
+Pero en termodinámica el equilibrio era con $T_1=T_2$ donde 
+\[
+	\frac{1}{T} \equiv \dpare{S}{E}{N,V},
+\]
+de manera que podemos plantear la siguiente equivlaencia
+\[
+	S = k \log \Gamma(E,N,V),
+\]
+que es la relación de Boltzmann.
+
 
 % =================================================================================================
 \section{Microcanónico}
@@ -874,7 +946,11 @@ que es la solución estacionaria de la ecuación de transporte de Boltzmann.
  
 \end{ejemplo}
 
-\begin{ejemplo}{\bf Problema 4}
+\begin{ejemplo}{\bf Problema 4 y comentario problema 6}
+
+Ilustramos con
+
+\includegraphics[scale=0.5]{images/1606329354.jpg}
  
 \[
 	\dpar{f}{t} + \frac{\vbp}{m} \dpar{f}{\vbx} + \frac{\vb{F}}{m}\dpar{f}{\vb{u}} =
@@ -897,7 +973,32 @@ y
 	n(z) = n_0 \euler^{-\beta m z g}.
 \]
  
- 
+En el problema 6 se tiene una situación parecida 
+
+\includegraphics[scale=0.5]{images/1606329360.jpg}
+
+pero aquí es $\vb{F} = - e E_0 \zver$ con la misma ecuación. No obstante cualitativamente la cosa cambia:
+la simetría marca un piso en el problema anterior pero es indiferente (no hay ceros) en la situación del
+campo eléctrico $\vb{E}$ puesto que hay simetría de traslación $ \nabla_x = 0$ (lejos de los bordes).
+En el caso del campo gravitatorio no se desprecia $ \nabla_x $
+
+\[
+	\left( v_z \dpar{}{v_z} - m g \dpar{}{v_z} \right) f = \left.\dpar{f}{t}\right|_\text{col}
+\]
+y a orden cero,
+\[
+	\left( v_z \dpar{}{v_z} - m g \dpar{}{v_z} \right) f = 0,
+\]
+pero 
+\[
+	- \frac{eE_0}{m} \dpar{f}{v_z} = \left.\dpar{f}{t}\right|_\text{col}
+\]
+a orden cero da $\partial f / \partial v_z = 0 $ de manera que como el orden cero no tiene sentido hay que
+ir al orden uno
+\[
+	- \frac{eE_0}{m} \dpar{f}{v_z} = - \frac{f_1}{\tau}.
+\]
+  
 \end{ejemplo}
 
 
