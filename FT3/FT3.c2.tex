@@ -1262,6 +1262,42 @@ y se integra para toda energía
 \]
 \notamargen{$1/N!$ es el factor de buen conteo.}
 
+{\bf comentarios sobre ensambles}
+
+O sea que ahora densidad de estados tiene forma $\euler^{-\frac{E_1}{kT}}$ y la función de partición
+$Z(V,T,N)$ que está arriba, que sería el volumen ocupado en el espacio de fases con la corrección
+del factor de buen conteo.
+
+\notamargen{¿$\lambda^3$ es igual a $h^3$?}
+
+En el microcanónico $E$ es constante, pero en el canónico no. Los valores medios deberían ser parecidos
+porque el pequeño es una parte del todo.
+Las dos cosas convergeán al mismo valor. Veamos un argumento de plausibilidad.
+\[
+	Z_C = \int_0^\infty \: dE \omega(E) \euler^{-\beta E}
+\]
+donde $\omega(E)$ es la densidad de estados de energía entre $(E,E+dE)$. Ésta será función creciente
+porque a mayor enegrgía más degeneración.
+
+\includegraphics[scale=0.5]{images/1606329392.jpg}
+
+Existirá un valor bien definido $\vm{E}$ para el canónico tendremos una distribución.
+
+En el canónico todos los puntos participan, aunque los que realmente aportan son los que están en torno
+al valor medio.
+\[
+	Z_C = \int dE \euler^{-\beta E + \log \omega(E)} =
+	\int dE \euler^{-\beta ( E - TS(E)) }
+\]
+y buscaré máximo del argumento de la exponencial ($E$ mínima y $S$ máxima). Con $T$ chica minimizo $E$ y
+con $T$ grande maximizo $S$.
+Las funciones $S,E$ van como $N$ y la única parte que contribuye es la que tiene el argumento máximo.
+
+La energía en el canónico no es constante pero aproximadamente $ \vm{E} = \vm{E}(T) $. En el microcanónico
+hago una cuenta $(E,V,N)$  y para el canónico puedo tomar una $T$ que haga que $ \vm{E}(T) \sim E$.
+
+{\bf fin del interludio}
+
 Los microestados no son equiprobables, hay una distribución de probabilidad, que normalizada es
 \[
 	P_{\mu-\text{estado}} = \frac{ \euler^{-\beta E_{\mu e}} }{ \displaystyle \sum_{\mu e} \euler^{-\beta E_{\mu e}} }
@@ -1404,6 +1440,17 @@ La densidad de estados va entonces de acuerdo al producto de dos efectos contrar
 
 Los casos Schrödinger y Planck aproximan al $C_V$ clásico con $T$ altas.
 
+\begin{ejemplo}{\bf Problema 1 (serie 5)}
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 2}
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 3}
+ 
+\end{ejemplo}
 
 \subsection{Una derivación más del canónico}
 
@@ -1426,6 +1473,41 @@ y finalmente
 \[
 	Q_N (V,T) = \frac{1}{h^{3N}N!} \int d^{3N}p d^{3N}q \euler^{-\Ham(\{ p_i,q_i\})/kT}
 \]
+
+% =================================================================================================
+\section{Líquidos}
+% =================================================================================================
+
+En un gas real se tiene
+\[
+	H = \sum_i^N \frac{p_i^2}{2m} + \sum_{i<j} V_{ij}
+\]
+\[
+	Z_N = \int d^{3N}q \: \euler^{ - \beta \sum_{i<j} V_{ij} },
+\]
+que es la integral configuracional; acá está la parte jodida porque están acopladas las coordenadas.
+
+La expresión del virial no sirve en la región de la transición de fase.
+A orden uno se obtiene la densidad,
+\[
+	\frac{1}{V} \int dq = \frac{N}{V} = \rho 
+\]
+
+Esto es la probabilidad de hallar una partícula en $r_1$. Si hay dos partículas ya no es $\rho^2$ porque
+están interactuando. Hay una función de correlación $g^2(r_1,r_2)$ que se puede determinar experimentalmente.
+
+\notamargen{En el límite de un cristal se tiene una sucesión de deltas picudas}
+
+\includegraphics[scale=0.5]{images/1606329384.jpg} 
+
+Podemos hallar $g(r)$ y su relación con la termodinámica. Asumimos que tenemos $g(r), g(r)^2$ es la función
+de correlación de cuerpos.
+
+$\xi$ prende o apaga la partícula 1.
+
+Con $N$ muy grande (variando de a uno): calcular $\mu$ es \textit{encender} o \textit{apagar} una partícula.
+
+\subsection{Comentarios problemas ensambles}
 
 % =================================================================================================
 \section{El gran canónico}
