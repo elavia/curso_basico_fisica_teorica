@@ -1441,6 +1441,60 @@ La densidad de estados va entonces de acuerdo al producto de dos efectos contrar
 Los casos Schrödinger y Planck aproximan al $C_V$ clásico con $T$ altas.
 
 \begin{ejemplo}{\bf Problema 1 (serie 5)}
+
+(a) Tenemos un oscilador armónico en un baño a temperatura $T$
+\[
+	E_n = \left( n + \frac 1 2 \right) \hbar \omega 
+\]
+donde
+\[
+	\frac {k T} { \hbar \omega } \ll 1
+\]
+que implica que la energía que le da el baño es pequeña, y donde el ratio es entre la energía media
+que cede o entrega la fuenta y el cuanto de energia del oscilador armónico.
+
+La función de partición será
+\[
+	Z_C = \sum_n^\infty  \: \euler^{ - \beta E_n } =  \sum_n^\infty  \: \euler^{ - \beta (n+1/2) \hbar\omega }
+\]
+que se puede trabajar como
+\[
+	Z_C = \euler^{ - \beta\hbar\omega/2 } \sum_n^\infty  \: \euler^{ - \beta n \hbar\omega }
+	= \euler^{ - \beta\hbar\omega/2 } \frac{1}{ 1 -\euler^{ - \beta \hbar\omega } }
+\]
+donde hemos usado la suma geométrica. Luego aproximando
+\[
+	Z_C = \frac{1}{ \euler^{ \beta \hbar\omega /2 } - \euler^{ - \beta \hbar\omega/2 } } \approx 
+	\euler^{ - \beta \hbar\omega /2 }
+\]
+Entonces, el cociente
+\[
+	\frac{P(n=1)}{P(n=0)} = \euler^{ - \beta \hbar\omega } = \euler^{ - \beta \Delta E }
+\]
+de manera que a $T$ mayor crece la probabilidad. La probabilidad de la relación entre $ \beta $ y $\hbar \omega$.
+
+
+(b) El valor medio de la energía será
+\[
+	\vm{E} = P (n=0) \frac{\hbar \omega}{2} + P(n=1)\frac{3\hbar \omega}{2} + ...
+\]
+que aproximadamente es
+\[
+	\frac{\hbar \omega}{2Z_C}  \euler^{ - \beta \hbar\omega/2 } 
+	\left( 1 +  3 \euler^{ -\beta\hbar\omega/2 } \right)
+\]
+
+\[
+	\vm{E} = \frac{}{×}  \euler^{ - \beta \hbar\omega/2 } \frac{ 1 + 3 \euler^{-\beta \hbar}}
+	{\euler^{ \beta \hbar\omega /2 } - \euler^{ - \beta \hbar\omega/2 }  } = \frac{\hbar \omega }{2}
+	\left[ \frac{1 + 3 \euler^{ -\beta\hbar\omega } }{ 1 + \euler^{ -\beta\hbar\omega } } \right]
+\]
+En esta cuenta me quedo al mismo orden en $Z_C$.
+En realidad no se plancha, sino que por haber aproximado a dos niveles tenglo el límite.
+Entonces en esta zona voldraá bien el cálculo hecho.
+
+\includegraphics[scale=0.5]{images/1606329403.jpg} 
+
  
 \end{ejemplo}
 
