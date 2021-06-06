@@ -1494,16 +1494,130 @@ En realidad no se plancha, sino que por haber aproximado a dos niveles tenglo el
 Entonces en esta zona voldraá bien el cálculo hecho.
 
 \includegraphics[scale=0.5]{images/1606329403.jpg} 
-
  
 \end{ejemplo}
 
 \begin{ejemplo}{\bf Problema 2}
- 
+
+Se tienen $N$ osciladores armónicos distinguibles
+\[
+	E = \left( n + \frac 1 2 \right) h \nu \qquad \vm{E} = \frac{1}{2} N h \nu + M_0 h \nu
+\]
+donde $M_0$ es el número de excitaciones elementales total (el número de fonones), y
+por ende $\sum_i n_i$.
+
+\includegraphics[scale=0.5]{images/1606329412.jpg} 
+
+
+y trabajaremos en el canónico. La energía del sistema es evidentemente $E = \sum_{i=1}^4 E_i $
+donde $E_1 = h \nu / 2$, $E_2 = E_3 = 5 h \nu / 2$ y $E_4 = 3 h \nu / 2$.
+
+Por ser independientes la función de partición es un producto,
+\[
+	Z_C = Z_{C1} Z_{C2} Z_{C3} Z_{C4}
+\]
+de modo que
+\[
+	Z_C = \left( \sum_{n=0}^\infty \: \euler^{ -\beta ( n + 1/2 ) h \nu} \right)^N
+\]
+y usando lo del anterior es
+\[
+	Z_C(T,V,N) = \euler^{ -\beta ( n + 1/2 ) h \nu N } \Frac{1}{1- \euler^{-\beta h \nu}}^N
+\]
+
+Se puede hacer el trick general (esto debiera ir en un apéndice)
+\[
+	\dpar{Z_C}{\beta} = \sum_\alpha (-E_\alpha) \euler^{-\beta E_\alpha}
+\]
+de modo que 
+\[
+	-\frac{1}{Z_C} \dpar{Z_C}{\beta} = \frac{ \sum_\alpha -E_\alpha \euler^{-\beta E_\alpha} }
+	{ \sum_\alpha \euler^{-\beta E_\alpha} } = \vm{E}
+\]
+y se ve que vale 
+\[
+	\vm{E} = - \dpar{\log Z_C}{\beta}.
+\]
+
+Para este caso particular será
+\[
+	\vm{E} = h \nu N \left( \frac{1}{2} + \frac{1}{\euler^{\beta h \nu}-1}\right) 
+\]
+
+Igualando con la expresión de arriba llegamos a
+\[
+	M_0 = \frac{N}{\euler^{\beta h \nu}-1}
+\]
+de modo que 
+\[	
+	\beta = \frac{1}{h\nu} \log \left( 1 + \frac{N}{M_0} \right)
+\]
+
+\includegraphics[scale=0.5]{images/1606329407.jpg} 
+
+
+Ahora buscaremos la entropía $S$, para lo cual $S = (- A + U ) / T $. Se tiene
+\[
+	S = N k T \log \left( 1 + \frac{N}{M_0} \right) + \frac{M_0 h \nu }{T}
+\]
+donde $M_0/N$ es función de T.
+
+Puedo contar en el microcanónico, la $S$ contando estados
+
+\includegraphics[scale=0.5]{images/1606329418.jpg} 
+
+Quiero saber cuantas configuraciones tengo. Lo pensamos como cajas que son 
+cada una de los osciladors armónicos.
+
+El oscilador uno tiene dos fonones (estado 2), el dos tiene 4 fonones, el tres
+tiene 0 fonones (el fundamental),...
+El oscilador N tiene 1 fonón (el primer excitado)
+
+Se lo piensa como $N-1$ barras y $M_0$ bolas. El número de estados para una energía $M_0$ es
+\[
+	\Omega = \frac{(M_0+N-1)!}{ M_0!(N-1)!}
+\]
+de modo que, Stirling mediante,
+\[
+	\log \Omega \approx M_0 \log \Frac{M_0+N-1}{M_0} + (N-1)\log \Frac{M_0+N-1}{N-1}
+\]
+y podemos usar $M_0( \beta)=M_0$ (en límites termodinámicos los dos modos conducen a
+resultados similares) y entonces
+\[
+	\log \Omega \approx M_0 \log \euler^{ h \nu \beta } + (N-1)\log \left[ \Frac{M_0}{N} + 1 \right]
+\]
+finalmente
+\[
+	S = k \log \Omega \sim k M_0 h \nu \beta + N k \log \left( 1 + \frac {M_0} N \right)
+\]
+
+La entropía canónica es igual a la del micro-canónico. Usamos que $N \ggg 1$ y $M_0 \ggg 1$
+Entonces
+\[
+	 \vm{E} = \frac{1}{2} N h \nu + \frac{ N h \nu }{ \euler^{ \beta h \nu } - 1 }
+\]
+de modo que 
+\[
+	C_V = \dpare{\vm{E}}{T}{V} = k N \Frac{h\nu}{kT}^2 \frac{\euler^{\beta h \nu}}{(\euler^{\beta h \nu}-1)^2}
+\]
+y en el límite $ k T \gg h \nu $ es
+\[
+	\vm{E} \approx \frac{ N h \nu }{2} + \frac{ N h \nu }{ \beta h \nu } = \frac{1}{2} N h \nu + N k T
+\]
+y entonces $\vm{E} \sim NkT$.
+
 \end{ejemplo}
 
 \begin{ejemplo}{\bf Problema 3}
- 
+
+En un sistema así el equilibrio es con los spines orientados con el campo $H$. Tres estados
+$\uparrow\uparrow, \uparrow\downarrow, \downarrow\downarrow$ si $ \mu_1 = \mu_2 $, en caso contrario
+serían cuatro.
+
+
+
+
+
 \end{ejemplo}
 
 \subsection{Una derivación más del canónico}
