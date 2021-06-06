@@ -1614,11 +1614,69 @@ En un sistema así el equilibrio es con los spines orientados con el campo $H$. 
 $\uparrow\uparrow, \uparrow\downarrow, \downarrow\downarrow$ si $ \mu_1 = \mu_2 $, en caso contrario
 serían cuatro.
 
+La agitación térmica haría que suban y bajen los spines.
 
+Hacemos la siguiente identificación
+\[
+	\uparrow\uparrow \quad E = (-\mu_1+\mu_2) H \qquad \qquad 
+	\uparrow\downarrow \quad E = -(\mu_1-\mu_2) H
+\]
+\[
+	\downarrow\uparrow \quad E = (\mu_2-\mu_1) H \qquad \qquad 
+	\downarrow\downarrow \quad E = (\mu_1+\mu_2) H
+\]
+y entonces resulta que
+\[
+	Z_C = \sum_\alpha \euler^{-\beta H_\alpha} =
+	2 \cosh (\beta[\mu_1+\mu_2]H) + 2 \cosh (\beta[\mu_1-\mu_2]H)
+\]
+y acá se puede trabajar con la expresión del coseno hiperbólico en términos de exponenciales, de suerte
+que 
+\[
+	Z_C = \sum_{S_1=-1}^1 \sum_{S_2=-1}^1 \euler^{-\beta ( \mu_1 S_1 + \mu_2 S_2 ) H}
+\]
+y con este trick podemos factorizarlo
+\[
+	Z_C =  \left( \sum_{S_1=-1}^1 \euler^{-\beta \mu_1 S_1 H} \right)
+	\left( \sum_{S_2=-1}^1 \euler^{-\beta \mu_2 S_2 H} \right) = 
+	\left( \sum_{S=-1} \euler^{-\beta \mu S H} \right)^2
+\]
+\notamargen{Anoté: $\euler^{\text{Bush}} - \euler^{\text{Bin Laden}} $ !!!!!}
+\[
+	Z_C = ( 2 \cosh \beta \mu_1 H ) ( 2 \cosh \beta \mu_2 H )
+\]
+y entonces
+\[
+	\vm{E} = -E_0
+\]
+de manera que como $E_0 \ll H(\mu_1+\mu_2)^{1/2}$ entonces las altas temperaturas indican que $ \beta H \nu \ll 1$
+y el $\cosh (x) \approx 1 + x^2/2 $ de manera que se puede aproximar
+\[
+	Z_C \sim 4 \left[ 1 + \Frac{\beta H}{2}^2 ( \mu_1^2 + \mu_2^2 ) \right]
+\]
+y entonces
+\[
+	- \dpar{\log Z_C}{\beta} \equiv E_0 = \beta H^2 ( \mu_1^2 + \mu_2^2 )
+\]
+y al final del día
+\[
+	T = \frac{ H^2 ( \mu_1^2 + \mu_2^2 ) }{ k E_0 }.
+\]
 
-
+Para el momento $ \vm{ M } = \vm{ m_1 + m_2 }$  en el ensamble y se sigue que
+\[
+	\vm{ M }= \frac{ \sum ( \mu_1 S_1 + \mu_2 S_2 ) \euler^{ \beta ( \mu_1 S_1 + \mu_2 S_2 ) H } }
+	{ \sum \euler^{ \beta ( \mu_1 S_1 + \mu_2 S_2 ) H } }
+\]
+de modo que
+\[
+	\vm{ M } = \dpar{ \log Z_C }{\beta H} = \frac{1}{H} \vm{ E },
+\]
+porque H es un campo constante externo.
 
 \end{ejemplo}
+
+
 
 \subsection{Una derivación más del canónico}
 
@@ -1674,6 +1732,41 @@ de correlación de cuerpos.
 $\xi$ prende o apaga la partícula 1.
 
 Con $N$ muy grande (variando de a uno): calcular $\mu$ es \textit{encender} o \textit{apagar} una partícula.
+
+En la continuación Liquidos (y2) ya se ha integrado en los momentos y se tiene
+\[
+	\frac{ \euler^{- \beta U_N} dr_1 ... dr_N}{Z_N}
+\]
+La aproximación de más bajo orden es $\rho = N/V$ (densidad uniforme).
+
+La función de correlación $ g \to g^{(2)} (r_1,r_2)$ es la más sencilla, entonces para dos cuerpos y potenciales
+esféricos se tiene $ g (r_1,r_2) = g (|r_1 - r_2|) $.
+
+Con $ g^{(2)} $ se pueden calcular todas las variables del sistema, en particular $\mu$.
+Se da
+\[
+	\mu = \dpare{A}{N}{V,T}
+\]
+pero con $N\to\infty$ es $\Delta N= 1$ co nlo cual metemos una $\zeta$ cuya gracia será esa.
+$\mu = A(N,V,T) - A(N-1,V,T) $
+Entonces $\zeta$ prende o apaga la interacción de la partícula 1 con el sistema; aparece ligada a 
+términos $r_{ij}$.
+
+Resta hallar $ g^{(3)} = g^{(3)} (r_1,r_2)  $ para cerrar la jerarquía. Será
+\[
+	 g^{(3)} (1,2,3,\zeta) = f[ g^2(1,2,\zeta)] .
+\]
+
+
+Dos esferas rígidas en el seno de un fluido se atraen 
+
+\includegraphics[scale=0.5]{images/1606329426.jpg} 
+
+Pero entre ellas no se atraen; pero como 1 apantalla a 2, impidiéndole ver todo lo que está de su
+lado (marcas /) y solo se ve expuesta a la interacción de (marcas x).
+
+Con data experimental (scattering por rayos X) se pueden calcular propiedades del sistema (un líquido).
+
 
 \subsection{Comentarios problemas ensambles}
 
