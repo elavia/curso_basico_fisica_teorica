@@ -1778,8 +1778,20 @@ La desventaja del microcanónico es la de tener que calcular todos los estados a
 El canónino es un subconjunto del microcanónico.
 
 \includegraphics[scale=0.5]{images/1606329345.jpg} 
+
+\includegraphics[scale=0.5]{images/1606329430.jpg} 
+
 La caja es un microcanónico, el rojo es un canónico donde está fija la temperatura $T$ y el
 conjuntillo más interno es una pared porosa que lo limita.
+
+Ni el $E,N$ están fijos. Antes la temperatura $T$ sintonizaba la energía en el microcanónico; ahora
+el $\mu$ sintonizará la energía.
+Cada punto es un estado del sistema de $6N+1$ dimensiones, $(p,q,N)$; cada punto corresponde a un
+$N$ distinto (de los interiores al ensamble).
+Suponemos que despreciamos efectos superficiales; o sea que las aproximaciones a que valgan serán
+$ V_1 \ll V_2 $ y $ N_1 \ll N_2 $.
+Más adelante calcularemos la densidad de puntos que representan sistemas de $N$ partículas y
+$(q,p)$ coordenadas y momentos.
 
 El $1/N!$ corrige la indistinguibilidad de las partículas -es el factor de buen conteo de Boltzmann-.
 Se define la fugacidad $ z \equiv \euler^{ \beta \mu } $.
@@ -1807,7 +1819,12 @@ Se asume que el sistema satisface
 Se obtiene una función de potencial GC $\Xi$ que debe ser un polinomio en $N$ de grado 
 $N_0(V) = a V$ para $V$ grande.
 
-
+Despreciando la interacción entre sistemas es
+\[
+	\Ham{p,q,N} = \Ham{p_1,q_1,N_1} + \Ham{p_2,q_2,N_2}
+\]
+y mediremos el número de estados totales asociados con $N$ partìculas, volumen $V$ en contacto
+con una fuente térmica a temperatura $T$,
 \[
 	Q_N (V,T) =  \frac{1}{h^{3N}N!} \int d^{3N_1}p_1 d^{3N_2}p_2  \sum_{N_1=0}^N \frac{N!}{N_1! N_2!}
 	\int d^{3N_1}q_1 d^{3N_2}q_2 \euler^{-\beta [\Ham_1 + \Ham_2 ]}
@@ -1832,10 +1849,16 @@ $N_0(V) = a V$ para $V$ grande.
 \]
 siendo el último factor un $ \rho(\{ p_1,q_1\},N_1)$
 \[
+	\rho(\{ p_1,q_1\},N_1 ) =
+	\frac{Q_{N_2}(V_2,T)}{Q_N(V,T)} \frac{\euler^{-\beta\Ham_1}}{h^{3N_1}N_1!}, 
+\]
+de suerte que
+\[
 	\frac{Q_{N_2}(V_2,T)}{Q_N(V,T)} = \euler^{-\beta A (V-V_1,N-N_1,T)}\euler^{-\beta A (V,N,T)} =
 	\euler^{-\beta [ \frac{\delta A}{\delta V} \delta V + \frac{\delta A}{\delta N} \delta N ] }
 \]
-donde las diferencias $\delta$ se toman discretas:
+donde las diferencias $\delta$ se toman discretas (suscribiendo a las aproximaciones iniciales
+respecto de $N,V$ para los sistemas 1 y 2):
 \[
 	\frac{\delta A}{\delta V} \delta V + \frac{\delta A}{\delta N} \delta N =
 	(-p )(-V_1) + \mu (-N)_1 = pV_1 - \mu N_1
@@ -1844,17 +1867,23 @@ donde las diferencias $\delta$ se toman discretas:
 	A = U - TS \qquad dA = dU - TdS - SdT = -pdV + \mu dN - SdT
 \]
 \[
-	\frac{Q_{N_2}(V_2,T)}{Q_N(V,T)} = \euler^{-\beta PV_1 + \beta \mu N_1},
+	\frac{Q_{N_2}(V_2,T)}{Q_N(V,T)} = \euler^{-\beta PV_1 + \beta \mu N_1}.
 \]
 
-De forma que la densidad del sistema '1' es
+De forma que la densidad del sistema `1' es
 \[
 	\frac{1}{h^{3N_1}N_1!} \euler^{-\beta\Ham_1}  \euler^{-\beta PV_1}  \euler^{\beta \mu N},
 \]
 y definiendo $z \equiv \euler^{\beta\mu}$
 \[
-	\rho(\{p,q\},N) = \frac{z^N}{h^{3N}N!} \euler^{-\beta\Ham}  \euler^{-\beta PV} 
+	\rho(\{p,q\},N) = \frac{z^N}{h^{3N}N!} \euler^{-\beta\Ham}  \euler^{-\beta PV}. 
 \]
+
+Se ha utilizado que
+\[
+	\sum_{N_1=0}^N \int d^{3N_1}p_1  d^{3N_1}q_1 \: \rho(p_1,q_1,N_1) = 1.
+\]
+
 
 Nótese que $ \mu, P, V, T$  son los valores fijos del sistema mayor y hemos sacado subíndices.
 \[
@@ -1872,14 +1901,109 @@ y tenemos
 \[
 	\Xi(z,V,T) \equiv \sum_{N=0}^\infty z^N Q_N(V,T)
 \]
-que es la gran función de partición.
+que es la gran función de partición. Nótese que ha resultado ser una suma de productillos de
+funciones canónicas por su fugacidad respectiva.
+Es una colección de ensambles canónicos ponderados por la fugacidad (dependiente del potencial químico).
+Esta función de partición es en realidad función de $\mu,V,T$.
+
 La termodinámica puede extraerse desde 
 \[
-	<N> = z\dpar{}{z} \log [ \:\Xi(z,V,T) \:]     \qquad 
-	<E> = -\dpar{}{\beta} \log [ \:\Xi(z,V,T)\: ]
+	\vm{N} = z\dpar{}{z} \log [ \:\Xi(z,V,T) \:]     \qquad 
+	\vm{E} = -\dpar{}{\beta} \log [ \:\Xi(z,V,T)\: ]
+\]
+es decir que están oscilando el número de partículas y la energía.
+
+\includegraphics[scale=0.5]{images/1606329436.jpg} 
+
+En general el número medio de partículas $\vm{N}$ estará bien definido.
+
+La ecuación de estado se obtiene reemplazando $z$ en la expresión de \eqref{betaPV} y en $\vm{N}$,
+\[
+	\log Q_\text{GC}(z,N,T) = \frac{PV}{kT}.
+\]
+\notamargen{En la carpeta tenemos otra notación de $Z_\text{GC} \equiv Q_\text{GC}$}
+
+
+\subsection{Visión panóptica de ensambles}
+
+{\bf Microcanónico}
+
+Para sistemas $E,V,N$
+
+\includegraphics[scale=0.5]{images/1606329440.jpg}
+
+\[
+	P(N) = \frac{ 1 }{ \Omega(E,V,N) } = \euler^{-Sk}
+\]
+\[
+	Z_\text{$\mu$ C} = \Omega(E,V,N) 
+\]
+y la ecuación fundamental
+\[
+	S = k \log Z_\text{$\mu$ C}
+\]
+saliendo la termodinámica desde
+\[
+	\frac{1}{T} = \dpare{S}{E}{V,N} \qquad \qquad P = T \dpare{S}{V}{E,N}
 \]
 
-La ecuación de estado se obtiene reemplazando $z$ en la expresión de \eqref{betaPV} y en $<N>$
+{\bf Canónico}
+
+Sistemas $T,V,N$
+
+\includegraphics[scale=0.5]{images/1606329443.jpg}
+
+\[
+	P = \frac{ 1 }{ Z_\text{C} } = \euler^{-Sk}
+\]
+\[
+	Z_\text{C} = \frac{1}{N!} \sum \euler^{-\beta H}
+\]
+y la ecuación fundamental
+\[
+	A = - k \log Z_\text{C}
+\]
+con 
+\[
+	\vm{E} = U = - \dpar{\log Z_\text{C}}{ \beta }
+\]
+saliendo la termodinámica desde
+\[
+	S = \frac{ \vm{E} - A }{T} = -\dpare{A}{T}{V,N} 
+\]
+
+{\bf Gran canónico}
+
+Sistemas $T,\mu,V$
+
+\includegraphics[scale=0.5]{images/1606329447.jpg}
+
+\[
+	P(\alpha) = \euler^{-\beta E_\alpha - \mu N_\alpha }
+\]
+\[
+	Z_\text{GC} = \sum_{N=0}^\infty \: z Z_\text{C}(N,V,T)
+\]
+y la ecuación fundamental
+\[
+	\beta P V = \log Z_\text{GC}
+\]
+saliendo la termodinámica desde
+\[
+	\vm{E} = -\dpar{\log Z_\text{GC}}{\beta} \qquad \qquad  \vm{N} = z \dpar{\log Z_\text{GC}}{z}
+\]
+
+Recordemos que con tres ecuaciones de estado o una fundamental ya tengo toda la termodinámica.
+Con la entropía $S$ en términos de variables extensivas la termodinámica ya está resuelta.
+
+Son tres ensambles diferentes. En el límite termodinámica los resultados convergen.
+Puede ser conveniente hacer cuentas en ensambles diferentes según el problema.
+Toda esta construcción no es válida cuando hay:
+\begin{itemize}
+ \item Fuerzas de largo alcance porque ahí no vale la equivalencia de ensambles; perdemos
+ la aditividad.
+ \item Con $N$ pequeño.
+\end{itemize}
 
 
 \subsection{Fluctuaciones de densidad}
