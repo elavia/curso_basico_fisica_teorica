@@ -2006,6 +2006,133 @@ Toda esta construcción no es válida cuando hay:
 \end{itemize}
 
 
+\begin{ejemplo}{\bf Problema 8}
+
+Partículas distinguibles que no interactúan. Con energía $+\vare$ y $-\vare$
+
+(a)
+
+Tenemos
+\[
+	N_0  \pm \frac{E_0}{\vare} \gg 1 \qquad N_0 = N_+ + N_- \qquad E = ( N_+ + N_- ) \vare = E_0
+\]
+Si supongo que fijo $N_-$ entonces 
+\[
+	S = k \log \Frac{ N_0! }{ ( N_+ + N_- )! }
+\]
+y utilizando Stirling y amasando un poco
+\[
+	S = \frac{k}{2} N_0 ( 1 + x ) \log \Frac{1-x}{1+x} - k N_0 \log (1-x) - \log 2
+\]
+donde $x = E_0/ (N_0 \vare)$.
+
+
+(b)
+ 
+Se tiene $\vm{E}=E_0$  luego
+\[
+	Z_\text{C}(N_0,T,V) =  [ Z_\text{C}(1,T,V) ]^N
+\]
+donde $ Z_\text{C}(1,T,V) = 2 \cosh( \beta \vare ) $ y entonces 
+\[
+	Z_\text{C}(N_0,T,V) =  [ 2 \cosh( \beta \vare ) ]^N.
+\]
+
+¿Qué temperatura $T$ tendrá el baño térmico para mantener la condición?
+\[
+	E_0 = - \dpar{\log Z_\text{C}}{\beta},
+\]
+y será $ E_0 = - N_0 \vare \tanh (\beta \vare )$
+
+\includegraphics[scale=0.5]{images/1606329452.jpg} 
+
+Con el canónico no muestraré $E$ con $\vm{E} < 0 $ que corresponde a $\beta < 0$ lo cual es $T < 0$
+y esto se pudre. Es $T > 0 $ cuando $ E_0 < 0$.
+
+\includegraphics[scale=0.5]{images/1606329459.jpg}
+
+Esta es laregión de T<0 (en el gráfico de arriba) que es inaccesible al ensamble canónico.
+
+\[
+	\dpar{S}{N_+} \approx \dpar{S}{E} = \frac{1}{T}
+\]
+y entonces para $N/2 < N$ es $1/T < 0$ y además para $ N/2 > N$ es $1/T > 0$.
+La moraleja acá es que con N finito algo puede pudrirse.
+Esto nos muestra una limitación del hecho de calcular cosas en uno para usarlas en otro.
+ 
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 9 --Planteo--}
+ 
+Poner una picture de una soga con segmentos de longitudes $\alpha \beta \beta \alpha$ .
+La tensión (variable extensiva) controlará la longitud (variable intensiva).
+Este ensamble está descripto en el libro de Pathria.
+
+\[
+	N = N_\alpha + N_\beta \qquad \qquad L = \alpha N_\alpha + \beta N_\beta
+\]
+y tenemos $(T,f,N)$ donde $f$ es la tensión, que es un ensamble isotérmico-isobárico.
+
+El canónico será
+\[
+	P(\alpha) = \frac{1}{Z_\text{C}} \euler^{-\beta E_\alpha} \qquad \qquad 
+	P(\alpha) = \frac{1}{\Delta} \euler^{-\beta (E - PV) }
+\]
+mientras que el gran canónico 
+\[
+	P(\alpha) = \frac{1}{Z_\text{GC}} \euler^{-\beta( E_\alpha - \mu N_\alpha ) } \qquad 
+	\Delta(T,P,N) = \int_0^\infty dV \: \euler^{ - \beta P V }  Z_\text{C}(N,V,T)
+\]
+\[
+	G(T,P,N) = k T \log \Delta 
+\]
+Finalmente
+\[
+	\vm{E} = - \dpar{\log \Delta }{p} \qquad \vm{V} = \dpar{\log \Delta (T,P,N)}{p}
+\]
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 10}
+
+\includegraphics[scale=0.5]{images/1606329467.jpg}
+
+Estados derecha o izquierda. Son apilables y no tóxicas. Un estado será $N_+$ (a derecha) y $N_-$ (a izquierda).
+La longitud de la cadena será $( N_+ - N_- ) a = x$ que es la distancia cola-cabeza o cola-cola de las flechas.
+Luego $ N = N_+ + N_-$ 
+Podemos hacer la sucesión
+\[
+	\begin{aligned}
+		x &= Na \to  1 \\
+		x &= (N-1) a \to  N \\
+		x &= (N-2) a \to  \frac N 2  \\
+		. . .
+	\end{aligned}
+\]
+\[
+	\Omega(x) = \Frac{N}{N_-} 
+\]
+La entropía $S(x,N,a) = k \log \Omega(x) $ tendrá un maimo que vale $S_\text{max} = k \log ( N / N/2 )$.
+
+Luego, si tiro y la tengo en un baño térmico $ \vm{x} \leftrightarrow F$ con $\vm{x} = x_0$ y
+\[
+	F = - k_B T \dpare{S}{x}{x=x_0}
+\]
+Y serán
+\[
+	Z_\text{C} = \sum_\vare \Omega( \vare ) \euler^{ - \beta \vare } = 
+	\sum_\vare \euler^{ - \beta \vare + S } = \euler^{ - \beta A }
+\]
+pero es $ A = - k T \log Z_\text{C}$ y entonces $ dA = F dx - S dT $ y
+\[
+	F dx = dA |_T \qquad \qquad dA = - \frac{ k T }{ Z_\text{C} } \dpar{Z_\text{C}}{x} dx
+\]
+Si la energía $E$ no cambia con $x$; entonces ¿Porqué necesita fuerza? porque tiende a quedarse en $S_\text{max}$.
+
+
+\end{ejemplo}
+
 \subsection{Fluctuaciones de densidad}
 
 \[
