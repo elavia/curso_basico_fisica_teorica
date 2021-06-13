@@ -2131,6 +2131,18 @@ pero es $ A = - k T \log Z_\text{C}$ y entonces $ dA = F dx - S dT $ y
 Si la energía $E$ no cambia con $x$; entonces ¿Porqué necesita fuerza? porque tiende a quedarse en $S_\text{max}$.
 
 
+\subsection{Garabatos sueltos}
+
+Estamos trabajando con $\Psi$ para $N$ cuerpos. Pero habrá limitaciones dadas por la simetría de las funciones.
+Tendremos mucha degeneración y nos concentraremos en autoestados.
+
+Para fermiones será un determinante (tendremos signos $+$ y $-$) mientras que para bosones será un
+permanente (todos signos $+$). Al resolver el número de partículas en una caja interesarán los números
+de ocupación.
+
+Los boltzmaniones se consideran de entrada distinguibles y luego se indistinguibiliza.
+
+
 \end{ejemplo}
 
 \subsection{Fluctuaciones de densidad}
@@ -2215,6 +2227,21 @@ tiene un espectro continuo acotado.
 
 
 \subsection{Gas ideal}
+
+Para boltzmaniones digo que de entrada son distinguibles y luego en cada celda considero las permutaciones
+(indistinguibilizo). Las estadísticas de Fermi y Bose se construyeron desde principios fundamentales.
+
+En Bose puede diverger la población del fundamental (todas las partículas van al fundamental)
+\[
+	n_p = \frac{ Z \euler^{ -\beta \vare q } }{ 1 + Z \euler^{ - \beta \vare q } }
+\]
+
+\includegraphics[scale=0.5]{images/1606329475.jpg}
+
+Las tres estadísticas coinciden en el límite termodinámico.
+Cuando entramos en el régimen cuántico, dado aquí por el $N,V$ las partículas se dan cuenta de que son
+cuánticas. Podemos hacer un cuadro: para cuánticas (Bose y Fermi) se dan con bajas temperaturas y
+altas densidades mientras que lo de Boltzmann se da en altas temperaturas y bajas densidades.
 
 \[
 	Q_N = \frac{(Vf(T))^N}{N!} \Rightarrow \Xi = \sum_{N=0}^\infty \frac{(zVf(t))^N}{N!} = \euler^{zVf(T)}
@@ -2538,7 +2565,194 @@ e igualando coeficientes de $ z $ tendremos
 	2a_1b_2 + a_2b_1^2 = b_2  \quad \rightarrow \quad  a_2 = -\frac{b_2}{b_1^2} = -b_2
 \]
 
+\begin{ejemplo}{\bf Problema 10 -comentario-}
 
+Es a $T$ constante y $E\neq E(x)$. Para este problema es piola $ A = F = U - TS $ aunque
+hablaremos de $S$ en realidad.
+
+La entropía medirá microestados $\Omega(N,N_+)$,
+\[
+	\frac{S}{k} = \log \Omega = \log \binom{N}{N_-} \qquad 
+	x = (N_+ - N_-) a
+\]
+donde $x$ es una especie de longitud.
+ 
+\includegraphics[scale=0.5]{images/1606329480.jpg} 
+
+De acuerdo con la imagen, necesitaré hacer una fuerza en los laterales para sacar al sistema
+del equilibrio.
+Será $ Z_C = \sum_x \euler^{-\beta E + S(x)}$ y entonces $dA = F dx - S dT$ de modo que es
+\[
+	F = \dpare{A}{x}{T}
+\]
+\[
+	dA = - \frac{kT}{Z_C} \dpar{Z_C}{x} = - \frac{kT}{Z_C} \sum_ x \dpar{S}{x} \euler^{-\beta E + S(x)}
+\]
+y como la sumatoria final es el promedio $\vm{\partial S/\partial x}_{T,V,N}$
+\[
+	F = - k T \dpare{S}{x}{T,N}.
+\]
+ 
+\end{ejemplo}
+
+
+\subsection{Mecánica estadística para medios magnéticos}
+
+\begin{ejemplo}{\bf Problema 6}
+
+El sistema serán $N$ dipolos, cada uno con momento magnético $\mu$ de tal suerte que 
+\[
+	E_{\text{MAG individual}} = - \vb{\mu} \cdot \vb{H}
+\]
+donde cada dipolo intentará orientarse con el campo.
+La agitación términca va en contra (desalinea los dipolos). Tenemos dos extrasmos ilustrados
+en la picture
+
+\includegraphics[scale=0.5]{images/1606329484.jpg}
+
+El parámetro que controla es $\mu H / (k T)$ y los dos casos extremos representarán 
+con $T$ baja y $H$ intenso se tiene $\mu H / (k T) \gg 1$ mientras que con $T$ alta y $H$ débil 
+es $\mu H / (k T) \ll 1 $
+
+El modelo más sencillo constará de $N$ dipolos idénticos localizados (distinguibles) y orientables
+libremente (esto no vale en cuántica donde será discreto el número de orientaciones posibles).
+Los dipolos estarán en contacto con un baño térmico a temperatura $T$
+\[
+	E = \sum_{i=1}^N \: \vare_i = \sum_{i=1}^N \: -\vb{\mu}_i \cdot \vb{H} =
+	- \mu H \sum_{i=1}^N \: \cos\theta_i
+\]
+donde $\theta_i$ es el ángulo que hace cada momento magnético de dipolo contra el campo $H$.
+Si la energía es aditiva puedo factorizar la función de partición,
+\[
+	Z_C(N) =  [ Z_C(1) ]^N
+\]
+donde $Z_C(1)$ es la función de un único dipolo y donde hay que notar que como son distinguibles
+no va el factor de buen conteo.
+El hecho de que no interactúen hace que pueda calcular uno solo y multiplicar por $N$.
+\[
+	Z_C(1) = \sum_\theta \: \euler^{\beta \mu H \cos \theta }
+\]
+\notamargen{Este problema tiene un solo grado de libertad.}
+
+El momento magnético es $1/2$ y se tienen
+\[
+	M_z = N \mu \vm{ \cos \theta } = 
+	\frac{ N \mu \sum_\theta \cos \theta \euler^{ \beta \mu H \cos \theta} }
+	{ \sum \euler^{ \beta \mu H \cos \theta} }
+\]
+El promedio puede calcularse con este truco de la derivada
+\[
+	M_z = N \mu \dpar{}{(\beta \mu H)}\left( \log Z_C(1) \right)
+\]
+
+Hacemos el cálculo de la función de partición, el cálculo clásico (Langevin, 1905)
+\[
+	Z_C(1) = \int_0^{2\pi} \int_0^\pi \euler^{ \beta \mu H \cos \theta} \sin\theta d\theta d\varphi
+\]
+\[
+	Z_C(1) = \frac{ 4 \pi \sinh (\beta \mu H)}{ (\beta \mu H) }
+\]
+\[
+	m_z = \frac{M_z}{N} = \mu \left[ \coth (\beta \mu H) - \frac{1}{(\beta \mu H)} \right]
+\]
+y se conoce lo siguiente
+\[
+	\Lag [x] \equiv \coth(x) - \frac{1}{x},
+\]
+como ``función de Langevin''.
+
+El problema está gobernado por la varibles $x \equiv (\beta \mu H) = \mu H / (k T)$ que es el {\it tour
+de force} entre el campo y la temperatura
+
+\includegraphics[scale=0.5]{images/1606329491.jpg}
+ 
+Si se tiene 
+\[
+	x \gg 1 \qquad \mu H \gg k T \qquad \to \qquad 
+	\begin{cases}
+		M_z \sim \mu N \\
+		\Lag [x] \sim 1
+	\end{cases}
+\]
+y en cambio con
+\[
+	x \ll 1 \qquad \mu H \ll k T \qquad \to \qquad 
+	\begin{cases}
+		M_z \sim \frac{\mu^2 N}{3 k T} H \\
+		m_z \sim \frac{\mu^2 n}{3 k T} H \\
+		\Lag [x] \sim  \frac{x}{3} - \frac{x^3}{45}
+	\end{cases}
+\]
+usualmente se define un $M_z/V$ como una magnetización sobre unidad de volumen. En lo anterior, $n$ es
+la densidad.
+Tenemos la ley de Curie,
+\[
+	\chi \equiv \lim_{H\to\infty} \dpare{M_z}{H}{} \propto \frac{1}{T}.
+\]
+ 
+\end{ejemplo}
+
+
+\begin{ejemplo}{\bf Problema 11}
+
+Es una red cristalina. Los nodos son puntos de equilibrio estables. Algunas partículas saltan a otros puntos
+de la red, que se denominan ``defectos''.
+
+\includegraphics[scale=0.5]{images/1606329496.jpg}
+
+Consideramos N átomos en sus posiciones y N' sitios intersticiales.
+La producción de un defecto es cuando un átomo va a un sitio intersticial.
+Se tiene
+\[
+	\vm{E} = W \vm{n}
+\]
+donde $W$ es la energía para producir un defecto y $\vm{n}$ es el número medio de defectos.
+
+Si tengo un sistema con $n$ defectos, cuántas configuracieons me puedo generar con $n$ defectos: será la
+función de partición $ \Omega(n) $
+\[
+	\Omega(n) = \binom{N}{n} \binom{N'}{n}
+\]
+\[
+	Z_C(N) = \sum_{\mu-\text{estados}} \euler^{-\beta  E_\mu} =
+	\sum_E \: \Omega(E) \euler^{-\beta E} =
+	\sum_n \: \Omega(n) \euler^{-\beta W n}
+\]
+pero $\Omega(n)$ tiene combinatorios, entonces
+\[
+	\vm{n} = - \dpar{}{(\beta W)}\log(Z_C)
+\]
+Usando la paroximaxión termodinámica
+\[
+	\sum \Omega(n) \euler^{-\beta W n} \sim \Omega(n_0) \euler^{-\beta W n}
+\]
+donde se supone que el sistema no tomará cualquier energía sino que al estar en contacto con un baño
+térmico su energía será cercana a la del baño. Es decir que estoy considerando un único término cuando
+$N \to \infty$.
+\notamargen{La distribución de energías será una distribución normal centrada en la del baño; el
+ancho de la distribución se anula con $N\to \infty$ puesto que es eso lo que hace equivalente al
+canónico con el microcanónico.}
+Entonces buscaré $n_0$ tal que 
+\[
+	\binom{N}{n_0} \binom{N'}{n_0} \euler^{ -\beta W n_0 }
+\]
+sea un máximo.
+Ese tal $n_0$ maximizará $ \log ( \Omega(n) \euler^{ -\beta W n }) $ y veremos que sea da $n_0 = \vm{n}$.
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 13}
+
+\includegraphics[scale=0.5]{images/1606329501.jpg}
+
+En el equilibrio es $ \mu_\text{gas} = \mu_\text{sup} $ donde el primero es dato.
+Como la superficie varfía la $N$ necesitaré la gran canónica
+\[
+	Z_{GC} = \sum_n^N z^n Q_N(T).
+\]
+No mucho más para decir aquí.
+ 
+\end{ejemplo}
 
 
 
