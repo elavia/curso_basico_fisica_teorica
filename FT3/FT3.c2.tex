@@ -2565,6 +2565,137 @@ e igualando coeficientes de $ z $ tendremos
 	2a_1b_2 + a_2b_1^2 = b_2  \quad \rightarrow \quad  a_2 = -\frac{b_2}{b_1^2} = -b_2
 \]
 
+\subsection{Más suelto: sistemas cuánticos}
+
+Tenemos tres estadísticas que dan para los números medios de ocupación [?]. En Bose es
+$\mu \geq 0$ mientras que en Fermi no hay restricción en $\mu$.
+
+\includegraphics[scale=0.5]{images/1606329505.jpg}
+
+La aplicación de los boltzmannionrd en sistemas clásicos (grandes) está bien; la ``manganetta''
+de considerar distinguibles y ``contar bien'' luego distinguibilizando está correcta.
+
+El gas de Fermi, en el gran canónico queda reducido al cálculo de
+\[
+	\frac{P}{kT} = \frac{1}{ \lambda^3} f_{3/2}(\tau) \qquad \qquad 
+	\frac{1}{V} = \frac{1}{ \lambda^3} f_{3/2}(Z)
+\]
+y con $z$ pequeña es $ f_{3/2}(z) \approx z$. En ese caso se da para bajas densidades y temperaturas
+altas. Se ve eso en el cuadrado inferior en la figura siguiente.
+
+\includegraphics[scale=0.5]{images/1606329509.jpg}
+
+
+Entonces, en
+\[
+	\frac{PV}{kT} = \left( 1 + \frac{\lambda^3}{V} \frac{1}{2^{3/2}}+ ... \right)
+\]
+el segundo término es la corrección cuántica. Fenómenos de interferencia. Empieza a hacerse fuerte la
+exclusión, que es una repulsión. En Fermi lo pensamos como una repulsión en $po$. Pero ojo que empezamos
+con gas ideal.
+
+Para bajas temperaturas y densidades altas es $z$ grande (con $T \to 0$ es $\beta \to \infty$)
+
+\includegraphics[scale=0.5]{images/1606329514.jpg}
+
+Es un escalón en los autoestados, no en las energías. La población es la que está restringida, no la
+energía.
+
+Es como tener $g$ gases independientes en el sistema
+
+\includegraphics[scale=0.4]{images/1606329518.jpg}
+
+Fijémonos que siempre converge al clásico.
+
+Hay un modelo del núcleo como gas de Fermi. Considera un núcleo a $T$ baja, partículas independientes
+con un campo medio.
+
+\includegraphics[scale=0.5]{images/1606329524.jpg}
+
+Para los pozos de neutrones y protones se minimiza la energía cuando son simétricos.
+
+\textbf{Notas de cuánticos (4)}
+
+En el gas de Fermi, con se tienen
+\[
+	\frac{PV}{kT} = 1 + \frac{1}{2^{5/2}} \frac{\lambda^3}{v} \qquad  \lambda^3/V \ll 1
+\]
+mientras que el límite opuesto $ \lambda^3/V \gg 1$ conduce a valores altos de $z$.
+Si por el contrario es $ \lambda^3/V \leq 1$ se tiene que tomar toda la serie; el desarrollo del virial
+\[
+	\frac{PV}{kT} = \sum_\ell \: (-1)^\ell \: a_\ell \: \Frac{ \lambda^3 }{ g V }^{\ell-1}
+	\qquad \lambda^3 \sim 1 /T^{3/2}
+\]
+y cosechando términos del mismo orden nos lleva a que la presión de Fermi es mayor a la del gas ideal
+(un resultado cuántico) que se comporta para ...
+
+En el gas de Bose se tienen para la población
+\[
+	\vm{n_\vare} = \frac{ Z \euler^{-\beta \vare}}{1 - z \euler^{-\beta \vare}} = 
+	\frac{ 1 }{ z^{-1} \euler^{\beta\vare} - 1 }
+\]
+y separo una parte en la sumatoria que podría diverger
+\[
+	\frac{P}{kT} = \frac{1}{ \lambda^3} g_{5/2}(z) - \frac{1}{V} \log (1-z)
+\]
+\[
+	\frac{1}{V} = \frac{1}{ \lambda^3} g_{3/2}(Z) + \frac{1}{v} \frac{z}{1-z}
+\]
+
+Si no hago la separación llego a la conclusión solamente
+\[
+	\frac{ \lambda^3 }{ V } = g_{3/2}(z) + \frac{ \lambda^3 }{V} \vm{ v_0 }
+\]
+\notamargen{Acá en la carpeta parece que me estaba durmiendo y las notas están un poco
+disconexas.}
+
+La condensación de Einstein-Bose requiere $ \lambda^3/V > g_{3/2}(V,t)$ y depende de la dimensión
+del volumen posible.
+No hay condensación si no existe solución con poblaciones de los niveles tenues.
+
+\begin{itemize}
+ \item $ T < T_c $ entonces tenemos $ z=1 $ con
+ \[
+	P(T) = \frac{kT}{\lambda^3} g_{5/2}
+ \]
+ y como $ \lambda^3 \propto T^{3/2}$ y es independiente de $v$ tiende a cero con $ T \to 0 $
+ \item $ T = T_c $ (punto de transición)
+ \[
+	P(T_c) = \frac{1}{2} \Frac{ N k T_c }{ V }
+ \]
+ que es la mitad de la del gas ideal.
+ \item $ T > T_c $ lleva a 
+ \[
+	P(T) = \frac{NkT}{V} \frac{ g_{5/2} }{ g_{3/2} }
+ \]
+ El fundamental está en pie de igualdad a los demás: están todos tenuemente poblacos, entonces
+ podemos usar el virial:
+ \[
+	P V = NkT + ...
+ \]
+ y la presión para Fermi es por arriba, la presión para Bose está por debajo (hay una atracción
+ efectiva) $ P V = NkT - ... $ . Ambas se aproximan al gas ideal pero una por arriba y otra por debajo.
+ 
+ \includegraphics[scale=0.5]{images/1606329532.jpg}
+ 
+ El calor específico converge al límite clásico
+ 
+ \includegraphics[scale=0.5]{images/1606329535.jpg}
+ 
+ y se tiene 
+ \[
+	\frac{ C_v }{ N k } = \frac{ 3 }{ 2 } \left( 1 + 0.0814 \frac{ \lambda^3 }{ v } + ... \right)
+ \]
+ 
+ Fermi no incluye transiciones, entonces tiene un comportamiento suave.
+ 
+\end{itemize}
+
+Digamos que Bose tiene metida la indistinguibilidad y la antsimetría de la función de onda.
+Eso se nota en la diferencia con Boltzmann.
+
+
+
 \begin{ejemplo}{\bf Problema 10 -comentario-}
 
 Es a $T$ constante y $E\neq E(x)$. Para este problema es piola $ A = F = U - TS $ aunque
