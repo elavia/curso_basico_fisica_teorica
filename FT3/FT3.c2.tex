@@ -2886,6 +2886,45 @@ No mucho más para decir aquí.
 \end{ejemplo}
 
 
+\begin{ejemplo}{\bf Problema 2 -parcial-}
+
+Como $ \int \int f d^3x d^3v = 1 $ entonces ya era una probabilidad.
+
+
+\includegraphics[scale=0.5]{images/1606329542.jpg}
+
+El flujo nos dará la cantidad de partículas. Luego se llevan energía cinética, entonces había que usar
+equipartición para relacionar temperatura y energía.
+
+Otro modo de hacer el cálculo es considerando $ v_x > 0 $ y que tienen que estar contenidos en el
+cilindrete $ a t v_x f(\vbx,\vbv) d^3v $ que es la probabilidad de tener una partícula con velocidad
+$\vbv$ en condiciones de salir. Luego, $ N_A a t v_x f(\vbx,\vbv) d^3v a$ es el número de átomos.
+
+\includegraphics[scale=0.5]{images/1606329545.jpg}
+
+Será,
+\[
+	N_B =  a t \frac{ N_A }{ V_A } \Frac{1}{2\pi\sigma^2}^{3/2} 
+	\int_0^\infty dv_x \: v_x \euler^{- v_x^2 / ( 2 \sigma^2 ) }
+	\int_{-\infty}^\infty dv_y \: \euler^{- v_y^2 / ( 2 \sigma^2 ) }
+	\int_{-\infty}^\infty dv_x \: \euler^{- v_z^2 / ( 2 \sigma^2 ) }
+\]
+de manera que
+\[
+	N_B = a t N_A \vm{ v_x }_{\v_x>0} = a t n_A \sqrt{ \frac{ k T_A }{ 2 \pi m } }
+\]
+de lo que se deducen,
+\[
+	E_B =  a t N_A \vm{ \frac{m v^2}{2} \: v_x }_{\v_x>0} =
+	a t m n_A \sqrt{ \frac{2}{\pi} } \sigma^3
+\]
+\[
+	T_B  = \frac{2}{3} \frac{ E_B }{ k N_B } = \frac{ 4 }{ 3 } T_A.
+\] 
+ 
+\end{ejemplo}
+
+
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica

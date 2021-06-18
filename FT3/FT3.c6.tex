@@ -3,8 +3,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{graphicx}
-	\usepackage{libertine}
-	\usepackage[bold-style=TeX]{unicode-math}
+% 	\usepackage{libertine}
+% 	\usepackage[bold-style=TeX]{unicode-math}
 	\usepackage{lipsum}
 
 	\usepackage{natbib}
@@ -166,11 +166,14 @@ con $ z \lesssim 1 ( T > T_c ) $
 	\beta p = \frac{1}{v} \frac{ g_{5/2}(z) }{ g_{3/2}(z) }
 \]
 pero no podemos expandir en el virial porque $ \lambda^3 / v $ no es chico.
-Con $ z \approx 0 ( T \gg T_C ) $
+
+Con $ z \approx 0 \: ( T \gg T_C ) $
 \[
 	\beta p v = \frac{pV}{NkT} = \sum_{l=0}^\infty a_l \Frac{\lambda^3}{v}^{l-1}
 \]
 usando toda la serie y procediendo en modo análogo a Fermi se obtienen
+\notamargen{ Los $a_\ell$ son los coeficientes del virial -que son los mismos
+para Fermi-.}
 \[
 	\begin{cases}
 	 a_1 = 1 \\
@@ -525,6 +528,22 @@ diferencia con el caso clásico
 potencial efectivo
 
 \notamargen{Ver la transición de fase con el tema del calor latente. ¿Cómo era lo de Clayperon?}
+
+Podemos comparar presión con el gas ideal para reconoder si es Fermi o Bose.
+
+\includegraphics[scale=0.5]{images/1606329551.jpg}
+
+
+El $C_V$ es continuo. Veamos que da
+\[
+	T<T_C \qquad \frac{C_V}{Nk} \propto T^{3/2}
+\]
+\[
+	T=T_C \qquad \frac{C_V}{Nk} \approx 1.925 > \frac 3 2
+\]
+\[
+	T>T_C \qquad \dpar{}{T}\left( \frac{3}{2} T \frac{g_{5/2}(z)}{g_{3/2}(z)} \right) \frac{C_V}{Nk} 
+\]
 
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
