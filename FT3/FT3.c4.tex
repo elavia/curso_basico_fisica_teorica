@@ -1522,6 +1522,66 @@ es $ \braket{n} = $ 1.541
 
 Vemos entonces que el condensado de Bose debe producirse con $ \mu \to 0^{-}$.
 
+\section{Gases cuánticos}
+
+Lo que sigue es un condensado de toda la teoría básica que ya está presente scattereada por aquí y allá.
+Obviamente hay que curar y consolidar todo esto.
+
+Se trabajará con gades ideales
+\[
+	H = \sum_i^N \: H_i
+\]
+o sea que consideramos no interacción con $N$ partículas indistinguibles. Si la $\Psi^N$ es antisimétrica
+estaremos hablando de fermiones (estadística de Fermi-Dirac) y si es simétrica serán bosones, estadística
+de Bose-Einstein.
+
+Agregamos una estadística de Maxwell-Boltzmann (teórica). No tendrán una simetría dada; es una aproximación
+de alta temperatura de un sistema cuántico.
+
+El conteo de estados, ¿Cómo se realiza?
+\begin{enumerate}
+ \item Sobre microestados.
+ \item Sobre energía $E$, según degeneración $g(E)$.
+\end{enumerate}
+
+Tendremos $ E = \sum_i^N \: e_i $ entonces podré factorizar si miro los niveles de energía de una partícula.
+Un microestados será definido a través de los números de ocupación,
+\[
+	n_e = ( n_0, n_1, ..., n_j, ... )
+\]
+números de ocupación (cantidad de partículas en cada nivel energético). Se tienen 
+\[
+	\begin{cases}
+		\sum_e \: n_e = N = n_0 + n_1 + ... + n_j + ... \\
+		\sum_e \: e \: n_e = E
+	\end{cases}
+\]
+y sabemnos que si son bosones se tendrá $n_e=0,1,2,...$ pero para fermiones $n_e=0,1$ (principio de exclusión,
+dos partículas no pueden compartir sus números cuánticos). Para Boltzmann consideraremos $ n_e = 0, 1, 2, ...$
+distinguibles y metemos el factor $ 1 / N! $. Entonces,
+\[
+	\begin{cases}
+		g(n_e) = 1 \qquad \text{ f, b } \\
+		g(n_e) = \frac{ N! }{ \Pi_e \: n_e! } \frac{ 1 }{ N! } \qquad \text{ MB }
+	\end{cases} 
+\]
+pero esto no implica que no haya degeneración en la energía (los casos de fermiones y bosones).
+\notamargen{En Bose las combinaciones que me puedo armar son las que harán la función de onda simétrica.}
+
+Las funciones de partición 
+\[
+	Q_N(V,T) = \sum_{ \{n_e\} } \: \euler^{ -\beta E(n_e) } g(n_e),
+\]
+pero sujeta a que $ \sum n_e = N $. Para Maxwell-Boltzmann la $ g(n_e) $ quedará un binomio de Newton,
+entonces $ Q_N = Q^N / N! $.
+
+Para FD/BE la condición $ \sum n_e = N $ hace complicar la cuenta; nos vamos al gran canónico donde
+es mucho más sencilla la cosa porque desaparece esa constraint y entonces
+\[
+	Q(z,V,T) = \sum_{N=0}^\infty \: z^N Q_N(V,T) =
+	\sum_{N=0}^\infty \: z^N \sum_{ \{n_e\} } \: \euler^{ -\beta \sum_e \: e \: n_e }
+\]
+
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
