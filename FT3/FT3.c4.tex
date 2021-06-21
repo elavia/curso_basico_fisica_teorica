@@ -1581,7 +1581,53 @@ es mucho más sencilla la cosa porque desaparece esa constraint y entonces
 	Q(z,V,T) = \sum_{N=0}^\infty \: z^N Q_N(V,T) =
 	\sum_{N=0}^\infty \: z^N \sum_{ \{n_e\} } \: \euler^{ -\beta \sum_e \: e \: n_e }
 \]
+Se descorrelacionan los números de ocupación y 
+\[
+	\sum z^{n_0 + n_1 + ...} \sum \euler^{ -\beta ( \: e_0 \: n_0 + e_1 \: n_1 + ... ) } =
+	\sum_{n_0} \: z {\euler^{-\beta e_0}}^{n_0} \: \sum_{n_1} \: z {\euler^{-\beta e_1}}^{n_1} ...
+\]
+y resulta
+\[
+	\prod ( \sum_{n} \: z {\euler^{-\beta e}}^{n} )
+\]
+donde $ n=0,1$ para fermiones y $n=0,1,2,...$ para bosones.
+Entonces tendremos, respectivamente
+\[
+	Q(z,V,T) = \begin{cases}
+		\displaystyle \prod_e \: \frac{1}{1-z\euler^{\beta e}} \\
+		\\
+		\displaystyle \prod_e \:  1 + z\euler^{-\beta e}
+	\end{cases}
+\]
+donde en la primer expresión (bosones) se ha usado que $ | z \euler^{-\beta e} | < 1 $ para toda $e$.
+\notamargen{Para gases ideales sin spin es $|z|<1$.}
 
+\[
+	\beta P V = \begin{cases}
+		\displaystyle - \sum_e \: \log ( 1-z\euler^{\beta e} ) \\
+		\\
+		\displaystyle \sum_e \: \log( 1 + z\euler^{-\beta e} )
+	\end{cases}
+\]
+
+\[
+	N = \begin{cases}
+		\displaystyle \sum_e \: \frac{1}{z^{-1}\euler^{\beta e} - 1 } \\
+		\\
+		\displaystyle \sum_e \: \frac{1}{z^{-1}\euler^{\beta e} + 1 }
+	\end{cases}
+\]
+
+Recordemos que estamos sumando siempre sobre los niveles energéticos de una sola partícula (sus estados
+cuánticos). El número medio de ocupación de cada nivel será
+\[
+	\vm{n_e} = \frac{1}{Q} \sum_{N=0}^\infty \: z^N \sum_{ \{ n_e\} } n_e \: \euler^{ -\beta \sum_e n_e e }
+	= - \frac{1}{\beta} \dpare{ \log Q(z,V,T) }{e}{N,V,\text{ todos los otros $e$}} 
+\]
+\[
+	\vm{n_e} = \frac{ 1 }{ z^{-1} \euler^{ \beta e } \mp 1 }
+\]
+siendo el primer signo para bosones y el segundo para fermiones.
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica

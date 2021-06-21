@@ -33,6 +33,44 @@
 \chapter{Gas de Fermi}
 % =================================================================================================
 
+La cosa comienza pasando al límite continuo, donde la $\sum_e \to V/h^3 \int d^3p$ siendo la energía
+$ e = p^2/(2m)$
+
+Luego, el gas ideal de Fermi sale de estas dos expresiones
+\[
+	\frac{P}{kT} = \frac{4\pi}{h^3} \int_0^\infty \: dp \: p^2 \: 
+	\log ( 1 + z \euler^{-\beta p^2/(2m)} ) = 
+	\frac{1}{\lambda^3} f_{5/2}(z)
+\]
+\[
+	\frac{1}{V/N} = \frac{4\pi}{h^3} \int_0^\infty \: dp \: p^2 \: 
+	\frac{ 1 }{ z^{-1} \euler^{-\beta p^2/(2m)} + 1 } = 
+	\frac{1}{\lambda^3} f_{3/2}(z)
+\]
+donde $\lambda$ es la longitud de onda térmica (que es similar al ancho del paquete de onda de la partícula)
+\notamargen{$v$ nos da idea de qué tan separadas están las partículas.} 
+\[
+	\lambda = \sqrt{ \frac{ 2 \pi \hbar^2 }{ m k T } } \qquad \qquad \lambda \sim \frac{ 1 }{ T^{1/2} }
+\]
+\[
+	f_{5/2}(z) = \frac{4}{\sqrt{\pi}} \int_0^\infty \: dx \: x^2 \: 
+	\log ( 1 + z \euler^{-x^2} ) =
+	\sum_\ell^\infty \: (-1)^{\ell+1} \frac{z^\ell}{\ell^{5/2}} 
+\]
+\[
+	f_{3/2}(z) = z \dpar{}{z} f_{5/2}(z) = 
+	\sum_\ell^\infty \: (-1)^{\ell+1} \frac{z^\ell}{\ell^{3/2}} 
+\]
+En general será
+\[
+	f_\nu(z) = \frac{1}{\Gamma(\nu)} \int_0^\infty \frac{ x^{\nu-1} \: dx }{ z^{-1} \euler^{x} + 1 } =
+	\sum_\ell^\infty \: (-1)^{\ell+1} \frac{z^\ell}{\ell^{\nu}} 
+\]
+
+La física del problema dependerá de (a) la dimensión del sistema (b) la relación $e(p)$. Notemos que por ejemplo
+en 2D no hay conensación de Bose.
+
+
 DIBUJOS
 \[
 	\braket{n_e} = \frac{1}{z^{-1} \euler^{\beta e} + 1 } = \frac{1}{ \euler^{\beta ( \mu - e) } + 1 }
@@ -42,13 +80,13 @@ nivel (restan muchos niveles vacíos).
 
 Sea que $ T \to \infty $ entonces $ \beta \to \infty $ y se sigue que 
 \[
-	\euler^{\beta(e-\mu)} \to \infty e> \mu
+	\euler^{\beta(e-\mu)} \to \infty \qquad e> \mu
 \]
 \[
-	\euler^{\beta(e-\mu)} \to 0 e< \mu
+	\euler^{\beta(e-\mu)} \to 0 \qquad  e< \mu
 \]
 \[
-	\euler^{\beta(e-\mu)} \to 1 e = \mu
+	\euler^{\beta(e-\mu)} \to 1 \qquad  e = \mu
 \]
 Luego, con $ T = 0 $ es Fermi un escalón. El valor de $ \mu $ que determina el último
 estado ocupado se llama $ e_F$ 
@@ -60,6 +98,8 @@ DIBUJO
 	\frac{4}{3} \frac{1}{\pi^{1/2}} ( \beta\mu )^{3/2} = 
 	\frac{4}{3} \frac{1}{\pi^{1/2}} ( \beta e_F )^{3/2}
 \]
+
+\notamargen{Pathria 132 cuentas de GC. Pathria 138 gases simples.}
 
 % =================================================================================================
 \section{Análisis del gas ideal de Fermi}
