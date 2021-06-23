@@ -42,12 +42,18 @@ Luego, el gas ideal de Fermi sale de estas dos expresiones
 	\log ( 1 + z \euler^{-\beta p^2/(2m)} ) = 
 	\frac{1}{\lambda^3} f_{5/2}(z)
 \]
-\[
+\be
 	\frac{1}{V/N} = \frac{4\pi}{h^3} \int_0^\infty \: dp \: p^2 \: 
 	\frac{ 1 }{ z^{-1} \euler^{-\beta p^2/(2m)} + 1 } = 
 	\frac{1}{\lambda^3} f_{3/2}(z)
-\]
+	\label{densidad_fermi}
+\ee
 donde $\lambda$ es la longitud de onda térmica (que es similar al ancho del paquete de onda de la partícula)
+Aquí en cada una de esas expresiones, en el RHS, podríamos incorporar un factor $g$ que serían los grados de 
+libertad internos $\text{deg}(e)$ que no están asociados al momento $\vbp$.
+La ecuación \eqref{densidad_fermi} nos relaciona $z$ con la densidad y de allí se extrae $\mu(V,T,N)$.
+
+
 \notamargen{$v$ nos da idea de qué tan separadas están las partículas.} 
 \[
 	\lambda = \sqrt{ \frac{ 2 \pi \hbar^2 }{ m k T } } \qquad \qquad \lambda \sim \frac{ 1 }{ T^{1/2} }
@@ -66,9 +72,26 @@ En general será
 	f_\nu(z) = \frac{1}{\Gamma(\nu)} \int_0^\infty \frac{ x^{\nu-1} \: dx }{ z^{-1} \euler^{x} + 1 } =
 	\sum_\ell^\infty \: (-1)^{\ell+1} \frac{z^\ell}{\ell^{\nu}} 
 \]
+que cumple
+\[
+	z \: \dtot{F_\nu(z)}{z} = \dtot{f_\nu(z)}{\log(z)} = f_{\nu-1}(z).
+\]
+
+
+\includegraphics[scale=0.5]{images/1606329601.jpg}
+
 
 La física del problema dependerá de (a) la dimensión del sistema (b) la relación $e(p)$. Notemos que por ejemplo
-en 2D no hay conensación de Bose.
+en 2D no hay condensación de Bose.
+
+Sabíamos que 
+\[
+	U(z,V,T) = - \dpar{}{\beta}\log Q(z,V,T)
+\]
+\[
+	U = \frac{3}{2} \frac{kT}{\lambda^3} f_{5/2}(z) = \frac{3}{2} PV
+\]
+y esto es válido para bosones, fermiones y boltzmanniones.
 
 
 DIBUJOS
@@ -102,23 +125,32 @@ DIBUJO
 \notamargen{Pathria 132 cuentas de GC. Pathria 138 gases simples.}
 
 % =================================================================================================
-\section{Análisis del gas ideal de Fermi}
+\subsection{Análisis del gas ideal de Fermi}
 % =================================================================================================
 
 La primera aproximación consiste en 
 \begin{itemize}
- \item Caso no degenerado : $\frac{\lambda^3}{v} \ll 1 $  que lleva a $ T $ alta y $ v $ alto
- por ende $ N/V $ chico.
+ \item Caso no degenerado : $ \lambda^3 / v  \ll 1 $  que lleva a $ T $ alta y $ v $ alto
+ por ende $ N/V $ chico (densidad baja).
+ Es un gas diluído, el límite debería ir a Boltzmann (gas ideal clásico)
  \[	
 	z \ll 1 \qquad f_\nu(z) \approx z \qquad \frac{\lambda^3}{v} \approx z
  \]
  Si vale la condición entonces 
  \[
-	\frac{\lambda^3}{v} = \sum_{l=1}^\infty \frac{(-1)^{l+1} z^l }{l^{3/2}} \ll 1 \qquad z \ll 1
+	\frac{\lambda^3}{v} = \sum_{l=1}^\infty \frac{(-1)^{l+1} z^l }{l^{3/2}} 
+	\sim z - \frac{z^2}{2^{3/2}} \ll 1 \qquad z \ll 1
  \]
+ y vemos que se puede invertir para conseguir la expresión de $z$,
  \[
-	\beta p V \approx 1 + \frac{\lambda^3}{v 2^{5/2}} \qquad \qquad U = \frac{3}{2} \frac{N}{\beta}
-	\left( 1 + \frac{\lambda^3}{v 2^{5/2}} \right)
+	z \sim \frac{\lambda^3}{V} + \frac{1}{2^{3/2}} \Frac{\lambda^3}{V}^2 \sim \frac{\lambda^3}{V} \ll 1
+ \]
+ y se tiene $ \euler^{\beta \mu} \ll 1$ y por ende $\mu \ll 0$. En el límite clásico $\mu \to -\infty$.
+ \[
+	\beta p V = \frac{v}{\lambda^3}\left( z - \frac{z^2}{2^{3/2}} + ... \right) \approx 
+	1 + \frac{\lambda^3}{2^{5/2} v} \qquad \qquad 
+	U = \frac{3}{2} \frac{N}{\beta}
+	\left( 1 + \frac{\lambda^3}{2^{5/2} v} \right)
  \]
  \item $\frac{\lambda^3}{v} < 1 $ entonces $ z < 1 $ y hay que expandir el virial,
  \[
@@ -130,7 +162,8 @@ La primera aproximación consiste en
 	f_{5/2}(z) = f_{3/2}(z) \cdot \sum_{l=1}^\infty (-1)^{l-1} a_l \left(\frac{\lambda^3}{v} \right)^{l-1}
  \]
  \item $\frac{\lambda^3}{v} \approx 1 $ Cálculo numérico
- \item Caso altamente degenerado : $\frac{\lambda^3}{v} \gg 1 $ se tiene $ z \gg 1 $ 
+ \item Caso altamente degenerado : $ \lambda^3 / v \gg 1 $ (bajas temperaturas y altas
+ densidades), se tiene $ z \gg 1 $. 
  Se puede expandir $ f_\nu(z) $ en función de $ (\log )^{-1} $ mediante lema de Sommerfeld
  \notamargen{ $ z \ggg 1 $ entonces $ \log z \gg 1 $ $ ( \log z )^{-1} \ll 1 $ $ \log z = \beta \mu $ }
  \[
@@ -139,7 +172,7 @@ La primera aproximación consiste en
  \[
 	f_{3/2}(z) = \frac{4}{3\pi^{1/2}} (\log z)^{3/2} \left[ 1 + \frac{\pi^2}{8}(\log z)^{-2} + ... \right]
  \]
- y entonces
+ y entonces, tomando la más burda,
  \[
 	\frac{\lambda^3}{v} = \frac{4}{3\pi^{1/2}} (\log z)^{3/2}  \quad \text{ a orden 0 }
  \]
@@ -158,12 +191,16 @@ La primera aproximación consiste en
 	\mu^{3/2} \left[ 1 + \frac{\pi^2}{8}(\log z)^{-2} \right]
  \]
  \[
-	e_F \approx \mu \left[ 1 + \frac{\pi^2}{8}( \frac{ \mu }{ kT } )^{-2} \right]^{ 2/3 } \approx 
+	e_F \approx \mu \left[ 1 + \frac{\pi^2}{8} \Frac{ \mu }{ kT }^{-2} \right]^{ 2/3 } \approx 
 	\mu \left[ 1 + \frac{\pi^2}{12} \Frac{ kT }{ \mu }^{2} \right]
  \]
  \notamargen{Anoté {\it investigar este pasaje}. }
+ 
+ Entonces si se tiene $0 < T \ll T_F$ resulta (realmente en la carpeta está al revés $\mu = e_F[]$, así
+ que probablemente hay un cambio de signo y aproximaciones en el medio)
+ )
  \[
-	e_F \approx \mu \left[ 1 - \frac{\pi^2}{12}( \frac{ kT }{ e_F } )^{2} \right]
+	e_F \approx \mu \left[ 1 - \frac{\pi^2}{12}\Frac{ kT }{ e_F }^2 \right]
  \]
  y consideramos
  \[
@@ -196,9 +233,34 @@ La primera aproximación consiste en
 	C_V \approx \frac{\pi^2}{2} Nk \Frac{T}{T_F}
  \]
  DIBUJO 
- $T_F$ siempre estará ene general en la zona clásica donde no vale la aproximación degenerada.
+ $T_F$ siempre estará en general en la zona clásica donde no vale la aproximación degenerada.
  
- Calor específico Fermi (¿?)
+ Calor específico Fermi (¿?) se anula con $ T = 0 $
+ 
+ Tomé notas de una evaluación más
+ \[
+	f_{11/2}(z) \approx \frac{2}{\sqrt{\pi}}(\log z)^{1/2} \left[ 1 - \frac{\pi^2}{24}(\log z)^{-2} + ... \right]
+ \]
+ que harían llegar a una corrección (notar que arriba fui hasta orden cero nomás)
+ \[
+	\frac{\lambda^3}{V} \sim \frac{4}{3\sqrt{\pi}} (\log z)^{3/2} \left[ 1 - \frac{\pi}{8}(\log z) \right]
+ \]
+ 
+ Otra cosa es la integral
+ \[
+	N = \int_0^\infty \: g(e) n_e \: de \longrightarrow 
+	\int_0^\infty \: \frac{g(e)}{ \euler^{\beta(e-\mu)+1}} de
+ \]
+ y vemos que la dimensionalidad entra en $g(e)$ mientras el denominador va al escalón con temperatura nula.
+ En este último caso la integral es $\int^{e_F} g(e) \: de$. Pero para $T \sim 0$ la itnegral es más complicada
+ y el lema de Sommerfeld ayuda,
+
+ \begin{multline*}
+	\int_0^\infty \: \frac{\phi(x)}{ \euler^{x-\xi} + 1} dx = 
+	\int_0^\xi \: \phi(x) \: dx + \frac{\pi^2}{6} \dtote{\phi}{x}{x=\xi}  +\\
+	\frac{7\pi^4}{360} \dtote[3]{\phi}{x}{x=\xi}  + \frac{31\pi^5}{15120} \dtote[5]{\phi}{x}{x=\xi} 
+ \end{multline*}
+
  \item Caso totalmente degenerado : $\frac{\lambda^3}{v} \to \infty \qquad (T \to 0) \qquad z \to \infty $
  
  La distribución de estados es escalón,
@@ -243,6 +305,72 @@ La primera aproximación consiste en
  DIBUJO.
  
 \end{itemize}
+
+En relación a esto último tenía el límite $ T \to 0 $ para la densidad de estados,
+\[
+	\vm{n_e} = \frac{ 1 }{ z^{-1}\euler^{\beta e} + 1 } = 
+	\frac{ 1 }{ \euler^{\beta (e-\mu)} + 1 } \quad T \to 0 \quad 
+	\begin{cases}
+		1 \quad e < \mu (T=0) \\
+		0 \quad e > \mu (T=0) 
+	\end{cases}
+\]
+y vemos que la cosa depende del signo de $(e - \mu)$ y  $ \sum_e \vm{n_e} = N $, pero
+en el continuo
+
+\includegraphics[scale=0.5]{images/1606329575.jpg}
+
+\[
+	 \sum_e \vm{n_e} = N \qquad \longrightarrow \int_0^\infty \: g(e) n_e \: de = N
+\]
+pero si tenemos el valor de la energia de Fermi basta integrar hasta allí,
+\[
+	\int_0^{e_F} \: g(e) n_e \: de = N
+\]
+donde $de \: g(e)$ dependerá de la relación entre $E$ y $p$ y la dimensión del problema.
+
+Podemos definir una presión y energía de Fermi así
+\[
+	e_F = \frac{p_f^2}{2m} \qquad \qquad e_F = k T_F
+\]
+con un gas que tiene $ T < T_F $ es un gas altamente degenerado y será
+\[
+	e_F = \frac{ \hbar^2 }{ 2 m } \Frac{ 6 \pi^2 }{ v }^{3/2}
+\]
+Ahora bien, si las partículas tienen spin entonces es $g=2$ de modo que
+\[
+	\int_0^{e_F} de g g(e) = N
+\]
+en este caso será más chica la energía de Fermi. 
+Veamos qué pasa a temperaturas bajas con $C_V$ y $U$.
+Para los números de ocupación se tiene el gráfico bajo estas lineas
+
+\includegraphics[scale=0.5]{images/1606329581.jpg}
+
+Luego será
+\[
+	U = \sum_e \: e n_e = \frac{3}{5} N e_F \left[ 1 + \frac{5\pi^2}{12}\Frac{kT}{e_F}^2 + ... \right]
+\]
+y entonces tendremos
+
+\includegraphics[scale=0.5]{images/1606329585.jpg}
+
+Para la presión es $ P(T=0) = 2/3 U(T=0)/V$ pero como $ U = 3/5 N e_F $,
+hay presión porque al ser ferminones igualmente hay cierta repulsiçon: la visión clásica de $T=0$ con
+partículas quietas no es apropiada.
+
+El número de partículas excitados puede venir de $ \sim N k T / e_F $ entonces estando relacionado
+con al análogo del $kT$. El Pathria comenta esto en pag. 199.
+
+
+\begin{ejemplo}{\bf Problema 4}
+ 
+\end{ejemplo}
+
+
+\begin{ejemplo}{\bf Problema 5}
+ 
+\end{ejemplo}
 
 % =================================================================================================
 \section{Cuánticos III --reubicar--}
@@ -322,6 +450,7 @@ El valor $ \lambda^3 / v $ determina relación entre $ T,V,N $ que son los pará
 			0 \qquad e > e_F
 			\end{cases}
   \]
+  Estoy ya lo grafiqué antes. Hay que consolidar todo este material.
 \end{itemize}
 
 \subsection{Funciones termodinámicas con $T$ baja y $n$ alta}

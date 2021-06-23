@@ -297,8 +297,20 @@ En el gran canónico tenemos $ \Xi( Z_N ) $. Potencial de Lenard-Jones
 \]
 
 Definimos $ f_{ij} = \euler^{-\beta V_{ij}} - 1 $ y expresamos todo en términos de $ f_{ij} $.
+Esta última tiene el mismo rango que el potencial de interacción.
+De alguna manera esto que haremos es un desarrollo en serie del potencial de interacción.
+
+\includegraphics[scale=0.5]{images/1606329591.jpg}
+
 Estudiamos con los N-grafos.
 
+Consideramos un hamiltonianao
+\[
+	H = \sum_i^N \frac{ p^2 }{2m} + \sum V_{ij},
+\]
+donde $V_{ij}$ depende de $r_i-r_j$.
+
+Metemos grafos ahora y llegaremos a una expresión para los coeficientes del virial.
 El gas real lo estudiamos clásicamente, entonces 
 \[
 	Q_N = \frac{1}{N! h^{3N} } \int  d^{3N}q d^{3N}p  \euler^{ - \beta H(p,q) }
@@ -306,11 +318,11 @@ El gas real lo estudiamos clásicamente, entonces
 si bien aparece $h$ (constante de Planck) no hablamos de funciones de onda; como sí sucede en una
 expansión cuántica 
 \[
-	Z_N = \int  d^{3N}q \prod_{i<j} ( 1 + f_{ij} )
+	Z_N = \int  d^{3N}q \prod_{i<j} ( 1 + f_{ij} ),
 \]
-\notamargen{Cada grafo puede verse en una matriz de adyacencias $M_{ij}$}
 la cual tendrá $ (N-1)N/2 $ productos y $ 2^{N(N-1)/2} $ términos sumando de modo que serán esa cantidad
 de integrales
+\notamargen{Cada grafo puede verse en una matriz de adyacencias $M_{ij}$}
 \begin{center}
 \begin{tabular}{cc}
 N=2 $ \to $ & $1$ producto y $2^1$ términos \\
@@ -321,7 +333,19 @@ N=10 $ \to $ & $45$ productos y $2^{45} \cong 3.5\cdot 10^{13}$ términos
 \end{center}
 
 Cada uno de los N-grafos (integrales) puede factorizarse en l-racimos (l-grafo conexo).
-\notamargen{Cada integral puede verse como un grafo.}
+\notamargen{Cada integral puede verse como un grafo. Anoté que esto puede verse bien
+del libro de Pathria.}
+
+La forma de asignar los índice será:
+\[
+	\frac{ N! }{[ (1!)^{m_1} \: (2!)^{m_1} \: ... ] m_1! \: m_2! \: ...}
+\]
+donde el corchete son permutaciones en el racimo y lo otro son permutaciones entre racimos.
+Al final del día será,
+\[
+	\frac{PV}{kT} = \frac{ \sum \: z^\ell b_\ell }{ \sum \: \ell z^\ell b_\ell  }.
+\]
+
 Un dado N-grafo, por ejemplo
 
 DIBUJO=
@@ -890,6 +914,15 @@ Cuando hay overlap de las funciones de onda de las partículas hay que realizar 
 
 La simetría (por la indistinguibilidad que hace necesaria la permutación) lleva a términos efectivos de interacción 
 repulsivos (FD) o a atractivos (BE).
+
+\subsection{Parte de gases reales (desde carpeta)}
+
+En el límite clásica la $Z$ se factoriza.
+Eso explica los apartamientos del comportamiento Boltzmann. El gas ideal cuántico no tiene correlación dinámica,
+sino solo las asociadas al carácter de simetría de la función de onda.
+
+\notamargen{En la carpeta estaba la observación de que: ``salteamos la clase de cuánticos 6''}.
+
 
 \subsection{Otra cosa suelta --reubicar--}
 
@@ -1628,6 +1661,53 @@ cuánticos). El número medio de ocupación de cada nivel será
 	\vm{n_e} = \frac{ 1 }{ z^{-1} \euler^{ \beta e } \mp 1 }
 \]
 siendo el primer signo para bosones y el segundo para fermiones.
+
+\subsection{cuentas del paso discreto-continuo}
+
+Consideramos la aproximación de que
+\[
+	p = \frac{2\pi\hbar}{\ell}( n_x, n_y, n_z ) \qquad \qquad 
+	d^3p = \Frac{2\pi\hbar}{\ell}^3
+\]
+y esto último es el volumen por punto. Luego, el número de puntos por unidad de volumen es $ L^3/h^3 $.
+Entonces,
+\[
+	\sum_p u  \longrightarrow \frac{L^3}{h^3} \int d^3p \longrightarrow  \frac{4 \pi L^3}{h^3} \int p^2 dp
+\]
+\notamargen{Si depende del módulo puede pasarse fácilmente a esféricas.}
+
+\includegraphics[scale=0.5]{images/1606329596.jpg}
+
+Pero también puedo querer integrar en energía, entonces usamos $ m de = p dp $ que viene de $ e = p^2 / (2m)$
+(relación de dispersión no relativista).
+\[
+	\frac{4 \pi L}{h^3} \int m \sqrt{ 2 m E } (\ldots) de = \int g(e) \: de (\ldots)
+\]
+donde la densidad de estados es
+\[
+	g(e) = \frac{4 \pi L}{h^3} m \sqrt{2 m E }.
+\]
+
+En $D=2$ dimensiones el factor que se hace cargo de los puntos en una superficie será $A^2$,
+\[
+	\frac{A^2}{h^2} \int d^2p (\ldots) \qquad  
+	\frac{2 \pi A^2}{h^2} \int p dp (\ldots) = \frac{2 \pi A^2}{h^2} \int m de (\ldots)
+\]
+y entonces,
+\[
+	g(e) = \frac{2 \pi L^2}{h^2}m.
+\]
+
+En $D$ dimensiones tendremos $ g(e) \propto L^D e^{D/2-}$.
+
+Recordemos que aquí siempre estamos en que $g(e)$ es el número de autoestados con energía comprendida
+entre $e$ y $e+de$.
+
+
+
+
+
+
 
 % \bibliographystyle{CBFT-apa-good}	% (uses file "apa-good.bst")
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica

@@ -1,7 +1,7 @@
 	%###########################################################################
 	%
 	%	Hoja de estilo para el Curso Básico de Física Teórica
-	%	v 2.2 [Mayo 2021]
+	%	v 2.3 [Junio 2021]
 	%
 	%
 	%###########################################################################
@@ -68,9 +68,10 @@
 	\newcommand{\Dpar}[3][\hspace{-0.05em}]{ \left( \frac{\partial^{#1} {#2}}{\partial {#3}^{#1}} \right)}
 	\newcommand{\Dtot}[3][\hspace{-0.05em}]{\left( \frac{d^{#1} {#2}}{d {#3}^{#1}} \right)}
 	
-	% Derivada parcial evaluada de #2 con respecto a #3 con #4 constante (#1 es opcional)
+	% Derivadas parcial y total evaluadas de #2 con respecto a #3 con #4 constante (#1 es opcional)
 	% utilizando barra a la derecha
 	\newcommand{\dpare}[4][\hspace{-0.05em}]{ \left.\frac{\partial^{#1} {#2}}{\partial {#3}^{#1}}\right|_{#4} }
+	\newcommand{\dtote}[4][\hspace{-0.05em}]{ \left.\frac{ d^{#1} {#2}}{d {#3}^{#1}}\right|_{#4} }
 	
 	% Entorno frac con paréntesis ajustables externos
 	\newcommand{\Frac}[2]{ \left( \frac{ #1 }{ #2 } \right) }
