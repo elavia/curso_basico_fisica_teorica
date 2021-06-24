@@ -364,13 +364,74 @@ con al análogo del $kT$. El Pathria comenta esto en pag. 199.
 
 
 \begin{ejemplo}{\bf Problema 4}
- 
+
+Gas de electrones 2D. Altamente degenerado, entonces la temperatura está en $ 0 < T \ll T_C $.
+Se puede partir desde
+\[
+	\vm{E} = P A
+\]
+y vemos que vale en general para $D$ dimensiones
+\[
+	P L^D = \frac{ 2 }{ D } \vm{ E }
+\]
+y luego
+\[
+	\frac{ P A }{ k T } = \log Z_{GC} = 2 \sum_p \: \log ( 1 + z \euler^{-\beta e_P})
+\]
+donde el primer dos está asociado al spin. En el paso al continuo resulta
+\[
+	\frac{ P A }{ k T } = \frac{ 2 A}{h^3} \int 2 \pi dp \log ( 1 + z \euler^{-\beta e_P}) 
+\]
+o bien
+\[
+	\frac{4 \pi A m}{h^2} \left( \left. e \log ( 1 + z \euler^{-\beta e_P} ) \right|_0^\infty + 
+	\beta \int \frac{ e \: de }{\euler^{\beta(e-\mu)}+1} \right)
+\]
+donde se ve que el primer término desaparece y entonces si es $T=0$ basta integrar hasta la energía 
+de Fermi y con $T\sim 0$ hay que usar el lema de Sommerfeld, en cuyo caso tenemos
+\[
+	\frac{4 \pi A m}{h^2} \left( \frac{ \beta \mu^2 }{ 2 } + \frac{ \pi^2 }{ 6 \beta } \right)
+\]
+de manera que finalmente
+\[
+	\vm{E} = \frac{4 \pi A m \mu^2 }{2h^2} \left( 1 + \frac{ \pi^2 }{ 3 \mu^2 }(kT)^2 \right).
+\]
 \end{ejemplo}
 
 
 \begin{ejemplo}{\bf Problema 5}
- 
+
+Tenemos electrones en presencia de un campo $\vb{H}$. El spin interactuará con el campo y será
+\[
+	\frac{ p^2 }{ 2 m } + s \: \mu_B H
+\]
+donde $s=-1$ implica que el spin está paralelo al campo y $s=+1$ implica que está antiparalelo
+
+\includegraphics[scale=0.5]{images/1606329613.jpg}
+
+A una temperatura $T=0$ el estado minimiza $F=U-TS$ de manera que $F=U$ pero para $T\sim 0$ el 
+estado minimizará con un compromiso entre U y S por las combinaciones posibles
+
+\includegraphics[scale=0.5]{images/1606329617.jpg}
+
+La $e_F = \mu_B H$ para que todos se hallen paralelos al campo. De aquí surge una relación entre
+la densidad y la energía. Entonces
+\[
+	n_+ = \frac{ 1 }{ \euler^{ \beta( p^2/(2m) + s \: \mu_B H - \mu } + 1 } \qquad \qquad 
+	n_- = \frac{ 1 }{ \euler^{ \beta( p^2/(2m) - s \: \mu_B H - \mu } + 1 }
+\]
+e integrando llevo a $N_+ + N_- = N$. Serán $M = \mu_B( N_+ - N_- ) $ y luego será
+\[
+	\chi = \lim_{H\to 0} \Frac{M}{H}
+\]
+si este límite es positivo tendremos paramagnetismo, magnetización proveniente del acople entre
+el campo y el spin mientras que si es negativo tendremos diamagnetismo, magnetización proveniente
+del acople del momento angular orbital con el campo.
+
 \end{ejemplo}
+
+{\bf Comentario suelto}: metal se puede pensar como un sólido elástico más un gas de electrones. 
+Un fonon es una excitación en la red.
 
 % =================================================================================================
 \section{Cuánticos III --reubicar--}

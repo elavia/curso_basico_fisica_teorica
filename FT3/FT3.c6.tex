@@ -43,13 +43,48 @@ Pero si en un sistema tiene $ e_0 $ como mínimo y $ e_0 > 0 $ entonces, ¿puede
 Aparentemente sí (al menos recordando que la restricción sale de la serie).
 \notamargen{Ya lo entendí esto: pero no para partícula libre.}
 
-Además $ \braket{n_e} \geq 0 $, el número de partículas debe ser positivo.
+\[
+	N = \sum_e \vm{n_e} = \sum_e \frac{ 1 }{ z^{-1}\euler^{\beta e} - 1 }
+\]
+Además $ \braket{n_e} \geq 0 $, el número de partículas debe ser positivo, lo que lleva a 
+$| z\euler^{-\beta e} | < 1 $ para todo $e$ de manera que con $e \geq 0$ se tiene $0<z<1$
+(esto depende de que los niveles de energía sean mayores a cero).
+
 \[
 	\beta p V = \log (\Xi) = \sum_e - \log ( 1 - \euler^{-\beta(e-\mu)})
 \]
 \[
 	\beta p = \sum_{e \neq 0} \frac{- \log ( 1 - \euler^{-\beta(e-\mu)}) }{V} - \frac{\log (1-z)}{V}
 \]
+
+La densidad es 
+\[
+	\frac{N}{V} = \frac{1}{\lambda^3} g_{3/2}(z)
+\]
+donde la expresión general de las $g_\nu$ es
+\[
+	g_\nu(z) = \frac{1}{\Gamma(\nu)} \int_0^\infty \frac{ x^{\nu-1} }{z^{-1} \euler^x - 1 } dx 
+\]
+El paso al continuo para $N,V \to \infty$ con $N/V$ constante y la relación $e=p^2/(2m)$ resulta en
+\[
+	g(e) = \Frac{2 \pi V}{ h^3 } (2N)^{3/2} e^{1/2}
+\]
+y con ello las dos ecuaciones continuas para el gran canónico resultan en
+\[
+	\frac{pV}{kT} = -\frac{2\pi V}{h^3} (2m)^{3/2} \int_0^\infty e^{1/2} \log( 1 - z\euler^{-\beta e}  ) de
+\]
+\[
+	N = \frac{2\pi}{h^3} (2m)^{3/2} \int_0^\infty \frac{ e^{1/2} }{ z^{-1}\euler^{\beta e} - 1 } \: de
+\]
+\notamargen{Recordemos que la longitud de onda térmica es $\lambda=\lambda(T)$.}
+
+Al final la energía 
+\[
+	U = - \dpar{}{\beta} \log Q = \frac{3}{2} k T \frac{V}{\lambda^3} g_{5/2}(z)
+\]
+y se ve que $pV = 2/3 U$ que usó la dispersión no relativista y el factor 3 es por la dimensión.
+
+Para la ecuación de estado hay que expresar $z = z(N)$ e introducirlo en $p/(kT)$.
 
 El último término será negligible para todo $z$, incluso con $z\to 1$ pues en ese caso $V \to \infty$ mucho
 más rápido
@@ -75,6 +110,9 @@ En Bose la fugacidad está acotada
 \[
 	\frac{N}{V} = \frac{1}{\lambda^3} g_{3/2}(z) + \frac{1}{V}\Frac{z}{1-z}
 \]
+y entonces el nivel de ocupación del fundamental debo sumarlo aparte; vemos que en el
+segundo término con $z\to 1$ revienta.
+El primer término es la densidad de partículas en los niveles excitados
 \[
 	\frac{\lambda^3}{v} =  g_{3/2}(z) + \frac{\lambda^3}{V} n_0
 \]
@@ -84,10 +122,28 @@ En Bose la fugacidad está acotada
 	\underbrace{\frac{1}{V}\Frac{z}{1-z}}_{\text{ densidad en el fundamental }}
 \]
 
+\begin{ejemplo}{Comentario raro}
+
+En relación a lo del condensado anoté que: ``aparentemente habría un error es esta ecuación''
+(con respecto a la ecuación de $\lambda^3/v$) pués
+\[
+	 \sum_e \longrightarrow \int_0^\infty \: g(e) \: de
+\]
+si he pesado el nivel energético  cero con el cero y la borré de la integral. Veamos que $e^{1/2}$
+y $g(0)=0$.
+ 
+\end{ejemplo}
+
+Si $z$ está lejos de 1 el nivel fundamental no está muy poblado y las partículas se distribuyen
+en los otros excitados.
+
 Por otro lado como $ 0 < z < 1 $ entonces $ g_{3/2}(z) $ está acotada 
 \[
 	g_{3/2}(1) = \sum_{j=1}^\infty \frac{1}{j^{3/2}} = 2.612
 \]
+\notamargen{En la carpeta hablo de un $N_max$ dado por $ V (2\pi m k T)^{3/2}/h^3 g_{3/2}(1)$ y
+se da $N_e \geq N_max(T)$, que imagino que implica lo del acotamiento en $g$ y causa que no
+``entren más'' en los excitados (supongo).}
 
 Con $z\approx 1$ da
 \[
@@ -103,7 +159,7 @@ Se da con
 \notamargen{Destaco en esta expresión $T$ baja dividiendo y $n$ alta multiplicando.}
 
 El condensado de Bose surge cuando se saturan los excitados; ello pasa con $T$ baja, $N/V$
-alta y $ \mu \to 0$
+alta y $ \mu \to 0$. Se tiene en estos casos que $N_0$ es comparable a $N$.
 
 GRAFIQUETE
 
@@ -193,18 +249,26 @@ A bajas $T$ se comportan de modo muy diferente, $p_{\text{ Fermi }} > 0 $ y
 $p_{\text{ Bose }} \approx 0$
 
 % =================================================================================================
-\section{Análisis del gas ideal de Bose}
+\subsection{Análisis del gas ideal de Bose}
 % =================================================================================================
 
 \begin{itemize}
- \item $ \lambda^3 / v \ll 1 $ y entonces $ z \ll 1 $ $\quad  [T \gg T_c ] $
+ \item $ \lambda^3 / v \ll 1 $ y entonces $ z \ll 1 $ $\quad  [T \gg T_c ] $ (o sea $T$ alta y $N/V$ baja )
+ tenemos un desarrollo del virial porque $z \ll 1$
  \[
-	\beta p V = \sum_{l=1}^\infty a_l \Frac{\lambda^3}{v}^{l-1} = \frac{ g_{5/2}(z) }{ g_{3/2}(z) }
+	\frac{\beta p V}{N} = \sum_{l=1}^\infty a_l \Frac{\lambda^3}{v}^{l-1} = \frac{ g_{5/2}(z) }{ g_{3/2}(z) }
  \]
  \[
 	\beta p V \approx 1 - \frac{\lambda^3}{v} \frac{1}{2^{5/2}} \qquad \qquad 
 	U = \frac{3}{2}pV = \frac{3}{2} NkT \left( 1 - \frac{\lambda^3}{v} \frac{1}{2^{5/2}} \right)
  \]
+ Como $a_2 < 0$ se tiene que la presión para Bose Einstein es menor a la presión clásica. Siguiendo
+ podemos trabajar una expresión para el calor específico
+ \[
+	\frac{C_V}{kT} = \frac{3}{2} \left( 1 + 0.0884 \Frac{\lambda^3}{v} + 
+	0.0066 \Frac{\lambda^3}{v}^2 + ... \right)
+ \]
+ 
  \item $ \lambda^3 / v \approx 1 $ y entonces $ z < 1 $ $\quad  [T > T_c ] $
  \[
 	\beta p V = \frac{ g_{5/2}(z) }{ g_{3/2}(z) }
@@ -213,8 +277,8 @@ $p_{\text{ Bose }} \approx 0$
  \[
 	\beta p V = \frac{ g_{5/2}(z) }{ g_{3/2}(z) } \approx \frac{1.34}{2.612} \approx 0.513
  \]
- \item $ \lambda^3 / v \gg 1 $ y entonces $ z = 1 $ $\quad  [T < T_c ] $ y hay que considerar el 
- fundamental
+ \item $ \lambda^3 / v \gg 1 $ y entonces $ z = 1 $ $\quad  [T < T_c ] $ (baja temperatura $T$ y alta
+ densidad $N/V$) y hay que considerar el  fundamental
  \[
 	\beta p = \frac{1}{\lambda^3} g_{5/2}(1) \qquad \qquad \lambda^3\Frac{N-N_0}{V} = g_{3/2}(1)
  \]
@@ -235,6 +299,12 @@ $p_{\text{ Bose }} \approx 0$
 	\frac{1}{v}\Frac{T}{T_c}^{3/2} \frac{1}{g_{3/2}(1)}
  \]
 \end{itemize}
+
+Con el aumento de la temperatura aumentan ambos miembros en la ecuación 
+\[
+	\frac{\lambda^3}{v} = g_{3/2}(z)
+\]
+pero como $g_{3/2}$ está acotada esto lleva a la condensación de Bose.
 
 Desde la expresión de la energía $ U = 3/2 p V $ y $C_V = \dpar{}{T}(3/2 p V)$
 y entonces
