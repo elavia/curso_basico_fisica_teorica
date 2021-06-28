@@ -160,8 +160,12 @@ Se da con
 
 El condensado de Bose surge cuando se saturan los excitados; ello pasa con $T$ baja, $N/V$
 alta y $ \mu \to 0$. Se tiene en estos casos que $N_0$ es comparable a $N$.
+El valor 2.612 define un punto crítico en el cual empieza a diverger la población del fundamental.
+Tiene niveles macroscópicos, se puede comparar con $N$.
+
 
 GRAFIQUETE
+
 
 El condensado de Bose podemos pensarlo como la coexistencia de dos fluidos ($e=0$ y $e\neq 0$).
 Podemos definir un $ T_c, v_c $ desde 
@@ -192,6 +196,11 @@ A partir de haber alcanzado la condensación $z=1$, añadir partículas ($N++$) 
 
 DIBUJO con observaciones
 
+\includegraphics[scale=0.5]{images/1606329632.jpg}
+
+Esto de arriba corresponde a $T < T_C $ para el caso $\lambda^3/v > 2.612 $ y se ve que 
+$z = N_0/(N_0+1) \to 1$ si $N_0\to\infty$.
+
 Cuando $v/\lambda^3$ es chico se saturan los $N_e$ y entonces $ z \to 1 $.
 
 Cuando $v/\lambda^3$ es grande no hay condensado y entonces $ \lambda^3/v \approx z $ o bien
@@ -201,11 +210,17 @@ Para la presión tendremos
 \[
 	\beta p = \frac{1}{\lambda^3} g_{5/2}(z)
 \]
+Otra observación es que $P_{BE}(T=0)=0$. Las partículas $N_e$ en la fase normal hacen presión que es la
+mitad de la del gas ideal mientras que las de $N_0$ no hacen presión en absoluto.
+
+\includegraphics[scale=0.4]{images/1606329638.jpg}
+
 con $ z = 1 ( T < T_c ) $
 \[
 	\frac{p}{kT} = \frac{(2\pi m k T)^{3/2}}{h^3} g_{5/2}(1) = 
 	\frac{1}{ v (T_c/T)^{3/2} g_{3/2}(1) } g_{5/2}(1)
 \]
+\notamargen{Tenía anotado por allí $p \propto T^{5/2}$.}
 \[
 	p = 1.34 \frac{(2\pi m )^{3/2}}{h^3} (kT)^{5/2} \qquad \qquad 
 	\frac{pV}{NkT} = 0.513 \Frac{T}{T_c}^{3/2}
@@ -247,6 +262,12 @@ El virial vale en $\lambda^3/v \ll 1$ (alta $T$ y baja $N/V$ )
 
 A bajas $T$ se comportan de modo muy diferente, $p_{\text{ Fermi }} > 0 $ y
 $p_{\text{ Bose }} \approx 0$
+
+\begin{ejemplo}{\bf Problema 2 -tip-}
+Es $e_{p,n_i} = p^2/ 2m + n_i \varepsilon_1 $ donde $n_i=0,1$ y entonces es un grado de libertad interno.
+ 
+\end{ejemplo}
+
 
 % =================================================================================================
 \subsection{Análisis del gas ideal de Bose}
@@ -334,6 +355,23 @@ y entonces
 \end{itemize}
 
 DIBUJO
+
+Entonces tenemos dos fases macroscópicas, que dependen de la temperatura
+\begin{itemize}
+ \item Fase normal: consisten en las partículas de los niveles excitados,
+ \[
+	N_e = N \Frac{T}{T_C}^{3/2}
+ \]
+ \item Fase condensada
+ \[
+	\frac{N_0}{N} = 1 - \Frac{T}{T_C}^{3/2}
+ \]
+\end{itemize}
+
+\includegraphics[scale=0.5]{images/1606329628.jpg}
+
+Y vemos que $N_0 \to \infty$ en forma comparable a como $N \to \infty$. El $N_0$ macroscópicamente poblado
+es la condensación.
 
 \subsection{Condensado de Bose como transición de fase}
 
