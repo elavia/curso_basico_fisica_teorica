@@ -77,7 +77,7 @@ Transición de fase: cuando una propiedad del sistema cambia discontinuamente fr
 intensivo ($T, p$ campo magnético).
 
 \[
-	\text{ interacciones entre partículas } \qquad \rightarrow \qquad \text{ CORRELACIÓN A GRAN ESCALA }  
+	\text{ interacciones entre partículas } \; \longrightarrow \; \text{ CORRELACIÓN A GRAN ESCALA }  
 \]
 
 Las transiciones de fase emergen de la interacción. Uno de los modelos más sencillos fuera del gas ideal es el modelo de
@@ -123,6 +123,48 @@ donde las sumatorias toman para cada $i$ los valores $S_i = +1, -1$
 \[
 	A = -kT\log Q \qquad \braket{E} = -\dpar{}{\beta}\log Q = kT^2 \dpar{}{T} \log Q
 \]
+
+Me interesa definir densidades de $ N_+, N_{++} $
+
+\includegraphics[scale=0.4]{images/1606337009.jpg}
+
+y consideraremos un efecto promedio
+\[
+	\frac{ N_{++} }{ N y/2 } = \Frac{ N_{+} }{ N }^2
+\]
+que es una aproximación de campo medio, definiendo un $L$ tengo muchos $\{ S_i \}$.
+Al eliminar $\sigma$ perdemos la estructura fina de la red y hacemos estadística allí.
+
+El campo magnético rompe la degeneración pues dessimetriza. Luego con $ H \to 0 $ y me quedo
+con la curva que resultó no simétrica (el $A$ deja de ser simétrico).
+
+\includegraphics[scale=0.4]{images/1606337012.jpg}
+
+Esto es la aproximación de Bragg-Williams, que ha descartado las correlaciones; entonces
+hemos contado nodos.
+La aproximación de Bethe-Peierls tomo como unidades fundamentales
+
+\includegraphics[scale=0.4]{images/1606337015.jpg}
+
+$P(+,n)$ es la probabilidad condicional de tener un $+$ en el nodo central mientras que
+$P(-,n)$ es la de tener un $-$ en el nodo central.
+Otra apromicaicón
+\[
+	\frac{ N_{++} }{ N y/2 } = \frac{1}{2}( \sigma + 1 )
+\]
+
+El efecto del resto del sistema es una $ z = \euler^{\beta \mu} $ asociado a la influencia
+del resto del sistema.
+
+\[
+	\sum_{n=0}^\gamma \: P(+,n)
+\]
+y sumo sobre todos los posibles vecinos hasta $\gamma$.
+
+\includegraphics[scale=0.4]{images/1606337019.jpg}
+
+Las fluctuaciones de la energía del sistema nos darán el calor específico $C_V$ (como en el $Z_{GC}$).
+Se puede pensar como una transición del orden al desorden. En 2D tenemos magnetización espontánea.
 
 \begin{ejemplo}{(Ejercicio 5.1 Chandler)}
 \[
@@ -990,6 +1032,24 @@ lo cual define el equilibrio. Este punto fijo define
 % =================================================================================================
 \section{Método de Metropolis Monte Carlo}
 % =================================================================================================
+
+Es un método computacional. Sistema de $N$ partículas, volumen $V$ y temperatura $T$.
+Podemos empezar con un gran canónico, y un hamiltoniano dado por
+\[
+	H = \sum \frac{p^2_i}{2m} + \sum_{i<j} U_{ij}
+\]
+que no dependen de $|\vbp|, |\vbv|$.
+
+Me construyo una cadena de Markov y busco el estacionario. Es un espacio de $3N$ variables y
+está sujeto a la densidad de probabilidad $ \euler^{-\beta u}_k$ y quiero calcular una
+probabilidad de transición que me de una cadena de markov con probabilidad $\sim \euler^{-\beta u}_k $
+y donde $p_{ij}^*$ me dirá si las transiciones son exitosas o no (se toma o se rechaza).
+Un estadio nuevo tendrá mayor $p$ (se acepta) o menor $p$ (no se acepta).
+
+Hay que asegurar la no correlación entre las partículas. Hay una función de autocorrelación
+que en sus valores extremos dará 0 (no correlacionados) o 1 (totalmente correlacionados).
+Quiero ver a cuántos pasos me aseguro autocorrelación $\sim 0$.
+
 
 Tenemos el espacio $ \mathbb{\Gamma} $ 3DN dimensional para un sistema de N partículas.
 Un punto es el estado del sistema.
