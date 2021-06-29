@@ -831,7 +831,45 @@ Podemos considerar dos aproximaciones.
 
 \includegraphics[scale=0.4]{images/1606337002.jpg}
 
-Quiero usar Debye. En 3D asumo dispersión como $ \omega = c k $ 
+Quiero usar Debye. En 3D asumo dispersión como $ \omega = c k $  y entonces se tiene
+\[
+	g(\omega) d\omega = \frac{3V}{\hbar^3} 4 \pi p^2 \: dp = \frac{3V}{(2\pi)^3} 4 \pi k^2 \: dk
+\]
+donde $ \vb{p} = \hbar \vb{k} $ o bien integrando y considerando relación $ \omega c = k $,
+\[
+	3N = \int_0^{\omega_D} d(u) \: du = \int_0^{\omega_D} \frac{V \omega^2 }{2 \pi^2 c^3} \: d\omega
+\]
+desde la cual despejamos la frecuencia de corte
+\[
+	\omega_D = \Frac{ 6 \pi^2 }{ v}^{1/3}
+\]
+que se puede escribir también en términos de una longitud de onda de corte como
+\[
+	\omega_D = \frac{ 2 \pi }{\lambda_D} c \qquad  \lambda_D = \Frac{ 4 \pi v }{3}^{1/3}.
+\]
+
+La integral da $3N$ y entonces se define una $ \omega $ de corte. Claramente la $\omega$ no puede
+implicar desplazamientos mayores a la distancia interparticular.
+
+En el caso de $ D $ dimensiones se tiene $ \omega = \alpha |\vb{k}|^s$ y el número de estados entre
+$p, p +dp$ da algo como
+\[
+	g \frac{L^D}{h^D} d^Dp
+\]
+donde $g$ es por la polarización, y el $L$ es la discretización por las condiciones de contorno periódicas.
+Es
+\[
+	g \frac{ L^D }{ (2\pi)^D } A k^{D-1} \: dk
+\]
+que es la integral sobre la parte angular que en $D=3$ es $A=4\pi$ y en $D=2$ es $A=2\pi$.
+Con esto se puede arribar a
+\[
+	g(\omega) d\omega = g \frac{ L^D }{ (2\pi)^D } A \frac{1}{S \alpha^{D/s}} \omega^{(D-s)/s} \: d\omega,
+\]
+pero esto deber cortarse en
+\[
+	DN = \int_0^{\omega_D} g(\omega) \: d\omega.
+\]
 
 \end{ejemplo}
 
