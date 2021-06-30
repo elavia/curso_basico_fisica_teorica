@@ -308,7 +308,9 @@ Consideramos un hamiltonianao
 \[
 	H = \sum_i^N \frac{ p^2 }{2m} + \sum V_{ij},
 \]
-donde $V_{ij}$ depende de $r_i-r_j$.
+donde $V_{ij}$ depende de $|r_i-r_j|$. Es un modelo clásico pero consideramos interacción.
+La función de partición no se factoriza como el producto de funciones de una partícula justamente
+debido a la interacción.
 
 Metemos grafos ahora y llegaremos a una expresión para los coeficientes del virial.
 El gas real lo estudiamos clásicamente, entonces 
@@ -316,7 +318,34 @@ El gas real lo estudiamos clásicamente, entonces
 	Q_N = \frac{1}{N! h^{3N} } \int  d^{3N}q d^{3N}p  \euler^{ - \beta H(p,q) }
 \]
 si bien aparece $h$ (constante de Planck) no hablamos de funciones de onda; como sí sucede en una
-expansión cuántica 
+expansión cuántica.
+Se integra en los momentos y resulta
+\[
+	Q_N = \frac{1}{N! \lambda^{3N} } \int  d^{3N}q  \euler^{ - \beta \sum_{i<j} v_{ij} }
+\]
+donde $\lambda$ absorbe muchas constantes. Luego,
+\[
+	Q_N(V,T) = \frac{ Z_N }{ N! \lambda^{3N}},
+\]
+con $ Z_N $ la función de partición o integral configuracional.
+
+El kid de la cuestión será hallar expresión para $Z_N$ que sea manejable. Pasaremos al gran canónico
+\[
+	\Xi(z,V,T) = \sum_{N=0}^\infty \: \Frac{z}{\lambda^3}^N \frac{ Z_N }{ N! }
+\]
+y usaremos la definición $f_{ij}$ que es de Mayer (1937) y vemos que sucede que 
+\begin{itemize}
+ \item $f_{ij}=0$ si $v_{ij}=0$
+ \item No diverge
+ \item $f_{ij} \sim 0$ con $r \gg r_0 $
+ \item $f_{ij} \approx 0$ con $ k T \gg v_{ij}$ (altas temperaturas)
+\end{itemize}
+
+Todo esto parece razonable para los límites conocidos
+
+\includegraphics[scale=0.4]{images/1606337067.jpg}
+
+La integral configuracional es un producto entre números de pares de partículas posibles
 \[
 	Z_N = \int  d^{3N}q \prod_{i<j} ( 1 + f_{ij} ),
 \]
@@ -331,6 +360,40 @@ N=4 $ \to $ & $6$ productos y $2^6=64$ términos \\
 N=10 $ \to $ & $45$ productos y $2^{45} \cong 3.5\cdot 10^{13}$ términos 
 \end{tabular}
 \end{center}
+O sea que la intgral es una cosa del tipo 
+\[
+	Z_N = \int d^{3N}r \left[ 1 + (f_{12} + f_{13} + f_{23} + ... )
+	+ ( f_{12} f_{13} + f_{12} f_{11} + ... ) + ... \right]
+\]
+y para hacer esta cuenta se asocia una integral con un grafo de $N$ partículas.
+
+Por ejemplo tenemos un grafo de cuatro partículas y un grafo que se factoriza porque hay partes
+disconexas
+
+\includegraphics[scale=0.4]{images/1606337071.jpg}
+
+que representan un 4-grafo
+\[
+	\int d^3r_1  d^3r_2 d^3r_3 d^3r_4 f_{12} f_{13} f_{34} f_{14},
+\]
+y un 10-grafo
+\[
+	\int d^3r_1 ... d^3r_{10} f_{39} f_{67} f_{68} f_{12} ...
+\]
+
+La factorización de este lleva a 
+
+\includegraphics[scale=0.4]{images/1606337077.jpg}
+
+donde cada uno es un {\it cluster} (racimo). Un $\ell-$cluster es un grupo de $\ell$ partículas que están
+conectadas de modo que no se puede descomponer.
+
+Cada grafo puede descomponerse en clusters y la función de partición puede epxresarse como la suma
+de todos los posibles distintos grafos donde cada grafo puede factorizarse en clusters.
+
+Es conveniente definir entonces una integral de cluster (racimo) que son las $b_\ell$
+
+
 
 Cada uno de los N-grafos (integrales) puede factorizarse en l-racimos (l-grafo conexo).
 \notamargen{Cada integral puede verse como un grafo. Anoté que esto puede verse bien
@@ -382,7 +445,7 @@ Se definen las integrales de racimo como
 \]
 donde sumar los l-racimos es en todas las configuraciones de l-bolas conexas DIBUJITO.
 \[
-	b_1 = \frac{1}{1! \lambda^0 V} \int d^3r_1 \leftarrow \sum \boxed{1}
+	b_1 = \frac{1}{1! \lambda^0 V} \int d^3r_1 \leftarrow \sum \boxed{1} 
 \]
 \notamargen{Cambiar los boxed por circled!!!}
 \[
@@ -394,6 +457,17 @@ donde sumar los l-racimos es en todas las configuraciones de l-bolas conexas DIB
 	\leftarrow \sum_{\text{ perm. etiqu. }} \left[ \; \boxed{\phantom{a}}-\boxed{\phantom{a}} + 
 	\boxed{\phantom{a}}-\boxed{\phantom{a}}-\boxed{\phantom{a}} \; \right]
 \end{multline*}
+
+\includegraphics[scale=0.4]{images/1606337083.jpg}
+
+Un par de cosas. Podemos definir un $b_\ell$ especial tal que 
+\[
+	\text{\sout{b}}_\ell(T) \equiv \lim_{V\to\infty} b_\ell(V,T) = \text{ finito }
+\]
+Además el $b_2$ se puede referir a coordenadas del centro de masa y así resulta
+\[
+	b_2 = \frac{1}{2! \lambda^3 V} \int d^3r_{12} f_{12}.
+\]
 
 Sea $ S( \{ m_l \} ) $ la suma de todos los l-racimos compatibles con el conjunto $ \{ m_l \}$
 \[
@@ -433,6 +507,8 @@ Sea $ S( \{ m_l \} ) $ la suma de todos los l-racimos compatibles con un conjunt
 	S( \{ m_l \} ) = \sum_{\text{ perm. conectores. }} \left[ \boxed{ \phantom{a} } \right]^{m_1} \cdot 
 	\left[ \boxed{ \phantom{a} }-- \right]^{m_2} \left[ \boxed{ \phantom{a} } ---- \right]^{m_3} \times ...
 \]
+
+
 
 Por ejemplo, para $m_3=2$ (dos 3-racimos)
 \[
