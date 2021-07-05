@@ -1261,6 +1261,244 @@ Con estas consideraciones tengo todas las probabilidades de MMC
 
 tres dibujetes seguidos
 
+\begin{ejemplo}{\bf Problema 1}
+
+El modelo de Ising considera 
+\[
+	E = -H \mu \sum_i^N S_i - J \sum_{\braket{i,j}} s_i s_j
+\]
+donde la interacción es a primeros vecinos.
+
+El modelo de lattice gas considera
+\begin{itemize}
+ \item Átomos colocados en posiciones discretas de una red.
+ \item Se desprecia la energía cinética
+ \item El potencial es
+ \[
+	V = \begin{cases}
+	   \infty \quad i = j \\
+	   -\vare \quad i,j, \text{ son vecinos} \\
+	   0 \quad \text{ en otro caso}
+	    \end{cases}
+ \]
+\end{itemize}
+
+\includegraphics[scale=0.5]{images/1606337133.jpg}
+
+Se utiliza como modelo para la condensación (es isomorfo con Ising)
+
+\includegraphics[scale=0.5]{images/1606337136.jpg}
+ 
+\[
+	Z_C = \sum_{\{ n_i \}}' \: \euler^{\beta e \sum_{\vm{ij}} n_i n_j }
+	\qquad \qquad 
+	\text{ con la restricción} \; \sum_i n_i = N
+\] 
+Paso al gran canónico porque $N$ está restringido y complica la sumatoria,
+\[
+	Z_{GC} = \sum_{N=0} \: z^N \: \sum_{\{ n_i \}}' \: \euler^{\beta e \sum_{\vm{ij}} n_i n_j }
+\]
+\[
+	Z_{GC} = \sum_{\{ n_i \} = 0}^1 \: \euler^{ \beta \mu \sum_i n_i + \beta e \sum_{\vm{ij}} n_i n_j }
+\]
+
+Hago una analogia con los casos spin up y spin down respecto de sitio ocupado y sitio vacío,
+respectivamente. Defino entonces
+\[
+	n_i = \frac{ S_i + 1 }{ 2 }
+\]
+
+Ahora podemos linkear la solución de lattice con el modelo de spin
+\[
+	\sum_i^N 1 = N  \qquad \qquad 
+	\sum_{\vm{ij}} 1 = \gamma N \qquad \qquad 
+	\sum_{\vm{ij}} S_i = \frac{\gamma}{2} \sum_{i=1}^N S_i
+\]
+y con esto deberíamos llegar a algo así como
+\[
+	Z_{GC} = \sum_{\{ S_i \} } \: \euler^{ (\beta \mu / 2 + \beta \gamma e / 4 ) 
+	\sum_i^N S_i + \beta e/ 4 \sum_{\vm{i,j}} S_i S_j}
+	\euler^{\beta N/2} \euler^{\beta e N/8} 
+\]
+
+Esto es la $Z_{GC}$ de Ising, porque en Ising tengo fijo $N$ (y no $N_+,N_-$) y en el lattice
+el equivalente de $N$ es $N_+$ que sí fluctúa.
+
+Podemos hacer la siguiente tablita 
+\begin{center}
+\begin{tabular}{l|l}
+Ising & Lattice \\
+\hline 
+\# up & $N_{a+}$ \\
+\# down & $N - N_{a+}$ \\
+4J & $\vare $\\
+$\euler^{2 \beta (\gamma J - m_0 H ) }$ & $z$ \\
+$-\frac{A}{N} + \frac{1}{2} \gamma J - m_0 H$ &  $P $
+\end{tabular}
+\end{center}
+
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 2}
+
+Consideraremos una solución exacta del problema de Ising.
+Condiciones de contorno periódicas
+
+\includegraphics[scale=0.5]{images/1606337141.jpg}
+
+En $H=0$ es $E=-JN$
+
+\notamargen{Dibjo que no entendí bien de la carpeta en p47R: vínculos
+desalineados (paredes de dominio).}
+
+Con un cambio sutil (caso toy) de la combinación
+up-up-up-down-up-up versus up-down-down-down-down-up que tienen $E=-JN+4J$
+pero la magnetización es dferente porque son opuestos en signo.
+
+La diferencia de energía con el inicial es
+\[
+	\frac{\Delta E}{N} = \frac{4J}{N} \to_{N\to \infty} 0
+\]
+el tamaño de la barrera de energía es $4J$ para cualquier $N$.
+Se tiene $A=U-TS$ y $\vm{M}=0$
+ 
+En $1D$ es $\vm{M}=0$ para cualquier $T>0$
+
+\[
+	E = - \mu H \sum S_i - J \sum_i S_i S_{i+1}
+\]
+\[
+	Z_C = \sum_{\{ S_i \}} \euler^{ \beta H \sum_{i=1}^N S_i + J \sum^N_{i=1} S_i S_{i+1}}
+\]
+\[
+	Z_{GC} = \sum_{S_1} \sum_{S_2} ... \sum_{S_N} \euler^{ \beta \mu H \sum_{i=1}^N (S_i+S_{i+1})/2 
+	+ J \sum^N_{i=1} S_i S_{i+1}} =
+	\sum_{S_1} \sum_{S_2} ... \sum_{S_N} \prod_{i=1}^N \euler^{ \beta \mu H (S_i+S_{i+1})/2 
+	+ J S_i S_{i+1}}
+\]
+\[
+	Z_{GC} =
+	\sum_{S_1} \sum_{S_2} ... \sum_{S_N} 
+	\euler^{ \beta \mu H (S_1+S_2)/2 + J S_1 S_2} - 
+	\euler^{ \beta \mu H (S_2+S_3)/2 + J S_2 S_3}
+\]
+ 
+\[
+	P = \begin{pmatrix}
+	 \euler^{\beta(\mu H + J)} & \euler^{-\beta J} \\
+	& \\ 
+	 \euler^{-\beta J} &  \euler^{\beta(-\mu H + J)}
+	\end{pmatrix}
+\]
+en la cual la primer fila es ``up'' y la segunda ``down''.
+La cosa tiene una pinta del tipo
+\[
+	\sum_{S_1} \sum_{S_2} ... \sum_{S_N} S_N P_{S1 S2} P_{S2 S3} P_{S3 S4} ... P_N
+\]
+pero se tienen
+\[
+	\sum_{S_2} P_{S1 S2} P_{S2 S3} = (P^2)_{S_1,S_3} \qquad 
+	\sum_{S_3} (P^2)_{S_1,S_3} P_{S3} P_{S4} = (P^3)_{S_1,S_4} 
+\]
+de manera que 
+\[
+	Z = \sum_{S_i} (P^N)_{S_i,S_i} = \text{Traza}(P^N)
+\]
+\[
+	Z = \text{Tr}(P^N) = \lambda^N_+ + \lambda^N_- = 
+	\lambda^N_+\left( 1 + \Frac{\lambda_-}{\lambda_+}^N \right) 
+\]
+\[
+	Z \to \lambda^N_+ \qquad {N\to\infty}
+\]
+
+\[
+	\lambda^N_+ = \euler^{\beta J N}
+	\left[ \cosh(\beta \mu H) + \sqrt{ \sinh^2(\beta \mu H) + \euler^{-4\beta J} } \right]^N
+\]
+\[
+	M \equiv \mu \vm{ \sum_{i=1}^N S_i } = \dpar{\log Z_N}{\beta H}
+\]
+\[
+	M = \frac{ N \sinh(\beta \mu H) \beta \mu ( 1 + \cosh (\beta \mu H) ) }
+	{  \cosh(\beta \mu H) + \sqrt{ \sinh^2(\beta \mu H) + \euler^{-4\beta J} } 
+	\sqrt{ \sinh^2(\beta \mu H) + \euler^{-4\beta J} } }
+\]
+y entonces se tiene $M \to 0$ con $H \to 0$ no hay magnetización espontánea en Ising $1D$.
+
+\includegraphics[scale=0.5]{images/1606337147.jpg}
+
+\end{ejemplo}
+
+\subsection{Ising en 2D}
+
+\[
+	E = - \mu H \sum S_i - J \sum_{\vm{i,j}} S_i S_j
+\]
+
+\includegraphics[scale=0.5]{images/1606337150.jpg}
+
+Por más que no sean primeros vecinos, la correlación hace que la información llegue a lo largo de toda la red.
+Esto va a dar lugar a los fenómenos críticos.
+
+Usaremos la aproximación de Bragg-Williams (campo medio). Pensaremos en un sistema eqeuivalente
+con una suma primada en primeros vecinos
+\[
+	E_i = - \mu H \sum S_i - J S_i \sum_{j}' S_j =
+	- \mu S_i \left( H + \frac{J}{\mu} \sum_{j}' S_j \right) 
+\]
+y luego se reemplaza la suma sobre los vecinos por la suma de los $\gamma$ vecinos por el spin medio,
+i.e. se hace $\sum' S_i \to \gamma \vm{S}$
+\[
+	E_i \approx -\mu S_i \left( H + \frac{J}{\mu} \gamma \vm{S} \right) 
+\]
+
+Esta aproximación pierde la información de correlaciones locales reemplazándola por correlaciones globales.
+El $\vm{S} \sim 1$ (ver primer panel en la figura de abajo)
+
+\includegraphics[scale=0.5]{images/1606337155.jpg}
+
+El segundo panel de la figura es otra aproximación algo mejor; saco el spin y sus cuatro vecinos y hago
+campo medio del resto. El $\vm{S}$ es el mismo para toda la red y eso debe valer con CPC o algo que tenga
+sentido.
+
+Sigamos con la aproximación más gruesa que es tomar uno solo y hacer campo medio con el resto
+El paréntesis en la expresión de $E_i$ sería como un $H$ efectivo (local) y luego
+\[
+	Z_1 = \euler^{\beta\mu H_i } + \euler{-\beta\mu H_i } = 2 \cosh( \beta\mu H_i )
+\]
+\[
+	Z_N = 2^N \cosh^N( \beta\mu H + \beta J \gamma \vm{S} )
+\]
+y entonces
+\[
+	\vm{S_i} = \frac{ \sum_{S_i=-1}^1 \: S_i \euler^{-\beta \mu H S_i } }{ 2 \cosh( \beta\mu H_i ) }
+	= \tanh(\beta\mu H_i)
+\]
+y la ecuación de autoconsistencia
+\[
+	\vm{S_i} = \tanh( \beta\mu H + \beta J \gamma \vm{S} )
+\]
+que lleva a ? $\vm{s} = \tanh( \beta \mu H + \beta j \gamma \vm{s})$
+
+Vemos grafiquito debajo de estas líneas
+
+\includegraphics[scale=0.5]{images/1606337159.jpg}
+
+\includegraphics[scale=0.5]{images/1606337163.jpg}
+
+\includegraphics[scale=0.5]{images/1606337167.jpg}
+
+
+
+\begin{ejemplo}{\bf Problema 4}
+ 
+\end{ejemplo}
+
+\begin{ejemplo}{\bf Problema 5 (planteo)}
+ 
+\end{ejemplo}
 % =================================================================================================
 \section{Fenómenos críticos}
 % =================================================================================================
@@ -1736,3 +1974,4 @@ de partición se conserva y queda libre el $H$.
 % \bibliography{CBFT.Referencias} % La base de datos bibliográfica
 
 \end{document}
+
