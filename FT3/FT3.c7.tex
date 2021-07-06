@@ -1486,19 +1486,200 @@ Vemos grafiquito debajo de estas líneas
 
 \includegraphics[scale=0.5]{images/1606337159.jpg}
 
+La curva verde debería ser la recta a $\pi/4$ 45$^\circ$ entonces la soluicón $\vm{s}=0$ es inestable, la 
+pendiente de la tangente hiperbólica nos dice qué tan cerca de $\vm{s}=0$ está mi solución.
+A partir de cierto $\beta$ solo tendré $\vm{s}=0$ como solución con: ¿?
+
+pendiente de $\tanh$ da
+\[
+	\frac{J \gamma}{kT} > 1
+\]
+entonces tenemos dos $s$ estables mayores a cero. $T_C = J \gamma / k $.
+
+Esto se podría aplicar para $2D, 3D$ porque $\gamma$ (el número de vecinos) no hace referencia a la morfología
+de la red.
+Con muchas dimensiones se hace mejor la aproximación; pero para $1D$ no sirve. En $D$ dimensiones tiende
+a infinito (campo medio es exacto)
+
 \includegraphics[scale=0.5]{images/1606337163.jpg}
 
 \includegraphics[scale=0.5]{images/1606337167.jpg}
 
 
-
 \begin{ejemplo}{\bf Problema 4}
+
+\[
+	\vm{s} = (T_C - T)^\beta
+\]
+queremos conseguir algo así $\tanh(x) \sim x - x^3/3 $
+\[
+	\vm{S} \sim \frac{J \gamma}{kT} \vm{S} - \frac{1}{3} \left( \frac{J \gamma}{kT} \vm{S}\right)^3
+\]
+o bien
+\[
+	\vm{S} \sim \frac{T_C}{T} \vm{S} - \frac{1}{3} \left( \frac{T_C}{T} \vm{S}\right)^3
+\]
+de modo que $ \vm{S} \sim ( T_C - T )^{1/2}$ y entonces $\beta = 1/2 $.
+\[
+	E_i = - J \gamma S_i \vm{S}
+\]
+\[
+	\vm{E} = - J \gamma \vm{S_i} \vm{S} = - J \gamma \vm{S}^2
+\]
+donde en el productito de los valores medios perdí información de correlación local.
+
+\includegraphics[scale=0.5]{images/1606337175.jpg}
+
+Sin usar campo medio 
+\[
+	E_i = - J \gamma S_i \sum_j S_j
+\]
+\[
+	\frac{C_V}{N} = \frac{1}{N} \dpar{U}{T} = - \frac{\gamma J}{2} \dpar{\vm{S}^2}{T}
+\]
+
+\includegraphics[scale=0.5]{images/1606337180.jpg}
+
+\[
+	\chi(T,H=0) = \dpare{M}{H}{H=0} = \mu N \dpar{\vm{S}}{H}
+\]
+pero como el valor medio es $\vm{S} \approx \beta \mu H + T_C/T \vm{S}$ y además
+\[
+	\dpar{\vm{S}}{H} = \frac{\beta}{1 - T_C/T}
+\]
+se llega a
+\[
+	\chi = \mu^2 \beta N \frac{ T }{( T - T_C )}
+\]
+
+\notamargen{En el punto crítico el sistema es sumamente susceptible, por ello $\chi$ diverge.}
+
+Vemos ahora entonces que 
+\[
+	\chi \sim (T-T_C)^\gamma \qquad \qquad 
+	\vm{S} \sim (T_C -T)^\beta
+\]
+donde $\gamma=-1$ y $\beta=1/2$ de modo que para $H\sim 0$ se tendrá $\vm{S}(T_C,H) \sim H^{1/\gamma}$
+\[
+	\vm{S}(T_C,H) \approx \tanh( \beta_c \mu H + \vm{S} )
+\]
+\[
+	\sim \mu \beta H + \vm{S} - \frac{1}{3} \left( \frac{\mu H}{kT} + \vm{S} \right)^3
+\]
+\[
+	\vm{S} = \Frac{\beta\mu H}{J\gamma}^{1/3} - \frac{\mu H}{J\gamma} \qquad 
+	\vm{S}(T_C,H\sim 0) \sim H^{1/3}
+\]
+
+Finalmente $\alpha,\beta,\gamma,\delta$ son los exponentes críticos de estos problemas.
+Problemas con mismos exponentes críticos forman ``clases de universalidad'' de comportamiento similar.
  
 \end{ejemplo}
 
 \begin{ejemplo}{\bf Problema 5 (planteo)}
+
+\includegraphics[scale=0.5]{images/1606337197.jpg}
+
+Interacción a segundos vecinos
  
 \end{ejemplo}
+
+\subsection{Teoría sobre líquidos o algo similar}
+
+El gas ideal es inerte en el sentido de que no puede salir de ahí: no hay correlaciones.
+
+Consideremos el hamiltoniano de un gas real. Los clusters no necesariamente son estructuras reales;
+los clusters son dados por las correlaciones (racimos de diagramas).
+
+{\bf Gotas físicas} En el punto crítico A es cóncava entonces le da lo mismo formar gotas que desarmarlas.
+Necesito tener tensión superficial para generar las gotas
+
+\includegraphics[scale=0.5]{images/1606337186.jpg}
+
+Tenemos $ \sum_s n_s S = N $ donde $s$ es el número de gotas y $n_s$ son fragmentos de tamaño $S$
+(número de partículas por gota) y $\{ n_i \}$ son los números de ocupación.
+
+Hago una hipótesis que represento pictóricamente aquí (dos aproximaciones: Frenkel y Fischer):
+
+\includegraphics[scale=0.5]{images/1606337189.jpg}
+
+Frenkel: asumo sistema esférico y suficientemente grande. Los fragmentos grandes son improbables $y<1$
+los fragmentos grandes son probables con $y \geq 1$
+
+\includegraphics[scale=0.5]{images/1606337193.jpg}
+
+Luego, $x=1$ es el límite donde la gota tiene sentido, mientras que $y=1$ es el límite de condensación.
+
+Tenemos $n = q_0 \ell^{-2}$ una {\it power law} que decae sin escalas (puedo tener cualquier fluctuación)
+
+Conocidos $\tau,\sigma$ (que refieren a la parte geométrica y a la forma media de la gota, respectivamente)
+tengo todos los exponentes críticos del sistema.
+
+\subsection{Racconto final-final}
+
+\includegraphics[scale=0.5]{images/1606337201.jpg}
+
+En las transiciones de fase de primer orden hay calor latente (es $T<T_C$). 
+El calor latente es la energía entregada al sistema que éste utiliza para reordenar su estructura (no la
+usa para variar la temperatura): hay un cambio cuantitativo.
+En una transición de segundo orden no hay calor latente.
+
+En Ising no hay cambio cuantitativo; entonces es de segundo orden
+
+\includegraphics[scale=0.5]{images/1606337206.jpg}
+
+Podemos hacer un gran cuadro comparando sistemas magnéticos y sistemas líquido-gas
+
+\begin{center}
+\begin{tabular}{lll}
+Sistemas magnéticos & Sistemas líquido-gas & \\
+\hline
+$m$ & $v_{gas} - v_{liq}( \rho_{liq} - \rho_{gas})$ & Parámetro de orden \\
+ &  &  \\
+$\displaystyle \frac{\mu H}{kT}$ & $P-P_C$ & Campo asociado al orden\\
+ &  & \\
+$ m \sim (T-T_C)^\beta $ & $( \rho_{liq} - \rho_{gas}) \propto (T_C-T)^\beta$ & $\beta$ \\
+ &  &  \\
+$\chi = \dpare{M}{H}{T} \sim (T-T_C)^{-\gamma} \quad T > T_C$ & 
+$\kappa_T = 1/\beta \dpare{\rho}{P}{T} \sim (T-T_C)^{-\gamma}$ & $\gamma$\\
+$\sim (T_C-T)^{-\gamma} \quad T < T_C$ & $\sim (T_C-T)^{-\gamma}$ & \\
+ &  & \\
+$\left.m\right|_{T=T_C} \sim h^{1/\delta}$ & $(\rho-\rho_C) \sim (P-P_C)^{1/\delta}$ & $\delta$\\
+ &  & \\
+$C = (T-T_C)^{-\alpha}$ & $C_V$ & $\alpha$\\
+$(T_C-T)^{-\alpha}$ &  & 
+\end{tabular}
+\end{center}
+
+Los sistemas magnéticos y los líquido-gas, con la aproximación de campo medio,
+pertenecen a una misma clase de universalidad.
+\[
+	\beta=\frac{1}{2} \qquad 
+	\gamma = \gamma' = 1 \qquad 
+	\delta = 3 \qquad 
+	\alpha = \alpha' = 0
+\]
+
+
+\includegraphics[scale=0.5]{images/1606337211.jpg}
+
+Tenemos simultáneamente
+\[
+	\dpar{P}{v} > 0 \qquad \dpar{v}{P} > 0
+\]
+lo cual está mal. En el punto crítico serán
+\[
+	\dpar{P}{v} = 0 \qquad \dpar[2]{P}{v} = 0
+\]
+
+Adimensionalizamos con 
+\[
+	\tilde{P} = \frac{P}{P_C} \qquad 
+	\tilde{v} = \frac{v}{v_C} \qquad 
+	\tilde{T} = \frac{T}{T_C}
+\]
+y obtendré una ecuación que no depende de los parámetros $a,b$; llego a una curva universal.
+
 % =================================================================================================
 \section{Fenómenos críticos}
 % =================================================================================================
