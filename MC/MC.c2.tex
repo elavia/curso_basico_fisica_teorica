@@ -34,6 +34,223 @@
 % \tableofcontents
 \chapter{Mecánica lagrangiana}
 
+
+% =================================================================================================
+\section{Introducción a la formulación de Lagrange}
+% =================================================================================================
+
+Permite automatizar la resolución de problemas. Surge de la observación de una característica de las fuerzas de vínculo.
+El vínculo representa una restricción.
+
+La fuerza de vínculo se {\it acomoda} en todo momento, cambiando sus características, para satisfacer el vínculo en
+todo instante. Son de una naturaleza diferente a las fuerzas tradicionales, que no se acomodan.
+
+\begin{figure}[!ht]
+	\includegraphics[width=0.85\textwidth]{images/fig_mc_vinculos_varios.jpg}
+	\caption{.}
+	\label{fig_mc_vinculos_varios}
+\end{figure}
+
+Las fuerzas de vínculo están asociadas a ecuaciones de vínculo y dependen de ellas. Las ecuaciones, además, {\it
+dependizan} las coordenadas de un problema. Examinemos un problema sencillo con vínculos.
+
+\begin{ejemplo}{\bfseries Problema con fuerza de vínculo }
+
+\label{problema_fuerza_vinculo}
+Considerese el problema esquematizado en la figura donde dos bloques se mueven en un campo gravitatorio.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/fig_mc_problema_bloques.jpg}
+	\caption{.}
+	\label{fig_mc_problema_bloques}
+\end{figure}
+La segunda ley de Newton para cada bloque resultan en
+\begin{align*}
+	m_1 \ddot{x}_1 &= 2T \\
+	m_2 \ddot{x}_2 &= m_2 g - T
+\end{align*}
+Pero la cuerda que une los dos cuerpos, suponiendo que se mantiene tensa en todo momento, vincula sus posiciones de
+manera que se debe cumplir
+\[
+	2(d-x_1) + d_2 + x_2 = L
+\]
+Derivando dos veces esta relación se llega a
+\[
+	- 2\ddot{x}_1 + \ddot{x}_2 = 0,
+\]
+que al reemplazar en las ecuaciones de Newton permite, eliminando la tensión T, obtener
+\[
+	\ddot{x}_1 = \frac{2 m_2}{4m_2 + 1} \: g = \frac{1}{2 + 1/(2m_2)} \: g ,
+\]
+y
+\[
+	\ddot{x}_2 = \frac{4 m_2}{4m_2 + 1} \: g = \frac{1}{1 + 1/(4m_2)} \: g.
+\]
+
+Esto último nos dice que el bloque $m_2$ se moverá con aceleración $g$ en el límite de $m_2 \to \infty$ y el bloque
+$m_1$ con aceleración $g/2$ bajo el mismo límite.
+\end{ejemplo}
+
+El enfoque de Lagrange debiera permitir llegar a este mismo resultado por supuesto.
+
+\notamargen{Si el vínculo es $f(\vb{x})=0$ entonces el trabajo virtual de las fuerzas es necesariamente nulo.}
+
+% =================================================================================================
+\section{Grados de libertad y vínculos}
+% =================================================================================================
+
+El número de grados de libertad es el número de coordenadas independientes para resolver el problema.
+
+La interpretación lagrangiana encuentra las ecuaciones para las coordenadas independientes.
+Dado un sistema con $N$ coordenadas y $k$ vínculos,
+\[
+	\# \text{ g. l. } = N - k \equiv \{ q_i \} \text{ coordenadas generalizadas}
+\]
+
+Consideremos el caso de una bola {\it ensartada} en un aro plano,
+
+\includegraphics[scale=0.35]{images/fig_mc_bola_ensartada.jpg}
+
+la cual puede moverse únicamente por el aro. Claramente la coordenada generalizada es $\varphi$, la cual
+describe completamente el movimiento de la misma; el vínculo es $ r = a $ y el trabajo realizado por las
+fuerzas de vínculo $W_{F_v} = 0 $ porque $F_v \perp \delta \varphi$. La fuerza de vínculo (en dirección radial)
+es perpendicular al desplazamiento compatible con el vínculo.
+En este caso el vínculo expresa las coordenadas del espacio real.
+
+Las fuerzas de vínculo $\vb{F}^v$ se {\it acomodan} en todo momento para satisfacer las ligaduras.
+Entonces las $\vb{F}^v$ son perpendiculares a los desplazamientos compatibles con los vínculos de
+manera que
+\[
+	W_{F^v} = 0,
+\]
+es decir que el trabajo virtual de las fuerzas de vínculo es nulo. Este trabajo puede no ser nulo si el tiempo
+varía (si no se considera un desplazamiento virtual).
+
+\begin{figure}[hbt]
+	\begin{center}
+	\includegraphics[width=0.3\textwidth]{images/fig_mc_vinculos1.pdf}
+	\includegraphics[width=0.3\textwidth]{images/fig_mc_vinculos2.pdf}
+	\end{center}
+	\caption{}
+\end{figure}
+
+\notamargen{Un sistema 3D con dos vínculos resulta en un movimiento 1D; el sistema puede pensarse que se mueve sobre
+un {\it alambre}.}
+
+Para el caso de los bloques (o masas deslizantes), al tener dos coordenadas, el sistema se mueve en una recta del espacio de coordenadas.
+La fuerza de vínculo es perpendicular al desplazamiento posible.
+El vínculo expresa aquí las coordenadas donde se mueven las masas y es perpendicular al desplazamiento virtual pero no al desplazamiento real.
+\[
+	\vb{F}_v = (2\vb{T}-\vb{T})
+\]
+\[
+	V_{vy} = - \frac 1 2 F_{vx} (F_{vx},-\frac 1 2 F_{vx})
+\]
+El trabajo virtual de las fuerzas de vínculo es nulo.
+
+\includegraphics[scale=0.35]{images/fig_mc_problema_bloques_fases.jpg}
+\notamargen{Entender este gráfico mejor!}
+
+\begin{ejemplo}{\bf Aro acelerado en un plano}
+
+Un aro que se mueve hacia la derecha con aceleración constante $\vb{a}$.
+
+\includegraphics[scale=0.25]{images/fig_mc_aro_acelerado.jpg}
+
+Tiene una ecuación de vínculo dada por
+\[
+	(x-x_c)^2 + (y-y_c)^2 = R_0^2
+\]
+y donde
+\[
+	x_c = x_0 + \frac 1 2 a t^2, \; y_c = y_0
+\]
+\end{ejemplo}
+
+\subsection{Clasificación de los vínculos}
+
+Los vínculos se clasifican en
+\[
+\textrm{holónomos}
+\begin{Bmatrix}
+ f(r_i,t) = 0 \qquad \textrm{reónomos} \\
+\; f(r_i) = 0 \qquad \textrm{esclerónomos} \;\\
+\end{Bmatrix}
+\]
+los cuales cumplen que  $W_{virtual}^{F^v}=0$, y
+\[
+\textrm{no holónomos}
+\begin{Bmatrix}
+ f(r_i,t) \geq 0  \\
+ f(r_i) \geq cte. \quad f(\dot{r}_i) = 0  \; \\
+\end{Bmatrix}
+\]
+los cuales no cumplen, en general, que $\vb{F}^v$ perpendicular al desplazamiento posible.
+
+\begin{figure}[!hbt]
+	\begin{center}
+	\includegraphics[width=0.3\textwidth]{images/fig_mc_vinculos3.pdf}
+	\end{center}
+	\caption{}
+\end{figure}
+Un desplazamiento virtual es un desplazamiento a $t_0$ fijo compatible con los vínculos,
+mientras que un desplazamiento real es un desplazamiento en $\delta t$ durante el cual varían
+fuerzas y ligaduras.
+
+A tiempo fijo el desplazamiento es en $\hat{r} \perp \vb{F}^v$.
+\[
+	f(x_i,t) = cte. \Longrightarrow \sum_i^N \dpar{f}{x_i} \delta x_i + \dpar{f}{t} \delta t = 0
+\]
+o bien
+\[
+	\nabla f \cdot \vb{\delta r} = 0
+\]
+\notamargen{Esto contrapone a lo posterior. Tal vez estos desplazamientos no son virtuales después de todo. Esta
+sección hay que depurarla bien.}
+
+Si las fuerzas de vínculo se pueden escribir como
+\[
+	f_v(\vb{x}_1, \vb{x}_2, ..., \vb{x}_N ) = K,
+\]
+donde $K$ es una constante, luego (derivando implícitamente la ecuación) cumplirán
+\[
+	\sum_{i=1}^N \: \dpar{f_v}{\vb{x}_i}\:\delta{\vb{x}_i} = 0
+\]
+Entonces la fuerza de vínculo es proporcional al gradiente de la ecuación de vínculo,
+\[
+	\vb{F}_v = \lambda \nabla f
+\]
+
+En un caso 3D tendríamos
+\[
+	\dpar{f}{x}\delta x + \dpar{f}{y}\delta y + \dpar{f}{z}\delta z = 0
+\]
+
+Los vínculos que dependen de la velocidad o aquellos dados en términos de desigualdades (no de ecuaciones) no cumplen,
+en general, que el trabajo de las fuerzas de vínculo sea perpendicular al desplazamiento.
+
+La dependencia de las fuerzas de vínculo puede depender del tiempo. Supongamos ahora un problema parecido al anterior;
+una bola engarzada en una varilla que rota con velocidad angular constante $\omega$.
+
+\includegraphics[scale=0.4]{images/fig_mc_bola_varilla_rotante.jpg}
+
+La bola se mueve sobre la varilla; la coordenada angular $\varphi$ forma parte de la ecuación de vínculo
+\[
+	\varphi - \omega t = 0
+\]
+En un dado instante de tiempo fijo el único desplazamiento posible, que es en $\hat{r}$, es perpendicular a la fuerza
+de vínculo. No hay trabajo a tiempo fijo.
+En estos casos la ecuación de vínculo será
+\[
+	f_v(\vb{x}_1, \vb{x}_2, ..., \vb{x}_N, t ) = K,
+\]
+pero como a tiempo fijo es $\Delta t=0$, se tiene
+\[
+	\sum_{i=1}^N \: \dpar{f_v}{\vb{x}_i}\:\delta{\vb{x}_i} = 0
+\]
+donde no aparece al tiempo $t$.
+Esto es un {\it desplazamiento virtual}; un desplazamiento a tiempo fijo compatible con los vínculos.
+
 % =================================================================================================
 \section{Principio de los trabajos virtuales}\index{Trabajos virtuales, principio de}
 % =================================================================================================
