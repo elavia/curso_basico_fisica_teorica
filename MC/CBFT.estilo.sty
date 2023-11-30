@@ -1,7 +1,7 @@
 	%###########################################################################
 	%
 	%	Hoja de estilo para el Curso Básico de Física Teórica
-	%	v 1.6 [Junio 2018]
+	%	v 1.7 [29-11-2023]
 	%
 	%
 	%###########################################################################
@@ -158,7 +158,7 @@
 	\usepackage{nicefrac}
 	\usepackage{makeidx} % Para el índice final
 
-	
+	\usepackage{enumitem}
 
 	
 	%###########################################################################
@@ -216,7 +216,23 @@
 	}
 	}
 	{\end{list}}		
-	
+
+	% Entorno para la sección de ejercicios finales
+	\newcounter{ejercicios_contador}
+	\newenvironment{ejercicios}
+	{\vspace{6pt}\small {\bf EJERCICIOS}
+	\begin{list}{{\indent}\bf \arabic{section}.\arabic{ejercicios_contador} }{
+	\usecounter{ejercicios_contador}
+	\footnotesize
+	\setlength{\labelsep}{1pt}
+	\setlength{\leftmargin}{0pt}
+	\setlength{\labelwidth}{0pt}
+	\setlength{\listparindent}{3pt}
+	\setlength{\leftmargini}{0pt}
+	}
+	}
+	{\end{list}}
+
 	% Entorno para los ejemplos
 	\newcounter{ejscount}
 	\newenvironment{ejemplo}[1]
